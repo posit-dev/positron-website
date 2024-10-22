@@ -1,5 +1,6 @@
 # positron-docs
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2567d399-328e-4f0f-9784-c14cbe238fb7/deploy-status)](https://app.netlify.com/sites/positron-posit-co/deploys)
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" height = 20 /></a>
 
 This is the repo for the Positron website at <https://positron.posit.co/>. 
