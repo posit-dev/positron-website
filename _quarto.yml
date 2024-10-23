@@ -9,7 +9,7 @@ website:
     icon: info-circle
     dismissable: false
     content: "Positron is available for beta testing and [may not yet be a good fit for you](start.qmd#is-positron-for-me). If you are interested in experimenting with it, we welcome your [feedback](feedback.qmd)!"
-    type: danger
+    type: warning
     position: below-navbar
   repo-url: https://github.com/posit-dev/positron-website
   issue-url: https://github.com/posit-dev/positron/issues/
