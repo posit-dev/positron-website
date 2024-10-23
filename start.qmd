@@ -60,7 +60,7 @@ install.packages(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 
 Install Positron from our [Releases](https://github.com/posit-dev/positron/releases) page on GitHub.
 
-Currently, Positron is producing beta release builds from a continuous integration (CI) system for macOS, Windows, and Linux. Release builds are tagged with a version number on our Github repository. Select the release you want to download, then click on **Assets** and download the `.dmg` (for Mac), `.exe` (for Windows), `.deb` (for Ubuntu/Debian), or `.rpm` (for Redhat) file.
+Currently, Positron is producing beta release builds from a continuous integration (CI) system for macOS, Windows, and Linux. Release builds are tagged with a version number on our Github repository. Select the release you want to download, then click on **Assets** and download the `.dmg` (for Mac), `.exe` (for Windows), `.deb` (for Ubuntu/Debian), or `.rpm` (for Red Hat) file.
 
 Learn more about [updating Positron](updating.qmd) after you have first installed it.
 
