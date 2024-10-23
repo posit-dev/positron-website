@@ -4,21 +4,21 @@ title: "Get Started"
 
 ## Is Positron for me?
 
-:::{.callout-note}
+::: callout-note
 Positron is an early stage project under active development. We don't expect it to be the best fit for everyone doing data science right away.
 :::
 
 #### Positron might be a good fit for you today if...
 
-* you use VS Code for data science (Python or R) but wish it included more affordances for data-specific work like a dedicated console, variables pane, data explorer, and ways to interact with your plots.
-* you use Jupyterlab for data science (Python or R) and are ready for a more powerful, fully-featured IDE.
-* you use RStudio and want more ability to customize or extend your IDE.
-* you use additional languages beyond only Python or R in your day-to-day data science or package development work, like Rust, C++, JavaScript, or Lua.
+-   you use VS Code for data science (Python or R) but wish it included more affordances for data-specific work like a dedicated console, variables pane, data explorer, and ways to interact with your plots.
+-   you use Jupyterlab for data science (Python or R) and are ready for a more powerful, fully-featured IDE.
+-   you use RStudio and want more ability to customize or extend your IDE.
+-   you use additional languages beyond only Python or R in your day-to-day data science or package development work, like Rust, C++, JavaScript, or Lua.
 
-#### Positron might _not_ be a good fit for you today if...
+#### Positron might *not* be a good fit for you today if...
 
-* you need stable, polished software, as Positron is still in beta and some features are unstable or unfinished.
-* you need all the features of the RStudio IDE, as Positron doesn’t have all RStudio’s features; some notable absences are inline output for Quarto and R Markdown, profiling, Sweave, RStudio Add-In support, etc.
+-   you need stable, polished software, as Positron is still in beta and some features are unstable or unfinished.
+-   you need all the features of the RStudio IDE, as Positron doesn’t have all RStudio’s features; some notable absences are inline output for Quarto and R Markdown, profiling, Sweave, RStudio Add-In support, etc.
 
 ## Machine prerequisites
 
@@ -26,7 +26,7 @@ Before installing Positron, ensure your Python and/or R environments are ready t
 
 ### Windows prerequisites
 
-If you're using Windows, make sure you have the [latest Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version) installed. 
+If you're using Windows, make sure you have the [latest Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version) installed.
 
 ### Python prerequisites
 
@@ -58,15 +58,15 @@ install.packages(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 
 ## Installing Positron
 
-Install Positron from our [Releases](https://github.com/posit-dev/positron/releases) page on GitHub. 
+Install Positron from our [Releases](https://github.com/posit-dev/positron/releases) page on GitHub.
 
-Currently, Positron is producing beta release builds from a continuous integration (CI) system for macOS, Windows, and Linux. Release builds are tagged with a version number on our Github repository. Select the release you want to download, then click on **Assets** and download the `.dmg` (for Mac), `.exe` (for Windows), or `.deb` (for Linux) file.
+Currently, Positron is producing beta release builds from a continuous integration (CI) system for macOS, Windows, and Linux. Release builds are tagged with a version number on our Github repository. Select the release you want to download, then click on **Assets** and download the `.dmg` (for Mac), `.exe` (for Windows), `.deb` (for Ubuntu/Debian), or `.rpm` (for Red Hat) file.
 
 Learn more about [updating Positron](updating.qmd) after you have first installed it.
 
 ## Add Positron to your path
 
-You can add Positron to your path via the command _Install 'positron' command in PATH_:
+You can add Positron to your path via the command *Install 'positron' command in PATH*:
 
 ![Add Positron to your path](images/positron-path.png)
 
