@@ -9,16 +9,10 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4 
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-      
-      - name: Render to generate HTML
-        uses: quarto-dev/quarto-actions/render@v2  
-
-      - name: Lint HTML with vale
+      - name: Lint Quarto files with vale
         uses: errata-ai/vale-action@reviewdog
         with:
-          files: _site/
+          files: '*.qmd'
           fail_on_error: true
           filter_mode: nofilter
           token: ${{secrets.GITHUB_TOKEN}}
