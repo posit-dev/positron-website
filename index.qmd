@@ -15,7 +15,9 @@ hide-description: true
 
 ![Positron, a next-generation data science IDE](images/astropy.png)
 
-## Get started using Positron
+## Ready to learn more?
+
+{{< video https://www.youtube.com/embed/8uRcB34Hhsw >}}
 
 Find out what you need to know to [get started](start.qmd) using Positron, and explore our user guides on topics such as [choosing interpreters](interpreters.qmd) and the [Data Explorer](data-explorer.qmd). Our [FAQs](faqs.qmd) cover some common questions you may have. 
 
