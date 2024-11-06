@@ -19,3 +19,13 @@ This project uses [Vale](https://vale.sh/docs/) for automated linting and compli
 - If you are an external contributor, we as reviewers will take responsibility for compliance with the guidelines. Thank you for being willing to improve our docs!
 
 Vale runs [via GH action on PRs](https://github.com/posit-dev/positron-website/actions/workflows/lint.yml), but you can also run it locally before you submit a PR if you have [installed Vale](https://vale.sh/docs/vale-cli/installation/) locally. Run `vale .` from the root directory of this project to lint the `.qmd` files used to build to site.
+
+## Local development
+
+If you have Quarto and Chrome or Edge installed locally, you can preview the site by running one of the Debug Configurations in VS Code or Positron.
+
+The configurations run `quarto preview` and then open the site in a new browser window.
+- **Preview Docs (Chrome)**: Preview the site in Chrome
+- **Preview Docs (Edge)**: Preview the site in Edge
+
+The site will re-render as you make changes to the `.qmd` files.

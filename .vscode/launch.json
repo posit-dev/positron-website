@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Preview Docs (Chrome)",
+            "request": "launch",
+            "runtimeArgs": [
+                "preview"
+            ],
+            "runtimeExecutable": "quarto",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "serverReadyAction": {
+                "action": "debugWithChrome",
+                "pattern": "Browse at http://localhost:(\\d+)",
+                "uriFormat": "http://localhost:%s",
+                "killOnServerStop": true
+            }
+        },
+        {
+            "name": "Preview Docs (Edge)",
+            "request": "launch",
+            "runtimeArgs": [
+                "preview"
+            ],
+            "runtimeExecutable": "quarto",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "serverReadyAction": {
+                "action": "debugWithEdge",
+                "pattern": "Browse at http://localhost:(\\d+)",
+                "uriFormat": "http://localhost:%s",
+                "killOnServerStop": true
+            }
+        }
+    ]
+}
