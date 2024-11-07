@@ -2,9 +2,9 @@
 title: "Run Interactive Apps"
 ---
 
-Positron provides a simplified method for running interactive apps via the **Play** button. Instead of running an app from a **Terminal**, you can run supported apps by clicking the **Play** button in Editor Actions.  Additionally, you can start a supported app in debug mode through the **Play** button context menu.
+Positron provides a simplified method for running interactive apps via the **Play** button. Instead of running an app from a **Terminal**, you can run supported apps by clicking the **Play** button in Editor Actions. Additionally, you can start a supported app in debug mode through the **Play** button context menu.
 
-![Positron Run App button](images/run-app-button.png)
+![Positron Run App button in Editor Actions](images/run-app-button.png)
 
 ## Supported app frameworks
 
@@ -21,19 +21,24 @@ Currently, Positron supports the following Python app frameworks:
 
 1. Open the `.py` file of a supported app framework.
 2. In Editor Actions, click **Play**.
-    ![Run App Play Button](images/run-app-play-button.png)
 
-Then, Positron runs the app in a dedicated Terminal tab and opens the app URL in the Viewer Pane.
-    ![A Streamlit app in the Positron Viewer](images/run-app-streamlit.png)
+    ![Positron Run App Play button](images/run-app-play-button.png)
+
+Then, Positron runs the app in a dedicated **Terminal** tab and opens the app URL in the **Viewer** pane.
+
+![A Streamlit app in the Positron Viewer](images/run-app-streamlit.png)
 
 ## Debugging an interactive app
 
 1. Open the `.py` file of a supported app framework.
 2. Set breakpoints in the `.py` file by clicking on the editor margin.
-    ![Set breakpoint](images/run-app-debug-breakpoint.png)
+
+    ![Editor margin area for adding breakpoints](images/run-app-debug-breakpoint.png)
 3. Click the **Play** button drop-down context menu and select **Debug [*{SUPPORTED_APP_TYPE}*] App in Terminal**.  
     - For this example, we select **Debug Steamlit App in Terminal**.
-    ![Run App Dropdown](images/run-app-debug-streamlit.png)
+
+    ![Play button drop-down context menu](images/run-app-debug-streamlit.png)
 
 Then, Positron runs the app in a dedicated **Terminal** tab, opens the app URL in the **Viewer** pane, and starts the app in debug mode.
-    ![Streamlit app running in debug mode, paused at breakpoint](images/run-app-debug-streamlit-paused-at-breakpoint.png)
+
+![A Streamlit app running in debug mode; paused at a breakpoint](images/run-app-debug-streamlit-paused-at-breakpoint.png)
