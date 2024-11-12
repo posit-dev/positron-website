@@ -54,6 +54,7 @@ website:
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
         - connections-pane.qmd
+        - run-interactive-apps.qmd
         - updating.qmd
 
     - title: "Help"
