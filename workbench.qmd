@@ -1,0 +1,17 @@
+---
+title: "Positron on Workbench"
+---
+
+Positron is available as a preview feature on [Posit Workbench](https://posit.co/products/enterprise/workbench/) as of its 2024.12.0 release. Important information about using Positron on Posit Workbench is available in the Workbench documentation [for admins](https://docs.posit.co/ide/server-pro/2024.12.0/positron_sessions/) and [for users](https://docs.posit.co/ide/server-pro/user/2024.12.0/positron/getting-started/), but we also want to highlight a few ways to have the best possible experience during this preview period.
+
+## Install binary R packages on Workbench
+
+Posit Workbench runs on Linux, but CRAN does not build Linux binaries for R packages. You _can_ install R packages using the default configuration, but you will likely find the process extremely slow. Instead, consider using a CRAN-like repository that provides binaries for your Linux architecture, such as [Posit Package Manager](https://packagemanager.posit.co/) and set that via `options()`. For example, if your Workbench is installed on Ubuntu 22.04 (Jammy), you would use:
+
+```r
+options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
+```
+
+If you run this one time, you will set your `option` for the current R session. If you add this code to the `.Rprofile` in your home directory on Workbench, it will apply to all your R sessions.
+
+Follow along [on GitHub](https://github.com/posit-dev/positron/issues/5318) to learn about our plans for a better solution in the long term.
