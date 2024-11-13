@@ -6,7 +6,7 @@ Positron is available as a preview feature on [Posit Workbench](https://posit.co
 
 ## Install binary R packages on Workbench
 
-Posit Workbench runs on Linux, but CRAN does not build Linux binaries for R packages. You _can_ install R packages using the default configuration, but you will likely find the process extremely slow. Instead, consider using a CRAN-like repository that provides binaries for your Linux architecture, such as [Posit Package Manager](https://packagemanager.posit.co/) and set that via `options()`. For example, if your Workbench is installed on Ubuntu 22.04 (Jammy), you would use:
+Posit Workbench runs on Linux, but CRAN doesn't build Linux binaries for R packages. You _can_ install R packages using the default configuration, but you will likely find the process extremely slow. Instead, consider using a CRAN-like repository that provides binaries for your Linux architecture, such as [Posit Package Manager](https://packagemanager.posit.co/) and set that via `options()`. For example, if your Workbench is installed on Ubuntu 22.04 (Jammy), you would use:
 
 ```r
 options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
