@@ -6,12 +6,28 @@ Positron is available as a preview feature on [Posit Workbench](https://posit.co
 
 ## Install binary R packages on Workbench
 
-Posit Workbench runs on Linux, but CRAN doesn't build Linux binaries for R packages. You _can_ install R packages using the default configuration, but you will likely find the process extremely slow. Instead, consider using a CRAN-like repository that provides binaries for your Linux architecture, such as [Posit Package Manager](https://packagemanager.posit.co/) and set that via `options()`. For example, if your Workbench is installed on Ubuntu 22.04 (Jammy), you would use:
+Posit Workbench runs on Linux, but CRAN doesn't build Linux binaries for R packages. You _can_ install R packages using the default configuration, but you will likely find the process extremely slow. Instead, consider using a CRAN-like repository that provides binaries for your Linux architecture, such as [Posit Package Manager](https://packagemanager.posit.co/client/#/repos/cran/setup) and set that via `options()` in R. For example, if your Workbench is installed on Ubuntu 22.04 (Jammy), you would use:
 
 ```r
 options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/latest"))
 ```
 
-If you run this one time, you will set your `option` for the current R session. If you add this code to the `.Rprofile` in your home directory on Workbench, it will apply to all your R sessions.
+If you run this one time, you will set your `options` for the current R session. If you add this code to the `.Rprofile` in your home directory on Workbench, it will apply to all your R sessions.
 
 Follow along [on GitHub](https://github.com/posit-dev/positron/issues/5318) to learn about our plans for a better solution in the long term.
+
+### Resource profiles
+
+If your administrator has configured [resource profiles](https://docs.posit.co/ide/server-pro/getting_started/installation/kubernetes_installation.html#setup-resource-profiles) on Posit Workbench, you should allocate at least 4 GB of RAM when starting Positron sessions.
+
+We expect to make performance improvements in the future to decrease the memory needs of Positron. Follow along [on GitHub](https://github.com/posit-dev/positron/issues/5050) to learn about our plans for a better solution in the long term.
+
+### Python discovery
+
+We plan to add admin configuration to set defaults for both Python and R interpreters, as well as to control interpreter discovery. In the meantime, we suggest adding [Python interpreters appropriate for use in Workbench to the `PATH`](https://docs.posit.co/ide/server-pro/python/configuring_default.html) to ensure Positron can find and use those Python interpreters.
+
+Follow along [on GitHub](https://github.com/posit-dev/positron/issues/3574) to learn about our plans for a better solution in the long term.
+
+:::{.callout-note}
+We encourage you as our customer to try out Positron on Workbench and we welcome any feedback via Posit Support, your Posit Customer Success representative, or [directly to the Positron team](/feedback.qmd). During this Public Beta period (before general availability), we recommend that Positron not be used in production.
+:::
