@@ -89,6 +89,7 @@ If you have an R installation that won't be discovered by the search strategy de
 
 One way to navigate to these settings is to use the command palette to do *Preferences: Open Settings*.
 Then go to *Extensions > R > Positron R Language Pack (advanced)*.
+It's important to use concrete paths in these settings and not rely on shell features, such as tilde (`~/`) or parameter (`${HOME}`) expansion.
 
 Also note that Positron only supports R 4.2 and higher.
 Older R versions might be discovered in the search described above, but they will be discarded.
