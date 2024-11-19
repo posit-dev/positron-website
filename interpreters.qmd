@@ -75,7 +75,7 @@ Positron consults various sources to build the list of available R interpreters:
   - `HKEY_CURRENT_USER\SOFTWARE\R-core\R64\X.Y.Z`
   - `HKEY_LOCAL_MACHINE\SOFTWARE\R-core\R64\X.Y.Z`
   where `X.Y.Z` is a concrete R version, such as 4.4.2.
-  - It is often possible to discover which of those R versions is considered
+  - It's often possible to discover which of those R versions is considered
     the current version of R from the registry keys
     `HKEY_CURRENT_USER\SOFTWARE\R-core\R64\InstallPath` or
     `HKEY_LOCAL_MACHINE\SOFTWARE\R-core\R64\InstallPath`.
