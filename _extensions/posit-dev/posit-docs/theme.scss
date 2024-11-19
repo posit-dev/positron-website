@@ -26,8 +26,8 @@ $font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "N
 $font-size-base: 1rem;
 // scss-docs-end font-variables
 
-//font and body color
-$body-color: $posit-gray;
+//font and body color - overriding theme for now until new release
+$body-color: #212529;
 
 // scss-docs-start font-sizes
 $h1-font-size: 44px;
