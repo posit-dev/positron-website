@@ -50,3 +50,45 @@ A list of other interpreter versions are shown; click the one you want.
 :::{.callout-warning}
 Changing interpreters causes the old interpreter to be shut down and the new one to be started. This means that any state in the old interpreter will be lost, including any variables you've defined. Make sure you've saved your work before switching versions.
 :::
+
+## Available interpreters
+
+### R
+
+Positron consults various sources to build the list of available R interpreters:
+
+* Well-known R root folders for the specific operating system:
+  - macOS: `/Library/Frameworks/R.framework/Versions`
+  - Linux: `/opt/R`
+  - Windows: `%ProgramW6432%/R` (typically resolves to `C:/Program Files/R`) and
+    `%LOCALAPPDATA%/Programs/R`
+  These locations are treated as so-called root folders, meaning we expect them
+  to _contain_ 1 or more versions of R, not to actually _be_ an R installation.
+* The `PATH`, in the sense of the R executable returned by `which R`
+* Well-known paths to an R executable or to a symlink that resolves to an R executable, e.g.:
+  - `/usr/bin/R`
+  - `/usr/local/bin/R`
+  - `/opt/local/bin/R`
+  - `/opt/homebrew/bin/R`
+* R installations recorded in the Windows registry, in keys such as:
+  - `HKEY_CURRENT_USER\\SOFTWARE\\R-core\\R64\X.Y.Z`
+  - `HKEY_LOCAL_MACHINE\\SOFTWARE\\R-core\\R64\X.Y.Z`
+  where `X.Y.Z` is a concrete R version, such as 4.4.2.
+  - It is often possible to discover which of those R versions is considered
+    the current version of R from the registry keys
+    `HKEY_CURRENT_USER\\SOFTWARE\\R-core\\R64\InstallPath` or
+    `HKEY_LOCAL_MACHINE\\SOFTWARE\\R-core\\R64\InstallPath`.
+
+If you have an R installation that won't be discovered by the search strategy described above, two settings are available to instruct Positron to look in additional locations:
+
+* [`positron.r.customRootFolders`](positron://settings/positron.r.customRootFolders): Suitable for R root folders that contain 1 or more R installations.
+* [`positron.r.customBinaries`](positron://settings/positron.r.customBinaries): Suitable for specific R executables.
+
+Also note that Positron only supports R 4.2 and higher.
+Older R versions might be discovered in the search described above, but they will be discarded.
+
+### Python
+
+*I put this here for parallelism, but do we actually have anything we want to say?*
+
+<https://code.visualstudio.com/docs/python/environments>
