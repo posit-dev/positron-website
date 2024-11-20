@@ -57,7 +57,7 @@ Older R versions might be discovered in the search described above, but they wil
 
 On macOS, Positron only supports the system's "current" R version and other R installations that are **orthogonal**.
 What does orthogonal mean here?
-The `R` executable on macOS (and Linux) is actually a shell script that is responsible for launching R.
+The `R` executable on macOS (and Linux) is actually a shell script that's responsible for launching R.
 In an orthogonal R installation, this script targets the home of a specific, concrete version of R, such as `/Library/Frameworks/R.framework/Versions/4.4-arm64`.
 In a non-orthogonal R installation, this script targets the home of "the current R version" (literally, `/Library/Frameworks/R.framework/Resources`, which is a symlink).
 The CRAN installer leaves a non-orthogonal R installation behind and, by default, removes the previous version of R.
