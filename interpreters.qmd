@@ -46,6 +46,7 @@ To change your interpreter -- for example, to select a different Python environm
 ![Interpreter dropdown](images/tbid.png)
 
 A list of other interpreter versions are shown; click the one you want.
+To learn more about the available R installations, see the [R discovery guide](r-installations.qmd).
 
 :::{.callout-warning}
 Changing interpreters causes the old interpreter to be shut down and the new one to be started. This means that any state in the old interpreter will be lost, including any variables you've defined. Make sure you've saved your work before switching versions.
