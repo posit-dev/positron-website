@@ -10,7 +10,7 @@ The Data Explorer has three primary components, discussed in greater detail in t
 * **Summary panel:** Column name, type and missing data percentage for each column  
 * **Filter bar:** Ephemeral filters for specific columns 
 
-![Data Explorer](images/data-explorer.png){width=400}
+![Data Explorer](images/data-explorer.png)
 
 
 ## Open a dataframe in the Data Explorer
@@ -26,14 +26,14 @@ To open a new instance of the Data Explorer on a specific data frame, use one of
     * Via R: `View(dataframe, "label")`
 * Navigate to the Variables Pane and click on the Data Explorer icon for a specific dataframe object  
 
-![Data Explorer from the Variables Pane](images/data-explorer-variables.png)
+![Data Explorer from the Variables Pane](images/data-explorer-variables.png){fig-width=800 fig-align="left"}
 
 
 ## Data grid
 
 The data grid is the primary display, with a spreadsheet-like cell-by-cell view. It's intended to scale efficiently to relatively large in-memory datasets, up to millions of rows or columns. Each column header has the column name above the data type, as used in the language runtime. At the top right of each column, there is a context menu to control sorting or to add a filter for the selected column. Resize columns by clicking and dragging the column's borders. 
 
-![Data Explorer Column Menu](images/data-explorer-column-menu.png)
+![Data Explorer Column Menu](images/data-explorer-column-menu.png){width=500 fig-align="left"}
 
 Row labels default to the observed row index, with a zero-based index in Python and a one-based index in R. Alternatively, `pandas` and R users may also have rows with modified indices or string-based labels. 
 
@@ -41,7 +41,7 @@ Row labels default to the observed row index, with a zero-based index in Python 
 
 The summary panel displays a vertical scrolling list of all of the column names and an icon representing their respective type. It displays a sparkline histogram of that column's data, and also displays the amount of missing data as both an inline bar graph and an increasing percentage. 
 
-![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=400}
+![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=400 fig-align="left"}
 
 Double clicking on a column name will also bring the column into focus in the data grid, allowing for quickly navigating wider data. 
 
@@ -54,9 +54,9 @@ Double clicking on a column name will also bring the column into focus in the da
 
 The filter bar has controls to:  
 
-1. Show, hide, or remove existing filters  
+1. Add, Show/Hide existing filters, or Clear Filters  
 2. A <kbd>+</kbd> button to quickly add a new filter  
-3. The status bar at the bottom of the Data Explorer also displays the percentage and number of remaining rows after applying a filter
+3. The status bar at the bottom of the Data Explorer also displays the percentage and number of remaining rows relative to the original total after applying a filter  
 
 ![Overview of filter bar UI](images/data-explorer-filter-ui.png)
 
