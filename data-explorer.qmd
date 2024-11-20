@@ -39,14 +39,23 @@ Row labels default to the observed row index, with a zero-based index in Python 
 
 ## Summary panel
 
-The summary panel displays a vertical scrolling list of all of the column names and an icon representing their respective type. It also displays the amount of missing data as a increasing percentage and an inline bar graph. 
+The summary panel displays a vertical scrolling list of all of the column names and an icon representing their respective type. It displays a sparkline histogram of that column's data, and also displays the amount of missing data as both an inline bar graph and an increasing percentage. 
 
 ![Data Explorer Summary Panel](images/data-explorer-summary-panel.png)
 
-Double clicking on a column name will also bring the column into focus in the data grid, allowing for quickly navigating wider data. The summary panel can be placed on the left or right side of the Data Explorer or temporarily hidden via the Layout control.
+Double clicking on a column name will also bring the column into focus in the data grid, allowing for quickly navigating wider data. The summary panel quickly collapsed by dragging it to the edge or clicking on the collapse button (1) after hovering over the grid and summary panel divider. The summary panel can also be placed on the left or right side of the Data Explorer via the Layout control (2). 
+
+![Data Explorer summary panel collapse and placement](images/data-explorer-summary-panel-placement.png)
 
 ## Filter bar
 
-The filter bar has controls to show, hide, or remove existing filters as well as a <kbd>+</kbd> button to add a new filter. The status bar at the bottom of the Data Explorer also displays the percentage and number of remaining rows after applying a filter. When creating a new filter, you will first need to select a column either by scrolling the full list or searching across columns for a specific string. Once a column is selected, the available filters for that column type will be displayed. Alternatively, the context menu in each column label of the data grid also allows for creating filters with the column name pre-populated.
+The filter bar has controls to:
+1. Show, hide, or remove existing filters  
+2. A <kbd>+</kbd> button to quickly add a new filter  
+3. The status bar at the bottom of the Data Explorer also displays the percentage and number of remaining rows after applying a filter
+
+![Overview of filter bar UI](images/data-explorer-filter-ui.png)
+
+When creating a new filter, you will first need to select a column either by scrolling the full list or searching across columns for a specific string. Once a column is selected, the available filters for that column type will be displayed. Alternatively, the context menu in each column label of the data grid also allows for creating filters with the column name pre-populated.
 
 Available filters vary according to the column type. For example, string columns have filter affordances for: contains, starts or ends with, is empty, or exact matches. Alternatively, numeric columns have logical operations such as: is less than or greater than, is equal to, or is inclusively between two values. 
