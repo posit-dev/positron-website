@@ -1,5 +1,5 @@
 ---
-title: "Discovering R installations"
+title: "Discovering R Installations"
 ---
 
 :::{.callout-note}
