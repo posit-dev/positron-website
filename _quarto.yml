@@ -5,7 +5,7 @@ project:
     - "*.qmd"
 
 website:
-  announcement: 
+  announcement:
     icon: info-circle
     dismissable: false
     content: "Positron is available for beta testing and [may not yet be a good fit for you](start.qmd#is-positron-for-me). If you are interested in experimenting with it, we welcome your [feedback](feedback.qmd)!"
@@ -31,12 +31,12 @@ website:
         href: "https://docs.posit.co/"
       - text: "<img alt='Link to main Posit site' src='images/posit-icon-fullcolor.svg' id='footer-right-posit-logo'>"
         href: "https://posit.co/"
-  navbar: 
+  navbar:
     left:
       - text: "Get Started"
-        href: start.qmd      
+        href: start.qmd
       - text: "Guides"
-        href: interpreters.qmd      
+        href: interpreters.qmd
       - text: "Help"
         href: troubleshooting.qmd
 
@@ -56,11 +56,12 @@ website:
         - connections-pane.qmd
         - run-interactive-apps.qmd
         - updating.qmd
+        - workbench.qmd
 
     - title: "Help"
       style: "docked"
       contents:
         - troubleshooting.qmd
         - feedback.qmd
-        - faqs.qmd                    
-  
+        - faqs.qmd
+
