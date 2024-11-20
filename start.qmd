@@ -30,7 +30,7 @@ If you're using Windows, make sure you have the [latest Visual C++ Redistributab
 
 If you're an R user, note that Positron doesn't currently bundle [Rtools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html). If you need Rtools for your package development or other work, you can either use the official guidance from CRAN on installing Rtools and putting it on the path, or alternatively, use [rig](https://github.com/r-lib/rig) to install and set up Rtools:
 
-```shell
+```bash
 rig system rtools add
 ```
 
