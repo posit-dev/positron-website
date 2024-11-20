@@ -20,6 +20,7 @@ Positron consults various sources to build the list of available R interpreters:
   - Windows: `%ProgramW6432%/R` (typically resolves to `C:/Program Files/R`) and
     `%LOCALAPPDATA%/Programs/R` (typically resolves to
     `C:/Users/username/AppData/Local/Programs/R`)
+
   These locations are treated as so-called root folders, meaning we expect them
   to _contain_ 1 or more versions of R, not to actually _be_ an R installation.
 * The `PATH`, in the sense of the R executable returned by `which R`
