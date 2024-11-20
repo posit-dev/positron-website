@@ -10,7 +10,7 @@ The Data Explorer has three primary components, discussed in greater detail in t
 * **Summary panel:** Column name, type and missing data percentage for each column  
 * **Filter bar:** Ephemeral filters for specific columns 
 
-![Data Explorer](images/data-explorer-flights.png)
+![Data Explorer](images/data-explorer.png){width=400}
 
 
 ## Open a dataframe in the Data Explorer
@@ -41,15 +41,19 @@ Row labels default to the observed row index, with a zero-based index in Python 
 
 The summary panel displays a vertical scrolling list of all of the column names and an icon representing their respective type. It displays a sparkline histogram of that column's data, and also displays the amount of missing data as both an inline bar graph and an increasing percentage. 
 
-![Data Explorer Summary Panel](images/data-explorer-summary-panel.png)
+![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=400}
 
-Double clicking on a column name will also bring the column into focus in the data grid, allowing for quickly navigating wider data. The summary panel quickly collapsed by dragging it to the edge or clicking on the collapse button (1) after hovering over the grid and summary panel divider. The summary panel can also be placed on the left or right side of the Data Explorer via the Layout control (2). 
+Double clicking on a column name will also bring the column into focus in the data grid, allowing for quickly navigating wider data. 
+
+1. The summary panel quickly collapsed by dragging it to the edge or clicking on the collapse button after hovering over the grid and summary panel divider.  
+2. The summary panel can also be placed on the left or right side of the Data Explorer via the Layout control. 
 
 ![Data Explorer summary panel collapse and placement](images/data-explorer-summary-panel-placement.png)
 
 ## Filter bar
 
-The filter bar has controls to:
+The filter bar has controls to:  
+
 1. Show, hide, or remove existing filters  
 2. A <kbd>+</kbd> button to quickly add a new filter  
 3. The status bar at the bottom of the Data Explorer also displays the percentage and number of remaining rows after applying a filter
