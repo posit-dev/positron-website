@@ -51,7 +51,10 @@ website:
     - title: "Guides"
       style: "docked"
       contents:
-        - interpreters.qmd
+        - section: "Interpreters"
+          contents:
+            - interpreters.qmd
+            - r-installations.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
         - connections-pane.qmd
