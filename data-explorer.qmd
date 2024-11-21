@@ -4,62 +4,62 @@ title: "Data Explorer"
 
 The Data Explorer is designed to complement code-first exploration of data, allowing you to display data in a spreadsheet-like grid, temporarily filter and sort data, and provide useful summary statistics directly inside of Positron. The goal of the Data Explorer isn't to replace code-based workflows, but rather supplement with ephemeral views of the data or summary statistics as you further explore or modify the data via code.
 
-The Data Explorer has three primary components, discussed in greater detail in the sections below:  
+The Data Explorer has three primary components, discussed in greater detail in the sections below:
 
-* **Data grid:** Spreadsheet-like display of the individual cells and columns, as well as sorting  
-* **Summary panel:** Column name, type and missing data percentage for each column  
-* **Filter bar:** Ephemeral filters for specific columns 
+* **Data grid:** Spreadsheet-like display of the individual cells and columns, as well as sorting
+* **Summary panel:** Column name, type and missing data percentage for each column
+* **Filter bar:** Ephemeral filters for specific columns
 
 ![Data Explorer](images/data-explorer.png)
 
 
 ## Open a dataframe in the Data Explorer
 
-Each instance of the Data Explorer tool is powered by a language runtime and can display dataframes in Python (`pandas`) or R (`data.frame`, `tibble`, `data.table`). We also have experimental support for `polars`, and additional Python dataframe libraries will be added in the future.  
+Each instance of the Data Explorer tool is powered by a language runtime and can display dataframes in Python (`pandas`) or R (`data.frame`, `tibble`, `data.table`). We also have experimental support for `polars`, and additional Python dataframe libraries will be added in the future.
 
 Each instance of the data explorer will be refreshed with changes made to the underlying data. This allows combined workflows between the UI-centric Data Explorer and a code-first approach.
 
-To open a new instance of the Data Explorer on a specific data frame, use one of the following methods:  
+To open a new instance of the Data Explorer on a specific data frame, use one of the following methods:
 
-* Use the language runtime directly:  
-    * Via Python: `%view dataframe label` 
+* Use the language runtime directly:
+    * Via Python: `%view dataframe label`
     * Via R: `View(dataframe, "label")`
-* Navigate to the Variables Pane and click on the Data Explorer icon for a specific dataframe object  
+* Navigate to the Variables Pane and click on the Data Explorer icon for a specific dataframe object
 
-![Data Explorer from the Variables Pane](images/data-explorer-variables.png){fig-width=800 fig-align="center"}
+![Data Explorer from the Variables Pane](images/data-explorer-variables.png){width=700}
 
 
 ## Data grid
 
-The data grid is the primary display, with a spreadsheet-like cell-by-cell view. It's intended to scale efficiently to relatively large in-memory datasets, up to millions of rows or columns. Each column header has the column name above the data type, as used in the language runtime. At the top right of each column, there is a context menu to control sorting or to add a filter for the selected column. Resize columns by clicking and dragging the column's borders. 
+The data grid is the primary display, with a spreadsheet-like cell-by-cell view. It's intended to scale efficiently to relatively large in-memory datasets, up to millions of rows or columns. Each column header has the column name above the data type, as used in the language runtime. At the top right of each column, there is a context menu to control sorting or to add a filter for the selected column. Resize columns by clicking and dragging the column's borders.
 
-![Data Explorer Column Menu](images/data-explorer-column-menu.png){width=500 fig-align="center"}
+![Data Explorer Column Menu](images/data-explorer-column-menu.png){width=300}
 
-Row labels default to the observed row index, with a zero-based index in Python and a one-based index in R. Alternatively, `pandas` and R users may also have rows with modified indices or string-based labels. 
+Row labels default to the observed row index, with a zero-based index in Python and a one-based index in R. Alternatively, `pandas` and R users may also have rows with modified indices or string-based labels.
 
 ## Summary panel
 
-The summary panel displays a vertical scrolling list of all of the column names and an icon representing their respective type. It displays a sparkline histogram of that column's data, and also displays the amount of missing data as both an inline bar graph and an increasing percentage. 
+The summary panel displays a vertical scrolling list of all of the column names and an icon representing their respective type. It displays a sparkline histogram of that column's data, and also displays the amount of missing data as both an inline bar graph and an increasing percentage.
 
-![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=400 fig-align="center"}
+![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=350}
 
-Double clicking on a column name will also bring the column into focus in the data grid, allowing for quickly navigating wider data. 
+Double clicking on a column name will also bring the column into focus in the data grid, allowing for quickly navigating wider data.
 
-1. The summary panel quickly collapsed by dragging it to the edge or clicking on the collapse button after hovering over the grid and summary panel divider.  
-2. The summary panel can also be placed on the left or right side of the Data Explorer via the Layout control. 
+1. The summary panel quickly collapsed by dragging it to the edge or clicking on the collapse button after hovering over the grid and summary panel divider.
+2. The summary panel can also be placed on the left or right side of the Data Explorer via the Layout control.
 
-![Data Explorer summary panel collapse and placement](images/data-explorer-summary-panel-placement.png)
+![Data Explorer summary panel collapse and placement](images/data-explorer-summary-panel-placement.png){width=700}
 
 ## Filter bar
 
-The filter bar has controls to:  
+The filter bar has controls to:
 
-1. Add, Show/Hide existing filters, or Clear Filters  
-2. A <kbd>+</kbd> button to quickly add a new filter  
-3. The status bar at the bottom of the Data Explorer also displays the percentage and number of remaining rows relative to the original total after applying a filter  
+1. Add, Show/Hide existing filters, or Clear Filters
+2. A <kbd>+</kbd> button to quickly add a new filter
+3. The status bar at the bottom of the Data Explorer also displays the percentage and number of remaining rows relative to the original total after applying a filter
 
-![Overview of filter bar UI](images/data-explorer-filter-ui.png)
+![Overview of filter bar UI](images/data-explorer-filter-ui.png){width=700}
 
 When creating a new filter, you will first need to select a column either by scrolling the full list or searching across columns for a specific string. Once a column is selected, the available filters for that column type will be displayed. Alternatively, the context menu in each column label of the data grid also allows for creating filters with the column name pre-populated.
 
-Available filters vary according to the column type. For example, string columns have filter affordances for: contains, starts or ends with, is empty, or exact matches. Alternatively, numeric columns have logical operations such as: is less than or greater than, is equal to, or is inclusively between two values. 
+Available filters vary according to the column type. For example, string columns have filter affordances for: contains, starts or ends with, is empty, or exact matches. Alternatively, numeric columns have logical operations such as: is less than or greater than, is equal to, or is inclusively between two values.
