@@ -22,7 +22,7 @@ Positron consults various sources to build the list of available R interpreters:
     `C:/Users/username/AppData/Local/Programs/R`)
 
   These locations are treated as so-called root folders, meaning we expect them
-  to _contain_ 1 or more versions of R, not to actually _be_ an R installation.
+  to contain one or more versions of R, not to actually be an R installation.
 * The `PATH`, in the sense of the R executable returned by `which R`
 * Well-known paths to an R executable or to a symlink that resolves to an R executable, e.g.:
   - `/usr/bin/R`
@@ -47,26 +47,26 @@ If you have an R installation that won't be discovered by the search strategy de
 * [`positron.r.customBinaries`](positron://settings/positron.r.customBinaries): Suitable for specific R executables.
   - Hypothetical example: `C:/nonstandardRLocation/R-4.4.1/bin/x64/R.exe`
 
-One way to navigate to these settings is to use the command palette to do *Preferences: Open Settings*.
-Then go to *Extensions > R > Positron R Language Pack (advanced)*.
-It's important to use concrete paths in these settings and not rely on shell features, such as tilde (`~/`) or parameter (`${HOME}`) expansion.
+One way to navigate to these settings is to use the command palette to open Preferences: Open Settings.
+Then navigate to **Extensions** > **R** > **Positron R Language Pack (advanced)**.
+It's important to use absolute paths in these settings and not rely on shell features, such as tilde (`~/`) or parameter (`${HOME}`) expansion.
 
 ## Unsupported R installations
 
 Positron only supports R 4.2 and higher.
 Older R versions might be discovered in the search described above, but they will be discarded.
 
-On macOS, Positron only supports the system's "current" R version and other R installations that are **orthogonal**.
+On macOS, Positron only supports the system's current R version and other R installations that are orthogonal.
 What does orthogonal mean here?
 The `R` executable on macOS (and Linux) is actually a shell script that's responsible for launching R.
 In an orthogonal R installation, this script targets the home of a specific, concrete version of R, such as `/Library/Frameworks/R.framework/Versions/4.4-arm64`.
-In a non-orthogonal R installation, this script targets the home of "the current R version" (literally, `/Library/Frameworks/R.framework/Resources`, which is a symlink).
+In a non-orthogonal R installation, this script targets the home of the current R version (literally, `/Library/Frameworks/R.framework/Resources`, which is a symlink).
 The CRAN installer leaves a non-orthogonal R installation behind and, by default, removes the previous version of R.
 
 The notion of orthogonality comes from a tool called [rig: The R Installation Manager](https://github.com/r-lib/rig).
-We highly recommend rig for managing R installation, especially for macOS users who would like to have more than 1 functioning R installation.
+We highly recommend rig for managing R installation, especially for macOS users who want to have more than one functioning R installation.
 
 ## Troubleshooting
 
-The discovery process is logged in the "Positron R Extension" channel.
+The discovery process is logged in the Positron R Extension channel.
 You can learn more in the [troubleshooting guide](troubleshooting.qmd).
