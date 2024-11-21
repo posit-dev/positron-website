@@ -26,14 +26,14 @@ To open a new instance of the Data Explorer on a specific data frame, use one of
     * Via R: `View(dataframe, "label")`
 * Navigate to the Variables Pane and click on the Data Explorer icon for a specific dataframe object  
 
-![Data Explorer from the Variables Pane](images/data-explorer-variables.png){fig-width=800 fig-align="left"}
+![Data Explorer from the Variables Pane](images/data-explorer-variables.png){fig-width=800 fig-align="center"}
 
 
 ## Data grid
 
 The data grid is the primary display, with a spreadsheet-like cell-by-cell view. It's intended to scale efficiently to relatively large in-memory datasets, up to millions of rows or columns. Each column header has the column name above the data type, as used in the language runtime. At the top right of each column, there is a context menu to control sorting or to add a filter for the selected column. Resize columns by clicking and dragging the column's borders. 
 
-![Data Explorer Column Menu](images/data-explorer-column-menu.png){width=500 fig-align="left"}
+![Data Explorer Column Menu](images/data-explorer-column-menu.png){width=500 fig-align="center"}
 
 Row labels default to the observed row index, with a zero-based index in Python and a one-based index in R. Alternatively, `pandas` and R users may also have rows with modified indices or string-based labels. 
 
@@ -41,7 +41,7 @@ Row labels default to the observed row index, with a zero-based index in Python 
 
 The summary panel displays a vertical scrolling list of all of the column names and an icon representing their respective type. It displays a sparkline histogram of that column's data, and also displays the amount of missing data as both an inline bar graph and an increasing percentage. 
 
-![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=400 fig-align="left"}
+![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=400 fig-align="center"}
 
 Double clicking on a column name will also bring the column into focus in the data grid, allowing for quickly navigating wider data. 
 
