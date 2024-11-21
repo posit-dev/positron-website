@@ -5,7 +5,7 @@ project:
     - "*.qmd"
 
 website:
-  favicon: "assets/images/favicon.svg"
+  favicon: "images/favicon.svg"
   announcement: 
     icon: info-circle
     dismissable: false
