@@ -8,7 +8,7 @@ The rules governing interpreter discovery are under active development.
 This guide is intended to help you understand the current behavior.
 :::
 
-This guide pertains to the R versions that appear in the top-right interpreter chooser (also known as the _Top Bar Interpreter Dropdown_ internally).
+This guide pertains to the R versions in the top-right interpreter chooser (internally known as the Top Bar Interpreter dropdown.
 
 ## R installation discovery
 
