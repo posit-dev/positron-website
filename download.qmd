@@ -49,3 +49,5 @@ knitr::kable(download_table)
 <br>
 
 Please review [Positron's license agreement](licensing.qmd). Your acceptance of this license agreement is required as a condition to proceeding with your download or use of the software.
+
+Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases).
