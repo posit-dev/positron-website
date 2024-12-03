@@ -1,0 +1,17 @@
+{
+  "hash": "483269ee203b9553526b6e0ba8fdc2d2",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Download Positron\"\nparams:\n  version: \"2024.12.0-96\"\n---\n\n\n\n\nFind out what you need to know to [get started](start.qmd) using Positron, then download the installer for your platform.\n\nPlease review [Positron's license agreement](licensing.qmd). Your acceptance of this license agreement is required as a condition to proceeding with your download or use of the software.\n\n\n\n\n::: {.cell .plain}\n::: {.cell-output-display}\n\n\n|Platform                                  |Download                            |Size |\n|:-----------------------------------------|:-----------------------------------|:----|\n|Windows 10, 11 x64 (system level install) |[Positron-2024.12.0-96-Setup.exe](https://cdn.posit.co/positron/prereleases/win/x86_64/Positron-2024.12.0-96-Setup.exe)|222M |\n|Windows 10, 11 x64 (user level install)   |[Positron-2024.12.0-96-UserSetup.exe](https://cdn.posit.co/positron/prereleases/win/x86_64/Positron-2024.12.0-96-UserSetup.exe)|222M |\n|MacOS 10.15+ (universal)                  |[Positron-2024.12.0-96.dmg](https://cdn.posit.co/positron/prereleases/mac/universal/Positron-2024.12.0-96.dmg)|629M |\n|Debian-based Linux (Ubuntu 22+)           |[Positron-2024.12.0-96.deb](https://cdn.posit.co/positron/prereleases/deb/x86_64/Positron-2024.12.0-96.deb)|227M |\n|Red Hat-based Linux (RHEL9)               |[Positron-2024.12.0-96.rpm](https://cdn.posit.co/positron/prereleases/rpm/x86_64/Positron-2024.12.0-96.rpm)|334M |\n\n\n:::\n:::\n\n\n\n\n<br>\n\nOlder releases [are available on GitHub](https://github.com/posit-dev/positron/releases).",
+    "supporting": [
+      "download_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

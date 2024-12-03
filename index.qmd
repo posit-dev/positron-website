@@ -2,7 +2,7 @@
 pagetitle: "Positron"
 toc: false
 editor: source
-description: | 
+description: |
   A next-generation data science IDE
 hide-description: true
 ---
@@ -19,15 +19,10 @@ hide-description: true
 
 {{< video https://www.youtube.com/embed/8uRcB34Hhsw >}}
 
-Find out what you need to know to [get started](start.qmd) using Positron, and explore our user guides on topics such as [choosing interpreters](interpreters.qmd) and the [Data Explorer](data-explorer.qmd). Our [FAQs](faqs.qmd) cover some common questions you may have. 
+Find out what you need to know to [get started](start.qmd) using Positron, and then [download an installer](download.qmd). Explore our user guides on topics such as [choosing interpreters](interpreters.qmd) and the [Data Explorer](data-explorer.qmd). Our [FAQs](faqs.qmd) cover some common questions you may have.
 
 Positron is built on [Code OSS](https://github.com/microsoft/vscode). To learn about basic features like commands, settings, using source control, and more, see the [VS Code documentation](https://code.visualstudio.com/docs).
 
-## Install Positron
-
-Install Positron from our [Releases](https://github.com/posit-dev/positron/releases) page on GitHub.
-
-Currently, Positron is producing pre-release builds from a continuous integration (CI) system for macOS, Windows, and Linux. These pre-release builds are tagged with a version number on our Github repository. Select the build you want to download, then click on **Assets** and download the `.dmg` (for Mac), `.exe` (for Windows), `.deb` (for Ubuntu/Debian), or `.rpm` (for Red Hat) file.
 
 ## Share your feedback about Positron
 
