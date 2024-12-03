@@ -1,0 +1,49 @@
+---
+title: "Download Positron"
+params:
+  version: "2024.12.0-96"
+---
+
+Find out what you need to know to [get started](start.qmd) using Positron, then download the installer for your platform.
+
+```{r}
+#| echo: false
+#| classes: plain
+
+library(purrr)
+library(glue)
+library(httr)
+
+urls <- list(
+  glue("https://cdn.posit.co/positron/prereleases/win/x86_64/Positron-{params$version}-Setup.exe"),
+  glue("https://cdn.posit.co/positron/prereleases/win/x86_64/Positron-{params$version}-UserSetup.exe"),
+  glue("https://cdn.posit.co/positron/prereleases/mac/universal/Positron-{params$version}.dmg"),
+  glue("https://cdn.posit.co/positron/prereleases/deb/x86_64/Positron-{params$version}.deb"),
+  glue("https://cdn.posit.co/positron/prereleases/rpm/x86_64/Positron-{params$version}.rpm")
+)
+
+cloudfront_headers <- map(urls, HEAD) |> map(headers)
+file_sizes <- map(cloudfront_headers, "content-length") |>
+  map(fs::fs_bytes) |>
+  map_chr(as.character)
+file_names_only <- stringr::str_extract(urls, "[^\\/]+$")
+markdown_links <- glue("[{file_names_only}]({urls})")
+
+download_table <- data.frame(
+  Platform = c(
+    "Windows 10, 11 x64 (system level install)",
+    "Windows 10, 11 x64 (user level install)",
+    "MacOS 10.15+ (universal)",
+    "Debian-based Linux (Ubuntu 22+)",
+    "Red Hat-based Linux (RHEL9)"
+  ),
+  Download = markdown_links,
+  Size = file_sizes
+)
+
+knitr::kable(download_table)
+```
+
+<br>
+
+Please review [Positron's license agreement](licensing.qmd). Your acceptance of this license agreement is required as a condition to proceeding with your download or use of the software.

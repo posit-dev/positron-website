@@ -22,7 +22,7 @@ Positron is an early stage project under active development. We don't expect it 
 
 ## Machine prerequisites
 
-Before installing Positron, ensure your Python and/or R environments are ready to work with Positron. You don't need to install both, but Positron doesn't bundle either Python or R.
+Before [installing](download.qmd) Positron, ensure your Python and/or R environments are ready to work with Positron. You don't need to install both, but Positron doesn't bundle either Python or R.
 
 ### Windows prerequisites
 
@@ -62,17 +62,9 @@ pak::pak(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 install.packages(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 ```
 
-## Installing Positron
-
-Install Positron from our [Releases](https://github.com/posit-dev/positron/releases) page on GitHub.
-
-Currently, Positron is producing beta release builds from a continuous integration (CI) system for macOS, Windows, and Linux. Release builds are tagged with a version number on our Github repository. Select the release you want to download, then click on **Assets** and download the `.dmg` (for Mac), `.exe` (for Windows), `.deb` (for Ubuntu/Debian), or `.rpm` (for Red Hat) file.
-
-Learn more about [updating Positron](updating.qmd) after you have first installed it.
-
 ## Add Positron to your path
 
-You can add Positron to your path via the command *Install 'positron' command in PATH*:
+After you have [installed Positron](download.qmd), you can add Positron to your path via the command *Install 'positron' command in PATH*:
 
 ![Add Positron to your path](images/positron-path.png)
 
