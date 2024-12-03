@@ -14,12 +14,14 @@ library(purrr)
 library(glue)
 library(httr)
 
+cdn_url <- "https://cdn.posit.co/positron/prereleases/"
+
 urls <- list(
-  glue("https://cdn.posit.co/positron/prereleases/win/x86_64/Positron-{params$version}-Setup.exe"),
-  glue("https://cdn.posit.co/positron/prereleases/win/x86_64/Positron-{params$version}-UserSetup.exe"),
-  glue("https://cdn.posit.co/positron/prereleases/mac/universal/Positron-{params$version}.dmg"),
-  glue("https://cdn.posit.co/positron/prereleases/deb/x86_64/Positron-{params$version}.deb"),
-  glue("https://cdn.posit.co/positron/prereleases/rpm/x86_64/Positron-{params$version}.rpm")
+  glue("{cdn_url}win/x86_64/Positron-{params$version}-Setup.exe"),
+  glue("{cdn_url}win/x86_64/Positron-{params$version}-UserSetup.exe"),
+  glue("{cdn_url}mac/universal/Positron-{params$version}.dmg"),
+  glue("{cdn_url}deb/x86_64/Positron-{params$version}.deb"),
+  glue("{cdn_url}rpm/x86_64/Positron-{params$version}.rpm")
 )
 
 cloudfront_headers <- map(urls, HEAD) |> map(headers)
