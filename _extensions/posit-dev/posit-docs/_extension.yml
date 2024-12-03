@@ -33,6 +33,4 @@ contributes:
         link-external-newwindow: true
         toc: true
         toc-expand: true
-        include-after-body:
-          - text: |
-              <script defer data-domain="positron.posit.co" src="https://plausible.io/js/script.js"></script>
+        include-in-header: ../plausible.html
