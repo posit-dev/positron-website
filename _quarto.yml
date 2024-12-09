@@ -64,6 +64,7 @@ website:
         - connections-pane.qmd
         - run-interactive-apps.qmd
         - updating.qmd
+        - extension-development.qmd
 
     - title: "Help"
       style: "docked"

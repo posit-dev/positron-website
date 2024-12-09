@@ -1,0 +1,21 @@
+---
+title: "Extension Development"
+---
+
+When creating an extension, Positron is compatible with VS Code extensions so create it as you would for VS Code.
+
+## Context Keys
+When defining your extension's manifest, you can use `isPositron` for enablement or in a `when` clause.
+
+```json
+"commands": [
+    {
+        "category": "My Extension",
+        "command": "myExtension.myCommand",
+        "title": "My Extension Command",
+        "enablement": "isPositron"
+    }
+]
+```
+
+This allows your extension to enable commands, keybindings, menu items, and any other contribution points only for Positron.
