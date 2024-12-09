@@ -35,3 +35,5 @@ if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == ""
 -   [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python): Positron bundles a fork of this extension that's built to work with Positron and offers support for the console, help, and other features. If there is anything from the original Python extension that doesn't work for you, please let us know.
 
 There may be extensions that aren't available for Positron for licensing rather than technical reasons. These extensions would typically contain proprietary Microsoft code and are only licensed for use with Microsoft's proprietary VS Code product.
+
+See [Extension Development](extension-development.qmd) for creating extensions for Positron.
