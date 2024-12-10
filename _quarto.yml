@@ -45,6 +45,7 @@ website:
         href: troubleshooting.qmd
     right:
       - icon: github
+        aria-label: 'Link to Positron Github Repository'
         href: https://github.com/posit-dev/positron
 
   sidebar:
