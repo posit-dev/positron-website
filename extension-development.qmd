@@ -2,9 +2,10 @@
 title: "Extension Development"
 ---
 
-When creating an extension, Positron is compatible with VS Code extensions so create it as you would for VS Code.
+Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code](https://code.visualstudio.com/api/get-started/your-first-extension). You can use Positron to develop your extension and run it in a new **Extension Development Host** window.
 
-## Context Keys
+## Context keys
+
 When defining your extension's manifest, you can use `isPositron` for enablement or in a `when` clause.
 
 ```json
@@ -19,3 +20,7 @@ When defining your extension's manifest, you can use `isPositron` for enablement
 ```
 
 This allows your extension to enable commands, keybindings, menu items, and any other contribution points only for Positron.
+
+## Positron API
+
+Positron provides [all the normal contribution points and the VS Code API](https://code.visualstudio.com/api/extension-capabilities/overview) to extensions, but also additionally new APIs to use. We plan to make the extension development experience better (for example, [safely wrapping](https://github.com/posit-dev/positron/issues/458) and [providing typing for](https://github.com/posit-dev/positron/issues/809) the Positron API), but in the meantime, we recommend you [take a look at the Positron API details directly](https://github.com/posit-dev/positron/tree/main/src/positron-dts).
