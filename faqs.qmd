@@ -16,6 +16,11 @@ title: "Frequently Asked Questions"
 * Positron supports VS Code compatible extensions (`.vsix` files), providing extensibility of capabilities beyond the core IDE itself. By building on Code OSS, Positron gets rich text editor capabilities and access to 1,000s of community extensions out of the box. [Read more about using extensions with Positron](/extensions.qmd).
 * Positron is deeply focused on native data science workflows; it provides a batteries-included and cohesive experience beyond that of a general-purpose IDE or text editor such as VS Code. 
 
+### How can I use Positron with a server?
+
+* Positron is available as a free desktop app for Windows, MacOS, and Linux. This desktop app includes [support (currently early stage and experimental) for remote SSH sessions](https://github.com/posit-dev/positron/pull/4251), allowing you to connect to remote Linux servers for scaling or data access purposes.
+* There is no native browser or server version of Positron available or planned, outside of [Posit Workbench](https://posit.co/products/enterprise/workbench/). Posit Workbench currently has preview support for Positron sessions; Positron on Posit Workbench will move into general availability as the IDE matures. Posit Workbench provides enterprise-grade features such as access to highly scalable compute, single-sign on, native authorization to data governance tools such as Databricks or Snowflake, container-backed sessions, multi-session capabilities, and more.
+
 ### Why build a new IDE rather than VS Code extensions?
 
 * Our aspirations for Positron go far beyond what is possible via only extensions. Ultimately, VS Code's Extension API doesn't provide enough leverage to modify the main "workbench" surface.
