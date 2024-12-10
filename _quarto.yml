@@ -43,6 +43,9 @@ website:
         href: interpreters.qmd
       - text: "Help"
         href: troubleshooting.qmd
+    right:
+      - icon: github
+        href: https://github.com/posit-dev/positron
 
   sidebar:
     - title: "Get Started"
