@@ -84,4 +84,4 @@ Positron installers on Windows include an option to add a `positron` command to 
 
 If you had unchecked this option during installation, you can manually add the `bin` folder of your Positron installation to your path. For a System level installation, this folder is located at `C:\Program Files\Positron\bin` by default. For a User level installation, this folder is located at `C:\Users\username\AppData\Local\Programs\Positron\bin` by default. You will need to restart your terminal after updating your path.
 
-Once Positron is on your path you can use a terminal to launch Positron.
+Once Positron is on your path, you can use a terminal to launch Positron.
