@@ -62,10 +62,26 @@ pak::pak(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 install.packages(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 ```
 
-## Add Positron to your path
+## Launch Positron from a terminal
 
-After you have [installed Positron](download.qmd), you can add Positron to your path via the command *Install 'positron' command in PATH*:
+If Positron is on your path, you can launch it from the terminal. Type `positron .` to open Positron in the current folder, or `positron foo` to open Positron in a custom folder of your choice.
+
+See the instructions below on how to add Positron to your path based on operating system.
+
+### macOS
+
+After you have [installed Positron](download.qmd), you can add Positron to your path via the Command Palette. Press `Cmd+Shift+P` to open the palette and type *Install 'positron' command in PATH*.
 
 ![Add Positron to your path](images/positron-path.png)
 
-After you have executed this command once, Positron will be on your path and then you can use `positron .` in a directory to open Positron in that folder, or `positron foo` to open a folder located at your current path.
+After you have executed this command once, Positron will be added to your path. Restart your terminal to pick up the changes to your path.
+
+### Windows
+
+Positron installers on Windows include an option to add a `positron` command to your path. This installation option is selected by default.
+
+![Windows installer option Add to PATH](images/installer-windows-add-to-path.png)
+
+If you had unchecked this option during installation, you can manually add the `bin` folder of your Positron installation to your path. For a System level installation, this folder is located at `C:\Program Files\Positron\bin` by default. For a User level installation, this folder is located at `C:\Users\username\AppData\Local\Programs\Positron\bin` by default. You will need to restart your terminal after updating your path.
+
+Once Positron is on your path you can use a terminal to launch Positron.
