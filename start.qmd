@@ -74,7 +74,7 @@ After you have [installed Positron](download.qmd), you can add Positron to your 
 
 ![Add Positron to your path](images/positron-path.png)
 
-After you have executed this command once, Positron will be added to your path. Restart your terminal to pick up the changes to your path.
+After you have executed this command once, Positron is added to your path. Restart your terminal to pick up the changes to your path.
 
 ### Windows
 
