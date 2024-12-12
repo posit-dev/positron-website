@@ -64,7 +64,10 @@ install.packages(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 
 ## Launch Positron from a terminal
 
-If Positron is on your path, you can launch it from the terminal. Type `positron .` to open Positron in the current folder, or `positron foo` to open Positron in a custom folder of your choice.
+If Positron is on your path, you can launch it from the terminal: 
+
+- Type `positron .` to open Positron in the current folder, _or_ 
+- `positron foo` to open Positron in a custom folder of your choice.
 
 See the instructions below on how to add Positron to your path based on operating system.
 
