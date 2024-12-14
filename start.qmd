@@ -83,7 +83,7 @@ After you have executed this command once, Positron is added to your PATH. Resta
 
 Positron installers on Windows include an option to add a `positron` command to your PATH. This installation option is selected by default.
 
-![Windows installer option Add to PATH](images/installer-windows-add-to-path.png)
+![Windows installer option Add to PATH](images/installer-windows-add-to-path.png){width="65%" height="65%"}
 
 If you had cleared this option during installation, you can manually add the `bin` folder of your Positron installation to your PATH. For a System level installation, this folder is located at `C:\Program Files\Positron\bin` by default. For a User level installation, this folder is located at `C:\Users\username\AppData\Local\Programs\Positron\bin` by default. You will need to restart your terminal after updating your PATH.
 
