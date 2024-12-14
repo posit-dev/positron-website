@@ -28,7 +28,7 @@ Before [installing](download.qmd) Positron, ensure your Python and/or R environm
 
 If you're using Windows, make sure you have the [latest Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version) installed.
 
-If you're an R user, note that Positron doesn't currently bundle [Rtools](https://cran.r-project.org/bin/windows/Rtools/). If you need Rtools for your package development or other work, you can either use the official guidance from CRAN on installing Rtools and putting it on the path, or alternatively, use [rig](https://github.com/r-lib/rig) to install and set up Rtools:
+If you're an R user, note that Positron doesn't currently bundle [Rtools](https://cran.r-project.org/bin/windows/Rtools/). If you need Rtools for your package development or other work, you can either use the official guidance from CRAN on installing Rtools and putting it on the PATH, or alternatively, use [rig](https://github.com/r-lib/rig) to install and set up Rtools:
 
 ```bash
 rig system rtools add
@@ -62,10 +62,29 @@ pak::pak(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 install.packages(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 ```
 
-## Add Positron to your path
+## Launch Positron from a terminal
 
-After you have [installed Positron](download.qmd), you can add Positron to your path via the command *Install 'positron' command in PATH*:
+If Positron is on your PATH, you can launch it from the terminal: 
 
-![Add Positron to your path](images/positron-path.png)
+- Type `positron .` to open Positron in the current folder, _or_ 
+- `positron foo` to open Positron in a custom folder of your choice.
 
-After you have executed this command once, Positron will be on your path and then you can use `positron .` in a directory to open Positron in that folder, or `positron foo` to open a folder located at your current path.
+See the instructions below on how to add Positron to your PATH based on operating system.
+
+### macOS
+
+After you have installed Positron, you can add it to your PATH via the Command Palette. Press `Cmd+Shift+P` to open the palette and type *Install 'positron' command in PATH*.
+
+![Add Positron to your PATH](images/positron-path.png)
+
+After you have executed this command once, Positron is added to your PATH. Restart your terminal to pick up the changes to your PATH.
+
+### Windows
+
+Positron installers on Windows include an option to add a `positron` command to your PATH. This installation option is selected by default.
+
+![Windows installer option Add to PATH](images/installer-windows-add-to-path.png){width="65%" height="65%"}
+
+If you had cleared this option during installation, you can manually add the `bin` folder of your Positron installation to your PATH. For a System level installation, this folder is located at `C:\Program Files\Positron\bin` by default. For a User level installation, this folder is located at `C:\Users\username\AppData\Local\Programs\Positron\bin` by default. You will need to restart your terminal after updating your PATH.
+
+Once Positron is on your PATH, you can use a terminal to launch Positron.
