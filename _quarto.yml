@@ -59,6 +59,7 @@ website:
     - title: "Guides"
       style: "docked"
       contents:
+        - add-to-path.qmd
         - section: "Interpreters"
           contents:
             - interpreters.qmd
