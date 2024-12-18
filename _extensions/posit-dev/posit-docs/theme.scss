@@ -397,3 +397,6 @@ ol.groovyAlpha li > p:before {
   line-height: 16px;
   vertical-align: middle;
 }
+
+// Workaround for https://github.com/quarto-dev/quarto-cli/issues/9178
+$mermaid-fg-color--lightest:#FFFFFF;
