@@ -28,7 +28,7 @@ Other features that aren't currently supported include:
 
 ## Creating a connection
 
-To create a connection, open the Command Palette (Cmd/Ctrl + Shift + P) and type "Remote Menu". Run the _Remote SSH: Show Remote Menu_ command.
+To create a connection, open the Command Palette (<kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and type "Remote Menu". Run the _Remote SSH: Show Remote Menu_ command.
 
 ![The Remote SSH menu](./images/remote-ssh-menu.png){width=700}
 
@@ -58,7 +58,7 @@ Most extensions run on Positron's back end. This means that the first time you c
 
 Like the Explorer view, the Extensions view will help you see which extensions are installed locally and which are installed on the remote host.
 
-### Terminals, R and Python sessions
+### Terminals, R, and Python
 
 All Terminals as well as your R and Python sessions will run on the remote host.
 
@@ -82,7 +82,7 @@ When Positron connects to a new host for the first time, it does the following:
 
 The two most common problems are:
 
-- Encountering a 404 when downloading the Positron Server binary. This happens when you attempt to use Remote SSH against a host type that's not supported; for example, connecting to a macOS host.
+- Encountering a 404 when downloading the Positron Server binary. This happens when you attempt to use Remote SSH against a host type that's not supported, for example, connecting to a macOS host.
 - Encountering an error when starting the Positron Server binary. This happens when you attempt to use Remote SSH against a version of Linux that's not supported by Positron.
 
 If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it's not autodetected), you can edit this setting:
