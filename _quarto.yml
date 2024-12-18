@@ -68,6 +68,7 @@ website:
         - data-explorer.qmd
         - connections-pane.qmd
         - run-interactive-apps.qmd
+        - remote-ssh.qmd
         - updating.qmd
 
     - title: "Help"
