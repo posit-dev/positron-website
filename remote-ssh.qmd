@@ -35,7 +35,7 @@ From there, run the _Connect to Host_ command. You will be prompted to enter the
 
 If you want to avoid having to type the hostname every time, add the connection information to your user SSH config (e.g. `~/.ssh/config` on Unix-alikes). Then you can use the _Remote Explorer_ view to connect to the system again in the future. Use the _View: Show Remote Explorer_ command to open it.
 
-## Inside remote SSH
+## Remote sessions
 
 You can identify remote SSH sessions via a small indicator in the bottom left of Positron's window.
 
