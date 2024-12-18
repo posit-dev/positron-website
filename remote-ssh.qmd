@@ -5,6 +5,7 @@ title: "Remote SSH"
 Positron has **experimental** support for Remote SSH sessions. This feature allows the Positron IDE's front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine. The two machines communicate using an ordinary secure shell (SSH) connection.
 
 ```{mermaid}
+%%| fig-align: center
 flowchart LR
 subgraph "Local Machine"
 p[Positron UI]
@@ -29,7 +30,7 @@ Other features that aren't currently supported include:
 
 To create a connection, open the Command Palette (Cmd/Ctrl + Shift + P) and type "Remote Menu". Run the _Remote SSH: Show Remote Menu_ command.
 
-![The Remote SSH menu](./images/remote-ssh-menu.png)
+![The Remote SSH menu](./images/remote-ssh-menu.png){width=700}
 
 From there, run the _Connect to Host_ command. You will be prompted to enter the hostname and your credentials.
 
@@ -39,13 +40,13 @@ If you want to avoid having to type the hostname every time, add the connection 
 
 You can identify remote SSH sessions via a small indicator in the bottom left of Positron's window.
 
-![Remote SSH Status Indicator](./images/remote-ssh-status.png)
+![Remote SSH Status Indicator](./images/remote-ssh-status.png){width=350}
 
 There are some notable differences between these sessions and "regular" Positron desktop sessions.
 
 ### Files
 
-Inside a remote host, the Explorer tab will show you files from the remote host instead of your local system. 
+Inside a remote host, the Explorer tab will show you files from the remote host instead of your local system.
 
 ### Settings
 
@@ -63,7 +64,7 @@ All Terminals as well as your R and Python sessions will run on the remote host.
 
 ### Port forwarding
 
-When you run web applications (e.g. Shiny applications) in Positron, Positron automatically maps the port on the remote host to a port on your local machine. 
+When you run web applications (e.g. Shiny applications) in Positron, Positron automatically maps the port on the remote host to a port on your local machine.
 
 For example, note that this Shiny application running on `:6868` automatically gets a forwarded port `6868` on the local host. The _Ports_ tab shows which ports are currently forwarded from the remote to the local host. Positron tries to use the same port on both hosts when it's available.
 
@@ -86,6 +87,6 @@ The two most common problems are:
 
 If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it's not autodetected), you can edit this setting:
 
-![Remote SSH: Server Download Url Template Setting](./images/remote-ssh-server-template.png)
+![Remote SSH: Server Download Url Template Setting](./images/remote-ssh-server-template.png){width=650}
 
 Note that the client and server must be using **exactly** the same Positron version.
