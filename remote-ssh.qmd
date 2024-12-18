@@ -16,16 +16,16 @@ r --> ark[R Session]
 end
 ```
 
-## System Requirements
+## System requirements
 
-Remote SSH sessions can be *initiated* from any operating system supported by Positron itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux using a **recent distribution**, such as Ubuntu 22+ or RedHat 9+, on an x86-compatible processor. Older Linux distributions and amd64 hosts are not currently supported.
+Remote SSH sessions can be *initiated* from any operating system supported by Positron itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux using a **recent distribution**, such as Ubuntu 22+ or RedHat 9+, on an x86-compatible processor. Older Linux distributions and amd64 hosts aren't currently supported.
 
-Other features that are not currently supported include:
+Other features that aren't currently supported include:
 
 - Connecting to Windows Subsystem for Linux (WSL) backends
 - Dev Container workflows (note however that you can start a container yourself and connect to it)
 
-## Creating a Connection
+## Creating a connection
 
 To create a connection, open the Command Palette (Cmd/Ctrl + Shift + P) and type "Remote Menu". Run the _Remote SSH: Show Remote Menu_ command.
 
@@ -35,7 +35,7 @@ From there, run the _Connect to Host_ command. You will be prompted to enter the
 
 If you want to avoid having to type the hostname every time, add the connection information to your user SSH config (e.g. `~/.ssh/config` on Unix-alikes). Then you can use the _Remote Explorer_ view to connect to the system again in the future. Use the _View: Show Remote Explorer_ command to open it.
 
-## Inside Remote SSH
+## Inside remote SSH
 
 You can identify remote SSH sessions via a small indicator in the bottom left of Positron's window.
 
@@ -53,15 +53,15 @@ When connected to a remote host, you will see two different Settings; one is set
 
 ### Extensions
 
-Most extensions run on Positron's back end. This means that the first time you connect to a remote host, you won't have any extensions installed. You'll need to re-install any extensions on the remote host that you want to use on that host.
+Most extensions run on Positron's back end. This means that the first time you connect to a remote host, you won't have any extensions installed. You'll need to reinstall any extensions on the remote host that you want to use on that host.
 
 Like the Explorer view, the Extensions view will help you see which extensions are installed locally and which are installed on the remote host.
 
-### Terminals, R and Python Sessions
+### Terminals, R and Python sessions
 
 All Terminals as well as your R and Python sessions will run on the remote host.
 
-### Port Forwarding
+### Port forwarding
 
 When you run web applications (e.g. Shiny applications) in Positron, Positron automatically maps the port on the remote host to a port on your local machine. 
 
@@ -69,7 +69,7 @@ For example, note that this Shiny application running on `:6868` automatically g
 
 ![Port Forwarding for Local Web Content](./images/remote-ssh-port-forwarding.png)
 
-## How it Works & Troubleshooting
+## How it works & troubleshooting
 
 When Positron connects to a new host for the first time, it does the following:
 
@@ -81,10 +81,10 @@ When Positron connects to a new host for the first time, it does the following:
 
 The two most common problems are:
 
-- Encountering a 404 when downloading the Positron Server binary. This happens when you attempt to use Remote SSH against a host type that is not supported; for example, connecting to a macOS host.
-- Encountering an error when starting the Positron Server binary. This happens when you attempt to use Remote SSH against a version of Linux that is not supported by Positron.
+- Encountering a 404 when downloading the Positron Server binary. This happens when you attempt to use Remote SSH against a host type that's not supported; for example, connecting to a macOS host.
+- Encountering an error when starting the Positron Server binary. This happens when you attempt to use Remote SSH against a version of Linux that's not supported by Positron.
 
-If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it is not auto-detected), you can edit this setting:
+If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it's not autodetected), you can edit this setting:
 
 ![Remote SSH: Server Download Url Template Setting](./images/remote-ssh-server-template.png)
 
