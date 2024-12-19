@@ -40,7 +40,7 @@ website:
       - text: "Get Started"
         href: start.qmd
       - text: "Guides"
-        href: interpreters.qmd
+        href: add-to-path.qmd
       - text: "Help"
         href: troubleshooting.qmd
     right:
