@@ -70,6 +70,7 @@ website:
         - run-interactive-apps.qmd
         - remote-ssh.qmd
         - updating.qmd
+        - extension-development.qmd
 
     - title: "Help"
       style: "docked"
