@@ -6,7 +6,7 @@ Positron is compatible with VS Code extensions so you can create extensions [as 
 
 ## Context keys
 
-When defining your extension's manifest, you can use `isPositron` for enablement or in a `when` clause.
+When defining your extension's manifest, you can use the `isPositron` context key for enablement or in a `when` clause.
 
 ```json
 "commands": [
