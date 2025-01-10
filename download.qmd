@@ -1,7 +1,7 @@
 ---
 title: "Download Positron"
 params:
-  version: "2025.01.0-152"
+  version: "2025.01.0-159"
 ---
 
 Find out what you need to know to [get started](start.qmd) using Positron, then download the installer for your platform.
