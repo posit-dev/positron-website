@@ -3,11 +3,11 @@ title: "The Rproj File"
 ---
 
 Expert data scientists keep all the files associated with a given project together — input data, scripts, analytical results, and figures.
-This is such a wise and common practice, in data science and in software development more generally, that most integrated development environments (IDEs) have built-in support for this practice.
+This is such a wise and common practice, in data science and in software development more broadly, that most integrated development environments (IDEs) have built-in support for this practice.
 
 ## The Rproj file in RStudio
 
-In RStudio, you can designate the folder for a particular project (lowercase "p") as an RStudio Project (uppercase "P").
+In RStudio, you can designate the folder for a particular project (lowercase "p") as an [RStudio Project](https://docs.posit.co/ide/user/ide/guide/code/projects.html) (uppercase "P").
 Concretely, this means that RStudio places a special file in that folder, where it stores Project-specific settings.
 This file is usually named after the Project and has the `Rproj` extension.
 For example, the source of the dplyr R package is kept in a folder named `dplyr` and, inside of that, is the `dplyr.Rproj` file.
