@@ -141,4 +141,4 @@ You should now be able to use this gesture to launch a Positron window in a spec
 * Invoke your Raycast hotkey
 * Invoke the alias you associated with 'Search Project Manager'
 * Type just enough of your target folder name to disambiguate
-* Accept, lauch, and flourish!
+* Accept, launch, and flourish!
