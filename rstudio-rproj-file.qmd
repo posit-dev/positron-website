@@ -25,7 +25,7 @@ Most data science project folders advertise their project-hood in one or more wa
 Various tools that facilitate project-oriented workflows actively look for files and folders like those described above in order to recognize when a folder is the root of a project.
 Once a project root folder is identified, these tools can activate relevant product features.
 The [rprojroot R package](https://rprojroot.r-lib.org/), and its more user-friendly companion the [here package](https://here.r-lib.org/), are examples of such tools within the R world.
-`here::here()` can be used to build paths to files within a project, in a way that is portable across different host computers.
+`here::here()` can be used to build paths to files within a project, in a way that's portable across different host computers.
 
 ## The Rproj file as a launch target
 
@@ -39,14 +39,14 @@ Then a hotkey can be associated with the intention "hey, I want to launch an RSt
 
 So this begs the question: what plays the role of the Rproj file in Positron?
 
-## Positron Workspaces and settings.json
+## Positron Workspaces and `settings.json`
 
-The concept in Positron that is most analogous to an RStudio Project is a **workspace** and this is inherited directly (and intentionally) from VS Code.
+The concept in Positron that's most analogous to an RStudio Project is a **workspace** and this is inherited directly (and intentionally) from VS Code.
 A Positron (or VS Code) workspace is often just a project folder that's been opened in its own window via *Open Folder* or similar.
 A workspace does not necessarily get marked with some characteristic file.
-Positron and VS Code will place an explicit file at `.vscode/settings.json` if (and only if) the user does some configuration that is specific to the project.
+Positron and VS Code will place an explicit file at `.vscode/settings.json` if (and only if) the user does some configuration that's specific to the project.
 
-Since there is no absolute guarantee that every project folder has a `.vscode/settings.json` file, we have to rethink some of our project-oriented workflows.
+Since there is no absolute guarantee that every project folder has a `.vscode/settings.json` file, we need to rethink some of our project-oriented workflows.
 There is no exact equivalent of the Rproj file.
 
 For programmatically building filepaths relative to the project root, recall that we mentioned the [here](https://here.r-lib.org/) and [rprojroot](https://rprojroot.r-lib.org/) packages above.
@@ -63,7 +63,7 @@ However, we're actually more interested in explaining equivalents of the workflo
 
 ### Putting Positron on the PATH and launching from the shell
 
-If you are often in a shell, it is worthwhile to put Positron on your PATH.
+If you are often in a shell, it's worthwhile to put Positron on your PATH.
 This allows you to do `positron .` to launch Positron in the current working directory.
 You can launch any other folder as a workspace with `positron path/to/the/project/folder`.
 
@@ -82,7 +82,7 @@ There is no true equivalent of this in macOS, sadly.
 
 The exact workflow described earlier, that relied on Rproj files and Alfred, won't work for Positron.
 However, the desire for such a workflow has long existed, in the VS Code community and we can piggyback on those solutions.
-This is a great example of the advantages of building Positron on an existing IDE, because we can use external extensions to get functionality that is not unique to Positron's data science focus.
+This is a great example of the advantages of building Positron on an existing IDE, because we can use external extensions to get functionality that's not unique to Positron's data science focus.
 
 Here is a particular combination of tools that many internal devs and users find to be effective on macOS:
 
