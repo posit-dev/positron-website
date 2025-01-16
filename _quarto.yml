@@ -20,7 +20,7 @@ website:
   repo-actions: [edit, source, issue]
   page-footer:
     left: |
-      Copyright &copy; 2022-2024 Posit Software, PBC. All Rights Reserved.
+      Copyright &copy; 2022-2025 Posit Software, PBC. All Rights Reserved.
     center: "Positron Public Beta"
     right:
       - text: "License"
