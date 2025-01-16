@@ -71,6 +71,9 @@ website:
         - remote-ssh.qmd
         - updating.qmd
         - extension-development.qmd
+        - section: "Migrating from RStudio"
+          contents:
+          - rstudio-rproj-file.qmd
 
     - title: "Help"
       style: "docked"
@@ -78,4 +81,3 @@ website:
         - troubleshooting.qmd
         - feedback.qmd
         - faqs.qmd
-
