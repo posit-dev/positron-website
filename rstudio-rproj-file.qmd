@@ -39,12 +39,16 @@ Then a hotkey can be associated with the intention "hey, I want to launch an RSt
 
 So this begs the question: what plays the role of the Rproj file in Positron?
 
+<!-- vale Posit.Headings = NO -->
 ## Positron Workspaces and `settings.json`
+<!-- vale Posit.Headings = YES -->
 
+<!-- vale Posit.Contractions = NO -->
 The concept in Positron that's most analogous to an RStudio Project is a **workspace** and this is inherited directly (and intentionally) from VS Code.
 A Positron (or VS Code) workspace is often just a project folder that's been opened in its own window via *Open Folder* or similar.
 A workspace does not necessarily get marked with some characteristic file.
 Positron and VS Code will place an explicit file at `.vscode/settings.json` if (and only if) the user does some configuration that's specific to the project.
+<!-- vale Posit.Contractions = YES -->
 
 Since there is no absolute guarantee that every project folder has a `.vscode/settings.json` file, we need to rethink some of our project-oriented workflows.
 There is no exact equivalent of the Rproj file.
@@ -69,7 +73,9 @@ You can launch any other folder as a workspace with `positron path/to/the/projec
 
 See [this guide](add-to-path.qmd) for more details.
 
+<!-- vale Posit.Headings = NO -->
 ### Launching from Windows File Explorer
+<!-- vale Posit.Headings = YES -->
 
 In the Windows File Explorer, you can right-click on a folder and select "Open with Positron" from the context menu.
 If you don't see this option, that suggests that context menu integration wasn't enabled during Positron installation.
