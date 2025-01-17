@@ -98,9 +98,10 @@ We'll point out some specifics about Project Manager here, but the main goal is 
 
 After installing Project Manager from the Open VSX Registry, it appears as a stack of folders in the Activity Bar.
 When clicked, you gain access to a clickable, organized listing of your projects.
-Project Manager also contributes lots of useful commands, which are available from the Command Pallette.
 
-There are two ways to make your projects appear here:
+![Project Manager in the Activity Bar](images/project-manager-activity-bar.png){height=200}
+
+There are two ways to make your projects known to the Project Manager extension:
 
 * Explicitly save specific folders as favorites.
 * Tell the extension about specific folders where you tend to keep Git repositories. Any subfolder of these base folders that is also a Git repo will be automatically detected.
@@ -109,6 +110,12 @@ The second bullet, about Git repositories, illustrates a point we made earlier: 
 
 If you aren't already using Git in your data science projects or you don't already organize your projects inside a small number base folders, this might be a good time to adopt these practices.
 From our experience, these lifestyle changes have far-reaching benefits and, in particular, allow you to take best advantage of tools for discovering and launching projects.
+
+Project Manager also contributes lots of useful commands, which are available from the Command Palette.
+
+![Selected commands from the Project Manager extension](images/project-manager-commands-greatest-hits.png){width=700}
+
+We lean heavily on the "List Projects to Open ..." commands for project launching and "Refresh Git Projects" is useful to make the extension aware of any projects that are newly cloned or created.
 
 ### Productivity launcher
 
