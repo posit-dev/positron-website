@@ -105,7 +105,9 @@ We'll point out some specifics about Project Manager here, but the main goal is 
 After installing Project Manager from the Open VSX Registry, it appears as a stack of folders in the Activity Bar.
 When clicked, you gain access to a clickable, organized listing of your projects.
 
-![Project Manager in the Activity Bar](images/project-manager-activity-bar.png){height=200}
+::: {.float-end .mx-4}
+![Project Manager in the Activity Bar](images/project-manager-activity-bar.png){height=400}
+:::
 
 There are two ways to make your projects known to the Project Manager extension:
 
