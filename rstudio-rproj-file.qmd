@@ -89,7 +89,7 @@ You probably need to reinstall Positron to opt in to this feature.
 
 There is no true equivalent of this in macOS, sadly.
 
-TODO: definitely add a screenshot. The checkboxes I'm talking about are visible in the screenshot of the "add to path" guide. Probably also good to show the context menu in action?
+![Checkbox for 'Add "Open with Positron" action to Windows File Explorer directory context menu'](images/installer-windows-add-to-directory-context-menu.png){width=700}
 
 <!-- vale Posit.Headings = NO -->
 ### Launch from the Project Manager extension
@@ -156,4 +156,4 @@ You should now be able to use this gesture to launch a Positron window in a spec
 
 Positron is still in beta and is therefore evolving quite rapidly.
 If you are installing frequent updates to Positron, we've found that the Raycast "Search Project Manager" extension is prone to reverting back to launching VS Code.
-This can generally be resolved by re-configuring the extension to use Positron.
+This can generally be resolved by reconfiguring the extension to use Positron.
