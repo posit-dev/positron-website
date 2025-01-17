@@ -49,7 +49,7 @@ The concept in Positron that's most analogous to an RStudio Project is a **works
 You can read more in the VS Code documentation [What is a VS Code "workspace"?](https://code.visualstudio.com/docs/editor/workspaces).
 A Positron (or VS Code) workspace is often just a project folder that's been opened in its own window via *Open Folder* or similar.
 
-![Various ways to open a folder in Positron](images/open-folder.png)
+![Various ways to open a folder in Positron, highlighted in orange.](images/open-folder.png)
 
 A workspace does not necessarily get marked with some characteristic file.
 Positron and VS Code will place an explicit file at `.vscode/settings.json` if (and only if) the user does some configuration that's specific to the project.
