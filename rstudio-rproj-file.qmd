@@ -91,7 +91,9 @@ There is no true equivalent of this in macOS, sadly.
 
 TODO: definitely add a screenshot. The checkboxes I'm talking about are visible in the screenshot of the "add to path" guide. Probably also good to show the context menu in action?
 
+<!-- vale Posit.Headings = NO -->
 ### Project Manager extension
+<!-- vale Posit.Headings = YES -->
 
 The desire to facilitate project launch has long existed in the VS Code user community and we Positron users can piggyback on those solutions.
 This is a great example of the advantages of building Positron on an existing IDE, because we can use external extensions to get functionality that's not unique to Positron's data science focus.
@@ -108,9 +110,10 @@ When clicked, you gain access to a clickable, organized listing of your projects
 There are two ways to make your projects known to the Project Manager extension:
 
 * Explicitly save specific folders as favorites.
-* Tell the extension about specific folders where you tend to keep Git repositories. Any subfolder of these base folders that is also a Git repo will be automatically detected.
+* Tell the extension about specific folders where you tend to keep Git repositories. Any subfolder of these base folders that is also a Git repo is automatically treated as a project.
 
-The second bullet, about Git repositories, illustrates a point we made earlier: it's very common for project-hood to be inferred from the fact that a folder is a Git repo and that turns out to be especially important in a world where we can't assume there's an Rproj file.
+The second bullet, about Git repositories, underscores a point we made earlier: it's very common for project-hood to be inferred from the fact that a folder is a Git repo.
+This turns out to be especially important in a world where we can't assume there's an Rproj file and it's arguably better to rely on conventions from the broader software landscape.
 
 If you aren't already using Git in your data science projects or you don't already organize your projects inside a small number base folders, this might be a good time to adopt these practices.
 From our experience, these lifestyle changes have far-reaching benefits and, in particular, allow you to take best advantage of tools for discovering and launching projects.
@@ -122,35 +125,35 @@ Project Manager also contributes lots of useful commands, which are available fr
 We lean heavily on the "List Projects to Open ..." commands for project launching.
 "Refresh Git Projects" is useful to make the extension aware of any projects that are newly cloned or created.
 
-### Productivity launcher
+### Application launcher
 
-*I'm still in the middle of re-organizing the last part of this article and I haven't revised all of the stuff below yet. But I will. It's going to present the specifics of combining Project Manager with Raycast.*
+One potential downside of the Project Manager workflows described above is that they still need to be initiated from within Positron.
+What if Positron isn't already running?
+If you want a workflow that originates from outside of Positron, one option is to use an external application launcher to drive an extension like Project Manager.
+This gets us very close to a workflow we described previously based on Rproj files and the Alfred macOS app.
 
-However, we're actually more interested in explaining equivalents of the workflows described above, that originate from outside Positron.
-
-The exact workflow described earlier, that relied on Rproj files and Alfred, won't work for Positron.
-
-Here is a particular combination of tools that many internal devs and users find to be effective on macOS:
-
-* Raycast <https://www.raycast.com/>. This is a productivity launcher.
-* Visual Studio Code - Project Manager extension for Raycast. This is a Raycast extension that creates the necessary connection between Raycast and the Project Manager extension.
+In this case, however, the solution relies on a different launcher, namely [Raycast](https://www.raycast.com/).
+We realize this doesn't directly translate to Windows and there are certainly other Spotlight alternatives that are relevant on macOS (such as Alfred).
+Our main goal is to affirm that it's absolutely possible to craft a project launching workflow if that's important to you.
 
 There are a few steps and choices involved in setting this up, but here is the basic outline:
 
-* Install Raycast. Accept or configure a hotkey for it.
-* Install the Project Manager extension in Positron.
-* In the Project Manager area of Positron's Activity Bar, save the currently open workspace as a "favorite" for Project Manager.
-  - This is just a gesture to create some explicit use of Project Manager that makes it easier to do the initial set up. You won't necessarily need to favorite each of your target projects in this way.
-* In the Project Manager area of Positron's Activity Bar, in the GIT area, go to "Open Settings" and configure base folders where you tend to keep your project folders.
-
-* In Raycast, type 'store' to reveal the Store command. Run it. Search for and install the Visual Studio Code - Project Manager extension.
-* In Raycast, type enough to locate the 'Search Project Manager' extension and select it. Click on Actions in the lower right corner or type command K. Go to Configure Extension or Configure Command.
-  - The VSCode dropdown menu is where you can specify which application to launch. The default is VS Code, but you can and should change that to Positron. We find it favorable to *not* configure Project Location here.
-  - In the lefthand panel, you can configure an alias (such as 'pos') or record a hotkey.
+* Install [Raycast](https://www.raycast.com/). Accept or configure a hotkey for it.
+* Install the [Project Manager extension](https://open-vsx.org/extension/alefragnani/project-manager) in Positron and do basic setup. For example, save one or more projects as favorites or configure one or more Git base folders.
+* Install a Raycast extension that creates a bridge between Raycast and Project Manager:
+  - In Raycast, type "store" to reveal and run the Store command. Search for and install the "Visual Studio Code - Project Manager" extension. After installation, this extension appears as "Search Project Manager".
+* Configure the extension to target Positron instead of VS Code:
+  - In Raycast, type enough to locate the "Search Project Manager" extension and select it. Click on Actions in the lower right corner or type Cmd + K. Go to Configure Extension or Configure Command.
+  - The VSCode dropdown menu is where you can specify which application to launch. The default is VS Code, but you can and should change that to Positron. We find it favorable to *not* do any additional configuration. For example, do *not* configure Project Location here.
+  - In the lefthand panel, you can configure an alias (such as "pos") or record a hotkey.
 
 You should now be able to use this gesture to launch a Positron window in a specific project:
 
-* Invoke your Raycast hotkey
-* Invoke the alias you associated with 'Search Project Manager'
-* Type just enough of your target folder name to disambiguate
+* Invoke your Raycast hotkey.
+* Invoke the alias you associated with "Search Project Manager".
+* Type just enough of your target folder name to disambiguate.
 * Accept, launch, and flourish!
+
+Positron is still in beta and is therefore evolving quite rapidly.
+If you are installing frequent updates to Positron, we've found that the Raycast "Search Project Manager" extension is prone to reverting back to launching VS Code.
+This can generally be resolved by re-configuring the extension to use Positron.
