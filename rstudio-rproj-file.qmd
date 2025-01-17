@@ -41,11 +41,12 @@ So, the Rproj file has become load-bearing and plays a key role in some workflow
 This begs the question: what is the equivalent of the Rproj file in Positron?
 
 <!-- vale Posit.Headings = NO -->
-## Positron Workspaces and `settings.json`
+## Positron workspaces and `settings.json`
 <!-- vale Posit.Headings = YES -->
 
 <!-- vale Posit.Contractions = NO -->
 The concept in Positron that's most analogous to an RStudio Project is a **workspace** and this is inherited directly (and intentionally) from VS Code.
+You can read more in the VS Code documentation [What is a VS Code "workspace"?](https://code.visualstudio.com/docs/editor/workspaces).
 A Positron (or VS Code) workspace is often just a project folder that's been opened in its own window via *Open Folder* or similar.
 
 ![Various ways to open a folder in Positron](images/open-folder.png)
@@ -69,15 +70,13 @@ From within Positron, various *Open Folder* gestures will open a folder as a wor
 This has a similar immediate effect as in RStudio, in terms of setting R's working directory and activating the file explorer.
 This is such a common gesture, though, that it's worth enumerating other ways of launching a project that can be more efficient, depending on the situation.
 
-TO ADD: some screenshot(s) featuring the many ways to open a folder.
-
 ### Putting Positron on the PATH and launching from the shell
 
 If you are often in a shell, it's worthwhile to put Positron on your PATH.
 This allows you to do `positron .` to launch Positron in the current working directory.
 You can launch any other folder as a workspace with `positron path/to/the/project/folder`.
 
-See [this guide](add-to-path.qmd) for more details.
+See the [Launch Positron from a Terminal](add-to-path.qmd) guide for more details.
 
 <!-- vale Posit.Headings = NO -->
 ### Launching from Windows File Explorer
@@ -120,7 +119,8 @@ Project Manager also contributes lots of useful commands, which are available fr
 
 ![Selected commands from the Project Manager extension](images/project-manager-commands-greatest-hits.png){width=700}
 
-We lean heavily on the "List Projects to Open ..." commands for project launching and "Refresh Git Projects" is useful to make the extension aware of any projects that are newly cloned or created.
+We lean heavily on the "List Projects to Open ..." commands for project launching.
+"Refresh Git Projects" is useful to make the extension aware of any projects that are newly cloned or created.
 
 ### Productivity launcher
 
