@@ -40,11 +40,8 @@ Then a hotkey can be associated with the intention "hey, I want to launch an RSt
 So, the Rproj file has become load-bearing and plays a key role in some workflows that go beyond its original purpose of storing metadata for the RStudio IDE.
 This begs the question: what is the equivalent of the Rproj file in Positron?
 
-<!-- vale Posit.Headings = NO -->
 ## Positron workspaces and `settings.json`
-<!-- vale Posit.Headings = YES -->
 
-<!-- vale Posit.Contractions = NO -->
 The concept in Positron that's most analogous to an RStudio Project is a **workspace** and this is inherited directly (and intentionally) from VS Code.
 You can read more in the VS Code documentation [What is a VS Code "workspace"?](https://code.visualstudio.com/docs/editor/workspaces).
 A Positron (or VS Code) workspace is often just a project folder that's been opened in its own window via *Open Folder* or similar.
@@ -53,7 +50,6 @@ A Positron (or VS Code) workspace is often just a project folder that's been ope
 
 A workspace does not necessarily get marked with some characteristic file.
 Positron and VS Code will place an explicit file at `.vscode/settings.json` if (and only if) the user does some configuration that's specific to the project.
-<!-- vale Posit.Contractions = YES -->
 
 Since there is no absolute guarantee that every project folder has a `.vscode/settings.json` file, we need to rethink some of our project-oriented workflows.
 There is no exact equivalent of the Rproj file.
@@ -91,9 +87,7 @@ There is no true equivalent of this in macOS, sadly.
 
 ![Checkbox for 'Add "Open with Positron" action to Windows File Explorer directory context menu'](images/installer-windows-add-to-directory-context-menu.png){width=700}
 
-<!-- vale Posit.Headings = NO -->
 ### Launch from the Project Manager extension
-<!-- vale Posit.Headings = YES -->
 
 The desire to facilitate project launch has long existed in the VS Code user community and we Positron users can piggyback on those solutions.
 This is a great example of the advantages of building Positron on an existing IDE, because we can use external extensions to get functionality that's not unique to Positron's data science focus.
