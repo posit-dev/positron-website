@@ -70,7 +70,7 @@ From within Positron, various *Open Folder* gestures will open a folder as a wor
 This has a similar immediate effect as in RStudio, in terms of setting R's working directory and activating the file explorer.
 This is such a common gesture, though, that it's worth enumerating other ways of launching a project that can be more efficient, depending on the situation.
 
-### Putting Positron on the PATH and launching from the shell
+### Put Positron on the PATH and launch it from the shell
 
 If you are often in a shell, it's worthwhile to put Positron on your PATH.
 This allows you to do `positron .` to launch Positron in the current working directory.
@@ -79,7 +79,7 @@ You can launch any other folder as a workspace with `positron path/to/the/projec
 See the [Launch Positron from a Terminal](add-to-path.qmd) guide for more details.
 
 <!-- vale Posit.Headings = NO -->
-### Launching from Windows File Explorer
+### Launch from Windows File Explorer
 <!-- vale Posit.Headings = YES -->
 
 In the Windows File Explorer, you can right-click on a folder and select "Open with Positron" from the context menu.
@@ -92,7 +92,7 @@ There is no true equivalent of this in macOS, sadly.
 TODO: definitely add a screenshot. The checkboxes I'm talking about are visible in the screenshot of the "add to path" guide. Probably also good to show the context menu in action?
 
 <!-- vale Posit.Headings = NO -->
-### Project Manager extension
+### Launch from the Project Manager extension
 <!-- vale Posit.Headings = YES -->
 
 The desire to facilitate project launch has long existed in the VS Code user community and we Positron users can piggyback on those solutions.
@@ -125,7 +125,7 @@ Project Manager also contributes lots of useful commands, which are available fr
 We lean heavily on the "List Projects to Open ..." commands for project launching.
 "Refresh Git Projects" is useful to make the extension aware of any projects that are newly cloned or created.
 
-### Application launcher
+### Use an application launcher
 
 One potential downside of the Project Manager workflows described above is that they still need to be initiated from within Positron.
 What if Positron isn't already running?
