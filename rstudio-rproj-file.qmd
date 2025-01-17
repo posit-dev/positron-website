@@ -74,9 +74,7 @@ You can launch any other folder as a workspace with `positron path/to/the/projec
 
 See the [Launch Positron from a Terminal](add-to-path.qmd) guide for more details.
 
-<!-- vale Posit.Headings = NO -->
 ### Launch from Windows File Explorer
-<!-- vale Posit.Headings = YES -->
 
 In the Windows File Explorer, you can right-click on a folder and select "Open with Positron" from the context menu.
 If you don't see this option, that suggests that context menu integration wasn't enabled during Positron installation.
