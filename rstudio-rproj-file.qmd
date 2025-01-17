@@ -9,14 +9,14 @@ This is such a wise and common practice, in data science and in software develop
 
 In RStudio, you can designate the folder for a particular project (lowercase "p") as an [RStudio Project](https://docs.posit.co/ide/user/ide/guide/code/projects.html) (uppercase "P").
 Concretely, this means that RStudio places a special file in that folder, where it stores Project-specific settings.
-This file is usually named after the Project and has the `Rproj` extension.
+This file is usually named after the Project and has the `.Rproj` extension, so we're going to refer to them as Rproj files here.
 For example, the source of the dplyr R package is kept in a folder named `dplyr` and, inside of that, is the `dplyr.Rproj` file.
 
 ## Explicit project-hood
 
 Most data science project folders advertise their project-hood in one or more ways, such as:
 
-* RStudio Project: Presence of an `.Rproj` file.
+* RStudio Project: Presence of an Rproj file.
 * Git repository: Presence of a `.git/` folder.
 * R package: Presence of a `DESCRIPTION` file.
 * renv project: Presence of an `renv.lock` file.
@@ -56,8 +56,8 @@ There is no exact equivalent of the Rproj file.
 
 For programmatically building filepaths relative to the project root, recall that we mentioned the [here](https://here.r-lib.org/) and [rprojroot](https://rprojroot.r-lib.org/) packages above.
 Users that regularly use Git for version control in their projects won't need to make any adjustments.
-That's because, even if they choose to proactively remove the Rproj file^[An Rproj file is perfectly safe to leave in a project, so there's no need to actively remove it.], the project root folder will continue to be identifiable from the presence of the `.git/` folder.
-Similarly, projects that fulfill any of the other criteria for project-hood (e.g. Quarto or renv projects or R packages) will also continue to have a well-defined root.
+That's because, even if they choose to proactively remove the Rproj file^[An Rproj file is perfectly safe to leave in a project, so there's no need to actively remove it.], the project root folder continues to be identifiable from the presence of the `.git/` folder.
+Similarly, projects that fulfill any of the other criteria for project-hood (e.g., Quarto or renv projects or R packages) will also continue to have a well-defined root.
 Finally, in the rare case that the Rproj file was the only evidence of project-hood, one can simply leave that file in place or place an empty file named `.here` in the project root.
 
 ## Launching Positron in a workspace
@@ -65,6 +65,8 @@ Finally, in the rare case that the Rproj file was the only evidence of project-h
 From within Positron, various *Open Folder* gestures will open a folder as a workspace, in the current window or in a new window, depending on the context.
 This has a similar immediate effect as in RStudio, in terms of setting R's working directory and activating the file explorer.
 This is such a common gesture, though, that it's worth enumerating other ways of launching a project that can be more efficient, depending on the situation.
+
+TO ADD: some screenshot(s) featuring the many ways to open a folder.
 
 ### Putting Positron on the PATH and launching from the shell
 
