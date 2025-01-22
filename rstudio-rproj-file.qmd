@@ -51,13 +51,13 @@ The Rproj file is important for two reasons:
 * The gesture of opening an Rproj file automatically launches RStudio, in the associated Project.
 
 So, the Rproj file has become load-bearing and plays a key role in some workflows that go beyond its original purpose of storing metadata for the RStudio IDE.
-This begs the question: is there an equivalent of the Rproj file in Positron?
+This begs the question: how can we adapt these project-oriented workflows for Positron?
 
 ## Positron workspaces and `settings.json`
 
 The concept in Positron that's most analogous to an RStudio Project is a **workspace** and this is inherited directly (and intentionally) from VS Code.
 You can read more in the VS Code documentation [What is a VS Code "workspace"?](https://code.visualstudio.com/docs/editor/workspaces).
-A Positron (or VS Code) workspace is often just a project folder that's been opened in its own window via *Open Folder* or similar.^[In VS Code and, therefore, Positron, the words "folder", "workspace", and "project" are used almost interchangeably, because the most common way to work is in a single-folder workspace. It is *possible* to work with so-called multi-root workspaces, which encompass two or more folders, but this is fairly exotic. It is also possible to work without a workspace, by opening just a file, but this shouldn't be anyone's *modus operandi* since many IDE features are unavailable in this mode.]
+A Positron (or VS Code) workspace is often just a project folder that's been opened in its own window via *Open Folder* or similar.^[In VS Code and, therefore, Positron, the words "folder", "workspace", and "project" are used almost interchangeably, because the most common way to work is in a single-folder workspace. It is possible to work with so-called multi-root workspaces, which encompass two or more folders, but this is fairly exotic. It is also possible to work without a workspace, by opening just a file, but this not a recommended *modus operandi* since many IDE features are unavailable in this state.]
 
 ![Various ways to open a folder in Positron, highlighted in orange.](images/open-folder.png)
 
