@@ -75,6 +75,28 @@ For example, note that this Shiny application running on `:6868` automatically g
 
 ![Port Forwarding for Local Web Content](./images/remote-ssh-port-forwarding.png)
 
+## Long-running sessions
+
+By default, Positron will forcefully end your R and Python sessions when you close Positron. If you want to leave your sessions running even after you close Positron -- for example, to leave data loaded in memory or let long-running computations continue -- you can tell Positron's kernel supervisor to keep the sessions running. You can find this setting in _Settings > Extensions > Kernel Supervisor > Shutdown Timeout_.
+
+![Shutdown Timeout Settings](./images/remote-ssh-shutdown-timeout){width=638}
+
+Note that this setting only takes effect after restarting Positron!
+
+### Resuming sessions
+
+The long-running sessions are associated with the workspace in which you use them. When you reopen a workspace that contains active sessions, Positron will automatically reconnect to the sessions if it finds any that are still running.
+
+### Shutdown timeout details
+
+Because the supervisor runs your R and Python sessions without any UI attached, it can't tell when you're done with them. In order to prevent sessions from running indefinitely and consuming resources on your remote host, the supervisor will shut them down after a certain period of inactivity. This period is controlled by _Shutdown Timeout_ setting.
+
+The shutdown timeout will never interrupt a kernel that's busy running code; it doesn't start counting down until the kernel is  idle _and_ it's not connected to any Positron windows. 
+
+If you just want to allow your kernels to finish any running computations when you exit Positron, use the _when idle_ setting.
+
+There's also an option to allow the kernels to run forever; if you use this option, your R and Python kernels will never exit unless you manually kill the processes or shut them down from Positron. We don't generally recommend using this option unless you are familiar with process management on your remote host, since it can lead to resource exhaustion.
+
 ## How it works & troubleshooting
 
 When Positron connects to a new host for the first time, it does the following:
@@ -95,3 +117,4 @@ If you need to use a different URL to download Positron Server (for example to u
 ![Remote SSH: Server Download Url Template Setting](./images/remote-ssh-server-template.png){width=650}
 
 Note that the client and server must be using **exactly** the same Positron version.
+
