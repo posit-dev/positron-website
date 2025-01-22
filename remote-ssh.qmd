@@ -26,7 +26,9 @@ Other features that aren't currently supported include:
 - Connecting to Windows Subsystem for Linux (WSL) backends[^1]
 - Dev Container workflows (note however that you can start a container yourself and connect to it)
 
-[^1]: Although Positron does not officially support connecting to Windows Subsystem for Linux (WSL) backends at this time, there is a community-maintained fork of the [Open Remote - WSL](https://github.com/kv9898/open-remote-wsl) extension adapted for Positron, available on the [Open VSX Registry](https://open-vsx.org/extension/kv9898/open-remote-wsl). The community-maintained WSL extension behaves very similarly to the remote SSH functionality described in this article. This WSL extension is not maintained by the Positron team or Posit.
+<!-- vale Posit.Contractions = NO -->
+[^1]: Although Positron doesn't officially support connecting to Windows Subsystem for Linux (WSL) backends at this time, there is a community-maintained fork of the [Open Remote - WSL](https://github.com/kv9898/open-remote-wsl) extension adapted for Positron, available on the [Open VSX Registry](https://open-vsx.org/extension/kv9898/open-remote-wsl). The community-maintained WSL extension behaves very similarly to the remote SSH functionality described in this article. This WSL extension is not maintained by the Positron team or Posit.
+<!-- vale Posit.Contractions = YES -->
 
 ## Creating a connection
 
