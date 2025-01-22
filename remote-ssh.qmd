@@ -2,9 +2,8 @@
 title: "Remote SSH"
 ---
 
-Positron has **experimental** support for Remote SSH sessions. This feature allows the Positron IDE's front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine.[^1] The two machines communicate using an ordinary secure shell (SSH) connection.
+Positron has **experimental** support for Remote SSH sessions. This feature allows the Positron IDE's front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine. The two machines communicate using an ordinary secure shell (SSH) connection.
 
-[^1]: Although Positron does not officially support connecting to Windows Subsystem for Linux (WSL) backends, there is a community-maintained fork of the [Open Remote - WSL](https://github.com/kv9898/open-remote-wsl) extension adapted for Positron, available on the [Open VSX Registry](https://open-vsx.org/extension/kv9898/open-remote-wsl). The community-maintained WSL extension behaves very similarly to the remote SSH functionality described in this article. This WSL extension is not maintained by the Positron team or Posit.
 
 ```{mermaid}
 %%| fig-align: center
@@ -25,7 +24,10 @@ Remote SSH sessions can be *initiated* from any operating system supported by Po
 
 Other features that aren't currently supported include:
 
+- Connecting to Windows Subsystem for Linux (WSL) backends[^1]
 - Dev Container workflows (note however that you can start a container yourself and connect to it)
+
+[^1]: Although Positron does not officially support connecting to Windows Subsystem for Linux (WSL) backends at this time, there is a community-maintained fork of the [Open Remote - WSL](https://github.com/kv9898/open-remote-wsl) extension adapted for Positron, available on the [Open VSX Registry](https://open-vsx.org/extension/kv9898/open-remote-wsl). The community-maintained WSL extension behaves very similarly to the remote SSH functionality described in this article. This WSL extension is not maintained by the Positron team or Posit.
 
 ## Creating a connection
 
