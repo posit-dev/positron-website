@@ -1,0 +1,166 @@
+---
+title: "The Rproj File"
+---
+
+<!-- vale Posit.Contractions = NO -->
+
+Expert data scientists keep all the files associated with a given project together — input data, scripts, analytical results, and figures.
+This is such a wise and common practice, in data science and in software development more broadly, that most integrated development environments (IDEs) have built-in support for this practice.
+
+## The Rproj file in RStudio
+
+In RStudio, you can designate the folder for a particular project (lowercase "p") as an [RStudio Project](https://docs.posit.co/ide/user/ide/guide/code/projects.html) (uppercase "P").
+Concretely, this means that RStudio places a special file in that folder, where it stores Project-specific settings.
+This file is usually named after the Project and has the `.Rproj` extension, so we're going to refer to them as Rproj files here.
+For example, the source of the dplyr R package is kept in a folder named `dplyr` and, inside of that, is the `dplyr.Rproj` file.
+
+Positron does not place anything that functions exactly like an Rproj file and the purpose of this guide to explore the implications of this.
+
+## Explicit project-hood
+
+Most data science project folders advertise their project-hood in one or more ways, such as:
+
+* RStudio Project: Presence of an Rproj file.
+* Git repository: Presence of a `.git/` folder.
+* R package: Presence of a `DESCRIPTION` file.
+* renv project: Presence of an `renv.lock` file.
+* Quarto project: Presence of a `_quarto.yml` file.
+
+Various tools that facilitate project-oriented workflows actively look for files and folders like those described above in order to recognize when a folder is the root of a project.
+Once a project root folder is identified, these tools can activate relevant product features.
+
+The [rprojroot R package](https://rprojroot.r-lib.org/), and its more user-friendly companion the [here package](https://here.r-lib.org/), are examples of such tools within the R world.
+`here::here()` can be used to build paths to files within a project, in a way that's portable across different host computers.
+
+## The Rproj file as a launch target
+
+Many long-time R and RStudio users have workflows that rely on Rproj files to find and launch projects.
+We'll obviously want to develop comparable moves for Positron, so the first step is to really understand the mechanics of the existing approaches for RStudio Projects.
+
+Double-clicking on an Rproj file in the Finder (macOS) or File Explorer (Windows) launches a fresh RStudio instance in the associated Project.
+That's because RStudio is registered to handle Rproj files at the operating system level.
+After launch, the working directory of the active R console and RStudio's File pane will both be set to the project root, which illustrates how IDEs can streamline project-oriented work.
+
+For those who find it a drag to first navigate to their intended project folder, there are even slicker approaches.
+Productivity launchers, such as Alfred on macOS, can be directed to proactively index Rproj files.
+Then a hotkey can be associated with the intention "hey, I want to launch an RStudio Project" and, after typing just enough characters to disambiguate the target, a new RStudio is instance is launched.
+
+The Rproj file is important for two reasons:
+
+* It's what Alfred indexes to form a listing of RStudio Projects.
+* The gesture of opening an Rproj file automatically launches RStudio, in the associated Project.
+
+So, the Rproj file has become load-bearing and plays a key role in some workflows that go beyond its original purpose of storing metadata for the RStudio IDE.
+This begs the question: how can we adapt these project-oriented workflows for Positron?
+
+## Positron workspaces and `settings.json`
+
+The concept in Positron that's most analogous to an RStudio Project is a **workspace** and this is inherited directly (and intentionally) from VS Code.
+You can read more in the VS Code documentation [What is a VS Code "workspace"?](https://code.visualstudio.com/docs/editor/workspaces).
+A Positron (or VS Code) workspace is often just a project folder that's been opened in its own window via *Open Folder* or similar.^[In VS Code and, therefore, Positron, the words "folder", "workspace", and "project" are used almost interchangeably, because the most common way to work is in a single-folder workspace. It is possible to work with so-called multi-root workspaces, which encompass two or more folders, but this is fairly exotic. It is also possible to work without a workspace, by opening just a file, but this not a recommended *modus operandi* since many IDE features are unavailable in this state.]
+
+![Various ways to open a folder in Positron, highlighted in orange.](images/open-folder.png)
+
+A workspace does not necessarily get marked with some characteristic file.
+Positron and VS Code will place an explicit file at `.vscode/settings.json` if (and only if) the user does some configuration that's specific to the project.
+
+Since there is no absolute guarantee that every project folder has a `.vscode/settings.json` file, we need to rethink some of our project-oriented workflows.
+There is no exact equivalent of the Rproj file.
+
+For programmatically building filepaths relative to the project root, recall that we mentioned the [here](https://here.r-lib.org/) and [rprojroot](https://rprojroot.r-lib.org/) packages above.
+Users that regularly use Git for version control in their projects won't need to make any adjustments.
+That's because, even if they choose to proactively remove the Rproj file^[An Rproj file is perfectly safe to leave in a project, so there's no need to actively remove it.], the project root folder continues to be identifiable from the presence of the `.git/` folder.
+Similarly, projects that fulfill any of the other criteria for project-hood (e.g., Quarto or renv projects or R packages) will also continue to have a well-defined root.
+Finally, in the rare case that the Rproj file was the only evidence of project-hood, one can simply leave that file in place or place an empty file named `.here` in the project root.
+
+## Launching Positron in a workspace
+
+From within Positron, various *Open Folder* gestures will open a folder as a workspace, in the current window or in a new window, depending on the context.
+This has a similar immediate effect as in RStudio, in terms of setting R's working directory and activating the file explorer.
+This is such a common gesture, though, that it's worth enumerating other ways of launching a project that can be more efficient, depending on the situation.
+
+### Put Positron on the PATH and launch it from the shell
+
+If you are often in a shell, it's worthwhile to put Positron on your PATH.
+This allows you to do `positron .` to launch Positron in the current working directory.
+You can launch any other folder as a workspace with `positron path/to/the/project/folder`.
+
+See the [Launch Positron from a Terminal](add-to-path.qmd) guide for more details.
+
+### Launch from Windows File Explorer
+
+In the Windows File Explorer, you can right-click on a folder and select "Open with Positron" from the context menu.
+If you don't see this option, that suggests that context menu integration wasn't enabled during Positron installation.
+In the "Select Additional Tasks" screen, you can check a box to add "Open with Positron" to Windows Explorer directory context menu.
+You probably need to reinstall Positron to opt in to this feature.
+
+There is no true equivalent of this in macOS, sadly.
+
+![Checkbox for 'Add "Open with Positron" action to Windows File Explorer directory context menu'](images/installer-windows-add-to-directory-context-menu.png){width=700}
+
+### Launch from the Project Manager extension
+
+The desire to facilitate project launch has long existed in the VS Code user community and we Positron users can piggyback on those solutions.
+This is a great example of the advantages of building Positron on an existing IDE, because we can use external extensions to get functionality that's not unique to Positron's data science focus.
+
+Many internal devs and users are enjoying the [Project Manager extension](https://open-vsx.org/extension/alefragnani/project-manager).
+There are probably other extensions that offer similar functionality.
+We'll point out some specifics about Project Manager here, but the main goal is to raise awareness of how useful an extension like this can be.
+
+After installing Project Manager from the Open VSX Registry, it appears as a stack of folders in the Activity Bar.
+When clicked, you gain access to a clickable, organized listing of your projects.
+
+::: {.float-end .mx-4}
+![Project Manager in the Activity Bar](images/project-manager-activity-bar.png){height=400}
+:::
+
+There are two ways to make your projects known to the Project Manager extension:
+
+* Explicitly save specific folders as favorites.
+* Tell the extension about specific folders where you tend to keep Git repositories. Any subfolder of these base folders that is also a Git repo is automatically treated as a project.
+
+The second bullet, about Git repositories, underscores a point we made earlier: it's very common for project-hood to be inferred from the fact that a folder is a Git repo.
+This turns out to be especially important in a world where we can't assume there's an Rproj file and it's arguably better to rely on conventions from the broader software landscape.
+
+If you aren't already using Git in your data science projects or you don't already organize your projects inside a small number base folders, this might be a good time to adopt these practices.
+From our experience, these lifestyle changes have far-reaching benefits and, in particular, allow you to take best advantage of tools for discovering and launching projects.
+
+Project Manager also contributes lots of useful commands, which are available from the Command Palette.
+
+![Selected commands from the Project Manager extension](images/project-manager-commands-greatest-hits.png){width=700}
+
+We lean heavily on the "List Projects to Open ..." commands for project launching.
+"Refresh Git Projects" is useful to make the extension aware of any projects that are newly cloned or created.
+
+### Use an application launcher
+
+One potential downside of the Project Manager workflows described above is that they still need to be initiated from within Positron.
+What if Positron isn't already running?
+If you want a workflow that originates from outside of Positron, one option is to use an external application launcher to drive an extension like Project Manager.
+This gets us very close to a workflow we described previously based on Rproj files and the Alfred macOS app.
+
+In this case, however, the solution relies on a different launcher, namely [Raycast](https://www.raycast.com/).
+We realize this doesn't directly translate to Windows and there are certainly other Spotlight alternatives that are relevant on macOS (such as Alfred).
+Our main goal is to affirm that it's absolutely possible to craft a project launching workflow if that's important to you.
+
+There are a few steps and choices involved in setting this up, but here is the basic outline:
+
+* Install [Raycast](https://www.raycast.com/). Accept or configure a hotkey for it.
+* Install the [Project Manager extension](https://open-vsx.org/extension/alefragnani/project-manager) in Positron and do basic setup. For example, save one or more projects as favorites or configure one or more Git base folders.
+* Install a Raycast extension that creates a bridge between Raycast and Project Manager:
+  - In Raycast, type "store" to reveal and run the Store command. Search for and install the "Visual Studio Code - Project Manager" extension. After installation, this extension appears as "Search Project Manager".
+* Configure the extension to target Positron instead of VS Code:
+  - In Raycast, type enough to locate the "Search Project Manager" extension and select it. Click on Actions in the lower right corner or type Cmd + K. Go to Configure Extension or Configure Command.
+  - The VSCode dropdown menu is where you can specify which application to launch. The default is VS Code, but you can and should change that to Positron. We find it favorable to *not* do any additional configuration. For example, do *not* configure Project Location here.
+  - In the lefthand panel, you can configure an alias (such as "pos") or record a hotkey.
+
+You should now be able to use this gesture to launch a Positron window in a specific project:
+
+* Invoke your Raycast hotkey.
+* Invoke the alias you associated with "Search Project Manager".
+* Type just enough of your target folder name to disambiguate.
+* Accept, launch, and flourish!
+
+Positron is still in beta and is therefore evolving quite rapidly.
+If you are installing frequent updates to Positron, we've found that the Raycast "Search Project Manager" extension is prone to reverting back to launching VS Code.
+This can generally be resolved by reconfiguring the extension to use Positron.
