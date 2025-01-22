@@ -77,7 +77,7 @@ For example, note that this Shiny application running on `:6868` automatically g
 
 ## Long-running sessions
 
-By default, Positron will forcefully end your R and Python sessions when you close Positron. If you want to leave your sessions running even after you close Positron -- for example, to leave data loaded in memory or let long-running computations continue -- you can tell Positron's kernel supervisor to keep the sessions running. 
+By default, Positron will forcefully end your R and Python sessions when you close Positron. If you want to leave your sessions running even after you close Positron -- for example, to leave data loaded in memory or let long-running computations continue -- you can tell Positron's kernel supervisor to keep the sessions running. You can find this setting in _Settings > Extensions > Kernel Supervisor > Shutdown Timeout_.
 
 ![Shutdown Timeout Settings](./images/remote-ssh-shutdown-timeout){width=638}
 
@@ -91,7 +91,7 @@ The long-running sessions are associated with the workspace in which you use the
 
 Because the supervisor runs your R and Python sessions without any UI attached, it can't tell when you're done with them. In order to prevent sessions from running indefinitely and consuming resources on your remote host, the supervisor will shut them down after a certain period of inactivity. This period is controlled by _Shutdown Timeout_ setting.
 
-The shutdown timeout will never interrupt a kernel that is busy running code; it does not start counting down until the kernel is  idle _and_ it is not connected to any Positron windows. 
+The shutdown timeout will never interrupt a kernel that's busy running code; it doesn't start counting down until the kernel is  idle _and_ it's not connected to any Positron windows. 
 
 If you just want to allow your kernels to finish any running computations when you exit Positron, use the _when idle_ setting.
 
