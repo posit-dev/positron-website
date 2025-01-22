@@ -1,10 +1,10 @@
 ---
-title: "Remote SSH and WSL"
+title: "Remote SSH"
 ---
 
-Positron has **experimental** support for Remote SSH sessions. This feature allows the Positron IDE's front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine. The two machines communicate using an ordinary secure shell (SSH) connection.
+Positron has **experimental** support for Remote SSH sessions. This feature allows the Positron IDE's front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine.[^1] The two machines communicate using an ordinary secure shell (SSH) connection.
 
-Although Positron does not officially support connecting to Windows Subsystem for Linux (WSL) backends at this stage, there is an open-source fork of the [Open Remote - WSL](https://github.com/kv9898/open-remote-wsl) extension dedicated to Positron maintained by community, available from the [Open VSX Registry](https://open-vsx.org/extension/kv9898/open-remote-wsl), that can be used in the meantime while official support is being developed. The community-maintained WSL extension behaves very similarly to the remote SSH functionality.
+[^1]: Although Positron does not officially support connecting to Windows Subsystem for Linux (WSL) backends, there is a community-maintained fork of the [Open Remote - WSL](https://github.com/kv9898/open-remote-wsl) extension adapted for Positron, available on the [Open VSX Registry](https://open-vsx.org/extension/kv9898/open-remote-wsl). The community-maintained WSL extension behaves very similarly to the remote SSH functionality described in this article. This WSL extension is not maintained by the Positron team or Posit.
 
 ```{mermaid}
 %%| fig-align: center
