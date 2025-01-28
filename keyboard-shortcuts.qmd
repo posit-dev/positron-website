@@ -14,6 +14,7 @@ Positron's keyboard shortcuts, with a few exceptions, are a superset of the keyb
 | <kbd>F1</kbd> | Show contextual help for the topic under the cursor |
 | <kbd>Cmd/Ctrl</kbd>+<kbd>K</kbd>, <kbd>Cmd/Ctrl</kbd>+<kbd>R</kbd> | Show contextual help for the topic under the cursor (alternate binding) |
 | <kbd>Cmd/Ctrl</kbd>+<kbd>K</kbd>, <kbd>F</kbd> | Focus the Console |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>K</kbd>, <kbd>V</kbd> | Focus the Variables pane |
 | <kbd>Ctrl</kbd>+<kbd>L</kbd> | Clear the Console |
 
 ## R shortcuts
