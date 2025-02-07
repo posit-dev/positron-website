@@ -14,20 +14,20 @@ A window reload shouldn't cause you to lose any state, but it does cause the Pos
 
 ### Output panel
 
-Python and R logs are emitted in the Output panel. Each runtime starts several output channels that can be used to help diagnose problems with a respective part of the system. 
+Python and R logs are emitted in the Output panel. Each interpreter starts several output channels that can be used to help diagnose problems with a respective part of the system. 
 
-Run the _Output: Show Output Channels_ command to show a list of output channels. You can then select one to view its output by name, like "Positron R Extension". Here's a list of some Positron-specific channels you may be interested in:
+Run the _Output: Show Output Channels_ command to show a list of output channels. You can then select one to view its output by name, like "R Language Pack". Here's a list of some Positron-specific channels you may be interested in:
 
 | Channel | Description |
 | ------- | ----------- |
-| Console: Python X.Y.Z | Communication with the Python kernel: requests to execute code, output shown in the Console, data used to build plots/environment/help panes, etc. |
-| Console: R X.Y.Z | Communication with the R kernel (similar to Python) |
-| Python Language Server | Debug logs from the server side of Positron's Python language server |
-| Positron R Language Server | Debug logs from the server side of Positron's R language server |
+| Kernel | Communication from the Python or R kernel itself: requests to execute code, output to be shown in the Console, data used to build plots/environment/help panes, etc. This channel will have a name like "R X.Y.Z: Kernel." |
+| Console/Notebook | Communication from the Console or Notebook running the Python or R kernel: messages the Console sends and receives, changes in the Console's state, etc. This channel will have a name like "Python X.Y.Z: Console." |
+| Language Server | Debug logs from the server side of the language server Positron uses for any given interpreter. This channel will have a name like "R X.Y.Z: Language Server (Console)." |
+| Language Pack | Debug logs from the extension that Positron uses to discover, start, and manage interpreters. This channel will have a name like "Python Language Pack." |
 
 ### Log level
 
-Most of these output channels have a log level associated with them that you can change in the settings UI. 
+Most of these output channels have a log level associated with them that you can change in the settings UI. For example, you can change the log level for how much information is passed from the R kernel itself to the "R X.Y.Z: Kernel" output channel using the `positron.r.kernel.logLevel` setting.
 
 ## Developer tools
 
