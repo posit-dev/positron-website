@@ -48,7 +48,7 @@ If you have an R installation that won't be discovered by the search strategy de
   - Hypothetical example: `C:/nonstandardRLocation/R-4.4.1/bin/x64/R.exe`
 
 One way to navigate to these settings is to use the command palette to open Preferences: Open Settings.
-Then navigate to **Extensions** > **R** > **Positron R Language Pack (advanced)**.
+Then navigate to **Extensions** > **R** > **Advanced**.
 It's important to use absolute paths in these settings and not rely on shell features, such as tilde (`~/`) or parameter (`${HOME}`) expansion.
 
 ## Unsupported R installations
