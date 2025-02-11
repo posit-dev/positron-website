@@ -69,5 +69,5 @@ We highly recommend rig for managing R installation, especially for macOS users 
 
 ## Troubleshooting
 
-The discovery process is logged in the Positron R Extension channel.
+The discovery process is logged in the R Language Pack channel.
 You can learn more in the [troubleshooting guide](troubleshooting.qmd).
