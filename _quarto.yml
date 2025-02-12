@@ -25,6 +25,9 @@ website:
     right:
       - text: "License"
         href: licensing.qmd
+      - text: "Privacy"
+        aria-label: "Link to Privacy Policy"
+        href: "https://posit.co/about/privacy-policy/"
       - icon: question-circle-fill
         aria-label: 'Link to Posit Support'
         href: "https://support.posit.co/hc/en-us"
