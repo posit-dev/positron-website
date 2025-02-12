@@ -6,7 +6,7 @@ params:
 
 Find out what you need to know to [get started](start.qmd) using Positron, then download the installer for your platform.
 
-Please review [Positron's license agreement](licensing.qmd). Your acceptance of this license agreement is required as a condition to proceeding with your download or use of the software.
+Please review [Positron's license agreement](licensing.qmd) and [privacy policy](https://posit.co/about/privacy-policy/). Your acceptance of this license agreement and privacy policy is required as a condition to proceeding with your download or use of the software.
 
 ```{r}
 #| echo: false
