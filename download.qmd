@@ -15,7 +15,7 @@ Please review [Positron's license agreement](licensing.qmd) and [privacy policy]
 
 <div id="privacy-policy-agreement">
   <input type="checkbox" id="privacy-checkbox" onclick="privacyClickHandler(this)">
-  <label>I agree to the Positron license agreement and Posit Privacy Policy.</label>
+  <label>I agree to the [Positron license agreement](licensing.qmd) and [Posit Privacy Policy](https://posit.co/about/privacy-policy/).</label>
 </div>
 
 ```{r, id='download-table', class='hidden'}
