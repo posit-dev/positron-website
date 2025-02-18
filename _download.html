@@ -1,0 +1,16 @@
+<style>
+.hidden {
+    display: none
+}
+</style>
+<script type="application/javascript">
+    function privacyClickHandler(checkbox) {
+        console.log(checkbox.checked);
+        const downloadTable = window.document.querySelector("#download-table");
+        if (checkbox.checked) {
+            downloadTable.classList.remove("hidden");
+        } else {
+            downloadTable.classList.add("hidden");
+        }
+    }
+</script>

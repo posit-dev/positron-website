@@ -2,13 +2,23 @@
 title: "Download Positron"
 params:
   version: "2025.02.0-171"
+format:
+  html:
+    include-in-header:
+      - '_download.html'
+
 ---
 
 Find out what you need to know to [get started](start.qmd) using Positron, then download the installer for your platform.
 
 Please review [Positron's license agreement](licensing.qmd) and [privacy policy](https://posit.co/about/privacy-policy/). Your acceptance of this license agreement and privacy policy is required as a condition to proceeding with your download or use of the software.
 
-```{r}
+<div id="privacy-policy-agreement">
+  <input type="checkbox" id="privacy-checkbox" onclick="privacyClickHandler(this)">
+  <label>I agree to the Positron license agreement and Posit Privacy Policy.</label>
+</div>
+
+```{r, id='download-table', class='hidden'}
 #| echo: false
 #| classes: plain
 
