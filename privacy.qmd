@@ -1,0 +1,26 @@
+---
+title: "Privacy"
+---
+
+## Positron Data Collection
+
+Posit Software, PBC is committed to protecting your privacy. Our [Privacy Policy](https://posit.co/about/privacy-policy/) applies to the information that we obtain through your use of our products and/or services and our websites, including [https://positron.posit.co](https://positron.posit.co).
+
+### Why do we collect data?
+
+Positron uses this information anonymously and in aggregate to determine how often our products are used and which data science features are important to our users. This helps us prioritize feature improvements or novel features in future versions of our product.
+
+### What information do we collect?
+
+#### Website and download data
+
+When you visit our website or download our software, Posit logs network access information. Positron also includes in-product features that periodically check for new versions of the product or its extensions. These access logs include common information about the client, including the operating system, browser type, IP address, referral sources, timestamp and URI accessed. 
+
+- To stop Positron checking for product updates, disable the setting `update.autoUpdate`. 
+- To stop Positron checking for extension updates, disable the setting `extensions.autoCheckUpdates`.
+
+#### Primary Language reporting
+
+Positron also includes an option to share the primary data science languages in use, such as Python or R.
+
+- To stop Positron sharing the primary data science languages in use, disable the setting `update.primaryLanguageReporting`.
