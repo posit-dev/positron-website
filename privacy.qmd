@@ -4,7 +4,7 @@ title: "Privacy"
 
 ## Positron data collection
 
-Posit Software, PBC is committed to protecting your privacy. Our [Privacy Policy](https://posit.co/about/privacy-policy/) applies to the information that we obtain through your use of our products and/or services and our websites, including [https://positron.posit.co](https://positron.posit.co).
+Posit Software, PBC is committed to protecting your privacy. Our [Privacy Policy](https://posit.co/about/privacy-policy/) applies to the information that we obtain through your use of our products and/or services and our websites, including <https://positron.posit.co>.
 
 ### Why do we collect data?
 
