@@ -14,7 +14,7 @@ Positron uses this information anonymously and in aggregate to determine how oft
 
 #### Website and download data
 
-When you visit our website or download our software, Posit logs network access information. Positron also includes in-product features that periodically check for new versions of the product or its extensions. These access logs include common information about the client, including the operating system, browser type, IP address, referral sources, timestamp and URI accessed. 
+When you visit our website or download our software, Posit logs network access information. Positron also includes in-product features that periodically check for new versions of the product or its extensions. These access logs include common information about the client, including the operating system, browser type, IP address, referral sources, timestamp, and URI accessed. 
 
 - To stop Positron checking for product updates, disable the setting `update.autoUpdate`. 
 - To stop Positron checking for extension updates, disable the setting `extensions.autoCheckUpdates`.
