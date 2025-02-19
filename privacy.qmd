@@ -8,7 +8,7 @@ Posit Software, PBC is committed to protecting your privacy. Our [Privacy Policy
 
 ### Why do we collect data?
 
-Positron uses this information anonymously and in aggregate to determine how often our products are used and which data science features are important to our users. This helps us prioritize feature improvements or novel features in future versions of our product.
+Posit uses this information anonymously and in aggregate to determine how often our products are used and which data science features are important to our users. This helps us prioritize feature improvements or novel features in future versions of our product.
 
 ### What information do we collect?
 
