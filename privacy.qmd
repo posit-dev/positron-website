@@ -21,6 +21,6 @@ When you visit our website or download our software, Posit logs network access i
 
 #### Primary language reporting
 
-Positron also includes an option to share the primary data science languages in use, such as Python or R.
+Positron also includes an option to share the primary data science languages in use, such as Python and/or R.
 
 - To stop Positron sharing the primary data science languages in use, disable the setting `update.primaryLanguageReporting`.
