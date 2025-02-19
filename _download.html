@@ -1,16 +1,47 @@
 <style>
-.hidden {
-    display: none
-}
+    .disabled {
+        text-decoration: none;
+        color: grey;
+    }
 </style>
 <script type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", () => {
+        const downloadLinks = window.document.querySelectorAll("#download-table a");
+        
+        downloadLinks.forEach((link) => {
+            link.addEventListener("click", (ev) => {
+                if (ev.currentTarget.classList.contains("disabled")) {
+                    ev.preventDefault();
+
+                    const dialog = window.document.querySelector("#accept-dialog");
+                    dialog.showModal();
+                }
+            });
+        });
+
+        setLinkEnablement(false);
+    });
+
+    function closeDialog() {
+        const dialog = window.document.querySelector("#accept-dialog");
+        dialog.close();
+    }
+
     function privacyClickHandler(checkbox) {
-        console.log(checkbox.checked);
-        const downloadTable = window.document.querySelector("#download-table");
-        if (checkbox.checked) {
-            downloadTable.classList.remove("hidden");
-        } else {
-            downloadTable.classList.add("hidden");
-        }
+        setLinkEnablement(checkbox.checked);
+    }
+
+    function setLinkEnablement(enable) {
+        const downloadLinks = window.document.querySelectorAll("#download-table a");
+        downloadLinks.forEach((link) => {
+            if (enable) {
+                link.classList.remove("disabled");
+                link.removeAttribute("aria-disabled");
+            } else {
+                link.classList.add("disabled");
+                link.setAttribute("aria-disabled", "");
+            }
+            return;
+        });
     }
 </script>
