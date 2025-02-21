@@ -6,13 +6,20 @@ format:
   html:
     include-in-header:
       - '_download.html'
-    include-before-body:
-      - '_download_modal.html'
+
 ---
 
 Find out what you need to know to [get started](start.qmd) using Positron, then download the installer for your platform.
 
+::: callout-note
 Please review [Positron's license agreement](licensing.qmd) and [privacy policy](https://posit.co/about/privacy-policy/). Your acceptance of this license agreement and privacy policy is required as a condition to proceeding with your download or use of the software.
+
+<div id="privacy-policy-agreement">
+  <input type="checkbox" id="privacy-checkbox" onclick="updatePrivacy(this)">
+  <label>I agree to the [Positron license agreement](licensing.qmd) and [Posit Privacy Policy](https://posit.co/about/privacy-policy/).</label>
+</div>
+:::
+
 
 ```{r, id='download-table'}
 #| echo: false
