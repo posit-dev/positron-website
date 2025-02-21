@@ -1,0 +1,57 @@
+<style>
+    .disabled {
+        pointer-events: none;
+        cursor: none;
+        color: var(--bs-tertiary-color);
+    }
+    .disabled-overlay {
+        opacity: 0.5;
+        background-color: var(--bs-secondary-bg);
+        border-radius: 5px;
+        transition-duration: 1s;
+    }
+    .visible {
+        transition-duration: 1s;
+    }
+</style>
+
+<script type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", () => {
+        setLinkEnablement(false);
+    });
+    
+    function setLinkEnablement(enable) {
+        const downloadTable = window.document.querySelector("#download-table");
+        const downloadLinks = window.document.querySelectorAll("#download-table a");
+
+        if (enable) {
+            downloadTable.classList.remove("disabled-overlay");
+            downloadTable.classList.add("visible");
+        }
+        else {
+            downloadTable.classList.add("disabled-overlay");
+            downloadTable.classList.remove("visible");
+        }
+
+        downloadLinks.forEach((link) => {
+            if (enable) {
+                link.classList.remove("disabled");
+                link.removeAttribute("aria-disabled");
+                link.removeAttribute("tabindex");
+            } else {
+                link.classList.add("disabled");
+                link.setAttribute("aria-disabled", "");
+                link.setAttribute("tabindex", "-1");
+            }
+            return;
+        });
+    }
+
+    function updatePrivacy(checkbox) {
+        setLinkEnablement(checkbox.checked);
+        if (checkbox.checked) {
+
+        } else {
+        }
+    }
+</script>
