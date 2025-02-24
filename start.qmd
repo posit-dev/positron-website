@@ -38,13 +38,13 @@ rig system rtools add
 
 Positron works with [actively supported versions](https://devguide.python.org/versions/#versions) of Python, from 3.8 to Python 3.12. We recommend [pyenv](https://github.com/pyenv/pyenv) and [pyenv for Windows](https://github.com/pyenv-win/pyenv-win) for managing Python versions. On Linux, you'll want to [be aware of the build requirements](https://github.com/pyenv/pyenv/wiki/common-build-problems); for example, you'll need the system library for SQLite (`sqlite-devel` or `libsqlite3-dev`) installed ahead of time so pyenv can properly build your chosen Python version for use with Positron.
 
-Positron communicates with Python via the IPykernel package, so it needs to be installed for the Python environment you want to use with Positron. If you are managing your Python project using a tool like venv or conda, add `ipykernel` to your `requirements.txt` file. You can install IPykernel manually as follows:
+Positron requires the IPykernel package (version 6.19.1 or higher) to communicate with Python. IPykernel is bundled with Positron for the CPython implementation, which is the default and most widely used Python implementation.
+
+If you are using an implementation other than CPython, you'll need to install IPykernel manually in your Python environment. Positron prompts you to install IPykernel if it isn't found when you initially try to use a Python environment. Alternatively, you can add `ipykernel` to your package's existing requirements file, or install IPykernel manually as follows:
 
 ``` bash
 python3 -m pip install ipykernel
 ```
-
-Alternatively, Positron prompts you to install the IPykernel package if it isn't found when you initially try to use a Python environment.
 
 ### R prerequisites
 
