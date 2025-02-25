@@ -38,9 +38,16 @@ rig system rtools add
 
 Positron works with [actively supported versions](https://devguide.python.org/versions/#versions) of Python, from 3.8 to Python 3.12. We recommend [pyenv](https://github.com/pyenv/pyenv) and [pyenv for Windows](https://github.com/pyenv-win/pyenv-win) for managing Python versions. On Linux, you'll want to [be aware of the build requirements](https://github.com/pyenv/pyenv/wiki/common-build-problems); for example, you'll need the system library for SQLite (`sqlite-devel` or `libsqlite3-dev`) installed ahead of time so pyenv can properly build your chosen Python version for use with Positron.
 
-Positron requires the IPykernel package (version 6.19.1 or higher) to communicate with Python. IPykernel is bundled with Positron for the CPython implementation, which is the default and most widely used Python implementation.
+Positron requires the [IPython kernel](https://pypi.org/project/ipykernel/) (version 6.19.1 or higher) to communicate with Python. By default, the IPython kernel is bundled with Positron for the CPython implementation (the standard Python implementation) and added to the [Python search path](https://docs.python.org/3/library/sys_path_init.html).
 
-If you are using an implementation other than CPython, you'll need to install IPykernel manually in your Python environment. Positron prompts you to install IPykernel if it isn't found when you initially try to use a Python environment. Alternatively, you can add `ipykernel` to your package's existing requirements file, or install IPykernel manually as follows:
+If you are using an implementation other than CPython, you'll need to install the IPython kernel manually. 
+
+If you prefer finer control over your Python environment, set the `python.useBundledIpykernel` setting to false and install the IPython kernel manually.
+
+
+#### Manually installing the IPython kernel
+
+Positron prompts you to install the IPython kernel if it isn't found when you initially try to use a Python environment. Alternatively, you can add `ipykernel` to your package's existing requirements file, or install it manually as follows:
 
 ``` bash
 python3 -m pip install ipykernel
