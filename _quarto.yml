@@ -46,6 +46,8 @@ website:
         href: add-to-path.qmd
       - text: "Help"
         href: troubleshooting.qmd
+      - text: "<span class='btn btn-primary'>Download</span>"
+        href: download.qmd  
     right:
       - icon: github
         aria-label: 'Link to Positron Github Repository'

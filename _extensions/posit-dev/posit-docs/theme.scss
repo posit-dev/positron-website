@@ -105,12 +105,26 @@ body {
   font-size: 14px !important;
   font-weight: 500 !important;
   color: $posit-gray !important;
+
+}
+
+ul.me-auto {
+  position: relative;
+  top: 0.75rem;
 }
 
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
   color: #000000 !important;
   font-weight: 700 !important;
+}
+
+.menu-text.btn {
+  top: inherit;
+}
+li.nav-item span.btn.btn-primary {
+  position: relative;
+  top: -0.6rem;
 }
 
 /* Footer */

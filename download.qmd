@@ -11,7 +11,9 @@ format:
 
 Find out what you need to know to [get started](start.qmd) using Positron, then download the installer for your platform.
 
-::: callout-note
+::: callout-important
+## Accept license agreement
+
 Please review [Positron's license agreement](licensing.qmd) and [privacy policy](https://posit.co/about/privacy-policy/). Your acceptance of this license agreement and privacy policy is required as a condition to proceeding with your download or use of the software.
 
 <div id="privacy-policy-agreement">
