@@ -9,7 +9,7 @@ As of build 2025.03.0-116, Positron automatically checks for updates from our ch
 
 You can opt out of this automatic checking by changing the `update.mode` setting to `"none"`; see [our page on privacy and data collection](privacy.qmd) for more details.
 
-We are currently also making releases available approximately weekly, for users who are interested in trying out new features at a faster cadence. You can find these releases [on GitHub](https://github.com/posit-dev/positron/releases), and may be interested in the following helpers to manage these manual updates.
+We're currently also making releases available approximately weekly, for users who are interested in trying out new features at a faster cadence. You can find these releases [on GitHub](https://github.com/posit-dev/positron/releases), and may be interested in the following helpers to manage these manual updates.
 
 ## macOS
 
