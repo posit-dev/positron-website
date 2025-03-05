@@ -2,11 +2,18 @@
 title: "Updating Positron"
 ---
 
-Positron doesn't currently have a built-in update mechanism; you can [track our work on this feature on GitHub](https://github.com/posit-dev/positron/issues/1837). In the meantime, there are a few helpers available to you to manage manual updates.
+As of build 2025.03.0-116, Positron automatically checks for updates from our channel of monthly prereleases.
+
+- On Windows and Mac, if an update is available, Positron will download it and install the new version in the background.
+- On Linux, Positron will show a notification when an update is available.
+
+You can opt out of this automatic checking by changing the `update.mode` setting to `"none"`; see [our page on privacy and data collection](privacy.qmd) for more details.
+
+We are currently also making releases available approximately weekly, for users who are interested in trying out new features at a faster cadence. You can find these releases [on GitHub](https://github.com/posit-dev/positron/releases), and may be interested in the following helpers to manage these manual updates.
 
 ## macOS
 
-There is a shell script available that you can use to download and install the latest version. First, download the update script and mark it executable:
+There is a shell script available that you can use to download and install the latest version available via GitHub. First, download the update script and mark it executable:
 
 ```sh
 curl https://gist.githubusercontent.com/juliasilge/a74883871e98afe67b01cd9125b104c7/raw/14e447e9fa0aaa858050720f177ed011b059a115/update-positron.sh -o update-positron.sh
