@@ -79,3 +79,14 @@ As a specific example, you could add the following to your user `keybindings.jso
     }
 }
 ```
+
+Be aware that Positron's integrated terminal can [intercept some keyboard shortcuts](https://code.visualstudio.com/docs/terminal/advanced#_keyboard-shortcuts-and-the-shell). You can set up a keybinding to skip the shell by specifying its command in the `terminal.integrated.commandsToSkipShell` setting, either via the settings UI or by editing `settings.json`:
+
+```json
+{
+    "terminal.integrated.commandsToSkipShell": [
+        // Ensure the keyboard shortcut for focusing the console skips the shell
+        "workbench.action.positronConsole.focusConsole"
+    ]
+}
+```
