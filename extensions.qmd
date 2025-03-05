@@ -2,11 +2,13 @@
 title: "Extensions"
 ---
 
-Since Positron is built on [Code OSS](https://github.com/microsoft/vscode), you can use VS Code extensions in Positron. Your extensions installed for Positron are _separate_ from the extensions you have installed for VS Code, and they won't interfere with each other. Positron bundles several extensions, including those for Quarto, Jupyter notebooks, and Pyright. To see bundled extensions, search for `@builtin` under the Extensions tab. To further filter the list, you can add a search term, such as `@builtin Positron`
+Since Positron is built on [Code OSS](https://github.com/microsoft/vscode), you can use VS Code extensions in Positron. Your extensions installed for Positron are _separate_ from the extensions you have installed for VS Code, and they won't interfere with each other. Positron bundles several extensions, including those for Quarto, Jupyter notebooks, and Pyright. These extensions are installed for you the first time you start Positron.
 
 :::{.callout-note}
 Positron doesn't currently bundle the [Shiny](https://open-vsx.org/extension/posit/shiny) extension, so you will need to install that if you want to use it.
 :::
+
+Positron also uses built-in extensions to manage functionality like the R and Python backends for Positron's frontend features. To see these  extensions, search for `@builtin` under the Extensions tab. To further filter the list, you can add a search term, such as `@builtin positron`.
 
 ### Installing extensions
 
