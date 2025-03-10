@@ -16,7 +16,7 @@ We're currently also making releases available approximately weekly, for users w
 There is a shell script available that you can use to download and install the latest version available via GitHub. First, download the update script and mark it executable:
 
 ```sh
-curl https://gist.githubusercontent.com/juliasilge/a74883871e98afe67b01cd9125b104c7/raw/14e447e9fa0aaa858050720f177ed011b059a115/update-positron.sh -o update-positron.sh
+curl https://gist.githubusercontent.com/juliasilge/a74883871e98afe67b01cd9125b104c7/raw/1514a69bda59f2837184bd7c372889885c138d51/update-positron.sh -o update-positron.sh
 
 chmod u+x update-positron.sh
 ```
