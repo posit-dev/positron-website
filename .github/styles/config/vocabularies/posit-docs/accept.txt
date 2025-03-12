@@ -26,3 +26,4 @@ Data Explorer
 Project Manager
 Windows
 File Explorer
+Connections Pane
