@@ -55,10 +55,10 @@ download_table <- data.frame(
     "Windows 10, 11 x64 (system level install)",
     "Windows 10, 11 x64 (user level install)",
     "MacOS 10.15+ (universal)",
-    "Debian-based Linux x64 (Ubuntu 22+)",
-    "Debian-based Linux arm64 (Ubuntu 24+)",
-    "Red Hat-based Linux x64 (RHEL9)",
-    "Red Hat-based Linux arm64 (RHEL9)"
+    "Debian-based Linux x64 (Ubuntu 20+)",
+    "Debian-based Linux arm64 (Ubuntu 20+)",
+    "Red Hat-based Linux x64 (RHEL8)",
+    "Red Hat-based Linux arm64 (RHEL8)"
   ),
   Download = markdown_links,
   Size = file_sizes
