@@ -43,32 +43,32 @@ the database icon that appears close to the object name in the Variables Pane.
 
 That will bring up the Connections Pane, allowing you to navigate the database.
 
-## Extending the connections pane
+## Extending the Connections Pane
 
-The connections pane can be extended in two different ways:
+The Connections Pane can be extended by:
 
-- Adding support for browsing and managing a new connection type in the connections pane.
-- Extending the 'New connections' modal to support creating a connection of a new type
+- Adding support for browsing and managing a new connection type in the Connections Pane.
+- Extending the "New connections" modal to support creating a connection of a new type.
 
 ### Adding new connection types
 
-Currently this is extensible in R using the [RStudio connections contract](https://rstudio.github.io/rstudio-extensions/connections-contract.html).
+Currently connections types are extensible in R using the [RStudio connections contract](https://rstudio.github.io/rstudio-extensions/connections-contract.html).
 Refer to the [RStudio connections contract documentation](https://rstudio.github.io/rstudio-extensions/connections-contract.html) for more information on how to implement a new connection type.
 
-For Python, we don't currently support an external extension mechanism. The connections pane can be extended by implementing
+For Python, we don't currently support an external extension mechanism. The Connections Pane can be extended by implementing
 a subclass of the [`Connection`](https://github.com/posit-dev/positron/blob/5140ddd59a3071c8c73e6135f0f1bb5d27f0bcae/extensions/positron-python/python_files/posit/positron/connections.py#L64-L159) object and submitting a PR to the Positron repository. Refer to `SQLite3Connection` for [an example](https://github.com/posit-dev/positron/blob/5140ddd59a3071c8c73e6135f0f1bb5d27f0bcae/extensions/positron-python/python_files/posit/positron/connections.py#L501-L616).
 
-### Extending the 'New connections' modal
+### Extending the "New connections" modal
 
-The 'New connections' modal allows users to easily create connections to different databases. 
-It helps users to create a connection by providing a form to fill in the connection details.
+The "New connections" modal allows users to easily create connections to different databases. 
+It helps users create a connection by providing a form to fill in the connection details.
 
-The modal can be extended using Positron Extensions, see ['Extension Development'](./extension-development.qmd) for more information. 
+The modal can be extended by creating an extension for Positron; see [Extension Development](extension-development.qmd) for more information. 
 
 In order for an extension to provide support for a new connection type, it needs to implement and 
 register a `positron.ConnectionsDriver`. A driver provides metadata about the connection type and
 implements callbacks that are used to install dependencies required to create the connection, connect
-with the database and disconnect.
+with the database, and disconnect.
 
 The definition can be found [here](https://github.com/posit-dev/positron/blob/d939b3df7d6f5ab65a134ad843fce24550ef6125/src/positron-dts/positron.d.ts#L1231)
 
