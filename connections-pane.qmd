@@ -70,7 +70,7 @@ register a `positron.ConnectionsDriver`. A driver provides metadata about the co
 implements callbacks that are used to install dependencies required to create the connection, connect
 with the database, and disconnect.
 
-The definition can be found [here](https://github.com/posit-dev/positron/blob/d939b3df7d6f5ab65a134ad843fce24550ef6125/src/positron-dts/positron.d.ts#L1231)
+The definition can be found in [positron.d.ts](https://github.com/posit-dev/positron/blob/main/src/positron-dts/positron.d.ts). Look for `ConnectionsDriver`.
 
 ```ts
 export interface ConnectionsDriver {
@@ -112,4 +112,4 @@ export interface ConnectionsDriver {
 To register a driver, extensions need to call `positron.connections.registerConnectionDriver()` with
 the driver instance as an argument.
 
-Refer to [drivers.ts](https://github.com/posit-dev/positron/blob/3ef420c66eaf888c3eabfcb3631317117ef620f2/extensions/positron-connections/src/drivers.ts) for examples of drivers implemented in the Positron Connections extension.
+Refer to [drivers.ts](https://github.com/posit-dev/positron/blob/main/extensions/positron-connections/src/drivers.ts) for examples of drivers implemented in the Positron Connections extension.
