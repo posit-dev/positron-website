@@ -52,7 +52,7 @@ The Connections Pane can be extended by:
 
 ### Adding new connection types
 
-Currently connections types are extensible in R using the [RStudio connections contract](https://rstudio.github.io/rstudio-extensions/connections-contract.html).
+Currently connection types are extensible in R using the [RStudio connections contract](https://rstudio.github.io/rstudio-extensions/connections-contract.html).
 Refer to the [RStudio connections contract documentation](https://rstudio.github.io/rstudio-extensions/connections-contract.html) for more information on how to implement a new connection type.
 
 For Python, we don't currently support an external extension mechanism. The Connections Pane can be extended by implementing
@@ -70,7 +70,7 @@ register a `positron.ConnectionsDriver`. A driver provides metadata about the co
 implements callbacks that are used to install dependencies required to create the connection, connect
 with the database, and disconnect.
 
-The definition can be found in [positron.d.ts](https://github.com/posit-dev/positron/blob/main/src/positron-dts/positron.d.ts). Look for `ConnectionsDriver`.
+The definition can be found in [positron.d.ts](https://github.com/posit-dev/positron/blob/main/src/positron-dts/positron.d.ts); look for `ConnectionsDriver`.
 
 ```ts
 export interface ConnectionsDriver {
