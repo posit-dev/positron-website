@@ -54,12 +54,18 @@ Changing interpreters causes the old interpreter to be shut down and the new one
 
 ## Interpreter startup behavior
 
-The `interpreters.startupBehavior` setting controls how interpreters are started in Positron windows. By default, Positron will automatically try to start an interpreter when needed, or if it was previously used in the workspace.
+By default, Positron will automatically try to start an interpreter when needed, or if an interpreter was previously used in the workspace. To configure how interpreters are started in Positron windows, use the `interpreters.startupBehavior` setting.
 
 ### Per-language interpreter startup behavior
 
 In the Settings UI, search for `@lang:r interpreters.startupBehavior` or `@lang:python interpreters.startupBehavior`, and choose the desired configuration. The selected startup behavior will be applied to the corresponding language.
 
+For example, if you only ever use Python and never want R to start, set `@lang:r interpreters.startupBehavior` to `disabled` to hide R interpreters from the Positron UI altogether.
+
+Alternatively, if you are mainly an R user, but occasionally use Python, you can set `@lang:python interpreters.startupBehavior` to `manual` to prevent Python from starting automatically, but still allow you to start a Python interpreter manually.
+
 ### General interpreter startup behavior
 
 In the Settings UI, search for the setting `interpreters.startupBehavior` in the Settings UI without a language key, and choose the desired configuration. The selected startup behavior will be applied to all languages.
+
+Note that if any per-language startup behavior is set, it takes precedence over the general interpreter startup behavior setting.
