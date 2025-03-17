@@ -52,7 +52,7 @@ If you are an R user, see the [R discovery](r-installations.qmd) guide for more 
 Changing interpreters causes the old interpreter to be shut down and the new one to be started. This means that any state in the old interpreter will be lost, including any variables you've defined. Make sure you've saved your work before switching versions.
 :::
 
-## Interpreter Startup Behavior
+## Interpreter startup behavior
 
 The `interpreters.startupBehavior` setting controls how interpreters are started in Positron windows. By default, Positron will automatically try to start an interpreter when needed, or if it was previously used in the workspace.
 
