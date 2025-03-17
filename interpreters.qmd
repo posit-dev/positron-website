@@ -51,3 +51,36 @@ If you are an R user, see the [R discovery](r-installations.qmd) guide for more 
 :::{.callout-warning}
 Changing interpreters causes the old interpreter to be shut down and the new one to be started. This means that any state in the old interpreter will be lost, including any variables you've defined. Make sure you've saved your work before switching versions.
 :::
+
+## Configuring interpreter startup
+
+If the interpreter selection that Positron uses by default isn't a good fit for you, you can customize and configure how interpreters are started using the `interpreters.startupBehavior` settings.
+
+### Per-language interpreter startup behavior
+
+In the Settings UI, search for `@lang:r interpreters.startupBehavior` or `@lang:python interpreters.startupBehavior`, and choose the desired configuration. The selected startup behavior will be applied to the corresponding language.
+
+For example, if you only ever use Python and never want R to start, set `@lang:r interpreters.startupBehavior` to `"disabled"` to hide R interpreters from the Positron UI altogether. You can specify this at either the user or workspace level, and your configuration will appear in your `settings.json` as:
+
+```json
+{
+    "[r]": {
+        "interpreters.startupBehavior": "disabled"
+    }
+}
+```
+Alternatively, if you are mainly an R user, but occasionally use Python, you can set `@lang:python interpreters.startupBehavior` to `"manual"` to prevent Python from starting automatically, but still allow you to start a Python interpreter manually:
+
+```json
+{
+    "[python]": {
+        "interpreters.startupBehavior": "manual"
+    }
+}
+```
+
+### General interpreter startup behavior
+
+In the Settings UI, search for the setting `interpreters.startupBehavior` in the Settings UI without a language key, and choose the desired configuration. The selected startup behavior will be applied to _all_ interpreters.
+
+Note that if any per-language startup behavior is set, it takes precedence over the general interpreter startup behavior setting.
