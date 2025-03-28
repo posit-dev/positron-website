@@ -7,7 +7,13 @@ It also includes basic support for storing and managing connection strings for f
 
 ![Connections Pane](images/connections-pane.png)
 
-## Opening a connection using R
+## Opening a new connections
+
+To open a new connection, click on the "New connection" button in the Connections Pane. This will open a modal that allows you to select the connection type and fill in the connection details. This modal generates the code required to open the connection in your R or Python session.
+
+![New connections modal](images/connections-pane-new-connection.png)
+
+### Opening a connection using R
 
 To open a connection in Positron Connections Pane, you need to connect to a database using any
 package that supports the connections contract, such as [odbc](https://github.com/r-dbi/odbc), [sparklyr](https://github.com/rstudio/sparklyr),
@@ -26,7 +32,11 @@ con <- connections::connection_open(RSQLite::SQLite(), file.path(tmp, "nycflight
 
 You can also open an existing connection from the Variables Pane, as shown below for Python, and you can find more information about connecting to a specific database [from Posit Solutions Engineering](https://solutions.posit.co/connections/db/databases/).
 
-## Opening a connection using Python
+Once a connection is opened you can use the Connections Pane to explore the database schema.
+
+![Connections Pane showing a connection object](images/connections-pane-schema-explorer.png)
+
+### Opening a connection using Python
 
 Currently we support connections created using the [sqlite3](https://docs.python.org/3/library/sqlite3.html) and [SQLAlchemy](https://www.sqlalchemy.org) modules.
 To open a connection in the Connections Pane, create a top level object that represents the connection/engine.
