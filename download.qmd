@@ -9,7 +9,7 @@ format:
 
 ---
 
-Find out what you need to know to [get started](start.qmd) using Positron, then download the installer for your platform.
+Find out what you need to know to [get started](start.qmd) using Positron, then download the desktop installer for your platform.
 
 ::: callout-important
 ## Accept license agreement
@@ -38,9 +38,7 @@ urls <- list(
   glue("{cdn_url}win/x86_64/Positron-{params$version}-UserSetup.exe"),
   glue("{cdn_url}mac/universal/Positron-{params$version}.dmg"),
   glue("{cdn_url}deb/x86_64/Positron-{params$version}-x64.deb"),
-  glue("{cdn_url}deb/arm64/Positron-{params$version}-arm64.deb"),
-  glue("{cdn_url}rpm/x86_64/Positron-{params$version}-x64.rpm"),
-  glue("{cdn_url}rpm/arm64/Positron-{params$version}-arm64.rpm")
+  glue("{cdn_url}deb/arm64/Positron-{params$version}-arm64.deb")
 )
 
 cloudfront_headers <- map(urls, HEAD) |> map(headers)
@@ -56,9 +54,7 @@ download_table <- data.frame(
     "Windows 10, 11 x64 (user level install)",
     "MacOS 10.15+ (universal)",
     "Debian-based Linux x64 (Ubuntu 20+)",
-    "Debian-based Linux arm64 (Ubuntu 20+)",
-    "Red Hat-based Linux x64 (RHEL8)",
-    "Red Hat-based Linux arm64 (RHEL8)"
+    "Debian-based Linux arm64 (Ubuntu 20+)"
   ),
   Download = markdown_links,
   Size = file_sizes
@@ -70,3 +66,7 @@ knitr::kable(download_table)
 <br>
 
 Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases).
+
+# Positron Pro on Posit Workbench
+
+[Posit Workbench](https://posit.co/products/enterprise/workbench/) 2024.12.1 and later includes preview support for Positron Pro. To configure and use Positron Pro on Posit Workbench, please see the [Posit Workbench Administration Guide](https://docs.posit.co/ide/server-pro/positron_sessions/) and the [Positron Pro user guide](https://docs.posit.co/ide/server-pro/user/positron/getting-started/). 
