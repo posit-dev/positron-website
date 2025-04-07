@@ -27,3 +27,4 @@ Project Manager
 Windows
 File Explorer
 Connections Pane
+Positron Pro
