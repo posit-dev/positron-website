@@ -21,6 +21,8 @@ When defining your extension's manifest, you can use the `isPositron` context ke
 
 This allows your extension to enable commands, keybindings, menu items, and any other contribution points only for Positron.
 
-## Positron API
+## Extension APIs
 
-Positron provides [all the normal contribution points and the VS Code API](https://code.visualstudio.com/api/extension-capabilities/overview) to extensions, but also additionally new APIs to use. We plan to make the extension development experience better (for example, [safely wrapping](https://github.com/posit-dev/positron/issues/458) and [providing typing for](https://github.com/posit-dev/positron/issues/809) the Positron API), but in the meantime, we recommend you [take a look at the Positron API details directly](https://github.com/posit-dev/positron/tree/main/src/positron-dts).
+Positron provides [all the normal contribution points and the VS Code API](https://code.visualstudio.com/api/extension-capabilities/overview) to extensions. Unlike VS Code, however, so-called [proposed APIs](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) are available to all extension authors by default, and don't require special configuration on the part of users to enable.
+
+Positron-native extensions can also make use of its own API. We plan to make the extension development experience better (for example, [safely wrapping](https://github.com/posit-dev/positron/issues/458) and [providing typing for](https://github.com/posit-dev/positron/issues/809) the Positron API), but in the meantime, we recommend you [take a look at the Positron API details directly](https://github.com/posit-dev/positron/tree/main/src/positron-dts).
