@@ -1,15 +1,12 @@
 ---
 title: "Snippets for R"
-execute:
-  eval: false
 ---
 
 Code snippets let you insert ready-made templates for common coding patterns.
 For example, `for` is a reserved word in R that is used to create a loop.
 However, in actual usage, `for` is always part of a larger construct:
 
-```{r}
-#| eval: false
+```r
 for (variable in vector) {
     # code to repeat
 }
