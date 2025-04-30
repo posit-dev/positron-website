@@ -67,7 +67,7 @@ Snippets can be stored in three types of files:
 1. "Global": contains snippets that are not limited to one language. Create with *New Global Snippets file...*.
     - Individual snippets can have a `scope` which specifies one or more languages. Include `"r"` in the `scope` for any snippet you want to use in R.
     - This writes a `.code-snippets` file alongside your other Positron user settings. It is pre-populated with example snippets for both R and Python.
-1. "Global" but for one workspace. Create with *New Snippets file for 'MyProject'*.
+1. "Global" but for one workspace: contains snippets for multiple languages but scoped to a specific workspace. Create with *New Snippets file for 'MyProject'*.
     - This writes a `.code-snippets` file alongside the other settings for the workspace, pre-populated with example snippets.
     ![Menu with options for "New Global Snippets file" and "New Snippets file for 'MyProject'"](images/snippets-configure-snippets.png){width=700}
 1. Language-specific: contains snippets for one specific language. Create by selecting the language from the drop-down menu.
