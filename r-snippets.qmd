@@ -12,7 +12,7 @@ for (variable in vector) {
 }
 ```
 
-A snippet for `for` inserts this whole skeleton, with special placeholders that let you use "tab" to move through the positions for `variable`, `vector`, and `# code to repeat`.
+A snippet for `for` inserts this whole skeleton, with special placeholders that let you use <kbd>Tab</kbd> to move through the positions for `variable`, `vector`, and `# code to repeat`.
 
 ![Completion list after typing "for", showing the snippet that can be inserted](images/snippets-for-example){width=700}
 
