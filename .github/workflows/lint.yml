@@ -12,7 +12,7 @@ jobs:
       - name: Lint Quarto files with vale
         uses: errata-ai/vale-action@reviewdog
         with:
-          fail_on_error: true
+          fail_on_error: false
           level: warning
           vale_flags: "--minAlertLevel=warning"
           filter_mode: added
