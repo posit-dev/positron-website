@@ -16,5 +16,5 @@ jobs:
           level: warning
           vale_flags: "--minAlertLevel=warning"
           filter_mode: added
-          reporter: github-pr-review
+          reporter: github-pr-check
           token: ${{secrets.GITHUB_TOKEN}}
