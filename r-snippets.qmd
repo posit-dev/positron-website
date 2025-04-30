@@ -53,7 +53,6 @@ This division of labor means that the completion and snippet responsibilities ar
 
 In Positron, the completion items related to R's reserved words are built into ark.
 Each reserved word can be completed on its own and, in some cases, as part of a larger snippet.
-At this time, nothing here is configurable.
 
 ![Completion list with rectangles highlighting two entries for the `for` reserved word, one as a bare completion and another as a snippet](images/snippets-keyword-with-two-items.png){width=700}
 
