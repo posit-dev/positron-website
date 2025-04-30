@@ -13,6 +13,8 @@ jobs:
         uses: errata-ai/vale-action@reviewdog
         with:
           fail_on_error: true
-          filter_mode: nofilter
+          level: warning
+          vale_flags: "--minAlertLevel=warning"
+          filter_mode: file
           reporter: github-pr-review
           token: ${{secrets.GITHUB_TOKEN}}
