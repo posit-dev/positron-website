@@ -15,6 +15,6 @@ jobs:
           fail_on_error: true
           level: warning
           vale_flags: "--minAlertLevel=warning"
-          filter_mode: file
+          filter_mode: added
           reporter: github-pr-review
           token: ${{secrets.GITHUB_TOKEN}}
