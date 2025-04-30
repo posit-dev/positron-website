@@ -1,7 +1,7 @@
 extends: substitution
 message: "Use '%s' instead of '%s'."
 link: https://docs.microsoft.com/en-us/style-guide/word-choice/use-contractions
-level: error
+level: warning
 ignorecase: true
 action:
   name: replace
@@ -14,7 +14,7 @@ swap:
   does not: doesn't
   has not: hasn't
   have not: haven't
-  ##  how is: how's
+  how is: how's
   is not: isn't
 
   'it is(?!\.)': it's
