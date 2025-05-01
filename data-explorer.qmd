@@ -45,7 +45,7 @@ The summary panel displays a vertical scrolling list of all of the column names 
 
 Double clicking on a column name will also bring the column into focus in the data grid, allowing for quickly navigating wider data.
 
-1. The summary panel quickly collapsed by dragging it to the edge or clicking on the collapse button after hovering over the grid and summary panel divider.
+1. The summary panel can be collapsed by dragging the grid and summary panel divider to the edge or by clicking on the collapse button after hovering over the divider. If you prefer to collapse the summary panel by default, this can be configured via the `dataExplorer.summaryCollapsed` setting.
 2. The summary panel can also be placed on the left or right side of the Data Explorer via the Layout control.
 
 ![Data Explorer summary panel collapse and placement](images/data-explorer-summary-panel-placement.png){width=700}
