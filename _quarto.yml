@@ -78,6 +78,7 @@ website:
         - extension-development.qmd
         - section: "Migrating from RStudio"
           contents:
+          - rstudio-keybindings.qmd
           - rstudio-rproj-file.qmd
           - r-snippets.qmd
 
