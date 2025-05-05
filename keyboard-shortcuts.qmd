@@ -31,8 +31,7 @@ Positron's keyboard shortcuts, with a few exceptions, are a superset of the keyb
 
 ## RStudio keybindings
 
-If you'd prefer to use RStudio keybindings, see [this section](rstudio-keybindings.qmd) for
-instructions on how to enable them for Positron.
+If you'd prefer to use RStudio keybindings, see [our instructions](rstudio-keybindings.qmd) on how to enable them for Positron.
 
 ## Custom shortcuts
 
