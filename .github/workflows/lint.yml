@@ -1,9 +1,9 @@
 on: pull_request
 
-name: Vale Lint
+name: Lint
 
 jobs:
-  vale:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -16,3 +16,9 @@ jobs:
           filter_mode: nofilter
           reporter: github-pr-review
           token: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Check URLs in Quarto files
+        uses: urlstechie/urlchecker-action@master
+        with:
+          file_types: .qmd
+          exclude_patterns: https://cdn.posit.co/positron/prereleases/
