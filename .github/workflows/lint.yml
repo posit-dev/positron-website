@@ -21,3 +21,4 @@ jobs:
         uses: urlstechie/urlchecker-action@master
         with:
           file_types: .qmd
+          exclude_patterns: https://cdn.posit.co/positron/prereleases/
