@@ -16,3 +16,8 @@ jobs:
           filter_mode: nofilter
           reporter: github-pr-review
           token: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Check URLs in Quarto files
+        uses: urlstechie/urlchecker-action@master
+        with:
+          file_types: .qmd
