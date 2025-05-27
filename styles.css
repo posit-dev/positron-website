@@ -1,1 +1,14 @@
 /* css styles */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("_extensions/quarto-ext/fontawesome/assets/webfonts/fa-solid-900.woff2");
+}
+
+/* Add gear icon before links with href starting with "positron://settings" */
+a[href^="positron://settings"]::before {
+  content: "\f013"; /* Unicode for gear in Font Awesome */
+  font-family: 'Font Awesome\ 6 Free'; 
+}
