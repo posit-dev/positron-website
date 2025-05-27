@@ -42,9 +42,9 @@ Positron consults various sources to build the list of available R interpreters:
 
 If you have an R installation that won't be discovered by the search strategy described above, two settings are available to instruct Positron to look in additional locations:
 
-* `positron.r.customRootFolders`: Suitable for R root folders that contain 1 or more R installations.
+* [`positron.r.customRootFolders`](positron://settings/positron.r.customRootFolders): Suitable for R root folders that contain 1 or more R installations.
   - Hypothetical example: `C:/nonstandardRLocation`
-* `positron.r.customBinaries`: Suitable for specific R executables.
+* [`positron.r.customBinaries`](positron://settings/positron.r.customBinaries): Suitable for specific R executables.
   - Hypothetical example: `C:/nonstandardRLocation/R-4.4.1/bin/x64/R.exe`
 
 One way to navigate to these settings is to use the command palette to open Preferences: Open Settings.
