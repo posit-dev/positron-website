@@ -11,5 +11,4 @@
 a[href^="positron://settings"]::before {
   content: "\f013"; /* Unicode for gear in Font Awesome */
   font-family: 'Font Awesome\ 6 Free'; 
-  font-weight: 900;
 }
