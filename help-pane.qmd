@@ -21,7 +21,7 @@ int?
 help(int)
 ```
 
-#### Supported Content
+#### Supported content
 
 The Help Pane supports the following types of documentation in Python:
 
@@ -37,7 +37,7 @@ The Help Pane supports the following types of documentation in Python:
 help(paste0)
 ```
 
-#### Supported Content
+#### Supported content
 
 The Help Pane supports the following types of documentation in R:
 
