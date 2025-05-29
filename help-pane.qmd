@@ -10,7 +10,7 @@ It can be used to display information about an object, function, or package.
 ## Getting Help in Python & R
 
 You can open documentation in the Help Pane using language-specific tools or the keyboard shortcut `F1`. 
-These methods will automatically open the Help pane and display documentation.
+These methods automatically open the Help pane and display documentation.
 
 ::: {.panel-tabset}
 

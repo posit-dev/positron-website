@@ -63,7 +63,7 @@ Follow these exact rules, which are based on our style guide.
 
 - Titles/H1s: Use **Title Case**
 - Other headings: Use **sentence case**
-- Dp not format documentation titles. Do not italicize or use quotations. 
+- Do not format documentation titles. Do not italicize or use quotations. 
 
 ## Formatting Rules
 
