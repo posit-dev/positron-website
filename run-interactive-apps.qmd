@@ -27,9 +27,10 @@ Currently, Positron supports the following Python app frameworks:
 
 Then, Positron runs the app in a dedicated **Terminal** tab and opens the app URL in the **Viewer** pane.
 If your application does not automatically open in the Viewer, check that the setting [`positron://settings/python.terminal.shellIntegration.enabled`](positron://settings/python.terminal.shellIntegration.enabled) is enabled.
-To stop the app, select the **Terminal** tab running the application and use the trash can icon to delete the **Terminal** or press `Ctrl+C` to stop the process.
 
 ![A Streamlit app in the Positron Viewer](images/run-app-streamlit.png)
+
+To stop the app, select the **Terminal** tab running the application and use the trash can icon to delete the **Terminal** or press `Ctrl+C` to stop the process.
 
 ## Debugging an interactive app
 
