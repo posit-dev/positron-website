@@ -22,19 +22,16 @@ The Data Explorer has three primary components, discussed in greater detail in t
 
 ## Opening the Data Explorer
 
-To open the Data Explorer, you can use one of the following methods:
-
-* Click on a data file in the File Explorer Pane or open a data file from the
-  command palette. Currently `.csv`, `.tsv`, and `.parquet` files are supported,
-  but more formats may be added in the future. GZIP-compressed CSV files ending
-  in `.gz` can also be opened.
-* Navigate to the Variables Pane and click on the Data Explorer icon for a
-  specific dataframe object
-* Use the language runtime directly:
-    * Via Python: `%view dataframe label`
-    * Via R: `View(dataframe, "label")`
+There are a few ways to open the Data Explorer. If you want to look at data you
+have loaded into memory already, you can navigate to the Variables Pane and
+click on the table icon for a specific dataframe object.
 
 ![Data Explorer from the Variables Pane](images/data-explorer-variables.png){width=700}
+
+Using code or the console, you can also run one of the following commands:
+
+* In Python: `%view dataframe label`
+* In R: `View(dataframe, "label")`
 
 In Python, the `%view` magic can also be used with expressions, for example
 `%view df[df['column'] > 10]`. In R, the `View` function can be composed
@@ -44,6 +41,15 @@ with expressions using pipe syntax:
 df %>% mutate(doubled_column = column * 2) 
    %>% View()
 ```
+
+To open a data file from the File explorer pane or from the command palette, 
+
+Directly opening `.csv`, `.tsv`, and `.parquet` files (using DuckDB) is
+supported by clicking on a file in the File Explorer pane or using the command
+palette. GZIP-compressed CSV files ending in `.gz` can also be opened. We may
+add support for more file types in the future.
+
+![Data Explorer from the Files Pane](images/data-explorer-files-in-env.png){width=300}
 
 Each data explorer instance watches the underlying data for changes, so if you
 edit a data file or modify an in-memory dataframe, the changes will be reflected
@@ -59,10 +65,14 @@ support for other libraries that expose a tabular data interface.
 
 The data grid is the primary display, with a spreadsheet-like cell-by-cell view.
 It's intended to scale efficiently to relatively large in-memory datasets, up to
-millions of rows or columns. Each column header has the column name above the
-data type, as used in the language runtime. At the top right of each column,
-there is a context menu to control sorting or to add a filter for the selected
-column. Resize columns by clicking and dragging the column's borders.
+millions of rows or columns. 
+
+![Data Explorer Grid Example](images/data-explorer-grid-example.png){width=700}
+
+Each column header has the column name above the data type, which is dependent
+on the backend type (language runtime or DuckDB). At the top right of each
+column, there is a context menu to control sorting or to add a filter for the
+selected column. Resize columns by clicking and dragging the column's borders.
 
 ![Data Explorer Column Menu](images/data-explorer-column-menu.png){width=300}
 
@@ -74,25 +84,33 @@ rows with modified indices or string-based labels.
 
 The summary panel displays a vertical scrolling list of all of the column names
 and an icon representing their respective type. It displays a sparkline
-histogram of that column's data, and also displays the amount of missing data as
-both an inline bar graph and an increasing percentage.
+histogram or frequency table of that column's data, and also displays the amount
+of missing data as both an inline bar graph and an increasing percentage. If you
+click on the carat symbol for a column, it will expand to show additional
+summary statistics and a larger sparkline.
 
 ![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=350}
+
+<p style="column-gap: 10px; display: flex;">
+  <img src="images/data-explorer-summary-sparkline-tooltip.png" width="250" />
+  <img src="images/data-explorer-summary-missing-tooltip.png" width="300" />
+</p>
 
 Double clicking on a column name will also bring the column into focus in the
 data grid, allowing for quickly navigating wider data.
 
 1. The summary panel can be collapsed by dragging the grid and summary panel
    divider to the edge or by clicking on the collapse button after hovering over
-   the divider. If you prefer to collapse the summary panel by default, this can
-   be configured via the `dataExplorer.summaryCollapsed` setting.
+   the divider. 
 
 2. The summary panel can also be placed on the left or right side of the Data
    Explorer via the Layout control.
 
 ![Data Explorer summary panel collapse and placement](images/data-explorer-summary-panel-placement.png){width=700}
 
-## Selection and Copy-and-Paste
+You can change the default settings for these configuration options in Positron's settings:
+
+![Data Explorer summary panel configuration](images/data-explorer-summary-config.png){width=500}
 
 ## Filtering
 
@@ -118,5 +136,7 @@ matches. Alternatively, numeric columns have logical operations such as: is less
 than or greater than, is equal to, or is inclusively between two values.
 
 ## Sorting
+
+## Selection and Copy-and-Paste
 
 ## Configuration Options
