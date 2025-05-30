@@ -2,23 +2,19 @@
 title: "Get Started"
 ---
 
-## Is Positron for me?
+::: {.callout-note}
 
-::: callout-note
-Positron is an early stage project under active development. We don't expect it to be the best fit for everyone doing data science right away.
+Positron is currently in **Public Beta** but we are nearing our initial Release Candidate. This means that while it is usable and stable, it may still have some rough edges. We welcome your feedback and contributions as we continue to improve Positron.
+
 :::
 
-#### Positron might be a good fit for you today if...
+#### Positron might be a good fit for you if...
 
--   you use VS Code for data science (Python or R) but wish it included more affordances for data-specific work like a dedicated console, variables pane, data explorer, and ways to interact with your plots.
--   you use Jupyterlab for data science (Python or R) and are ready for a more powerful, fully-featured IDE.
+-   you use VS Code for data science (Python or R) but wish it included more affordances for data-specific work like a dedicated console, variables pane, data explorer, ways to interact with your plots and interactively develop data apps such as Shiny, Streamlit, or FastAPI.
+-   you use Jupyterlab or other Notebook tools for data science (Python or R) and are ready for a more powerful, fully-featured IDE that still supports notebooks.
 -   you use RStudio and want more ability to customize or extend your IDE.
 -   you use additional languages beyond only Python or R in your day-to-day data science or package development work, like Rust, C++, JavaScript, or Lua.
-
-#### Positron might *not* be a good fit for you today if...
-
--   you need stable, polished software, as Positron is still in beta and some features are unstable or unfinished.
--   you need all the features of the RStudio IDE, as Positron doesn’t have all RStudio’s features; some notable absences are inline output for Quarto and R Markdown, profiling, Sweave, RStudio Add-In support, etc.
+-   you want access to powerful, data-science specific AI integrations in a modern, extensible IDE
 
 ## Machine prerequisites
 
