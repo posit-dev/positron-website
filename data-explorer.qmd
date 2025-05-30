@@ -42,10 +42,8 @@ df %>% mutate(doubled_column = column * 2)
    %>% View()
 ```
 
-To open a data file from the File explorer pane or from the command palette, 
-
 Directly opening `.csv`, `.tsv`, and `.parquet` files (using DuckDB) is
-supported by clicking on a file in the File Explorer pane or using the command
+supported by clicking on a file in the file explorer pane or using the command
 palette. GZIP-compressed CSV files ending in `.gz` can also be opened. We may
 add support for more file types in the future.
 
@@ -60,13 +58,13 @@ of the window:
 
 ![Data Explorer Loading Indicators](images/data-explorer-loading-indicators.png){width=300}
 
-### Supported Data Frame Libraries
+### Supported data frame libraries
 
 pandas and Polars `DataFrame` objects are supported in Python, and `data.frame`,
 `tibble`, and `data.table` are supported in R. Based on user feedback, we may add
 support for other libraries that expose a tabular data interface.
 
-### Opening CSV Files as Plain Text
+### Opening CSV files as plain text
 
 After opening a CSV file in the data explorer, if you need to view the file in
 the text editor, click on the "Open as Plain Text File" option in the top action
@@ -179,7 +177,7 @@ action bar:
 
 ![Clear Column Sorting Button](images/data-explorer-clear-column-sorting.png){width=400}
 
-## Grid Selection and Copy-and-Paste
+## Grid selection and copy-and-paste
 
 The data grid has copy-and-paste capabilities similar to a spreadsheet. You can
 select:
