@@ -160,6 +160,25 @@ than or greater than, is equal to, or is inclusively between two values.
 
 ## Sorting
 
+To sort the data by a column's values, open a column's context menu from the top
+of the grid and click either "Sort Ascending" or "Sort Descending":
+
+![Sorting Data from Column Context Menu](images/data-explorer-sort-context-menu.png){width=300}
+
+When a column is sorted, the column header will have an arrow pointing up or
+down indicating the sort direction. You can sort by multiple columns by opening
+the context menu for a second column and sorting it, too. The number next to the
+sort direction indicates the sort order of the column.
+
+![Sorting Data by Multiple Columns](images/data-explorer-sort-multiple-columns.png){width=400}
+
+A data explorer can be sorted and filtered at the same time without any issues.
+
+To clear the sorting, click on the "Clear Column Sorting" button in the top
+action bar:
+
+![Clear Column Sorting Button](images/data-explorer-clear-column-sorting.png){width=400}
+
 ## Grid Selection and Copy-and-Paste
 
 The data grid has copy-and-paste capabilities similar to a spreadsheet. You can
