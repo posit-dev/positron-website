@@ -160,6 +160,40 @@ than or greater than, is equal to, or is inclusively between two values.
 
 ## Sorting
 
-## Selection and Copy-and-Paste
+## Grid Selection and Copy-and-Paste
 
-## Configuration Options
+The data grid has copy-and-paste capabilities similar to a spreadsheet. You can
+select:
+
+* A single cell
+* A rectangular range of cells
+* One or more entire rows
+* One or more entire columns
+
+To copy a single value, click on the cell of interest and either press
+**Ctrl-C** (on Windows and Linux) or **Cmd-C** (on macOS). You can also copy
+using the right-click context menu:
+
+![Data Grid Cell Context Menu](images/data-explorer-copy-cell-context-menu.png){width=300}
+
+To copy a rectangular range of cells, first click on a cell, then hold the
+**Shift** key and click on another cell to select the range of interest. Then
+either press **Ctrl-C**/**Cmd-C** or use the context menu to copy:
+
+![Copying a Rectangular Range of Cells](images/data-explorer-copy-rectangular-range.png){width=500}
+
+When you copy a rectangular range of cells, the values are copied along with the
+column names in tab-separated format to ease pasting into Excel or Google
+Sheets. 
+
+To copy whole rows or columns, click on the first row label or column label then
+either hold **Shift** and click on another row or column label to select a
+range, or use **Ctrl-C**/**Cmd-C** to select individual rows or columns, but not
+necessarily a range:
+
+![Copying Multiple Data Rows](images/data-explorer-copy-whole-rows.png){width=500}
+
+![Copying Multiple Data Columns](images/data-explorer-copy-whole-columns.png){width=500}
+
+Like copying a rectangular range of cells, copying an entire row or column will
+include the column names in the tab-separated output.
