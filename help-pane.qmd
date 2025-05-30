@@ -1,0 +1,58 @@
+---
+title: "Help Pane"
+---
+
+
+The **Help Pane** provides rich, in-editor documentation for Python and R.
+It can be used to display information about an object, function, or package. 
+
+
+## Getting Help in Python & R
+
+You can open documentation in the Help Pane using language-specific tools or the keyboard shortcut <kbd>F1</kbd>. 
+These methods automatically open the Help Pane and display documentation.
+
+::: {.panel-tabset}
+
+### Python
+
+```python
+int?
+# or
+help(int)
+```
+
+#### Supported content
+
+The Help Pane supports the following types of documentation in Python:
+
+- Modules, classes, functions, and objects with docstrings
+- Rich rendering for common docstring formats: Google, NumPy, Sphinx, Epytext
+
+
+### R
+
+```r
+?paste0
+# or
+help(paste0)
+```
+
+#### Supported content
+
+The Help Pane supports the following types of documentation in R:
+
+- Function and package documentation
+- Package vignettes (when available)
+
+:::
+
+
+The Help Pane includes built-in navigation tools:
+
+- {{< fa search>}}  Search – Find keywords within a help page
+
+- {{< fa arrow-left >}}  {{< fa arrow-right >}} Back and Forward – Navigate through recent help views
+
+All documentation is fully interlinked, with internal references and copyable code examples available where supported.
+
