@@ -9,12 +9,6 @@ execute:
 
 website:
   favicon: "images/favicon.svg"
-  announcement:
-    icon: info-circle
-    dismissable: false
-    content: "Positron is available for beta testing and [may not yet be a good fit for you](start.qmd#is-positron-for-me). If you are interested in experimenting with it, we welcome your [feedback](feedback.qmd)!"
-    type: warning
-    position: below-navbar
   repo-url: https://github.com/posit-dev/positron-website
   issue-url: https://github.com/posit-dev/positron/issues/
   repo-actions: [edit, source, issue]
@@ -81,7 +75,6 @@ website:
           - rstudio-keybindings.qmd
           - rstudio-rproj-file.qmd
           - r-snippets.qmd
-
     - title: "Help"
       style: "docked"
       contents:
