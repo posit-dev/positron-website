@@ -31,5 +31,6 @@ Positron Pro
 Positron Assistant
 GitHub Copilot
 Anthropic Claude
+Anthropic Claude Sonnet
 Google Gemini
 AWS Bedrock
