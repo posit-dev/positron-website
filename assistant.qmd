@@ -4,7 +4,7 @@ title: "Positron Assistant"
 
 ::: {.callout-note}
 
-The Positron Assistant is currently an experimental feature in Positron, available in 2025.06.0-167 and beyond. We are actively improving the user experience and functionality, so please provide feedback and report any issues you encounter.
+The Positron Assistant is currently an experimental feature in Positron, available in 2025.06.0-167 and beyond. We are actively improving the user experience and functionality, so please provide [feedback](https://github.com/posit-dev/positron/discussions) and [report any issues](https://github.com/posit-dev/positron/issues/new/choose) you encounter.
 
 :::
 
@@ -148,11 +148,11 @@ If you have a Github account with Copilot enabled, you can authenticate to Githu
 
 ## Support and Terms of Service
 
-Posit does not provide support or assistance for any code written or generated in RStudio, with or without Positron Assistant via any model provider. Posit does not support the Anthropic or GitHub Copilot output, or test the logic used by either to generate code from prompts.
+Posit does not provide support or assistance for any code written or generated in Positron, with or without Positron Assistant via any model provider. Posit does not support the Anthropic or GitHub Copilot output, or test the logic used by either to generate code from prompts.
 
 ### Anthropic
 
-Anthropic Claude is considered "Third Party Materials" as defined in the Posit EULA and subject to the Anthropic [Terms of Service](https://www.anthropic.com/legal/consumer-terms) and [Privacy Policy](https://www.anthropic.com/legal/privacy). Anthropic Claude is considered “Third Party Materials” as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
+Anthropic Claude is considered "Third Party Materials" as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and subject to the Anthropic [Terms of Service](https://www.anthropic.com/legal/consumer-terms) and [Privacy Policy](https://www.anthropic.com/legal/privacy). Anthropic Claude is considered “Third Party Materials” as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
 
 ### GitHub Copilot
 
