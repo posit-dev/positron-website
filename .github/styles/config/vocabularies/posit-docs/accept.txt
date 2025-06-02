@@ -29,6 +29,7 @@ File Explorer
 Connections Pane
 Positron Pro
 Positron Assistant
+Shiny Assistant
 GitHub Copilot
 Anthropic Claude
 Anthropic Claude Sonnet
