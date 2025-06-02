@@ -170,7 +170,7 @@ of the grid and click either "Sort Ascending" or "Sort Descending":
 ![Sorting Data from Column Context Menu](images/data-explorer-sort-context-menu.png){width=300}
 
 To clear an individual column's sort, click on the column header and select
-"Clear Column Sorting" from the context menu.
+"Clear Sorting" from the context menu.
 
 When a column is sorted, the column header will have an arrow pointing up or
 down indicating the sort direction. You can sort by multiple columns by opening
