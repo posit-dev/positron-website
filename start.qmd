@@ -10,11 +10,11 @@ Positron is currently in **Public Beta** but we are nearing our initial Release 
 
 #### Positron might be a good fit for you if...
 
--   you use VS Code for data science (Python or R) but wish it included more affordances for data-specific work like a dedicated console, variables pane, data explorer, ways to interact with your plots and interactively develop data apps such as Shiny, Streamlit, or FastAPI.
--   you use Jupyterlab or other Notebook tools for data science (Python or R) and are ready for a more powerful, fully-featured IDE that still supports notebooks.
+-   you use VS Code for data science (Python or R) but wish it included more interactive affordances for data-specific tasks like running exploratory code, examining your variables and datasets, interacting with your plots, and developing data apps such as Shiny, Streamlit, or FastAPI.
+-   you use JupyterLab or hosted notebook tools for data science (Python or R) and are ready for a more powerful, fully-featured IDE that still supports notebooks.
 -   you use RStudio and want more ability to customize or extend your IDE.
 -   you use additional languages beyond only Python or R in your day-to-day data science or package development work, like Rust, C++, JavaScript, or Lua.
--   you want access to powerful, data-science specific AI integrations in a modern, extensible IDE
+-   you want access to powerful, data-science specific AI integrations in a modern, extensible IDE.
 
 ## Machine prerequisites
 
