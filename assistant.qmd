@@ -130,9 +130,11 @@ If GitHub Copilot is enabled and the user pauses typing for a few seconds, Posit
 
 ## Shiny Assistant
 
-The Shiny Assistant is a specialized tool available within Positron Assistant that provides context-aware assistance for Shiny applications in Python or R. It can help you with tasks such as generating Shiny UI components, server logic, and reactive expressions.
+The Shiny Assistant is a chat participant available within Positron Assistant that provides context-aware assistance for developing Shiny applications in Python or R. It can help you with tasks such as generating Shiny UI components, server logic, and reactive expressions.
 
-The Shiny Assistant is available in the chat pane and inline chat once you have enabled Positron Assistant and installed the [Shiny extension](https://open-vsx.org/extension/posit/shiny). Like other chat participants, Shiny Assistant can be invoked by typing `@shiny` in the chat pane or inline chat, followed by your question or request related to Shiny development.
+The Shiny Assistant enhances the default prompt with additional information about Shiny that we have found improves the quality of generated apps and Shiny components. It is also kept up to date with the latest Shiny features and best practices, in a way that is not practical with foundational models or fine-tuning.
+
+The Shiny Assistant is available in the chat once you have installed the [Shiny extension](https://open-vsx.org/extension/posit/shiny). Like other chat participants, Shiny Assistant can be invoked by typing `@shiny` in the chat pane or inline chat, followed by your question or request related to Shiny development.
 
 ## Language model provider API keys & authentication
 
