@@ -1,7 +1,7 @@
 ---
 title: "Download Positron"
 params:
-  version: "2025.05.0-142"
+  version: "2025.06.0-167"
 format:
   html:
     include-in-header:
