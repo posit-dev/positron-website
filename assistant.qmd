@@ -4,7 +4,7 @@ title: "Positron Assistant"
 
 ::: {.callout-note}
 
-The Positron Assistant is currently an experimental feature in Positron. We are actively improving the user experience and functionality, so please provide feedback and report any issues you encounter.
+The Positron Assistant is currently an experimental feature in Positron, available in 2025.06.0-167 and beyond. We are actively improving the user experience and functionality, so please provide feedback and report any issues you encounter.
 
 :::
 
@@ -26,7 +26,7 @@ A few examples include:
 
 All of that Positron-specific context is in addition to the core capabilities of what traditional software-oriented GenAI clients have (active file(s), selected line(s) of code, files in project, training data in the model, etc).
 
-## Get Started
+## Get started
 
 The general steps to use Positron Assistant are:
 
@@ -63,22 +63,20 @@ Positron Assistant is not enabled by default. Follow these steps to enable it:
 
 ## Configuring Positron Assistant
 
-### Adding Language Models
-
-Anthropic and Github Copilot are the currently supported language model providers for Positron Assistant. Anthropic Claude is available for sidebar chat and inline chat, while Github Copilot is available for inline code completions only.
-
-#### Pre-requisites
-
-Currently, Positron Assistant uses a bring-your-own API key model, so you'll need to get keys set up ahead of time and bring those into Positron.
+Currently, Positron Assistant uses a bring-your-own API key model for Anthropic, so you'll need to get keys set up ahead of time and bring those into Positron. GitHub Copilot uses an OAuth flow for authentication, so you will need to have a GitHub account with Copilot enabled.
 
 - **Chat model providers:** Anthropic Claude is available for sidebar chat and inline chat.
 - **Inline code completion model providers:** only GitHub Copilot is available. Positron's status bar will show registered inline code completion providers in the robot icon tooltip in the bottom-right of the Positron window.
 
-If you don't already have API keys for these providers, see the [Language Model Provider API Keys](#language-model-provider-api-keys-authentication) section below for instructions on how to get them, before continuing with the steps below.
+If you don't already have API keys or an account for these providers, see the [Language Model Provider API Keys](#language-model-provider-api-keys-authentication) section below for instructions on how to get them, before continuing with the steps below.
 
-#### Signing into Language Model Providers
+### Managing language model providers
 
-1. Run the `Positron Assistant: Add Language Model` command to open the language model dialog. You can also click the "Add Language Model" button in the Positron Assistant chat area (note: the button may be collapsed within the `...` context menu).
+Anthropic and Github Copilot are the currently supported language model providers for Positron Assistant. Anthropic Claude is available for sidebar chat and inline chat, while Github Copilot is available for inline code completions only.
+
+#### Adding language model providers
+
+1. Run the `Positron Assistant: Add Language Model` command to open the language model provider dialog. You can also click the "Add Language Model provider" button in the Positron Assistant chat area (note: the button may be collapsed within the `...` context menu).
 
 1. Select the model provider you want to add and authenticate with the API key or OAuth flow as required by the provider.
 
@@ -90,7 +88,7 @@ If you don't already have API keys for these providers, see the [Language Model 
 There is a known issue on Mac that may occur when logging into a language model provider. If you see auth errors or keychain error notifications and cannot successfully use Positron Assistant, you may want to try the workaround in [this issue](https://github.com/posit-dev/positron/issues/7331).
 :::
 
-### Removing Language Models
+#### Removing language model providers
 
 1. Run the `Positron Assistant: Add Language Model` command to open the language model dialog. You can also click the "Add Language Model" button in the Positron Assistant chat area (note: the button may be collapsed within the `...` context menu).
 
@@ -100,10 +98,31 @@ There is a known issue on Mac that may occur when logging into a language model 
 
 1. Click the "Done" button to close the dialog.
 
-## Language Model Provider API Keys & Authentication
+## Using Positron Assistant
+
+### Chat Pane
+
+Click on the chat robot icon in the sidebar, or run the `Chat: Open Chat in Sidebar` command in the Command Palette to open the chat.
+
+Assistant's Chat pane (in the Activity Panel by default) knows about your R and Python console session inputs/outputs, in-memory objects and dataframes as available in the variables pane, and can look at the Plots pane too, if instructed. The user can attach files via the @ icon in or drag files as attachments to ask questions about specific files.
+
+Code generated by Assistant can be run in the Console, copied to the clipboard, or sent to the Editor via controls attached to code output blocks.
+
+### Inline Chat
+
+The command _Inline Chat: Editor Inline Chat_ (default keybinding: Cmd + I) will open a mini chat right in the editor. This is very useful for asking questions in context, and also includes a good UX for integrating changes suggested by the model.
+
+### Completions
+
+If GitHub Copilot is enabled and the user pauses typing for a few seconds, Positron Assistant will offer completions in most contexts. If it is not working, check the following:
+
+- Make sure you have a [language model provider added](#adding-language-model-providers) for completions.
+- Check the DevTools Console logs to see if there are any errors logged. Run the `Developer: Toggle Developer Tools` command in the Command Palette to open DevTools.
+
+## Language model provider API keys & authentication
 
 ::: {.callout-tip}
-Since you may need to access these API keys multiple times, we recommend storing them in a password manager 1Password, or another secure location.
+Since you may need to access these API keys multiple times, we recommend storing them in a password manager such as 1Password, or another secure location.
 :::
 
 ### Anthropic Claude
@@ -127,32 +146,15 @@ Note that the available models in Positron are:
 
 If you have a Github account with Copilot enabled, you can authenticate to Github Copilot in Positron Assistant in the language model dialog. The authentication flow will open up a browser and direct you to sign into Github. Once authenticated, Copilot will be available for inline code completions only.
 
-## Using Positron Assistant
-
-### Chat Pane
-
-Click on the chat robot icon in the sidebar, or run the `Chat: Open Chat in Sidebar` command in the Command Palette to open the chat.
-
-Assistant's Chat pane (in the Activity Panel by default) knows about your R and Python console session and variables, and can look at the Plots pane too, if instructed. You can drag files as attachments to ask questions about specific code.
-
-Code generated by Assistant can be run in the Console, copied, or sent to the Editor.
-
-### Inline Chat
-
-The command _Inline Chat: Editor Inline Chat_ (default keybinding: Cmd + I) will open a mini chat right in the editor. This is very useful for asking questions in context, and also includes a good UX for integrating changes suggested by the model.
-
-### Completions
-
-If you pause typing for a few seconds, Positron Assistant will offer completions in most contexts. If it isn't working, check the following:
-
-- Make sure you have a [language model added](#adding-language-models) for completions.
-- Check the DevTools Console logs to see if there are any errors logged. Run the `Developer: Toggle Developer Tools` command in the Command Palette to open DevTools.
-
 ## Support and Terms of Service
 
 Posit does not provide support or assistance for any code written or generated in RStudio, with or without Positron Assistant via any model provider. Posit does not support the Anthropic or GitHub Copilot output, or test the logic used by either to generate code from prompts.
 
+### Anthropic
+
 Anthropic Claude is considered "Third Party Materials" as defined in the Posit EULA and subject to the Anthropic [Terms of Service](https://www.anthropic.com/legal/consumer-terms) and [Privacy Policy](https://www.anthropic.com/legal/privacy). Anthropic Claude is considered “Third Party Materials” as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
+
+### GitHub Copilot
 
 GitHub Copilot is a proprietary tool from GitHub. If you want to use GitHub Copilot, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account or to be assigned a seat by an organization with a subscription for GitHub Copilot for Business. Individual snippets of source code or the contents of entire files may be sent to GitHub’s servers to generate suggestions, for more information about how this information is handled, please see the [Copilot Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect).
 
