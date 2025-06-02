@@ -28,6 +28,7 @@ Windows
 File Explorer
 Connections Pane
 Positron Pro
+Positron Assistant
 GitHub Copilot
 Anthropic Claude
 Google Gemini
