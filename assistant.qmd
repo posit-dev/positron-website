@@ -73,7 +73,7 @@ If you don't already have API keys or an account for these providers, see the [L
 
 ### Managing language model providers
 
-Anthropic and Github Copilot are the currently supported language model providers for Positron Assistant. Anthropic Claude is available for sidebar chat and inline chat, while Github Copilot is available for inline code completions only.
+Anthropic and GitHub Copilot are the currently supported language model providers for Positron Assistant. Anthropic Claude is available for sidebar chat and inline chat, while GitHub Copilot is available for inline code completions only.
 
 #### Adding language model providers
 
@@ -143,9 +143,9 @@ Note that the available models in Positron are:
 
 :::
 
-### Github Copilot
+### GitHub Copilot
 
-If you have a Github account with Copilot enabled, you can authenticate to Github Copilot in Positron Assistant in the language model dialog. The authentication flow will open up a browser and direct you to sign into Github. Once authenticated, Copilot will be available for inline code completions only.
+If you have a Github account with Copilot enabled, you can authenticate to GitHub Copilot in Positron Assistant in the language model dialog. The authentication flow will open up a browser and direct you to sign into Github. Once authenticated, Copilot will be available for inline code completions only.
 
 ## Support and terms of service
 
