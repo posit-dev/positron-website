@@ -38,21 +38,20 @@ In Python, the `%view` magic can also be used with expressions, for example
 with expressions using pipe syntax:
 
 ```r
-df %>% mutate(doubled_column = column * 2) 
-   %>% View()
+df |> mutate(doubled_column = column * 2) |> View()
 ```
 
 Directly opening `.csv`, `.tsv`, and `.parquet` files (using DuckDB) is
-supported by clicking on a file in the file explorer pane or using the command
-palette. GZIP-compressed CSV files ending in `.gz` can also be opened. We may
+supported by clicking on a file in the File Explorer or using the Command
+Palette. GZIP-compressed CSV files ending in `.gz` can also be opened. We may
 add support for more file types in the future.
 
 ![Data Explorer from the Files Pane](images/data-explorer-files-in-env.png){width=300}
 
-Each data explorer instance watches the underlying data for changes, so if you
+Each Data Explorer instance watches the underlying data for changes, so if you
 edit a data file or modify an in-memory dataframe, the changes will be reflected
-in the data explorer. Depending on the size of the dataset, when first opening
-the data explorer or using its features (like scrolling, filtering, or sorting),
+in the Data Explorer. Depending on the size of the dataset, when first opening
+the Data Explorer or using its features (like scrolling, filtering, or sorting),
 you may see loading indicators in the summary pane and in the bottom left corner
 of the window:
 
@@ -66,7 +65,7 @@ support for other libraries that expose a tabular data interface.
 
 ### Opening CSV files as plain text
 
-After opening a CSV file in the data explorer, if you need to view the file in
+After opening a CSV file in the Data Explorer, if you need to view the file in
 the text editor, click on the "Open as Plain Text File" option in the top action
 bar:
 
@@ -107,10 +106,17 @@ summary statistics and a larger sparkline.
 
 ![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=350}
 
-<p style="column-gap: 10px; display: flex;">
-  <img src="images/data-explorer-summary-sparkline-tooltip.png" width="250" />
-  <img src="images/data-explorer-summary-missing-tooltip.png" width="300" />
-</p>
+The summary sparkline charts and missing data indicator display tooltips when
+hovered over:
+
+::: {#fig-summary-tooltips layout-ncol=2}
+
+![Sparkline Tooltip](images/data-explorer-summary-sparkline-tooltip.png){width=250}
+
+![Missing Data Tooltip](images/data-explorer-summary-missing-tooltip.png){width=300}
+
+Tooltips in the Data Explorer Summary Panel
+:::
 
 If you hover over the data type indicator next to the column name, you will see
 a tooltip showing the name of the column's data type:
@@ -163,6 +169,9 @@ of the grid and click either "Sort Ascending" or "Sort Descending":
 
 ![Sorting Data from Column Context Menu](images/data-explorer-sort-context-menu.png){width=300}
 
+To clear an individual column's sort, click on the column header and select
+"Clear Column Sorting" from the context menu.
+
 When a column is sorted, the column header will have an arrow pointing up or
 down indicating the sort direction. You can sort by multiple columns by opening
 the context menu for a second column and sorting it, too. The number next to the
@@ -170,9 +179,9 @@ sort direction indicates the sort order of the column.
 
 ![Sorting Data by Multiple Columns](images/data-explorer-sort-multiple-columns.png){width=400}
 
-A data explorer can be sorted and filtered at the same time without any issues.
+A Data Explorer can be sorted and filtered at the same time without any issues.
 
-To clear the sorting, click on the "Clear Column Sorting" button in the top
+To clear all sorting, click on the "Clear Column Sorting" button in the top
 action bar:
 
 ![Clear Column Sorting Button](images/data-explorer-clear-column-sorting.png){width=400}
@@ -188,14 +197,15 @@ select:
 * One or more entire columns
 
 To copy a single value, click on the cell of interest and either press
-**Ctrl-C** (on Windows and Linux) or **Cmd-C** (on macOS). You can also copy
+<kbd>Ctrl-C</kbd> (on Windows and Linux) or <kbd>Cmd-C</kbd> (on macOS). You can also copy
 using the right-click context menu:
 
 ![Data Grid Cell Context Menu](images/data-explorer-copy-cell-context-menu.png){width=300}
 
 To copy a rectangular range of cells, first click on a cell, then hold the
-**Shift** key and click on another cell to select the range of interest. Then
-either press **Ctrl-C**/**Cmd-C** or use the context menu to copy:
+<kbd>Shift</kbd> key and click on another cell to select the range of interest.
+Then either press <kbd>Ctrl-C</kbd>/<kbd>Cmd-C</kbd> or use the context menu to
+copy:
 
 ![Copying a Rectangular Range of Cells](images/data-explorer-copy-rectangular-range.png){width=500}
 
@@ -204,8 +214,8 @@ column names in tab-separated format to ease pasting into Excel or Google
 Sheets. 
 
 To copy whole rows or columns, click on the first row label or column label then
-either hold **Shift** and click on another row or column label to select a
-range, or use **Ctrl-C**/**Cmd-C** to select individual rows or columns, but not
+either hold <kbd>Shift</kbd> and click on another row or column label to select a
+range, or use <kbd>Ctrl-C</kbd>/<kbd>Cmd-C</kbd> to select individual rows or columns, but not
 necessarily a range:
 
 ![Copying Multiple Data Rows](images/data-explorer-copy-whole-rows.png){width=500}
