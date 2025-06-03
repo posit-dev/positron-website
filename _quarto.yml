@@ -66,6 +66,7 @@ website:
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
         - connections-pane.qmd
+        - help-pane.qmd
         - run-interactive-apps.qmd
         - remote-ssh.qmd
         - updating.qmd
