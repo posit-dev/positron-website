@@ -68,9 +68,7 @@ download_table <- data.frame(
 
 knitr::kable(download_table)
 ```
-
 <br>
-
 Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases).
 
 ### Positron Pro on Posit Workbench
