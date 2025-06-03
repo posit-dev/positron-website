@@ -41,15 +41,9 @@ The general steps to use Positron Assistant are:
 
 ## Enabling Positron Assistant
 
-Positron Assistant is not enabled by default. 
+Positron Assistant is not enabled by default. Follow these steps to enable it:
 
-- ["Positron > Assistant: Enable"](positron://settings/positron.assistant.enable): Clicking this link will enable the Positron Assistant feature in Positron. 
-
-Alternatively, you can enable Positron Assistant in the user settings UI:
-
-1. Run the command `Preferences: Open User Settings (UI)` in the Command Palette to open user settings
-
-1. Search for the setting `positron.assistant.enable` and check the box for [ 
+1. Opt in to the [`positron.assistant.enable` setting](positron://settings/positron.assistant.enable). 
 
 1. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
 
@@ -113,12 +107,13 @@ Chat participants provide specialized knowledge to the Positron Assistant. You c
 
 The command _Inline Chat: Editor Inline Chat_ (default keybinding: <kbd>Cmd</kbd> + <kbd>I</kbd>) will open a mini chat right in the editor. This is very useful for asking questions in context, and also includes a good UX for integrating changes suggested by the model.
 
+
 ### Completions
 
 If GitHub Copilot is enabled and the user pauses typing for a few seconds, Positron Assistant will offer completions in most contexts. If it is not working, check the following:
 
 - Make sure you have a [language model provider added](#adding-language-model-providers) for completions.
-- Check the [developer tools console logs](troubleshooting.qmd#developer-tools) to see if there are any errors logged. 
+- Check the [developer tools console logs](troubleshooting.qmd#developer-tools) to see if there are any errors logged.
 
 ## Shiny Assistant
 
