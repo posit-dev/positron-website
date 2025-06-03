@@ -8,22 +8,22 @@ The Positron Assistant is currently an experimental feature in Positron, availab
 
 :::
 
-Positron Assistant is an AI client that provides LLM integration within Positron, both for chat and for inline completions. Use Positron Assistant to generate code, ask questions, get help with debugging, refactor, and get suggestions for next steps in your data science projects.
+Positron Assistant is an AI client that provides LLM integration within Positron, both for chat and for inline completions. Use Positron Assistant to generate or refactor code, ask questions, get help with debugging, and get suggestions for next steps in your data science projects.
 
 ## Why use Positron Assistant over other AI clients?
 
-The Positron Assistant offers novel data science and Positron-specific context compared to other IDE AI tooling. We provide a data science centric IDE for the user and allow the LLM to interact with the most important parts of Positron to get better context for better results!
+The Positron Assistant offers novel data science and Positron-specific context compared to other IDE AI tooling. We provide a data-science-centric IDE for the user and allow the LLM to interact with the most important parts of Positron to get better context for better results!
 
-A majority of data science work happens interactively with live data during development. Users load local or remote data, seek to understand it via cleaning, transformations, visualizations and modeling and ultimately generate reproducible code. While the full code on disk is the ultimate source of truth and gives you the ability to reproduce the results, the ephemeral state is where a data scientist is actually working the majority of the time. As such, existing AI clients that only have access to the code on disk are limited in their ability to provide useful suggestions and context-aware completions for data science.
+A majority of data science work happens interactively with live data during development. Users load local or remote data, seek to understand it via cleaning, transformations, visualizations, and then modeling, then ultimately generate reproducible code. While the full code on disk is the ultimate source of truth and gives you the ability to reproduce the results, the ephemeral state is where a data scientist is actually working the majority of the time. As such, existing AI clients that only have access to the code on disk are limited in their ability to provide useful suggestions and context-aware completions for data science.
 
-We are using tool-calling heavily within Positron to allow the LLMs to directly interact with Positron's novel data science features. We have built out key integration points that allow the LLM to understand and interact with the current state of the Positron IDE, and will continue to expand these capabilities over time.
+We use tool-calling heavily within Positron to allow the LLMs to directly interact with Positron's novel data science features. We have built out key integration points that allow the LLM to parse and interact with the current state of the Positron IDE, and will continue to expand these capabilities over time.  
 
-A few examples include:  
+A few examples of these integration points include Positron's:  
 
 - Variables pane, providing names, dimensions, and column names of dataframes and Python/R based database connections, as well as metadata for arrays, lists, and other objects in memory  
-- Plots pane for describing the current plot or suggesting variations, next steps on iterating on the current plot  
-- Console is available by the model for viewing inputs and code outputs, as well as allowing the user or an AI agent to execute code in the console and view the output.
-- Session state, i.e., what language is active in the console session? R or Python? What version? What packages are loaded? What packages are installed?  
+- Plots pane for describing the current plot or suggesting variations and next steps for iterating on the current plot  
+- Console, available to the model for viewing inputs and code outputs, as well as allowing the user or an AI agent to execute code in the console and view the output
+- Session state, proving what language is active in the console session (R or Python, including version), what packages are loaded, and what packages are installed
 
 All of that Positron-specific context is in addition to the core capabilities of what traditional software-oriented GenAI clients have (active files, selected lines of code, files in project, training data in the model, etc).
 
@@ -35,7 +35,7 @@ The general steps to use Positron Assistant are:
 
 1. [Ensure you have access to at least one API key or login method for a language model provider](#language-model-provider-api-keys-authentication)
 
-1. [Sign into at least one language model provider](#signing-into-language-model-providers)
+1. [Sign into at least one language model provider](#configuring-positron-assistant)
 
 1. [Use the chat pane, inline chat, or completions in the editor to interact with the language models](#using-positron-assistant)
 
@@ -43,24 +43,15 @@ The general steps to use Positron Assistant are:
 
 Positron Assistant is not enabled by default. Follow these steps to enable it:
 
-1. In the Command Palette, run the command `Preferences: Open User Settings (JSON)` to open your `settings.json` file
+1. Run the command `Preferences: Open User Settings (UI)` in the Command Palette to open user settings
 
-1. To enable everything Positron Assistant-related, add the following to your `settings.json`:
-
-    ```{.json filename="settings.json"}
-    "positron.assistant.enable": true,
-    ```
-
-    - `positron.assistant.enable`: Enables Positron Assistant. 
-
-1. Save the `settings.json` file.
-    - The options are greyed out as `Unknown Configuration Setting`s because they are currently "hidden" config settings.
+1. Search for the setting `positron.assistant.enable` and check the box for ["Positron > Assistant: Enable"](positron://settings/positron.assistant.enable) 
 
 1. Restart Positron or run the `Developer: Reload Window` command in the Command Palette.
 
 1. Positron Assistant is now enabled!
 
-1. Click on the chat robot icon in the sidebar, or run the `Chat: Open Chat in Sidebar` command in the Command Palette to open the chat.
+1. Click on the chat robot icon in the sidebar, or run the _Chat: Open Chat in Sidebar_ command in the Command Palette to open the chat.
 
 ## Configuring Positron Assistant
 
@@ -77,7 +68,7 @@ Anthropic and GitHub Copilot are the currently supported language model provider
 
 #### Adding language model providers
 
-1. Run the `Positron Assistant: Add Language Model` command to open the language model provider dialog. You can also click the "Add Language Model provider" button in the Positron Assistant chat area (note: the button may be collapsed within the `...` context menu).
+1. Run the _Positron Assistant: Add Language Model_ command to open the language model provider dialog. You can also click the "Add Language Model provider" button in the Positron Assistant chat area (note: the button may be collapsed within the `...` context menu).  
 
 1. Select the model provider you want to add and authenticate with the API key or OAuth flow as required by the provider.
 
@@ -86,12 +77,12 @@ Anthropic and GitHub Copilot are the currently supported language model provider
 1. Click the "Done" button once you have added all the desired model providers. You can always come back to this dialog later to add or remove providers.
 
 ::: {.callout-tip}
-There is a known issue on Mac that may occur when logging into a language model provider. If you see auth errors or keychain error notifications and cannot successfully use Positron Assistant, you may want to try the workaround in [this issue](https://github.com/posit-dev/positron/issues/7331).
+1. Run the _Positron Assistant: Add Language Model_ command to open the language model provider dialog. You can also click the "Add Language Model provider" button in the Positron Assistant chat area (note: the button may be collapsed within the `...` context menu).
 :::
 
 #### Removing language model providers
 
-1. Run the `Positron Assistant: Add Language Model` command to open the language model dialog. You can also click the "Add Language Model" button in the Positron Assistant chat area (note: the button may be collapsed within the `...` context menu).
+1. Run the _Positron Assistant: Add Language Model_ command to open the language model dialog. You can also click the "Add Language Model" button in the Positron Assistant chat area (note: the button may be collapsed within the `...` context menu).  
 
 1. Select the model provider you want to remove.
 
@@ -103,10 +94,10 @@ There is a known issue on Mac that may occur when logging into a language model 
 
 ### Chat pane
 
-Click on the chat robot icon in the sidebar, or run the `Chat: Open Chat in Sidebar` command in the Command Palette to open the chat.
+Click on the chat robot icon in the sidebar, or run the _Chat: Open Chat in Sidebar_ command in the Command Palette to open the chat.
 
-Assistant's Chat pane (in the Activity Panel by default) knows about your R and Python console session inputs/outputs, in-memory objects and dataframes as available in the variables pane, and can look at the Plots pane too, if instructed. The user can attach files via the @ icon in or drag files as attachments to ask questions about specific files.
-
+Positron Assistant's Chat pane (in the Activity Panel by default) has access to your R and Python console session inputs/outputs, as well as in-memory objects and dataframes as available in the variables pane. Assistant can look at the Plots pane too, if instructed. The user can attach files via the <kbd>@</kbd> icon or drag files as attachments to ask questions about specific files.  
+ 
 Code generated by Assistant can be run in the Console, copied to the clipboard, or sent to the Editor via controls attached to code output blocks.
 
 #### Slash commands
@@ -114,25 +105,26 @@ Code generated by Assistant can be run in the Console, copied to the clipboard, 
 Slash commands provide quick access to common tasks without writing long prompts. Start by typing / in the chat box to see available commands. For example, the `/quarto` command converts the current chat conversation into a Quarto document.
 
 #### Chat participants
+Assistant's Chat pane (in the Activity Panel by default) has access to your R and Python console session inputs/outputs, as well as in-memory objects and dataframes as available in the variables pane. Assistant can look at the Plots pane too, if instructed. The user can attach files via the <kbd>@</kbd> icon or drag files as attachments to ask questions about specific files.
 
-Chat participants provide specialized knowledge to the Positron Assistant. You can add a chat participant by typing `@` in the Chat pane then the chat participant name. Please reference the [Shiny Assistant](#shiny-assistant) section for more information on the use of a Shiny chat participant.
+Chat participants provide specialized knowledge to the Positron Assistant. You can add a chat participant by typing `@` in the Chat pane plus the chat participant name. Please reference the [Shiny Assistant](#shiny-assistant) section for more information on the use of a Shiny chat participant.
 
 ### Inline chat
 
-The command _Inline Chat: Editor Inline Chat_ (default keybinding: Cmd + I) will open a mini chat right in the editor. This is very useful for asking questions in context, and also includes a good UX for integrating changes suggested by the model.
+The command `Inline Chat: Editor Inline Chat` (default keybinding: <kbd>Cmd + I</kbd>) will open a mini chat right in the editor. This is very useful for asking questions in context, and also includes a good UX for integrating changes suggested by the model.
 
 ### Completions
 
 If GitHub Copilot is enabled and the user pauses typing for a few seconds, Positron Assistant will offer completions in most contexts. If it is not working, check the following:
 
 - Make sure you have a [language model provider added](#adding-language-model-providers) for completions.
-- Check the DevTools Console logs to see if there are any errors logged. Run the `Developer: Toggle Developer Tools` command in the Command Palette to open DevTools.
+- Check the [developer tools console logs](troubleshooting.qmd#developer-tools) to see if there are any errors logged. Run the `Developer: Toggle Developer Tools` command in the Command Palette to open DevTools.
 
 ## Shiny Assistant
 
 The Shiny Assistant is a chat participant available within Positron Assistant that provides context-aware assistance for developing Shiny applications in Python or R. It can help you with tasks such as generating Shiny UI components, server logic, and reactive expressions.
 
-The Shiny Assistant enhances the default prompt with additional information about Shiny that we have found improves the quality of generated apps and Shiny components. It is also kept up to date with the latest Shiny features and best practices, in a way that is not practical with foundational models or fine-tuning.
+The Shiny Assistant enhances the default prompt with additional information about Shiny that we have found improves the quality of generated apps and Shiny components. It is also kept up to date with the latest Shiny features and best practices, in a way that is not practical with foundation models or fine-tuning.
 
 The Shiny Assistant is available in the chat once you have installed the [Shiny extension](https://open-vsx.org/extension/posit/shiny). Like other chat participants, Shiny Assistant can be invoked by typing `@shiny` in the chat pane or inline chat, followed by your question or request related to Shiny development.
 
@@ -146,18 +138,13 @@ Since you may need to access these API keys multiple times, we recommend storing
 
 If you have an Anthropic account, you should be able to get an API key from the [Anthropic Console](https://console.anthropic.com/) on the [admin keys page](https://console.anthropic.com/settings/admin-keys).
 
-Copy and save the API key to 1Password or another password manager. This key will be used to authenticate to Anthropic in the language model dialog.
-
-::: {.callout-note}
-Note that the available models in Positron are:
-
 * Claude 3.5 Sonnet v1
 * Claude 3.5 Sonnet v2
 * Claude 3.7 Sonnet
 * Claude 4 Sonnet
 * Claude 4 Opus
 
-:::
+Copy and save the API key to a password manager or another secure location. This key will be used to authenticate to Anthropic in the language model dialog.
 
 ### GitHub Copilot
 
@@ -174,7 +161,7 @@ Anthropic Claude is considered "Third Party Materials" as defined in the [Posit 
 ### GitHub Copilot
 
 GitHub Copilot is a proprietary tool from GitHub. If you want to use GitHub Copilot, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account or to be assigned a seat by an organization with a subscription for GitHub Copilot for Business. Individual snippets of source code or the contents of entire files may be sent to GitHub’s servers to generate suggestions, for more information about how this information is handled, please see the [Copilot Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect).
-
+If you have a Github account with Copilot enabled, you can authenticate to GitHub Copilot in Positron Assistant via the language model dialog. The authentication flow will open up a browser and direct you to sign into Github. Once authenticated, Copilot will be available for inline code completions only.
 Students and faculty can use GitHub Copilot for free as part of the GitHub Education program. For more information, see the [GitHub Education page](https://education.github.com/).
 
 By using GitHub Copilot, you acknowledge that your use of GitHub Copilot is governed by their terms of service and you agree to abide by their [terms of service](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot). GitHub Copilot is considered “Third Party Materials” as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
