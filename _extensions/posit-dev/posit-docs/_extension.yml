@@ -28,7 +28,11 @@ contributes:
       html:
         theme:
           light: [theme.scss]
-          dark: [theme-dark.scss]
+          # We are ignoring the dark theme for now because it doesn't have great support. 
+          # The work to create an official dark theme is tracked in the following issue: 
+          # https://github.com/posit-dev/product-doc-theme/issues/99. 
+          # We can uncomment the line below once the dark theme is officially supported.
+          # dark: [theme-dark.scss]
         link-external-icon: true
         link-external-newwindow: true
         toc: true
