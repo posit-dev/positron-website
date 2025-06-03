@@ -43,11 +43,9 @@ The general steps to use Positron Assistant are:
 
 Positron Assistant is not enabled by default. Follow these steps to enable it:
 
-1. Run the command `Preferences: Open User Settings (UI)` in the Command Palette to open user settings
+1. Opt in to the [`positron.assistant.enable` setting](positron://settings/positron.assistant.enable). 
 
-1. Search for the setting `positron.assistant.enable` and check the box for ["Positron > Assistant: Enable"](positron://settings/positron.assistant.enable) 
-
-1. Restart Positron or run the `Developer: Reload Window` command in the Command Palette.
+1. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
 
 1. Positron Assistant is now enabled!
 
@@ -75,10 +73,6 @@ Anthropic and GitHub Copilot are the currently supported language model provider
 1. Once authenticated successfully, the "Sign in" button will change to "Sign out", and available models from the provider will be registered.
 
 1. Click the "Done" button once you have added all the desired model providers. You can always come back to this dialog later to add or remove providers.
-
-::: {.callout-tip}
-1. Run the _Positron Assistant: Add Language Model_ command to open the language model provider dialog. You can also click the "Add Language Model provider" button in the Positron Assistant chat area (note: the button may be collapsed within the `...` context menu).
-:::
 
 #### Removing language model providers
 
@@ -111,14 +105,14 @@ Chat participants provide specialized knowledge to the Positron Assistant. You c
 
 ### Inline chat
 
-The command `Inline Chat: Editor Inline Chat` (default keybinding: <kbd>Cmd + I</kbd>) will open a mini chat right in the editor. This is very useful for asking questions in context, and also includes a good UX for integrating changes suggested by the model.
+The command _Inline Chat: Editor Inline Chat_ (default keybinding: <kbd>Cmd + I</kbd>) will open a mini chat right in the editor. This is very useful for asking questions in context, and also includes a good UX for integrating changes suggested by the model.
 
 ### Completions
 
 If GitHub Copilot is enabled and the user pauses typing for a few seconds, Positron Assistant will offer completions in most contexts. If it is not working, check the following:
 
 - Make sure you have a [language model provider added](#adding-language-model-providers) for completions.
-- Check the [developer tools console logs](troubleshooting.qmd#developer-tools) to see if there are any errors logged. Run the `Developer: Toggle Developer Tools` command in the Command Palette to open DevTools.
+- Check the [developer tools console logs](troubleshooting.qmd#developer-tools) to see if there are any errors logged.
 
 ## Shiny Assistant
 
