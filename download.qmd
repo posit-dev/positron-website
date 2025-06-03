@@ -32,7 +32,7 @@ Please review [Positron's license agreement](licensing.qmd) and [privacy policy]
 library(purrr)
 library(glue)
 library(httr)
-library(jsonlite)
+library(jsonlite, warn.conflicts = FALSE) # conflict with purrr::flatten
 
 cdn_url <- "https://cdn.posit.co/positron/prereleases/"
 
@@ -49,13 +49,12 @@ urls <- list(
 cloudfront_headers <- map(urls, HEAD) |> map(headers)
 
 # Read JSON file
-checksum_data <- tryCatch(
-  fromJSON(glue("https://cdn.posit.co/positron/prereleases/positron-{params$version}-checksums.json")),
-  error = function(e) {
-    list(
-    )
-  }
+checksum_data <- rlang::try_fetch(
+  fromJSON(glue("{cdn_url}positron-{params$version}-checksums.json")), 
+  error = function(cnd) list(),
+  warning = function(cnd) list()
 )
+
 # Create checksums array in the correct order
 checksums <- list(
   full = c(
