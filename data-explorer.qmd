@@ -135,7 +135,7 @@ data grid, allowing for quickly navigating wider data.
 
 ![Data Explorer Summary Panel Collapse and Placement](images/data-explorer-summary-panel-placement.png){width=700}
 
-You can change the default settings for these configuration options in Positron's settings:
+You can change the default settings for either [`dataExplorer.summaryCollapsed`](positron://settings/dataExplorer.summaryCollapsed) or [`dataExplorer.summaryLayout`](positron://settings/dataExplorer.summaryLayout) in Positron's settings:
 
 ![Data Explorer Summary Panel Configuration](images/data-explorer-summary-config.png){width=500}
 
@@ -197,14 +197,14 @@ select:
 * One or more entire columns
 
 To copy a single value, click on the cell of interest and either press
-<kbd>Ctrl-C</kbd> (on Windows and Linux) or <kbd>Cmd-C</kbd> (on macOS). You can also copy
+<kbd>Ctrl+C</kbd> (on Windows and Linux) or <kbd>Cmd+C</kbd> (on macOS). You can also copy
 using the right-click context menu:
 
 ![Data Grid Cell Context Menu](images/data-explorer-copy-cell-context-menu.png){width=300}
 
 To copy a rectangular range of cells, first click on a cell, then hold the
 <kbd>Shift</kbd> key and click on another cell to select the range of interest.
-Then either press <kbd>Ctrl-C</kbd>/<kbd>Cmd-C</kbd> or use the context menu to
+Then either press <kbd>Ctrl+C</kbd>/<kbd>Cmd+C</kbd> or use the context menu to
 copy:
 
 ![Copying a Rectangular Range of Cells](images/data-explorer-copy-rectangular-range.png){width=500}
@@ -215,7 +215,7 @@ Sheets.
 
 To copy whole rows or columns, click on the first row label or column label then
 either hold <kbd>Shift</kbd> and click on another row or column label to select a
-range, or use <kbd>Ctrl-C</kbd>/<kbd>Cmd-C</kbd> to select individual rows or columns, but not
+range, or use <kbd>Ctrl+C</kbd>/<kbd>Cmd+C</kbd> to select individual rows or columns, but not
 necessarily a range:
 
 ![Copying Multiple Data Rows](images/data-explorer-copy-whole-rows.png){width=500}
