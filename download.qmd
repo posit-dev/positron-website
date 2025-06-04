@@ -50,7 +50,7 @@ cloudfront_headers <- map(urls, HEAD) |> map(headers)
 
 # Read JSON file
 checksum_data <- rlang::try_fetch(
-  fromJSON(glue("{cdn_url}positron-{params$version}-checksums.json")), 
+  fromJSON(glue("{cdn_url}checksums/positron-{params$version}-checksums.json")), 
   error = function(cnd) list(),
   warning = function(cnd) list()
 )
@@ -58,22 +58,22 @@ checksum_data <- rlang::try_fetch(
 # Create checksums array in the correct order
 checksums <- list(
   full = c(
-    checksum_data$win_system,      # Windows system level
-    checksum_data$win_user,        # Windows user level
-    checksum_data$mac,             # MacOS universal
-    checksum_data$linux_deb_x64,   # Debian x64
-    checksum_data$linux_deb_arm64, # Debian arm64
-    checksum_data$linux_rpm_x64,   # Red Hat x64
-    checksum_data$linux_rpm_arm64  # Red Hat arm64
+    checksum_data[[glue("Positron-{params$version}-Setup.exe")]],          # Windows system level
+    checksum_data[[glue("Positron-{params$version}-UserSetup.exe")]],      # Windows user level
+    checksum_data[[glue("Positron-{params$version}.dmg")]],               # MacOS universal
+    checksum_data[[glue("Positron-{params$version}-x64.deb")]],          # Debian x64
+    checksum_data[[glue("Positron-{params$version}-arm64.deb")]],        # Debian arm64
+    checksum_data[[glue("Positron-{params$version}-x64.rpm")]],          # Red Hat x64
+    checksum_data[[glue("Positron-{params$version}-arm64.rpm")]]         # Red Hat arm64
   ),
   short = substr(c(
-    checksum_data$win_system,      # Windows system level
-    checksum_data$win_user,        # Windows user level
-    checksum_data$mac,             # MacOS universal
-    checksum_data$linux_deb_x64,   # Debian x64
-    checksum_data$linux_deb_arm64, # Debian arm64
-    checksum_data$linux_rpm_x64,   # Red Hat x64
-    checksum_data$linux_rpm_arm64  # Red Hat arm64
+    checksum_data[[glue("Positron-{params$version}-Setup.exe")]],          # Windows system level
+    checksum_data[[glue("Positron-{params$version}-UserSetup.exe")]],      # Windows user level
+    checksum_data[[glue("Positron-{params$version}.dmg")]],               # MacOS universal
+    checksum_data[[glue("Positron-{params$version}-x64.deb")]],          # Debian x64
+    checksum_data[[glue("Positron-{params$version}-arm64.deb")]],        # Debian arm64
+    checksum_data[[glue("Positron-{params$version}-x64.rpm")]],          # Red Hat x64
+    checksum_data[[glue("Positron-{params$version}-arm64.rpm")]]         # Red Hat arm64
   ), 1, 7)
 )
 
