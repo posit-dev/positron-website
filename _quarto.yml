@@ -62,6 +62,7 @@ website:
         - section: "Interpreters"
           contents:
             - interpreters.qmd
+            - interpreter-startup.qmd
             - r-installations.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd

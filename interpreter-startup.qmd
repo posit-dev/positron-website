@@ -1,0 +1,67 @@
+---
+title: "Interpreter Startup"
+---
+
+## First run
+
+When Positron starts for the first time in a new workspace, it will start a Python and/or R interpreter session based on your workspace characteristics and whether there is evidence of RStudio being used recently.
+
+Typically when starting Python or R without other clues about which version to start, Positron will start the most recent version of the interpreter (e.g. if you have R 4.2 and R 4.3 installed, it'll start R 4.3).
+
+If you are an R user, see the [R discovery](r-installations.qmd) guide for more information on available installations.
+
+### RStudio detection
+
+Positron tries to start R for R users and Python for Python users by checking to see if RStudio is installed and has been recently used. The latter check is done by looking in `~/.local/share/rstudio` for files written less than a month ago. If you do not want Positron to consider you an RStudio user, remove this folder or rename it.
+
+## Subsequent runs
+
+When Positron starts in a workspace that has been used before, it will start the same language interpreter that was running the last time you used the workspace.
+
+In the case of R, there is some additional subtlety:
+When Positron records which R version was most recently used in a workspace, it also notes whether that R version is the system's default R version.
+In subsequent runs, Positron will launch the system's default R version, even if that is a different version number from the last-used R version.
+We believe this behaviour is the least surprising for most users.
+If you want to use a specific, non-default R version in a workspace, select it explicitly once and it will be launched in future runs.
+
+If Positron starts an interpreter you don't need, just delete the session, and it will stop starting automatically in that workspace.
+
+## Implicit startup
+
+In addition to starting up an interpreter session when the workspace is first opened, Positron will also automatically start an interpreter session when it looks like one is needed. For example, a Python session will start:
+
+- When you open a `.py` file
+- When you execute Python code
+
+## Configuring interpreter startup
+
+If the interpreter that Positron uses by default isn't a good fit, you can customize and configure how interpreter sessions are started using the `interpreters.startupBehavior` settings.
+
+### Per-language interpreter startup behavior
+
+In the Settings UI, search for `@lang:r interpreters.startupBehavior` or `@lang:python interpreters.startupBehavior`, and choose the desired configuration. The selected startup behavior will be applied to the corresponding language.
+
+For example, if you only ever use Python and never want R to start, set `@lang:r interpreters.startupBehavior` to `"disabled"` to hide R interpreters from the Positron UI altogether. You can specify this at either the user or workspace level, and your configuration will appear in your `settings.json` as:
+
+```json
+{
+    "[r]": {
+        "interpreters.startupBehavior": "disabled"
+    }
+}
+```
+Alternatively, if you are mainly an R user, but occasionally use Python, you can set `@lang:python interpreters.startupBehavior` to `"manual"` to prevent Python interpreter sessions from starting automatically. This still allows you to start a Python interpreter session manually:
+
+```json
+{
+    "[python]": {
+        "interpreters.startupBehavior": "manual"
+    }
+}
+```
+
+### General interpreter startup behavior
+
+In the Settings UI, search for the setting `interpreters.startupBehavior` without a language key, and choose the desired configuration. The selected startup behavior will be applied to _all_ interpreters.
+
+Note that if any per-language startup behavior is set, it takes precedence over the general interpreter startup behavior setting.
