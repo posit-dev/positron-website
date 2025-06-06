@@ -27,56 +27,53 @@ Please review [Positron's license agreement](licensing.qmd) and [privacy policy]
 
 ```{r, id='download-table'}
 #| echo: false
+#| warning: false
 #| classes: plain
 
 library(purrr)
 library(glue)
 library(httr)
-library(jsonlite, warn.conflicts = FALSE) # conflict with purrr::flatten
+library(jsonlite)
 
+# Create URLs
 cdn_url <- "https://cdn.posit.co/positron/prereleases/"
-
+windows_system <- glue("Positron-{params$version}-Setup.exe")
+windows_user <- glue("Positron-{params$version}-UserSetup.exe")
+macos_universal <- glue("Positron-{params$version}.dmg")
+debian_x64 <- glue("Positron-{params$version}-x64.deb")
+debian_arm <- glue("Positron-{params$version}-arm64.deb")
+redhat_x64 <- glue("Positron-{params$version}-x64.rpm")
+redhat_arm <- glue("Positron-{params$version}-arm64.rpm")
 urls <- list(
-  glue("{cdn_url}win/x86_64/Positron-{params$version}-Setup.exe"),
-  glue("{cdn_url}win/x86_64/Positron-{params$version}-UserSetup.exe"),
-  glue("{cdn_url}mac/universal/Positron-{params$version}.dmg"),
-  glue("{cdn_url}deb/x86_64/Positron-{params$version}-x64.deb"),
-  glue("{cdn_url}deb/arm64/Positron-{params$version}-arm64.deb"),
-  glue("{cdn_url}rpm/x86_64/Positron-{params$version}-x64.rpm"),
-  glue("{cdn_url}rpm/arm64/Positron-{params$version}-arm64.rpm")
+  glue("{cdn_url}win/x86_64/{windows_system}"),
+  glue("{cdn_url}win/x86_64/{windows_user}"),
+  glue("{cdn_url}mac/universal/{macos_universal}"),
+  glue("{cdn_url}deb/x86_64/{debian_x64}"),
+  glue("{cdn_url}deb/arm64/{debian_arm}"),
+  glue("{cdn_url}rpm/x86_64/{redhat_x64}"),
+  glue("{cdn_url}rpm/arm64/{redhat_arm}")
 )
 
-cloudfront_headers <- map(urls, HEAD) |> map(headers)
-
-# Read JSON file
+# Get checksums
 checksum_data <- rlang::try_fetch(
   fromJSON(glue("{cdn_url}checksums/positron-{params$version}-checksums.json")), 
   error = function(cnd) list(),
   warning = function(cnd) list()
 )
-
-# Create checksums array in the correct order
-checksums <- list(
-  full = c(
-    checksum_data[[glue("Positron-{params$version}-Setup.exe")]],          # Windows system level
-    checksum_data[[glue("Positron-{params$version}-UserSetup.exe")]],      # Windows user level
-    checksum_data[[glue("Positron-{params$version}.dmg")]],               # MacOS universal
-    checksum_data[[glue("Positron-{params$version}-x64.deb")]],          # Debian x64
-    checksum_data[[glue("Positron-{params$version}-arm64.deb")]],        # Debian arm64
-    checksum_data[[glue("Positron-{params$version}-x64.rpm")]],          # Red Hat x64
-    checksum_data[[glue("Positron-{params$version}-arm64.rpm")]]         # Red Hat arm64
-  ),
-  short = substr(c(
-    checksum_data[[glue("Positron-{params$version}-Setup.exe")]],          # Windows system level
-    checksum_data[[glue("Positron-{params$version}-UserSetup.exe")]],      # Windows user level
-    checksum_data[[glue("Positron-{params$version}.dmg")]],               # MacOS universal
-    checksum_data[[glue("Positron-{params$version}-x64.deb")]],          # Debian x64
-    checksum_data[[glue("Positron-{params$version}-arm64.deb")]],        # Debian arm64
-    checksum_data[[glue("Positron-{params$version}-x64.rpm")]],          # Red Hat x64
-    checksum_data[[glue("Positron-{params$version}-arm64.rpm")]]         # Red Hat arm64
-  ), 1, 7)
+all_installers <- list(
+  windows_system,
+  windows_user,
+  macos_universal,
+  debian_x64,
+  debian_arm,
+  redhat_x64,
+  redhat_arm
 )
+checksums <- map_chr(all_installers, ~ pluck(checksum_data, .))
+checksums_short <- substr(checksums, 1, 7)
 
+# Get file sizes
+cloudfront_headers <- map(urls, HEAD) |> map(headers)
 file_sizes <- map(cloudfront_headers, "content-length") |>
   map(fs::fs_bytes) |>
   map_chr(as.character)
@@ -100,11 +97,9 @@ download_table <- data.frame(
 )
 
 # Add checksums column if data is available
-if (length(checksums$full) > 0) {
-  download_table$`SHA-256` <- sprintf(
-    '<span class="checksum" onclick="copyChecksum(\'%s\', this)" title="Click to copy full checksum">%s</span>', 
-    checksums$full, 
-    checksums$short
+if (length(checksums) > 0) {
+  download_table$`SHA-256` <- glue(
+    '<span class="checksum" onclick="copyChecksum(\'{checksums}\', this)" title="Click to copy full checksum">{checksums_short}</span>'
   )
 }
 
