@@ -1,0 +1,12 @@
+---
+title: Installing Extensions
+---
+
+
+Positron comes with all the extensions needed to start using Python or R already included. 
+You can install other extensions from [Open VSX](https://open-vsx.org/)-—an open-source registry for VS Code extensions.
+While many extensions from the Visual Studio Code Marketplace are available on Open VSX, not all are. 
+Availability depends on whether the extension author has published it to Open VSX.
+
+To learn how to browse for and install extensions, refer to the [Visual Studio Code extension marketplace guide](https://code.visualstudio.com/docs/configure/extensions/extension-marketplace#_browse-for-extensions). 
+The installation experience in Positron is the same as in VS Code.
