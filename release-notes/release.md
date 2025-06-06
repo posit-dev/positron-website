@@ -10,7 +10,7 @@
 
 - [[#1744]](https://github.com/posit-dev/positron/issues/1744) R: A new Code Action is available for generating a roxygen documentation skeleton.
 - [[#1728]](https://github.com/posit-dev/positron/issues/1728) By default, Positron no longer tries to save untitled editors when a debug session is started. This is to avoid disrupting the user workflow with a save dialog when a debug session starts.
-- Foding rules are now supported for R comment sections [[#18]](https://github.com/posit-dev/positron/issues/18)]] and R code cells [[#2924]](https://github.com/posit-dev/positron/issues/2924)]]. Thanks to our contributor [@kv9898](https://github.com/kv9898)!
+- Foding rules are now supported for R comment sections [[#18]](https://github.com/posit-dev/positron/issues/18) and R code cells [[#2924]](https://github.com/posit-dev/positron/issues/2924). Thanks to our contributor [@kv9898](https://github.com/kv9898)!
 - [[#7875]](https://github.com/posit-dev/positron/issues/7875) Custom environment variables for the Terminal and Consoles can now be configured in the Settings UI.
 - [[#7550]](https://github.com/posit-dev/positron/issues/7550) The support for scaffolding a new folder based on templates has been revamped. Try out the improved "Workspaces: New Folder from Template..." command.
 
