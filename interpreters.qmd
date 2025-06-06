@@ -1,86 +1,85 @@
 ---
-title: "Interpreter Selection"
+title: "Interpreters"
 ---
 
-:::{.callout-note}
-This information applies to the **Public Beta** release of Positron. The rules governing interpreter selection, and the user experience around selecting an interpreter, are under active development. This guide is intended to help you understand the current behavior.
-:::
+Positron is designed to support multiple R and Python interpreter sessions. This enables workflows that span multiple environments, and allows you to switch between them easily within a single workspace.
 
-## First run
+At any given time, one interpreter session is designated as the **active interpreter session**. This is the language environment currently in use for interactive and language-specific features within the IDE.
 
-When Positron starts for the first time in a new workspace, it will start Python and/or R depending on your workspace characteristics and whether there is evidence of RStudio being used recently.
+Interpreter sessions are managed primarily through the Interpreter picker and Console pane which is covered in detail in the sections below.
 
-Typically when starting Python or R without other clues about which version to start, Positron will start the most recent version of the interpreter (e.g. if you have R 4.2 and R 4.3 installed, it'll start R 4.3).
+## Interpreter Startup and Configuration
 
-### RStudio detection
+See the [Interpreter startup](interpreter-startup.qmd) guide for information on how Positron handles interpreter startup for you.
 
-Positron tries to start R for R users and Python for Python users by checking to see whether RStudio is installed and has been recently used. The latter check is done by looking in `~/.local/share/rstudio` for files written less than a month ago, so if you don't want Positron to consider you to be an RStudio user, you can remove this folder or rename it temporarily.
+## Active interpreter session
 
-## Subsequent runs
+The active interpreter session is the language environment currently in use. It provides the execution context for various panes within the IDE such as the Console, Variables, Plots, and Editor pane. Language-specific features such as code execution, completion, and diagnostics are all scoped to the active interpreter session.
 
-When Positron starts in a workspace that has been used before, it will start the same interpreter (or interpreters, if more than one) that were running the last time that you used that workspace.
+The name of the active interpreter session is displayed on the Interpreter picker and in the tab view of the Console pane when there are multiple running interpreter session.
 
-In the case of R, there is an additional subtlety:
-When Positron records which R version was most recently used in a workspace, it also notes whether that R version is the system's current or default R version.
-In subsequent sessions, Positron will launch the system's current R version, even if that has a different version number from the last-used R version.
-We believe this behaviour is the least surprising for most users.
-If you want to use a specific, non-current R version in a workspace, select it explicitly once (more on that below) and it will be launched in future sessions.
+<screenshot>
 
-If Positron starts an interpreter you don't need, just shut it down (using the Power button in Console or the upper right) and it will stop starting automatically in that workspace.
+## View running interpreter sessions
 
-## Implicit startup
+You can view a tab list of running interpreter sessions from the Console pane. The active interpreter is highlighted.
 
-In addition to starting up an interpreter when the workspace is first opened, Positron will also automatically start an interpreter when it looks like one is needed. For example, Python will start:
+Alternatively, you can click on the Interpreter picker to view a list of the running interpreter sessions. The active interpreter is highlighted in the list.
 
-- When you open a `.py` file
-- When you execute Python code
+## Create a new interpreter session
 
-## Start, stop, and switch interpreters
+From the Console pane, click the `+` button in the Console action bar to see a list of all the registered interpreters.
 
-Obviously, Positron might not always guess the right language for your workspace, or it might not use the right version of the interpreter. You can manually stop and start interpreters at any time in the top-right interpreter chooser (we call this the _Top Bar Interpreter Dropdown_ internally). You can have both Python and R interpreters active at the same time, but you may only have a single Python and a single R interpreter active at once.
+<screenshot>
 
-### Choose a new interpreter
+Alternatively, you can click on the Interpreter picker and choose "New Interpreter Session..." to see a list of all the registered interpreters.
 
-To change your interpreter -- for example, to select a different Python environment -- click on the horizontal ellipsis `...` next to the interpreter.
+<screenshot>
 
-![Interpreter dropdown](images/tbid.png)
+Select an interpreter to start an instance of it.
 
-A list of other interpreter versions are shown; click the one you want.
-If you are an R user, see the [R discovery](r-installations.qmd) guide for more information on available installations.
+## Change the active interpreter session
 
-:::{.callout-warning}
-Changing interpreters causes the old interpreter to be shut down and the new one to be started. This means that any state in the old interpreter will be lost, including any variables you've defined. Make sure you've saved your work before switching versions.
-:::
+To view the list of running session, open the Console pane. Click on an interpreter session from the list to make it the active interpreter.
 
-## Configuring interpreter startup
+Alternatively, you can click on the Interpreter picker to see a list of alll the running interpreter sessions. Select one to make it the active interpreter session.
 
-If the interpreter selection that Positron uses by default isn't a good fit for you, you can customize and configure how interpreters are started using the `interpreters.startupBehavior` settings.
+<screenshot>
 
-### Per-language interpreter startup behavior
+## Delete an interpreter session
 
-In the Settings UI, search for `@lang:r interpreters.startupBehavior` or `@lang:python interpreters.startupBehavior`, and choose the desired configuration. The selected startup behavior will be applied to the corresponding language.
+When you delete an interpreter session, the state of the session will be lost, including any variables you've defined.
 
-For example, if you only ever use Python and never want R to start, set `@lang:r interpreters.startupBehavior` to `"disabled"` to hide R interpreters from the Positron UI altogether. You can specify this at either the user or workspace level, and your configuration will appear in your `settings.json` as:
+To delete an interpreter session, open the Console pane to view the list of running sessions. Hover over the tab for the interpreter session you want to delete. A Trash icon button will appear. Click the button to shut down and dispose of the session.
 
-```json
-{
-    "[r]": {
-        "interpreters.startupBehavior": "disabled"
-    }
-}
-```
-Alternatively, if you are mainly an R user, but occasionally use Python, you can set `@lang:python interpreters.startupBehavior` to `"manual"` to prevent Python from starting automatically, but still allow you to start a Python interpreter manually:
+<screenshot>
 
-```json
-{
-    "[python]": {
-        "interpreters.startupBehavior": "manual"
-    }
-}
-```
+## Restart an interpreter session
 
-### General interpreter startup behavior
+When you restart an interpreter session, the session and variables state is cleared.
 
-In the Settings UI, search for the setting `interpreters.startupBehavior` in the Settings UI without a language key, and choose the desired configuration. The selected startup behavior will be applied to _all_ interpreters.
+To restart the active interpreter session, click the Restart icon button in the Console action bar. 
 
-Note that if any per-language startup behavior is set, it takes precedence over the general interpreter startup behavior setting.
+## Rename an interpreter session
+
+Renaming interpreter sessions is a useful tool to distinguish sessions for the same interpreter version.
+
+To rename an interpreter session, open the Console pane to view the list of running session. Right-click the tab for the interpreter session you want to rename. Select the "Rename..." option from the context menu.
+
+<screenshot>
+
+## View interpreter session metadata
+
+To see information about the active interpreter session, click the Info icon button in the Console action bar. 
+This shows a popup with information including shortcuts to the output channels for the active interpreter session.
+
+## Interpreter session status
+
+When there is more than one running interpreter session, the Console pane list view displays the status of each interpreter session. The list view displays an icon that indicates the session state.
+
+An interpreter session can be in one of the following states:
+* **Idle**: The interpreter session is available to run code.
+* **Busy**:: The console session is busy with a task.
+* **Shutdown**: The console session has shutdown.
+
+Certain actions, such as a restart, display a progress indicator in the Console.
