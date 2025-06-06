@@ -12,6 +12,10 @@ Interpreter sessions are managed primarily through the Interpreter picker and Co
 
 The active interpreter session is the language environment currently in use. It provides the execution context for various panes within the IDE such as the Console, Variables, Plots, and Editor pane. Language-specific features such as code execution, completion, and diagnostics are all scoped to the active interpreter session.
 
+The active interpreter session can always be identified in the Interpreter picker.
+
+<screenshot>
+
 ### Documents in the Editor pane
 
 The active interpreter session provides the execution context for documents in the Editor pane. However, a document is not permanently tied to a specific interpreter session.
