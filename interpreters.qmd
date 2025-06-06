@@ -6,25 +6,45 @@ Positron is designed to support multiple R and Python interpreter sessions. This
 
 At any given time, one interpreter session is designated as the **active interpreter session**. This is the language environment currently in use for interactive and language-specific features within the IDE.
 
-Interpreter sessions are managed primarily through the Interpreter picker and Console pane which is covered in detail in the sections below.
-
-## Interpreter Startup and Configuration
-
-See the [Interpreter startup](interpreter-startup.qmd) guide for information on how Positron handles interpreter startup for you.
+Interpreter sessions are managed primarily through the Interpreter picker and Console pane which is discusses in detail below.
 
 ## Active interpreter session
 
 The active interpreter session is the language environment currently in use. It provides the execution context for various panes within the IDE such as the Console, Variables, Plots, and Editor pane. Language-specific features such as code execution, completion, and diagnostics are all scoped to the active interpreter session.
 
-The name of the active interpreter session is displayed on the Interpreter picker and in the tab view of the Console pane when there are multiple running interpreter session.
+### Documents in the Editor pane
 
-<screenshot>
+The active interpreter session provides the execution context for documents in the Editor pane. However, a document is not permanently tied to a specific interpreter session.
+
+When you execute code from a document, Positron determines which interpreter session to use based on the following priority:
+
+1. **Active session compatibility**: If the active interpreter session matches the document language, Positron uses that session.
+2. **Fallback selection**: If the active interpreter session does not match the document language, Positron uses the most recently created interpreter session for the language.
+3. **New session creation**: If no interpreter session exists for the document language, Positron starts a new interpreter session. See the [Interpreter startup](interpreter-startup.qmd) guide for information on how Positron handles interpreter startup for you. 
+
+### Language-specific features
+
+The active interpreter session drives several language-specific features:
+
+**Code completion**: The active interpreter session provides the context for code completions in the Editor pane. To get accurate completions, ensure the appropriate interpreter session for the language of your document is active.
+
+**Diagnostics**: Error checking and code analysis use the active session environment.
+
+### Managing multiple interpreter sessions of the same language
+
+When working with multiple interpreter sessions for the same language, keep these practices in mind:
+
+**Session identification**: Use descriptive names to distinguish between interpreter sessions. Rename interpreter sessions to reflect their purpose.
+
+**Active session awareness**: Check which interpreter session is active before executing code. The session name is always visible in the Interpreter picker.
 
 ## View running interpreter sessions
 
-You can view a tab list of running interpreter sessions from the Console pane. The active interpreter is highlighted.
+You can view a list of running interpreter sessions from the Console pane. The active interpreter is highlighted. 
 
 Alternatively, you can click on the Interpreter picker to view a list of the running interpreter sessions. The active interpreter is highlighted in the list.
+
+<screenshot>
 
 ## Create a new interpreter session
 
@@ -71,15 +91,21 @@ To rename an interpreter session, open the Console pane to view the list of runn
 ## View interpreter session metadata
 
 To see information about the active interpreter session, click the Info icon button in the Console action bar. 
-This shows a popup with information including shortcuts to the output channels for the active interpreter session.
+This displays a popup that displays the following information:
 
-## Interpreter session status
+* **Name**: The display name of the interpreter session, which you can customize by renaming a session.
+* **Id**: The unique identifier assigned to the interpreter session by Positron.
+* **Status**: The current execution status of the interpreter.
+* **Interpreter path**: The file system location of the interpreter executable.
+* **Interpreter source**: The method used to discover the interpreter (for example, system PATH, conda environment, or manual configuration).
 
-When there is more than one running interpreter session, the Console pane list view displays the status of each interpreter session. The list view displays an icon that indicates the session state.
+The popup includes shortcuts to relevant output channels for the interpreter session.
+
+### Interpreter session status
+
+When there is more than one running interpreter session, the Console pane list view displays a status indicator next to each interpreter. The status indicator allows you to determine the execution status of a session.
 
 An interpreter session can be in one of the following states:
-* **Idle**: The interpreter session is available to run code.
-* **Busy**:: The console session is busy with a task.
-* **Shutdown**: The console session has shutdown.
-
-Certain actions, such as a restart, display a progress indicator in the Console.
+* **Idle**: The interpreter session is available to run code
+* **Busy**:: The console session is busy with a task
+* **Shutdown**: The console session has shutdown
