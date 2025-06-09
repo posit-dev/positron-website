@@ -14,7 +14,7 @@ The active interpreter session is the language environment currently in use. It 
 
 The active interpreter session can always be identified in the Interpreter picker.
 
-<screenshot>
+![Interpreter picker](images/interpreter-picker.png)
 
 ### Documents in the Editor pane
 
@@ -46,56 +46,59 @@ When working with multiple interpreter sessions for the same language, keep thes
 
 You can view a list of running interpreter sessions from the Console pane. The active interpreter is highlighted. 
 
-Alternatively, you can click on the Interpreter picker to view a list of the running interpreter sessions. The active interpreter is highlighted in the list.
+![Running interpreter sessions list from Console pane](images/console-pane-running-interpreter-sessions-list.png)
 
-<screenshot>
+Alternatively, you can select the Interpreter picker to view a list of the running interpreter sessions. The active interpreter is highlighted in the list.
 
-## Create a new interpreter session
-
-From the Console pane, click the `+` button in the Console action bar to see a list of all the registered interpreters.
-
-<screenshot>
-
-Alternatively, you can click on the Interpreter picker and choose "New Interpreter Session..." to see a list of all the registered interpreters.
-
-<screenshot>
-
-Select an interpreter to start an instance of it.
+![Running interpreter sessions list from Interpreter picker](images/interpreter-picker-running-interpreter-sessions-list.png)
 
 ## Change the active interpreter session
 
-To view the list of running session, open the Console pane. Click on an interpreter session from the list to make it the active interpreter.
+Select an interpreter session from the list in the Console pane to make it the active interpreter. Alternatively, you can select the Interpreter picker and then select a running interpreter session from the list.
 
-Alternatively, you can click on the Interpreter picker to see a list of alll the running interpreter sessions. Select one to make it the active interpreter session.
+## Create a new interpreter session
 
-<screenshot>
+Select the Interpreter picker and choose "New Interpreter Session..." to see a list of all the registered interpreters. Select an interpreter from the list to start an instance of it.
+
+![New interpreter session list from Inpterpreter picker](images/interpreter-picker-new-interpreter-session.png)
+
+Alternatively, you can select the `˅` icon in the Console pane. The dropdown lists the most recently used interpreters. The `Start Another...` option will display a list of all the registered interpreters. Select an interpreter from either list to start an instance.
+
+![Create interpreter session button from Console pane](images/console-pane-create-interpreter-session.png)
+
+::: {.callout-tip}
+You can also select the `+` icon to create a new interpreter session for the currently active interpreter. 
+:::
 
 ## Delete an interpreter session
 
 When you delete an interpreter session, the state of the session will be lost, including any variables you've defined.
 
-To delete an interpreter session, open the Console pane to view the list of running sessions. Hover over the tab for the interpreter session you want to delete. A Trash icon button will appear. Click the button to shut down and dispose of the session.
+Select the trashcan icon when hovering over the Console pane list to shut down and dispose of the session.
 
-<screenshot>
+![Delete interpreter session button from Console pane](images/console-pane-delete-interpreter-session.png)
 
 ## Restart an interpreter session
 
 When you restart an interpreter session, the session and variables state is cleared.
 
-To restart the active interpreter session, click the Restart icon button in the Console action bar. 
+Select the circular arrow icon from the Console action bar to restart a session.
+
+![Restart interpreter session button from Console pane](images/console-pane-restart-interpreter-session.png)
 
 ## Rename an interpreter session
 
 Renaming interpreter sessions is a useful tool to distinguish sessions for the same interpreter version.
 
-To rename an interpreter session, open the Console pane to view the list of running session. Right-click the tab for the interpreter session you want to rename. Select the "Rename..." option from the context menu.
+Right-click an interpreter session form the Console pane list and select the "Rename..." option.
 
-<screenshot>
+![Rename interpreter session menu option](images/console-pane-rename-interpreter-session.png)
 
 ## View interpreter session metadata
 
-To see information about the active interpreter session, click the Info icon button in the Console action bar. 
-This displays a popup that displays the following information:
+Select the info icon icon from the Console action bar to view information about the active interpreter session. 
+
+The popup displays the following information about the active interpreter session:
 
 * **Name**: The display name of the interpreter session, which you can customize by renaming a session.
 * **Id**: The unique identifier assigned to the interpreter session by Positron.
@@ -103,13 +106,20 @@ This displays a popup that displays the following information:
 * **Interpreter path**: The file system location of the interpreter executable.
 * **Interpreter source**: The method used to discover the interpreter (for example, system PATH, conda environment, or manual configuration).
 
-The popup includes shortcuts to relevant output channels for the interpreter session.
+![Interpreter information button from Console pane](images/console-pane-interpreter-session-information.png)
+
+::: {.callout-tip}
+The popup includes shortcuts to relevant output channels for the interpreter session. Select one to view the logs for that channel.
+:::
 
 ### Interpreter session status
 
-When there is more than one running interpreter session, the Console pane list view displays a status indicator next to each interpreter. The status indicator allows you to determine the execution status of a session.
+The Console pane list displays an execution status indicator next to each interpreter session.
 
 An interpreter session can be in one of the following states:
-* **Idle**: The interpreter session is available to run code
-* **Busy**:: The console session is busy with a task
-* **Shutdown**: The console session has shutdown
+
+* **Idle (green)**: The interpreter session is available to run code
+* **Busy (blue)**:: The console session is busy with a task
+* **Shutdown (red)**: The console session has shutdown
+
+![Interpreter session status icons from Console pane](images/console-pane-interpreter-session-status.png)
