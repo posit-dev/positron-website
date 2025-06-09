@@ -98,7 +98,7 @@ Right-click an interpreter session form the Console pane list and select the "Re
 
 Select the info icon icon from the Console action bar to view information about the active interpreter session. 
 
-The popup displays the following information about the active interpreter session:
+The pop-up window displays the following information about the active interpreter session:
 
 * **Name**: The display name of the interpreter session, which you can customize by renaming a session.
 * **Id**: The unique identifier assigned to the interpreter session by Positron.
