@@ -6,7 +6,6 @@ Positron is designed to support multiple R and Python interpreter sessions. This
 
 At any given time, one interpreter session is designated as the **active interpreter session**. This is the language environment currently in use for interactive and language-specific features within the IDE.
 
-Interpreter sessions are managed primarily through the Interpreter picker and Console pane which is discusses in detail below.
 
 ## Active interpreter session
 
