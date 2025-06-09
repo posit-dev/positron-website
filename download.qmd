@@ -106,7 +106,8 @@ if (length(checksums) > 0) {
 knitr::kable(download_table, format = "html", escape = FALSE)
 ```
 <br>
-Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases).
+
+Once you install Positron, it will [automatically check for updates moving forward](updating.qmd). Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases).
 
 ### Positron Pro on Posit Workbench
 
