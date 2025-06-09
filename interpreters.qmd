@@ -37,7 +37,7 @@ The active interpreter session drives several language-specific features:
 
 When working with multiple interpreter sessions for the same language, keep these practices in mind:
 
-**Session identification**: Use descriptive names to distinguish between interpreter sessions. Rename interpreter sessions to reflect their purpose.
+**Session identification**: Use descriptive names to distinguish between interpreter sessions. [Rename interpreter sessions](#rename-an-interpreter-session) to reflect their purpose.
 
 **Active session awareness**: Check which interpreter session is active before executing code. The session name is always visible in the Interpreter picker.
 
