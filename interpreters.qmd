@@ -61,7 +61,7 @@ Select the Interpreter picker and choose "New Interpreter Session..." to see a l
 
 ![New interpreter session list from Inpterpreter picker](images/interpreter-picker-new-interpreter-session.png)
 
-Alternatively, you can select the `˅` icon in the Console pane. The dropdown lists the most recently used interpreters. The `Start Another...` option will display a list of all the registered interpreters. Select an interpreter from either list to start an instance.
+Alternatively, you can select the `˅` icon in the Console pane. The dropdown lists the most recently used interpreters. The **Start Another...** option will display a list of all the registered interpreters. Select an interpreter from either list to start an instance.
 
 ![Create interpreter session button from Console pane](images/console-pane-create-interpreter-session.png)
 
