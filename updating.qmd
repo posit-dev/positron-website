@@ -2,38 +2,24 @@
 title: "Updating Positron"
 ---
 
-As of build 2025.03.0-116, Positron automatically checks for updates from our channel of monthly prereleases.
+By default, Positron automatically checks for updates from our channel of monthly releases.
 
 - On Windows and Mac, if an update is available, Positron will download it and install the new version in the background.
 - On Linux, Positron will show a notification when an update is available.
 
-You can opt out of this automatic checking by changing the `update.mode` setting to `"none"`; see [our page on privacy and data collection](privacy.qmd) for more details.
+You can opt out of this automatic checking by changing the [`update.mode` setting](positron://settings/update.mode) to `"none"`; see [our page on privacy and data collection](privacy.qmd) for more details.
 
-We're currently also making releases available approximately weekly, for users who are interested in trying out new features at a faster cadence. You can find these releases [on GitHub](https://github.com/posit-dev/positron/releases), and may be interested in the following helpers to manage these manual updates.
+## Daily builds
 
-## macOS
+For users who are interested in trying out new features at a faster cadence, we also provide a channel of daily builds; you can opt in to these builds by changing the [`update.positron.channel` setting](positron://settings/update.positron.channel) to `"dailies"`.
 
-There is a shell script available that you can use to download and install the latest version available via GitHub. First, download the update script and mark it executable:
+If you change the setting to `"dailies"`, what can you expect? 
 
-```sh
-curl https://gist.githubusercontent.com/juliasilge/a74883871e98afe67b01cd9125b104c7/raw/1514a69bda59f2837184bd7c372889885c138d51/update-positron.sh -o update-positron.sh
+- You will have an updated version of Positron available most days (instead of once a month). You'll see a notification in the bottom left prompting you to restart.
+- These daily builds only go through automated testing before being made available, not our full QA process. If you consider yourself an adventurous early adopter, this may be a good fit for you!
+- If some daily build happens to be entirely broken for you, the best step for you to take is to close Positron and [install the latest monthly release](download.qmd).
 
-chmod u+x update-positron.sh
-```
-
-You can optionally put the script on your `$PATH` so you can run it from any directory. You only need to download and set up the shell script like this one time.
-
-Then you can download and install the latest version of Positron via:
-
-```sh
-./update-positron.sh 
-```
-
-:::{.callout-note}
-Unfortunately, this approach doesn't check your current version of Positron; it will _always_ download and install the latest version.
-:::
-
-## Windows
+## Windows package managers
 
 We don't yet officially maintain Positron on Windows package managers, but you can install the latest version of Positron via [scoop](https://scoop.sh/) or [winget](https://learn.microsoft.com/en-us/windows/package-manager/) thanks to the efforts of community maintainers.
 
