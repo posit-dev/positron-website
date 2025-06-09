@@ -27,3 +27,7 @@
 - The `RSTUDIO_PANDOC` environment variable is now set correctly on Linux builds [[#7929]](https://github.com/posit-dev/positron/issues/7929) and in terminals and tasks as well as R sessions [[#7700]](https://github.com/posit-dev/positron/issues/7700).
 - [[#7402]](https://github.com/posit-dev/positron/issues/7402) The `QUARTO_R` environment variable now points to your chosen R version in the Terminal.
 - [[#7239]](https://github.com/posit-dev/positron/issues/7239) Fixed failure to set working directory from the Explorer when connecting via Remote SSH from Windows to Linux.
+
+#### Dependencies
+
+- Updated something!
