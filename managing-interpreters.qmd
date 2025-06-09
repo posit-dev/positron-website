@@ -1,5 +1,5 @@
 ---
-title: "Interpreters"
+title: "Managing Interpreters"
 ---
 
 Positron is designed to support multiple R and Python interpreter sessions. This enables workflows that span multiple environments, and allows you to switch between them easily within a single workspace. Interpreter sessions are managed primarily through the Interpreter picker and Console pane.

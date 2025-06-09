@@ -61,7 +61,7 @@ website:
         - add-to-path.qmd
         - section: "Interpreters"
           contents:
-            - interpreters.qmd
+            - managing-interpreters.qmd
             - interpreter-startup.qmd
             - r-installations.qmd
         - keyboard-shortcuts.qmd
