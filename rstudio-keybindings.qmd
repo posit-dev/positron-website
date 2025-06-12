@@ -6,12 +6,7 @@ title: "RStudio Keybindings"
 
 ## RStudio keybindings in Positron
 
-If you'd prefer to use RStudio keybindings in Positron, do the following:
-
-- Open Positron's settings via <kbd>Cmd/Ctrl</kbd>+<kbd>,</kbd>
-- Search for "RStudio", or navigate to *Workbench > Keybindings > RStudio Keybindings*
-- Check the "Enable RStudio keybindings" checkbox
-- Restart Positron
+If you'd prefer to use RStudio keybindings in Positron, enable the [`workbench.keybindings.rstudioKeybindings` setting](positron://settings/workbench.keybindings.rstudioKeybindings). Restart Positron after changing this setting.
 
 The following RStudio keybindings will then be enabled:
 

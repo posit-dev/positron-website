@@ -77,7 +77,7 @@ For example, note that this Shiny application running on `:6868` automatically g
 
 ## Long-running sessions
 
-By default, Positron will forcefully end your R and Python sessions when you close Positron. If you want to leave your sessions running even after you close Positron -- for example, to leave data loaded in memory or let long-running computations continue -- you can tell Positron's kernel supervisor to keep the sessions running. You can find this setting in _Settings > Extensions > Kernel Supervisor > Shutdown Timeout_.
+By default, Positron will forcefully end your R and Python sessions when you close Positron. If you want to leave your sessions running even after you close Positron -- for example, to leave data loaded in memory or let long-running computations continue -- you can tell Positron's kernel supervisor to keep the sessions running using the [`kernelSupervisor.shutdownTimeout` setting](positron://settings/kernelSupervisor.shutdownTimeout).
 
 ![Shutdown Timeout Settings](./images/remote-ssh-shutdown-timeout){width=638}
 
@@ -89,7 +89,7 @@ The long-running sessions are associated with the workspace in which you use the
 
 ### Shutdown timeout details
 
-Because the supervisor runs your R and Python sessions without any UI attached, it can't tell when you're done with them. In order to prevent sessions from running indefinitely and consuming resources on your remote host, the supervisor will shut them down after a certain period of inactivity. This period is controlled by _Shutdown Timeout_ setting.
+Because the supervisor runs your R and Python sessions without any UI attached, it can't tell when you're done with them. In order to prevent sessions from running indefinitely and consuming resources on your remote host, the supervisor will shut them down after a certain period of inactivity. This period is controlled by the [`kernelSupervisor.shutdownTimeout` setting](positron://settings/kernelSupervisor.shutdownTimeout).
 
 The shutdown timeout will never interrupt a kernel that's busy running code; it doesn't start counting down until the kernel is  idle _and_ it's not connected to any Positron windows. 
 
@@ -112,7 +112,7 @@ The two most common problems are:
 - Encountering a 404 when downloading the Positron Server binary. This happens when you attempt to use Remote SSH against a host type that's not supported, for example, connecting to a macOS host.
 - Encountering an error when starting the Positron Server binary. This happens when you attempt to use Remote SSH against a version of Linux that's not supported by Positron.
 
-If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it's not autodetected), you can edit this setting:
+If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it's not autodetected), you can edit the [`remoteSSH.serverDownloadUrlTemplate` setting](positron://settings/remoteSSH.serverDownloadUrlTemplate):
 
 ![Remote SSH: Server Download Url Template Setting](./images/remote-ssh-server-template.png){width=650}
 
