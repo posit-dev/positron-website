@@ -37,7 +37,4 @@ title: "Frequently Asked Questions"
 ### I'm coming from RStudio, and Positron's keybindings are too different
 
 * Check out the [RStudio Keymap](keyboard-shortcuts.qmd#rstudio-keymap) section of our documentation.
-* To opt in to these RStudio-like keybindings:
-    * Run the command _Preferences: Open Settings_.
-    * Search for "keymap".
-    * Find "RStudio > Keymap: Enable", and check the box to opt in.
+* To opt in to these RStudio-like keybindings, enable the [`workbench.keybindings.rstudioKeybindings` setting](positron://settings/workbench.keybindings.rstudioKeybindings).

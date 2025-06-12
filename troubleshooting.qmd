@@ -27,7 +27,7 @@ Run the _Output: Show Output Channels_ command to show a list of output channels
 
 ### Log level
 
-Most of these output channels have a log level associated with them that you can change in the settings UI. For example, you can change the log level for how much information is passed from the R kernel itself to the "R X.Y.Z: Kernel" output channel using the `positron.r.kernel.logLevel` setting.
+Most of these output channels have a log level associated with them that you can change in the settings UI. For example, you can change the log level for how much information is passed from the R kernel itself to the "R X.Y.Z: Kernel" output channel using the [`positron.r.kernel.logLevel` setting](positron://settings/positron.r.kernel.logLevel).
 
 ## Developer tools
 
