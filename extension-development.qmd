@@ -4,6 +4,10 @@ title: "Extension Development"
 
 Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code](https://code.visualstudio.com/api/get-started/your-first-extension). Extensions can use standard VS Code APIs or access Positron's enhanced data science features.
 
+::: {.callout-warning}
+The `@posit-dev/positron` package is experimental. APIs may change between releases. Pin your dependency version and expect breaking changes until the 1.0 release.
+:::
+
 ## Detecting Positron
 
 You have two ways to detect if your extension is running in Positron:
@@ -119,13 +123,32 @@ Show web pages, HTML content, or custom visualizations in Positron's viewer pane
 ### Run code in any language  
 Execute Python, R, or other language code in the active console.
 
-### Create AI assistants
-Build custom chat agents that help with coding tasks.
-
 ### Connect to databases
 Add support for new database types in the Connections pane.
 
-## Basic examples
+### Advanced capabilities
+
+The advanced APIs help you build extensions that deeply integrate with Positron's data science features:
+
+* **Stream output in real-time** from long-running Python, R, or Julia computations
+* **Create custom viewer panels** for interactive visualizations, dashboards, or specialized UIs
+* **Build AI chat agents** that understand your data context
+* **Support new languages** with statement execution and help providers
+
+#### API overview
+
+| Namespace              | Typical use case                                                         |
+| ---------------------- | ------------------------------------------------------------------------ |
+| `positron.window`      | Preview URLs/HTML, build custom webview panels, monitor console layout   |
+| `positron.runtime`     | Execute & observe code, enumerate sessions, inspect variables            |
+| `positron.connections` | Add database / service drivers with custom credential UI                 |
+| `positron.languages`   | Provide statement-range & help-topic providers for new languages         |
+| `positron.methods`     | Call low-level RPCs or show purpose-built dialogs                        |
+| `positron.environment` | Inspect environment-variable contributions from all installed extensions |
+
+## Examples
+
+### Basic examples
 
 Each example shows how to use a Positron feature inside a command.
 
@@ -168,40 +191,6 @@ const disposable = vscode.commands.registerCommand('myExtension.runCode', () => 
 ```
 
 The third parameter (`true`) means the code appears in the console history.
-
-### Create a simple AI assistant
-
-Build a chat agent that responds to user questions:
-
-```typescript
-// In your activate function
-const participant = vscode.chat.createChatParticipant(
-    'myExtension.helper',
-    async (request, context, response, token) => {
-        response.markdown(`You asked: "${request.prompt}"`);
-        
-        // Add your custom logic here
-        if (request.prompt.includes('data')) {
-            response.markdown('\n\nI can help with data analysis!');
-        }
-    }
-);
-
-participant.iconPath = new vscode.ThemeIcon('robot');
-context.subscriptions.push(participant);
-```
-
-Add to package.json:
-
-```json
-"contributes": {
-    "chatParticipants": [{
-        "id": "myExtension.helper",
-        "name": "My Helper",
-        "description": "A helpful assistant"
-    }]
-}
-```
 
 ### Add a database connection
 
@@ -271,20 +260,106 @@ The `mockDatabaseCode` function is defined at the top of the example and generat
 
 Users can paste this code and immediately see it working in the **Connections** pane.
 
+### Advanced examples
+
+These examples demonstrate deeper integrations with Positron's data science features:
+
+#### Stream output with observers
+
+Capture and process output from long-running computations as they execute:
+
+```typescript
+import * as vscode from "vscode";
+
+export async function runLongTask(code: string) {
+  const positron = tryAcquirePositronApi();
+  if (!positron) return;
+
+  // Create an observer to handle output events
+  const observer = {
+    onStarted: () => vscode.window.showInformationMessage("Analysis started"),
+    onOutput: (message) => {
+      // Process output chunks as they arrive
+      console.log("Output:", message.text || message);
+    },
+    onError: (error) => {
+      console.error("Runtime error:", error);
+      vscode.window.showErrorMessage(`Error: ${error.message}`);
+    },
+    onFinished: () => vscode.window.showInformationMessage("Analysis complete"),
+  };
+
+  // Execute code with streaming output
+  await positron.runtime.executeCode(
+    "python",
+    code,
+    true,    // show in console
+    false,   // not an evaluation
+    undefined,
+    undefined,
+    observer
+  );
+}
+```
+
+Use observers when you need to process output progressively without blocking the UI. This is especially useful for monitoring long-running analyses or streaming results.
+
+#### Create custom preview panels
+
+Build interactive viewer panels with full control over the content:
+
+```typescript
+// Create a preview panel for custom visualizations
+const panel = positron.window.createPreviewPanel(
+  "myExtension.preview",
+  "Model Diagnostics",
+  false,  // preserve focus
+  {
+    enableScripts: true,
+    localResourceRoots: [vscode.Uri.file(context.extensionPath)]
+  }
+);
+
+// Set the panel content
+panel.webview.html = await generateVisualizationHtml();
+```
+
+The `createPreviewPanel` method creates an isolated browser context. Use it for data visualizations, interactive dashboards, or any web-based UI that needs to integrate with Positron.
+
+## Best practices
+
+### Performance
+* Batch API calls when possible - use `getSessionVariables()` instead of multiple individual lookups
+* All API methods are asynchronous - always use `await` or handle promises appropriately
+
+### Resource management
+* Dispose event listeners in your extension's `deactivate()` function
+* Add disposables to `context.subscriptions` for automatic cleanup
+
+### Security
+* Set `localResourceRoots` when creating webviews
+* Use content security policies for webviews that load external content
+* Never expose sensitive data in webview messages
+
+## Version compatibility
+
+| `@posit-dev/positron` | Positron desktop |
+| --------------------- | ---------------- |
+| 0.1.x                 | 2025.07.0 or later |
+
 ## Next steps
 
 ### Resources
 
 - **Extension template**: Start quickly with the [Positron extension template](https://github.com/posit-dev/positron-extension-template)
-- **Demo extension**: See a more examples of the available API in the [demo extension](https://github.com/nstrayer/positron-extension-demo)
-- **API reference**: View the [API documentation](https://www.npmjs.com/package/@posit-dev/positron)
+- **Demo extension**: See more examples of the available API in the [demo extension](https://github.com/nstrayer/positron-extension-demo)
+- **API reference**: Complete type documentation on [npm](https://www.npmjs.com/package/@posit-dev/positron)
 - **Source code**: Browse the [API package repository](https://github.com/posit-dev/positron-api-pkg)
-
 
 ### Get help
 
-- **Advanced features**: Read the [advanced API guide](api-advanced.qmd) for complex use cases
-- **Community**: Join the [Positron discussions](https://github.com/posit-dev/positron/discussions)
+- **Community**: Ask questions in [GitHub discussions](https://github.com/posit-dev/positron/discussions)
+- **Report issues**: File bugs in the [API repository](https://github.com/posit-dev/positron-api-pkg/issues)
 
 ::: {.callout-tip}
 Start with the extension template to get a working setup quickly. Then add features one at a time as you learn the API.

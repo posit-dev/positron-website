@@ -71,7 +71,6 @@ website:
         - remote-ssh.qmd
         - updating.qmd
         - extension-development.qmd
-        - api-advanced.qmd
         - section: "Migrating from RStudio"
           contents:
           - rstudio-keybindings.qmd
