@@ -2,11 +2,15 @@
 title: "Extension Development"
 ---
 
-Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code](https://code.visualstudio.com/api/get-started/your-first-extension). You can use Positron to develop your extension and run it in a new **Extension Development Host** window.
+Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code](https://code.visualstudio.com/api/get-started/your-first-extension). Extensions can use standard VS Code APIs or access Positron's enhanced data science features.
 
-## Context keys
+## Detecting Positron
 
-When defining your extension's manifest, you can use the `isPositron` context key for enablement or in a `when` clause.
+You have two ways to detect if your extension is running in Positron:
+
+### Option 1: Context keys
+
+Use the `isPositron` context key in your extension manifest for simple detection:
 
 ```json
 "commands": [
@@ -19,10 +23,269 @@ When defining your extension's manifest, you can use the `isPositron` context ke
 ]
 ```
 
-This allows your extension to enable commands, keybindings, menu items, and any other contribution points only for Positron.
+This enables commands, keybindings, and menu items only in Positron.
 
-## Extension APIs
+### Option 2: Positron API
 
-Positron provides [all the normal contribution points and the VS Code API](https://code.visualstudio.com/api/extension-capabilities/overview) to extensions. Unlike VS Code, however, so-called [proposed APIs](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) are available to all extension authors by default, and don't require special configuration on the part of users to enable.
+For access to Positron's features, use the API package:
 
-Positron-native extensions can also make use of its own API. We plan to make the extension development experience better (for example, [safely wrapping](https://github.com/posit-dev/positron/issues/458) and [providing typing for](https://github.com/posit-dev/positron/issues/809) the Positron API), but in the meantime, we recommend you [take a look at the Positron API details directly](https://github.com/posit-dev/positron/tree/main/src/positron-dts).
+```bash
+npm install @posit-dev/positron
+```
+
+Then detect Positron in your code:
+
+```typescript
+import { tryAcquirePositronApi } from '@posit-dev/positron';
+
+const positron = tryAcquirePositronApi();
+if (positron) {
+    // Positron features are available
+}
+```
+
+::: {.callout-warning}
+The Positron API is experimental. Features may change between releases.
+:::
+
+## Setting up your extension
+
+::: {.callout}
+The easiest way to start an extension is to use the [positron extension template](https://github.com/posit-dev/positron-extension-template).
+:::
+
+Extensions run code when VS Code or Positron activates them. You need two files to create an extension:
+
+### 1. Extension code (extension.ts)
+
+```typescript
+import * as vscode from 'vscode';
+import { tryAcquirePositronApi } from '@posit-dev/positron';
+
+export function activate(context: vscode.ExtensionContext) {
+    // Register a command
+    const disposable = vscode.commands.registerCommand('myExtension.helloWorld', () => {
+        const positron = tryAcquirePositronApi();
+        
+        if (positron) {
+            vscode.window.showInformationMessage('Hello from Positron!');
+            // Use Positron features here
+        } else {
+            vscode.window.showInformationMessage('Hello from VS Code!');
+        }
+    });
+    
+    context.subscriptions.push(disposable);
+}
+
+export function deactivate() {}
+```
+
+### 2. Extension manifest (package.json)
+
+```json
+{
+    "name": "my-extension",
+    "displayName": "My Extension",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.74.0"
+    },
+    "activationEvents": [],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "myExtension.helloWorld",
+                "title": "Hello World"
+            }
+        ]
+    },
+    "dependencies": {
+        "@posit-dev/positron": "^0.1.0"
+    }
+}
+```
+
+Now users can run your command from the **Command Palette** (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> on Mac).
+
+## What can you build?
+
+The Positron API provides access to these features:
+
+### Preview and display content
+Show web pages, HTML content, or custom visualizations in Positron's viewer pane.
+
+### Run code in any language  
+Execute Python, R, or other language code in the active console.
+
+### Create AI assistants
+Build custom chat agents that help with coding tasks.
+
+### Connect to databases
+Add support for new database types in the Connections pane.
+
+## Basic examples
+
+Each example shows how to use a Positron feature inside a command.
+
+### Display a web page
+
+```typescript
+const disposable = vscode.commands.registerCommand('myExtension.showWebPage', () => {
+    const positron = tryAcquirePositronApi();
+    if (positron) {
+        const url = vscode.Uri.parse('https://example.com');
+        positron.window.previewUrl(url);
+    }
+});
+```
+
+Add this command to your package.json:
+
+```json
+{
+    "command": "myExtension.showWebPage",
+    "title": "Show Web Page"
+}
+```
+
+### Run code in the console
+
+Execute code in the active Python or R session:
+
+```typescript
+const disposable = vscode.commands.registerCommand('myExtension.runCode', () => {
+    const positron = tryAcquirePositronApi();
+    if (positron) {
+        // Run Python code
+        positron.runtime.executeCode('python', 'print("Hello from extension!")', true);
+        
+        // Or run R code
+        // positron.runtime.executeCode('r', 'print("Hello from R")', true);
+    }
+});
+```
+
+The third parameter (`true`) means the code appears in the console history.
+
+### Create a simple AI assistant
+
+Build a chat agent that responds to user questions:
+
+```typescript
+// In your activate function
+const participant = vscode.chat.createChatParticipant(
+    'myExtension.helper',
+    async (request, context, response, token) => {
+        response.markdown(`You asked: "${request.prompt}"`);
+        
+        // Add your custom logic here
+        if (request.prompt.includes('data')) {
+            response.markdown('\n\nI can help with data analysis!');
+        }
+    }
+);
+
+participant.iconPath = new vscode.ThemeIcon('robot');
+context.subscriptions.push(participant);
+```
+
+Add to package.json:
+
+```json
+"contributes": {
+    "chatParticipants": [{
+        "id": "myExtension.helper",
+        "name": "My Helper",
+        "description": "A helpful assistant"
+    }]
+}
+```
+
+### Add a database connection
+
+Register a custom database type with a working mock example:
+
+```typescript
+// In your activate function
+export function activate(context: vscode.ExtensionContext) {
+    const positron = tryAcquirePositronApi();
+    if (positron) {
+        const disposable = positron.connections.registerConnectionDriver({
+        driverId: 'mockdb',
+        metadata: {
+            languageId: 'python',
+            name: 'Mock Database',
+            inputs: [
+                {
+                    id: 'database',
+                    label: 'Database Name',
+                    type: 'string',
+                    value: 'test_db'
+                }
+            ]
+        },
+        generateCode: (inputs) => {
+            // If any of the inputs are an ID, use that as the name
+            const dbName = inputs.find(i => i.id === 'database')?.value || 'test_db';
+            return mockDatabaseCode(dbName);
+        },
+        connect: async (code) => {
+            await positron.runtime.executeCode('python', code, true);
+        }
+    });
+        context.subscriptions.push(disposable);
+    }
+}
+```
+
+<details>
+<summary>Mock database code</summary>
+
+In this example we simulate a database connection with a basic python class. Swap this logic out for your use-case!
+
+```typescript
+// Mock database code generator. 
+const mockDatabaseCode = (dbName: string) => `
+# Mock database connection
+class MockDatabase:
+    def __init__(self, name):
+        self.name = name
+        self.tables = ['users', 'products', 'orders']
+        print(f"Connected to mock database: {name}")
+        print(f"Available tables: {', '.join(self.tables)}")
+    
+    def query(self, sql):
+        return f"Mock result for: {sql}"
+
+# Create connection
+mock_db = MockDatabase("${dbName}")
+print("\\nConnection successful! Try: mock_db.query('SELECT * FROM users')")
+`;
+
+```
+The `mockDatabaseCode` function is defined at the top of the example and generates Python code that creates a simple mock database class. This lets you test the connection without needing a real database installed.
+
+</details>
+
+Users can paste this code and immediately see it working in the **Connections** pane.
+
+## Next steps
+
+### Resources
+
+- **Extension template**: Start quickly with the [Positron extension template](https://github.com/posit-dev/positron-extension-template)
+- **Demo extension**: See a more examples of the available API in the [demo extension](https://github.com/nstrayer/positron-extension-demo)
+- **API reference**: View the [API documentation](https://www.npmjs.com/package/@posit-dev/positron)
+- **Source code**: Browse the [API package repository](https://github.com/posit-dev/positron-api-pkg)
+
+
+### Get help
+
+- **Advanced features**: Read the [advanced API guide](api-advanced.qmd) for complex use cases
+- **Community**: Join the [Positron discussions](https://github.com/posit-dev/positron/discussions)
+
+::: {.callout-tip}
+Start with the extension template to get a working setup quickly. Then add features one at a time as you learn the API.
+:::
