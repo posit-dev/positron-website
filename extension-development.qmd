@@ -343,29 +343,32 @@ The `createPreviewPanel` method creates an isolated browser context. Use it for 
 
 ## Version compatibility
 
+You can ensure your extension only activates in versions of Positron that you explicitly support by declaring a suitable version range in your `package.json`.
+
+### Positron versioning
+
+Positron follows a calendar-versioning scheme, while VS Code uses semantic versioning. Because of this, common range operators such as the caret (`^`) behave differently on each platform:
+
+* **VS Code** – `major.minor.patch`
+  * A caret range stays within the current major version: `^1.74.0` expands to `>=1.74.0` and `<2.0.0`.
+  * Stepping up to `2.0.0` can therefore introduce breaking changes.
+
+* **Positron** – `YYYY.M.P` (year · month · patch)
+  * Under calendar versioning, the caret simply means "this version or anything newer": `^2025.6.0` translates to `>=2025.6.0` with no upper bound.
+  * Entering a new year (`2026.x.x`) is *not* automatically breaking—always consult the release notes.
+
 ### Specifying Positron version requirements
 
-You can ensure your extension runs on compatible Positron versions by adding a `positron` field to the `engines` section in your package.json:
+Add a `positron` entry under the `engines` section of your `package.json` to declare the minimum build your extension supports. 
 
 ```json
 {
     "engines": {
-        "vscode": "^1.74.0",
-        "positron": "2025.6.x"
+        "vscode": "^1.74.0",    // VS Code 1.74.0 or later
+        "positron": "^2025.6.0" // Positron 2025.6.0 or later
     }
 }
 ```
-
-Version patterns:
-
-- `2025.6.x` - Any patch version of 2025.6 (June 2025)
-- `^2025.6.0` - Version 2025.6.0 or later
-- `^2024.5.x` - Any version in the 2025.5 (May 2025) series or later
-- `*` - Any version of Positron
-
-::: {.callout-note}
-Extensions without a `positron` field in `engines` are assumed compatible with any Positron version. This is to allow non-positron-aware extensions to still work. 
-:::
 
 ### API package compatibility
 
