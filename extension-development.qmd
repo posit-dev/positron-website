@@ -343,6 +343,32 @@ The `createPreviewPanel` method creates an isolated browser context. Use it for 
 
 ## Version compatibility
 
+### Specifying Positron version requirements
+
+You can ensure your extension runs on compatible Positron versions by adding a `positron` field to the `engines` section in your package.json:
+
+```json
+{
+    "engines": {
+        "vscode": "^1.74.0",
+        "positron": "2025.6.x"
+    }
+}
+```
+
+Version patterns:
+
+- `2025.6.x` - Any patch version of 2025.6 (June 2025)
+- `^2025.6.0` - Version 2025.6.0 or later
+- `^2024.5.x` - Any version in the 2025.5 (May 2025) series or later
+- `*` - Any version of Positron
+
+::: {.callout-note}
+Extensions without a `positron` field in `engines` are assumed compatible with any Positron version. This is to allow non-positron-aware extensions to still work. 
+:::
+
+### API package compatibility
+
 | `@posit-dev/positron` | Positron desktop |
 | --------------------- | ---------------- |
 | 0.1.x                 | 2025.07.0 or later |
