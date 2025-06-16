@@ -126,7 +126,7 @@ Add support for new database types in the Connections pane.
 
 ### Advanced capabilities
 
-The advanced APIs help you build extensions that deeply integrate with Positron's data science features:
+The advanced APIs enable you to build extensions that deeply integrate with Positron's data science features:
 
 * **Stream output in real-time** from long-running Python, R, or Julia computations
 * **Create custom viewer panels** for interactive visualizations, dashboards, or specialized UIs
