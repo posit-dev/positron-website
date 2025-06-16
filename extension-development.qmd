@@ -2,11 +2,14 @@
 title: "Extension Development"
 ---
 
-Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code](https://code.visualstudio.com/api/get-started/your-first-extension). Extensions can use standard VS Code APIs or access Positron's API for enhanced data science features.
+Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code.](https://code.visualstudio.com/api/get-started/your-first-extension) Extensions can use standard VS Code APIs or access Positron's API for enhanced data science features.
 
-::: {.callout-warning}
-The `@posit-dev/positron` package is experimental. APIs may change between releases. Pin your dependency version and expect breaking changes until the 1.0 release.
-:::
+## Prerequisites
+These docs use the [@posit-dev/positron](https://www.npmjs.com/package/@posit-dev/positron) NPM package for type-safety and intellensence. If you wish to run the examples you will need Positron (version 2025.6 or greater) and Node (18 or greater) installed as well. 
+
+The easiest way to follow along is to download the [Positron extension template](https://github.com/posit-dev/positron-extension-template) and adding the examples to it as needed.
+
+For more comprehensive setup instructions see the [VS Code documentation.](https://code.visualstudio.com/api/get-started/your-first-extension)
 
 ## Detecting Positron
 
@@ -31,7 +34,7 @@ This enables commands, keybindings, and menu items only in Positron.
 
 ### Option 2: Positron API
 
-For access to Positron's features, use the API package:
+If you want to access to Positron's features but also allow for graceful degredation in VS Code you can use the [@posit-dev/positron](https://www.npmjs.com/package/@posit-dev/positron) package's safe API accesor function. 
 
 ```bash
 npm install @posit-dev/positron
@@ -44,17 +47,28 @@ import { tryAcquirePositronApi } from '@posit-dev/positron';
 
 const positron = tryAcquirePositronApi();
 if (positron) {
-    // Positron features are available
+    // Positron features are available with full type safety
 }
 ```
+
+Alternatively, if you just need to check but don't need the API you can use `inPositron()`
+
+```typescript
+import { inPositron } from '@posit-dev/positron';
+
+if (inPositron()) {
+    // Behavior specific for Positron
+}
+```
+
 
 ## Setting up your extension
 
 ::: {.callout}
-The easiest way to start an extension is to use the [positron extension template](https://github.com/posit-dev/positron-extension-template).
+The easiest way to start an extension is to use the [Positron extension template](https://github.com/posit-dev/positron-extension-template).
 :::
 
-Extensions run code when VS Code or Positron activate them. You need two files to create an extension:
+There are two key files when setting up your extension.
 
 ### Extension script (`extension.ts`)
 
@@ -81,6 +95,10 @@ export function activate(context: vscode.ExtensionContext) {
 
 export function deactivate() {}
 ```
+
+The `activate()` function is run when your extension is [activated.](https://code.visualstudio.com/api/references/activation-events) 
+
+It's where you setup the code behind commands and other extension contributions. 
 
 ### Extension manifest (`package.json`)
 
@@ -109,11 +127,13 @@ export function deactivate() {}
 }
 ```
 
+Your extensions `package.json` file uses custom extension fields to declare what your extension contributes. It's important to note that you need to add the contribution (in this case the command `myExtension.helloWorld`) to _both_ the Typescript/Javascript code and the `package.json`. 
+
 Now users can run your command from the **Command Palette** (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> on Mac).
 
 ## What can you build?
 
-The Positron API provides access to these features:
+The Positron API provides access to Positron-specific features such as:
 
 ### Preview and display content
 Show web pages, HTML content, or custom visualizations in Positron's viewer pane.
@@ -260,11 +280,10 @@ The `mockDatabaseCode` function generates Python code that creates a simple mock
 
 </details>
 
-Users can paste this code and immediately see it working in the **Connections** pane.
 
 ### Advanced examples
 
-These examples demonstrate deeper integrations with Positron's data science features:
+These examples demonstrate more advanced integrations with Positron's data science features:
 
 #### Stream output with observers
 
@@ -372,11 +391,6 @@ Add a `positron` entry under the `engines` section of your `package.json` to dec
 }
 ```
 
-### API package compatibility
-
-| `@posit-dev/positron` | Positron desktop |
-| --------------------- | ---------------- |
-| 0.1.x                 | 2025.07.0 or later |
 
 ## Next steps
 
