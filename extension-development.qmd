@@ -56,8 +56,9 @@ The easiest way to start an extension is to use the [positron extension template
 
 Extensions run code when VS Code or Positron activate them. You need two files to create an extension:
 
-### 1. Extension code (extension.ts)
+### 1. Extension code
 
+_`extension.ts`_
 ```typescript
 import * as vscode from 'vscode';
 import { tryAcquirePositronApi } from '@posit-dev/positron';
@@ -81,7 +82,9 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() {}
 ```
 
-### 2. Extension manifest (package.json)
+### 2. Extension manifest
+
+_`package.json`_
 
 ```json
 {
