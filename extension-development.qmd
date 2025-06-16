@@ -2,7 +2,7 @@
 title: "Extension Development"
 ---
 
-Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code](https://code.visualstudio.com/api/get-started/your-first-extension). Extensions can use standard VS Code APIs or access Positron's enhanced data science features.
+Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code](https://code.visualstudio.com/api/get-started/your-first-extension). Extensions can use standard VS Code APIs or access Positron's API for enhanced data science features.
 
 ::: {.callout-warning}
 The `@posit-dev/positron` package is experimental. APIs may change between releases. Pin your dependency version and expect breaking changes until the 1.0 release.
@@ -47,10 +47,6 @@ if (positron) {
     // Positron features are available
 }
 ```
-
-::: {.callout-warning}
-The Positron API is experimental. Features may change between releases.
-:::
 
 ## Setting up your extension
 
@@ -147,6 +143,10 @@ The advanced APIs help you build extensions that deeply integrate with Positron'
 | `positron.environment` | Inspect environment-variable contributions from all installed extensions |
 
 ## Examples
+
+:::{.callout}
+Prefer to look at a examples in a full extension context? Check out the [Positron API showcase extension.](https://github.com/posit-dev/positron-api-showcase)
+:::
 
 ### Basic examples
 
@@ -381,7 +381,7 @@ Add a `positron` entry under the `engines` section of your `package.json` to dec
 ### Resources
 
 - **Extension template**: Start quickly with the [Positron extension template](https://github.com/posit-dev/positron-extension-template)
-- **Demo extension**: See more examples of the available API in the [demo extension](https://github.com/nstrayer/positron-extension-demo)
+- **Positron API showcase extension**: See more examples of the available API in the [showcase extension](https://github.com/posit-dev/positron-api-showcase)
 - **API reference**: Complete type documentation on [npm](https://www.npmjs.com/package/@posit-dev/positron)
 - **Source code**: Browse the [API package repository](https://github.com/posit-dev/positron-api-pkg)
 
