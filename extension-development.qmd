@@ -2,75 +2,54 @@
 title: "Extension Development"
 ---
 
-Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code.](https://code.visualstudio.com/api/get-started/your-first-extension) Extensions can use standard VS Code APIs or access Positron's API for enhanced data science features.
+Positron's extension API enables you to automate workflows, integrate specialized analysis tools, and create custom visualizations that leverage your running R or Python sessions directly.
+
+Since Positron extensions add functionality on top of the VS Code extension API, this guide will omit many of the basic extension foundations. For these see [the VS Code extension documentation.](https://code.visualstudio.com/api/get-started/your-first-extension) 
 
 ## Prerequisites
-These docs use the [@posit-dev/positron](https://www.npmjs.com/package/@posit-dev/positron) NPM package for type-safety and intellensence. If you wish to run the examples you will need Positron (version 2025.6 or greater) and Node (18 or greater) installed as well. 
 
-The easiest way to follow along is to download the [Positron extension template](https://github.com/posit-dev/positron-extension-template) and adding the examples to it as needed.
+To follow these docs and run the examples, you'll need:
+  - Basic familiarity with TypeScript/JavaScript and npm
+  - An up-to-date version of Positron installed
+  - Node.js (version 18 or greater)
+
+These docs use the [@posit-dev/positron](https://www.npmjs.com/package/@posit-dev/positron) NPM package for type-safety and IntelliSense. 
+
+The easiest way to follow along is to download the [Positron extension template](https://github.com/posit-dev/positron-extension-template) and add the examples to it as needed.
 
 For more comprehensive setup instructions see the [VS Code documentation.](https://code.visualstudio.com/api/get-started/your-first-extension)
 
-## Detecting Positron
+## What can you build?
 
-You have two ways to detect if your extension is running in Positron:
+The Positron API provides access to Positron-specific features like running code in active R or Python sessions, utilizing Positron's preview pane, or contributing new database connections. 
 
-### Option 1: Context keys
+The following are the different sections of the API and how they're used.
 
-Use the `isPositron` context key in your extension manifest for simple detection:
+| Namespace              | Typical use case                                                         |
+| ---------------------- | ------------------------------------------------------------------------ |
+| `positron.window`      | Preview URLs/HTML, build custom webview panels, monitor console layout   |
+| `positron.runtime`     | Execute Python or R code in the active console, enumerate sessions, inspect variables            |
+| `positron.connections` | Add database / service drivers with custom credential UI                 |
+| `positron.languages`   | Provide statement-range & help-topic providers for new languages         |
+| `positron.methods`     | Call low-level RPCs or show purpose-built dialogs                        |
+| `positron.environment` | Inspect environment-variable contributions from all installed extensions |
 
-```json
-"commands": [
-    {
-        "category": "My Extension",
-        "command": "myExtension.myCommand",
-        "title": "My Extension Command",
-        "enablement": "isPositron"
-    }
-]
-```
 
-This enables commands, keybindings, and menu items only in Positron.
 
-### Option 2: Positron API
+## Setting up your extension
 
-If you want to access to Positron's features but also allow for graceful degredation in VS Code you can use the [@posit-dev/positron](https://www.npmjs.com/package/@posit-dev/positron) package's safe API accesor function. 
+The easiest way to start an extension is to use the [Positron extension template](https://github.com/posit-dev/positron-extension-template).
+
+Alternatively, you can use VS Code's [extension template system](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold out a plain VS Code extension and then add Positron functionality to that by installing the Positron NPM package.
 
 ```bash
 npm install @posit-dev/positron
 ```
 
-Then detect Positron in your code:
+### Key files
+There are two files that are critical when setting up your extension.
 
-```typescript
-import { tryAcquirePositronApi } from '@posit-dev/positron';
-
-const positron = tryAcquirePositronApi();
-if (positron) {
-    // Positron features are available with full type safety
-}
-```
-
-Alternatively, if you just need to check but don't need the API you can use `inPositron()`
-
-```typescript
-import { inPositron } from '@posit-dev/positron';
-
-if (inPositron()) {
-    // Behavior specific for Positron
-}
-```
-
-
-## Setting up your extension
-
-::: {.callout}
-The easiest way to start an extension is to use the [Positron extension template](https://github.com/posit-dev/positron-extension-template).
-:::
-
-There are two key files when setting up your extension.
-
-### Extension script (`extension.ts`)
+**Extension script (`extension.ts`)**
 
 
 ```typescript
@@ -100,8 +79,7 @@ The `activate()` function is run when your extension is [activated.](https://cod
 
 It's where you setup the code behind commands and other extension contributions. 
 
-### Extension manifest (`package.json`)
-
+**Extension manifest (`package.json`)**
 
 ```json
 {
@@ -131,48 +109,60 @@ Your extensions `package.json` file uses custom extension fields to declare what
 
 Now users can run your command from the **Command Palette** (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> on Mac).
 
-## What can you build?
 
-The Positron API provides access to Positron-specific features such as:
+### Detecting Positron
 
-### Preview and display content
-Show web pages, HTML content, or custom visualizations in Positron's viewer pane.
+You have two ways to detect if your extension is running in Positron:
 
-### Run code in any language  
-Execute Python, R, or other language code in the active console.
+#### Option 1: Context keys
 
-### Connect to databases
-Add support for new database types in the Connections pane.
+Use the `isPositron` context key in your extension manifest for simple detection:
 
-### Advanced capabilities
+```json
+"commands": [
+    {
+        "category": "My Extension",
+        "command": "myExtension.myCommand",
+        "title": "My Extension Command",
+        "enablement": "isPositron"
+    }
+]
+```
 
-The advanced APIs enable you to build extensions that deeply integrate with Positron's data science features:
+This enables commands, keybindings, and menu items to be visible _only_ in Positron.
 
-* **Stream output in real-time** from long-running Python, R, or Julia computations
-* **Create custom viewer panels** for interactive visualizations, dashboards, or specialized UIs
-* **Build AI chat agents** that understand your data context
-* **Support new languages** with statement execution and help providers
+#### Option 2: Positron API
 
-#### API overview
+Then detect Positron in your code:
 
-| Namespace              | Typical use case                                                         |
-| ---------------------- | ------------------------------------------------------------------------ |
-| `positron.window`      | Preview URLs/HTML, build custom webview panels, monitor console layout   |
-| `positron.runtime`     | Execute & observe code, enumerate sessions, inspect variables            |
-| `positron.connections` | Add database / service drivers with custom credential UI                 |
-| `positron.languages`   | Provide statement-range & help-topic providers for new languages         |
-| `positron.methods`     | Call low-level RPCs or show purpose-built dialogs                        |
-| `positron.environment` | Inspect environment-variable contributions from all installed extensions |
+```typescript
+import { tryAcquirePositronApi } from '@posit-dev/positron';
+
+const positron = tryAcquirePositronApi();
+if (positron) {
+    // Positron features are available with full type safety
+}
+```
+
+Alternatively, if you just need to check but don't need the API you can use `inPositron()`
+
+```typescript
+import { inPositron } from '@posit-dev/positron';
+
+if (inPositron()) {
+    // Behavior specific for Positron
+}
+```
+
+
 
 ## Examples
+
+Each example shows how to use a Positron feature inside a command.
 
 :::{.callout}
 Prefer to look at a examples in a full extension context? Check out the [Positron API showcase extension.](https://github.com/posit-dev/positron-api-showcase)
 :::
-
-### Basic examples
-
-Each example shows how to use a Positron feature inside a command.
 
 ### Display a web page
 
@@ -353,8 +343,13 @@ The `createPreviewPanel` method creates an isolated browser context. Use it for 
 * Batch API calls when possible - use `getSessionVariables()` instead of multiple individual lookups
 * All API methods are asynchronous - always use `await` or handle promises appropriately
 
+### Testing
+* The [Positron extension template](https://github.com/posit-dev/positron-extension-template) has simple testing infrastructure setup for you that can be extended to fit your extension's needs. 
+* The [Positron showcase extension](https://github.com/posit-dev/positron-api-showcase) has a more fleshed out testing implementation.
+* Refer to the [VS Code testing docs](https://code.visualstudio.com/api/working-with-extensions/testing-extension) for more information.
+
 ### Resource management
-* Dispose event listeners in your extension's `deactivate()` function
+* Clean up event listeners in your extension's `deactivate()` function
 * Add disposables to `context.subscriptions` for automatic cleanup
 
 ### Security
@@ -378,6 +373,7 @@ Positron follows a calendar-versioning scheme, while VS Code uses semantic versi
   * Under calendar versioning, the caret simply means "this version or anything newer": `^2025.6.0` translates to `>=2025.6.0` with no upper bound.
   * Entering a new year (`2026.x.x`) is *not* automatically breaking—always consult the release notes.
 
+
 ### Specifying Positron version requirements
 
 Add a `positron` entry under the `engines` section of your `package.json` to declare the minimum build that your extension supports. 
@@ -390,6 +386,11 @@ Add a `positron` entry under the `engines` section of your `package.json` to dec
     }
 }
 ```
+
+
+### `@posit-dev/positron` versioning
+
+You can check the [version compatibility table](https://github.com/posit-dev/positron-api-pkg?tab=readme-ov-file#version-compatibility) in the `@posit-dev/positron` package to check for any breaking changes you may need to be aware of. 
 
 
 ## Next steps
