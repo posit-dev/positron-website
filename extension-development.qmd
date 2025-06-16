@@ -54,7 +54,7 @@ if (positron) {
 The easiest way to start an extension is to use the [positron extension template](https://github.com/posit-dev/positron-extension-template).
 :::
 
-Extensions run code when VS Code or Positron activates them. You need two files to create an extension:
+Extensions run code when VS Code or Positron activate them. You need two files to create an extension:
 
 ### 1. Extension code (extension.ts)
 
@@ -232,7 +232,7 @@ export function activate(context: vscode.ExtensionContext) {
 <details>
 <summary>Mock database code</summary>
 
-In this example we simulate a database connection with a basic python class. Swap this logic out for your use-case!
+In this example we simulate a database connection with a basic Python class. Swap this logic out for your use case!
 
 ```typescript
 // Mock database code generator. 
@@ -254,7 +254,7 @@ print("\\nConnection successful! Try: mock_db.query('SELECT * FROM users')")
 `;
 
 ```
-The `mockDatabaseCode` function is defined at the top of the example and generates Python code that creates a simple mock database class. This lets you test the connection without needing a real database installed.
+The `mockDatabaseCode` function generates Python code that creates a simple mock database class. This lets you test the connection without installing a real database.
 
 </details>
 
@@ -302,7 +302,7 @@ export async function runLongTask(code: string) {
 }
 ```
 
-Use observers when you need to process output progressively without blocking the UI. This is especially useful for monitoring long-running analyses or streaming results.
+Use observers to process output progressively without blocking the UI. This approach works especially well for monitoring long-running analyses or streaming results.
 
 #### Create custom preview panels
 
@@ -324,7 +324,7 @@ const panel = positron.window.createPreviewPanel(
 panel.webview.html = await generateVisualizationHtml();
 ```
 
-The `createPreviewPanel` method creates an isolated browser context. Use it for data visualizations, interactive dashboards, or any web-based UI that needs to integrate with Positron.
+The `createPreviewPanel` method creates an isolated browser context. Use it for data visualizations, interactive dashboards, or any web-based UI that integrates with Positron.
 
 ## Best practices
 
@@ -359,7 +359,7 @@ Positron follows a calendar-versioning scheme, while VS Code uses semantic versi
 
 ### Specifying Positron version requirements
 
-Add a `positron` entry under the `engines` section of your `package.json` to declare the minimum build your extension supports. 
+Add a `positron` entry under the `engines` section of your `package.json` to declare the minimum build that your extension supports. 
 
 ```json
 {
