@@ -77,7 +77,6 @@ export function deactivate() {}
 ```
 
 The `activate()` function is run when your extension is [activated.](https://code.visualstudio.com/api/references/activation-events) 
-
 It's where you setup the code behind commands and other extension contributions. 
 
 **Extension manifest (`package.json`)**
