@@ -31,7 +31,7 @@ The following are the different sections of the API and how they're used.
 | `positron.window`      | Preview URLs/HTML, build custom webview panels, monitor console layout   |
 | `positron.runtime`     | Execute Python or R code in the active console, enumerate sessions, inspect variables            |
 | `positron.connections` | Add database / service drivers with custom credential UI                 |
-| `positron.languages`   | Provide statement-range & help-topic providers for new languages         |
+| `positron.languages`   | Provide statement range & help topic providers for new languages         |
 | `positron.methods`     | Call low-level RPCs or show purpose-built dialogs                        |
 | `positron.environment` | Inspect environment-variable contributions from all installed extensions |
 
