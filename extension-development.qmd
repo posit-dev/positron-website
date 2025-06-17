@@ -133,7 +133,7 @@ This enables commands, keybindings, and menu items to be visible _only_ in Posit
 
 #### Option 2: Positron API
 
-Then detect Positron in your code:
+Detect Positron in your code:
 
 ```typescript
 import { tryAcquirePositronApi } from '@posit-dev/positron';
