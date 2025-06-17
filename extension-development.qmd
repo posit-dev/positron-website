@@ -369,7 +369,7 @@ Positron follows a calendar versioning scheme, while VS Code uses semantic versi
   * A caret range stays within the current major version: `^1.74.0` expands to `>=1.74.0` and `<2.0.0`.
   * Stepping up to `2.0.0` can therefore introduce breaking changes.
 
-* **Positron** – `YYYY.M.P` (year · month · patch)
+* **Positron**: `YYYY.M.P` (year · month · patch)
   * Under calendar versioning, the caret simply means "this version or anything newer"; `^2025.6.0` translates to `>=2025.6.0` with no upper bound.
   * Entering a new year (`2026.x.x`) is *not* automatically breaking—always consult the release notes.
 
