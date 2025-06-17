@@ -2,7 +2,7 @@
 title: "Extension Development"
 ---
 
-Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code](https://code.visualstudio.com/api/get-started/your-first-extension). You can use Positron to develop your extension and run it in a new **Extension Development Host** window 
+Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code](https://code.visualstudio.com/api/get-started/your-first-extension). You can use Positron to develop your extension and run it in a new **Extension Development Host** window. 
 
 ## Prerequisites
 
