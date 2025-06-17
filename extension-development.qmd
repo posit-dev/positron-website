@@ -28,7 +28,7 @@ The following are the different sections of the API and how they're used.
 
 | Namespace              | Typical use case                                                         |
 | ---------------------- | ------------------------------------------------------------------------ |
-| `positron.window`      | Preview URLs/HTML, build custom webview panels, monitor console layout   |
+| `positron.window`      | Preview URLs and HTML, monitor console layout   |
 | `positron.runtime`     | Execute Python or R code in the active console, enumerate sessions, inspect variables            |
 | `positron.connections` | Add database / service drivers with custom credential UI                 |
 | `positron.languages`   | Provide statement range & help topic providers for new languages         |
