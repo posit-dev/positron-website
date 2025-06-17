@@ -9,6 +9,7 @@ Since Positron extensions add functionality on top of the VS Code extension API,
 ## Prerequisites
 
 To follow these docs and run the examples, you'll need:
+
   - Basic familiarity with TypeScript/JavaScript and npm
   - An up-to-date version of Positron installed
   - Node.js (version 18 or greater)
