@@ -405,8 +405,8 @@ You can check the [version compatibility table](https://github.com/posit-dev/pos
 
 ### Get help
 
-- **Community**: Ask questions in [GitHub discussions](https://github.com/posit-dev/positron/discussions)
-- **Report issues**: File bugs in the [API repository](https://github.com/posit-dev/positron-api-pkg/issues)
+- Ask questions in [GitHub discussions](https://github.com/posit-dev/positron/discussions).
+- File bugs in the [API repository](https://github.com/posit-dev/positron-api-pkg/issues).
 
 ::: {.callout-tip}
 Start with the extension template to get a working setup quickly. Then add features one at a time as you learn the API.
