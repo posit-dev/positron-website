@@ -41,7 +41,7 @@ The following are the different sections of the API and how they're used.
 
 The easiest way to start an extension is to use the [Positron extension template](https://github.com/posit-dev/positron-extension-template).
 
-Alternatively, you can use VS Code's [extension template system](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold out a plain VS Code extension and then add Positron functionality to that by installing the Positron NPM package.
+Alternatively, you can use VS Code's [extension template system](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold out a plain VS Code extension and then add Positron functionality to that by installing the Positron npm package.
 
 ```bash
 npm install @posit-dev/positron
