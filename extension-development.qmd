@@ -363,7 +363,7 @@ You can ensure your extension only activates in versions of Positron that you ex
 
 ### Positron versioning
 
-Positron follows a calendar-versioning scheme, while VS Code uses semantic versioning. Because of this, common range operators such as the caret (`^`) behave differently on each platform:
+Positron follows a calendar versioning scheme, while VS Code uses semantic versioning. Because of this, common range operators such as the caret (`^`) behave differently on each platform:
 
 * **VS Code** – `major.minor.patch`
   * A caret range stays within the current major version: `^1.74.0` expands to `>=1.74.0` and `<2.0.0`.
