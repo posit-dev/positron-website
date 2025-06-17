@@ -349,8 +349,8 @@ The `createPreviewPanel` method creates an isolated browser context. Use it for 
 * Refer to the [VS Code testing docs](https://code.visualstudio.com/api/working-with-extensions/testing-extension) for more information.
 
 ### Resource management
-* Clean up event listeners in your extension's `deactivate()` function
-* Add disposables to `context.subscriptions` for automatic cleanup
+* Clean up event listeners in your extension's `deactivate()` function.
+* Add disposables to `context.subscriptions` for automatic cleanup.
 
 ### Security
 * Set `localResourceRoots` when creating webviews
