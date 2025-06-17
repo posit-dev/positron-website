@@ -18,7 +18,7 @@ These docs use the [@posit-dev/positron](https://www.npmjs.com/package/@posit-de
 
 The easiest way to follow along is to download the [Positron extension template](https://github.com/posit-dev/positron-extension-template) and add the examples to it as needed.
 
-For more comprehensive setup instructions see the [VS Code documentation.](https://code.visualstudio.com/api/get-started/your-first-extension)
+For more comprehensive setup instructions see the [VS Code documentation on developing an extension.](https://code.visualstudio.com/api/get-started/your-first-extension)
 
 ## What can you build?
 
