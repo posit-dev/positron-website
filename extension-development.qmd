@@ -2,9 +2,7 @@
 title: "Extension Development"
 ---
 
-Positron's extension API enables you to automate workflows, integrate specialized analysis tools, and create custom visualizations that leverage your running R or Python sessions directly.
-
-Since Positron extensions add functionality on top of the VS Code extension API, this guide will omit many of the basic extension foundations. For these see [the VS Code extension documentation.](https://code.visualstudio.com/api/get-started/your-first-extension) 
+Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code](https://code.visualstudio.com/api/get-started/your-first-extension). You can use Positron to develop your extension and run it in a new **Extension Development Host** window 
 
 ## Prerequisites
 
@@ -314,28 +312,6 @@ export async function runLongTask(code: string) {
 ```
 
 Use observers to process output progressively without blocking the UI. This approach works especially well for monitoring long-running analyses or streaming results.
-
-#### Create custom preview panels
-
-Build interactive viewer panels with full control over the content:
-
-```typescript
-// Create a preview panel for custom visualizations
-const panel = positron.window.createPreviewPanel(
-  "myExtension.preview",
-  "Model Diagnostics",
-  false,  // preserve focus
-  {
-    enableScripts: true,
-    localResourceRoots: [vscode.Uri.file(context.extensionPath)]
-  }
-);
-
-// Set the panel content
-panel.webview.html = await generateVisualizationHtml();
-```
-
-The `createPreviewPanel` method creates an isolated browser context. Use it for data visualizations, interactive dashboards, or any web-based UI that integrates with Positron.
 
 ## Best practices
 
