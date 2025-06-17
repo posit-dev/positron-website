@@ -14,7 +14,7 @@ To follow these docs and run the examples, you'll need:
   - An up-to-date version of Positron installed
   - Node.js (version 18 or greater)
 
-These docs use the [@posit-dev/positron](https://www.npmjs.com/package/@posit-dev/positron) NPM package for type-safety and IntelliSense. 
+These docs use the [@posit-dev/positron](https://www.npmjs.com/package/@posit-dev/positron) npm package for type safety and IntelliSense. 
 
 The easiest way to follow along is to download the [Positron extension template](https://github.com/posit-dev/positron-extension-template) and add the examples to it as needed.
 
