@@ -159,7 +159,7 @@ if (inPositron()) {
 Each example shows how to use a Positron feature inside a command.
 
 :::{.callout-tip}
-Prefer to look at a examples in a full extension context? Check out the [Positron API showcase extension.](https://github.com/posit-dev/positron-api-showcase)
+Prefer to look at examples in a full extension context? Check out the [Positron API showcase extension.](https://github.com/posit-dev/positron-api-showcase)
 :::
 
 ### Display a web page
