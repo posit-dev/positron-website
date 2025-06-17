@@ -142,7 +142,7 @@ if (positron) {
 }
 ```
 
-Alternatively, if you just need to check but don't need the API you can use `inPositron()`
+Alternatively, if you just need to check but don't need the API you can use `inPositron()`:
 
 ```typescript
 import { inPositron } from '@posit-dev/positron';
