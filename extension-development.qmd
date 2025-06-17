@@ -50,7 +50,7 @@ npm install @posit-dev/positron
 ### Key files
 There are two files that are critical when setting up your extension.
 
-**Extension script (`extension.ts`)**
+#### Extension script (`extension.ts`)
 
 
 ```typescript
