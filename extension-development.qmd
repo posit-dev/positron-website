@@ -353,9 +353,9 @@ The `createPreviewPanel` method creates an isolated browser context. Use it for 
 * Add disposables to `context.subscriptions` for automatic cleanup.
 
 ### Security
-* Set `localResourceRoots` when creating webviews
-* Use content security policies for webviews that load external content
-* Never expose sensitive data in webview messages
+* Set `localResourceRoots` when creating webviews.
+* Use content security policies for webviews that load external content.
+* Never expose sensitive data in webview messages.
 
 ## Version compatibility
 
