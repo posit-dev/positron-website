@@ -398,10 +398,10 @@ You can check the [version compatibility table](https://github.com/posit-dev/pos
 
 ### Resources
 
-- **Extension template**: Start quickly with the [Positron extension template](https://github.com/posit-dev/positron-extension-template)
-- **Positron API showcase extension**: See more examples of the available API in the [showcase extension](https://github.com/posit-dev/positron-api-showcase)
-- **API reference**: Complete type documentation on [npm](https://www.npmjs.com/package/@posit-dev/positron)
-- **Source code**: Browse the [API package repository](https://github.com/posit-dev/positron-api-pkg)
+- Start quickly with the [Positron extension template](https://github.com/posit-dev/positron-extension-template).
+- See more examples of the available API in the [showcase extension](https://github.com/posit-dev/positron-api-showcase).
+- Complete type documentation is available on [npm](https://www.npmjs.com/package/@posit-dev/positron).
+- Browse the source code of the [API package repository](https://github.com/posit-dev/positron-api-pkg).
 
 ### Get help
 
