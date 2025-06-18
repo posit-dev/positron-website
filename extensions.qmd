@@ -2,25 +2,68 @@
 title: "Extensions"
 ---
 
-Since Positron is built on [Code OSS](https://github.com/microsoft/vscode), you can use VS Code extensions in Positron. Your extensions installed for Positron are _separate_ from the extensions you have installed for VS Code, and they won't interfere with each other. Positron bundles several extensions, including those for Quarto, Jupyter notebooks, and Pyright. These extensions are installed for you the first time you start Positron.
+Since Positron is built on [Code OSS](https://github.com/microsoft/vscode), you can use VS Code extensions in Positron. Extensions installed for Positron are _separate_ from the extensions you have installed for VS Code, and they won't interfere with each other.
+
+<!-- vale Posit.Contractions = NO -->
+## Open VSX
+<!-- vale Posit.Contractions = YES -->
+
+Positron has an Extensions view, just like VS Code. The primary difference is that when you browse extensions in Positron, the extensions don't come from VS Code's Marketplace. Instead, they come from a third-party marketplace, [Open VSX](https://open-vsx.org/). This is necessary for licensing reasons; Microsoft doesn't permit access to the Marketplace from non-official clients.
+
+Open VSX includes most popular VS Code extensions, but not all; some authors don't bother to publish their extensions to Open VSX (it's an extra step) and others don't keep the Open VSX version of the extension up to date. Open VSX has a suggested [template](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md) to request that the authors of an extension cross-publish their extension on the Open VSX Registry.
+
+:::{.callout}
+<!-- vale Posit.Contractions = NO -->
+Posit is a major sponsor of Open VSX.
+<!-- vale Posit.Contractions = YES -->
+:::
+ 
+## Included extensions
+
+While you can install many extensions from Open VSX, Positron comes with several extensions already installed to help you get started quickly.
+
+There are two types of extensions that come pre-installed with Positron. 
+
+### Built-in extensions
+
+These extensions manage core functionality such as the R and Python backends for Positron's frontend features. They also include other helper extensions that VS Code/ Positron rely on. They are not in the Open VSX registry and are integral to the functioning of Positron. Most of the time you won't need to think about these. 
+
+To see these extensions, search for `@builtin` under the Extensions tab. To further filter the list, you can add a search term, such as `@builtin positron`. 
+
+### Bundled extensions
+
+In addition to built-in extensions, Positron includes a curated set of extensions from the community to enhance your data science workflow. These are traditional extensions you can find on Open VSX. They come installed for you the first time you start Positron to provide a great experience out of the box. 
 
 :::{.callout-note}
 Positron doesn't currently bundle the [Shiny](https://open-vsx.org/extension/posit/shiny) extension, so you will need to install that if you want to use it.
 :::
 
-Positron also uses built-in extensions to manage functionality like the R and Python backends for Positron's frontend features. To see these  extensions, search for `@builtin` under the Extensions tab. To further filter the list, you can add a search term, such as `@builtin positron`.
+- **[charliermarsh.ruff](https://open-vsx.org/extension/charliermarsh/ruff)**: A Python linter and code formatter built in Rust. It provides fast and comprehensive Python code quality checking with support for hundreds of lint rules.
 
-### Installing extensions
+- **[ms-toolsai.vscode-jupyter-cell-tags](https://open-vsx.org/extension/ms-toolsai/vscode-jupyter-cell-tags)**: Adds cell tagging support to Jupyter notebooks. These tags help organize notebooks and can be used for automation, such as hiding cells in presentations or excluding them from exports.
 
-Positron has an Extensions view, just like VS Code. The primary difference is that when you browse extensions in Positron, the extensions don't come from VS Code's Marketplace. Instead, they come from a third-party marketplace, [OpenVSX](https://open-vsx.org/). This is necessary for licensing reasons; Microsoft doesn't permit access to the Marketplace from non-official clients.
+- **[ms-toolsai.jupyter-keymap](https://open-vsx.org/extension/ms-toolsai/jupyter-keymap)**: Provides familiar Jupyter notebook keyboard shortcuts. It makes the transition from classic Jupyter notebooks smoother by maintaining the same key bindings users are accustomed to.
 
-OpenVSX includes most popular VS Code extensions, but not all; some authors don't bother to publish their extensions to OpenVSX (it's an extra step) and others don't keep the OpenVSX version of the extension up to date. Open VSX has a suggested [template](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md) to request that the authors of an extension cross-publish their extension on the Open VSX Registry.
+- **[ms-toolsai.vscode-jupyter-slideshow](https://open-vsx.org/extension/ms-toolsai/vscode-jupyter-slideshow)**: Turns Jupyter notebooks into interactive slideshows. It's useful for presenting data science findings and creating educational content directly from your analysis notebooks.
 
-<!-- vale Posit.Contractions = NO -->
-Posit is a major sponsor of OpenVSX.
-<!-- vale Posit.Contractions = YES -->
+- **[ms-toolsai.jupyter](https://open-vsx.org/extension/ms-toolsai/jupyter)**: The main Jupyter extension that powers notebook support. It handles kernel management, code execution, and provides the interactive computing environment data scientists rely on.
 
-In offline or other environments, users may need to manually install extensions rather than relying on the search and install capabilities from the Positron extensions tab. Users can install extensions saved as `.vsix` files. See the *Extensions: Install from VSIX* command via the Command Palette <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or via the `...` in the top right of the Extensions tab.
+- **[ms-pyright.pyright](https://open-vsx.org/extension/ms-pyright/pyright)**: A fast Python static type checker and language server. It provides intelligent code completion, type checking, and helps catch errors before runtime.
+
+- **[ms-python.debugpy](https://open-vsx.org/extension/ms-python/debugpy)**: The Python debugger that enables stepping through code, setting breakpoints, and inspecting variables. It's useful for troubleshooting complex data processing pipelines.
+
+- **[posit.publisher](https://open-vsx.org/extension/posit/publisher)**: A publishing tool for deploying content to Posit Connect. It streamlines the process of sharing data science applications, reports, and APIs with stakeholders.
+
+- **[quarto.quarto](https://open-vsx.org/extension/quarto/quarto)**: Support for the Quarto publishing system. It enables creation of dynamic documents that combine code, visualizations, and narrative text for reproducible research and reporting.
+
+- **[posit.air-vscode](https://open-vsx.org/extension/posit/air-vscode)**: Comprehensive R language support including syntax highlighting, code completion, debugging, and environment management. It provides tools needed for professional R development.
+
+- **[GitHub.vscode-pull-request-github](https://open-vsx.org/extension/GitHub/vscode-pull-request-github)**: GitHub integration for managing pull requests and issues without leaving the editor. It facilitates collaborative workflows common in data science teams.
+
+
+### Installing extensions manually
+
+In offline or restricted environments, users may need to manually install extensions rather than relying on the search and install capabilities from the Positron extensions tab. Users can install extensions saved as `.vsix` files. See the *Extensions: Install from VSIX* command via the Command Palette <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or via the `...` in the top right of the Extensions tab.
 
 ### Compatibility
 
