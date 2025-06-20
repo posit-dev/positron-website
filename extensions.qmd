@@ -26,7 +26,7 @@ There are two types of extensions that come pre-installed with Positron.
 
 ### Built-in extensions
 
-These extensions manage core functionality such as the R and Python backends for Positron's frontend features. They also include other helper extensions that VS Code/ Positron rely on. They are not in the Open VSX registry and are integral to the functioning of Positron. Most of the time you won't need to think about these. 
+These extensions manage core functionality such as the R and Python backends for Positron's frontend features. They are not in the Open VSX registry and are integral to the functioning of Positron. These extensions get updated when Positron itself is updated, and most of the time you won't need to think about these. 
 
 To see these extensions, search for `@builtin` under the Extensions tab. To further filter the list, you can add a search term, such as `@builtin positron`. 
 
