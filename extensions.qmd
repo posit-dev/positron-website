@@ -61,7 +61,7 @@ Some examples of the bootstrapped extensions include:
 Almost all extensions for Visual Studio Code are fully compatible with Positron, and in fact Positron is built with this kind of extensibility in mind. There are two known exceptions:
 
 
--   [R extension](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r): The R language support in Positron is a direct replacement for the features in this extension, and we don't plan for them to work well together. If there are features in this extension you miss, please [let us know](https://github.com/posit-dev/ark/issues). If you use this extension and have code in your `.Rprofile` for better behavior in the terminal, you will need to update it so that section of your `.Rprofile` isn't run in Positron:
+-   [R extension](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r): The R language support in Positron is a direct replacement for the features in this extension, and we don't plan for them to work well together. If there are features in this extension you miss, please [let us know](https://github.com/posit-dev/positron/issues). If you use this extension and have code in your `.Rprofile` for better behavior in the terminal, you will need to update it so that section of your `.Rprofile` isn't run in Positron:
 
 ```r
 if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == "") {
