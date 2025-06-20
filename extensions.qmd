@@ -20,7 +20,7 @@ Posit is a major sponsor of Open VSX.
  
 ## Accessing extensions
 
-To get to the extensions view in Positron you go to the Extensions view in the left sidebar or use the keyboard shortcut <kbd>Shift</kbd>+<kbd>Cmd/Ctrl</kbd>+<kbd>X</kbd>. From here you can manage installed extensions or search the Open VSX marketplace for new ones. 
+To manage your extensions in Positron, choose the Extensions view from the Activity Bar on the left or use the keyboard shortcut <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>. From here you can manage extensions you already have installed or search the Open VSX marketplace for new ones. 
 
 ## Included extensions
 
