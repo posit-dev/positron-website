@@ -57,7 +57,14 @@ VS Code users who rely on the `ms-python.python` extension will find that Positr
 - Debugging
 - Jupyter notebook support
 
-Positron's Console pane provides an interactive IPython session. You can run type Python code directly into the Console or run files open in the editor. By default, the Console enables IPython's [`autoreload` extension](https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html) for imports. You can change this with the [`python.enableAutoReload` setting](positron://settings/python.enableAutoReload).
+<!-- vale Posit.Headings = NO -->
+### Python in the Console
+<!-- vale Posit.Headings = YES -->
+Positron's Console pane provides an interactive IPython session. You can run type Python code directly into the Console or run files open in the editor.  
+
+Positron bundles IPython, allowing you to use the console without installing it separately. If you wish to use an external version of IPython, you can toggle the use of the bundled one with the [`python.useBundledIpykernel` setting](positron://settings/python.useBundledIpykernel).
+
+By default, the Console enables IPython's [`autoreload` extension](https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html) for imports. You can change this with the [`python.enableAutoReload` setting](positron://settings/python.enableAutoReload).
 
 
 ## R
