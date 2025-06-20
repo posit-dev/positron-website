@@ -2,7 +2,7 @@
 title: "Extensions"
 ---
 
-Since Positron is built on [Code OSS](https://github.com/microsoft/vscode), you can use VS Code extensions in Positron. Extensions installed for Positron are _separate_ from the extensions you have installed for VS Code, and they won't interfere with each other.
+Since Positron is built on [Code OSS](https://github.com/microsoft/vscode) (the open-source core of VS Code), you can use VS Code extensions in Positron. Extensions installed for Positron are _separate_ from the extensions you have installed for VS Code, and they won't interfere with each other.
 
 <!-- vale Posit.Contractions = NO -->
 ## Open VSX
@@ -18,11 +18,15 @@ Posit is a major sponsor of Open VSX.
 <!-- vale Posit.Contractions = YES -->
 :::
  
+## Accessing extensions
+
+To get to the extensions view in Positron you go to the Extensions view in the left sidebar or use the keyboard shortcut <kbd>Shift</kbd>+<kbd>Cmd/Ctrl</kbd>+<kbd>X</kbd>. From here you can manage installed extensions or search the Open VSX marketplace for new ones. 
+
 ## Included extensions
 
 While you can install many extensions from Open VSX, Positron comes with several extensions already installed to help you get started quickly.
 
-There are two types of extensions that come pre-installed with Positron. 
+Positron includes two types of pre-installed extensions:
 
 ### Built-in extensions
 
@@ -32,7 +36,7 @@ To see these extensions, search for `@builtin` under the Extensions tab. To furt
 
 ### Bootstrapped extensions
 
-In addition to built-in extensions, Positron includes a curated set of bundled (or "bootstrapped") extensions to enhance your data science workflow. They come installed for you the first time you start Positron to provide a great experience out of the box. These are traditional extensions you can find on Open VSX. They act just like extensions you install yourself: they update automatically when a new version of the extension is on Open VSX and they can be uninstalled. 
+In addition to built-in extensions, Positron includes a set of automatically installed (or "bootstrapped") extensions curated to enhance your data science workflow. These are traditional extensions you can find on Open VSX. They act just like extensions you install yourself: they update automatically when a new version of the extension is on Open VSX and they can be uninstalled. 
 
 :::{.callout-note}
 Positron doesn't currently bundle the [Shiny](https://open-vsx.org/extension/posit/shiny) extension, so you will need to install that if you want to use it.
@@ -40,26 +44,24 @@ Positron doesn't currently bundle the [Shiny](https://open-vsx.org/extension/pos
 
 Some examples of the bootstrapped extensions include: 
 
-- **[charliermarsh.ruff](https://open-vsx.org/extension/charliermarsh/ruff)**: A Python linter and code formatter built in Rust. It provides fast and comprehensive Python code quality checking with support for hundreds of lint rules.
+- [charliermarsh.ruff](https://open-vsx.org/extension/charliermarsh/ruff): A Python linter and code formatter built in Rust. It provides fast and comprehensive Python code quality checking with support for hundreds of lint rules.
 
-- **[ms-pyright.pyright](https://open-vsx.org/extension/ms-pyright/pyright)**: A fast Python static type checker and language server. It provides intelligent code completion, type checking, and helps catch errors before runtime.
+- [ms-pyright.pyright](https://open-vsx.org/extension/ms-pyright/pyright): A fast Python static type checker and language server. It provides intelligent code completion, type checking, and helps catch errors before runtime.
 
-- **[posit.publisher](https://open-vsx.org/extension/posit/publisher)**: A publishing tool for deploying content to Posit Connect. It streamlines the process of sharing data science applications, reports, and APIs with stakeholders.
+- [posit.publisher](https://open-vsx.org/extension/posit/publisher): A publishing tool for deploying content to Posit Connect. It streamlines the process of sharing data science applications, reports, and APIs with stakeholders.
 
-- **[quarto.quarto](https://open-vsx.org/extension/quarto/quarto)**: Support for the Quarto publishing system. It enables creation of dynamic documents that combine code, visualizations, and narrative text for reproducible research and reporting.
+- [quarto.quarto](https://open-vsx.org/extension/quarto/quarto): Support for the Quarto publishing system. It enables creation of dynamic documents that combine code, visualizations, and narrative text for reproducible research and reporting.
 
-- **[posit.air-vscode](https://open-vsx.org/extension/posit/air-vscode)**: Comprehensive R language support including syntax highlighting, code completion, debugging, and environment management. It provides tools needed for professional R development.
+- [posit.air-vscode](https://open-vsx.org/extension/posit/air-vscode): Comprehensive R language support including syntax highlighting, code completion, debugging, and environment management. It provides tools needed for professional R development.
 
 
-### Installing extensions manually
 
-In offline or restricted environments, users may need to manually install extensions rather than relying on the search and install capabilities from the Positron extensions tab. Users can install extensions saved as `.vsix` files. See the *Extensions: Install from VSIX* command via the Command Palette <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or via the `...` in the top right of the Extensions tab.
+### Non-compatible extensions
 
-### Compatibility
+Almost all extensions for Visual Studio Code are fully compatible with Positron, and in fact Positron is built with this kind of extensibility in mind. There are two known exceptions:
 
-Almost all extensions for Visual Studio Code work great with Positron, and in fact Positron is built with this kind of extensibility in mind. There are two known exceptions:
 
--   [R extension](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r): The R language support in Positron is a direct replacement for the features in this extension, and we don't plan for them to work well together. If there are features in this extension you miss, please let us know. If you use this extension and have code in your `.Rprofile` for better behavior in the terminal, you will need to update it so that section of your `.Rprofile` isn't run in Positron:
+-   [R extension](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r): The R language support in Positron is a direct replacement for the features in this extension, and we don't plan for them to work well together. If there are features in this extension you miss, please [let us know](https://github.com/posit-dev/ark/issues). If you use this extension and have code in your `.Rprofile` for better behavior in the terminal, you will need to update it so that section of your `.Rprofile` isn't run in Positron:
 
 ```r
 if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == "") {
@@ -67,10 +69,14 @@ if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == ""
 }
 ```
 
--   [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python): Positron bundles a fork of this extension that's built to work with Positron and offers support for the console, help, and other features. If there is anything from the original Python extension that doesn't work for you, please let us know.
+-   [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python): Positron bundles a fork of this extension that's built to work with Positron and offers support for the console, help, and other features. If there is anything from the original Python extension that doesn't work for you, please [let us know](https://github.com/posit-dev/positron/issues).
 
 There may be extensions that aren't available for Positron for licensing rather than technical reasons. These extensions would typically contain proprietary Microsoft code and are only licensed for use with Microsoft's proprietary VS Code product.
 
 :::{.callout-tip}
 See [Extension Development](extension-development.qmd) for information on creating extensions specifically for Positron.
 :::
+
+### Installing extensions manually
+
+In offline or restricted environments, users may need to manually install extensions rather than relying on the search and install capabilities from the Positron extensions tab. Users can install extensions saved as [`.vsix` files](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions). See the *Extensions: Install from VSIX* command via the Command Palette <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or via the `...` in the top right of the Extensions tab.
