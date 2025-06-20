@@ -36,7 +36,7 @@ To see these extensions, search for `@builtin` under the Extensions tab. To furt
 
 ### Bootstrapped extensions
 
-In addition to built-in extensions, Positron includes a set of automatically installed (or "bootstrapped") extensions curated to enhance your data science workflow. These are traditional extensions you can find on Open VSX. They act just like extensions you install yourself: they update automatically when a new version of the extension is on Open VSX and they can be uninstalled. 
+In addition to built-in extensions, Positron includes a set of automatically installed (or "bootstrapped") extensions curated to enhance your data science workflow. These are traditional extensions you can find on Open VSX. They act just like extensions you install yourself; they update automatically when a new version of the extension is on Open VSX and they can be uninstalled. 
 
 :::{.callout-note}
 Positron doesn't currently bundle the [Shiny](https://open-vsx.org/extension/posit/shiny) extension, so you will need to install that if you want to use it.
