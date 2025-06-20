@@ -183,7 +183,7 @@ Add this command to your package.json:
 }
 ```
 
-### Run code in the console
+### Run code in the Console
 
 Execute code in the active Python or R session:
 
