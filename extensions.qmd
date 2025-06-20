@@ -32,7 +32,7 @@ To see these extensions, search for `@builtin` under the Extensions tab. To furt
 
 ### Bundled extensions
 
-In addition to built-in extensions, Positron includes a curated set of extensions from the community to enhance your data science workflow. These are traditional extensions you can find on Open VSX. They come installed for you the first time you start Positron to provide a great experience out of the box. 
+In addition to built-in extensions, Positron includes a curated set of extensions to enhance your data science workflow. These are traditional extensions you can find on Open VSX. They come installed for you the first time you start Positron to provide a great experience out of the box. 
 
 :::{.callout-note}
 Positron doesn't currently bundle the [Shiny](https://open-vsx.org/extension/posit/shiny) extension, so you will need to install that if you want to use it.
