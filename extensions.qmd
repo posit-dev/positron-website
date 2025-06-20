@@ -38,27 +38,17 @@ In addition to built-in extensions, Positron includes a curated set of bundled (
 Positron doesn't currently bundle the [Shiny](https://open-vsx.org/extension/posit/shiny) extension, so you will need to install that if you want to use it.
 :::
 
+Some examples of the bootstrapped extensions include: 
+
 - **[charliermarsh.ruff](https://open-vsx.org/extension/charliermarsh/ruff)**: A Python linter and code formatter built in Rust. It provides fast and comprehensive Python code quality checking with support for hundreds of lint rules.
 
-- **[ms-toolsai.vscode-jupyter-cell-tags](https://open-vsx.org/extension/ms-toolsai/vscode-jupyter-cell-tags)**: Adds cell tagging support to Jupyter notebooks. These tags help organize notebooks and can be used for automation, such as hiding cells in presentations or excluding them from exports.
-
-- **[ms-toolsai.jupyter-keymap](https://open-vsx.org/extension/ms-toolsai/jupyter-keymap)**: Provides familiar Jupyter notebook keyboard shortcuts. It makes the transition from classic Jupyter notebooks smoother by maintaining the same key bindings users are accustomed to.
-
-- **[ms-toolsai.vscode-jupyter-slideshow](https://open-vsx.org/extension/ms-toolsai/vscode-jupyter-slideshow)**: Turns Jupyter notebooks into interactive slideshows. It's useful for presenting data science findings and creating educational content directly from your analysis notebooks.
-
-- **[ms-toolsai.jupyter](https://open-vsx.org/extension/ms-toolsai/jupyter)**: The main Jupyter extension that powers notebook support. It handles kernel management, code execution, and provides the interactive computing environment data scientists rely on.
-
 - **[ms-pyright.pyright](https://open-vsx.org/extension/ms-pyright/pyright)**: A fast Python static type checker and language server. It provides intelligent code completion, type checking, and helps catch errors before runtime.
-
-- **[ms-python.debugpy](https://open-vsx.org/extension/ms-python/debugpy)**: The Python debugger that enables stepping through code, setting breakpoints, and inspecting variables. It's useful for troubleshooting complex data processing pipelines.
 
 - **[posit.publisher](https://open-vsx.org/extension/posit/publisher)**: A publishing tool for deploying content to Posit Connect. It streamlines the process of sharing data science applications, reports, and APIs with stakeholders.
 
 - **[quarto.quarto](https://open-vsx.org/extension/quarto/quarto)**: Support for the Quarto publishing system. It enables creation of dynamic documents that combine code, visualizations, and narrative text for reproducible research and reporting.
 
 - **[posit.air-vscode](https://open-vsx.org/extension/posit/air-vscode)**: Comprehensive R language support including syntax highlighting, code completion, debugging, and environment management. It provides tools needed for professional R development.
-
-- **[GitHub.vscode-pull-request-github](https://open-vsx.org/extension/GitHub/vscode-pull-request-github)**: GitHub integration for managing pull requests and issues without leaving the editor. It facilitates collaborative workflows common in data science teams.
 
 
 ### Installing extensions manually
