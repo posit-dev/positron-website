@@ -4,6 +4,8 @@
 - For users who are interested in trying out new features at a faster cadence, we now provide a channel of daily builds; you can opt in to these builds by changing the [`update.positron.channel` setting](positron://settings/update.positron.channel) to `"dailies"`. 🪩
 - Positron Assistant is... 🤖
 
+<div id="checkbox"></div>
+
 ### Changelog
 
 #### New features
