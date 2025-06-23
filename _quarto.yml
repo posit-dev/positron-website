@@ -3,6 +3,8 @@ project:
   type: posit-docs
   render:
     - "*.qmd"
+  resources: 
+    - "release-notes/release.md"
 
 execute:
   freeze: auto
