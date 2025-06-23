@@ -24,34 +24,25 @@ Positron's interface is designed to provide a flexible and efficient environment
 
 In the upper central area by default, the editor is where you write, debug, and refine your code. Whether in Python or R, the editor delivers a full-featured IDE experience tailored to data science workflows.
 
-### Where you write code
-
 - Write and edit scripts, notebooks, and apps with responsive syntax-aware features.
 - Built on VS Code foundations for a familiar and extensible experience.
 - For layout controls, refer to [VS Code Editor Basics](https://code.visualstudio.com/docs/editor/basics).
 
 ### Key features
-
-- **Syntax highlighting**  
-  Color-coded support for Python, R, YAML, Rust, Markdown, and more.
-
-- **Autocompletion and IntelliSense**  
-  Real-time suggestions, signature help, and hover tooltips.
-
-- **Inline diagnostics**  
-  See linter messages and errors as you type.
-
-- **Multi-language support**  
-  Switch seamlessly between languages within one session.
-
-- **Live document preview**  
-  View Quarto documents, R Markdown, or Shiny apps alongside your code.
-
-- **Tabs and split view**  
-  Customize layout with multiple tabs or split panes.
-
-- **Version control integration**  
-  Git tools for commits, diffs, and staging inside the editor.
+- **Syntax Highlighting**  
+  Intelligent color schemes for quick visual parsing of R, Python, Rust, YAML, and more.
+- **Auto completion & Intellisense**  
+  Language server support for live suggestions, signature help, and hover tooltips.
+- **Inline Diagnostics**  
+  Errors, warnings, and linter messages appear in context as you type.
+- **Multi-language Support**  
+  Work seamlessly across Python, R, Quarto, Shiny, and Markdown files. No additional configuration needed.
+- **Live Document Preview**  
+  Render R Markdown, Quarto documents, Shiny apps, and more next to your code for immediate feedback.
+- **Tabs and Split View**  
+  Organize workspaces with multiple tabs or horizontal/vertical splits to suit your workflow.
+- **Version Control Integration**  
+  View diffs, stage changes, and commit directly within the editor.
 
 ## Panel pane
 
@@ -74,13 +65,9 @@ The panel below the editor offers contextual tools essential for development and
 
 Positron offers flexible layout options to suit a variety of development workflows.
 
-### Default: stacked layout
+### Layout options
 
-- **Editor above**, with **Console**, **Viewer**, and **Plots/Environment** below.
-- Designed for traditional script-based workflows.
-
-### Other layout options
-
+- **Stacked** (default): Editor above, with **Console**, **Viewer**, and **Plots/Environment** below. Designed for traditional script-based workflows.
 - **Side-by-side**: Useful for wide-screen users or those who prefer horizontal splitting.
 - **Notebook style**: Output appears below code blocks, like in Jupyter or R Notebooks.
 
