@@ -8,7 +8,7 @@ page-layout: article
 
 Positron's interface is designed to provide a flexible and efficient environment for data science. By organizing various tools and outputs into distinct, customizable panes, you can tailor your development environment to suit your workflows in Python, R, and more.
 
-## Basic Overview
+## Basic overview
 
 > This section outlines the core layout elements of Positron’s interface. Each pane plays a distinct role in supporting coding, data exploration, and model development, giving you full control over your data science environment.
 
@@ -22,17 +22,17 @@ Positron's interface is designed to provide a flexible and efficient environment
 - **Secondary Sidebar**: The right panel, useful for interacting with runtimes. Contains tabs like `SESSION`, `CONNECTIONS`, `HELP`, `VIEWER`, `VARIABLES`, and `PLOTS`.
 - **Status Bar**: Displays project details like Git branch, language mode, and cursor position.
 
-## Editor Pane
+## Editor pane
 
 In the upper central area by default, the editor is where you write, debug, and refine your code. Whether in Python or R, the editor delivers a full-featured IDE experience tailored to data science workflows.
 
-### Where You Write Code
+### Where you write code
 
 - Write and edit scripts, notebooks, and apps with responsive syntax-aware features.
 - Built on VS Code foundations for a familiar and extensible experience.
 - For layout controls, refer to [VS Code Editor Basics](https://code.visualstudio.com/docs/editor/basics).
 
-### Key Features
+### Key features
 
 - **Syntax Highlighting**  
   Color-coded support for Python, R, YAML, Rust, Markdown, and more.
@@ -49,7 +49,7 @@ In the upper central area by default, the editor is where you write, debug, and 
 - **Version Control Integration**  
   Git tools for commits, diffs, and staging inside the editor.
 
-## Panel Pane
+## Panel pane
 
 The Panel below the editor offers contextual tools essential for development and debugging.
 
@@ -58,7 +58,7 @@ The Panel below the editor offers contextual tools essential for development and
 - Fully integrated shell for script execution, CLI tools, and environment management.
 - Multiple terminals supported and session-specific tabs available.
 
-### Other Panel Tabs
+### Other panel tabs
 
 - **Console**: Displays Python/R runtime output.
 - **Output**: Logs from builds, publishing, or package management.
@@ -66,29 +66,22 @@ The Panel below the editor offers contextual tools essential for development and
 - **Ports**: Manage forwarded ports for interactive apps like Shiny or Flask.
 - **Debug Console**: Evaluate expressions and view debugging info in real time.
 
-## Layout Customization
+## Layout customization
 
 Positron offers flexible layout options to suit a variety of development workflows.
 
-### Default: Stacked Layout
+### Default: stacked layout
 
 - **Editor above**, with **Console**, **Viewer**, and **Plots/Environment** below.
 - Designed for traditional script-based workflows.
 
-### Other Layout Options
+### Other layout options
 
 - **Side-by-Side**: Useful for wide-screen users or those who prefer horizontal splitting.
 - **Notebook Style**: Output appears below code blocks, like in Jupyter or R Notebooks.
 
-### Customization Features
-
-- **Drag and drop**: Rearrange any pane dynamically.
-- **Layout Presets**:
-  - `Stacked` (default)
-  - `Side-by-Side`
-  - `Notebook`
-- **Reset Options**:
-  - Right-click a pane → _Reset Location_
-  - Use preset menu → _Reset to factory settings_
+### Reset options
+- Right-click a pane → _Reset Location_
+- Use preset menu → _Reset to factory settings_
 
 ---
