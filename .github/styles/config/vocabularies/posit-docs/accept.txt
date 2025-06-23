@@ -35,3 +35,4 @@ Anthropic Claude
 Anthropic Claude Sonnet
 Google Gemini
 AWS Bedrock
+Git
