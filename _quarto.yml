@@ -46,13 +46,12 @@ website:
         href: add-to-path.qmd
       - text: "Help"
         href: troubleshooting.qmd
-      - text: "<span class='btn btn-primary'>Download</span>"
-        href: download.qmd  
     right:
+      - text: "<span class='btn btn-primary'>Download</span>"
+        href: download.qmd
       - icon: github
         aria-label: 'Link to Positron Github Repository'
         href: https://github.com/posit-dev/positron
-
   sidebar:
     - title: "Get Started"
       style: "docked"

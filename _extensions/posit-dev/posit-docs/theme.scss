@@ -105,13 +105,16 @@ body {
   font-size: 14px !important;
   font-weight: 500 !important;
   color: $posit-gray !important;
-
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
 }
 
+/* Unique to positron - don't remove or overwrite
 ul.me-auto {
   position: relative;
   top: 0.75rem;
 }
+*/
 
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
@@ -119,12 +122,21 @@ ul.me-auto {
   font-weight: 700 !important;
 }
 
+/* Unique to positron - don't remove or overwrite
 .menu-text.btn {
   top: inherit;
 }
 li.nav-item span.btn.btn-primary {
   position: relative;
   top: -0.6rem;
+}
+
+*/
+
+// Download button
+
+.bi-github::before {
+  padding-top: 12px !important;
 }
 
 /* Footer */
