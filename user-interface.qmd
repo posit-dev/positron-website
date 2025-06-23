@@ -26,7 +26,7 @@ In the upper central area by default, the editor is where you write, debug, and 
 
 - Write and edit scripts, notebooks, and apps with responsive syntax-aware features.
 - Built on VS Code foundations for a familiar and extensible experience.
-- For layout controls, refer to [VS Code Editor Basics](https://code.visualstudio.com/docs/editor/basics).
+- For layout controls, refer to [VS Code Editor Basics](https://code.visualstudio.com/docs/editing/codebasics).
 
 ### Key features
 - **Syntax Highlighting**  
