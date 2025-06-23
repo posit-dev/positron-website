@@ -1,0 +1,94 @@
+---
+title: "User Interface"
+format: html
+page-layout: article
+---
+
+# User Interface
+
+Positron's interface is designed to provide a flexible and efficient environment for data science. By organizing various tools and outputs into distinct, customizable panes, you can tailor your development environment to suit your workflows in Python, R, and more.
+
+## Basic Overview
+
+> This section outlines the core layout elements of Positron’s interface. Each pane plays a distinct role in supporting coding, data exploration, and model development, giving you full control over your data science environment.
+
+![Interface of the Positron development environment showing Title Bar, Top Bar, Primary Sidebar, central editor area, Secondary Sidebar, and Status Bar.](https://github.com/user-attachments/assets/19654254-1ae6-4447-8e98-e3b26882ee42)
+*Labeled interface diagram of the Positron development environment.*
+
+- **Title Bar**: Located at the top, it shows the active file (_e.g.,_ `ui.rs`) and project (_e.g.,_ `ark`) along with window controls.
+- **Top Bar**: Provides global project tools such as file search, and lets you change interpreter versions (e.g., `Python`, `R`).
+- **Primary Sidebar**: Found on the left, this pane contains the File Explorer to navigate the project directory.
+- **Central Editor Area**: The main region for editing files. Supports syntax highlighting, inline diagnostics, code folding, and navigation tools.
+- **Secondary Sidebar**: The right panel, useful for interacting with runtimes. Contains tabs like `SESSION`, `CONNECTIONS`, `HELP`, `VIEWER`, `VARIABLES`, and `PLOTS`.
+- **Status Bar**: Displays project details like Git branch, language mode, and cursor position.
+
+## Editor Pane
+
+In the upper central area by default, the editor is where you write, debug, and refine your code. Whether in Python or R, the editor delivers a full-featured IDE experience tailored to data science workflows.
+
+### Where You Write Code
+
+- Write and edit scripts, notebooks, and apps with responsive syntax-aware features.
+- Built on VS Code foundations for a familiar and extensible experience.
+- For layout controls, refer to [VS Code Editor Basics](https://code.visualstudio.com/docs/editor/basics).
+
+### Key Features
+
+- **Syntax Highlighting**  
+  Color-coded support for Python, R, YAML, Rust, Markdown, and more.
+- **Auto-completion & Intellisense**  
+  Real-time suggestions, signature help, and hover tooltips.
+- **Inline Diagnostics**  
+  See linter messages and errors as you type.
+- **Multi-language Support**  
+  Switch seamlessly between languages within one session.
+- **Live Document Preview**  
+  View Quarto documents, R Markdown, or Shiny apps alongside your code.
+- **Tabs and Split View**  
+  Customize layout with multiple tabs or split panes.
+- **Version Control Integration**  
+  Git tools for commits, diffs, and staging inside the editor.
+
+## Panel Pane
+
+The Panel below the editor offers contextual tools essential for development and debugging.
+
+### Terminal
+
+- Fully integrated shell for script execution, CLI tools, and environment management.
+- Multiple terminals supported and session-specific tabs available.
+
+### Other Panel Tabs
+
+- **Console**: Displays Python/R runtime output.
+- **Output**: Logs from builds, publishing, or package management.
+- **Problems**: Lists code issues with quick navigation.
+- **Ports**: Manage forwarded ports for interactive apps like Shiny or Flask.
+- **Debug Console**: Evaluate expressions and view debugging info in real time.
+
+## Layout Customization
+
+Positron offers flexible layout options to suit a variety of development workflows.
+
+### Default: Stacked Layout
+
+- **Editor above**, with **Console**, **Viewer**, and **Plots/Environment** below.
+- Designed for traditional script-based workflows.
+
+### Other Layout Options
+
+- **Side-by-Side**: Useful for wide-screen users or those who prefer horizontal splitting.
+- **Notebook Style**: Output appears below code blocks, like in Jupyter or R Notebooks.
+
+### Customization Features
+
+- **Drag and drop**: Rearrange any pane dynamically.
+- **Layout Presets**:
+  - `Stacked` (default)
+  - `Side-by-Side`
+  - `Notebook`
+- **Reset Options**:
+  - Right-click a pane → _Reset Location_
+  - Use preset menu → _Reset to factory settings_
+
+---
