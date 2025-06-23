@@ -1,10 +1,8 @@
 ---
 title: "User Interface"
-format: html
-page-layout: article
 ---
 
-# User Interface
+## User interface
 
 Positron's interface is designed to provide a flexible and efficient environment for data science. By organizing various tools and outputs into distinct, customizable panes, you can tailor your development environment to suit your workflows in Python, R, and more.
 
@@ -12,15 +10,15 @@ Positron's interface is designed to provide a flexible and efficient environment
 
 > This section outlines the core layout elements of Positron’s interface. Each pane plays a distinct role in supporting coding, data exploration, and model development, giving you full control over your data science environment.
 
-![Interface of the Positron development environment showing Title Bar, Top Bar, Primary Sidebar, central editor area, Secondary Sidebar, and Status Bar.](https://github.com/user-attachments/assets/19654254-1ae6-4447-8e98-e3b26882ee42)
+![Interface of the Positron development environment showing Title Bar, Top Bar, Primary Sidebar, central editor area, Secondary Sidebar, and Status Bar.](https://github.com/user-attachments/assets/19654254-1ae6-4447-8e98-e3b26882ee42)  
 *Labeled interface diagram of the Positron development environment.*
 
-- **Title Bar**: Located at the top, it shows the active file (_e.g.,_ `ui.rs`) and project (_e.g.,_ `ark`) along with window controls.
-- **Top Bar**: Provides global project tools such as file search, and lets you change interpreter versions (e.g., `Python`, `R`).
-- **Primary Sidebar**: Found on the left, this pane contains the File Explorer to navigate the project directory.
-- **Central Editor Area**: The main region for editing files. Supports syntax highlighting, inline diagnostics, code folding, and navigation tools.
-- **Secondary Sidebar**: The right panel, useful for interacting with runtimes. Contains tabs like `SESSION`, `CONNECTIONS`, `HELP`, `VIEWER`, `VARIABLES`, and `PLOTS`.
-- **Status Bar**: Displays project details like Git branch, language mode, and cursor position.
+- **Title bar**: Located at the top, it shows the active file (_e.g.,_ `ui.rs`) and project (_e.g.,_ `ark`) along with window controls.
+- **Top bar**: Provides global project tools such as file search, and lets you change interpreter versions (e.g., `Python`, `R`).
+- **Primary sidebar**: Found on the left, this pane contains the File Explorer to navigate the project directory.
+- **Central editor area**: The main region for editing files. Supports syntax highlighting, inline diagnostics, code folding, and navigation tools.
+- **Secondary sidebar**: The right panel, useful for interacting with runtimes. Contains tabs like `SESSION`, `CONNECTIONS`, `HELP`, `VIEWER`, `VARIABLES`, and `PLOTS`.
+- **Status bar**: Displays project details like Git branch, language mode, and cursor position.
 
 ## Editor pane
 
@@ -34,24 +32,30 @@ In the upper central area by default, the editor is where you write, debug, and 
 
 ### Key features
 
-- **Syntax Highlighting**  
+- **Syntax highlighting**  
   Color-coded support for Python, R, YAML, Rust, Markdown, and more.
-- **Auto-completion & Intellisense**  
+
+- **Autocompletion and IntelliSense**  
   Real-time suggestions, signature help, and hover tooltips.
-- **Inline Diagnostics**  
+
+- **Inline diagnostics**  
   See linter messages and errors as you type.
-- **Multi-language Support**  
+
+- **Multi-language support**  
   Switch seamlessly between languages within one session.
-- **Live Document Preview**  
+
+- **Live document preview**  
   View Quarto documents, R Markdown, or Shiny apps alongside your code.
-- **Tabs and Split View**  
+
+- **Tabs and split view**  
   Customize layout with multiple tabs or split panes.
-- **Version Control Integration**  
+
+- **Version control integration**  
   Git tools for commits, diffs, and staging inside the editor.
 
 ## Panel pane
 
-The Panel below the editor offers contextual tools essential for development and debugging.
+The panel below the editor offers contextual tools essential for development and debugging.
 
 ### Terminal
 
@@ -64,7 +68,7 @@ The Panel below the editor offers contextual tools essential for development and
 - **Output**: Logs from builds, publishing, or package management.
 - **Problems**: Lists code issues with quick navigation.
 - **Ports**: Manage forwarded ports for interactive apps like Shiny or Flask.
-- **Debug Console**: Evaluate expressions and view debugging info in real time.
+- **Debug console**: Evaluate expressions and view debugging info in real time.
 
 ## Layout customization
 
@@ -77,11 +81,10 @@ Positron offers flexible layout options to suit a variety of development workflo
 
 ### Other layout options
 
-- **Side-by-Side**: Useful for wide-screen users or those who prefer horizontal splitting.
-- **Notebook Style**: Output appears below code blocks, like in Jupyter or R Notebooks.
+- **Side-by-side**: Useful for wide-screen users or those who prefer horizontal splitting.
+- **Notebook style**: Output appears below code blocks, like in Jupyter or R Notebooks.
 
 ### Reset options
-- Right-click a pane → _Reset Location_
-- Use preset menu → _Reset to factory settings_
 
----
+- Right-click a pane → _Reset location_
+- Use preset menu → _Reset to factory settings_
