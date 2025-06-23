@@ -1,5 +1,16 @@
 on:
   workflow_dispatch:
+    inputs:
+      release_channel:
+        description: "Release channel, e.g. 'dailies', 'prereleases', 'staging'"
+        options:
+          - dailies
+          - prereleases
+          - staging
+          - releases
+        required: true
+        default: staging
+        type: choice
   push:
     branches: [ main ]
 
@@ -8,6 +19,10 @@ name: Quarto Publish
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write  # Required for OIDC
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4 
@@ -20,3 +35,35 @@ jobs:
         with:
           target: netlify
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+      - name: Configure AWS Credentials for S3
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_S3_RW_ROLE }}
+          aws-region: us-east-1
+
+      # Parse download.qmd for the version in the form version: "2025.07.0-123" excluding everything after the dash
+      - name: Extract Release Version
+        id: release_version
+        run: |
+          version=$(grep -oP 'version:\s*"\K[0-9]+\.[0-9]+\.[0-9]+' "${GITHUB_WORKSPACE}/download.qmd")
+          echo "version=${version}" >> $GITHUB_ENV
+
+      - name: Upload Release Notes to S3
+        env:
+          S3_PREFIX: "s3://posit-positron-downloads/positron/${{ inputs.release_channel }}"
+        run: |
+          aws s3 cp "${GITHUB_WORKSPACE}/release-notes/release.md"           "${S3_PREFIX}/release-notes/release-${{ steps.release_version.outputs.result }}" --no-progress
+
+      - name: Configure AWS Credentials for CloudFront
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_CDN_RW_ROLE }}
+          aws-region: us-east-1
+
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.AWS_CDN_DISTRIBUTION_ID }} \
+            --paths \
+              "/positron/${{ inputs.release_channel }}/release-notes/*" \
