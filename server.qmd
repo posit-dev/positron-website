@@ -6,4 +6,4 @@ Positron is available as a free desktop app for Windows, MacOS, and Linux. This 
 
 There is no native browser or server version of Positron available or planned, outside of [Posit Workbench](https://posit.co/products/enterprise/workbench/). Workbench currently has preview support for Positron Pro sessions; Positron Pro on Workbench will move into general availability as the IDE matures. Posit Workbench provides enterprise-grade features such as access to highly scalable compute, single-sign on, native authorization to data governance tools such as Databricks or Snowflake, container-backed sessions, multi-session capabilities, and more.
 
-{{< include /_snippets/workbench.qmd >}}
+[Posit Workbench](https://posit.co/products/enterprise/workbench/) 2024.12.1 and later includes preview support for Positron Pro. To configure and use Positron Pro on Posit Workbench, please see the [Posit Workbench Administration Guide](https://docs.posit.co/ide/server-pro/positron_sessions/) and the [Positron Pro user guide](https://docs.posit.co/ide/server-pro/user/positron/getting-started/).

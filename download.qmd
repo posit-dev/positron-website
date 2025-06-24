@@ -111,4 +111,4 @@ Once you install Positron, it will [automatically check for updates moving forwa
 
 ### Positron Pro on Posit Workbench
 
-{{< include /_snippets/workbench.qmd >}}
+See the [Use with a Server](server.qmd) section for more information.
