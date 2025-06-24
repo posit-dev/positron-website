@@ -8,7 +8,7 @@ Positron's interface is designed to provide a flexible and efficient environment
 
 ## Basic overview
 
-> This section outlines the core layout elements of Positron’s interface. Each pane plays a distinct role in supporting coding, data exploration, and model development, giving you full control over your data science environment.
+This section outlines the core layout elements of Positron’s interface. Each pane plays a distinct role in supporting exploratory data analysis, reproducible authoring, and publishing data artifacts, giving you full control over your data science environment.
 
 ![Interface of the Positron development environment showing Title Bar, Top Bar, Primary Sidebar, central editor area, Secondary Sidebar, and Status Bar.](images/user-interface.png)  
 *Labeled interface diagram of the Positron development environment.*
