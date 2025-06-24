@@ -17,7 +17,7 @@ This section outlines the core layout elements of Positron’s interface. Each p
 - **Top bar**: Provides global project tools such as file search, and lets you change interpreter versions (e.g., `Python`, `R`).
 - **Primary sidebar**: Found on the left, this pane contains the File Explorer to navigate the project directory.
 - **Central editor area**: The main region for editing files. Supports syntax highlighting, inline diagnostics, code folding, and navigation tools.
-- **Secondary sidebar**: The right panel, useful for interacting with runtimes. Contains tabs like `SESSION`, `CONNECTIONS`, `HELP`, `VIEWER`, `VARIABLES`, and `PLOTS`.
+- **Secondary sidebar**: The right panel, which displays panes like Session, [Connections](connections-pane.qmd), [Help](help-pane.qmd), Viewer, Variables, and Plots.
 - **Status bar**: Displays project details like Git branch, language mode, and cursor position.
 
 ## Editor pane
