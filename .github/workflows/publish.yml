@@ -1,16 +1,5 @@
 on:
   workflow_dispatch:
-    inputs:
-      release_channel:
-        description: "Release channel, e.g. 'dailies', 'prereleases', 'staging'"
-        options:
-          - dailies
-          - prereleases
-          - staging
-          - releases
-        required: true
-        default: staging
-        type: choice
   push:
     branches: [ main ]
 
@@ -52,8 +41,7 @@ jobs:
       - name: Upload Release Notes to S3
         if: ${{ steps.release_version.outputs.version != '' }}
         run: |
-          RELEASE_CHANNEL="${{ inputs.release_channel || 'releases' }}"
-          S3_PREFIX="s3://posit-positron-downloads/positron/${RELEASE_CHANNEL}"
+          S3_PREFIX="s3://posit-positron-downloads/positron/releases"
           aws s3 cp "${GITHUB_WORKSPACE}/release-notes/release.md" "${S3_PREFIX}/release-notes/release-${{ steps.release_version.outputs.version }}.md" --no-progress
 
       # Need to update the trust relationship policy on the PositronBuilds role in Posit Main Production
@@ -68,4 +56,4 @@ jobs:
       #     aws cloudfront create-invalidation \
       #       --distribution-id ${{ secrets.AWS_CDN_DISTRIBUTION_ID }} \
       #       --paths \
-      #         "/positron/${{ inputs.release_channel }}/release-notes/*" \
+      #         "/positron/releases/release-notes/*" \
