@@ -67,7 +67,7 @@ Positron offers flexible layout options to suit a variety of development workflo
 
 ### Layout options
 
-- **Stacked** (default): Editor above, with **Console**, **Viewer**, and **Plots/Environment** below. Designed for traditional script-based workflows.
+- **Stacked** (default): Editor above, with Console, Terminal, Output, Problems, Ports, and Debug Console below. Designed for traditional script-based workflows.
 - **Side-by-side**: Useful for wide-screen users or those who prefer horizontal splitting.
 - **Notebook style**: Output appears below code blocks, like in Jupyter or R Notebooks.
 
