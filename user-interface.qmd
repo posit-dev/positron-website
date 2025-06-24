@@ -10,7 +10,7 @@ Positron's interface is designed to provide a flexible and efficient environment
 
 > This section outlines the core layout elements of Positron’s interface. Each pane plays a distinct role in supporting coding, data exploration, and model development, giving you full control over your data science environment.
 
-![Interface of the Positron development environment showing Title Bar, Top Bar, Primary Sidebar, central editor area, Secondary Sidebar, and Status Bar.](https://github.com/user-attachments/assets/19654254-1ae6-4447-8e98-e3b26882ee42)  
+![Interface of the Positron development environment showing Title Bar, Top Bar, Primary Sidebar, central editor area, Secondary Sidebar, and Status Bar.](images/user-interface.png)  
 *Labeled interface diagram of the Positron development environment.*
 
 - **Title bar**: Located at the top, it shows the active file (_e.g.,_ `ui.rs`) and project (_e.g.,_ `ark`) along with window controls.
