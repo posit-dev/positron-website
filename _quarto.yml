@@ -54,6 +54,7 @@ website:
         - start.qmd
         - download.qmd
         - extensions.qmd
+        - about.qmd
 
     - title: "Guides"
       style: "docked"
