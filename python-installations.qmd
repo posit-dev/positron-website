@@ -1,0 +1,125 @@
+---
+title: "Discovering Python Installations"
+---
+
+This guide explains how Python installations are discovered and managed in Positron.
+
+## Python installation discovery
+
+Positron uses multiple strategies to discover Python interpreters and virtual environments across your system.
+The discovery process includes both global Python installations and various virtual environment managers.
+
+### Supported environment managers
+
+Positron supports the following Python environment managers:
+
+* **pip + venv**: Standard library virtual environments created with `python -m venv`
+* **pyenv**: Python installations managed by `pyenv`, including virtual environments
+* **uv**: Virtual environments and Python installations managed by `uv`
+* **Conda/Miniconda/Anaconda**: Conda environments created with `conda create` or `mamba create`
+* **And more**, including Poetry, Hatch, Pixi, and others
+
+### Discovery locations
+
+Positron searches for Python interpreters in the following locations:
+
+**Virtual environments**
+
+* `.venv/` and `.conda/` folders in your workspace directory
+* Tool-managed project installations (e.g. `uv`, `poetry`)
+
+**Global Python installations**
+
+* System Python installations in standard locations
+* Certain tool-managed installations (e.g. `pyenv`, `conda`)
+
+Note that using a system Python installation in a new session can lead to problems (see the official [guidance](https://packaging.python.org/en/latest/specifications/externally-managed-environments/) about this).
+For that reason, we recommend using virtual environments.
+
+**Custom locations**
+
+* Interpreters listed in the [`python.interpreters.[include,exclude,override]`](positron://settings/python.interpreters.include) settings (see the below [section](#related-settings) for details)
+
+## Environment creation and discovery
+
+### Creating new environments
+
+You can create new Python environments directly from Positron using the **Python: Create Environment** command:
+
+1. Open the Command Palette (<kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>)
+2. Run **Python: Create Environment**
+3. Choose from available environment providers:
+   - **venv**: Creates a standard virtual environment using `python -m venv`
+   - **conda**: Creates a conda environment (if conda is available)
+   - **uv**: Creates a uv-managed virtual environment (if uv is available)
+
+The environment will be created in your workspace and automatically discovered.
+
+You can also use the **New Folder From Template** feature to create a new Python project, and set up an environment as part of the project.
+
+### Discovering existing environments
+
+Positron automatically discovers environments when:
+
+- The extension starts up
+- You open a new workspace folder
+- Certain file system changes are detected in watched directories
+- You manually refresh using the **Interpreter: Discover All Interpreters** command
+
+The discovery process runs in the background and updates the interpreter list as new environments are found.
+
+## Discovery process details
+
+### Unsupported Python versions
+
+Positron only supports Python minor versions 3.9 through 3.13, which are the [currently-supported versions](https://devguide.python.org/versions/).
+Other versions may be discovered, but you may run into issues using them.
+
+### Locator type
+
+Positron can use two different discovery mechanisms:
+
+* **JavaScript locator** (default): Pure TypeScript implementation for more comprehensive discovery
+* **Native locator** (experimental): Uses a native binary for faster discovery
+
+You can control this with the `python.locator` setting (`"native"` or `"js"`).
+Keep in mind that the `native` locator is experimental and may not work completely as intended.
+
+## Related settings
+
+Key settings that control Python environment discovery:
+
+### Discovery location settings
+* [`python.interpreters.include`](positron://settings/python.interpreters.include): Specific interpreter paths to include
+* [`python.interpreters.exclude`](positron://settings/python.interpreters.exclude): Interpreter paths to exclude from discovery
+* [`python.interpreters.override`](positron://settings/python.interpreters.override): Override the above two settings so only these are shown
+
+### Environment providers
+* [`python.environmentProviders.enable`](positron://settings/python.environmentProviders.enable): Enable/disable specific environment providers for environment creation (`Venv`, `Conda`, `uv`)
+
+### Discovery behavior
+* [`python.locator`](positron://settings/python.locator): Choose between "native" or "js" discovery methods
+* [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath): Default Python interpreter path (used only the first time when no other interpreter takes precedence)
+
+## Related commands
+
+* **Interpreter: Discover All Interpreters**: Find new interpreters
+* **Interpreter: Select Interpreter Session**: Select an interpreter for a session
+* **Python: Create Environment**: Create a new virtual environment
+
+## Troubleshooting
+
+### Environment not appearing
+
+If the above settings are configured correctly, and the Python version is supported, and a restart of Positron is not helping, you can check logs. See more in the [troubleshooting guide](troubleshooting.qmd).
+
+For the `js` (default) locator, the discovery process is logged in the Python Language Pack channel of the Output panel.
+
+For the `native` locator, it is instead logged in the Python Locator channel.
+
+### Performance issues
+
+If environment discovery is slow:
+
+* Consider using the native locator (`python.locator`: `"native"`)
+* Limit the scope of discovery by setting specific paths in the settings
