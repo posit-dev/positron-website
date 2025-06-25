@@ -1,8 +1,27 @@
 ### Highlights
 
-- Stable releases of Positron are now available! Thank you to all our beta users who have been testing and giving feedback on our prereleases over the last year. ❤️
-- For users who are interested in trying out new features at a faster cadence, we now provide a channel of daily builds; you can opt in to these builds by changing the [`update.positron.channel` setting](positron://settings/update.positron.channel) to `"dailies"`. 🪩
-- Positron Assistant is... 🤖
+#### Positron is out of beta! ❤️
+
+Stable releases of Positron are now available! Thank you to all our beta users who have been testing and giving feedback on our prereleases over the last year. 
+
+#### Daily builds 🪩
+
+For users who are interested in trying out new features at a faster cadence, we now provide a channel of daily builds; you can opt in to these builds by changing the [`update.positron.channel` setting](positron://settings/update.positron.channel) to `"dailies"`. 
+
+#### Positron Assistant 🤖
+
+Positron Assistant, an AI client that provides LLM integration within Positron, is available in preview this release! Positron Assistant supports Chat via Anthropic as well as GitHub Copilot for inline completions. Use Positron Assistant to generate or refactor code, ask questions, get help with debugging, and get suggestions for the next steps in your data science projects. Compared to other IDE AI tooling, Positron Assistant offers novel data science and Positron-specific context. We have built out key integration points that allow the LLM to parse and interact with the current state of the Positron IDE, and will continue to expand these capabilities over time.
+
+A few examples of these integration points include Positron’s:
+
+- **Variables pane**, providing names, dimensions, and column names of dataframes and Python/R based database connections, as well as metadata for arrays, lists, and other objects in memory
+- **Plots pane** for describing the current plot or suggesting variations and next steps for iterating on the current plot
+- **Console**, available to the model for viewing inputs and code outputs, as well as allowing the user or an AI agent to execute code in the console and view the output
+- **Session state**, providing what language is active in the console session (R or Python, including version), what packages are loaded, and what packages are installed
+
+All of that Positron-specific context is in addition to the core capabilities of what traditional software-oriented GenAI clients have (active files, selected lines of code, files in project, training data in the model, etc).
+
+For more information please see the [Positron Assistant](https://positron.posit.co/assistant.html) section of the user guide.
 
 <div id="checkbox"></div>
 
