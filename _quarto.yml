@@ -63,6 +63,7 @@ website:
           contents:
             - managing-interpreters.qmd
             - interpreter-startup.qmd
+            - python-installations.qmd
             - r-installations.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
@@ -84,7 +85,7 @@ website:
         - feedback.qmd
         - faqs.qmd
         - privacy.qmd
-        
+
 format:
   html:
     css: styles.css
