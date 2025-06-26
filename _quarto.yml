@@ -63,8 +63,8 @@ website:
           contents:
             - managing-interpreters.qmd
             - interpreter-startup.qmd
-            - r-installations.qmd
             - python-installations.qmd
+            - r-installations.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
         - connections-pane.qmd

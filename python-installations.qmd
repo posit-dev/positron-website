@@ -13,11 +13,12 @@ The discovery process includes both global Python installations and various virt
 
 Positron supports the following Python environment managers:
 
-* **pip + venv**: Standard library virtual environments created with `python -m venv`
-* **pyenv**: Python installations managed by `pyenv`, including virtual environments
+* **venv**: Standard library virtual environments created with `python -m venv`
 * **uv**: Virtual environments and Python installations managed by `uv`
-* **Conda/Miniconda/Anaconda**: Conda environments created with `conda create` or `mamba create`
-* **And more**, including Poetry, Hatch, Pixi, and others
+* **pyenv**: Python installations managed by `pyenv`, including virtual environments
+* **conda**: Conda environments created with `conda create` or `mamba create`
+
+Other tools may also be compatible, although they are not officially supported at this time.
 
 ### Discovery locations
 
@@ -25,20 +26,21 @@ Positron searches for Python interpreters in the following locations:
 
 **Virtual environments**
 
-* `.venv/` and `.conda/` folders in your workspace directory
-* Tool-managed project installations (e.g. `uv`, `poetry`)
+* `.venv/` and `.conda/` folders in your [workspace](https://code.visualstudio.com/docs/editing/workspaces/workspaces#_singlefolder-workspaces) directory
+* Tool-managed project-specific installations in locations like `~/.local/share/virtualenvs` or where `conda` stores envs
 
 **Global Python installations**
 
-* System Python installations in standard locations
-* Certain tool-managed installations (e.g. `pyenv`, `conda`)
+* System Python installations in standard locations like the user's `PATH`
+* `/opt/python`
+* Tool-managed installation locations like `~/.pyenv` or ` ~/.local/share/uv/python/`
 
 Note that using a system Python installation in a new session can lead to problems (see the official [guidance](https://packaging.python.org/en/latest/specifications/externally-managed-environments/) about this).
 For that reason, we recommend using virtual environments.
 
 **Custom locations**
 
-* Interpreters listed in the [`python.interpreters.[include,exclude,override]`](positron://settings/python.interpreters.include) settings (see the below [section](#related-settings) for details)
+* Interpreters listed in the [`python.interpreters.[include,exclude,override]` settings](positron://settings/python.interpreters.include) (see [Related Settings](#related-settings) below for details)
 
 ## Environment creation and discovery
 
@@ -47,11 +49,11 @@ For that reason, we recommend using virtual environments.
 You can create new Python environments directly from Positron using the **Python: Create Environment** command:
 
 1. Open the Command Palette (<kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>)
-2. Run **Python: Create Environment**
+2. Select _Python: Create Environment_
 3. Choose from available environment providers:
+   - **uv**: Creates a uv-managed virtual environment (if uv is available)
    - **venv**: Creates a standard virtual environment using `python -m venv`
    - **conda**: Creates a conda environment (if conda is available)
-   - **uv**: Creates a uv-managed virtual environment (if uv is available)
 
 The environment will be created in your workspace and automatically discovered.
 
@@ -61,10 +63,10 @@ You can also use the **New Folder From Template** feature to create a new Python
 
 Positron automatically discovers environments when:
 
-- The extension starts up
+- You open Positron
 - You open a new workspace folder
 - Certain file system changes are detected in watched directories
-- You manually refresh using the **Interpreter: Discover All Interpreters** command
+- You manually refresh using the _Interpreter: Discover All Interpreters_ command
 
 The discovery process runs in the background and updates the interpreter list as new environments are found.
 
@@ -72,7 +74,7 @@ The discovery process runs in the background and updates the interpreter list as
 
 ### Unsupported Python versions
 
-Positron only supports Python minor versions 3.9 through 3.13, which are the [currently-supported versions](https://devguide.python.org/versions/).
+Positron only supports Python minor versions 3.9 through 3.13, which are the [currently supported versions](https://devguide.python.org/versions/).
 Other versions may be discovered, but you may run into issues using them.
 
 ### Locator type
@@ -82,8 +84,18 @@ Positron can use two different discovery mechanisms:
 * **JavaScript locator** (default): Pure TypeScript implementation for more comprehensive discovery
 * **Native locator** (experimental): Uses a native binary for faster discovery
 
-You can control this with the `python.locator` setting (`"native"` or `"js"`).
+You can control this with the [`python.locator` setting](positron://settings/python.locator) (`"js"` or `"native"`).
 Keep in mind that the `native` locator is experimental and may not work completely as intended.
+
+## Troubleshooting
+
+### Environment not appearing
+
+If the above settings are configured correctly, and the Python version is supported, and _Interpreter: Discover All Interpreters_ or a restart of Positron is not helping, you can check logs. See more in the [troubleshooting guide](troubleshooting.qmd).
+
+For the `js` (default) locator, the discovery process is logged in the Python Language Pack channel of the Output panel.
+
+For the `native` locator, it is instead logged in the Python Locator channel.
 
 ## Related settings
 
@@ -103,23 +115,6 @@ Key settings that control Python environment discovery:
 
 ## Related commands
 
-* **Interpreter: Discover All Interpreters**: Find new interpreters
-* **Interpreter: Select Interpreter Session**: Select an interpreter for a session
-* **Python: Create Environment**: Create a new virtual environment
-
-## Troubleshooting
-
-### Environment not appearing
-
-If the above settings are configured correctly, and the Python version is supported, and a restart of Positron is not helping, you can check logs. See more in the [troubleshooting guide](troubleshooting.qmd).
-
-For the `js` (default) locator, the discovery process is logged in the Python Language Pack channel of the Output panel.
-
-For the `native` locator, it is instead logged in the Python Locator channel.
-
-### Performance issues
-
-If environment discovery is slow:
-
-* Consider using the native locator (`python.locator`: `"native"`)
-* Limit the scope of discovery by setting specific paths in the settings
+* _Interpreter: Discover All Interpreters_: Find new interpreters
+* _Interpreter: Select Interpreter Session_: Select an interpreter for a session
+* _Python: Create Environment_: Create a new virtual environment
