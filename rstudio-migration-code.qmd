@@ -1,0 +1,10 @@
+---
+title: "Untitled"
+format: html
+---
+
+TO WRITE re: Code writing and formatting
+
+* Formatting
+* Philosophical differences, configurability (or lack thereof)
+* Snippets (incorporate existing content)

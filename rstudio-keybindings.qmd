@@ -4,6 +4,12 @@ title: "RStudio Keybindings"
 
 <!-- vale Posit.Contractions = NO -->
 
+TO ADD:
+
+* Mapping between shortcuts you’re used to in RStudio and equivalents in Positron
+* Enabling RStudio shortcuts; list of supported RStudio shortcuts
+* Creating your own shortcuts (does this belong in customization guide? is this really an RStudio migration topic or a more general documentation topic?)
+
 ## RStudio keybindings in Positron
 
 If you'd prefer to use RStudio keybindings in Positron, enable the [`workbench.keybindings.rstudioKeybindings` setting](positron://settings/workbench.keybindings.rstudioKeybindings). Restart Positron after changing this setting.

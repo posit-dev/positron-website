@@ -1,0 +1,9 @@
+---
+title: "Untitled"
+format: html
+---
+
+Navigation
+
+* Replacing `Cmd` + `.`
+* Navigating symbols, going to definitions, etc.

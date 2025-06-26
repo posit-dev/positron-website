@@ -82,9 +82,14 @@ website:
           href: migrate-vscode.qmd
         - section: "Migrating from RStudio"
           contents:
+          - rstudio-migration-overview.qmd
           - rstudio-keybindings.qmd
+          - rstudio-migration-workspace.qmd
           - rstudio-rproj-file.qmd
+          - rstudio-migration-code.qmd
           - r-snippets.qmd
+          - rstudio-migration-navigation.qmd
+          - rstudio-migration-settings-and-extensions.qmd
     - title: "Help"
       style: "docked"
       contents:

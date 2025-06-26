@@ -1,0 +1,14 @@
+---
+title: "Untitled"
+format: html
+---
+
+Recommended settings
+
+* I.e. configuring Positron to act more like RStudio in various ways
+
+Add-ins and Extensions
+
+* Recommended extensions
+* Creating Positron extensions
+* Using the RStudio API in Positron - supported/unsupported methods, etc.

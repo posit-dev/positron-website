@@ -1,0 +1,35 @@
+---
+title: "RStudio Migration Overview"
+---
+
+We expect that many existing RStudio users will be curious about Positron and whether they should take it for a test drive or even make it their primary IDE.
+This overview and several detailed subtopics should help RStudio users feel well-informed about what such a transition would feel like.
+The goal is to give RStudio users the smoothest possible experience in their early days with Positron.
+
+First, be assured that RStudio is not going away.
+RStudio is still actively supported and there are no concrete plans to sunset it.
+That being said, RStudio and Positron are at very different points in their respective lifecycles, which is relevant when making decisions about adoption.
+Positron is under much more active development, with a rapidly expanding set of features.
+RStudio's development, on the other hand, is much more focused on bug fixes and product stability.
+
+Here are some features that are present in RStudio, but not in Positron.
+Some of these features may eventually come to Positron, but if any of these are dealbreakers for you, that is a reason to stick with RStudio.
+
+* Inline output in Quarto documents, i.e. a notebook-style interface for `.qmd` (or `.Rmd`) files
+* Profiling
+* Dedicated panes and buttons for installing or developing packages
+* Data import widget
+* RStudio add-ins
+* Saving and re-loading workspace state when you restart R
+
+Here are features that are present in Positron, but not in RStudio.
+If any of these features are very important to you, that is a reason to move some or perhaps all of your work to Positron.
+
+* Easy access to multiple R versions and multiple concurrent R sessions
+* Python as a first-class citizen, on par with R
+* An integrated data explorer for a variety data files (CSV, Parquet, etc.) or for dataframes in your active R (or Python) sessions
+* An integrated AI assistant that can "see" your active R (or Python) sessions
+* Extensibility via a large marketplace of 3rd party extensions
+* Remote sessions, i.e. where the user interface is local but the compute is elsewhere
+
+TO ADD: Graphic overview of panes in RStudio and how they map to Positron

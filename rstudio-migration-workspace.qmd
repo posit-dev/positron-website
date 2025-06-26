@@ -1,0 +1,12 @@
+---
+title: "Untitled"
+format: html
+---
+
+TO WRITE re: Workspace management
+
+* Saving/loading tools (or lack thereof)
+* Package tools
+* Testing, building, etc.
+
+Figure out how this relates to existing content re: the `.Rproj` file.
