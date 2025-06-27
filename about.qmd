@@ -8,7 +8,7 @@ The goal of Positron is to create an IDE for data science that supports the full
 
 -   Supporting the kinds of workflows that are central to data science. This includes iterative development, rich interactive output, and publication-quality documents. Positron provides built-in support for notebooks, Quarto, web applications, and more, enabling a range of common authoring and analysis tasks.
 
--   Offering a modern, extensible editor built on open standards. Positron is built on the same foundation as Visual Studio Code, with custom features and UI elements designed specifically for data science. This allows for a wide array of extensions and customization—while also enabling deeper integration of language-specific tools.
+-   Offering a modern, extensible editor built on open standards. Positron is built on Code OSS, the same foundation as Visual Studio Code, with custom features and UI elements designed specifically for data science. This includes support for a wide array of VSIX extensions and customization, while also enabling deeper integration of language-specific tools.
 
 
 We believe that powerful, user-friendly, and open tools are essential for scientific computing. Positron is freely available, aligning with our goal to make high-quality data science tools accessible to everyone.
