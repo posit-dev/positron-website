@@ -24,36 +24,3 @@ jobs:
         with:
           target: netlify
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-
-      - name: Configure AWS Credentials for S3
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: ${{ secrets.AWS_S3_RW_ROLE }}
-          aws-region: us-east-1
-
-      # Parse download.qmd for the version in the form version: "2025.07.0-123" excluding everything after the dash
-      - name: Extract Release Version
-        id: release_version
-        run: |
-          version=$(grep -oP 'version:\s*"\K([0-9]+\.[0-9]+\.[0-9]+)' "${GITHUB_WORKSPACE}/download.qmd")
-          echo "version=${version}" >> $GITHUB_OUTPUT
-
-      - name: Upload Release Notes to S3
-        if: ${{ steps.release_version.outputs.version != '' }}
-        run: |
-          S3_PREFIX="s3://posit-positron-downloads/positron/releases"
-          aws s3 cp "${GITHUB_WORKSPACE}/release-notes/release.md" "${S3_PREFIX}/release-notes/release-${{ steps.release_version.outputs.version }}.md" --no-progress
-
-      # Need to update the trust relationship policy on the PositronBuilds role in Posit Main Production
-      # - name: Configure AWS Credentials for CloudFront
-      #   uses: aws-actions/configure-aws-credentials@v4
-      #   with:
-      #     role-to-assume: ${{ secrets.AWS_CDN_RW_ROLE }}
-      #     aws-region: us-east-1
-
-      # - name: Invalidate CloudFront Cache
-      #   run: |
-      #     aws cloudfront create-invalidation \
-      #       --distribution-id ${{ secrets.AWS_CDN_DISTRIBUTION_ID }} \
-      #       --paths \
-      #         "/positron/releases/release-notes/*" \
