@@ -43,7 +43,7 @@ For more information please see the [Positron Assistant](https://positron.posit.
 - Folding rules are now supported for R comment sections [[#18]](https://github.com/posit-dev/positron/issues/18) and R code cells [[#2924]](https://github.com/posit-dev/positron/issues/2924). Thanks to our contributor [@kv9898](https://github.com/kv9898)!
 - [[#7875](https://github.com/posit-dev/positron/issues/7875)] Custom environment variables for the Terminal and Consoles can now be configured in the Settings UI.
 - [[#7550](https://github.com/posit-dev/positron/issues/7550)] The support for scaffolding a new folder based on templates has been revamped. Try out the improved _Workspaces: New Folder from Template..._ command.
-- [[#7838](https://github.com/posit-dev/positron/issues/7838) The Assistant project tree tool now takes parameters to filter the tree output.
+- [[#7838](https://github.com/posit-dev/positron/issues/7838)] The Assistant project tree tool now takes parameters to filter the tree output.
 - [[#7404](https://github.com/posit-dev/positron/issues/7404)] Improved the Assistant Language Model Provider Configuration Modal close experience.
 - [[#6158](https://github.com/posit-dev/positron/issues/6158)] Python Consoles now automatically reload imported files, so any changes made to a module are automatically picked up without needing to restart the Console session. You can opt out of this behavior with the [`python.enableAutoReload` setting](positron://settings/python.enableAutoReload).
 - [[#7202](https://github.com/posit-dev/positron/issues/7202)] The Positron version field can now be specified and validated in Positron extensions.
