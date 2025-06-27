@@ -19,7 +19,7 @@ hide-description: true
 
 {{< video https://www.youtube.com/embed/8uRcB34Hhsw >}}
 
-Find out what you need to know to [get started](start.qmd) using Positron, and then [download an installer](download.qmd). Explore our user guides on topics such as [choosing interpreters](interpreters.qmd) and the [Data Explorer](data-explorer.qmd). Our [FAQs](faqs.qmd) cover some common questions you may have.
+Find out what you need to know to [get started](start.qmd) using Positron, and then [download an installer](download.qmd). Explore our user guides on topics such as [choosing interpreters](managing-interpreters.qmd) and the [Data Explorer](data-explorer.qmd). Our [FAQs](faqs.qmd) cover some common questions you may have.
 
 Positron is built on [Code OSS](https://github.com/microsoft/vscode). To learn about basic features like commands, settings, using source control, and more, see the [VS Code documentation](https://code.visualstudio.com/docs).
 

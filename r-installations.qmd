@@ -2,13 +2,7 @@
 title: "Discovering R Installations"
 ---
 
-:::{.callout-note}
-This information applies to the **Public Beta** release of Positron.
-The rules governing interpreter discovery are under active development.
-This guide is intended to help you understand the current behavior.
-:::
-
-This guide pertains to the R versions in the top-right interpreter chooser (internally known as the Top Bar Interpreter dropdown).
+This guide pertains to how R installations are discovered and show up in the Interpreter picker.
 
 ## R installation discovery
 

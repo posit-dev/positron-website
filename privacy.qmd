@@ -16,11 +16,11 @@ Posit uses this information anonymously and in aggregate to determine how often 
 
 When you visit our website or download our software, Posit logs network access information. Positron also includes in-product features that periodically check for new versions of the product or its extensions. These access logs include common information about the client, including the operating system, browser type, IP address, referral sources, timestamp, and URI accessed. 
 
-- To stop Positron checking for product updates, choose `none` for the setting `update.mode`.
-- To stop Positron checking for extension updates, disable the setting `extensions.autoCheckUpdates`.
+- To stop Positron checking for product updates, choose `none` for the [`update.mode` setting](positron://settings/update.mode).
+- To stop Positron checking for extension updates, disable the [`extensions.autoCheckUpdates` setting](positron://settings/extensions.autoCheckUpdates).
 
 #### Primary language reporting
 
 Positron also includes an option to share the primary data science languages in use, such as Python and/or R.
 
-- To stop Positron sharing the primary data science languages in use, disable the setting `update.primaryLanguageReporting`.
+- To stop Positron sharing the primary data science languages in use, disable the  [`update.primaryLanguageReporting setting`](positron://settings/update.primaryLanguageReporting).
