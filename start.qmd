@@ -1,7 +1,5 @@
 ---
 title: "Getting Started"
-params:
-  version: "2025.06.0-167"
 format:
   html:
     include-in-header:
@@ -75,7 +73,7 @@ Please review [Positron's license agreement](licensing.qmd) and [privacy policy]
 to populate the platform-default download button -->
 ```{r}
 #| echo: false
-positronVersion <- params$version
+positronVersion <- Sys.getenv("RELEASE_VERSION")
 ```
 
 [Download Positron for <span id="os-name">Your Platform</span>](#){.btn .btn-primary .disabled #download-btn data-version="`{r} positronVersion`"}
