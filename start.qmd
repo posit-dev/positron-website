@@ -6,7 +6,16 @@ format:
       - '_download.html'
 ---
 
-Positron is a modern, extensible IDE for data science built on the open-source foundation of VS Code. It combines the power of a full-featured IDE with interactive data science tools for Python and R.
+Positron is a modern, extensible IDE for data science built on [Code OSS](https://github.com/microsoft/vscode). It combines the power of a full-featured IDE with interactive data science tools for Python and R.
+
+
+#### Positron might be a good fit for you if you...
+
+-   use VS Code for data science (Python or R) but wish it included more interactive affordances for data-specific tasks like running exploratory code, examining your variables and datasets, interacting with your plots, and developing data apps such as Shiny, Streamlit, or FastAPI.
+-   use JupyterLab or hosted notebook tools for data science (Python or R) and are ready for a more powerful, fully-featured IDE that still supports notebooks.
+-   use RStudio and want more ability to customize or extend your IDE.
+-   use additional languages beyond only Python or R in your day-to-day data science or package development work, like Rust, C++, JavaScript, or Lua.
+-   want access to powerful, data-science specific AI integrations in a modern, extensible IDE.
 
 ## Prerequisites
 ::: {.panel-tabset}
@@ -19,6 +28,10 @@ If you're using Windows, make sure you have the [latest Visual C++ Redistributab
 Positron works with [actively supported versions](https://devguide.python.org/versions/#versions) of Python, from 3.9 to 3.13.  
 
 We recommend [pyenv](https://github.com/pyenv/pyenv) and [pyenv for Windows](https://github.com/pyenv-win/pyenv-win) for managing Python versions.  
+
+Positron requires the [IPython kernel](https://pypi.org/project/ipykernel/) (version 6.19.1 or higher) to communicate with Python. By default, the IPython kernel is bundled with Positron for the CPython implementation (the standard Python implementation) and added to the [Python search path](https://docs.python.org/3/library/sys_path_init.html).
+
+If you prefer finer control over your Python environment, set the [`python.useBundledIpykernel` setting](positron://settings/python.useBundledIpykernel) to false and install the IPython kernel manually
 
 ::: callout-note
 If you're using an implementation other than CPython, you'll need to install the IPython kernel manually. 
@@ -72,7 +85,7 @@ to populate the platform-default download button -->
 positronVersion <- Sys.getenv("RELEASE_VERSION")
 ```
 
-[Download Positron for <span id="os-name">Your Platform</span>](#){.btn .btn-primary .disabled #download-btn data-version="`{r} positronVersion`"}
+[Download Positron <span id="os-name"></span>](#){.btn .btn-primary .disabled #download-btn data-version="`{r} positronVersion`"}
 
 [All Downloads](download.qmd){#all-downloads}
 <!-- TODO: Can we insert release notes in the Downloads page? -->
@@ -84,14 +97,3 @@ If you are coming from another IDE, check out the migration guides to help you g
 [Migrating from RStudio](#){.btn .btn-primary}
 [Migrating from VS Code](#){.btn .btn-primary} -->
 <!-- TODO: Uncomment when these pages are ready -->
-
-
----
-
-#### Positron might be a good fit for you if you...
-
--   use VS Code for data science (Python or R) but wish it included more interactive affordances for data-specific tasks like running exploratory code, examining your variables and datasets, interacting with your plots, and developing data apps such as Shiny, Streamlit, or FastAPI.
--   use JupyterLab or hosted notebook tools for data science (Python or R) and are ready for a more powerful, fully-featured IDE that still supports notebooks.
--   use RStudio and want more ability to customize or extend your IDE.
--   use additional languages beyond only Python or R in your day-to-day data science or package development work, like Rust, C++, JavaScript, or Lua.
--   want access to powerful, data-science specific AI integrations in a modern, extensible IDE.

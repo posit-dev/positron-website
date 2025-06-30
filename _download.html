@@ -75,20 +75,20 @@
 
         // Detect operating system
         if (userAgent.indexOf('Win') !== -1) {
-            detectedOS = 'Windows';
+            detectedOS = 'for Windows';
             downloadUrl = `${cdnUrl}win/x86_64/Positron-${version}-UserSetup.exe`;
             allDownloadsText = 'System Installer & Other Platforms';
         } else if (userAgent.indexOf('Mac') !== -1) {
-            detectedOS = 'macOS';
+            detectedOS = 'for macOS';
             downloadUrl = `${cdnUrl}mac/universal/Positron-${version}.dmg`;
             allDownloadsText = 'Other Platforms';
         } else if (userAgent.indexOf('Linux') !== -1) {
-            detectedOS = 'Linux';
+            detectedOS = 'for Linux';
             downloadUrl = `download.html`;
             enableLinks = true;
         } else {
             // Unsupported OS or Linux with no specific download
-            detectedOS = 'Your Platform';
+            detectedOS = '';
             downloadUrl = `download.html`;
             enableLinks = true;
         }
