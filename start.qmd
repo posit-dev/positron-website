@@ -8,12 +8,6 @@ format:
 
 Positron is a modern, extensible IDE for data science built on the open-source foundation of VS Code. It combines the power of a full-featured IDE with interactive data science tools for Python and R.
 
-::: {.callout-note}
-
-Positron is currently in **Public Beta** but we are nearing our initial Release Candidate. This means that while it is usable and stable, it may still have some rough edges. We welcome your feedback and contributions as we continue to improve Positron.
-
-:::
-
 ## Prerequisites
 ::: {.panel-tabset}
 
@@ -57,6 +51,8 @@ rig system rtools add
 :::
 
 ## Install Positron
+
+Download the installer for your operating system from the button below and follow the standard installation process for your platform. You only need to install Positron once, as it automatically updates to the latest version after installation.
 
 :::{.callout-important #privacy-policy}
 ## Accept license agreement
