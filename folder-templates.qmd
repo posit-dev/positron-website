@@ -6,7 +6,7 @@ title: "Folder Templates"
 
 The "New Folder from Template" feature helps you quickly setup a a folder with an environment using a predefined template for a language or framework. 
 
-To create a new folder from one of the available templates in Positron, select the "New" dropdown menu in the top left. Select the "New Folder from Template" option to bring up the dialog.
+To create a new folder from one of the available templates in Positron, select the "New" dropdown menu in the top-left or the workspace switcher in the top-right. Select the "New Folder from Template" option to bring up the dialog.
 
 ### Select a template
 To create an empty folder, you can select the "Empty Project" option, otherwise select an option that best matches the work you are doing and select "Next".
@@ -48,4 +48,3 @@ To learn more about `renv`, see the [Introduction to renv guide](https://rstudio
 ### Finish
 
 Once you are satisfied with your configuration options, select **Create** to create your new folder with the applied settings. Positron creates the folder and applies your selected template and settings. Once setup is complete, you will be prompted open the folder in the current window or a new window to begin working.
-
