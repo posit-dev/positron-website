@@ -2,7 +2,7 @@
 title: Git Version Control
 ---
 
-Git is a powerful version control system that helps you track changes to your code, collaborate with others, and maintain a history of your project. Positron provides built-in Git integration that works seamlessly with Git repositories, even if you are new to version control.
+Git is a powerful version control system that helps you track changes to your code, collaborate with others, and maintain a history of your project. Positron provides built-in Git integration that works seamlessly with Git repositories.
 
 ## What is Git?
 
@@ -32,10 +32,19 @@ Positron provides a few ways to work with Git repositories:
 
 These options are available from the Welcome screen when you first open Positron, or you can access them later through the Command Palette (<kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) by searching for *Workspaces: New Folder from Git...* or *Workspaces: New Folder from Template...*.
 
+### Initialize Git in an existing project
+
+If you are working with an existing project that does not use Git, you can also initialize a Git repository within Positron:
+
+1. Open your project folder in Positron
+2. Open the Source Control view from the Activity Bar
+3. Click **Initialize Repository** to create a new Git repository in your current folder
+
+This creates a `.git` folder in your project directory and begins tracking your files.
+
 ::: callout-tip
 If you are a more advanced Git user, consider installing the [GitLens extension](https://open-vsx.org/vscode/item?itemName=eamodio.gitlens) for extended Git capabilities in Positron.
 :::
-
 
 ## Basic Git workflow
 
@@ -46,7 +55,7 @@ The basic Git workflow involves making changes to your files, then staging and c
 1. **Make changes** to your files in Positron
 2. **Stage changes** by selecting which files to include in your next commit
 3. **Commit changes** with a descriptive message about what you changed
-4. **Push changes** to share them with others
+4. **Push changes** to share them with others, when you have setup a remote repository like GitHub or GitLab
 
 The Source Control view in Positron shows all your changed files and makes it easy to stage and commit changes with a few clicks.
 
@@ -54,7 +63,7 @@ The Source Control view in Positron shows all your changed files and makes it ea
 
 ### Syncing with Remote Repositories
 
-Once you have committed changes locally, you can sync them with a remote repository (like GitHub):
+When working with a remote repository like GitHub, you can sync changes between your local and remote repositories:
 
 - **Push** your local commits to the remote repository
 - **Pull** changes from the remote repository to your local copy
@@ -67,9 +76,9 @@ Once you have committed changes locally, you can sync them with a remote reposit
 Branches allow you to work on different features or experiments without affecting your main codebase:
 
 - **Create branches** for new features or bug fixes
-- **Switch between branches** to work on different parts of your project
-- **Merge branches** to combine changes back into the main branch
-- **Create pull requests** to propose and review changes before merging
+- **Switch between branches** to focus on different development efforts within your project
+- **Merge branches** to incorporate changes into the main branch
+- **Create pull requests** to propose changes and solicit feedback from colleagues or continuous integration services
 
 **Learn more:** [Using branches](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_using-branches)
 
@@ -83,8 +92,8 @@ Positron provides a 3-way merge editor to help you resolve conflicts by choosing
 
 ## Additional Resources
 
-- [Complete VS Code Git Introduction](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git) - Comprehensive guide with screenshots and examples
-- [Git Official Documentation](https://git-scm.com/doc) - Official Git documentation
-- [GitHub Guides](https://guides.github.com/) - Learn GitHub-specific features
-- [Interactive Git Tutorial](https://learngitbranching.js.org/) - Visual and interactive way to learn Git
-- [R-focused Git Guide](https://happygitwithr.com/) - A guide for R users to learn Git and GitHub
+- [Introduction to Git in VS Code ](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git) - Comprehensive guide with screenshots and examples
+- [Git Documentation](https://git-scm.com/doc) - Official Git documentation
+- [GitHub Docs](https://guides.github.com/) - Learn GitHub-specific features
+- [Learn Git Branching](https://learngitbranching.js.org/) - Visual and interactive way to learn Git
+- [Happy Git and GitHub for the useR](https://happygitwithr.com/) - A guide for R users to learn Git and GitHub
