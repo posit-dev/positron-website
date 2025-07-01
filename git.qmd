@@ -77,8 +77,8 @@ Branches allow you to work on different features or experiments without affectin
 
 - **Create branches** for new features or bug fixes
 - **Switch between branches** to focus on different development efforts within your project
-- **Merge branches** to incorporate changes into the main branch
 - **Create pull requests** to propose changes and solicit feedback from colleagues or continuous integration services
+- **Merge branches** to incorporate changes into the main branch
 
 **Learn more:** [Using branches](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_using-branches)
 
