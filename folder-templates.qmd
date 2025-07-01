@@ -2,7 +2,7 @@
 title: "Folder Templates"
 ---
 
-## New Folder from Template
+## New folder from template
 
 The "New Folder from Template" feature helps you quickly setup a a folder with an environment using a predefined template for a language or framework. 
 
