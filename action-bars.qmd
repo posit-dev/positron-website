@@ -10,7 +10,7 @@ Positron makes use of Action Bars throughout the application to put essential fu
 
 ### Regions
 
-An Action Bar is divided into three regions: left, center, and right. Every Action Bar includes the left and right regions, while the center region appears only when needed. The most important actions are typically placed on the Left.
+An Action Bar is divided into three regions: left, center, and right. Every Action Bar includes the left and right regions, while the center region appears only when needed. The most important actions are typically placed on the left.
 
 ![Action Bar Regions](images/action-bar-regions.png)
 
