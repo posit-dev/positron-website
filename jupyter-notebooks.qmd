@@ -1,0 +1,33 @@
+---
+title: "Jupyter Notebooks"
+---
+
+[Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html) offer a flexible, interactive UI for combining code, prose, and visualizations.
+In Positron, Jupyter Notebooks are fully supported and integrated into a complete data science IDE.
+
+## Why use Jupyter Notebooks in Positron over other IDEs?
+
+Positron enhances Jupyter Notebooks in several key ways:
+
+1. Notebooks work out of the box.
+   You don't need to install any additional dependencies into your R or Python environments.
+1. The Variables Pane provides an expandable overview of the variables in your notebook, automatically updating as you work.
+1. The [Data Explorer](data-explorer.qmd) helps you understand tabular data, supporting popular data science libraries such as `pandas`, `polars`, `data.table`, and more.
+1. The [Connections Pane](connections-pane.qmd) lets you manage connections from your notebook to databases and other data sources.
+1. Language features such as autocompletion and go-to-definition work seamlessly across notebooks and plaintext files.
+
+## Using Jupyter Notebooks in Positron
+
+You can create and edit `.ipynb` files in Positron just as you would in other editors.
+For a general introduction to working with Jupyter Notebooks, see the [VS Code Jupyter Notebooks documentation](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
+
+### Prerequisites
+
+Positron comes prepackaged with Jupyter kernels for R and Python.
+Once you've [configured an R or Python environment](start.qmd) for Positron, you do not need to install any additional dependencies into your environment before using notebooks.
+
+### Managing interpreters
+
+When you first open a Jupyter Notebook in Positron, it automatically selects the most appropriate interpreter based on the notebook's language and the current workspace configuration.
+
+You can manually select a different interpreter for the notebook using the kernel selector in the notebook toolbar.
