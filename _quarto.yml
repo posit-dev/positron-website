@@ -72,7 +72,8 @@ website:
         - remote-ssh.qmd
         - updating.qmd
         - extension-development.qmd
-        - migrate-vscode.qmd
+        - text: "Migrating from VS Code"
+          href: migrate-vscode.qmd
         - section: "Migrating from RStudio"
           contents:
           - rstudio-keybindings.qmd
