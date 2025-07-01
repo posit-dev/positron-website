@@ -4,15 +4,15 @@ title: "Action Bars"
 
 Positron makes use of Action Bars throughout the application to put essential functionality at your fingertips.
 
-![Action Bars](images/action-bars.png){fig-align="left"}
+![Action Bars](images/action-bars.png)
 
 ## Anatomy of an Action Bar
 
 ### Regions
 
-An Action Bar is divided into three regions: Left, Center, and Right. Every Action Bar includes the Left and Right regions, while the Center region appears only when needed. The most important actions are typically placed on the Left.
+An Action Bar is divided into three regions: left, center, and right. Every Action Bar includes the left and right regions, while the center region appears only when needed. The most important actions are typically placed on the Left.
 
-![Action Bar Regions](images/action-bar-regions.png){fig-align="left"}
+![Action Bar Regions](images/action-bar-regions.png)
 
 ### Elements
 
@@ -33,14 +33,14 @@ Action Bars are made up of Action Bar Elements.
 
 Hovering over an Action Bar element reveals its tooltip, helping you quickly understand what it does.
 
-![Action Bar Tooltip](images/action-bar-tooltip.png){fig-align="left"}
+![Action Bar Tooltip](images/action-bar-tooltip.png)
 
 ## Top Action Bar
 
-The Top Action Bar helps you manage your work. On the left, you’ll find actions to create or open files and folders. In the center, you can navigate backward and forward through recent cursor positions and use the command center to quickly access Positron commands or locate files in your project. On the right, the interpreter selector lets you start new interpreters or switch between running ones, while the folder selector allows you to open recently used folders, either in the current window or a new one.
+The Top Action Bar helps you manage your work. On the left, you will find actions to create or open files and folders. In the center, you can navigate backward and forward through recent cursor positions and use the command center to quickly access Positron commands or locate files in your project. On the right, the interpreter selector lets you start new interpreters or switch between running ones, while the folder selector allows you to open recently used folders, either in the current window or a new one.
 
-![Top Action Bar](images/top-action-bar.png){fig-align="left"}
+![Top Action Bar](images/top-action-bar.png)
 
-## Wrapping Up
+## Wrapping up
 
-Action Bars surface the most important and frequently used actions in each area of the product, so you don’t have to rely on the command palette to find everything. Because they’re contextual, Action Bars present the tools you need right where you need them—helping you stay focused and work more efficiently in Positron.
+Action Bars surface the most important and frequently used actions in each area of the product, so you do not have to rely on the command palette to find everything. Because they are contextual, Action Bars present the tools you need right where you need them, helping you stay focused and work more efficiently in Positron.
