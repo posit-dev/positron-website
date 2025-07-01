@@ -68,6 +68,7 @@ website:
             - r-installations.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
+        - assistant.qmd
         - connections-pane.qmd
         - help-pane.qmd
         - run-interactive-apps.qmd
