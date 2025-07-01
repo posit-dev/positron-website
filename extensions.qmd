@@ -8,7 +8,7 @@ Since Positron is built on [Code OSS](https://github.com/microsoft/vscode) (the 
 ## Open VSX
 <!-- vale Posit.Contractions = YES -->
 
-Positron has an Extensions view, just like VS Code. The primary difference is that when you browse extensions in Positron, the extensions don't come from VS Code's Marketplace. Instead, they come from a vendor-neutral open source marketplace, [Open VSX](https://open-vsx.org/). Open VSX is an Eclipse open-source project and alternative to the Visual Studio Marketplace. This is necessary for licensing reasons; Microsoft doesn't permit access to the Marketplace outside of their Visual Studio Code (VS Code) builds.
+Positron has an Extensions view, just like VS Code. The primary difference is that when you browse extensions in Positron, the extensions don't come from VS Code's Marketplace. Instead, they come from [Open VSX](https://open-vsx.org/), an Eclipse open-source project and vendor-neutral alternative to the Visual Studio Marketplace. This is necessary for licensing reasons; Microsoft doesn't permit access to the Marketplace outside of their Visual Studio Code (VS Code) builds.
 
 Open VSX includes most popular VS Code extensions, but not all; some authors don't bother to publish their extensions to Open VSX (it's an extra step) and others don't keep the Open VSX version of the extension up to date. Open VSX has a suggested [template](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md) to request that the authors of an extension cross-publish their extension on the Open VSX Registry.
 
