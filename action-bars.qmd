@@ -1,0 +1,46 @@
+---
+title: "Action Bars"
+---
+
+Positron makes use of Action Bars throughout the application to put essential functionality at your fingertips.
+
+![Action Bars](images/action-bars.png){fig-align="left"}
+
+## Anatomy of an Action Bar
+
+### Regions
+
+An Action Bar is divided into three regions: Left, Center, and Right. Every Action Bar includes the Left and Right regions, while the Center region appears only when needed. The most important actions are typically placed on the Left.
+
+![Action Bar Regions](images/action-bar-regions.png){fig-align="left"}
+
+### Elements
+
+Action Bars are made up of Action Bar Elements.
+
+| Element | Description |
+|------|------|
+| ![Action Bar Button](images/action-bar-button.png) ![Action Bar Button With Text](images/action-bar-button-with-text.png) | **Button**<br>Executes an action. |
+| ![Action Bar Menu Button](images/action-bar-menu-button.png) | **Menu button**<br/>Displays a drop-down menu of actions. |
+| ![Action Bar Split Menu Button Right](images/action-bar-split-menu-button-right.png) ![Action Bar Split Menu Button Left](images/action-bar-split-menu-button-left.png) | **Split menu button**<br/>Displays a drop-down menu of actions with a default action button on the left. |
+| ![Action Bar Toggle](images/action-bar-toggle.png) | **Toggle**<br/>Toggles between options. |
+| ![Action Bar Checkbox](images/action-bar-checkbox.png) | **Checkbox**<br/>Enables or disables an option. |
+| ![Action Bar Information](images/action-bar-information.png) | **Information**<br/>Displays contextual information. |
+| ![Action Bar Separator](images/action-bar-separator.png) | **Separator**<br/>Separates elements. |
+| ![Action Bar Overflow Button](images/action-bar-overflow-button.png) | **Overflow Button**<br>Displays a drop-down menu of overflow actions. |
+
+### Tooltips
+
+Hovering over an Action Bar element reveals its tooltip, helping you quickly understand what it does.
+
+![Action Bar Tooltip](images/action-bar-tooltip.png){fig-align="left"}
+
+## Top Action Bar
+
+The Top Action Bar helps you manage your work. On the left, you’ll find actions to create or open files and folders. In the center, you can navigate backward and forward through recent cursor positions and use the command center to quickly access Positron commands or locate files in your project. On the right, the interpreter selector lets you start new interpreters or switch between running ones, while the folder selector allows you to open recently used folders, either in the current window or a new one.
+
+![Top Action Bar](images/top-action-bar.png){fig-align="left"}
+
+## Wrapping Up
+
+Action Bars surface the most important and frequently used actions in each area of the product, so you don’t have to rely on the command palette to find everything. Because they’re contextual, Action Bars present the tools you need right where you need them—helping you stay focused and work more efficiently in Positron.
