@@ -31,7 +31,7 @@ Action Bars are made up of Action Bar Elements.
 
 ### Tooltips
 
-Hovering over an Action Bar element reveals its tooltip, helping you quickly understand what it does.
+Hovering over an Action Bar Element reveals its tooltip, helping you quickly understand what it does.
 
 ![Action Bar Tooltip](images/action-bar-tooltip.png)
 
