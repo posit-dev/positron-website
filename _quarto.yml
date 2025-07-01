@@ -74,6 +74,7 @@ website:
         - connections-pane.qmd
         - help-pane.qmd
         - run-interactive-apps.qmd
+        - jupyter-notebooks.qmd
         - remote-ssh.qmd
         - updating.qmd
         - extension-development.qmd
