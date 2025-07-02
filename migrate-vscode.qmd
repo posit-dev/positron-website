@@ -55,7 +55,7 @@ To use Python in Positron, you need to have Python installed on your system. Pos
 
 {{< include "_python-managers.qmd" >}}
 
-Python installations and environments created with these tools will be automatically detected, and enable Positron's deep integration with Python. <!-- TODO: Add link above -->
+Positron automatically detects Python installations and environments created with these tools. This enables deep integration with Python features in the IDE. <!-- TODO: Add link above -->
 
 ### Coming from the Python extension
 
@@ -71,13 +71,13 @@ VS Code users who rely on the `ms-python.python` extension will find that Positr
 
 ### Python in the Console
 
-Positron's Console pane provides an interactive IPython session. You can type Python code directly into the Console or run files open in the editor. You can also choose to run a portion of a file open in the editor, similar to a Jupyter Notebook but with any standard Python file.
+The Positron Console pane provides an interactive IPython session. You can type Python code directly into the Console or run files open in the editor. You can also choose to run a portion of a file open in the editor, similar to a Jupyter Notebook but with any standard Python file.
 
 While you can launch IPython from the Terminal as you would in VS Code, the Console provides code completion, syntax highlighting, and integration with the Variables and Plots panes -- among other features that enhance the interactive experience.
 
 Positron bundles IPython, allowing you to use the console without installing it separately. If you wish to use an external version of IPython, you can toggle the use of the bundled one with the [`python.useBundledIpykernel` setting](positron://settings/python.useBundledIpykernel).
 
-By default, the Console enables IPython's [`autoreload` extension](https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html) for imports. You can change this with the [`python.enableAutoReload` setting](positron://settings/python.enableAutoReload).
+By default, the Console enables the IPython [`autoreload` extension](https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html) for imports. You can change this with the [`python.enableAutoReload` setting](positron://settings/python.enableAutoReload).
 
 ## R
 
@@ -100,6 +100,6 @@ For a detailed overview of the Command Palette, see the [Visual Studio Code Comm
 
 ## Help & feedback
 
-Positron's features are explored further in other Guides within this section. If you encounter any issues during migration or while using Positron, check out the [troubleshooting guide](troubleshooting.qmd) for common solutions. The [FAQ](faqs.qmd) addresses a comprehensive list of frequent questions from users transitioning from other editors.
+You can learn more about Positron features in other guides within this section. If you encounter issues during migration or while using Positron, see the [troubleshooting guide](troubleshooting.qmd) for common solutions. The [FAQ](faqs.qmd) provides answers to frequent questions from users who are transitioning from other editors.
 
 Your experience and feedback help to improve Positron. Share your thoughts, report bugs, or suggest features through Positron's [feedback channels](feedback.qmd). Your input is valuable in making sure Positron development better serves the data science community.
