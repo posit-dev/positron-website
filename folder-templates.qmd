@@ -8,7 +8,7 @@ After you finish setup, Positron creates your new folder with the selected templ
 
 By default, Positron starts a session for the interpreter you selected in the template. You can customize this behavior in the settings. For more details, see the [interpreter startup guide](interpreter-startup.qmd#configuring-interpreter-startup).
 
-## Why use folder templates?
+## Why use folder templates
 
 Folder templates allow you to start new projects quickly. They provide a consistent structure, recommended files, and environment configuration for your language or framework. This is especially helpful if you are:
 
