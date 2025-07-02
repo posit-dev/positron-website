@@ -114,7 +114,9 @@ To view your chat conversations, click the clock icon in the top right of the Ch
 
 ### Inline chat
 
-The command _Inline Chat: Editor Inline Chat_ (default keybinding: <kbd>Cmd</kbd> + <kbd>I</kbd>) will open a mini chat right in the editor. This is very useful for asking questions in the context of your code, and also includes an interface for integrating changes suggested by the model.
+Inline chat is very useful for asking questions in the context of your code, and also includes an interface for integrating changes suggested by the model.
+
+To open this mini chat interface can in an editor or terminal, use the default keybinding <kbd>Cmd</kbd> + <kbd>I</kbd>, or run the command _Inline Chat: Editor Inline Chat_ in an editor or the command _Inline Chat: Terminal Inline Chat_ in a terminal.
 
 ### Completions
 
@@ -130,6 +132,10 @@ Shiny Assistant is a chat participant available within Positron Assistant that p
 Shiny Assistant enhances the default prompt with additional information about Shiny that we have found improves the quality of generated apps and Shiny components. It is also kept up to date with the latest Shiny features and best practices, in a way that is not practical with foundation models or fine-tuning.
 
 Shiny Assistant is available in the chat once you have installed the [Shiny extension](https://open-vsx.org/extension/posit/shiny). Like other chat participants, Shiny Assistant can be invoked by typing `@shiny` in the chat pane or inline chat, followed by your question or request related to Shiny development.
+
+### Customizing the default prompt
+
+
 
 ## Why use Positron Assistant over other AI clients?
 
