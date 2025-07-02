@@ -67,6 +67,7 @@ website:
             - interpreter-startup.qmd
             - python-installations.qmd
             - r-installations.qmd
+        - action-bars.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
         - assistant.qmd
