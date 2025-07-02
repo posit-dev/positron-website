@@ -2,8 +2,6 @@
 title: "Folder Templates"
 ---
 
-## New folder from template
-
 The "New Folder from Template" feature helps you quickly setup a a folder with an environment using a predefined template for a language or framework. 
 
 To create a new folder from one of the available templates in Positron, select the "New" dropdown menu in the top-left or the workspace switcher in the top-right. Select the "New Folder from Template" option to bring up the dialog.
@@ -21,13 +19,16 @@ After you select a template, enter a name for your new folder and choose a locat
 When you select a Python template, the dialog guides you through setting up your Python environment. This ensures your project starts with the right tools and interpreter for your work.
 
 **How would you like to set up your Python environment?:**
+
 - **Create a new virtual environment:** Recommended for most users. This option creates an isolated environment for your project, which helps avoid conflicts with other Python projects on your system.
 - **Use an existing environment:** Choose this if you already have a Python environment you want to use.
 
 **Environment Creation:**
+
 Select a tool such as `venv`, `conda`, or `uv` to create your new environment. See the [Supported environment managers guide](python-installations.qmd#supported-environment-managers) to learn about which managers are supported.
 
 **Python Interpreter:**
+
 - Choose the version of Python you want to use. If you do not see the version you need, see the [Discovering Python Installations guide](python-installations.qmd) for help adding new interpreters and details about how Positron discovers and manages Python environments.
 
 
@@ -36,11 +37,13 @@ Select a tool such as `venv`, `conda`, or `uv` to create your new environment. S
 When you select an R template, the dialog helps you configure your R environment for the new project.
 
 **R Version:**
+
 - Select the version of R you want to use. If the version you need is not listed, see the [Discovering R Installations guide](r-installations.qmd) for help adding new R versions and details about how Positron discovers R versions.
 
 
 **Advanced configuration:**
-- You can check the **Use `renv` to create a reproducible environment** box to initialize your folder with `renv`.
+
+- You can check the **Use \`renv\` to create a reproducible environment** box to initialize your folder with `renv`.
 
 `renv` is an R package that helps you manage project dependencies. It creates a snapshot of the R packages in your project and saves them in a `renv.lock` file. This makes it easy to share your project with other people or computers. Using `renv` helps you avoid problems caused by package updates or differences between computers. It ensures your project always uses the correct package versions, making it reliable and reproducible. This is especially helpful when collaborating with others or working on long-term projects.
 
