@@ -1,3 +1,4 @@
+
 ---
 title: "Positron Assistant"
 ---
@@ -47,27 +48,27 @@ If you have a Github account with Copilot enabled, you can authenticate to GitHu
 
 #### Adding language model providers
 
-1. Run the _Positron Assistant: Positron Assistant: Configure Language Model Providers_ command to open the language model provider dialog. You can also click the <kbd>Add Model Provider...</kbd> button in the Positron Assistant chat area.
+1. Run the _Positron Assistant: Positron Assistant: Configure Language Model Providers_ command to open the language model provider dialog. You can also click the **Add Model Provider...** button in the Positron Assistant chat area.
 
 1. Select the model provider you want to add.
 
 1. Authenticate with the model provider.
-    - For Anthropic, paste your API key into the input field and click <kbd>Sign in</kbd>.
-    - For GitHub Copilot, click the <kbd>Sign in</kbd> button. This will open a browser window where you can authenticate with your GitHub account via OAuth.
+    - For Anthropic, paste your API key into the input field and click **Sign in**.
+    - For GitHub Copilot, click the **Sign in** button. This will open a browser window where you can authenticate with your GitHub account via OAuth.
 
-1. Once authenticated successfully, the <kbd>Sign in</kbd> button will change to <kbd>Sign out</kbd>, and available models from the provider will be registered.
+1. Once authenticated successfully, the **Sign in** button will change to **Sign out**, and available models from the provider will be registered.
 
-1. Click the <kbd>Done</kbd> button once you have added all the desired model providers. You can always come back to this dialog later to add or remove providers.
+1. Click the **Done** button once you have added all the desired model providers. You can always come back to this dialog later to add or remove providers.
 
 #### Removing language model providers
 
-1. Run the _Positron Assistant: Positron Assistant: Configure Language Model Providers_ command to open the language model provider dialog. You can also click the <kbd>Add Model Provider...</kbd> button in the Positron Assistant chat area to open this dialog.
+1. Run the _Positron Assistant: Positron Assistant: Configure Language Model Providers_ command to open the language model provider dialog. You can also click the **Add Model Provider...** button in the Positron Assistant chat area to open this dialog.
 
 1. Select the model provider you want to remove.
 
-1. Click the <kbd>Sign out</kbd> button to remove the provider from Positron Assistant.
+1. Click the **Sign out** button to remove the provider from Positron Assistant.
 
-1. Click the <kbd>Done</kbd> button to close the dialog.
+1. Click the **Done** button to close the dialog.
 
 ### Step 3: Use Positron Assistant!
 
@@ -95,7 +96,7 @@ Positron Assistant supports the following chat modes:
 
 Providing context to the model is crucial for getting accurate and relevant responses. To attach specific files or directories as context for your prompts, you can either:
 
-- Click the <kbd>Add Context...</kbd> button in the Chat pane and choose "Files & Folders..." in the quickpick to select relevant items; or
+- Click the **Add Context...** button in the Chat pane and choose "Files & Folders..." in the quickpick to select relevant items; or
 - Drag files to the Chat pane as attachments
 
 #### Code generation and execution
@@ -108,11 +109,11 @@ Slash commands provide quick access to common tasks without writing long prompts
 
 #### Chat participants
 
-Chat participants provide specialized knowledge to Positron Assistant. You can add a chat participant by clicking the <kbd>@</kbd> button or typing `@` in the Chat pane plus the chat participant name. Please reference the [Shiny Assistant](#shiny-assistant) section for more information on the use of a Shiny chat participant.
+Chat participants provide specialized knowledge to Positron Assistant. You can add a chat participant by clicking the **\@** button or typing `@` in the Chat pane plus the chat participant name. Please reference the [Shiny Assistant](#shiny-assistant) section for more information on the use of a Shiny chat participant.
 
 #### Chat conversation history
 
-It's important to start a new chat conversation for each new task, so the model has the most relevant context. To create a new chat conversation, click the plus <kbd>+</kbd> button in the top right of the Chat pane or run the _Chat: New Chat_ command in the Command Palette.
+It's important to start a new chat conversation for each new task, so the model has the most relevant context. To create a new chat conversation, click the plus **+** button in the top right of the Chat pane or run the _Chat: New Chat_ command in the Command Palette.
 
 To view your chat conversations, click the clock icon in the top right of the Chat pane or run the _Chat: Show Chats..._ command in the Command Palette. You can then select a previous conversation to switch back to it.
 
