@@ -53,4 +53,6 @@ To learn more about `renv`, see the [Introduction to renv guide](https://rstudio
 
 ### Finish
 
-Once you are satisfied with your configuration options, select **Create** to create your new folder with the applied settings. Positron creates the folder and applies your selected template and settings. Once setup is complete, you will be prompted open the folder in the current window or a new window to begin working.
+After you review your configuration options, select **Create** to set up your new folder with the selected template and settings. When setup is complete, choose whether to open the folder in the current window or a new window.
+
+By default, Positron starts a session for the interpreter you selected in the template. You can customize this behavior in the settings. For more details, see the [interpreter startup guide](interpreter-startup.qmd#configuring-interpreter-startup).
