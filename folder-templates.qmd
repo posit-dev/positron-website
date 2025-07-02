@@ -2,9 +2,9 @@
 title: "Folder Templates"
 ---
 
-The "New Folder from Template" feature helps you quickly setup a a folder with an environment using a predefined template for a language or framework. 
+The New Folder from Template feature helps you quickly setup a a folder with an environment using a predefined template for a language or framework. 
 
-You can bring up the **New Folder from Template** dialog by selecting the "New" dropdown menu in the top-left or selecting the workspace switcher in the top-right. Select the "New Folder from Template" option from the menu to bring up the dialog.
+To bring up the **New Folder from Template** dialog, select the "New" dropdown menu in the top-left or select the workspace switcher in the top-right. Select the "New Folder from Template" option from the menu to bring up the dialog.
 
 You can also bring up the dialog by running the _Workspaces: New Folder from Template..._ command in the Command Palette.
 
@@ -14,45 +14,44 @@ When you open the **New Folder from Template** dialog, you will see a list of av
 
 Choose a template that best matches the language or framework for the work you are doing. The "Empty Project" option allows you to create a blank folder with no additional files or configuration.
 
-After you select a template, enter a name for your new folder and choose a location on your system. You can check the **Initialize Git repository** box if you want to create a Git repository in the new folder. Select **Next** to continue to template-specific configuration options.
+### Folder name and location
+
+After you select a template, enter a name for your new folder and choose a location on your system. Check the **Initialize Git repository** box if you want to create a Git repository in the new folder. Select **Next** to continue to template-specific configuration options.
+
 
 ### Python templates
 
-When you select a Python template, the dialog guides you through setting up your Python environment. This ensures your project starts with the right tools and interpreter for your work.
+When you select a Python-based template, the dialog guides you through setting up your Python environment. This ensures your project starts with the right tools and interpreter for your work.
 
-**How would you like to set up your Python environment?:**
+A virtual environment keeps your project’s Python packages separate from other projects. This helps prevent conflicts between package versions and makes your work more reproducible. 
 
-- **Create a new virtual environment:** Recommended for most users. This option creates an isolated environment for your project, which helps avoid conflicts with other Python projects on your system.
-- **Use an existing environment:** Choose this if you already have a Python environment you want to use.
+Select **Create a new virtual environment** if you want a clean, isolated setup for your project. This is the best choice for most users and new projects. Select **Use an existing environment** if you already have a Python environment with the packages you need, or if you require a shared environment. This option is helpful when you want to use specific tools or settings that are already configured.
 
-**Environment Creation:**
+**Environment Creation**
 
-Select a tool such as `venv`, `conda`, or `uv` to create your new environment. See the [Supported environment managers guide](python-installations.qmd#supported-environment-managers) to learn about which managers are supported.
+If you chose to create a new environment, you will need to select an environment manager tool such as `venv`, `conda`, or `uv` to create your new environment. For details about supported managers, see the [supported environment managers guide](python-installations.qmd#supported-environment-managers).
 
-**Python Interpreter:**
+**Python Interpreter**
 
-- Choose the version of Python you want to use. If you do not see the version you need, see the [Discovering Python Installations guide](python-installations.qmd) for help adding new interpreters and details about how Positron discovers and manages Python environments.
+Select the version of Python you want to use. If you do not see the version you need, see the [Discovering Python Installations guide](python-installations.qmd) for help adding new interpreters and for details about how Positron discovers and manages Python environments.
 
 
 ### R templates
 
-When you select an R template, the dialog helps you configure your R environment for the new project.
+When you select an R-based template, the dialog guides you through setting up your R environment. This ensures your project starts with the right tools and interpreter for your work.
 
-**R Version:**
+**R version**
 
-- Select the version of R you want to use. If the version you need is not listed, see the [Discovering R Installations guide](r-installations.qmd) for help adding new R versions and details about how Positron discovers R versions.
+Select the version of R you want to use. If the version you need is not listed, see the [Discovering R Installations guide](r-installations.qmd) for help adding new R versions and for details about how Positron discovers R versions.
 
+**Advanced configuration**
 
-**Advanced configuration:**
+You can choose to use `renv` for reproducible environments. Select **Use `renv` to create a reproducible environment** if you want to manage your project dependencies and ensure consistent package versions.
 
-- You can check the **Use \`renv\` to create a reproducible environment** box to initialize your folder with `renv`.
-
-`renv` is an R package that helps you manage project dependencies. It creates a snapshot of the R packages in your project and saves them in a `renv.lock` file. This makes it easy to share your project with other people or computers. Using `renv` helps you avoid problems caused by package updates or differences between computers. It ensures your project always uses the correct package versions, making it reliable and reproducible. This is especially helpful when collaborating with others or working on long-term projects.
-
-To learn more about `renv`, see the [Introduction to renv guide](https://rstudio.github.io/renv/articles/renv.html).
+`renv` is an R package that manages project dependencies. It creates a snapshot of the R packages in your project and saves them in a `renv.lock` file. This makes it easy to share your project. Using `renv` helps you avoid problems caused by package updates or differences between computers. It ensures your project always uses the correct package versions, which makes your work more reliable and reproducible. This is especially helpful when you collaborate with others or work on long-term projects. To learn more about `renv`, see the [Introduction to renv guide](https://rstudio.github.io/renv/articles/renv.html).
 
 ### Finish
 
-After you review your configuration options, select **Create** to set up your new folder with the selected template and settings. When setup is complete, choose whether to open the folder in the current window or a new window.
+After you review your configuration options, select **Create** to set up your new folder with the selected template and settings. When setup is complete, select whether to open the folder in the current window or a new window.
 
-By default, Positron starts a session for the interpreter you selected in the template. You can customize this behavior in the settings. For more details, see the [interpreter startup guide](interpreter-startup.qmd#configuring-interpreter-startup).
+By default, Positron starts a session for the interpreter you selected in the template. For more details on how to customize this behavior, see the [interpreter startup guide](interpreter-startup.qmd#configuring-interpreter-startup).
