@@ -63,7 +63,7 @@
 
         // Get version from data attribute, fallback to hardcoded version
         const version = downloadBtn.dataset.version;
-        const cdnUrl = 'https://cdn.posit.co/positron/prereleases/';
+        const cdnUrl = 'https://cdn.posit.co/positron/releases/'; // Keep this in sync with cdn_url in download.qmd
 
         const userAgent = navigator.userAgent;
         const platform = navigator.platform;
@@ -98,13 +98,13 @@
         downloadBtn.dataset.originalHref = downloadUrl;
         downloadBtn.href = downloadUrl;
 
-        if(allDownloadsText) {
+        if (allDownloadsText) {
             allDownloads.textContent = allDownloadsText;
         } else {
             allDownloads.hidden = true;
         }
 
-        if(enableLinks) {
+        if (enableLinks) {
             privacyPolicy.hidden = true;
             setLinkEnablement(true);
         }
