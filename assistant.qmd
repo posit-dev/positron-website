@@ -2,7 +2,7 @@
 title: "Positron Assistant"
 ---
 
-::: {.callout-note}
+::: {.callout-important}
 
 Positron Assistant is a **preview** feature in Positron 2025.07.0-204 and beyond.
 
@@ -27,7 +27,11 @@ Positron Assistant is an AI client that provides LLM integration within Positron
 
 #### Chat
 
-Currently, only Anthropic Claude is available for sidebar chat and inline chat. Positron Assistant uses a bring-your-own API key model for Anthropic, so you'll need to get keys set up ahead of time and bring those into Positron.
+::: {.callout-important}
+Currently, only **Anthropic Claude** is available for sidebar chat and inline chat.
+:::
+
+Positron Assistant uses a bring-your-own API key model for Anthropic, so you'll need to get keys set up ahead of time and bring those into Positron.
 
 If you have an Anthropic account, you should be able to get an API key from the [Anthropic Console](https://console.anthropic.com/) on the [admin keys page](https://console.anthropic.com/settings/admin-keys).
 
@@ -35,7 +39,9 @@ Copy and save the API key to a password manager or another secure location. In o
 
 #### Code completions
 
-At this time, only GitHub Copilot is available for inline code completions.
+::: {.callout-important}
+At this time, only **GitHub Copilot** is available for inline code completions.
+:::
 
 If you have a Github account with Copilot enabled, you can authenticate to GitHub Copilot in Positron Assistant in the language model dialog. The authentication flow will open up a browser and direct you to sign into Github. Once authenticated, Copilot will be available for inline code completions.
 
