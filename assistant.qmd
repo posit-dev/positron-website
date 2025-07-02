@@ -18,7 +18,7 @@ Positron Assistant is an AI client that provides LLM integration within Positron
 ## Getting started
 
 ### Step 1: Enable Positron Assistant
-1. Opt in to the [`positron.assistant.enable` setting](positron://settings/positron.assistant.enable) to enable Positron Assistant. 
+1. Opt in to the [`positron.assistant.enable` setting](positron://settings/positron.assistant.enable) to enable Positron Assistant.
 
 1. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
 
@@ -96,7 +96,7 @@ Positron Assistant supports the following chat modes:
 
 Providing context to the model is crucial for getting accurate and relevant responses. To attach specific files or directories as context for your prompts, you can either:
 
-- Click the **Add Context...** button in the Chat pane and choose "Files & Folders..." in the quickpick to select relevant items; or
+- Click the **{{<fa paperclip>}} Add Context...** button in the Chat pane and choose "Files & Folders..." in the quickpick to select relevant items; or
 - Drag files to the Chat pane as attachments
 
 #### Code generation and execution
@@ -109,11 +109,11 @@ Slash commands provide quick access to common tasks without writing long prompts
 
 #### Chat participants
 
-Chat participants provide specialized knowledge to Positron Assistant. You can add a chat participant by clicking the **\@** button or typing `@` in the Chat pane plus the chat participant name. Please reference the [Shiny Assistant](#shiny-assistant) section for more information on the use of a Shiny chat participant.
+Chat participants provide specialized knowledge to Positron Assistant. You can add a chat participant by clicking the **{{<fa at>}}** button or typing `@` in the Chat pane plus the chat participant name. Please reference the [Shiny Assistant](#shiny-assistant) section for more information on the use of a Shiny chat participant.
 
 #### Chat conversation history
 
-It's important to start a new chat conversation for each new task, so the model has the most relevant context. To create a new chat conversation, click the plus **+** button in the top right of the Chat pane or run the _Chat: New Chat_ command in the Command Palette.
+It's important to start a new chat conversation for each new task, so the model has the most relevant context. To create a new chat conversation, click the **{{<fa plus>}}** button in the top right of the Chat pane or run the _Chat: New Chat_ command in the Command Palette.
 
 To view your chat conversations, click the clock icon in the top right of the Chat pane or run the _Chat: Show Chats..._ command in the Command Palette. You can then select a previous conversation to switch back to it.
 
