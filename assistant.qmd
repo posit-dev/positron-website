@@ -4,7 +4,7 @@ title: "Positron Assistant"
 
 ::: {.callout-note}
 
-Positron Assistant is a **preview** feature in Positron 2025.07.0-170 and beyond.
+Positron Assistant is a **preview** feature in Positron 2025.07.0-204 and beyond.
 
 At this time, we support **Anthropic for chat**, and **GitHub Copilot for inline code completions**. We will continue to add more language model providers in future releases.
 
