@@ -15,7 +15,7 @@ website:
   page-footer:
     left: |
       Copyright &copy; 2022-2025 Posit Software, PBC. All Rights Reserved.
-    center: "Positron Public Beta"
+    center: "Positron {{< env RELEASE_VERSION >}}"
     right:
       - text: "License"
         href: licensing.qmd
