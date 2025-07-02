@@ -87,7 +87,7 @@ Positron Assistant supports the following chat modes:
 
 #### Attaching context
 
-To attach specific files or directories as context for your prompts, you can either:
+Providing context to the model is crucial for getting accurate and relevant responses. To attach specific files or directories as context for your prompts, you can either:
 
 - Click the <kbd>Add Context...</kbd> button in the Chat pane and choose "Files & Folders..." in the quickpick to select relevant items; or
 - Drag files to the Chat pane as attachments
@@ -110,6 +110,10 @@ It's important to start a new chat conversation for each new task, so the model 
 
 To view your chat conversations, click the clock icon in the top right of the Chat pane or run the _Chat: Show Chats..._ command in the Command Palette. You can then select a previous conversation to switch back to it.
 
+#### Customizing the default prompt
+
+To add further instructions to the default prompt for Positron Assistant, create a file named `llms.txt` in your workspace directory. The contents of this file will be appended to the default prompt, which is used for all chat and inline chat interactions. This file does not affect code completions.
+
 ### Inline chat
 
 Inline chat is very useful for asking questions in the context of your code, and also includes an interface for integrating changes suggested by the model.
@@ -130,10 +134,6 @@ Shiny Assistant is a chat participant available within Positron Assistant that p
 Shiny Assistant enhances the default prompt with additional information about Shiny that we have found improves the quality of generated apps and Shiny components. It is also kept up to date with the latest Shiny features and best practices, in a way that is not practical with foundation models or fine-tuning.
 
 Shiny Assistant is available in the chat once you have installed the [Shiny extension](https://open-vsx.org/extension/posit/shiny). Like other chat participants, Shiny Assistant can be invoked by typing `@shiny` in the Chat pane or Inline Chat, followed by your question or request related to Shiny development.
-
-### Customizing the default prompt
-
-To add further instructions to the default prompt for Positron Assistant, create a file named `llms.txt` in your workspace directory. The contents of this file will be appended to the default prompt, which is used for all chat and inline chat interactions. This file does not affect code completions.
 
 ## Why use Positron Assistant over other AI clients?
 
