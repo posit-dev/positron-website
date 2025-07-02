@@ -60,6 +60,7 @@ website:
       style: "docked"
       contents:
         - add-to-path.qmd
+        - user-interface.qmd
         - section: "Interpreters"
           contents:
             - managing-interpreters.qmd
@@ -68,6 +69,7 @@ website:
             - r-installations.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
+        - assistant.qmd
         - connections-pane.qmd
         - help-pane.qmd
         - run-interactive-apps.qmd

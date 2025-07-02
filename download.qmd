@@ -37,10 +37,12 @@ library(jsonlite)
 release_version <- Sys.getenv("RELEASE_VERSION")
 
 # Create URLs
-cdn_url <- "https://cdn.posit.co/positron/prereleases/"
+cdn_url <- "https://cdn.posit.co/positron/releases/"
 windows_system <- glue("Positron-{release_version}-Setup.exe")
 windows_user <- glue("Positron-{release_version}-UserSetup.exe")
-macos_universal <- glue("Positron-{release_version}.dmg")
+macos_universal <- glue("Positron-{release_version}-universal.dmg")
+macos_arm64 <- glue("Positron-{release_version}-arm64.dmg")
+macos_x64 <- glue("Positron-{release_version}-x64.dmg")
 debian_x64 <- glue("Positron-{release_version}-x64.deb")
 debian_arm <- glue("Positron-{release_version}-arm64.deb")
 redhat_x64 <- glue("Positron-{release_version}-x64.rpm")
@@ -49,6 +51,8 @@ urls <- list(
   glue("{cdn_url}win/x86_64/{windows_system}"),
   glue("{cdn_url}win/x86_64/{windows_user}"),
   glue("{cdn_url}mac/universal/{macos_universal}"),
+  glue("{cdn_url}mac/arm64/{macos_arm64}"),
+  glue("{cdn_url}mac/x64/{macos_x64}"),
   glue("{cdn_url}deb/x86_64/{debian_x64}"),
   glue("{cdn_url}deb/arm64/{debian_arm}"),
   glue("{cdn_url}rpm/x86_64/{redhat_x64}"),
@@ -65,6 +69,8 @@ all_installers <- list(
   windows_system,
   windows_user,
   macos_universal,
+  macos_arm64,
+  macos_x64,
   debian_x64,
   debian_arm,
   redhat_x64,
@@ -88,6 +94,8 @@ download_table <- data.frame(
     "Windows 10, 11 x64 (system level install)",
     "Windows 10, 11 x64 (user level install)",
     "MacOS 10.15+ (universal)",
+    "MacOS 10.15+ (arm64/Apple Silicon)",
+    "MacOS 10.15+ (x64/Intel)",
     "Debian-based Linux x64 (Ubuntu 20+)",
     "Debian-based Linux arm64 (Ubuntu 20+)",
     "Red Hat-based Linux x64 (RHEL9)",
