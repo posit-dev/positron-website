@@ -37,7 +37,7 @@ Hovering over an Action Bar Element reveals its tooltip, helping you quickly und
 
 ## Top Action Bar
 
-The Top Action Bar helps you manage your work. On the left, you will find actions to create or open files and folders. In the center, you can navigate backward and forward through recent cursor positions and use the command center to quickly access Positron commands or locate files in your project. On the right, the interpreter selector lets you start new interpreters or switch between running ones, while the folder selector allows you to open recently used folders, either in the current window or a new one.
+The Top Action Bar helps you manage your work. On the left, you will find actions to create or open files and folders. In the center, you can navigate backward and forward through recent cursor positions and use the command center to quickly access Positron commands or locate files in your project. On the right, the [interpreter selector](managing-interpreters.qmd) lets you start new interpreters or switch between running ones, while the folder selector allows you to open recently used folders, either in the current window or a new one.
 
 ![Top Action Bar](images/top-action-bar.png)
 
