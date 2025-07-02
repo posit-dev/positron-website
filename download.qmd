@@ -7,7 +7,7 @@ format:
 
 ---
 
-### Positron on desktop
+## Positron on desktop
 
 Find out what you need to know to [get started](start.qmd) using Positron, then download the desktop installer for your platform.
 
@@ -118,6 +118,10 @@ knitr::kable(download_table, format = "html", escape = FALSE)
 
 Once you install Positron, it will [automatically check for updates moving forward](updating.qmd). Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases).
 
-### Positron Pro on Posit Workbench
+## Positron Pro on Posit Workbench
 
 [Posit Workbench](https://posit.co/products/enterprise/workbench/) 2024.12.1 and later includes preview support for Positron Pro. To configure and use Positron Pro on Posit Workbench, please see the [Posit Workbench Administration Guide](https://docs.posit.co/ide/server-pro/positron_sessions/) and the [Positron Pro user guide](https://docs.posit.co/ide/server-pro/user/positron/getting-started/).
+
+## Release notes
+
+{{< include release-notes/release.md >}}
