@@ -135,7 +135,7 @@ Shiny Assistant is available in the chat once you have installed the [Shiny exte
 
 ### Customizing the default prompt
 
-
+To add further instructions to the default prompt for Positron Assistant, create a file named `llms.txt` in your workspace directory. The contents of this file will be appended to the default prompt, which is used for all chat and inline chat interactions. This file does not affect code completions.
 
 ## Why use Positron Assistant over other AI clients?
 
