@@ -25,6 +25,12 @@ When you use the **New Folder from Template** feature, Positron creates a new fo
 
 After setup, your project is ready for development. You can start working right away, knowing your environment and files are organized for success.
 
+## Using a template
+
+To bring up the **New Folder from Template** dialog, select the "New" dropdown menu in the top-left or select the workspace switcher in the top-right. Select the "New Folder from Template" option from the menu to bring up the dialog.
+
+You can also bring up the dialog by running the _Workspaces: New Folder from Template..._ command in the Command Palette.
+
 ## About Python templates
 
 Python templates help you create projects in an isolated environment. This prevents conflicts between package versions and makes your work more reproducible. When you use a Python template, Positron can:
