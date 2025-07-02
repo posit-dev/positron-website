@@ -37,7 +37,13 @@ library(jsonlite)
 release_version <- Sys.getenv("RELEASE_VERSION")
 
 # Create URLs
-cdn_url <- "https://cdn.posit.co/positron/releases/"
+cdn_url <- "https://cdn.posit.co/positron/releases/" # Keep this in sync with cdnUrl in _download.html
+
+#######################################################################################
+# NOTE: please also check start.qmd and _download.html when updating the various URLs,
+# to ensure that we are constructing these URLs consistently in both places.
+#######################################################################################
+
 windows_system <- glue("Positron-{release_version}-Setup.exe")
 windows_user <- glue("Positron-{release_version}-UserSetup.exe")
 macos_universal <- glue("Positron-{release_version}-universal.dmg")
