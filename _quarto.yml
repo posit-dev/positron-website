@@ -54,6 +54,7 @@ website:
         - start.qmd
         - download.qmd
         - extensions.qmd
+        - about.qmd
 
     - title: "Guides"
       style: "docked"
@@ -64,9 +65,11 @@ website:
           contents:
             - managing-interpreters.qmd
             - interpreter-startup.qmd
+            - python-installations.qmd
             - r-installations.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
+        - assistant.qmd
         - connections-pane.qmd
         - help-pane.qmd
         - run-interactive-apps.qmd
@@ -85,7 +88,7 @@ website:
         - feedback.qmd
         - faqs.qmd
         - privacy.qmd
-        
+
 format:
   html:
     css: styles.css

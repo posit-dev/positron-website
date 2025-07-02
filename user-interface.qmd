@@ -8,70 +8,71 @@ Positron's interface is designed to provide a flexible and efficient environment
 
 ## Basic overview
 
-This section outlines the core layout elements of Positron’s interface. Each pane plays a distinct role in supporting exploratory data analysis, reproducible authoring, and publishing data artifacts, giving you full control over your data science environment.
 
-![Interface of the Positron development environment showing Title Bar, Top Bar, Primary Sidebar, central editor area, Secondary Sidebar, and Status Bar.](images/user-interface.png)  
-*Labeled interface diagram of the Positron development environment.*
+> This section outlines the core layout elements of Positron’s interface. Each pane plays a distinct role in supporting coding, data exploration, and model development, giving you full control over your data science environment.
++ ![Interface of the Positron development environment showing Title Bar, Top Bar, Activity Bar, Primary Sidebar, Workspace, Secondary Sidebar, and Status Bar.](images/user-interface.png)
 
 - **Title bar**: Located at the top, it shows the active file (_e.g.,_ `ui.rs`) and project (_e.g.,_ `ark`) along with window controls.
 - **Top bar**: Provides global project tools such as file search, and lets you change interpreter versions (e.g., `Python`, `R`).
-- **Primary sidebar**: Found on the left, this pane contains the File Explorer to navigate the project directory.
-- **Central editor area**: The main region for editing files. Supports syntax highlighting, inline diagnostics, code folding, and navigation tools.
-- **Secondary sidebar**: The right panel, which displays panes like Session, [Connections](connections-pane.qmd), [Help](help-pane.qmd), Viewer, Variables, and Plots.
+- **Activity bar**: Provides quick access to core views such as Explorer, Search, Source Control, and Extensions.
+- **Primary sidebar**: Found on the left by default, this pane contains the File Explorer to navigate the project directory.
+- **Workspace**: The main region for editing files. Supports syntax highlighting, inline diagnostics, code folding, and navigation tools.
+- **Secondary sidebar**: The right panel, useful for interacting with runtimes. Contains tabs like `SESSION`, `CONNECTIONS`, `HELP`, `VIEWER`, `VARIABLES`, and `PLOTS`.
 - **Status bar**: Displays project details like Git branch, language mode, and cursor position.
+
+Components mentioned above can be toggled in and out of view using commands such as **"View: Toggle Primary Side Bar Visibility"**, **"View: Toggle Status Bar Visibility"**, and others.
 
 ## Editor pane
 
 In the upper central area by default, the editor is where you write, debug, and refine your code. Whether in Python or R, the editor delivers a full-featured IDE experience tailored to data science workflows.
 
 - Write and edit scripts, notebooks, and apps with responsive syntax-aware features.
-- Built on VS Code foundations for a familiar and extensible experience.
+- Built on Code OSS, the same foundation as VS Code, for a familiar and extensible experience.
 - For layout controls, refer to [VS Code Editor Basics](https://code.visualstudio.com/docs/editing/codebasics).
 
 ### Key features
 - **Syntax Highlighting**  
-  Intelligent color schemes for quick visual parsing of R, Python, Rust, YAML, and more.
+  Intelligent color schemes for quick visual parsing of R, Python, SQL, YAML, and more.
 - **Auto completion & Intellisense**  
   Language server support for live suggestions, signature help, and hover tooltips.
 - **Inline Diagnostics**  
   Errors, warnings, and linter messages appear in context as you type.
-- **Multi-language Support**  
-  Work seamlessly across Python, R, Quarto, Shiny, and Markdown files. No additional configuration needed.
+
+- **Multi-language and Multi-format Support**  
+  Work seamlessly across Python or R in source files, Quarto documents or Jupyter notebooks, and markdown files. No additional configuration needed.
 - **Live Document Preview**  
-  Render R Markdown, Quarto documents, Shiny apps, and more next to your code for immediate feedback.
+  Render Jupyter notebooks, Quarto documents, Shiny apps, and more next to your code for immediate feedback.
 - **Tabs and Split View**  
   Organize workspaces with multiple tabs or horizontal/vertical splits to suit your workflow.
 - **Version Control Integration**  
   View diffs, stage changes, and commit directly within the editor.
 
 ## Panel pane
-
 The panel below the editor offers contextual tools essential for development and debugging.
 
 ### Terminal
-
 - Fully integrated shell for script execution, CLI tools, and environment management.
 - Multiple terminals supported and session-specific tabs available.
 
-### Other panel tabs
 
-- **Console**: Displays Python/R runtime output.
+### Console
+- Native console displays Python/R runtime input and output along with the current working directory.
+- Multiple Python or R console sessions are supported.
+- UI elements support starting a new console, renaming, restarting, or closing an existing console, and opening detailed console information.
+
+### Other panel tabs
 - **Output**: Logs from builds, publishing, or package management.
 - **Problems**: Lists code issues with quick navigation.
 - **Ports**: Manage forwarded ports for interactive apps like Shiny or Flask.
 - **Debug console**: Evaluate expressions and view debugging info in real time.
 
 ## Layout customization
+Positron offers flexible layout options to suit a variety of development workflows. Almost every component can be rearranged by simply dragging any pane (for example, move `Help` into the `Session` pane) to build your ideal workspace!
 
-Positron offers flexible layout options to suit a variety of development workflows.
-
-### Layout options
+### Layout presets
 
 - **Stacked** (default): Editor above, with Console, Terminal, Output, Problems, Ports, and Debug Console below. Designed for traditional script-based workflows.
 - **Side-by-side**: Useful for wide-screen users or those who prefer horizontal splitting.
-- **Notebook style**: Output appears below code blocks, like in Jupyter or R Notebooks.
+- **Notebook style**: Emphasizes the editor workspace for full focus on a Jupyter Notebook or source file, minimizing other panes.  
 
-### Reset options
-
-- Right-click a pane → _Reset location_
-- Use preset menu → _Reset to factory settings_
+To customize layout options, you may use the command **"Customize Layout..."**, which also enables you to reset back to default by clicking on the return button within the `Customize Layout...` command panel.
