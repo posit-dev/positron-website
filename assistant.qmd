@@ -25,15 +25,13 @@ Positron Assistant is an AI client that provides LLM integration within Positron
 
 ### Step 2: Configure language model providers
 
-If you don't already have API keys or an account for these providers, see the [Language Model Provider API Keys](#language-model-provider-api-keys-authentication) section below for instructions on how to get them, before continuing with the steps below.
-
 #### Chat
 
 Currently, only Anthropic Claude is available for sidebar chat and inline chat. Positron Assistant uses a bring-your-own API key model for Anthropic, so you'll need to get keys set up ahead of time and bring those into Positron.
 
 If you have an Anthropic account, you should be able to get an API key from the [Anthropic Console](https://console.anthropic.com/) on the [admin keys page](https://console.anthropic.com/settings/admin-keys).
 
-Copy and save the API key to a password manager or another secure location. To [add Anthropic as a language model provider](#adding-language-model-providers) in Positron, this key will be used to authenticate to Anthropic.
+Copy and save the API key to a password manager or another secure location. In order to [add Anthropic as a language model provider](#adding-language-model-providers) in Positron, this key will be used to authenticate to Anthropic.
 
 #### Code Completions
 
@@ -116,7 +114,7 @@ To view your chat conversations, click the clock icon in the top right of the Ch
 
 Inline chat is very useful for asking questions in the context of your code, and also includes an interface for integrating changes suggested by the model.
 
-To open this mini chat interface can in an editor or terminal, use the default keybinding <kbd>Cmd</kbd> + <kbd>I</kbd>, or run the command _Inline Chat: Editor Inline Chat_ in an editor or the command _Inline Chat: Terminal Inline Chat_ in a terminal.
+To open this mini chat interface can in an editor or terminal, use the default keybinding <kbd>Cmd</kbd> + <kbd>I</kbd>, or run the command _Inline Chat: Editor Inline Chat_ while your cursor in an editor or the command _Inline Chat: Terminal Inline Chat_ while your cursor is in a terminal.
 
 ### Completions
 
