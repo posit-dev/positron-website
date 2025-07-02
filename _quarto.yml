@@ -54,18 +54,22 @@ website:
         - start.qmd
         - download.qmd
         - extensions.qmd
+        - about.qmd
 
     - title: "Guides"
       style: "docked"
       contents:
         - add-to-path.qmd
+        - user-interface.qmd
         - section: "Interpreters"
           contents:
             - managing-interpreters.qmd
             - interpreter-startup.qmd
+            - python-installations.qmd
             - r-installations.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
+        - assistant.qmd
         - connections-pane.qmd
         - help-pane.qmd
         - run-interactive-apps.qmd
@@ -86,7 +90,7 @@ website:
         - feedback.qmd
         - faqs.qmd
         - privacy.qmd
-        
+
 format:
   html:
     css: styles.css

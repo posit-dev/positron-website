@@ -2,7 +2,7 @@
 title: "Discovering R Installations"
 ---
 
-This guide pertains to how R installations are discoverd and show up in the Interpreter picker.
+This guide pertains to how R installations are discovered and show up in the Interpreter picker.
 
 ## R installation discovery
 
