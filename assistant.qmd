@@ -33,7 +33,7 @@ If you have an Anthropic account, you should be able to get an API key from the 
 
 Copy and save the API key to a password manager or another secure location. In order to [add Anthropic as a language model provider](#adding-language-model-providers) in Positron, this key will be used to authenticate to Anthropic.
 
-#### Code Completions
+#### Code completions
 
 At this time, only GitHub Copilot is available for inline code completions.
 
