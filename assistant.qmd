@@ -67,7 +67,7 @@ If you have a Github account with Copilot enabled, you can authenticate to GitHu
 
 ### Step 3: Use Positron Assistant!
 
-Use the [chat pane](#chat-pane), [inline chat](#inline-chat), or [completions](#completions) in the editor to interact with the language models.
+Use the [Chat pane](#chat-pane), [inline chat](#inline-chat), or [code completions in an editor](#completions) to interact with the language models.
 
 ## Using Positron Assistant
 
@@ -75,11 +75,11 @@ Use the [chat pane](#chat-pane), [inline chat](#inline-chat), or [completions](#
 
 Click on the chat robot icon in the sidebar, or run the _Chat: Open Chat in Sidebar_ command in the Command Palette to open the chat.
 
-Positron Assistant's Chat pane (in the Activity Panel by default) has access to your R and Python console session inputs/outputs, as well as in-memory objects and dataframes as available in the variables pane. Assistant can look at the Plots pane too, if instructed.
+Positron Assistant's Chat pane (in the Activity Panel by default) has access to your R and Python console session inputs/outputs, as well as in-memory objects and dataframes as available in the Variables pane. Assistant can look at the Plots pane too, if instructed.
 
 #### Chat modes
 
-To switch between modes, click the mode selector at the bottom of the chat pane.
+To switch between modes, click the mode selector at the bottom of the Chat pane.
 
 Positron Assistant supports the following chat modes:
 
@@ -131,7 +131,7 @@ Shiny Assistant is a chat participant available within Positron Assistant that p
 
 Shiny Assistant enhances the default prompt with additional information about Shiny that we have found improves the quality of generated apps and Shiny components. It is also kept up to date with the latest Shiny features and best practices, in a way that is not practical with foundation models or fine-tuning.
 
-Shiny Assistant is available in the chat once you have installed the [Shiny extension](https://open-vsx.org/extension/posit/shiny). Like other chat participants, Shiny Assistant can be invoked by typing `@shiny` in the chat pane or inline chat, followed by your question or request related to Shiny development.
+Shiny Assistant is available in the chat once you have installed the [Shiny extension](https://open-vsx.org/extension/posit/shiny). Like other chat participants, Shiny Assistant can be invoked by typing `@shiny` in the Chat pane or Inline Chat, followed by your question or request related to Shiny development.
 
 ### Customizing the default prompt
 
