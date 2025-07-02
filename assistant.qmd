@@ -77,9 +77,19 @@ Click on the chat robot icon in the sidebar, or run the _Chat: Open Chat in Side
 
 Positron Assistant's Chat pane (in the Activity Panel by default) has access to your R and Python console session inputs/outputs, as well as in-memory objects and dataframes as available in the variables pane. Assistant can look at the Plots pane too, if instructed.
 
+#### Chat modes
+
+To switch between modes, click the mode selector at the bottom of the chat pane.
+
+Positron Assistant supports the following chat modes:
+
+- **Ask**: Use this mode to ask questions, get help with debugging, or request code generation. This is the default mode when you open the chat.
+- **Edit**: Use this mode to make code changes with the model's help. The model will suggest code changes based on your prompts, and you can apply those changes to your code.
+- **Agent**: Use this mode if you'd like Positron Assistant to determine the steps needed for your request and autonomously carry out the work. On your behalf, Positron Assistant can execute code in the Console, create and modify files, and identify the next steps based on the results of the previous steps.
+
 #### Attaching context
 
-To attach specific files or directories as context for your questions, you can either:
+To attach specific files or directories as context for your prompts, you can either:
 
 - Click the <kbd>Add Context...</kbd> button in the Chat pane and choose "Files & Folders..." in the quickpick to select relevant items; or
 - Drag files to the Chat pane as attachments
