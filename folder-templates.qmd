@@ -4,7 +4,9 @@ title: "Folder Templates"
 
 The "New Folder from Template" feature helps you quickly setup a a folder with an environment using a predefined template for a language or framework. 
 
-To create a new folder from one of the available templates in Positron, select the "New" dropdown menu in the top-left or the workspace switcher in the top-right. Select the "New Folder from Template" option to bring up the dialog.
+You can bring up the **New Folder from Template** dialog by selecting the "New" dropdown menu in the top-left or selecting the workspace switcher in the top-right. Select the "New Folder from Template" option from the menu to bring up the dialog.
+
+You can also bring up the dialog by running the _Workspaces: New Folder from Template..._ command in the Command Palette.
 
 ### Select a template
 
