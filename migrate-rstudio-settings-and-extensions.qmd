@@ -1,6 +1,5 @@
 ---
-title: "Untitled"
-format: html
+title: "Settings and Extensions"
 ---
 
 Recommended settings

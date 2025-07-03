@@ -1,6 +1,5 @@
 ---
-title: "Untitled"
-format: html
+title: "Code"
 ---
 
 TO WRITE re: Code writing and formatting

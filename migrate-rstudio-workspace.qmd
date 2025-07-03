@@ -1,6 +1,5 @@
 ---
-title: "Untitled"
-format: html
+title: "Workspace"
 ---
 
 TO WRITE re: Workspace management
