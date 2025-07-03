@@ -39,4 +39,4 @@ R templates help you create projects with the right R version.
 
 You can choose to use `renv` for reproducibility, but this is an advanced option. Most users should leave this box unchecked unless you are familiar with `renv` and need strict dependency management for your project.
 
-`renv` is an R package that manages project dependencies. It creates a snapshot of the R packages in your project and saves them in a `renv.lock` file. This is helpful for power users who need to share projects or ensure exact package versions. You can learn more about renv [here](https://rstudio.github.io/renv/articles/renv.html).
+`renv` is an R package that manages project dependencies. It creates a snapshot of the R packages in your project and saves them in a `renv.lock` file. This is helpful for power users who need to share projects or ensure exact package versions. [Learn more about renv.](https://rstudio.github.io/renv/articles/renv.html)
