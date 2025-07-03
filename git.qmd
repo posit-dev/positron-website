@@ -73,7 +73,7 @@ When working with a remote repository like GitHub, you can sync changes between 
 
 ## Working with branches
 
-Branches allow you to work on different features or experiments without affecting your main codebase:
+Branches allow you to work on different features or experiments without affecting your main line of development:
 
 - **Create branches** for new features or bug fixes
 - **Switch between branches** to focus on different development efforts within your project
