@@ -36,3 +36,6 @@ Anthropic Claude Sonnet
 Google Gemini
 AWS Bedrock
 Console
+Action Bar
+Action Bars
+Top Action Bar
