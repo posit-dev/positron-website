@@ -8,8 +8,8 @@ Positron's interface is designed to provide a flexible and efficient environment
 
 ## Basic overview
 
-> This section outlines the core layout elements of Positron’s interface. Each pane plays a distinct role in supporting coding, data exploration, and model development, giving you full control over your data science environment.
 
+> This section outlines the core layout elements of Positron’s interface. Each pane plays a distinct role in supporting coding, data exploration, and model development, giving you full control over your data science environment.
 + ![Interface of the Positron development environment showing Title Bar, Top Bar, Activity Bar, Primary Sidebar, Workspace, Secondary Sidebar, and Status Bar.](images/user-interface.png)
 
 - **Title bar**: Located at the top, it shows the active file (_e.g.,_ `ui.rs`) and project (_e.g.,_ `ark`) along with window controls.
@@ -37,6 +37,7 @@ In the upper central area by default, the editor is where you write, debug, and 
   Language server support for live suggestions, signature help, and hover tooltips.
 - **Inline Diagnostics**  
   Errors, warnings, and linter messages appear in context as you type.
+
 - **Multi-language and Multi-format Support**  
   Work seamlessly across Python or R in source files, Quarto documents or Jupyter notebooks, and markdown files. No additional configuration needed.
 - **Live Document Preview**  
@@ -47,13 +48,12 @@ In the upper central area by default, the editor is where you write, debug, and 
   View diffs, stage changes, and commit directly within the editor.
 
 ## Panel pane
-
 The panel below the editor offers contextual tools essential for development and debugging.
 
 ### Terminal
-
 - Fully integrated shell for script execution, CLI tools, and environment management.
 - Multiple terminals supported and session-specific tabs available.
+
 
 ### Console
 - Native console displays Python/R runtime input and output along with the current working directory.
@@ -61,14 +61,12 @@ The panel below the editor offers contextual tools essential for development and
 - UI elements support starting a new console, renaming, restarting, or closing an existing console, and opening detailed console information.
 
 ### Other panel tabs
-
 - **Output**: Logs from builds, publishing, or package management.
 - **Problems**: Lists code issues with quick navigation.
 - **Ports**: Manage forwarded ports for interactive apps like Shiny or Flask.
 - **Debug console**: Evaluate expressions and view debugging info in real time.
 
 ## Layout customization
-
 Positron offers flexible layout options to suit a variety of development workflows. Almost every component can be rearranged by simply dragging any pane (for example, move `Help` into the `Session` pane) to build your ideal workspace!
 
 ### Layout presets
