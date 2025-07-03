@@ -11,7 +11,7 @@ Positron enhances Jupyter Notebooks in several key ways:
 
 1. Notebooks work out of the box.
    You don't need to install any additional dependencies into your R or Python environments.
-1. The Variables Pane provides an expandable overview of the variables in your notebook, automatically updating as you work.
+- The Variables Pane provides an expandable overview of the variables in your notebook, automatically updating as you work.
 1. The [Data Explorer](data-explorer.qmd) helps you understand tabular data, supporting popular data science libraries such as `pandas`, `polars`, `data.table`, and more.
 1. The [Connections Pane](connections-pane.qmd) lets you manage connections from your notebook to databases and other data sources.
 1. Language features such as autocompletion and go-to-definition work seamlessly across notebooks and plaintext files.
