@@ -165,7 +165,7 @@ Posit does not provide support or assistance for any code written or generated i
 
 ### Anthropic
 
-Anthropic Claude is considered "Third Party Materials" as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and subject to the Anthropic [Terms of Service](https://www.anthropic.com/legal/consumer-terms) and [Privacy Policy](https://www.anthropic.com/legal/privacy). Anthropic Claude is considered “Third Party Materials” as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
+By using Anthropic Claude, you acknowledge that your use of Anthropic Claude is subject to the Anthropic [Terms of Service](https://www.anthropic.com/legal/consumer-terms) and [Privacy Policy](https://www.anthropic.com/legal/privacy). Anthropic Claude is considered "Third Party Materials" as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
 
 ### GitHub Copilot
 
