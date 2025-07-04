@@ -54,7 +54,7 @@ You can create new Python environments directly from Positron using the _Python:
 
 The environment will be created in your workspace and automatically discovered.
 
-You can also use the **New Folder From Template** feature to create a new Python project, and set up an environment as part of the project.
+You can also use the [New Folder From Template feature](folder-templates.qmd#new-folder-from-template) to create a new Python project, and set up an environment as part of the project.
 
 ### Discovering existing environments
 

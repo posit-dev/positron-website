@@ -22,13 +22,15 @@ Vale runs [via GH action on PRs](https://github.com/posit-dev/positron-website/a
 
 ## Local development
 
-If you have Quarto and Chrome or Edge installed locally, you can preview the site by running one of the Debug Configurations in VS Code or Positron.
+If you have [Quarto installed locally](https://quarto.org/docs/get-started/) and Chrome or Edge, you can preview the site by running one of the Debug Configurations in VS Code or Positron.
 
 The configurations run `quarto preview` and then open the site in a new browser window.
 - **Preview Docs (Chrome)**: Preview the site in Chrome
 - **Preview Docs (Edge)**: Preview the site in Edge
 
 The site will re-render as you make changes to the `.qmd` files.
+
+Alternatively, you can run the command `quarto preview` in the terminal.
 
 ## Managing execution and rendering
 
