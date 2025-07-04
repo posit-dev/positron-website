@@ -78,6 +78,8 @@ website:
         - updating.qmd
         - extension-development.qmd
         - folder-templates.qmd
+        - text: "Migrating from VS Code"
+          href: migrate-vscode.qmd
         - section: "Migrating from RStudio"
           contents:
           - rstudio-keybindings.qmd

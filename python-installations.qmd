@@ -13,10 +13,7 @@ The discovery process includes both global Python installations and various virt
 
 Positron supports the following Python environment managers:
 
-* **venv**: Standard library virtual environments created with `python -m venv`
-* **uv**: Virtual environments and Python installations managed by `uv`
-* **pyenv**: Python installations managed by `pyenv`, including virtual environments
-* **conda**: Conda environments created with `conda create` or `mamba create`
+{{< include "_python-managers.qmd" >}}
 
 Other tools may also be compatible, although they are not officially supported at this time.
 

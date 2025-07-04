@@ -1,0 +1,4 @@
+* **venv**: Standard library virtual environments created with `python -m venv`
+* **uv**: Virtual environments and Python installations managed by `uv`
+* **pyenv**: Python installations managed by `pyenv`, including virtual environments
+* **conda**: Conda environments created with `conda create` or `mamba create`
