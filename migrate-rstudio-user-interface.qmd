@@ -1,0 +1,49 @@
+---
+title: "User interface"
+---
+
+Positron's [user interface](user-interface.qmd) (UI) should feel somewhat familiar to RStudio users, but there are also many changes to get used to.
+First, let's take a high-level, side-by-side view of the two IDEs.
+This figure highlights the role each area plays in your workflow and draws similarities between Positron and RStudio.
+You write code in an editor, execute it in the R Console, and preview outputs like plots and reports.
+
+![Comparison of RStudio and Positron user interfaces](images/user-interface-rstudio-vs-positron.jpeg){width=700 fig-alt="A side-by-side comparison of RStudio and Positron showing equivalent areas labelled as 'Write' (for the editor), 'Run' (for the Console), and 'Understand' (for the Variables and Plots panes)."}
+
+*TO DISCUSS: this screenshot has collapsed Positron's primary sidebar, which would need to be addressed somehow (acknowledged? explained? new screenshot taken? something else?).*
+
+Next, let's get concrete by naming the major areas of Positron's surface.
+
+![Major areas of the Positron user interface](images/user-interface-for-rstudio-migration.jpeg){width=700 fig-alt="A screenshot with labelled boxes around the Activity bar, Primary side bar, Editor, Panel, and Secondary sidebar."}
+
+*TO DISCUSS: I feel like both of these ways of looking at the UI are valuable to an RStudio user, but I also know we're trying to minimize screenshots. What to do?*
+
+These UI elements are the most novel for RStudio users:
+
+* The **Activity bar** provides access to different functional capabilities of Positron. Clicking here changes what appears in the Primary side bar.
+* The **Primary side bar** displays context-specific content based on which icon is clicked in the Activity bar.
+
+The Activity and Primary side bar duo help with many tasks that you would approach with a button, menu item, or specialized pane in RStudio.
+Examples:
+
+* {{< fa copy >}} When the file Explorer is selected, the Primary side bar exposes file browsing functionality that RStudio provides via the Files pane and the document outline.
+* {{< fa magnifying-glass >}} Search is analogous to RStudio's *Edit > Find in files ...* menu item and has the usual keyboard shortcut, <kbd>Ctrl/Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>.
+* {{< fa code-branch >}} Source Control is like RStudio's Git pane (but is more powerful). *TODO: link to git.qmd once that PR is merged.*
+
+Some specialized panes from RStudio simply do not exist in Positron, such as, the **Build** pane for package development.
+However, do not fear!
+These actions are still available in Positron, just via different gestures.
+In Positron, package development moves like "Check", "Document", or "Load All" are exposed as commands in the Command Palette as well as through the usual keyboard shortcuts (assuming you've enabled [RStudio keybindings](migrate-rstudio-keybindings.qmd)).
+
+This brings up another icon from the Activity bar that exposes something completely new for RStudio users.
+The Test explorer {{< fa flask >}} provides a dedicated interface for running package tests and viewing the results.
+This tool can be invoked via the *R: Test R Package in Test Explorer* command, which is also wired up to the usual <kbd>Ctrl/Cmd</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> shortcut.
+
+Key takeaways for getting comfortable with Positron's UI:
+
+* For file browsing, Git, and Search, head to the the Activity bar.
+* If you're really missing a button, check if there's a related command in the command palette or just try [the usual keyboard shortcut](migrate-rstudio-keybindings.qmd) and see what happens.
+* If you want to hide or move some elements, it is possible to [customize many aspects of the user interface](user-interface.qmd).
+
+*TO DISCUSS: there's another, existing screenshot in the repo that is somewhat equivalent to the second one above. I'll include it here for comparison. We should probably settle on one such image and use it in both places.*
+
+![Existing `user-interface.png`](images/user-interface.png){width=700}
