@@ -8,9 +8,9 @@ Positron's keyboard shortcuts, with a few exceptions, are a superset of the keyb
 
 | Shortcut | Description |
 | -------- | ----------- |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Enter</kbd> | Run the selected code in the editor; if no code is selected, run the current statement | 
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>0</kbd> | Restart the interpreter currently open in the Console | 
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Run the file open in the editor (using e.g. `source()` or `%run`) | 
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Enter</kbd> | Run the selected code in the editor; if no code is selected, run the current statement |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>0</kbd> | Restart the interpreter currently open in the Console |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Run the file open in the editor (using e.g. `source()` or `%run`) |
 | <kbd>F1</kbd> | Show contextual help for the topic under the cursor |
 | <kbd>Cmd/Ctrl</kbd>+<kbd>K</kbd>, <kbd>Cmd/Ctrl</kbd>+<kbd>R</kbd> | Show contextual help for the topic under the cursor (alternate binding) |
 | <kbd>Cmd/Ctrl</kbd>+<kbd>K</kbd>, <kbd>F</kbd> | Focus the Console |
@@ -21,21 +21,23 @@ Positron's keyboard shortcuts, with a few exceptions, are a superset of the keyb
 
 | Shortcut | Description |
 | -------- | ----------- |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> | Insert the pipe operator (<code>&#124;></code> or `%>%`) | 
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> | Insert the pipe operator (<code>&#124;></code> or `%>%`, depending on [`positron.r.pipe`](positron://settings/positron.r.pipe) |
 | <kbd>Alt</kbd>+<kbd>-</kbd> | Insert the assignment operator (`<-`) |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> | Load the current R package, if any | 
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> | Build and install the current R package, if any | 
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | Test the current R package, if any | 
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> | Check the current R package, if any | 
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> | Document the current R package, if any | 
+| <kbd>Ctrl/Cmd</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | `source()` the current R script |
+| <kbd>Ctrl/Cmd</kbd>+<kbd>K</kbd> <kbd>H</kbd> | Insert section |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> | Load the current R package, if any, with `devtools::load_all()` |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> | Build and install the current R package, if any |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | Test the current R package, if any |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> | Check the current R package, if any |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> | Document the current R package, if any |
 
 ## RStudio keybindings
 
-If you'd prefer to use RStudio keybindings, see [our instructions](rstudio-keybindings.qmd) on how to enable them for Positron.
+If you'd prefer to use RStudio keybindings, see [our instructions](migrate-rstudio-keybindings.qmd) on how to enable them for Positron.
 
 ## Custom shortcuts
 
-Because Positron is built on top of VS Code, you can use [its infrastructure for defining custom keybindings](https://code.visualstudio.com/docs/getstarted/keybindings). You can use this infrastructure with any Positron-specific commands, such as `workbench.action.executeCode.console` or `workbench.action.executeCode.silently`. 
+Because Positron is built on top of VS Code, you can use [its infrastructure for defining custom keybindings](https://code.visualstudio.com/docs/getstarted/keybindings). You can use this infrastructure with any Positron-specific commands, such as `workbench.action.executeCode.console` or `workbench.action.executeCode.silently`.
 
 As a specific example, you could add the following to your user `keybindings.json` (access this file from the Command Palette with *Open Keyboard Shortcuts (JSON)*) to make a keyboard shortcut to create a reprex from your current selection:
 
@@ -51,6 +53,15 @@ As a specific example, you could add the following to your user `keybindings.jso
     }
 }
 ```
+
+## Troubleshooting and customization
+
+If you are puzzled by the behaviour of a keyboard shortcut, here are two issues to consider:
+
+* Context: many keyboard shortcuts, including those above, are only enabled in certain contexts, such as when editing code or when working in an R package. Consider if you might be invoking the shortcut in an unexpected and unsupported context.
+* Conflicts: a keyboard shortcut can have multiple associations across different situations or extensions. When a shortcut is associated with more than one command, a priority system determines which command wins and the result might not be what you expect.
+
+The command 'Preferences: Open Keyboard Shortcuts' opens an interface that is a great way to investigate keyboard shortcut mysteries.
 
 Be aware that Positron's integrated terminal can [intercept some keyboard shortcuts](https://code.visualstudio.com/docs/terminal/advanced#_keyboard-shortcuts-and-the-shell). You can set up a keybinding to skip the shell by specifying its command in the [`terminal.integrated.commandsToSkipShell` setting](positron://settings/terminal.integrated.commandsToSkipShell), either via the settings UI or by editing `settings.json`:
 

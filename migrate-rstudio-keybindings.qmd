@@ -1,20 +1,22 @@
 ---
 title: "RStudio Keybindings"
+aliases:
+  - rstudio-keybindings.html
 ---
 
 <!-- vale Posit.Contractions = NO -->
 
-TO ADD:
+Keyboard shortcuts are the most efficient way to accomplish tasks that come up frequently in your coding workflow.
+As you migrate from RStudio to Positron, maintaining your productivity means working with—not against—your muscle memory.
 
-* Mapping between shortcuts you’re used to in RStudio and equivalents in Positron
-* Enabling RStudio shortcuts; list of supported RStudio shortcuts
-* Creating your own shortcuts (does this belong in customization guide? is this really an RStudio migration topic or a more general documentation topic?)
+Many familiar shortcuts will work immediately, because they are built-in to Positron and its integrated R support.
+These are documented with [Positron's keyboard shortcuts](keyboard-shortcuts.qmd).
+That is also where you can learn how to customize shortcuts.
 
 ## RStudio keybindings in Positron
 
-If you'd prefer to use RStudio keybindings in Positron, enable the [`workbench.keybindings.rstudioKeybindings` setting](positron://settings/workbench.keybindings.rstudioKeybindings). Restart Positron after changing this setting.
-
-The following RStudio keybindings will then be enabled:
+A large set of RStudio keybindings can be enabled with the [`workbench.keybindings.rstudioKeybindings` setting](positron://settings/workbench.keybindings.rstudioKeybindings).
+Restart Positron after changing this setting.
 
 | Shortcut | Description |
 | -------- | ----------- |
@@ -26,14 +28,15 @@ The following RStudio keybindings will then be enabled:
 | <kbd>F2</kbd>  |  Go to definition |
 | <kbd>Cmd/Ctrl</kbd>+<kbd>I</kbd> |  Reindent selection |
 | <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> |  Reformat selection |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> |  Source the current R script |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> |  Rename |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> |  Insert a new Quarto/R Markdown cell |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Source current R script with echo |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> |  Rename symbol  |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> | Insert code cell (Quarto) |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Enter</kbd> | Run current line (Quarto) |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Run current cell (Quarto) |
 | <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd> |  Open version control pane |
 | <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Left</kbd> |  Go to previous tab |
 | <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Right</kbd> |  Go to next tab |
 | <kbd>Cmd/Ctrl</kbd>+<kbd>D</kbd> |  Delete the current line |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> |  Insert pipe operator |
+| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> | Set working directory |
 | <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> |  Insert section |
 | <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> | Open global keybindings list |
-| <kbd>Alt</kbd>+<kbd>-</kbd> | Insert left assignment operator `<-` |
