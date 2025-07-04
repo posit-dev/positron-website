@@ -24,6 +24,7 @@ Run the _Output: Show Output Channels_ command to show a list of output channels
 | Console/Notebook | Communication from the Console or Notebook running the Python or R kernel: messages the Console sends and receives, changes in the Console's state, etc. This channel will have a name like "Python X.Y.Z: Console." |
 | Language Server | Debug logs from the server side of the language server Positron uses for any given interpreter. This channel will have a name like "R X.Y.Z: Language Server (Console)." |
 | Language Pack | Debug logs from the extension that Positron uses to discover, start, and manage interpreters. This channel will have a name like "Python Language Pack." |
+| Assistant | Debug logs from Positron Assistant, which powers the AI chat and code completions interfaces in Positron. |
 
 ### Log level
 
