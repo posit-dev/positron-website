@@ -47,7 +47,7 @@ The language support includes intelligent code completion, syntax highlighting, 
 :::: panel-tabset
 ## Python
 
-Positron has first-class support for Python, including a built-in Python Console for interactive sessions, a Data Explorer to inspect data frames, a Plots pane to visualize plots and other generated graphics, and a fully interactive Viewer pane to see locally running content. Positron also supports Python packages and libraries, allowing you to work with popular data science tools like NumPy, Pandas, Matplotlib, and more.
+Positron has first-class support for Python, including a built-in Python Console for interactive sessions, a [Data Explorer](data-explorer.qmd) to inspect data frames, a Plots pane to visualize plots and other generated graphics, and a fully interactive Viewer pane to see locally running content. Positron also supports Python packages and libraries, allowing you to work with popular data science tools like NumPy, Pandas, Matplotlib, and more. The [Help pane](help-pane.qmd) provides quick access to Python and package documentation while you code.
 
 ### Prerequisites
 
@@ -73,7 +73,7 @@ VS Code users who rely on the `ms-python.python` extension will find that Positr
 
 The Positron Console pane provides an interactive IPython session. You can type Python code directly into the Console or run files open in the editor. You can also choose to run a portion of a file open in the editor, similar to a Jupyter Notebook but with any standard Python file.
 
-While you can launch IPython from the Terminal as you would in VS Code, the Console provides code completion, syntax highlighting, and integration with the Variables and Plots panes -- among other features that enhance the interactive experience.
+While you can launch IPython from the Terminal as you would in VS Code, the Console provides code completion, syntax highlighting, integration with the Variables and Plots panes, and other features that enhance the interactive experience.
 
 Positron bundles IPython, allowing you to use the console without installing it separately. If you wish to use an external version of IPython, you can toggle the use of the bundled one with the [`python.useBundledIpykernel` setting](positron://settings/python.useBundledIpykernel).
 
