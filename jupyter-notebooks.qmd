@@ -24,7 +24,7 @@ If an environment installed on your computer isn't available in Positron, you ma
 
 ### Selecting an interpreter
 
-When you first open a Jupyter Notebook, Positron automatically selects the most appropriate interpreter based on the notebook's language and the current workspace.
+When you first open a Jupyter Notebook, Positron automatically selects an interpreter based on the notebook's language, the current workspace, and your configuration.
 
 ::: callout-tip
 We recommend matching the selected interpreter for the workspace and the notebook, however, they can be controlled separately.
