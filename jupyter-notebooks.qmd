@@ -2,7 +2,7 @@
 title: "Jupyter Notebooks"
 ---
 
-[Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html) offer a flexible, interactivpe UI for combining code, prose, and visualizations.
+[Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html) offer a flexible, interactive UI for combining code, prose, and visualizations.
 
 Positron enhances Jupyter Notebooks in several key ways:
 
