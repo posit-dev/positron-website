@@ -10,7 +10,7 @@ Positron enhances Jupyter Notebooks in several key ways:
 -   Notebooks are automatically integrated into the Variables Pane, allowing you to view your data at a glance or in-depth with affordances such as the [Connections Pane](connections-pane.qmd) and [Data Explorer](data-explorer.qmd).
 -   Language features such as autocompletion and go-to-definition work seamlessly across notebooks and plaintext files.
 
-<!--# TODO: Add a screenshot showcasing a data science notebook with the variables pane populated -->
+![](images/jupyter-notebooks-astropy.png)
 
 ## Using Jupyter Notebooks
 
