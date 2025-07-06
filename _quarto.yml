@@ -87,7 +87,6 @@ website:
           - migrate-rstudio-workspace.qmd
           - rstudio-rproj-file.qmd
           - migrate-rstudio-code.qmd
-          - r-snippets.qmd
           - migrate-rstudio-navigation.qmd
           - migrate-rstudio-settings-and-extensions.qmd
     - title: "Help"
