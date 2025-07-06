@@ -26,7 +26,7 @@ When you launch Positron for the first time, you likely want to import your exis
 
 Positron supports importing settings from VS Code. It will prompt you to do so with a notification on the first launch, allowing you to import user settings from your existing VS Code installation. It will open a preview before saving these imported settings, so you can review and modify them as needed.
 
-If you skip this step, you can import settings at any time by opening the Command Palette (<kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and running the command *Preferences: Import Settings...*.
+If you skip this step, you can import settings at any time by opening the Command Palette ({{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}) and running the command *Preferences: Import Settings...*.
 
 ### Installing extensions
 

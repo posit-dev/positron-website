@@ -8,26 +8,26 @@ Positron's keyboard shortcuts, with a few exceptions, are a superset of the keyb
 
 | Shortcut | Description |
 | -------- | ----------- |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Enter</kbd> | Run the selected code in the editor; if no code is selected, run the current statement | 
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>0</kbd> | Restart the interpreter currently open in the Console | 
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Run the file open in the editor (using e.g. `source()` or `%run`) | 
-| <kbd>F1</kbd> | Show contextual help for the topic under the cursor |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>K</kbd>, <kbd>Cmd/Ctrl</kbd>+<kbd>R</kbd> | Show contextual help for the topic under the cursor (alternate binding) |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>K</kbd>, <kbd>F</kbd> | Focus the Console |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>K</kbd>, <kbd>V</kbd> | Focus the Variables pane |
-| <kbd>Ctrl</kbd>+<kbd>L</kbd> | Clear the Console |
+| {{< kbd mac=Command-Enter win=Ctrl-Enter linux=Ctrl-Enter >}}| Run the selected code in the editor; if no code is selected, run the current statement | 
+| {{< kbd mac=Command-Shift-0 win=Ctrl-Shift-0 linux=Ctrl-Shift-0 >}} | Restart the interpreter currently open in the Console | 
+| {{< kbd mac=Command-Shift-Enter win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} | Run the file open in the editor (using e.g. `source()` or `%run`) | 
+| {{< kbd F1 >}} | Show contextual help for the topic under the cursor |
+| {{< kbd mac=Command-K win=Ctrl-K linux=Ctrl-K >}}, {{< kbd mac=Command-R win=Ctrl-R linux=Ctrl-R >}} | Show contextual help for the topic under the cursor (alternate binding) |
+| {{< kbd mac=Command-K win=Ctrl-K linux=Ctrl-K >}}, {{< kbd F >}} | Focus the Console |
+| {{< kbd mac=Command-K win=Ctrl-K linux=Ctrl-K >}}, {{< kbd V >}} | Focus the Variables pane |
+| {{< kbd Ctrl-L >}} | Clear the Console |
 
 ## R shortcuts
 
 | Shortcut | Description |
 | -------- | ----------- |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> | Insert the pipe operator (<code>&#124;></code> or `%>%`) | 
-| <kbd>Alt</kbd>+<kbd>-</kbd> | Insert the assignment operator (`<-`) |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> | Load the current R package, if any | 
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> | Build and install the current R package, if any | 
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>T</kbd> | Test the current R package, if any | 
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> | Check the current R package, if any | 
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> | Document the current R package, if any | 
+| {{< kbd mac=Command-Shift-M win=Ctrl-Shift-M linux=Ctrl-Shift-M >}} | Insert the pipe operator (<code>&#124;></code> or `%>%`) | 
+| {{< kbd Alt-- >}} | Insert the assignment operator (`<-`) |
+| {{< kbd mac=Command-Shift-L win=Ctrl-Shift-L linux=Ctrl-Shift-L >}} | Load the current R package, if any | 
+| {{< kbd mac=Command-Shift-B win=Ctrl-Shift-B linux=Ctrl-Shift-B >}} | Build and install the current R package, if any | 
+| {{< kbd mac=Command-Shift-T win=Ctrl-Shift-T linux=Ctrl-Shift-T >}} | Test the current R package, if any | 
+| {{< kbd mac=Command-Shift-E win=Ctrl-Shift-E linux=Ctrl-Shift-E >}} | Check the current R package, if any | 
+| {{< kbd mac=Command-Shift-D win=Ctrl-Shift-D linux=Ctrl-Shift-D >}} | Document the current R package, if any | 
 
 ## RStudio keybindings
 

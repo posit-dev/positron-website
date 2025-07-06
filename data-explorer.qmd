@@ -144,7 +144,7 @@ You can change the default settings for either [`dataExplorer.summaryCollapsed`]
 The filter bar has controls to:
 
 1. Add, Show/Hide existing filters, or Clear Filters
-2. A <kbd>+</kbd> button to quickly add a new filter
+2. A {{<fa plus>}} button to quickly add a new filter
 3. The status bar at the bottom of the Data Explorer also displays the
    percentage and number of remaining rows relative to the original total after
    applying a filter
@@ -196,15 +196,14 @@ select:
 * One or more entire rows
 * One or more entire columns
 
-To copy a single value, click on the cell of interest and either press
-<kbd>Ctrl+C</kbd> (on Windows and Linux) or <kbd>Cmd+C</kbd> (on macOS). You can also copy
+To copy a single value, click on the cell of interest and press {{< kbd mac=Command-C win=Ctrl-C linux=Ctrl-C >}}. You can also copy
 using the right-click context menu:
 
 ![Data Grid Cell Context Menu](images/data-explorer-copy-cell-context-menu.png){width=300}
 
 To copy a rectangular range of cells, first click on a cell, then hold the
-<kbd>Shift</kbd> key and click on another cell to select the range of interest.
-Then either press <kbd>Ctrl+C</kbd>/<kbd>Cmd+C</kbd> or use the context menu to
+{{< kbd Shift >}} key and click on another cell to select the range of interest.
+Then either press {{< kbd mac=Command-C win=Ctrl-C linux=Ctrl-C >}} or use the context menu to
 copy:
 
 ![Copying a Rectangular Range of Cells](images/data-explorer-copy-rectangular-range.png){width=500}
@@ -214,8 +213,8 @@ column names in tab-separated format to ease pasting into Excel or Google
 Sheets. 
 
 To copy whole rows or columns, click on the first row label or column label then
-either hold <kbd>Shift</kbd> and click on another row or column label to select a
-range, or use <kbd>Ctrl+C</kbd>/<kbd>Cmd+C</kbd> to select individual rows or columns, but not
+either hold {{< kbd Shift >}} and click on another row or column label to select a
+range, or use {{< kbd mac=Command-C win=Ctrl-C linux=Ctrl-C >}} to select individual rows or columns, but not
 necessarily a range:
 
 ![Copying Multiple Data Rows](images/data-explorer-copy-whole-rows.png){width=500}
