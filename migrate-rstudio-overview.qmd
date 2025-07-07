@@ -39,4 +39,19 @@ It is entirely reasonable to use Positron in some projects and RStudio in others
 Likewise, within a specific project, some tasks might feel easier in Positron and others in RStudio.
 There is nothing irreversible or exclusive about interacting with the files that constitute a project from one IDE versus another.
 
+## Command Palette
+
+One overarching difference between RStudio and Positron (and VS Code) is the importance of the **command palette**.
+While RStudio offers a command palette, it was a relatively late addition to the interface and many users never got into the habit of using it.
+Instead RStudio users are accustomed to many specialized buttons, panes, and menus.
+
+Positron leans much more heavily on the command palette, which is inherited from VS Code.
+When you find yourself thinking "I want to do X in Positron" - whether that's running code, rendering a document, or configuring a setting - try making the command palette your first stop.
+
+### Using the Command Palette
+
+To open the Command Palette, press <kbd>Ctrl/Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
+Start typing a keyword or the name of a command and the fuzzy finder will start to display matches.
+Use the arrow keys to select a command, then press <kbd>Enter</kbd> to run it.
+
 *TODO: conclude the overview with a bullet list of the more specialized topics? Or is that just redundant to what's in the sidebar?*
