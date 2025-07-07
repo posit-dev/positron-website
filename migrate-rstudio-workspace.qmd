@@ -8,4 +8,6 @@ TO WRITE re: Workspace management
 * Package tools
 * Testing, building, etc.
 
-Figure out how this relates to existing content re: the `.Rproj` file.
+Figure out how this relates to existing content re: the `.Rproj` file: [The Rproj File](rstudio-rproj-file.qmd).
+
+Add new advice, somewhere, for opening and switching focus between workspaces with *Open Recent ...* and opening in tabs (as opposed to windows). See <https://github.com/posit-dev/positron/issues/8237>.
