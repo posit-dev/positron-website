@@ -21,13 +21,13 @@ The following RStudio keybindings will then be enabled:
 | {{< kbd mac=Command-I win=Ctrl-I linux=Ctrl-I >}} |  Reindent selection |
 | {{< kbd mac=Command-Shift-A win=Ctrl-Shift-A linux=Ctrl-Shift-A >}} |  Reformat selection |
 | {{< kbd mac=Command-Shift-S win=Ctrl-Shift-S linux=Ctrl-Shift-S >}} |  Source the current R script |
-| {{< kbd mac=Command-Alt-Shift-M win=Ctrl-Alt-Shift-M linux=Ctrl-Alt-Shift-M >}} |  Rename |
-| {{< kbd mac=Command-Alt-I win=Ctrl-Alt-I linux=Ctrl-Alt-I >}} |  Insert a new Quarto/R Markdown cell |
-| {{< kbd mac=Command-Alt-M win=Ctrl-Alt-M linux=Ctrl-Alt-M >}} |  Open version control pane |
-| {{< kbd mac=Command-Alt-Left win=Ctrl-Alt-Left linux=Ctrl-Alt-Left >}} |  Go to previous tab |
-| {{< kbd mac=Command-Alt-Right win=Ctrl-Alt-Right linux=Ctrl-Alt-Right >}} |  Go to next tab |
+| {{< kbd mac=Command-Option-Shift-M win=Ctrl-Alt-Shift-M linux=Ctrl-Alt-Shift-M >}} |  Rename |
+| {{< kbd mac=Command-Option-I win=Ctrl-Alt-I linux=Ctrl-Alt-I >}} |  Insert a new Quarto/R Markdown cell |
+| {{< kbd mac=Command-Option-M win=Ctrl-Alt-M linux=Ctrl-Alt-M >}} |  Open version control pane |
+| {{< kbd mac=Command-Option-Left win=Ctrl-Alt-Left linux=Ctrl-Alt-Left >}} |  Go to previous tab |
+| {{< kbd mac=Command-Option-Right win=Ctrl-Alt-Right linux=Ctrl-Alt-Right >}} |  Go to next tab |
 | {{< kbd mac=Command-D win=Ctrl-D linux=Ctrl-D >}} |  Delete the current line |
 | {{< kbd mac=Command-Shift-M win=Ctrl-Shift-M linux=Ctrl-Shift-M >}} |  Insert pipe operator |
 | {{< kbd mac=Command-Shift-R win=Ctrl-Shift-R linux=Ctrl-Shift-R >}} |  Insert section |
-| {{< kbd Alt-Shift-K >}} | Open global keybindings list |
-| {{< kbd Alt-- >}} | Insert left assignment operator `<-` |
+| {{< kbd mac=Option-Shift-K win=Alt-Shift-K linux=Alt-Shift-K >}} | Open global keybindings list |
+| {{< kbd mac=Option-- win=Alt-- linux=Alt-- >}} | Insert left assignment operator `<-` |

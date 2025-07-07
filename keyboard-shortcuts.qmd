@@ -22,7 +22,7 @@ Positron's keyboard shortcuts, with a few exceptions, are a superset of the keyb
 | Shortcut | Description |
 | -------- | ----------- |
 | {{< kbd mac=Command-Shift-M win=Ctrl-Shift-M linux=Ctrl-Shift-M >}} | Insert the pipe operator (<code>&#124;></code> or `%>%`) | 
-| {{< kbd Alt-- >}} | Insert the assignment operator (`<-`) |
+| {{< kbd mac=Option-- win=Alt-- linux=Alt-- >}} | Insert the assignment operator (`<-`) |
 | {{< kbd mac=Command-Shift-L win=Ctrl-Shift-L linux=Ctrl-Shift-L >}} | Load the current R package, if any | 
 | {{< kbd mac=Command-Shift-B win=Ctrl-Shift-B linux=Ctrl-Shift-B >}} | Build and install the current R package, if any | 
 | {{< kbd mac=Command-Shift-T win=Ctrl-Shift-T linux=Ctrl-Shift-T >}} | Test the current R package, if any | 
