@@ -12,8 +12,8 @@ Positron's interface is designed to provide a flexible and efficient environment
 
 + ![Interface of the Positron development environment showing Title Bar, Top Bar, Activity Bar, Primary Sidebar, Workspace, Secondary Sidebar, and Status Bar.](images/user-interface.png)
 
-- **Title bar**: Located at the top, it shows the active file (_e.g.,_ `ui.rs`) and project (_e.g.,_ `ark`) along with window controls.
-- **Top bar**: Provides global project tools such as file search, and lets you change interpreter versions (e.g., `Python`, `R`).
+- **Title bar**: Located at the top, it shows the active file (_e.g.,_ `ui.rs`) along with window controls.
+- **Top bar**: Provides global project tools such as file search, shows your active project (_e.g.,_ `ark`), and lets you change interpreter versions (e.g., `Python`, `R`).
 - **Activity bar**: Provides quick access to core views such as Explorer, Search, Source Control, and Extensions.
 - **Primary sidebar**: Found on the left by default, this pane contains the File Explorer to navigate the project directory.
 - **Workspace**: The main region for editing files. Supports syntax highlighting, inline diagnostics, code folding, and navigation tools.
