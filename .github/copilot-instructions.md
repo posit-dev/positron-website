@@ -69,8 +69,12 @@ Follow these exact rules, which are based on our style guide.
 
 - **Bold** UI elements (buttons, menu items):
   - Example: Click **Publish** from the **File** menu.
+- Use _italics_ for commands:
+  - Example: Run the _Extensions: Install from VSIX_ command via the Command Palette.
 - **Bold** terms in lists:
   - **Term:** Definition follows.
+- Use the Quarto `kbd` shortcode when specifying what users should type:
+  - Example: Open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}
 
 ## Accessibility and Inclusion
 
