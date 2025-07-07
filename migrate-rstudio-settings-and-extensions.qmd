@@ -2,12 +2,46 @@
 title: "Settings and Extensions"
 ---
 
-Recommended settings
+Your Positron experience can be customized through settings (at the user or workspace level) and by installing extensions.
+This is not a comprehensive guide to Positron settings, most of which are inherited from VS Code, but rather a targetted look at the settings we think are the most relevant for RStudio users.
+For comprehensive documentation on settings, visit the [VS Code settings documentation](https://code.visualstudio.com/docs/configure/settings).
+Likewise, there is [general guidance on installing extensions in Positron](extensions.qmd).
+So here we just focus on a few that have above-average interest for an RStudio user.
 
-* I.e. configuring Positron to act more like RStudio in various ways
+## Top 10 Settings for RStudio Users
 
-Add-ins and Extensions
+Positron includes hundreds of configurable settings, but these 10 are particularly helpful for RStudio users transitioning to Positron:
 
-* Recommended extensions
-* Creating Positron extensions
-* Using the RStudio API in Positron - supported/unsupported methods, etc.
+1. **RStudio Keybindings** *recommended at the user level*
+   ```json
+   "workbench.keybindings.rstudioKeybindings": true
+   ```
+1. **Format on Save with Air** *recommended at the workspace level*
+   ```json
+   "[r]": {
+       "editor.formatOnSave": true
+   }
+   ```
+1. **What else?**
+
+## Top 10 Extensions for RStudio Users
+
+1. **Shiny**
+1. **What else?**
+
+## Extending Positron yourself
+
+Here are two interesting ways to control or extend Positron itself:
+
+* Use the rstudioapi package
+* Create a Positron extension
+
+### Partial implementation of rstudioapi
+
+*Heads up on how to write defensively, i.e. check if the method is implemented.*
+
+### Write an extension
+
+*Send folks to [extension development docs](extension-development.qmd).*
+
+*TO DISCUSS: Somewhere, perhaps in this page?, I think we need to enumerate relevant env vars (or options?). As in, what's the recommended way to programmatically detect that your code is running inside of Positron and any other related nuggets of info.*
