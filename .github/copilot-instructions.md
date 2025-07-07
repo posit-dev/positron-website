@@ -75,6 +75,7 @@ Follow these exact rules, which are based on our style guide.
   - **Term:** Definition follows.
 - Use the Quarto `kbd` shortcode when specifying what users should type:
   - Example: Open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}
+  - Do **not** use syntax like <kbd>Cmd</kbd> + <kbd>C</kbd>
 
 ## Accessibility and Inclusion
 
