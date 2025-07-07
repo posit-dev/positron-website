@@ -45,7 +45,7 @@ For that reason, we recommend using virtual environments.
 
 You can create new Python environments directly from Positron using the _Python: Create Environment_ command:
 
-1. Open the Command Palette ({{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}})
+1. Open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}
 2. Select _Python: Create Environment_
 3. Choose from available environment providers:
    - **uv**: Creates a uv-managed virtual environment (if uv is available)

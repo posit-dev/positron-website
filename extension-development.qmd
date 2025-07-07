@@ -105,7 +105,7 @@ It's where you setup the code behind commands and other extension contributions.
 
 Your extension's `package.json` file uses custom extension fields to declare what your extension contributes. It's important to note that you need to add the contribution (in this case the command `myExtension.helloWorld`) to _both_ the Typescript/Javascript code and the `package.json`. 
 
-Now users can run your command from the Command Palette ({{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}).
+Now users can run your command from the Command Palette via {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}.
 
 
 ### Detecting Positron
