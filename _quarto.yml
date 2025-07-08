@@ -60,7 +60,6 @@ website:
       style: "docked"
       contents:
         - add-to-path.qmd
-        - user-interface.qmd
         - section: "Interpreters"
           contents:
             - managing-interpreters.qmd
