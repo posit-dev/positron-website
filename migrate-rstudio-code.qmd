@@ -16,7 +16,7 @@ Positron can format R code with [Air](https://posit-dev.github.io/air/), a new R
 
 A formatter takes charge of the layout of your R code, which refers to whitespace, newlines, indentation, and the like.
 The goal is to enforce a set of style conventions that enhance readability and robustness.
-Air shares properties with other modern formatters and linters, sush as Black and Ruff for Python:
+Air shares properties with other modern formatters and linters, such as Black and Ruff for Python:
 
 * It's highly opinionated and offers relatively few options for customization.
 * It's written in Rust, which makes it extremely fast.

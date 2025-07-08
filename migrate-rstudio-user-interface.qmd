@@ -40,7 +40,7 @@ This tool can be invoked via the *R: Test R Package in Test Explorer* command, w
 
 Key takeaways for getting comfortable with Positron's UI:
 
-* For file browsing, Git, and Search, head to the the Activity bar.
+* For file browsing, Git, and Search, head to the Activity bar.
 * If you're really missing a button, check if there's a related command in the command palette or just try [the usual keyboard shortcut](migrate-rstudio-keybindings.qmd) and see what happens.
 * If you want to hide or move some elements, it is possible to [customize many aspects of the user interface](user-interface.qmd).
 
