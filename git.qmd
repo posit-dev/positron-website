@@ -26,11 +26,11 @@ Before you can use Git in Positron, you need to have Git installed on your compu
 
 Positron provides a few ways to work with Git repositories:
 
-- **Open Folder** to use an existing Git repository
-- **New Folder** to create a new folder, with the option to initialize it as a Git repository
-- **New from Git** to clone an existing Git repository from a remote source like GitHub
+- **Open Folder** to open an existing Git repository that you already have locally
+- **New Folder from Template** to create a new folder locally, with the option to initialize it as a Git repository
+- **New Folder from Git** to clone an existing Git repository from a remote source like GitHub
 
-These options are available from the Welcome screen when you first open Positron, or you can access them later through the Command Palette (<kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) by searching for *Workspaces: New Folder from Git...* or *Workspaces: New Folder from Template...*.
+These options are available from the Welcome screen when you are not already in a folder/workspace, or you can access them later through the Command Palette (<kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) by searching for *Workspaces: New Folder from Git...* or *Workspaces: New Folder from Template...*.
 
 ### Initialize Git in an existing project
 
@@ -73,7 +73,7 @@ When working with a remote repository like GitHub, you can sync changes between 
 
 ## Working with branches
 
-Branches allow you to work on different features or experiments without affecting your main codebase:
+Branches allow you to work on different features or experiments without affecting your main line of development:
 
 - **Create branches** for new features or bug fixes
 - **Switch between branches** to focus on different development efforts within your project
@@ -92,8 +92,8 @@ Positron provides a 3-way merge editor to help you resolve conflicts by choosing
 
 ## Additional Resources
 
-- [Introduction to Git in VS Code ](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git) - Comprehensive guide with screenshots and examples
-- [Git Documentation](https://git-scm.com/doc) - Official Git documentation
-- [GitHub Docs](https://guides.github.com/) - Learn GitHub-specific features
-- [Learn Git Branching](https://learngitbranching.js.org/) - Visual and interactive way to learn Git
-- [Happy Git and GitHub for the useR](https://happygitwithr.com/) - A guide for R users to learn Git and GitHub
+- [Introduction to Git in VS Code ](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git): Comprehensive guide with screenshots and examples
+- [Git Documentation](https://git-scm.com/doc): Official Git documentation
+- [GitHub Docs](https://guides.github.com/): Learn GitHub-specific features
+- [Learn Git Branching](https://learngitbranching.js.org/): Visual and interactive way to learn Git
+- [Happy Git and GitHub for the useR](https://happygitwithr.com/): A guide for R users to learn Git and GitHub
