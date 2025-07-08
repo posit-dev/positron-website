@@ -1,0 +1,47 @@
+---
+title: "Settings and Extensions"
+---
+
+Your Positron experience can be customized through settings (at the user or workspace level) and by installing extensions.
+This is not a comprehensive guide to Positron settings, most of which are inherited from VS Code, but rather a targetted look at the settings we think are the most relevant for RStudio users.
+For comprehensive documentation on settings, visit the [VS Code settings documentation](https://code.visualstudio.com/docs/configure/settings).
+Likewise, there is [general guidance on installing extensions in Positron](extensions.qmd).
+So here we just focus on a few that have above-average interest for an RStudio user.
+
+## Top 10 settings for RStudio users
+
+Positron includes hundreds of configurable settings, but these 10 are particularly helpful for RStudio users transitioning to Positron:
+
+1. **RStudio Keybindings** *recommended at the user level; [read more](migrate-rstudio-keybindings.qmd)*
+   ```json
+   "workbench.keybindings.rstudioKeybindings": true
+   ```
+1. **Format on Save with Air** *recommended at the workspace level; [read more](migrate-rstudio-code.qmd)*
+   ```json
+   "[r]": {
+       "editor.formatOnSave": true
+   }
+   ```
+1. **What else?**
+
+## Top 10 extensions for RStudio users
+
+1. **Shiny**
+1. **What else?**
+
+## Extending Positron yourself
+
+Here are two interesting ways to control or extend Positron itself:
+
+* Use the rstudioapi package
+* Create a Positron extension
+
+### Partial implementation of rstudioapi
+
+*Give advice on how to write defensively, i.e. check if the method is implemented.*
+
+### Write an extension
+
+*Send folks to [extension development docs](extension-development.qmd).*
+
+*TO DISCUSS: Somewhere, perhaps in this page?, I think we need to enumerate relevant env vars (or options?). As in, what's the recommended way to programmatically detect that your code is running inside of Positron and any other related nuggets of info.*
