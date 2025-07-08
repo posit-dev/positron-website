@@ -12,11 +12,11 @@ So here we just focus on a few that have above-average interest for an RStudio u
 
 Positron includes hundreds of configurable settings, but these 10 are particularly helpful for RStudio users transitioning to Positron:
 
-1. **RStudio Keybindings** *recommended at the user level*
+1. **RStudio Keybindings** *recommended at the user level; [read more](migrate-rstudio-keybindings.qmd)*
    ```json
    "workbench.keybindings.rstudioKeybindings": true
    ```
-1. **Format on Save with Air** *recommended at the workspace level*
+1. **Format on Save with Air** *recommended at the workspace level; [read more](migrate-rstudio-code.qmd)*
    ```json
    "[r]": {
        "editor.formatOnSave": true
@@ -38,7 +38,7 @@ Here are two interesting ways to control or extend Positron itself:
 
 ### Partial implementation of rstudioapi
 
-*Heads up on how to write defensively, i.e. check if the method is implemented.*
+*Give advice on how to write defensively, i.e. check if the method is implemented.*
 
 ### Write an extension
 

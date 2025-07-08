@@ -39,6 +39,7 @@ There are various explicit and implicit gestures to run Air over your code:
   - *Format Document*
   - *Format Cell*
   - *Air: Format Workspace Folder*
+
   These are all available in the command palette.
 
 R code receives some formatting as you type, but these rules are based on regular expressions, which fundamentally limits their capability.
