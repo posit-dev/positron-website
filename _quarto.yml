@@ -15,7 +15,7 @@ website:
   page-footer:
     left: |
       Copyright &copy; 2022-2025 Posit Software, PBC. All Rights Reserved.
-    center: "Positron Public Beta"
+    center: "Positron {{< env RELEASE_VERSION >}}"
     right:
       - text: "License"
         href: licensing.qmd
@@ -54,6 +54,7 @@ website:
         - start.qmd
         - download.qmd
         - extensions.qmd
+        - about.qmd
 
     - title: "Guides"
       style: "docked"
@@ -63,15 +64,22 @@ website:
           contents:
             - managing-interpreters.qmd
             - interpreter-startup.qmd
+            - python-installations.qmd
             - r-installations.qmd
+        - action-bars.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
+        - assistant.qmd
         - connections-pane.qmd
         - help-pane.qmd
         - run-interactive-apps.qmd
+        - jupyter-notebooks.qmd
         - remote-ssh.qmd
         - updating.qmd
         - extension-development.qmd
+        - folder-templates.qmd
+        - text: "Migrating from VS Code"
+          href: migrate-vscode.qmd
         - section: "Migrating from RStudio"
           contents:
           - rstudio-keybindings.qmd
@@ -85,7 +93,7 @@ website:
         - feedback.qmd
         - faqs.qmd
         - privacy.qmd
-        
+
 format:
   html:
     css: styles.css

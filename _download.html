@@ -14,6 +14,7 @@
     .visible {
         transition-duration: 1s;
     }
+
     .checksum {
         cursor: pointer;
         color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
@@ -22,6 +23,7 @@
         display: inline-block;
         /* Added to ensure proper tooltip positioning */
     }
+
     .copy-feedback {
         position: absolute;
         background: rgba(0, 0, 0, 0.8);
@@ -37,6 +39,7 @@
         opacity: 0;
         transition: opacity 0.2s ease-in-out;
     }
+
     .copy-feedback.visible {
         opacity: 1;
     }
@@ -45,19 +48,97 @@
 <script type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", () => {
         setLinkEnablement(false);
+        setupOSDetection();
     });
+
+    function setupOSDetection() {
+        const downloadBtn = document.getElementById('download-btn');
+        const osName = document.getElementById('os-name');
+        const privacyPolicy = document.getElementById('privacy-policy');
+        const allDownloads = document.getElementById('all-downloads');
+
+        if (!downloadBtn || !osName) {
+            return; // Elements not found, likely not on start page
+        }
+
+        // Get version from data attribute, fallback to hardcoded version
+        const version = downloadBtn.dataset.version;
+        const cdnUrl = 'https://cdn.posit.co/positron/releases/'; // Keep this in sync with cdn_url in download.qmd
+
+        const userAgent = navigator.userAgent;
+        const platform = navigator.platform;
+
+        let detectedOS = '';
+        let downloadUrl = '';
+        let allDownloadsText = null;
+        let enableLinks = false;
+
+        ///////////////////////////////////////////////////////////////////////////
+        // NOTE: please check download.qmd to ensure the URLs here are constructed
+        // similarly to the ones there.
+        ///////////////////////////////////////////////////////////////////////////
+
+        // Detect operating system
+        if (userAgent.indexOf('Win') !== -1) {
+            detectedOS = 'for Windows';
+            downloadUrl = `${cdnUrl}win/x86_64/Positron-${version}-UserSetup.exe`;
+            allDownloadsText = 'System Installer & Other Platforms';
+        } else if (userAgent.indexOf('Mac') !== -1) {
+            detectedOS = 'for macOS';
+            downloadUrl = `${cdnUrl}mac/universal/Positron-${version}-universal.dmg`;
+            allDownloadsText = 'Other Platforms';
+        } else if (userAgent.indexOf('Linux') !== -1) {
+            detectedOS = 'for Linux';
+            downloadUrl = `download.html`;
+            enableLinks = true;
+        } else {
+            // Unsupported OS or Linux with no specific download
+            detectedOS = '';
+            downloadUrl = `download.html`;
+            enableLinks = true;
+        }
+
+        // Update UI
+        osName.textContent = detectedOS;
+        downloadBtn.dataset.originalHref = downloadUrl;
+        downloadBtn.href = downloadUrl;
+
+        if (allDownloadsText) {
+            allDownloads.textContent = allDownloadsText;
+        } else {
+            allDownloads.hidden = true;
+        }
+
+        if (enableLinks) {
+            privacyPolicy.hidden = true;
+            setLinkEnablement(true);
+        }
+    }
 
     function setLinkEnablement(enable) {
         const downloadTable = window.document.querySelector("#download-table");
         const downloadLinks = window.document.querySelectorAll("#download-table a");
+        const downloadBtn = window.document.getElementById("download-btn");
 
         if (enable) {
-            downloadTable.classList.remove("disabled-overlay");
-            downloadTable.classList.add("visible");
+            if (downloadTable) {
+                downloadTable.classList.remove("disabled-overlay");
+                downloadTable.classList.add("visible");
+            }
+            if (downloadBtn) {
+                downloadBtn.disabled = false;
+                downloadBtn.classList.remove("disabled");
+            }
         }
         else {
-            downloadTable.classList.add("disabled-overlay");
-            downloadTable.classList.remove("visible");
+            if (downloadTable) {
+                downloadTable.classList.add("disabled-overlay");
+                downloadTable.classList.remove("visible");
+            }
+            if (downloadBtn) {
+                downloadBtn.disabled = true;
+                downloadBtn.classList.add("disabled");
+            }
         }
 
         downloadLinks.forEach((link) => {
@@ -96,7 +177,7 @@
             // Show feedback
             requestAnimationFrame(() => {
                 feedback.classList.add('visible');
-                
+
                 // Hide and remove feedback after delay
                 setTimeout(() => {
                     feedback.classList.remove('visible');
