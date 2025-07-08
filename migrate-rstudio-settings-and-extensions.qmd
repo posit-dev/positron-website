@@ -8,7 +8,7 @@ For comprehensive documentation on settings, visit the [VS Code settings documen
 Likewise, there is [general guidance on installing extensions in Positron](extensions.qmd).
 So here we just focus on a few that have above-average interest for an RStudio user.
 
-## Top 10 Settings for RStudio Users
+## Top 10 settings for RStudio users
 
 Positron includes hundreds of configurable settings, but these 10 are particularly helpful for RStudio users transitioning to Positron:
 
@@ -24,7 +24,7 @@ Positron includes hundreds of configurable settings, but these 10 are particular
    ```
 1. **What else?**
 
-## Top 10 Extensions for RStudio Users
+## Top 10 extensions for RStudio users
 
 1. **Shiny**
 1. **What else?**
