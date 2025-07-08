@@ -85,6 +85,7 @@ website:
           - rstudio-keybindings.qmd
           - rstudio-rproj-file.qmd
           - r-snippets.qmd
+        - git.qmd
     - title: "Help"
       style: "docked"
       contents:
