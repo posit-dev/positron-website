@@ -7,7 +7,7 @@ This overview and several detailed subtopics should help RStudio users feel well
 The goal is to give RStudio users the smoothest possible experience in their early days with Positron.
 
 First, be assured that RStudio is not going away.
-RStudio is still actively supported and there are no concrete plans to sunset it.
+RStudio is stable, still actively supported, and there is no timeline to deprecate it.
 That being said, RStudio and Positron are at very different points in their respective lifecycles, which is relevant when making decisions about adoption.
 Positron is under much more active development, with a rapidly expanding set of features.
 RStudio's development, on the other hand, is much more focused on bug fixes and product stability.
