@@ -1,0 +1,11 @@
+---
+title: "Variables Pane
+---
+
+The **Variables Pane** displays the variables in your current R or Python session.
+
+<!--- screenshot --->
+
+## Viewing variables
+
+To view the variables in your current session, 
