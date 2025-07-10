@@ -76,3 +76,11 @@ Positron offers flexible layout options to suit a variety of development workflo
 - **Notebook style**: Emphasizes the editor workspace for full focus on a Jupyter Notebook or source file, minimizing other panes.  
 
 To customize layout options, you may use the command **"Customize Layout..."**, which also enables you to reset back to default by clicking on the return button within the `Customize Layout...` command panel.
+
+## Command Palette 
+
+Positron inherits the Command Palette from VS Code. The Command Palette is a fast and powerful way to interact with Positron without taking your hands off the keyboard. Think of it as a search bar for functionality. Rather than navigating menus, you can quickly find and run commands from a single interface.
+
+To open the Command Palette, press `Cmd+Shift+P` (on macOS) or `Ctrl+Shift+P` (on Windows and Linux). Start typing a keyword or the name of a command. The command palette shows a list of matching actions. Use the arrow keys to select a command, then press `Enter` to run it.
+
+For additional documentation on the Command Palette, see the [VS Code Command Palette documentation](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
