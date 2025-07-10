@@ -1,0 +1,42 @@
+---
+title: "Folder Templates"
+---
+
+The **New Folder from Template** feature helps you start new projects faster. Use this feature when you want to avoid manual setup, or ensure your project includes all recommended files and settings from the start. Instead of running multiple setup commands, you can make a few selections and Positron sets up everything for you automatically. This feature is ideal if you want to:
+
+- Save time and avoid manual setup steps
+- Start with a ready-to-use environment for your language or framework
+
+## Template contents
+
+When you use a folder template, Positron creates a new project folder and configures the following items:
+
+- **Environment directory:** A dedicated environment (such as `.venv` for Python) so you can install packages without affecting other projects.
+- **Version control:** A `.git` directory and a `.gitignore` file with common patterns for your language or framework.
+- **Directory structure:** Folders and files recommended for your template type, so your project is organized from the start.
+- **Interpreter instance:** A new interpreter session starts automatically, ready for you to run code.
+- **Editor:** An untitled file is opened in the editor, or a notebook is started with your chosen interpreter.
+
+## Using a template
+
+To bring up the **New Folder from Template** dialog, select the "New" dropdown menu in the top-left or select the workspace switcher in the top-right. Select the "New Folder from Template" option from the menu to bring up the dialog.
+
+You can also bring up the dialog by running the _Workspaces: New Folder from Template..._ command in the Command Palette.
+
+After setup, your project is ready for development. You can open the folder in the current window or a new window. By default, Positron starts a session for the interpreter you selected. You can customize this behavior in the settings. For more details, see the [interpreter startup guide](interpreter-startup.qmd#configuring-interpreter-startup).
+
+## About Python templates
+
+Python templates create a project with an isolated environment. This prevents conflicts between package versions and makes your work more reproducible. 
+
+You can choose to use a `pyproject.toml` file for advanced dependency management.
+
+For more about environment managers, see the [supported environment managers guide](python-installations.qmd#supported-environment-managers). For details about Python interpreter discovery, see the [Discovering Python Installations guide](python-installations.qmd).
+
+## About R templates
+
+R templates help you create projects with the right R version. 
+
+You can choose to use `renv` for reproducibility, but this is an advanced option. Most users should leave this box unchecked unless you are familiar with `renv` and need strict dependency management for your project.
+
+`renv` is an R package that manages project dependencies. It creates a snapshot of the R packages in your project and saves them in a `renv.lock` file. This is helpful for power users who need to share projects or ensure exact package versions. [Learn more about renv.](https://rstudio.github.io/renv/articles/renv.html)

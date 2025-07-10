@@ -13,10 +13,7 @@ The discovery process includes both global Python installations and various virt
 
 Positron supports the following Python environment managers:
 
-* **venv**: Standard library virtual environments created with `python -m venv`
-* **uv**: Virtual environments and Python installations managed by `uv`
-* **pyenv**: Python installations managed by `pyenv`, including virtual environments
-* **conda**: Conda environments created with `conda create` or `mamba create`
+{{< include "_python-managers.qmd" >}}
 
 Other tools may also be compatible, although they are not officially supported at this time.
 
@@ -48,7 +45,7 @@ For that reason, we recommend using virtual environments.
 
 You can create new Python environments directly from Positron using the _Python: Create Environment_ command:
 
-1. Open the Command Palette (<kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>)
+1. Open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}
 2. Select _Python: Create Environment_
 3. Choose from available environment providers:
    - **uv**: Creates a uv-managed virtual environment (if uv is available)
@@ -57,7 +54,7 @@ You can create new Python environments directly from Positron using the _Python:
 
 The environment will be created in your workspace and automatically discovered.
 
-You can also use the **New Folder From Template** feature to create a new Python project, and set up an environment as part of the project.
+You can also use the [New Folder From Template feature](folder-templates.qmd#new-folder-from-template) to create a new Python project, and set up an environment as part of the project.
 
 ### Discovering existing environments
 

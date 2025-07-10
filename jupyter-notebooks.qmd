@@ -1,0 +1,35 @@
+---
+title: "Jupyter Notebooks"
+---
+
+[Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html) offer a flexible, interactive UI for combining code, prose, and visualizations.
+
+Positron enhances Jupyter Notebooks in several key ways:
+
+-   Notebooks work out of the box. You don't need to install any additional dependencies into your Python or R environments.
+-   Notebooks are integrated into the IDE, allowing you to manage data sources in the [Connections Pane](connections-pane.qmd), view data at a glance in the Variables Pane, explore data in depth with the [Data Explorer](data-explorer.qmd), and browse documentation in the [Help Pane](help-pane.qmd).
+-   Language features such as autocompletion and go-to-definition work seamlessly across notebooks and plaintext files.
+
+![An example of a Jupyter Notebook in Positron, with interactive code, rich outputs, and the integrated Help Pane.](images/jupyter-notebooks-astropy.png)
+
+## Using Jupyter Notebooks
+
+You can create and edit `.ipynb` files in Positron just as you would in other editors. For a general introduction to working with Jupyter Notebooks, see the [VS Code Jupyter Notebooks documentation](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
+
+### Setting up your environment
+
+Positron comes prepackaged with Jupyter kernels for R and Python. Once you've [configured an R or Python environment](managing-interpreters.qmd) for Positron, you do not need to install any additional dependencies into your environment before using notebooks.
+
+If an environment installed on your computer isn't available in Positron, you may want to read more about how Positron discovers [Python installations](python-installations.qmd) and [R installations](r-installations.qmd).
+
+### Selecting an interpreter
+
+When you first open a Jupyter Notebook, Positron automatically selects an interpreter based on the notebook's language, the current workspace, and your configuration.
+
+::: callout-tip
+We recommend matching the selected interpreter for the workspace and the notebook, however, they can be controlled separately.
+:::
+
+You can manually select a different interpreter for the notebook by clicking the **Kernel Selector** button in the notebook toolbar or by running the *Notebook: Select Notebook Kernel* command.
+
+![The Kernel Selector showing the selected interpreter for a new notebook.](images/jupyter-notebooks-kernel-selector.png)

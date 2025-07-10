@@ -63,7 +63,7 @@
 
         // Get version from data attribute, fallback to hardcoded version
         const version = downloadBtn.dataset.version;
-        const cdnUrl = 'https://cdn.posit.co/positron/prereleases/';
+        const cdnUrl = 'https://cdn.posit.co/positron/releases/'; // Keep this in sync with cdn_url in download.qmd
 
         const userAgent = navigator.userAgent;
         const platform = navigator.platform;
@@ -73,6 +73,11 @@
         let allDownloadsText = null;
         let enableLinks = false;
 
+        ///////////////////////////////////////////////////////////////////////////
+        // NOTE: please check download.qmd to ensure the URLs here are constructed
+        // similarly to the ones there.
+        ///////////////////////////////////////////////////////////////////////////
+
         // Detect operating system
         if (userAgent.indexOf('Win') !== -1) {
             detectedOS = 'for Windows';
@@ -80,7 +85,7 @@
             allDownloadsText = 'System Installer & Other Platforms';
         } else if (userAgent.indexOf('Mac') !== -1) {
             detectedOS = 'for macOS';
-            downloadUrl = `${cdnUrl}mac/universal/Positron-${version}.dmg`;
+            downloadUrl = `${cdnUrl}mac/universal/Positron-${version}-universal.dmg`;
             allDownloadsText = 'Other Platforms';
         } else if (userAgent.indexOf('Linux') !== -1) {
             detectedOS = 'for Linux';
@@ -98,13 +103,13 @@
         downloadBtn.dataset.originalHref = downloadUrl;
         downloadBtn.href = downloadUrl;
 
-        if(allDownloadsText) {
+        if (allDownloadsText) {
             allDownloads.textContent = allDownloadsText;
         } else {
             allDownloads.hidden = true;
         }
 
-        if(enableLinks) {
+        if (enableLinks) {
             privacyPolicy.hidden = true;
             setLinkEnablement(true);
         }

@@ -33,7 +33,7 @@ This WSL extension is not maintained by the Positron team or Posit.
 
 ## Creating a connection
 
-To create a connection, open the Command Palette (<kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and type "Remote Menu". Run the _Remote SSH: Show Remote Menu_ command.
+To create a connection, open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and type "Remote Menu". Run the _Remote SSH: Show Remote Menu_ command.
 
 ![The Remote SSH menu](./images/remote-ssh-menu.png){width=700}
 

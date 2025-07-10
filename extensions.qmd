@@ -20,7 +20,7 @@ Posit is a major sponsor of Open VSX.
  
 ## Accessing extensions
 
-To manage your extensions in Positron, choose the Extensions view from the Activity Bar on the left or use the keyboard shortcut <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>. From here you can manage extensions you already have installed or search the Open VSX marketplace for new ones. 
+To manage your extensions in Positron, choose the Extensions view from the Activity Bar on the left or use the keyboard shortcut {{< kbd mac=Command-Shift-X win=Ctrl-Shift-X linux=Ctrl-Shift-X >}}. From here you can manage extensions you already have installed or search the Open VSX marketplace for new ones. 
 
 ## Included extensions
 
@@ -79,4 +79,4 @@ See [Extension Development](extension-development.qmd) for information on creati
 
 ### Installing extensions manually
 
-In offline or restricted environments, users may need to manually install extensions rather than relying on the search and install capabilities from the Positron extensions tab. Users can install extensions saved as [`.vsix` files](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions). See the *Extensions: Install from VSIX* command via the Command Palette <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or via the `...` in the top right of the Extensions tab.
+In offline or restricted environments, users may need to manually install extensions rather than relying on the search and install capabilities from the Positron extensions tab. Users can install extensions saved as [`.vsix` files](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions). See the *Extensions: Install from VSIX* command via the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} or via the `...` in the top right of the Extensions tab.
