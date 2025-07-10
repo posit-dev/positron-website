@@ -24,8 +24,8 @@ The following RStudio keybindings will then be enabled:
 | {{< kbd mac=Command-Option-Shift-M win=Ctrl-Alt-Shift-M linux=Ctrl-Alt-Shift-M >}} |  Rename |
 | {{< kbd mac=Command-Option-I win=Ctrl-Alt-I linux=Ctrl-Alt-I >}} |  Insert a new Quarto/R Markdown cell |
 | {{< kbd mac=Command-Option-M win=Ctrl-Alt-M linux=Ctrl-Alt-M >}} |  Open version control pane |
-| {{< kbd mac=Command-Option-Left win=Ctrl-Alt-Left linux=Ctrl-Alt-Left >}} |  Go to previous tab |
-| {{< kbd mac=Command-Option-Right win=Ctrl-Alt-Right linux=Ctrl-Alt-Right >}} |  Go to next tab |
+| {{< kbd mac=Command-Option-← win=Ctrl-Alt-← linux=Ctrl-Alt-← >}} |  Go to previous tab |
+| {{< kbd mac=Command-Option-→ win=Ctrl-Alt-→ linux=Ctrl-Alt-→ >}} |  Go to next tab |
 | {{< kbd mac=Command-D win=Ctrl-D linux=Ctrl-D >}} |  Delete the current line |
 | {{< kbd mac=Command-Shift-M win=Ctrl-Shift-M linux=Ctrl-Shift-M >}} |  Insert pipe operator |
 | {{< kbd mac=Command-Shift-R win=Ctrl-Shift-R linux=Ctrl-Shift-R >}} |  Insert section |
