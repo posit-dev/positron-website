@@ -12,3 +12,11 @@ a[href^="positron://settings"]::before {
   content: "\f013"; /* Unicode for gear in Font Awesome */
   font-family: 'Font Awesome\ 6 Free'; 
 }
+
+.bi.bi-github::before {
+  padding-top: 10px;
+}
+
+.nav-footer-left .footer-items, .nav-item {
+  padding-right: unset; /* The theme has an override for this that doesn't need to be applied for this site. Adding unset allows prevents us from having to override the theme files after each update */
+}
