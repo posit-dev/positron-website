@@ -31,4 +31,4 @@ Positron provides layout presets specifically designed for data science work:
 - **Side-by-side**: Useful for wide-screen users or those who prefer their editor and console next to each other.
 - **Notebook**: Emphasizes the editor workspace for full focus on a Jupyter Notebook or source file, minimizing other panes.  
 
-Use the command _Customize Layout..._ for more specific layout choices. You can also reset the whole UI back to defaults by clicking on the {{<fa rotate-left >}} icon at the top right of the layout quickpick.
+Use the _Customize Layout..._ command for more specific layout choices. You can also reset the whole UI back to defaults by clicking on the {{<fa rotate-left >}} icon at the top right of the layout quickpick.
