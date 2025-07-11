@@ -1,5 +1,5 @@
 ---
-title: "User Interface"
+title: "Layout"
 ---
 
 The Positron interface provides a flexible environment for data science that can be tailored to your needs. You can organize tools and outputs into distinct, customizable panes. This lets you tailor your workspace to your workflows in Python, R, and other languages.
@@ -33,42 +33,3 @@ Positron provides layout presets specifically designed for data science work:
 - **Notebook**: Emphasizes the editor workspace for full focus on a Jupyter Notebook or source file, minimizing other panes.  
 
 Use the command _Customize Layout..._ for more specific layout choices. You can also reset the whole UI back to defaults by clicking on the {{<fa rotate-left >}} icon at the top right of the layout quickpick.
-
-## Command palette 
-
-Positron inherits the Command Palette from VS Code. The Command Palette is a fast and powerful way to interact with Positron without taking your hands off the keyboard. Think of it as a search bar for functionality. Rather than navigating menus, you can quickly find and run commands from a single interface.
-
-For additional documentation on the Command Palette, see the [VS Code Command Palette documentation](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
-
-### Command access and execution
-
-The Command Palette provides access to all Positron commands. You can execute any command without using menus or remembering keyboard shortcuts.
-
-To open the Command Palette, press {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}. Start typing a keyword or the name of a command. The Command Palette shows a list of matching actions. Use the arrow keys to select a command, then press {{< kbd Enter >}} to run it.
-
-For example, you can:
-
-- type "interpreter" to view interpreter session management commands.
-- type "git" to view version control commands.
-
-### File access and navigation
-
-The Command Palette makes it easy to open files without using the file explorer. This is especially useful in large projects with many files.
-
-Press {{< kbd mac=Command-P win=Ctrl-P linux=Ctrl-P >}} to open the file picker. Start typing part of a file name to see matching files. Use the arrow keys to select a file, then press {{< kbd Enter >}} to open the selected file.
-
-You can also use:
-
-| Key | Action |
-| --- | ------ |
-| {{< kbd \> >}} | Switch to command mode |
-| {{< kbd @ >}}  | Search for symbols in the current file |
-| {{< kbd # >}}  | Search for symbols across the workspace |
-| {{< kbd : >}} followed by a line number | Jump to that line |
-
-### Tips for effective use
-
-- **Use partial matches:** You do not need to type the full command or file name. The Command Palette uses fuzzy matching to find what you need.
-- **Learn common prefixes:** Commands are grouped by category (for example, "View:" for layout commands, "Git:" for version control).
-- **Browse available commands:** Open the Command Palette and scroll through the list to discover new functionality.
-- **Use recent commands:** The Command Palette shows recently used commands first, making it faster to repeat common tasks.

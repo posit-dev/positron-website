@@ -64,7 +64,8 @@ website:
         - add-to-path.qmd
         - section: "User Interface"
           contents:
-            - user-interface.qmd
+            - layout.qmd
+            - command-palette.qmd
             - action-bars.qmd
         - section: "Interpreters"
           contents:
