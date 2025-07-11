@@ -12,17 +12,17 @@ This section outlines the core layout elements of Positron’s interface. Each s
 
 - The **Activity Bar** provides quick access to switch between core views such as Explorer, Search, [Source Control](git.qmd), and [Extensions](extensions.qmd).
 - The **Primary Side Bar** is on the left by default and shows you different views depending on what you have chosen in the Activity Bar. When you choose the Explorer icon, this pane provides the file explorer to navigate your project directory and the outline. When you choose the Assistant icon, this pane provides access to [Positron Assistant](assistant.qmd)
-- The **Editor** is in the upper central area by default, and is where you write your code. For editor controls, refer to [VS Code Editor Basics](https://code.visualstudio.com/docs/editing/codebasics).
+- The **Editor** is in the center by default, and is where you write your code. For editor controls, refer to [VS Code Editor Basics](https://code.visualstudio.com/docs/editing/codebasics).
 - The **Panel** is below the editor by default and contains the [Console](#console) and the [Terminal](https://code.visualstudio.com/docs/terminal/basics). You can also access logs from [Output](troubleshooting.qmd#output-panel) channels in the Panel.
 - The **Secondary Side Bar** is on the right by default. You can switch between the Session pane (where you can explore the variables you have defined and the plots you have created), the [Connections](connections-pane.qmd) pane, the [Help](help-pane.qmd) pane, and the Viewer pane.
 
-The **Title Bar** at the very top of the window shows the active file and project, along with window controls. Below it, the **Top Bar** provides global project tools such as file search, the project switcher, and the interpreter selector with the ability to start, stop, and switch interpreters. The **Status Bar** at the botton of the window displays details such as your git branch, language mode, and cursor position.
+The **Title Bar** at the very top of the window shows the active file and project, along with window controls. Below it, the **Top Bar** provides global project tools such as file search, the project switcher, and the [interpreter selector](managing-interpreters.qmd#interpreter-picker) with the ability to start, stop, and switch interpreters. The **Status Bar** at the botton of the window displays details such as your git branch, language mode, and cursor position.
 
 You can toggle most of these components in and out of view using commands such as _View: Toggle Primary Side Bar Visibility_, _View: Toggle Status Bar Visibility_, and others.
 
 ## Console
 
-You can run your Python or R code in the fully interative, integrated Console. The Console supports running [multiple Python and/or R sessions](managing-interpreters.qmd) at one time.
+You can run your Python or R code in the fully interactive, integrated Console. The Console supports running [multiple Python and/or R sessions](managing-interpreters.qmd) at one time.
 
 ## Layout customization
 
