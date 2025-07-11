@@ -6,7 +6,7 @@ This document outlines how to migrate from VS Code to Positron, a data science-f
 
 ## Overview
 
-Positron will feel natural to you if you use VS Code. Positron is built on [Code OSS](https://github.com/microsoft/vscode), the open source core of VS Code. You will find many familiar features like the text editor interface, command palette, terminal, and extensions.
+Positron will feel natural to you if you use VS Code. Positron is built on [Code OSS](https://github.com/microsoft/vscode), the open source core of VS Code. You will find many familiar features like the text editor interface, Command Palette, Terminal, and extensions.
 
 Where Positron differs is in its language integration and data science capabilities:
 
@@ -26,7 +26,7 @@ When you launch Positron for the first time, you likely want to import your exis
 
 Positron supports importing settings from VS Code. It will prompt you to do so with a notification on the first launch, allowing you to import user settings from your existing VS Code installation. It will open a preview before saving these imported settings, so you can review and modify them as needed.
 
-If you skip this step, you can import settings at any time by running *Preferences: Import Settings...* command from the Command Palette.
+If you skip this step, you can import settings at any time by running the _Preferences: Import Settings..._ command from the Command Palette.
 
 ### Installing extensions
 
