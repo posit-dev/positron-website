@@ -13,10 +13,12 @@ a[href^="positron://settings"]::before {
   font-family: 'Font Awesome\ 6 Free'; 
 }
 
+/* Navbar GitHub icon adjustments */
 .bi.bi-github::before {
   padding-top: 10px;
 }
 
+/* Footer */
 .nav-footer-left .footer-items, .nav-item {
   padding-right: unset; /* The theme has an override for this that doesn't need to be applied for this site. Adding unset allows prevents us from having to override the theme files after each update */
 }
