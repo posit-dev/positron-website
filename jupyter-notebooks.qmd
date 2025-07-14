@@ -30,6 +30,6 @@ When you first open a Jupyter Notebook, Positron automatically selects an interp
 We recommend matching the selected interpreter for the workspace and the notebook, however, they can be controlled separately.
 :::
 
-You can manually select a different interpreter for the notebook by clicking the **Kernel Selector** button in the notebook toolbar or by running the *Notebook: Select Notebook Kernel* command.
+You can manually select a different interpreter for the notebook by clicking the **Kernel Selector** button in the notebook toolbar or by running the *Notebook: Select Notebook Kernel*  from the Command Palette.
 
 ![The Kernel Selector showing the selected interpreter for a new notebook.](images/jupyter-notebooks-kernel-selector.png)
