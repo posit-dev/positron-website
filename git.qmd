@@ -30,7 +30,7 @@ Positron provides a few ways to work with Git repositories:
 - **New Folder from Template** to create a new folder locally, with the option to initialize it as a Git repository
 - **New Folder from Git** to clone an existing Git repository from a remote source like GitHub
 
-These options are available from the Welcome screen when you are not already in a folder/workspace, or you can access them later through the Command Palette by searching for *Workspaces: New Folder from Git...* or *Workspaces: New Folder from Template...*.
+These options are available from the Welcome screen when you are not already in a folder/workspace, or you can access them later through the Command Palette (<kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>) by searching for *Workspaces: New Folder from Git...* or *Workspaces: New Folder from Template...*.
 
 ### Initialize Git in an existing project
 

@@ -59,7 +59,7 @@ Each reserved word can be completed on its own and, in some cases, as part of a 
 ### Everything else
 
 If you want snippets beyond those provided for R's reserved words, you'll need to configure that for yourself.
-Open the Command Palette and run the _Snippets: Configure Snippets_ command.
+Press {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} to open the command palette and type *Snippets: Configure Snippets*.
 
 Snippets can be stored in three types of files:
 
