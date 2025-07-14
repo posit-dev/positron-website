@@ -101,4 +101,4 @@ website:
 format:
   html:
     css: styles.css
-    link-external-filter: '^(?:http:|https:)\/\/cdn\.posit.co'
+    link-external-filter: '^(?:http:|https:)\/\/(?:positron|cdn)\.posit\.co(?:\/|$)|^(?!https?:\/\/)'
