@@ -7,8 +7,8 @@
 @import '_posit-colors';
 
 /*-- scss:variables --*/
-$primary: $posit-blue;
-
+//$primary: $posit-blue;
+$primary: #3a78b1e6; //Positron override
 
 /* ======== General Styles ======== */   
 
@@ -101,7 +101,9 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
 
 }
 
-
+.nav-footer-left .footer-items, .nav-item {
+  padding-right: 11px;
+}
 
 // Components
 
