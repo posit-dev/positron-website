@@ -1,8 +1,8 @@
 ---
-title: "Run Interactive Apps"
+title: "Develop Data Apps"
 ---
 
-Positron provides a simplified method for running interactive apps via the **Play** button. Instead of running an app from a **Terminal**, you can run supported apps by clicking the **Play** button in Editor Actions. Additionally, you can start a supported app in debug mode through the **Play** button context menu.
+Positron provides a simplified method for previewing interactive data apps via the **Play** button. Instead of running an app from a **Terminal**, you can run supported apps by clicking the **Play** button in Editor Actions. Additionally, you can start a supported app in debug mode through the **Play** button context menu.
 
 ![Positron App Launcher button in Editor Actions](images/run-app-button.png)
 
@@ -18,7 +18,7 @@ Currently, Positron supports the following Python app frameworks:
 - [Streamlit](https://streamlit.io/)
 
 
-## Running an interactive app
+## Running a data app
 
 1. Open the `.py` file of a supported app framework.
 2. In Editor Actions, click **Play**.
@@ -32,7 +32,7 @@ If your application does not automatically open in the Viewer, check that the se
 
 To stop the app, select the **Terminal** tab running the application and use the trash can icon to delete the **Terminal** or press {{< kbd Ctrl-C >}} to stop the process.
 
-## Debugging an interactive app
+## Debugging a data app
 
 1. Open the `.py` file of a supported app framework.
 2. Set breakpoints in the `.py` file by clicking on the editor margin.
