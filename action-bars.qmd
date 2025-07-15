@@ -43,4 +43,4 @@ The Top Action Bar helps you manage your work. On the left, you will find action
 
 ## Wrapping up
 
-Action Bars surface the most important and frequently used actions in each area of the product, so you do not have to rely on the command palette to find everything. Because they are contextual, Action Bars present the tools you need right where you need them, helping you stay focused and work more efficiently in Positron.
+Action Bars surface the most important and frequently used actions in each area of the product, so you do not have to rely on the Command Palette to find everything. Because they are contextual, Action Bars present the tools you need right where you need them, helping you stay focused and work more efficiently in Positron.

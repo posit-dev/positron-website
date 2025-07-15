@@ -50,19 +50,25 @@ website:
         - start.qmd
         - download.qmd
         - extensions.qmd
+        - updating.qmd
         - about.qmd
+        - privacy.qmd
 
     - title: "Guides"
       style: "docked"
       contents:
         - add-to-path.qmd
+        - section: "User Interface"
+          contents:
+            - layout.qmd
+            - command-palette.qmd
+            - action-bars.qmd
         - section: "Interpreters"
           contents:
             - managing-interpreters.qmd
             - interpreter-startup.qmd
             - python-installations.qmd
             - r-installations.qmd
-        - action-bars.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
         - assistant.qmd
@@ -71,7 +77,6 @@ website:
         - run-interactive-apps.qmd
         - jupyter-notebooks.qmd
         - remote-ssh.qmd
-        - updating.qmd
         - extension-development.qmd
         - folder-templates.qmd
         - text: "Migrating from VS Code"
@@ -88,7 +93,6 @@ website:
         - troubleshooting.qmd
         - feedback.qmd
         - faqs.qmd
-        - privacy.qmd
 
 format:
   html:
@@ -96,3 +100,5 @@ format:
     include-in-header:
       - text: |
           <script defer file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
+    link-external-filter: '^(?:http:|https:)\/\/(?:positron|cdn)\.posit\.co(?:\/|$)|^(?:http:|https:)\/\/.*--positron-posit-co\.netlify\.app(?:\/|$)|^(?!https?:\/\/)'
+
