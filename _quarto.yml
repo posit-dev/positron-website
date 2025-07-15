@@ -27,6 +27,8 @@ website:
       - text: "<img alt='Link to main Posit site' src='images/posit-icon-fullcolor.svg' style='width: 16px;'>"
         href: "https://posit.co/"
   navbar:
+    logo: "images/positron.png"
+    logo-alt: "Positron Documentation"
     left:
       - text: "Get Started"
         href: start.qmd

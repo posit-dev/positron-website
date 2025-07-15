@@ -11,8 +11,8 @@ contributes:
       bread-crumbs: true
       navbar:
         pinned: true
-        logo: "assets/images/posit-icon-fullcolor.svg"
-        logo-alt: "Posit Documentation"
+      #  logo: "assets/images/posit-icon-fullcolor.svg"
+       # logo-alt: "Posit Documentation"
        # right:
         #  - text: "Help"
          #   menu:

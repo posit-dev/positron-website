@@ -20,5 +20,20 @@ a[href^="positron://settings"]::before {
 
 /* Footer */
 .nav-footer-left .footer-items, .nav-item {
-  padding-right: unset; /* The theme has an override for this that doesn't need to be applied for this site. Adding unset allows prevents us from having to override the theme files after each update */
+  padding-right: unset; /* Positron override - The theme has an override for this that doesn't need to be applied for this site. Adding unset allows prevents us from having to override the theme files after each update */
+}
+
+/* Mermaid */
+
+#mermaid-1 .cluster rect {
+  fill: #ffffff14 !important;
+}
+
+.quarto-dark #mermaid-1 .edgeLabel p {
+  color: #213d4f !important;
+}
+
+/* Keyboard shortcut styles */
+.quarto-dark .kbd {
+  color: #ffffff !important;
 }

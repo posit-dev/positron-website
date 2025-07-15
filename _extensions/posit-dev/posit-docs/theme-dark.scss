@@ -7,7 +7,8 @@
 @import '_posit-colors';
 
 /*-- scss:variables --*/
-$primary: lighten(#3a78b1e6, 10%); //Positron override
+$primary: $positron-dm-blue; //Positron override
+//$primary: $posit-light-blue-3;
 $white: $posit-white;
 $code-background: #ffffff14;
 $dark-md-body: #9CA3AF;
@@ -80,7 +81,7 @@ div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents, nav.sideba
 /* Sidebar pill for active item */
 
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-  background-color: #1E293B; // slate-800 vibe
+  background-color: darken(#1E293B, 8); // slate-800 vibe and Positron override
   border-radius: 5px;
   margin-bottom: 2px;
   margin-left: -5px;
@@ -208,4 +209,9 @@ a.footnote-back {
 
 .panel-caption, .figure-caption, .subfigure-caption, .table-caption, figcaption, caption {
     color: $posit-light-gray-2 !important;
+}
+
+
+.aa-DetachedOverlay li.aa-Item[aria-selected=true] .search-item, #quarto-search-results li.aa-Item[aria-selected=true] .search-item {
+    background-color: lighten(#3a78b1e6, 10%);
 }

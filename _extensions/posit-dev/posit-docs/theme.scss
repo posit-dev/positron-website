@@ -8,7 +8,7 @@
 
 /*-- scss:variables --*/
 //$primary: $posit-blue;
-$primary: #3a78b1e6; //Positron override
+$primary: $positron-blue; //Positron override
 
 /* ======== General Styles ======== */   
 
@@ -51,7 +51,7 @@ $navbar-brand-font-size: 1rem !default;
 
 // Callouts
 // Start update from Greg suggestion
-$callout-color-note: $posit-blue;
+$callout-color-note: $primary;
 // End update from Greg suggestion
 $callout-color-warning: $posit-orange;
 $callout-color-important: $posit-burgundy;
@@ -59,8 +59,8 @@ $callout-color-important: $posit-burgundy;
 
 // Tables
 
-$table-hover-bg: $posit-light-blue-2 !default;
-$table-striped-bg: $posit-light-blue-1 !default;
+//$table-hover-bg: $posit-light-blue-2 !default;
+//$table-striped-bg: $posit-light-blue-1 !default;
 
 // CSS
 
@@ -69,7 +69,7 @@ $table-striped-bg: $posit-light-blue-1 !default;
 /* Navbar */
 
 .navbar {
-  border-bottom: 1px solid $posit-light-blue-1;
+  //border-bottom: 1px solid $posit-light-blue-1;
 }
 
 /* Style for the version included in the website title */
@@ -87,18 +87,18 @@ $table-striped-bg: $posit-light-blue-1 !default;
 /* Sidebar */
 
 div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-    background-color: #f4f4f7;
+    background-color: #f4f4f7; // lighten Positron override
     border-radius: 5px;
     margin-bottom: 2px;
     margin-left: -5px;
     padding: 6px;
+    font-weight: 500; // Positron override
 }
 
 /* Footer */
 
 /* Posit icon fullcolor */
 #footer-right-posit-logo {
-
 }
 
 .nav-footer-left .footer-items, .nav-item {
@@ -123,7 +123,7 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
   
   .nav-tabs .nav-link:hover,
   .nav-link:focus {
-    color: $posit-blue !important;
+    color: $primary
   }
 
   .nav-pills {
@@ -165,7 +165,7 @@ div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, 
   .nav-pills .nav-link:hover,
   .nav-link:focus {
     isolation: isolate;
-    color: $posit-blue !important;
+    color: $primary !important;
     border: none !important;
   }
   
