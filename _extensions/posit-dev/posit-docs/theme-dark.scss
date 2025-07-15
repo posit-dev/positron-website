@@ -54,7 +54,7 @@ $body-bg: $dark-md-background !default;
 $btn-code-copy-color-active: $primary;
 
 // Callouts
-$callout-color-note: $posit-blue;
+$callout-color-note: $primary; // Positron override
 $callout-color-warning: $posit-orange;
 $callout-color-important: $posit-burgundy;
 
