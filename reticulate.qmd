@@ -1,0 +1,41 @@
+---
+title: Reticulate
+---
+
+Positron has built-in support for Python interpreters managed by the [reticulate](https://rstudio.github.io/reticulate/) R package. When the reticulate package is installed, you can use the `repl_python()` function to start a Python interpreter session directly within Positron. This allows you to run Python code interactively, exactly the same way as you would in a standard Python interpreter.
+
+To start a reticulate Python interpreter session, you can run:
+
+```r
+library(reticulate)
+repl_python()
+```
+
+![Reticulate Python Interpreter](images/reticulate-interpreter.png)
+
+The interpreter can also be started by selecting "Python (reticulate)" when creating a new interpreter session. 
+
+![New interpreter session list](images/reticulate-interpreter-list.png)
+
+Python interpreters managed by the reticulate have some important differences compared to standard Python interpreters:
+
+- They use the Python version selected by reticulate. See Reticulate's ["Python version configuration"](https://rstudio.github.io/reticulate/articles/versions.html) for additional information.
+
+- Runs within the same process as the R session that started it. 
+
+The latter has a few important implications:
+
+- You can access R objects directly from Python code using the `r` prefix. For example, if you have an R object named `my_data`, you can access it in Python as `r.my_data`. 
+
+![Accessing R objects in Python](images/reticulate-python-objs.png)
+
+- You can call Python functions from R using the `py` prefix. For example, if you have a Python function named `my_function`, you can call it in R as `py$my_function()`. 
+
+- The Python interpreter is tied to the lifecycle of the R session. If you close the R session or restart it, the Python interpreter will also be terminated. 
+
+
+
+
+
+
+
