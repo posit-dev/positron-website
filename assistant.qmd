@@ -130,7 +130,7 @@ To open this mini chat interface can in an editor or terminal, use the default k
 If GitHub Copilot is enabled and the user pauses typing for a few seconds, Positron Assistant will offer completions in most contexts. If it is not working, check the following:
 
 - Make sure you have a [language model provider added](#adding-language-model-providers) for completions.
-- Check the [developer tools console logs](troubleshooting.qmd#developer-tools) or the Assistant [output](./troubleshooting.qmd##output-panel) logs to see if there are any errors logged.
+- Check the [developer tools console logs](troubleshooting.qmd#developer-tools) or the Assistant [output](./troubleshooting.qmd#output-panel) logs to see if there are any errors logged.
 
 ### Shiny Assistant
 
