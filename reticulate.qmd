@@ -6,11 +6,10 @@ Positron has built-in support for Python interpreters managed by the [reticulate
 
 The feature is enabled by default and can be controlled by the [`positron.reticulate.enabled` setting](positron://settings/positron.reticulate.enabled). 
 
-To start a reticulate Python interpreter session, you can run:
+To start a reticulate Python interpreter session, execute the following in an active R interpreter:
 
 ```r
-library(reticulate)
-repl_python()
+reticulate::repl_python()
 ```
 
 ![Reticulate Python Interpreter](images/reticulate-interpreter.png)
@@ -19,11 +18,11 @@ The interpreter can also be started by selecting "Python (reticulate)" when crea
 
 ![New interpreter session list](images/reticulate-interpreter-list.png)
 
-Python interpreters managed by the reticulate have some important differences compared to standard Python interpreters:
+Python interpreters managed by the reticulate package have some important differences compared to standard Python interpreters:
 
-- They use the Python version selected by reticulate. See Reticulate's ["Python version configuration"](https://rstudio.github.io/reticulate/articles/versions.html) for additional information.
+- They use the **Python version selected by reticulate**. See Reticulate's ["Python version configuration"](https://rstudio.github.io/reticulate/articles/versions.html) for additional information.
 
-- Runs within the same process as the R session that started it. 
+- Runs within the **same process as the R session** that started it. 
 
 The latter has a few important implications:
 
@@ -31,9 +30,11 @@ The latter has a few important implications:
 
 ![Accessing R objects in Python](images/reticulate-python-objs.png)
 
-- You can call Python functions from R using the `py` prefix. For example, if you have a Python function named `my_function`, you can call it in R as `py$my_function()`. 
+- You can access Python objects R using the `py` prefix. For example, if you have a Python function named `my_function`, you can call it in R as `py$my_function()`.
 
-- The Python interpreter is tied to the lifecycle of the R session. If you close the R session or restart it, the Python interpreter will also be terminated. 
+Note that for the above, the conversion between R and Python objects is managed by reticulate using the `py_to_r()` and `r_to_py()` generics. See the [type conversions table](https://rstudio.github.io/reticulate/index.html#type-conversions) for more information.
+
+The reticulate Python interpreter is tied to the lifecycle of the R session. If you close the R session or restart it, the Python interpreter will also be terminated. It's possible ro restart the Python interpreter idependently, but note that this **will not** restart the associated R session.
 
 
 
