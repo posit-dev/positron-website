@@ -2,7 +2,7 @@
 title: "Develop Data Apps"
 ---
 
-Positron provides a simplified method for previewing interactive data apps via the **Play** button. Instead of running an app from a **Terminal**, you can run supported apps by clicking the **Play** button in Editor Actions. Additionally, you can start a supported app in debug mode through the **Play** button context menu.
+Positron provides a simplified method for running interactive data apps via the **Play** button. Instead of running an app from a **Terminal**, you can run supported apps by clicking the **Play** button in Editor Actions. Additionally, you can start a supported app in debug mode through the **Play** button context menu.
 
 ![Positron App Launcher button in Editor Actions](images/run-app-button.png)
 
