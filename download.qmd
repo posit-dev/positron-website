@@ -4,6 +4,7 @@ format:
   html:
     include-in-header:
       - '_download.html'
+    link-external-icon: false
 
 ---
 
