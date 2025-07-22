@@ -42,10 +42,12 @@ Copy and save the API key to a password manager or another secure location. In o
 At this time, only **GitHub Copilot** is available for inline code completions.
 :::
 
-If you have a GitHub account with Copilot enabled, you can authenticate to GitHub Copilot in Positron Assistant in the language model dialog. The authentication flow will open up a browser and direct you to sign into GitHub. Once authenticated, Copilot will be available for inline code completions.[^1]
+If you have a GitHub account with Copilot enabled, you can authenticate to GitHub Copilot in Positron Assistant in the "Configure Language Model Providers" dialog. The authentication flow will open up a browser and direct you to sign into GitHub. Once authenticated, Copilot will be available for inline code completions.
 
 
-[^1]: If you are using Positron with a [remote SSH](remote-ssh.qmd) session, you will need to authenticate to GitHub on the _remote server_.
+::: {.callout-tip}
+If you are using Positron with a [remote SSH](remote-ssh.qmd) session, you will need to authenticate to GitHub on the _remote server_ as well.
+:::
 
 #### Adding language model providers
 
