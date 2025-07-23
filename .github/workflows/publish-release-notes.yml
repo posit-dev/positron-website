@@ -34,16 +34,15 @@ jobs:
           S3_PREFIX="s3://posit-positron-downloads/positron/${{ inputs.release_channel}}"
           aws s3 cp "${GITHUB_WORKSPACE}/release-notes/release.md" "${S3_PREFIX}/release-notes/release-${{ inputs.version }}.md" --no-progress
 
-      # Need to update the trust relationship policy on the PositronBuilds role in Posit Main Production
-      # - name: Configure AWS Credentials for CloudFront
-      #   uses: aws-actions/configure-aws-credentials@v4
-      #   with:
-      #     role-to-assume: ${{ secrets.AWS_CDN_RW_ROLE }}
-      #     aws-region: us-east-1
+      - name: Configure AWS Credentials for CloudFront
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_CDN_RW_ROLE }}
+          aws-region: us-east-1
 
-      # - name: Invalidate CloudFront Cache
-      #   run: |
-      #     aws cloudfront create-invalidation \
-      #       --distribution-id ${{ secrets.AWS_CDN_DISTRIBUTION_ID }} \
-      #       --paths \
-      #         "/positron/releases/release-notes/*" \
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.AWS_CDN_DISTRIBUTION_ID }} \
+            --paths \
+              "/positron/releases/release-notes/*" \
