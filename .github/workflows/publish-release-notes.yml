@@ -6,10 +6,6 @@ on:
         required: true
         default: 'releases'
         type: string
-      version:
-        description: 'Version to publish (e.g., "2025.07.0")'
-        required: true
-        type: string
 
 name: Publish Release Notes
 
@@ -29,10 +25,16 @@ jobs:
           role-to-assume: ${{ secrets.AWS_S3_RW_ROLE }}
           aws-region: us-east-1
 
+      - name: Get Next Release Version
+        id: get-next-release
+        run: |
+          NEXT_RELEASE=$(grep '^NEXT_RELEASE=' _environment | cut -d '=' -f 2 | tr -d '"')
+          echo "next_release=${NEXT_RELEASE}" >> $GITHUB_ENV
+
       - name: Upload Release Notes to S3
         run: |
           S3_PREFIX="s3://posit-positron-downloads/positron/${{ inputs.release_channel}}"
-          aws s3 cp "${GITHUB_WORKSPACE}/release-notes/release.md" "${S3_PREFIX}/release-notes/release-${{ inputs.version }}.md" --no-progress
+          aws s3 cp "${GITHUB_WORKSPACE}/release-notes/next.md" "${S3_PREFIX}/release-notes/release-${{ steps.get-next-release.outputs.next_release }}.md" --no-progress
 
       - name: Configure AWS Credentials for CloudFront
         uses: aws-actions/configure-aws-credentials@v4
