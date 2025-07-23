@@ -76,6 +76,7 @@ website:
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
         - assistant.qmd
+        - variables-pane.qmd
         - connections-pane.qmd
         - help-pane.qmd
         - develop-data-apps.qmd
