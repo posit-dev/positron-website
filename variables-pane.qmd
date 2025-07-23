@@ -1,0 +1,28 @@
+---
+title: "Variables Pane"
+---
+
+The Variables pane allows you to view the variables in your R or Python session and by default, is located in the Secondary side bar.
+
+In addition to variables, if applicable, it displays data tables and any open [connections](connections-pane.qmd) for your session.
+
+<screenshot>
+
+## Viewing the Variables pane
+
+If the **Variables** pane is not already displayed, you can open the Variables pane by clicking **View** > **Variables** or by running *Session: Focus on Variables View *from the Command Palette.
+
+### Data tables
+
+If your session includes data tables, this displays in the Variables pane in the DATA section. To view your data table, click the **View Data Table** button that opens up the Data Explorer with the table loaded.
+
+<screenshot>
+
+<!--- I feel like adding this may be overkill and that the link to the connections doc above is enough?
+
+### Connections
+If your session has open connections, clicking the database icon that appears close to the object name, opens the connection in the Connections pane. For more information about connections, see the Connections Pane section.
+
+<screenshot>
+
+-->
