@@ -10,7 +10,7 @@ In addition to variables, if applicable, it displays data tables and any open [c
 
 ## Viewing the Variables pane
 
-If the **Variables** pane is not already displayed, you can open the Variables pane by clicking **View** > **Variables** or by running *Session: Focus on Variables View *from the Command Palette.
+If the **Variables** pane is not already displayed, you can open the Variables pane by clicking **View** > **Variables** or by running *Session: Focus on Variables View* from the Command Palette.
 
 ### Data tables
 
