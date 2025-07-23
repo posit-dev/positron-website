@@ -14,7 +14,8 @@ If the **Variables** pane is not already displayed, you can open the Variables p
 
 ### Data tables
 
-If your session includes data tables, this displays in the Variables pane in the DATA section. To view your data table, click the **View Data Table** button that opens up the Data Explorer with the table loaded.
+If your session includes data tables, they appear in the DATA section of the Variables pane. To view your data table, click the **View Data Table** button that opens up the Data Explorer with the table loaded.
+
 
 <screenshot>
 
