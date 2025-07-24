@@ -12,3 +12,16 @@ a[href^="positron://settings"]::before {
   content: "\f013"; /* Unicode for gear in Font Awesome */
   font-family: 'Font Awesome\ 6 Free'; 
 }
+
+/* Navbar list item aligment issues  */
+
+nav .nav-item:not(.compact) {
+    margin-bottom: -6px !important;
+}
+
+
+/* Keyboard shortcut styles 
+.quarto-dark .kbd {
+  color: #ffffff !important;
+}
+*/
