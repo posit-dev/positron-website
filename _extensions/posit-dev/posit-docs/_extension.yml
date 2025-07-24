@@ -29,3 +29,6 @@ contributes:
         code-copy: true
         toc: true
         toc-expand: true
+        include-in-header:
+          - text: |
+              <script defer file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
