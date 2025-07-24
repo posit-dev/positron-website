@@ -99,9 +99,9 @@ download_table <- data.frame(
   Platform = c(
     "Windows 10, 11 x64 (system level install)",
     "Windows 10, 11 x64 (user level install)",
-    "MacOS 10.15+ (universal)",
-    "MacOS 10.15+ (arm64/Apple Silicon)",
-    "MacOS 10.15+ (x64/Intel)",
+    "MacOS 11.0+ (universal)",
+    "MacOS 11.0+ (arm64/Apple Silicon)",
+    "MacOS 11.0+ (x64/Intel)",
     "Debian-based Linux x64 (Ubuntu 20+)",
     "Debian-based Linux arm64 (Ubuntu 20+)",
     "Red Hat-based Linux x64 (RHEL9)",
