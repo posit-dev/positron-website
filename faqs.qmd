@@ -7,7 +7,8 @@ title: "Frequently Asked Questions"
 
 * R and Python are first-class supported languages via efforts here at Posit.
 * Additional languages typically used in package development are supported via existing third party extensions. These don't make use of the full Positron data science experience including an interactive console, plots, and similar. Some examples include Rust, Javascript/Typescript, C/C++, or Lua.
-* Positron provides public APIs for additional data science languages to be supported in the future.
+* Positron provides public APIs for additional data science languages to be supported in the future. 
+* Native SQL support is on our roadmap, initially targeting syntax highlighting, autocomplete, and code execution.
 
 ### How is Positron different from RStudio, VS Code, or Jupyter notebooks?
 
@@ -36,11 +37,17 @@ title: "Frequently Asked Questions"
 * If you are new to R or RStudio, we recommend starting with Positron. However, if you're currently using RStudio and are happy with the experience, you can continue to enjoy RStudio. RStudio includes 10+ years of applied optimizations for R data analysis and package development.  
 * While Positron and RStudio have some features in common, some R-focused features will remain exclusive to RStudio. For example:  
   * RStudio has deeper support for Sweave and R Markdown compared to our targeted focus on Quarto in Positron, although Positron does support rendering R Markdown documents as well.    
-  * Positron does not have inline output for source documents at this time, and Quarto or R Markdown documents will make use of the console and plot pane for execution/output. However, we are actively enhancing our Positron-native notebook UI that will provide inline outputs for R or Python sessions. Separately, we are also actively working on improving Quarto's Visual Editor to improve the authoring experience for Quarto. 
+  * Positron does not have inline output for source `.qmd` or `.Rmd` documents at this time, and Quarto or R Markdown documents will make use of the console and plot pane for execution/output. However, we are actively enhancing our Positron-native notebook UI that will provide inline outputs for R or Python sessions. Separately, we are also actively working on improving Quarto's Visual Editor to improve the authoring experience for Quarto. 
   * RStudio is extensible only via RStudio add-ins, and while Positron supports some of the same, existing RStudio add-ins, not all are supported. Rather than doubling down on the more limited RStudio add-in capabilities for novel integrations, we suggest exploring [extension development and our Positron API endpoints](extension-development.qmd).    
-  *We do _not_ plan to have a `.Rproj` equivalent for Positron (e.g. a `.positronproj`), but rather Positron can open and treat any folder as a "project" or workspace. We still suggest project-oriented workflows, and for more context, please see: [Migrating from RStudio: The Rproj File](rstudio-rproj-file.qmd).    
+  * We do _not_ plan to have a `.Rproj` equivalent for Positron (e.g. a `.positronproj`), but rather Positron can open and treat any folder as a "project" or workspace. We still suggest project-oriented workflows, and for more context, please see: [Migrating from RStudio: The Rproj File](rstudio-rproj-file.qmd).    
 
 ### I'm coming from RStudio, and Positron's keybindings are too different
 
 * Check out the [RStudio Keymap](keyboard-shortcuts.qmd#rstudio-keymap) section of our documentation.
 * To opt in to these RStudio-like keybindings, enable the [`workbench.keybindings.rstudioKeybindings` setting](positron://settings/workbench.keybindings.rstudioKeybindings).
+
+### How can I use Positron in an educational setting?
+
+* Under [Positron's Elastic license](https://positron.posit.co/licensing.html), you are free to use the software internally, modify it, and distribute it as part of internal workflows, whether for education or enterprise uses. This includes installing it on students' personal laptops, providing internal access via virtual desktop, internal lab deployments, or allowing access to internal HPC (High Performance Computing) clusters from Positron via Remote SSH.  
+* Posit provides [free teaching licenses of Posit Workbench](https://posit.co/pricing/academic/), which includes Positron Pro for browser-based access by multiple users. We also plan to provide free teaching licenses of Positron Pro for hosting on internal education platforms in the future, with an initial integration plan in JupyterHub-based deployments.  
+* Please reach out to academic-licenses@posit.co if you have further questions.  
