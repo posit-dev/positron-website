@@ -73,13 +73,16 @@ website:
             - interpreter-startup.qmd
             - python-installations.qmd
             - r-installations.qmd
+        - section: "Documents and Apps"
+          contents:
+            - quarto.qmd
+            - jupyter-notebooks.qmd
+            - develop-data-apps.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
         - assistant.qmd
         - connections-pane.qmd
         - help-pane.qmd
-        - develop-data-apps.qmd
-        - jupyter-notebooks.qmd
         - remote-ssh.qmd
         - extension-development.qmd
         - folder-templates.qmd
