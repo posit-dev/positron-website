@@ -29,7 +29,7 @@ jobs:
         id: get-next-release
         run: |
           NEXT_RELEASE=$(grep '^NEXT_RELEASE=' $GITHUB_WORKSPACE/_environment | cut -d '=' -f 2 | tr -d '"')
-          echo "next_release=${NEXT_RELEASE}" >> $GITHUB_ENV
+          echo "next_release=${NEXT_RELEASE}" >> $GITHUB_OUTPUT
 
       - name: Upload Release Notes to S3
         run: |
