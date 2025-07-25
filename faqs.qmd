@@ -48,6 +48,6 @@ title: "Frequently Asked Questions"
 
 ### How can I use Positron in an educational setting?
 
-* Under [Positron's Elastic license](https://positron.posit.co/licensing.html), you are free to use the software internally, modify it, and distribute it as part of internal workflows, whether education or enterprise. This includes installing it on students' personal laptops, providing internal access via virtual desktop, internal lab deployments, or allowing access to internal HPC (High Performance Computing) clusters from Positron via Remote SSH.  
+* Under [Positron's Elastic license](https://positron.posit.co/licensing.html), you are free to use the software internally, modify it, and distribute it as part of internal workflows, whether for education or enterprise uses. This includes installing it on students' personal laptops, providing internal access via virtual desktop, internal lab deployments, or allowing access to internal HPC (High Performance Computing) clusters from Positron via Remote SSH.  
 * Posit provides [free teaching licenses of Posit Workbench](https://posit.co/pricing/academic/), which includes Positron Pro for browser-based access by multiple users. We also plan to provide free teaching licenses of Positron Pro for hosting on internal education platforms in the future, with an initial integration plan in JupyterHub-based deployments.  
 * Please reach out to academic-licenses@posit.co if you have further questions.  
