@@ -16,7 +16,7 @@ This section outlines the core layout elements of the Positron interface. Each s
 - The **Panel** is below the editor by default and contains the fully interactive, integrated Console as well as the [Terminal](https://code.visualstudio.com/docs/terminal/basics) You can also access logs from [Output](troubleshooting.qmd#output-panel) channels in the Panel.
 - The **Secondary Side Bar** is on the right by default. You can switch between the Session pane (where you can explore the variables you have defined and the plots you have created), the [Connections](connections-pane.qmd) pane, the [Help](help-pane.qmd) pane, and the Viewer pane.
 
-The **Title Bar** at the very top of the window shows the active file and project, along with window controls. Below it, the **Top Bar** provides global project tools such as file search, the project switcher, and the [interpreter selector](managing-interpreters.qmd#active-interpreter-session) with the ability to start, stop, and switch interpreters. The **Status Bar** at the botton of the window displays details such as your git branch, language mode, and cursor position.
+The **Title Bar** at the very top of the window shows the active file and project, along with window controls. Below it, the **Top Bar** provides global project tools such as file search, the project switcher, and the [interpreter selector](managing-interpreters.qmd#active-interpreter-session) with the ability to start, stop, and switch interpreters. The **Status Bar** at the botton of the window displays details such as your git branch, language mode, [Quarto version](quarto.qmd), and cursor position.
 
 ## Layout customization
 
