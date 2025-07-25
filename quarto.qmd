@@ -15,7 +15,7 @@ Positron enhances how you can use Quarto in several important ways:
 Learn more in the Quarto documentation about [getting started with Quarto and Positron](https://quarto.org/docs/get-started/hello/positron.html), or [the details of using Positron as a tool for working with Quarto](https://quarto.org/docs/tools/positron/).
 
 :::{.callout-note}
-Quarto's [visual editor](https://quarto.org/docs/tools/positron/visual-editor.html) currently has limited support in Positron. It is a great fit for WISYWIG authoring of text, but statement execution and other language features are not yet supported. Consider switching to source mode when you need such features, and [follow along on GitHub for updates](https://github.com/posit-dev/positron/issues/1805) on this support.
+Quarto's [visual editor](https://quarto.org/docs/tools/positron/visual-editor.html) currently has limited support in Positron. It is a great fit for WYSIWYG authoring of text, but statement execution and other language features are not yet supported. Consider switching to source mode when you need such features, and [follow along on GitHub for updates](https://github.com/posit-dev/positron/issues/1805) on this support.
 :::
 
 ## Support for R Markdown
