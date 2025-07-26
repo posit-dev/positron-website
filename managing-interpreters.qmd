@@ -53,7 +53,7 @@ You can also change the active interpreter session by running the _Interpreter: 
 
 ## Create a new interpreter session
 
-Select the Interpreter picker and choose "New Interpreter Session..." to see a list of all the registered interpreters. You can also bring up the list by running the _Interpreter: Start New Interpreter Session_ command from the Command Palette. Select an interpreter from the list to start an instance of it.
+Select the Interpreter picker and choose "New Interpreter Session..." to see a list of all the registered interpreters. You can also bring up the list by running the _Interpreter: Start New Interpreter Session_ command from the Command Palette. Select an interpreter from the list to start a session for it.
 
 Alternatively, you can select the {{<fa chevron-down>}} icon next to the {{<fa plus>}} icon in the Console pane. The dropdown lists the most recently used interpreters. The **Start Another...** option will display a list of all the registered interpreters. Select an interpreter from either list to start an instance.
 
@@ -77,7 +77,9 @@ Select the {{<fa rotate-right>}} icon from the Console action bar to restart a s
 
 Renaming interpreter sessions is a useful tool to distinguish sessions for the same interpreter version.
 
-Right-click an interpreter session form the Console pane list and select the **Rename...** option. You can also rename a session by running the _Interpreter: Rename Active Interpreter Session_ command from the Command Palette.
+Right-click an interpreter session form the Console pane list and select the **Rename...** option. 
+
+You can also rename a session by running the _Interpreter: Rename Active Interpreter Session_ command from the Command Palette. 
 
 ## View interpreter session metadata
 
@@ -102,7 +104,7 @@ The Console pane list displays an execution status indicator next to each interp
 An interpreter session can be in one of the following states:
 
 * **Idle (green)**: The interpreter session is available to run code
-* **Busy (blue)**:: The console session is busy with a task
-* **Shutdown (red)**: The console session has shutdown
+* **Busy (blue)**:: The interpreter session is busy with a task
+* **Shutdown (red)**: The interpreter session has shutdown
 
 ![Interpreter session status icons from Console pane](images/console-pane-interpreter-session-status.png)
