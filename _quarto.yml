@@ -73,7 +73,7 @@ website:
             - interpreter-startup.qmd
             - python-installations.qmd
             - r-installations.qmd
-        - section: "Documents and Apps"
+        - section: "Dynamic Documents and Apps"
           contents:
             - quarto.qmd
             - jupyter-notebooks.qmd
