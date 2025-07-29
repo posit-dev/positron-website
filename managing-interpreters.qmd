@@ -77,7 +77,7 @@ Select the {{<fa rotate-right>}} icon from the Console action bar to restart a s
 
 Renaming interpreter sessions is a useful tool to distinguish sessions for the same interpreter version.
 
-Right-click an interpreter session form the Console pane list and select the **Rename...** option. 
+Right-click an interpreter session from the Console pane list and select the **Rename...** option. 
 
 You can also rename a session by running the _Interpreter: Rename Active Interpreter Session_ command from the Command Palette. 
 
