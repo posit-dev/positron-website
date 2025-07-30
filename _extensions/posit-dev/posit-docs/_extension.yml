@@ -7,7 +7,6 @@ contributes:
     project:
       type: website
     website:
-      favicon: "assets/images/favicon.svg"
       bread-crumbs: true
       navbar:
         pinned: true
