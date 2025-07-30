@@ -10,7 +10,7 @@ contributes:
       bread-crumbs: true
       navbar:
         pinned: true
-        logo: "assets/images/positron.png"
+        logo: "assets/images/positron-icon.svg"
         logo-alt: "Positron Documentation"
       search:
         copy-button: true
