@@ -16,7 +16,7 @@ a[href^="positron://settings"]::before {
 /* Navbar list item aligment issues  */
 
 nav .nav-item:not(.compact) {
-    margin-bottom: -6px !important;
+  margin-bottom: -6px !important;
 }
 
 /* Keyboard shortcut styles 
@@ -24,3 +24,8 @@ nav .nav-item:not(.compact) {
   color: #ffffff !important;
 }
 */
+
+
+#download-btn {
+  margin-top: -7px
+}

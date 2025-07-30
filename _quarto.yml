@@ -31,7 +31,7 @@ website:
         href: add-to-path.qmd
       - text: "Help"
         href: troubleshooting.qmd
-      - text: "<span style='margin-top: -7px;' class='btn btn-primary'>Download</span>"
+      - text: "<span id='download-btn' class='btn btn-primary'>Download</span>"
         href: download.qmd
     right:
       - icon: github
