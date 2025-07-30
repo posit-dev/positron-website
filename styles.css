@@ -19,6 +19,16 @@ nav .nav-item:not(.compact) {
   margin-bottom: -6px !important;
 }
 
+.navbar-brand img {
+  height: 40px;  /* Adjust as needed */
+  width: auto;
+}
+
+#download-btn {
+  margin-top: -7px
+}
+
+
 /* Keyboard shortcut styles 
 .quarto-dark .kbd {
   color: #ffffff !important;
@@ -26,6 +36,3 @@ nav .nav-item:not(.compact) {
 */
 
 
-#download-btn {
-  margin-top: -7px
-}
