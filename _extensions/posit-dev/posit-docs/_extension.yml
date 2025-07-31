@@ -23,7 +23,7 @@ contributes:
         highlight-style: 
           light: github
           # dark: arrow
-        link-external-icon: true
+        # link-external-icon: true
         link-external-newwindow: true
         code-copy: true
         toc: true
