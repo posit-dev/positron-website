@@ -2,11 +2,11 @@
 
 #### Positron Assistant 🤖
 
-Positron Assistant, our AI client to provide LLM integration within Positron, has received several updates in this release. We have made changes to reduce token usage, added an experimental git integration, and added new tools that the Assistant can use (for example, to create documents, view documentation, or to get info on your rectangular data). You can also now control Assistant's access to data in your Python and R sessions. If you have a problem with the Assistant that you want to report, use the commands that begin _Positron Assistant: Export the current chat_ to export your logs.
+Positron Assistant, our AI client currently in preview, has received several updates in this release. We have made changes to reduce token usage, added an experimental git integration, and added new tools that the Assistant can use (for example, to create documents, view documentation, or to get info on your rectangular data). You can also now control Assistant's access to data in your Python and R sessions. If you have a problem with the Assistant that you want to report, use the commands that begin _Positron Assistant: Export the current chat_ to export your logs.
 
 #### New keybinding ✨
 
-The most upvoted feature request in this release is a new keybinding to execute the current statement in the Console _without_ advancing to the next one. You can now use <kbd>Alt+Enter</kbd> to execute your current statement without moving the cursor. (The existing keybinding <kbd>Ctrl/Cmd+Enter</kbd> executes the current statement and _does_ advance your cursor.)
+The most upvoted feature request in this release is a new keybinding to execute the current statement in your Python or R Console _without_ advancing to the next one. You can now use <kbd>Alt+Enter</kbd> to execute your current statement without moving the cursor. (The existing keybinding <kbd>Ctrl/Cmd+Enter</kbd> executes the current statement and _does_ advance your cursor.)
 
 #### Diagnostics and outlines for R 😌
 
