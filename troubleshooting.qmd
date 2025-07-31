@@ -55,17 +55,15 @@ If you seem to have gotten things in a bad state, you can reset Positron to fact
 
 ## Windows
 
-On Windows, Positron state is stored in `%APPDATA%\Roaming\Positron` and extensions are stored in `%USERPROFILE%\.positron`. Use the following PowerShell commands to delete these directories.
-
 Delete Positron state:
 
-```ps1
-Remove-Item -Path $env:APPDATA\Roaming\Positron -Recurse -Force
+```{.ps1 filename="PowerShell"}
+Remove-Item -Path $env:APPDATA\Positron -Recurse -Force
 ```
 
 Delete extensions:
 
-```ps1
+```{.ps1 filename="PowerShell"}
 Remove-Item -Path $env:USERPROFILE\.positron -Recurse -Force
 ```
 
@@ -73,13 +71,13 @@ Remove-Item -Path $env:USERPROFILE\.positron -Recurse -Force
 
 Delete Positron state:
 
-```bash
+```{.bash filename="Terminal"}
 rm -rf ~/Library/Application\ Support/Positron
 ```
 
 Delete extensions:
 
-```bash
+```{.bash filename="Terminal"}
 rm -rf ~/.positron
 ```
 
@@ -87,13 +85,13 @@ rm -rf ~/.positron
 
 Delete Positron state:
 
-```bash
+```{.bash filename="Terminal"}
 rm -rf ~/.config/Positron
 ```
 
 Delete extensions:
 
-```bash
+```{.bash filename="Terminal"}
 rm -rf ~/.positron
 ```
 
