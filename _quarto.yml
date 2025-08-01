@@ -4,7 +4,6 @@ project:
   render:
     - "*.qmd"
   resources:
-    - "index.html"
     - "landing.css"
     - "images/positron.svg"
     - "images/positron-screenshot.png"
