@@ -77,27 +77,83 @@ body {
 
 /* Navigation Header */
 .site-header {
-    position: relative;
-    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     padding: var(--spacing-lg) 0;
+    transition: all 0.3s ease;
+}
+
+/* Add backdrop blur when scrolled */
+.site-header.scrolled {
+    padding: var(--spacing-md) 0;
+}
+
+.site-header.scrolled .site-nav {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.02);
+    border-radius: 1rem;
+    padding: var(--spacing-xs) 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.site-header.scrolled .nav-container {
+    padding: var(--spacing-xs) var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+    .site-header.scrolled .nav-container {
+        padding: var(--spacing-xs) var(--spacing-md);
+    }
 }
 
 .site-nav {
-    width: 100%;
+    max-width: calc(80rem - var(--spacing-xl));
+    margin: 0 auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 0;
+    padding: 0;
+    border: 1px solid transparent;
+}
+
+@media (max-width: 1280px) {
+    .site-nav {
+        max-width: calc(100% - var(--spacing-xl) * 2);
+        margin: 0 var(--spacing-xl);
+    }
+}
+
+@media (max-width: 1024px) {
+    .site-nav {
+        max-width: calc(100% - var(--spacing-lg) * 2);
+        margin: 0 var(--spacing-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .site-nav {
+        max-width: calc(100% - var(--spacing-md) * 2);
+        margin: 0 var(--spacing-md);
+    }
 }
 
 .nav-container {
     max-width: 80rem;
     margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--spacing-xl);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .nav-container {
-        padding: 0 var(--spacing-xl);
+        padding: 0 var(--spacing-md);
     }
 }
 
@@ -362,6 +418,7 @@ a {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    padding-top: calc(4rem + var(--spacing-lg) * 2); /* Account for fixed header */
 }
 
 /* Hero Background Layer */
