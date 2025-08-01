@@ -9,7 +9,7 @@ hide-description: true
 
 ## What is Positron?
 
-- A next-generation data science IDE built by [Posit PBC](https://posit.co/)
+- A free, next-generation data science IDE built by [Posit PBC](https://posit.co/)
 - An extensible, polyglot tool for writing code and exploring data
 - A familiar environment for reproducible authoring and publishing
 
