@@ -18,7 +18,7 @@ If your session includes data tables, they appear in the **DATA** section of the
 
 ![DATA section](images/data-tables.png)
 
-To view your data table, click the **View Data Table** ![](images/view-data-tables-button.png){width=22px} button to open the Data Explorer with the table loaded.
+To view your data table, click the **View Data Table** ![](images/view-data-tables-button.png){width=22px} button to open the [Data Explorer](data-explorer.qmd) with the table loaded.
 
 ![Data Explorer](images/data-explorer-button.png)
 
