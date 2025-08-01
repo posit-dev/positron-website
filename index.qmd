@@ -11,6 +11,8 @@ include-in-header:
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="landing.css">
+      <script src="js/github-stats-config.js"></script>
+      <script src="js/github-stats-unified.js" defer></script>
       <style>
         /* Override Quarto's default styles for landing page */
         body.quarto-light {
@@ -311,6 +313,40 @@ include-in-header:
           vertical-align: text-bottom !important;
         }
         
+        .community-stat .stat-value {
+          display: inline-flex !important;
+          align-items: center !important;
+          gap: 0.25rem !important;
+          font-weight: 600 !important;
+        }
+        
+        .stat-number {
+          font-weight: 600 !important;
+          display: inline !important;
+          vertical-align: baseline !important;
+          font-size: inherit !important;
+          line-height: inherit !important;
+        }
+        
+        /* Ensure stat values in community cards display correctly */
+        .community-stats .stat-value {
+          white-space: nowrap !important;
+        }
+        
+        /* Remove paragraph margins in stat elements */
+        .stat-label p,
+        .stat-value p {
+          margin: 0 !important;
+          display: inline !important;
+        }
+        
+        /* Ensure community stat divs stay horizontal */
+        .community-stat {
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: center !important;
+        }
+        
         .community-stats-bar {
           background: linear-gradient(to right, var(--color-primary), #2563EB) !important;
           border-radius: var(--border-radius-lg) !important;
@@ -324,7 +360,7 @@ include-in-header:
         
         @media (min-width: 768px) {
           .community-stats-bar {
-            grid-template-columns: repeat(4, 1fr) !important;
+            grid-template-columns: repeat(3, 1fr) !important;
           }
         }
         
@@ -388,20 +424,12 @@ include-in-header:
 <div class="hero-grid">
 <!-- Left column - Text content -->
 <div class="hero-content">
-<div class="hero-header">
-![](images/positron.svg){.hero-logo alt="Positron logo"}
-
 <div class="hero-title">
-# Positron
-</div>
-</div>
-<div class="hero-subtitle">
-**A Next-Generation Data Science IDE**
+# A Next-Generation Data Science IDE
 </div>
 
 <div class="hero-description">
-A free, open-source IDE that combines the power of VS Code with specialized tools for data science. 
-Write code, explore data, and publish reproducible work—all in one extensible environment.
+A free data-science IDE from Posit PBC. Write code, analyze data, and share reproducible insights in your language of choice with purpose-built tools that enhance your data workflows. All in a familiar and extensible platform.
 </div>
 
 <!-- CTA buttons -->
@@ -419,7 +447,7 @@ Write code, explore data, and publish reproducible work—all in one extensible 
 {{< fa check >}} Python & R Support
 </div>
 <div class="hero-feature">
-{{< fa check >}} Open Source
+{{< fa check >}} Free to Use
 </div>
 </div>
 </div>
@@ -647,31 +675,16 @@ Connect with thousands of data scientists and developers who are building the fu
 <div class="community-card-body">
 <div class="community-stats">
 <div class="community-stat">
-<div class="stat-label">
-Stars
-</div>
-<div class="stat-value">
-<svg class="stat-icon" fill="currentColor" viewBox="0 0 20 20">
-<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-</svg>
-3.4k
-</div>
+<div class="stat-label">Stars</div>
+<div class="stat-value" data-stat="stars" data-format="short"><svg class="stat-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><span class="stat-number"></span></div>
 </div>
 <div class="community-stat">
-<div class="stat-label">
-Forks
-</div>
-<div class="stat-value">
-108
-</div>
+<div class="stat-label">Forks</div>
+<div class="stat-value" data-stat="forks"></div>
 </div>
 <div class="community-stat">
-<div class="stat-label">
-Contributors
-</div>
-<div class="stat-value">
-100+
-</div>
+<div class="stat-label">Contributors</div>
+<div class="stat-value" data-stat="contributors"></div>
 </div>
 </div>
 [View Repository](https://github.com/posit-dev/positron){.btn .btn-secondary .btn-block target="_blank" rel="noopener noreferrer"}
@@ -740,12 +753,8 @@ Contributors
 <!-- Statistics Bar -->
 <div class="community-stats-bar">
 <a href="https://github.com/posit-dev/positron/stargazers" target="_blank" rel="noopener noreferrer" class="stats-bar-item">
-<div class="stats-bar-value">3.4k+</div>
+<div class="stats-bar-value" data-stat="stars" data-format="short-plus"></div>
 <div class="stats-bar-label">GitHub Stars</div>
-</a>
-<a href="https://github.com/posit-dev/positron/graphs/contributors" target="_blank" rel="noopener noreferrer" class="stats-bar-item">
-<div class="stats-bar-value">100+</div>
-<div class="stats-bar-label">Contributors</div>
 </a>
 <a href="https://github.com/posit-dev/positron/discussions" target="_blank" rel="noopener noreferrer" class="stats-bar-item">
 <div class="stats-bar-value">50+</div>
