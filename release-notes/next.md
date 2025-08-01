@@ -70,6 +70,7 @@ Our engine for providing R diagnostics has undergone a major upgrade! You'll not
 - [[#8668](https://github.com/posit-dev/positron/issues/8668)] R: workspace symbols no longer get duplicates when a file is renamed.
 - [[#8630](https://github.com/posit-dev/positron/issues/8630)] R: "Go to Definition" now gives priority to definitions in the current file.
 - [[#8645](https://github.com/posit-dev/positron/issues/8645)] Assistant: fixed file path bug when using file contents tool.
+- [[#8760](https://github.com/posit-dev/positron/issues/8760)] Fixed Data Explorer filtering for `YYYY-MM-DD` values for pandas data frames.
 
 #### Dependencies
 
