@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Positron - A next-generation data science IDE built by Posit PBC">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <title>Positron - Next-Generation Data Science IDE</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Positron - Next-Generation Data Science IDE">
+    <meta property="og:description" content="Positron - A next-generation data science IDE built by Posit PBC">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Positron - Next-Generation Data Science IDE">
+    <meta name="twitter:description" content="Positron - A next-generation data science IDE built by Posit PBC">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <!-- Background layer with gradient and orbs -->
+            <div class="hero-background">
+                <div class="gradient-orb gradient-orb-blue" style="top: 5rem; left: -10rem;"></div>
+                <div class="gradient-orb gradient-orb-orange" style="top: 10rem; right: -10rem;"></div>
+                <div class="gradient-orb gradient-orb-blue-light" style="bottom: -10rem; left: 5rem;"></div>
+            </div>
+            
+            <!-- Content layer -->
+            <div class="hero-content-wrapper">
+                <div class="container">
+                    <div class="hero-grid">
+                    <!-- Left column - Text content -->
+                    <div class="hero-content">
+                        <div class="hero-header">
+                            <img src="images/positron.svg" alt="Positron logo" class="hero-logo">
+                            <h1 class="hero-title">Positron</h1>
+                        </div>
+                        <p class="hero-subtitle">A Next-Generation Data Science IDE</p>
+                        <p class="hero-description">
+                            A free, open-source IDE that combines the power of VS Code with specialized tools for data science. 
+                            Write code, explore data, and publish reproducible work—all in one extensible environment.
+                        </p>
+                        
+                        <!-- CTA buttons -->
+                        <div class="hero-actions">
+                            <a href="download.html" class="btn btn-primary btn-large">
+                                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
+                                </svg>
+                                Download Positron
+                            </a>
+                            <a href="#demo" class="btn btn-outline btn-large">
+                                <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Watch Demo
+                                <span class="btn-subtitle">(2 min)</span>
+                            </a>
+                        </div>
+                        
+                        <!-- Feature highlights -->
+                        <div class="hero-features">
+                            <div class="hero-feature">
+                                <svg class="hero-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Built on VS Code
+                            </div>
+                            <div class="hero-feature">
+                                <svg class="hero-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Python & R Support
+                            </div>
+                            <div class="hero-feature">
+                                <svg class="hero-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Open Source
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right column - Product screenshot -->
+                    <div class="hero-visual">
+                        <div class="screenshot-container">
+                            <div class="screenshot-wrapper">
+                                <img src="images/positron-screenshot.png" 
+                                     alt="Positron IDE interface showing code editor and data exploration" 
+                                     class="screenshot-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Everything you need for data science</h2>
+                    <p class="section-subtitle">
+                        Positron combines the power of VS Code with specialized tools designed specifically for data scientists and analysts.
+                    </p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, #2563eb, #0891b2);">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M10 15l-2 2 2 2 M14 15l2 2-2 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Built on VS Code</h3>
+                        <p class="feature-description">Leverage the power and extensibility of Visual Studio Code with specialized data science features.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, #9333ea, #db2777);">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Polyglot Support</h3>
+                        <p class="feature-description">Write code in Python, R, SQL, and more. Switch seamlessly between languages in a single project.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, #16a34a, #0d9488);">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h2v2H7V7zm4 0h2v2h-2V7zm4 0h2v2h-2V7zM7 11h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zM7 15h2v2H7v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Data Explorer</h3>
+                        <p class="feature-description">Explore your data with an intuitive, spreadsheet-like interface. Filter, sort, and visualize with ease.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, #ea580c, #dc2626);">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z M7 10l3 3-3 3 M13 17h5"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Interactive Console</h3>
+                        <p class="feature-description">Execute code interactively with rich output support. Perfect for exploratory data analysis.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, #4f46e5, #9333ea);">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z M3.27 6.96L12 12.01l8.73-5.05 M12 22.08V12"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Environment Management</h3>
+                        <p class="feature-description">Manage Python and R environments effortlessly. Switch between different versions and packages.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, #db2777, #e11d48);">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8 M10 9H8"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Reproducible Publishing</h3>
+                        <p class="feature-description">Create reports, dashboards, and applications with Quarto, Shiny, and Jupyter integration.</p>
+                    </div>
+                </div>
+                
+                <div class="features-cta">
+                    <a href="#demo" class="text-link">
+                        See it in action
+                        <svg class="text-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Quick Start Section -->
+        <section class="quickstart-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Get started in minutes</h2>
+                </div>
+                
+                <div class="quickstart-grid">
+                    <div class="quickstart-step">
+                        <div class="quickstart-number">1</div>
+                        <h3 class="quickstart-title">Download</h3>
+                        <p class="quickstart-description">Get the installer for your operating system</p>
+                    </div>
+                    
+                    <div class="quickstart-step">
+                        <div class="quickstart-number">2</div>
+                        <h3 class="quickstart-title">Install</h3>
+                        <p class="quickstart-description">Run the installer and follow the simple setup</p>
+                    </div>
+                    
+                    <div class="quickstart-step">
+                        <div class="quickstart-number">3</div>
+                        <h3 class="quickstart-title">Start coding</h3>
+                        <p class="quickstart-description">Open Positron and begin your data science journey</p>
+                    </div>
+                </div>
+                
+                <div class="quickstart-cta">
+                    <a href="download.html" class="btn btn-primary btn-large">Download Positron</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Video Section -->
+        <section id="demo" class="video-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">See Positron in action</h2>
+                    <p class="section-subtitle">Watch a quick introduction to Positron's key features</p>
+                </div>
+                
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/8uRcB34Hhsw" 
+                        title="Introducing Positron - A New Data Science IDE"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Community Section -->
+        <section class="community-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Join the Community</h2>
+                    <p class="section-subtitle">
+                        Connect with thousands of data scientists and developers who are building the future with Positron.
+                    </p>
+                </div>
+                
+                <div class="community-grid">
+                    <!-- GitHub Card -->
+                    <div class="community-card">
+                        <div class="community-card-header">
+                            <div class="community-icon" style="background: #111827;">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="community-card-title">GitHub</h3>
+                                <p class="community-card-subtitle">Open source & contributions</p>
+                            </div>
+                        </div>
+                        <div class="community-card-body">
+                            <div class="community-stats">
+                                <div class="community-stat">
+                                    <span class="stat-label">Stars</span>
+                                    <span class="stat-value">
+                                        <svg class="stat-icon" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                        3.4k
+                                    </span>
+                                </div>
+                                <div class="community-stat">
+                                    <span class="stat-label">Forks</span>
+                                    <span class="stat-value">108</span>
+                                </div>
+                                <div class="community-stat">
+                                    <span class="stat-label">Contributors</span>
+                                    <span class="stat-value">100+</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/posit-dev/positron" target="_blank" rel="noopener noreferrer" 
+                               class="btn btn-secondary btn-block">View Repository</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Discussions Card -->
+                    <div class="community-card">
+                        <div class="community-card-header">
+                            <div class="community-icon" style="background: #447099;">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" 
+                                          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="community-card-title">Discussions</h3>
+                                <p class="community-card-subtitle">Community support & ideas</p>
+                            </div>
+                        </div>
+                        <div class="community-card-body">
+                            <div class="community-features">
+                                <div class="community-feature">
+                                    <span>💡</span>
+                                    <span>Feature requests & feedback</span>
+                                </div>
+                                <div class="community-feature">
+                                    <span>🐛</span>
+                                    <span>Bug reports & troubleshooting</span>
+                                </div>
+                                <div class="community-feature">
+                                    <span>🚀</span>
+                                    <span>Best practices & tips</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/posit-dev/positron/discussions" target="_blank" rel="noopener noreferrer" 
+                               class="btn btn-primary btn-block">Join Discussions</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Documentation Card -->
+                    <div class="community-card">
+                        <div class="community-card-header">
+                            <div class="community-icon" style="background: linear-gradient(135deg, #9333ea, #db2777);">
+                                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" 
+                                          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="community-card-title">Documentation</h3>
+                                <p class="community-card-subtitle">Guides & API reference</p>
+                            </div>
+                        </div>
+                        <div class="community-card-body">
+                            <div class="community-features">
+                                <div class="community-feature">
+                                    <span>📚</span>
+                                    <span>Getting started guide</span>
+                                </div>
+                                <div class="community-feature">
+                                    <span>⚙️</span>
+                                    <span>Configuration options</span>
+                                </div>
+                                <div class="community-feature">
+                                    <span>🎯</span>
+                                    <span>Advanced features</span>
+                                </div>
+                            </div>
+                            <a href="start.html" class="btn btn-gradient btn-block">Read Docs</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Statistics Bar -->
+                <div class="community-stats-bar">
+                    <a href="https://github.com/posit-dev/positron/stargazers" target="_blank" rel="noopener noreferrer" 
+                       class="stats-bar-item">
+                        <div class="stats-bar-value">3.4k+</div>
+                        <div class="stats-bar-label">GitHub Stars</div>
+                    </a>
+                    <a href="https://github.com/posit-dev/positron/graphs/contributors" target="_blank" rel="noopener noreferrer" 
+                       class="stats-bar-item">
+                        <div class="stats-bar-value">100+</div>
+                        <div class="stats-bar-label">Contributors</div>
+                    </a>
+                    <a href="https://github.com/posit-dev/positron/discussions" target="_blank" rel="noopener noreferrer" 
+                       class="stats-bar-item">
+                        <div class="stats-bar-value">50+</div>
+                        <div class="stats-bar-label">Active Discussions</div>
+                    </a>
+                    <div class="stats-bar-item">
+                        <div class="stats-bar-value">Python & R</div>
+                        <div class="stats-bar-label">Languages</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <h3 class="footer-heading">Product</h3>
+                        <ul class="footer-links">
+                            <li><a href="download.html">Download</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="start.html">Documentation</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="footer-heading">Community</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://github.com/posit-dev/positron" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                            <li><a href="https://github.com/posit-dev/positron/discussions" target="_blank" rel="noopener noreferrer">Discussions</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="footer-heading">Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="start.html">Getting Started</a></li>
+                            <li><a href="faqs.html">FAQs</a></li>
+                            <li><a href="troubleshooting.html">Support</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="footer-heading">Posit</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://posit.co" target="_blank" rel="noopener noreferrer">About Posit</a></li>
+                            <li><a href="licensing.html">License</a></li>
+                            <li><a href="https://posit.co/about/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p class="footer-copyright">
+                        © Posit Software, PBC. All rights reserved. Positron™ and the Positron icon™ are trademarks of Posit Software, PBC.
+                    </p>
+                    <div class="footer-brand">
+                        <span>Built by</span>
+                        <a href="https://posit.co" target="_blank" rel="noopener noreferrer">
+                            <img src="images/posit-logo-black-TM.svg" alt="Posit" class="footer-logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
