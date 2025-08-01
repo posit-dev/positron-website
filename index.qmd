@@ -2,6 +2,7 @@
 title: "Positron - Next-Generation Data Science IDE"
 pagetitle: "Positron - Next-Generation Data Science IDE"
 description: "A next-generation data science IDE built by Posit PBC"
+hide-description: true
 page-layout: custom
 sidebar: false
 include-in-header:
@@ -45,6 +46,11 @@ include-in-header:
           display: none;
         }
         
+        /* Hide title block header */
+        #title-block-header {
+          display: none !important;
+        }
+        
         /* Remove default content padding */
         #quarto-content {
           padding: 0 !important;
@@ -54,6 +60,8 @@ include-in-header:
         .content-container {
           width: 100vw;
           margin-left: calc(-50vw + 50%);
+          padding-top: 0 !important;
+          margin-top: 0 !important;
         }
         
         /* Remove Quarto's default footer */
@@ -76,6 +84,18 @@ include-in-header:
         #quarto-document-content h6 {
           border: none !important;
           margin-top: 0 !important;
+        }
+        
+        /* Section headers styling */
+        .section-title h2 {
+          border: none !important;
+          text-wrap: balance !important;
+          padding-bottom: 0 !important;
+          font-weight: 600 !important;
+        }
+        
+        .section-subtitle {
+          text-wrap: balance !important;
         }
         
         /* Ensure landing styles take precedence */
@@ -115,6 +135,11 @@ include-in-header:
         .hero-visual img {
           max-width: 100%;
           height: auto;
+        }
+        
+        /* Hide image captions in hero */
+        .hero-visual figcaption {
+          display: none !important;
         }
         
         /* Ensure full width sections */
@@ -332,6 +357,10 @@ include-in-header:
         .stats-bar-label {
           font-size: var(--font-size-sm) !important;
           opacity: 0.9 !important;
+        }
+
+        .quickstart-number p {
+          margin: 0 !important;
         }
         
         @media (min-width: 768px) {
