@@ -14,6 +14,4 @@ If the **Variables** pane is not already displayed, you can open it by clicking 
 
 ### Viewing data tables
 
-If your session includes data tables, they appear in the **DATA** section of the Variables pane.
-
-For more information about viewing your data tables, see the [Data Explorer](data-explorer.qmd) section.
+If your session includes data tables, they appear in the **DATA** section of the Variables pane. For more information about viewing your data tables, see the [Data Explorer](data-explorer.qmd) section.
