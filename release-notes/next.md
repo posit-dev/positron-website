@@ -69,7 +69,6 @@ Our engine for providing R diagnostics has undergone a major upgrade! You'll not
 - [[#8550](https://github.com/posit-dev/positron/issues/8550)] R: fixed a diagnostics issue where objects defined in other files were not properly detected.
 - [[#8668](https://github.com/posit-dev/positron/issues/8668)] R: workspace symbols no longer get duplicates when a file is renamed.
 - [[#8630](https://github.com/posit-dev/positron/issues/8630)] R: "Go to Definition" now gives priority to definitions in the current file.
-- [[#8374](https://github.com/posit-dev/positron/issues/8374)] R: Fixed regression in the "Navigate to File" RStudio API handler has been fixed. This solves issues with functions like `usethis::use_test()`.
 - [[#8645](https://github.com/posit-dev/positron/issues/8645)] Assistant: fixed file path bug when using file contents tool.
 
 #### Dependencies
