@@ -49,4 +49,10 @@ winget install --id Posit.Positron
 winget upgrade --id Posit.Positron
 ```
 
+## Remote Extension Host updates
+
+The Remote Extension Host (REH) also referred to as [Positron Server](https://positron.posit.co/remote-ssh.html) is updated automatically on the current monthly cadence when the Positron IDE/Client is updated.   
+If you connect to the remote host and there is no matching REH build (either it is your first time to do this, or your local Positron has updated), then the new version is downloaded and installed.  
+
+
 This is community maintained, via [automated PR to the central manifest repository](https://github.com/microsoft/winget-pkgs/tree/master/manifests/p/Posit/Positron).
