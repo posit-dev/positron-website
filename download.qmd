@@ -122,7 +122,7 @@ knitr::kable(download_table, format = "html", escape = FALSE)
 ```
 <br>
 
-Once you install Positron, it will [automatically check for updates moving forward](updating.qmd). Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases).
+Once you install Positron, it will [automatically check for updates moving forward](updating.qmd).
 
 ## Positron Pro on Posit Workbench
 
@@ -131,3 +131,7 @@ Once you install Positron, it will [automatically check for updates moving forwa
 ## Release notes
 
 {{< include release-notes/release.md >}}
+
+## Older releases
+
+Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases), and you can also find the [release notes for previous versions](release-notes.qmd).
