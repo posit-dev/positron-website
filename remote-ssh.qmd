@@ -116,5 +116,9 @@ If you need to use a different URL to download Positron Server (for example to u
 
 ![Remote SSH: Server Download Url Template Setting](./images/remote-ssh-server-template.png){width=650}
 
-Note that the client and server must be using **exactly** the same Positron version.
+**Note**: The client and server must be using *exactly* the same Positron version.
 
+### Remote Extension Host updates
+
+The Remote Extension Host (REH) also referred to as "Positron Server" is updated automatically by the Positron IDE/Client on the current monthly cadence.   
+If you connect to the remote host and there is no matching REH build (either it is your first time to do this, or your local Positron has updated), then the new version is downloaded and installed.  
