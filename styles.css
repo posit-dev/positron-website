@@ -28,6 +28,10 @@ nav .nav-item:not(.compact) {
   margin-top: -7px
 }
 
+/* Keyboard shortcuts */
+kbd {
+    padding: .2rem .2rem;
+}
 
 /* Keyboard shortcut styles 
 .quarto-dark .kbd {
