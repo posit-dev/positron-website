@@ -21,7 +21,7 @@ The interpreter can also be started by selecting "Python (reticulate)" when crea
 
 Python interpreters managed by the reticulate package have some important differences compared to standard Python interpreters:
 
-- They use the **Python version selected by reticulate**. See Reticulate's ["Python version configuration"](https://rstudio.github.io/reticulate/articles/versions.html) for additional information.
+- They use the **Python version selected by reticulate**. See Reticulate's [Python version configuration](https://rstudio.github.io/reticulate/articles/versions.html) for additional information.
 
 - Runs within the **same process as the R session** that started it. 
 
