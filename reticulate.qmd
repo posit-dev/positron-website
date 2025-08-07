@@ -31,7 +31,7 @@ The latter has a few important implications:
 
 ![Accessing R objects in Python](images/reticulate-python-objs.png)
 
-- You can access Python objects R using the `py` prefix. For example, if you have a Python function named `my_function`, you can call it in R as `py$my_function()`.
+- You can access Python objects from R using the `py` prefix. For example, if you have a Python function named `my_function`, you can call it in R as `py$my_function()`.
 
 Note that for the above, the conversion between R and Python objects is managed by reticulate using the `py_to_r()` and `r_to_py()` generics. See the [type conversions table](https://rstudio.github.io/reticulate/index.html#type-conversions) for more information.
 
