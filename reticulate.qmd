@@ -13,7 +13,7 @@ To start a reticulate Python interpreter session, execute the following in an ac
 reticulate::repl_python()
 ```
 
-![Reticulate Python Interpreter](images/reticulate-interpreter.png)
+![Reticulate Python interpreter session](images/reticulate-interpreter.png)
 
 The interpreter can also be started by selecting "Python (reticulate)" when creating a new interpreter session. 
 
