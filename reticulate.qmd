@@ -15,7 +15,7 @@ reticulate::repl_python()
 
 ![Reticulate Python interpreter session](images/reticulate-interpreter.png)
 
-The interpreter can also be started by selecting "Python (reticulate)" when creating a new interpreter session. 
+The Reticulate Python interpreter can also be started by selecting "Python (reticulate)" when creating a new interpreter session. 
 
 ![New interpreter session list](images/reticulate-interpreter-list.png)
 
@@ -35,11 +35,4 @@ The latter has a few important implications:
 
 Note that for the above, the conversion between R and Python objects is managed by reticulate using the `py_to_r()` and `r_to_py()` generics. See the [type conversions table](https://rstudio.github.io/reticulate/index.html#type-conversions) for more information.
 
-The reticulate Python interpreter session is tied to the lifecycle of the R session. If you close the R session or restart it, the Python interpreter session will also be terminated. It's possible to restart the Python interpreter independently, but note that this **will not** restart the associated R session.
-
-
-
-
-
-
-
+The reticulate Python interpreter session is tied to the lifecycle of its parent R session. If you close the parent R session or restart it, the Python interpreter session will also be terminated. It's possible to restart the Python interpreter independently, but note that this **will not** restart the associated R session.
