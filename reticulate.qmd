@@ -7,7 +7,7 @@ Positron has built-in support for Python interpreters managed by the [reticulate
 The feature is controlled by the [`positron.reticulate.enabled` setting](positron://settings/positron.reticulate.enabled) which is set to `'auto'` by default. When `'auto'` is selected, Positron's reticulate integration will be enabled in workspaces where the reticulate R package has
 been loaded at least once. You can also explicitly enable or disable the reticulate integration by setting the value to `'always'` or `'never'`, respectively.
 
-To start a reticulate Python interpreter session, execute the following in an active R interpreter:
+To start a reticulate Python interpreter session, execute the following in an active R interpreter session:
 
 ```r
 reticulate::repl_python()
