@@ -23,7 +23,7 @@ Python interpreters managed by the reticulate package have some important differ
 
 - They use the **Python version selected by reticulate**. See Reticulate's [Python version configuration](https://rstudio.github.io/reticulate/articles/versions.html) for additional information.
 
-- Runs within the **same process as the R session** that started it. 
+- They run within the **same process as the R session** that started it. 
 
 The latter has a few important implications:
 
