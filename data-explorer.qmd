@@ -60,8 +60,9 @@ of the window:
 ### Supported data frame libraries
 
 pandas and Polars `DataFrame` objects are supported in Python, and `data.frame`,
-`tibble`, and `data.table` are supported in R. Based on user feedback, we may add
-support for other libraries that expose a tabular data interface.
+`tibble`, and `data.table` are supported in R. Previews of database connections managed by the [Connections Pane](connections-pane.qmd) are also supported, for both Python and R.
+
+Based on [user feedback](feedback.qmd#feedback-and-issues), we may add support for other libraries that expose a tabular data interface.
 
 ### Opening CSV files as plain text
 

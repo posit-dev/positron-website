@@ -73,11 +73,14 @@ website:
             - quarto.qmd
             - jupyter-notebooks.qmd
             - develop-data-apps.qmd
+        - section: "Database Connections"
+          contents:
+            - connections-pane.qmd
+            - extending-connections.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
         - assistant.qmd
         - variables-pane.qmd
-        - connections-pane.qmd
         - help-pane.qmd
         - remote-ssh.qmd
         - extension-development.qmd
