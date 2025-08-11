@@ -10,11 +10,11 @@ The Connections Pane can be extended by:
 
 ## Adding new connection types
 
-Currently connection types are extensible in R using the [RStudio connections contract](https://rstudio.github.io/rstudio-extensions/connections-contract.html).
+In R, you can extend connection types using the [RStudio connections contract](https://rstudio.github.io/rstudio-extensions/connections-contract.html).
 Refer to the [RStudio connections contract documentation](https://rstudio.github.io/rstudio-extensions/connections-contract.html) for more information on how to implement a new connection type.
 
 For Python, we don't currently support an external extension mechanism. The Connections Pane can be extended by implementing
-a subclass of the `Connection` class defined in [`connections.py`](https://github.com/posit-dev/positron/blob/main/extensions/positron-python/python_files/posit/positron/connections.py) and submitting a PR to the Positron repository. Refer to `SQLite3Connection` for [an example](https://github.com/posit-dev/positron/blob/main/extensions/positron-python/python_files/posit/positron/connections.py).
+a subclass of the `Connection` class (defined in [`connections.py`](https://github.com/posit-dev/positron/blob/main/extensions/positron-python/python_files/posit/positron/connections.py)) and submitting a PR to the Positron repository. Refer to `SQLite3Connection` for [an example](https://github.com/posit-dev/positron/blob/main/extensions/positron-python/python_files/posit/positron/connections.py).
 
 ## Extending the "New connections" modal
 

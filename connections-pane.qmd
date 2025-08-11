@@ -28,7 +28,7 @@ When you create a new connection, Positron stores and manages connection strings
 
 ### Create a connection using R
 
-To create a connection in Positron Connections Pane, you need to connect to a database using any
+To create a connection in the Positron Connections Pane, you need to connect to a database using any
 package that supports the connections contract, such as [odbc](https://github.com/r-dbi/odbc), [sparklyr](https://github.com/rstudio/sparklyr),
 [bigrquery](https://github.com/r-dbi/bigrquery), and others.
 
