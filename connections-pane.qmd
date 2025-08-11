@@ -2,20 +2,33 @@
 title: "Connections Pane"
 ---
 
-The Connections Pane allows you to explore database connections created within your R or Python sessions.
-It also includes basic support for storing and managing connection strings for future usage.
+The Connections Pane allows you to manage and explore database connections for use within your Python and/or R sessions. You can create connections to databases, explore their schemas, and interactively preview database tables.
 
 ![Connections Pane](images/connections-pane.png)
 
-## Opening a new connection
+## Explore your database schema
+
+Once you [create a new connection](#create-a-new-connection), you can use the Connections Pane to explore the database schema. 
+
+![Connections Pane showing database schema, tables, and columns](images/connections-pane-schema-explorer.png)
+
+You can navigate through the database schema, viewing tables, columns, and their data types. You can also click the table icon to explore a preview of the database contents in the [Data Explorer](data-explorer.qmd).
+
+## Create a new connection 
+
+You can create a new connection to a database either from the UI, or using Python or R code.
+
+### Create a new connection from the UI
 
 To open a new connection, click on the "New connection" button in the Connections Pane. This will open a modal that allows you to select the connection type and fill in the connection details. This modal generates the code required to open the connection in your R or Python session.
 
 ![New connections modal](images/connections-pane-new-connection.png)
 
-### Opening a connection using R
+When you create a new connection, Positron stores and manages connection strings for future usage.
 
-To open a connection in Positron Connections Pane, you need to connect to a database using any
+### Create a connection using R
+
+To create a connection in Positron Connections Pane, you need to connect to a database using any
 package that supports the connections contract, such as [odbc](https://github.com/r-dbi/odbc), [sparklyr](https://github.com/rstudio/sparklyr),
 [bigrquery](https://github.com/r-dbi/bigrquery), and others.
 
@@ -24,19 +37,14 @@ The Positron Connections Pane implements [RStudio's connections contract](https:
 Here is an example of how to open a connection using the [connections](https://github.com/rstudio/connections) package to open a SQLite connection:
 
 ``` r
-tmp <- tempfile()
-dir.create(tmp)
-dbplyr::nycflights13_sqlite(path = tmp)
-con <- connections::connection_open(RSQLite::SQLite(), file.path(tmp, "nycflights13.sqlite"))
+con <- connections::connection_open(RSQLite::SQLite(), "nycflights13.sqlite")
 ```
 
-You can also open an existing connection from the Variables Pane, as shown below for Python, and you can find more information about connecting to a specific database [from Posit Solutions Engineering](https://solutions.posit.co/connections/db/databases/).
+Click on the connection object [from the Variables Pane](#explore-a-connection-from-the-variables-pane) or use `connections::connect_view(con)` to open the Connections Pane.
 
-Once a connection is opened, you can use the Connections Pane to explore the database schema.
+You can find more information about connecting to a specific database [from Posit Solutions Engineering](https://solutions.posit.co/connections/db/databases/).
 
-![Connections Pane showing a connection object](images/connections-pane-schema-explorer.png)
-
-### Opening a connection using Python
+### Create a connection using Python
 
 Currently we support connections created using the [sqlite3](https://docs.python.org/3/library/sqlite3.html) and [SQLAlchemy](https://www.sqlalchemy.org) modules.
 To open a connection in the Connections Pane, create a top level object that represents the connection/engine.
@@ -46,80 +54,12 @@ import sqlite3
 conn = sqlite3.connect("nycflights13.sqlite")
 ```
 
-You can then either use `%connection_show conn` to open the connection in the Connections Pane or click on
-the database icon that appears close to the object name in the Variables Pane.
+You can then either use `%connection_show conn` to open the connection in the Connections Pane or [open it from the Variables Pane](#explore-a-connection-from-the-variables-pane).
+
+## Explore a connection from the Variables Pane
+
+You can open an existing connection that you created from Python or R from the [Variables Pane](variables-pane.qmd):
 
 ![Variables Pane showing a connection object](images/connections-pane-variables-pane.png)
 
-That will bring up the Connections Pane, allowing you to navigate the database.
-
-## Extending the Connections Pane
-
-The Connections Pane can be extended by:
-
-- Adding support for browsing and managing a new connection type in the Connections Pane.
-- Extending the "New connections" modal to support creating a connection of a new type.
-
-### Adding new connection types
-
-Currently connection types are extensible in R using the [RStudio connections contract](https://rstudio.github.io/rstudio-extensions/connections-contract.html).
-Refer to the [RStudio connections contract documentation](https://rstudio.github.io/rstudio-extensions/connections-contract.html) for more information on how to implement a new connection type.
-
-For Python, we don't currently support an external extension mechanism. The Connections Pane can be extended by implementing
-a subclass of the `Connection` class defined in [`connections.py`](https://github.com/posit-dev/positron/blob/main/extensions/positron-python/python_files/posit/positron/connections.py) and submitting a PR to the Positron repository. Refer to `SQLite3Connection` for [an example](https://github.com/posit-dev/positron/blob/main/extensions/positron-python/python_files/posit/positron/connections.py).
-
-### Extending the "New connections" modal
-
-The "New connections" modal allows users to easily create connections to different databases. 
-It helps users create a connection by providing a form to fill in the connection details.
-
-The modal can be extended by creating an extension for Positron; see [Extension Development](extension-development.qmd) for more information. 
-
-In order for an extension to provide support for a new connection type, it needs to implement and 
-register a `positron.ConnectionsDriver`. A driver provides metadata about the connection type and
-implements callbacks that are used to install dependencies required to create the connection, connect
-with the database, and disconnect.
-
-The definition can be found in [positron.d.ts](https://github.com/posit-dev/positron/blob/main/src/positron-dts/positron.d.ts); look for `ConnectionsDriver`.
-
-```ts
-export interface ConnectionsDriver {
-    /**
-     * The unique identifier for the driver.
-     */
-    driverId: string;
-
-    /**
-     * The metadata for the driver.
-     */
-    metadata: ConnectionsDriverMetadata;
-
-    /**
-     * Generates the connection code based on the inputs.
-     */
-    generateCode?: (inputs: Array<ConnectionsInput>) => string;
-
-    /**
-     * Connect session.
-     */
-    connect?: (code: string) => Promise<void>;
-
-    /**
-     * Checks if the dependencies for the driver are installed
-     * and functioning.
-     */
-    checkDependencies?: () => Promise<boolean>;
-
-    /**
-     * Installs the dependencies for the driver.
-     * For instance, R packages would install the required
-     * R packages, and or other dependencies.
-     */
-    installDependencies?: () => Promise<boolean>;
-}
-```
-
-To register a driver, extensions need to call `positron.connections.registerConnectionDriver()` with
-the driver instance as an argument.
-
-Refer to [drivers.ts](https://github.com/posit-dev/positron/blob/main/extensions/positron-connections/src/drivers.ts) for examples of drivers implemented in the Positron Connections extension.
+Click the database icon to bring up the Connections Pane, allowing you to navigate the database.
