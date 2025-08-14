@@ -18,13 +18,13 @@ Positron tries to start R for R users and Python for Python users by checking to
 
 When Positron starts in a workspace that has been used before, it will start the same language interpreter that was running the last time you used the workspace.
 
-In the case of R, there is some additional subtlety:
+In the case of R, there is some additional subtlety.
 When Positron records which R version was most recently used in a workspace, it also notes whether that R version is the system's default R version.
 In subsequent runs, Positron will launch the system's default R version, even if that is a different version number from the last-used R version.
 We believe this behaviour is the least surprising for most users.
 If you want to use a specific, non-default R version in a workspace, select it explicitly once and it will be launched in future runs.
 
-If Positron starts an interpreter you don't need, just delete the session, and it will stop starting automatically in that workspace.
+If Positron starts an interpreter you don't need, just delete the session, and it will no longer start automatically in that workspace.
 
 ## Implicit startup
 
