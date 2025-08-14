@@ -4,7 +4,8 @@ title: "Updating Positron"
 
 By default, Positron automatically checks for updates from our channel of monthly releases.
 
-- On Windows and Mac, if an update is available, Positron will download it and install the new version in the background.
+- For Mac and our Windows user installation, if an update is available, Positron will download it and install the new version in the background.
+- For our Windows system installation, if an update is available, Positron will download it and notify you in the {{< fa cog >}} icon at the bottom left that the new version is available.
 - On Linux, Positron will show a notification when an update is available.
 
 You can opt out of this automatic checking by changing the [`update.mode` setting](positron://settings/update.mode) to `"none"`; see [our page on privacy and data collection](privacy.qmd) for more details.

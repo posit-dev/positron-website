@@ -9,7 +9,7 @@ It can be used to display information about an object, function, or package.
 
 ## Getting Help in Python & R
 
-You can open documentation in the Help Pane using language-specific tools or the keyboard shortcut <kbd>F1</kbd>. 
+You can open documentation in the Help Pane using language-specific tools or the keyboard shortcut {{< kbd F1 >}}. 
 These methods automatically open the Help Pane and display documentation.
 
 ::: {.panel-tabset}
@@ -50,7 +50,7 @@ The Help Pane supports the following types of documentation in R:
 
 The Help Pane includes built-in navigation tools:
 
-- {{< fa search>}}  Search – Find keywords within a help page
+- {{< fa search >}}  Search – Find keywords within a help page
 
 - {{< fa arrow-left >}}  {{< fa arrow-right >}} Back and Forward – Navigate through recent help views
 

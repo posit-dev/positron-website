@@ -84,7 +84,7 @@ for (variable in vector) {
 }
 ```
 
-A snippet for `for` inserts this whole skeleton, with special placeholders that let you use <kbd>Tab</kbd> to move through the positions for `variable` and `vector`, and `# code to repeat`.
+A snippet for `for` inserts this whole skeleton, with special placeholders that let you use {{< kbd Tab >}} to move through the positions for `variable` and `vector`, and `# code to repeat`.
 
 ![Completion list after typing "for", showing the snippet that can be inserted](images/snippets-for-example){width=700}
 
@@ -131,7 +131,7 @@ Each reserved word can be completed on its own and, in some cases, as part of a 
 #### Everything else
 
 If you want snippets beyond those provided for R's reserved words, you'll need to configure that for yourself.
-Press <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> to open the command palette and type *Snippets: Configure Snippets*.
+Press {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} to open the command palette and type *Snippets: Configure Snippets*.
 
 Snippets can be stored in three types of files:
 

@@ -1,0 +1,33 @@
+---
+title: "Quarto"
+---
+
+[Quarto](https://quarto.org/) is an open-source scientific and technical publishing system for creating reproducible documents that combine narrative and executable code.
+
+Positron enhances how you can use Quarto in several important ways:
+
+- Quarto works out of the box in Positron. The Quarto CLI is bundled in Positron, and the Quarto extension is included as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions).
+- Features such as statement execution work seamlessly in Positron's Console, and Positron supports integrated rendering and preview of Quarto documents.
+- Positron provides rich UI via [custom action bars](action-bars.qmd) to preview your Quarto document, control rendering behavior, and switch between source and visual mode,
+
+![A Quarto document in Positron, with narrative, executable code chunks, and the rendered preview in Positron's integrated Viewer Pane.](images/quarto-hello-python.png){width=700}
+
+Learn more in the Quarto documentation about [getting started with Quarto and Positron](https://quarto.org/docs/get-started/hello/positron.html), or [the details of using Positron as a tool for working with Quarto](https://quarto.org/docs/tools/positron/).
+
+:::{.callout-note}
+Quarto's [visual editor](https://quarto.org/docs/tools/positron/visual-editor.html) currently has limited support in Positron. It is a great fit for rich text authoring, but statement execution and other language features are not yet supported. Consider switching to source mode when you need such features, and [follow along on GitHub for updates](https://github.com/posit-dev/positron/issues/1805) on this support.
+:::
+
+## Support for R Markdown
+
+Quarto provides Positron's support for [R Markdown](https://rmarkdown.rstudio.com/); there are no specialized IDE features for R Markdown other than those provided by Quarto. Some advanced `.Rmd` features like using `params` are not supported for interactive use. Positron's [Command Palette](command-palette.qmd) does provide the command _R: Render Document With R Markdown_, which renders an `.Rmd` file using the R package [rmarkdown](https://pkgs.rstudio.com/rmarkdown/) instead of Quarto; this _does_ support all `.Rmd` features but does not automatically preview the rendered output.
+
+## Using the Quarto extension
+
+The Quarto extension is included as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions) in Positron. This means that it will behave just like you installed it yourself; this extension will update automatically when a new version is available on Open VSX and it can be uninstalled if desired.
+
+## Managing Quarto installations
+
+Positron bundles a version of the Quarto CLI, but you can also use a version of the Quarto CLI that you have installed yourself. This should typically work automatically, but you can manage exactly which Quarto to use via the [`quarto.path` setting](positron://settings/quarto.path). Check the bottom status bar to see which version of Quarto is being used currently.[^1]
+
+[^1]: If you change the version of Quarto you are using, you will need to restart Positron to see the status bar update.

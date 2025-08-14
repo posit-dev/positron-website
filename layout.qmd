@@ -1,0 +1,34 @@
+---
+title: "Layout"
+---
+
+The Positron interface provides a flexible environment for data science that can be tailored to your needs. You can organize tools and outputs into distinct, customizable panes. This lets you tailor your workspace to your workflows in Python, R, and other languages.
+
+## Basic overview
+
+This section outlines the core layout elements of the Positron interface. Each section plays a distinct role in writing code, running code, and understanding your results, giving you full control over your data science environment.
+
+![Interface of the Positron IDE showing Activity Bar, Primary Side Bar, Editor, Panel, and Secondary Side Bar](images/user-interface-for-rstudio-migration.jpeg)
+
+- The **Activity Bar** provides quick access to switch between core views such as Explorer, Search, [Source Control](git.qmd), and [Extensions](extensions.qmd).
+- The **Primary Side Bar** is on the left by default and shows you different views depending on what you have chosen in the Activity Bar. When you choose the Explorer icon, this pane provides the file explorer to navigate your project directory and the outline. When you choose the Assistant icon, this pane provides access to [Positron Assistant](assistant.qmd).
+- The **Editor** is in the center by default, and is where you write your code. For editor controls, refer to [VS Code Editor Basics](https://code.visualstudio.com/docs/editing/codebasics).
+- The **Panel** is below the editor by default and contains the fully interactive, integrated Console as well as the [Terminal](https://code.visualstudio.com/docs/terminal/basics) You can also access logs from [Output](troubleshooting.qmd#output-panel) channels in the Panel.
+- The **Secondary Side Bar** is on the right by default. You can switch between the Session pane (where you can explore the variables you have defined and the plots you have created), the [Connections](connections-pane.qmd) pane, the [Help](help-pane.qmd) pane, and the Viewer pane.
+
+The **Title Bar** at the very top of the window shows the active file and project, along with window controls. Below it, the **Top Bar** provides global project tools such as file search, the project switcher, and the [interpreter selector](managing-interpreters.qmd#active-interpreter-session) with the ability to start, stop, and switch interpreters. The **Status Bar** at the bottom of the window displays details such as your git branch, language mode, [Quarto version](quarto.qmd), and cursor position.
+
+## Layout customization
+
+Positron offers flexible layout options to suit a variety of development workflows. Almost every component can be rearranged by dragging; for example, try moving the Help pane into the Session pane. You can also toggle most of these components in and out of view using commands such as _View: Toggle Primary Side Bar Visibility_, _View: Toggle Status Bar Visibility_, and others.
+
+
+### Layout presets
+
+Positron provides layout presets specifically designed for data science work:
+
+- **Stacked** (default): Editor above with Console and Terminal below, and the Variables and Plots panes to the right. Designed for interactive workflows with regular scripts or literate programming documents such as Quarto.
+- **Side-by-side**: Useful for wide-screen users or those who prefer their editor and console next to each other.
+- **Notebook**: Emphasizes the editor workspace for full focus on a Jupyter Notebook or source file, minimizing other panes.  
+
+Use the _Customize Layout..._ command for more specific layout choices. You can also reset the whole UI back to defaults by clicking on the {{<fa rotate-left >}} icon at the top right of the layout quickpick.

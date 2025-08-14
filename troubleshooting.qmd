@@ -2,13 +2,15 @@
 title: "Troubleshooting"
 ---
 
-If you're having trouble with Positron, here is some info and tools to help you get back on track.
+If you're having trouble with Positron, here are some resources and tools to help troubleshoot and resolve your problems.
 
 ## Reloading
 
-Positron is an Electron app. If you're seeing what looks like a temporary glitch, you can try reloading the window. To do this, from the Command Palette, run the _Developer: Reload Window_ command.
+Positron is an Electron app. If you're seeing what looks like a temporary glitch, you can try reloading the window.
 
-A window reload shouldn't cause you to lose any state, but it does cause the Positron front end and all language packs to restart. 
+A window reload shouldn't cause you to lose any session state, but it does cause the Positron front end, extensions, and all language packs to restart. Note that undo/redo history will also be cleared when you reload.
+
+To reload the window, open the Command Palette and run the _Developer: Reload Window_ command.
 
 ## Python and R logs
 
@@ -16,7 +18,9 @@ A window reload shouldn't cause you to lose any state, but it does cause the Pos
 
 Python and R logs are emitted in the Output panel. Each interpreter starts several output channels that can be used to help diagnose problems with a respective part of the system. 
 
-Run the _Output: Show Output Channels_ command to show a list of output channels. You can then select one to view its output by name, like "R Language Pack". Here's a list of some Positron-specific channels you may be interested in:
+Run the _Output: Show Output Channels_ command to show a list of output channels. You can then select one to view its output by name, like "R Language Pack".
+
+Here's a list of some Positron-specific channels you may be interested in:
 
 | Channel | Description |
 | ------- | ----------- |
@@ -32,21 +36,69 @@ Most of these output channels have a log level associated with them that you can
 
 ## Developer tools
 
-When looking for the source of an error, the developer tools can be helpful. From the Command Palette, run the _Developer: Toggle Developer Tools_ command. Then, from the Developer Tools panel that appears, select the _Console_ tab.
+Positron is built on Electron, which means it has a built-in developer tools panel similar to what you see in web browsers. When looking for the source of an error, the developer tools output can be helpful. 
 
-If you see an error in the developer tools related to the issue you're seeing, please include it when filing an issue on Github.
+Use these instructions to open the developer tools and check for errors or relevant log messages:
+
+1. From the Command Palette, run the _Developer: Toggle Developer Tools_ command.
+1. From the Developer Tools panel that appears, select the _Console_ tab.
+1. When filing an issue on Github, include errors or log messages from the _Console_ tab that are related to the issue you're seeing.
 
 ## Resetting Positron
 
-If you seem to have gotten things in a bad state, you can reset Positron to factory-fresh as follows. Close all Positron instances, then delete its state files:
+If you seem to have gotten things in a bad state, you can reset Positron to factory-fresh as follows.
 
-```bash
-rm -rf "~/Library/Application Support/Positron"
+1. Close all Positron instances completely.
+2. Clear out Positron state according to your operating system.
+
+::: {.panel-tabset group="os"}
+
+## Windows
+
+Delete Positron state:
+
+```{.ps1 filename="PowerShell"}
+Remove-Item -Path $env:APPDATA\Positron -Recurse -Force
+```
+
+Delete extensions:
+
+```{.ps1 filename="PowerShell"}
+Remove-Item -Path $env:USERPROFILE\.positron -Recurse -Force
+```
+
+## Mac
+
+Delete Positron state:
+
+```{.bash filename="Terminal"}
+rm -rf ~/Library/Application\ Support/Positron
+```
+
+Delete extensions:
+
+```{.bash filename="Terminal"}
 rm -rf ~/.positron
 ```
 
-Then, download the [latest release](https://github.com/posit-dev/positron/releases) of Positron and install it.
+## Linux
+
+Delete Positron state:
+
+```{.bash filename="Terminal"}
+rm -rf ~/.config/Positron
+```
+
+Delete extensions:
+
+```{.bash filename="Terminal"}
+rm -rf ~/.positron
+```
+
+:::
+
+3. [Download the latest release](./download.qmd) of Positron and install it.
 
 ## Ask for help
 
-Finally, ask for help early and often. If you're having trouble as one of our beta testers, we'd like to hear about it, perhaps even before you blow away any state that might tell us what the issue was. Join us on [GitHub Discussions](https://github.com/posit-dev/positron/discussions)!
+Finally, ask for help early and often. If you're having trouble, we'd like to hear about it, perhaps even before you blow away any state that might tell us what the issue was. Join us on [GitHub Discussions](https://github.com/posit-dev/positron/discussions)!

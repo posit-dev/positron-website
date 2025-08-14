@@ -19,12 +19,13 @@ end
 
 ## System requirements
 
-Remote SSH sessions can be *initiated* from any operating system supported by Positron itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux using a **recent distribution**, such as Ubuntu 22+ or RedHat 9+, on an x86-compatible processor. Older Linux distributions and arm64 hosts aren't currently supported.
+Remote SSH sessions can be *initiated* from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux using a **recent distribution**, such as Ubuntu 22+ or RedHat 9+, on an x86-compatible processor. Older Linux distributions and arm64 hosts aren't currently supported.
 
 Other features that aren't currently supported include:
 
 - Connecting to Windows Subsystem for Linux (WSL) backends[^1]
 - Dev Container workflows (note however that you can start a container yourself and connect to it)
+- Connecting from Positron Pro sessions on Posit Workbench
 
 [^1]: Although Positron doesn't officially support connecting to Windows Subsystem for Linux (WSL) backends at this time, there is a community-maintained fork of the [Open Remote - WSL](https://github.com/kv9898/open-remote-wsl) extension adapted for Positron, available on the [Open VSX Registry](https://open-vsx.org/extension/kv9898/open-remote-wsl). The community-maintained WSL extension behaves very similarly to the remote SSH functionality described in this article.
 <!-- vale Posit.Contractions = NO -->
@@ -33,7 +34,7 @@ This WSL extension is not maintained by the Positron team or Posit.
 
 ## Creating a connection
 
-To create a connection, open the Command Palette (<kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and type "Remote Menu". Run the _Remote SSH: Show Remote Menu_ command.
+To create a connection, open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and type "Remote Menu". Run the _Remote SSH: Show Remote Menu_ command.
 
 ![The Remote SSH menu](./images/remote-ssh-menu.png){width=700}
 
@@ -102,10 +103,14 @@ There's also an option to allow the kernels to run forever; if you use this opti
 When Positron connects to a new host for the first time, it does the following:
 
 1. Establishes an SSH connection to the host.
-2. Forms the name and download URL of the correct Positron Server binary, e.g. `positron-reh-linux-x64-2025.01.0-39.tar.gz`
+2. Forms the name and download URL of the correct Positron Server binary, e.g. `positron-reh-linux-x64-2025.01.0-39.tar.gz`.
 3. On the remote host, downloads this binary into `~/.positron-server` and unpacks it.
 4. Starts the headless Positron Server inside the remote host.
 5. Connects to the server from the front end.
+
+:::{.callout-note}
+The client and server must be using **exactly** the same Positron version. We make Positron Server builds available for both regular monthly releases as well as [daily builds](updating.qmd#daily-builds), so you can use either for remote SSH sessions. If you connect to a remote host with a new client version of Positron (for example, because a new monthly release is available), the new matching version of Positron Server will be downloaded and unpacked.
+:::
 
 The two most common problems are:
 
@@ -115,6 +120,3 @@ The two most common problems are:
 If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it's not autodetected), you can edit the [`remoteSSH.serverDownloadUrlTemplate` setting](positron://settings/remoteSSH.serverDownloadUrlTemplate):
 
 ![Remote SSH: Server Download Url Template Setting](./images/remote-ssh-server-template.png){width=650}
-
-Note that the client and server must be using **exactly** the same Positron version.
-
