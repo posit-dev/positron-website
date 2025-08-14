@@ -103,7 +103,7 @@ There's also an option to allow the kernels to run forever; if you use this opti
 When Positron connects to a new host for the first time, it does the following:
 
 1. Establishes an SSH connection to the host.
-2. Forms the name and download URL of the correct Positron Server binary, e.g. `positron-reh-linux-x64-2025.01.0-39.tar.gz`
+2. Forms the name and download URL of the correct Positron Server binary, e.g. `positron-reh-linux-x64-2025.01.0-39.tar.gz`.
 3. On the remote host, downloads this binary into `~/.positron-server` and unpacks it.
 4. Starts the headless Positron Server inside the remote host.
 5. Connects to the server from the front end.

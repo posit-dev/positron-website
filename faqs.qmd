@@ -50,4 +50,4 @@ title: "Frequently Asked Questions"
 
 * Under [Positron's Elastic license](https://positron.posit.co/licensing.html), individual students are free to install and use the software for any purpose.  
 * Posit provides [free teaching licenses of Posit Workbench](https://posit.co/pricing/academic/), which includes Positron Pro for browser-based access by multiple users. In addition to Posit Workbench, we plan to permit qualified academic institutions to host Positron as a service for their currently enrolled students solely for educational purposes in connection with their coursework via a free teaching license. 
-* Please reach out to academic-licenses@posit.co and indicate your interest in Positron if you have further questions.  
+* Please reach out to [academic-licenses@posit.co](mailto:academic-licenses@posit.co) and indicate your interest in Positron if you have further questions.  
