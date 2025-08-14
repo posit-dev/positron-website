@@ -24,7 +24,7 @@ In subsequent runs, Positron will launch the system's default R version, even if
 We believe this behaviour is the least surprising for most users.
 If you want to use a specific, non-default R version in a workspace, select it explicitly once and it will be launched in future runs.
 
-If Positron starts an interpreter you don't need, just delete the session, and it will no longer start automatically in that workspace.
+If Positron starts an interpreter you don't need, just delete the session, and that interpreter will no longer start automatically in that workspace.
 
 ## Implicit startup
 
