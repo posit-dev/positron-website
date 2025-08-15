@@ -44,3 +44,4 @@ Jupyter Notebooks
 Air
 R
 Variables Pane
+Command Palette
