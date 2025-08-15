@@ -16,22 +16,22 @@ Positron can format R code with [Air](https://posit-dev.github.io/air/), a new R
 
 A formatter takes charge of the layout of your R code, which refers to whitespace, newlines, indentation, and the like.
 The goal is to enforce a set of style conventions that enhance readability and robustness.
-Air shares properties with other modern formatters and linters, such as Black and Ruff for Python:
+Air shares properties with other modern formatters and linters, such as Ruff for Python:
 
 * It's highly opinionated and offers relatively few options for customization.
 * It's written in Rust, which makes it extremely fast.
 
-### How does Positron get Air?
+### How do I install Air?
 
-Air is fundamentally a command line tool, but fortunately the Air CLI ships with Positron.
+Air is a command line tool which automatically ships with Positron.
 Most Positron users do not need to do anything intentional to install Air or to keep it up-to-date.
 
-Under the hood, Air is packaged in a VS Code extension and that extension is one of the so-called [bootstrapped extensions](extensions.qmd#bootstrapped-extensions) that are installed for you in Positron.
-The Air extension is published on [Open VSX](https://open-vsx.org/extension/posit/air-vscode), the marketplace used by IDEs like Positron and Cursor, and also on the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=Posit.air-vscode), which serves only VS Code.
+Under the hood, Air is packaged in a VS Code extension, included in Positron as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions) that is installed for you.
+The Air extension is published on [Open VSX](https://open-vsx.org/extension/posit/air-vscode), the marketplace used by IDEs like Positron and Cursor, and also on the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=Posit.air-vscode), which serves only the proprietary Microsoft builds of Visual Studio Code.
 
-### When and how does Air run?
+### How do I use Air?
 
-There are various explicit and implicit gestures to run Air over your code:
+There are various explicit and implicit gestures to run Air over your R code:
 
 * "Format on save": formats R code every time you save a file. This is a lifestyle you must opt in to, but it is our strong recommendation that you do so. Below we give details on how to set this up.
 * Formatting commands: These are explicit gestures to format specific bits of code.
@@ -42,8 +42,12 @@ There are various explicit and implicit gestures to run Air over your code:
 
   These are all available in the command palette.
 
-R code receives some basic formatting as you type, but this first pass is focused on indentation
+All R code receives some basic formatting as you type, but this first pass is focused only on indentation.
 A second formatting pass with Air, when you save the file or intentionally format it, produces a much better result, since Air works off of an actual syntax tree.
+
+:::{.callout-tip}
+You can use special comments to tell Air to [skip formatting specific sections of code](https://posit-dev.github.io/air/formatter.html#skip-comments), if you don't want to apply Air's strict formatting rules in a specific situation.
+:::
 
 ### Opt in to "Format on save"
 
@@ -61,11 +65,13 @@ Here is what `.vscode/settings.json` might look like for someone who wants their
 
 ```json
 {
-    "[quarto]": {
-        "editor.formatOnSave": true
-    },
     "[r]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "Posit.air-vscode"
+    },
+    "[quarto]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "quarto.quarto"
     }
 }
 ```
@@ -88,8 +94,8 @@ A snippet for `for` inserts this whole skeleton, with special placeholders that 
 
 ![Completion list after typing "for", showing the snippet that can be inserted](images/snippets-for-example){width=700}
 
-It is common for IDEs to provide explicit support for code snippets and this certainly holds true for RStudio and Positron.
-This guide is intended to help users who have used snippets in RStudio adapt their approach for Positron, which inherits snippet behaviour from its VS Code roots.
+It is common for IDEs to provide explicit support for code snippets and this certainly holds true for both RStudio and Positron.
+This guide is intended to help users who have used snippets in RStudio adapt their approach for Positron, which inherits snippet behaviour from its Code OSS architecture.
 
 Documentation on snippets in:
 
