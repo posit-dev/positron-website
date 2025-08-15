@@ -92,8 +92,7 @@ website:
           - migrate-rstudio-overview.qmd
           - migrate-rstudio-user-interface.qmd
           - migrate-rstudio-keybindings.qmd
-          - migrate-rstudio-workspace.qmd
-          - rstudio-rproj-file.qmd
+          - migrate-rstudio-rproj.qmd
           - migrate-rstudio-code.qmd
           - migrate-rstudio-navigation.qmd
           - migrate-rstudio-settings-and-extensions.qmd

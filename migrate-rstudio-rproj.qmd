@@ -1,5 +1,7 @@
 ---
 title: "The Rproj File"
+aliases:
+  - rstudio-rproj-file.qmd
 ---
 
 <!-- vale Posit.Contractions = NO -->
