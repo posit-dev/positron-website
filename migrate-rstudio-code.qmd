@@ -26,7 +26,7 @@ Air shares properties with other modern formatters and linters, such as Black an
 Air is fundamentally a command line tool, but fortunately the Air CLI ships with Positron.
 Most Positron users do not need to do anything intentional to install Air or to keep it up-to-date.
 
-Under the hood, Air is packaged in a VS Code extension and that extension is one of the so-called [bootstrapped extensions](extensions.qmd) that come with a fresh Positron installation.
+Under the hood, Air is packaged in a VS Code extension and that extension is one of the so-called [bootstrapped extensions](extensions.qmd#bootstrapped-extensions) that are installed for you in Positron.
 The Air extension is published on [Open VSX](https://open-vsx.org/extension/posit/air-vscode), the marketplace used by IDEs like Positron and Cursor, and also on the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=Posit.air-vscode), which serves only VS Code.
 
 ### When and how does Air run?
@@ -37,12 +37,12 @@ There are various explicit and implicit gestures to run Air over your code:
 * Formatting commands: These are explicit gestures to format specific bits of code.
   - *Format Selection*
   - *Format Document*
-  - *Format Cell*
+  - *Quarto: Format Cell*
   - *Air: Format Workspace Folder*
 
   These are all available in the command palette.
 
-R code receives some formatting as you type, but these rules are based on regular expressions, which fundamentally limits their capability.
+R code receives some basic formatting as you type, but this first pass is focused on indentation
 A second formatting pass with Air, when you save the file or intentionally format it, produces a much better result, since Air works off of an actual syntax tree.
 
 ### Opt in to "Format on save"
