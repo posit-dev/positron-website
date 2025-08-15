@@ -1,0 +1,45 @@
+---
+title: "Comparing RStudio and Positron Features"
+---
+
+## What is happening to RStudio?
+
+Be assured that RStudio is **not going away**.
+RStudio is stable and actively supported, and there is no timeline to deprecate it.
+That being said, RStudio and Positron are at very different points in their respective lifecycles, which is relevant when making decisions about adoption.
+Positron is under much more active development, with a rapidly expanding set of features.
+RStudio's development, on the other hand, is much more focused on bug fixes and product stability.
+
+## Features unique to RStudio
+
+Some features are present in RStudio, but not in Positron as of today.
+Some of these features may eventually come to Positron, but if any of these are dealbreakers for you, that is a reason for you to stick with RStudio.
+
+* Inline output in Quarto documents, i.e. a notebook-style interface for `.qmd` (or `.Rmd`) files. Follow along for updates on this feature request in <https://github.com/posit-dev/positron/issues/5640>.
+* Saving and reloading workspace state when you restart R.
+* Dedicated panes and buttons for specialized tasks, such code profiling or installing or developing packages.
+* History pane. Follow along for updates on this feature request in <https://github.com/posit-dev/positron/issues/5484>.
+* Data import widget.
+* RStudio add-ins. Follow along for updates on this feature request in <https://github.com/posit-dev/positron/issues/1313>.
+
+## Features unique to Positron
+
+Some features are available in Positron, but not in RStudio.
+If any of these features are very appealing to you, that is a reason to move some or perhaps all of your work to Positron.
+
+* Easy access to [multiple R versions](r-installations.qmd) and [multiple concurrent R sessions](managing-interpreters.qmd).
+* An [integrated AI assistant](assistant.qmd) that can "see" and, optionally, execute code in your active R (or Python) sessions, among many other capabilities.
+* Python as a first-class citizen, with support for data science workflows that is on par with R.
+* Support for other languages beyond R and Python, via built-in language intelligence or extensions.
+* An integrated [Data Explorer](data-explorer.qmd) for dataframes in your active R (or Python) sessions and for a variety data files (CSV, Parquet, etc.).
+* Extensibility via a large marketplace of 3rd party [extensions](extensions.qmd).
+* [Remote sessions](remote-ssh.qmd), i.e. where the user interface is local but the compute is elsewhere.
+
+
+::: {.callout-tip}
+It's worth pointing out that using Positron is not an all-or-nothing decision.
+It is entirely reasonable to use Positron in some projects and RStudio in others.
+Likewise, within a specific project, some tasks might feel easier in Positron and others in RStudio.
+There is nothing irreversible or exclusive about interacting with the files that constitute a project from one IDE versus another.
+:::
+
