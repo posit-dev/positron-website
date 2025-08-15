@@ -15,7 +15,7 @@ Try out our in-product migration guide for RStudio users by running the command 
 Positron is built on [Code OSS](https://github.com/microsoft/vscode), the same foundation as Visual Studio Code. Most of what you read in documentation about VS Code also applies to Positron; Positron has largely _added_ to the Code OSS foundation with features specific to data science work, rather than remove much functionality. Positron's documentation is a good place to start when looking for information, but also be aware that the [VS Code documentation](https://code.visualstudio.com/docs) is likely to be helpful. For example:
 
 - The [VS Code documentation on code navigation](https://code.visualstudio.com/docs/editing/editingevolved) can help you understand the native Code OSS approaches for navigating code, while [Positron's documentation on the RStudio keybindings](migrate-rstudio-keybindings.qmd) provides information on RStudio-specific code navigation shortcuts that you can enable.
-- The [VS Code documentation on settings](https://code.visualstudio.com/docs/configure/settings) can gives you details on how settings work in Code OSS in general, while [our RStudio migration guide on customization](migrate-rstudio-settings-and-extensions.qmd) shares specific advice on settings you as an RStudio might prefer.
+- The [VS Code documentation on settings](https://code.visualstudio.com/docs/configure/settings) can give you details on how settings work in Code OSS in general, while [our RStudio migration guide on customization](migrate-rstudio-settings-and-extensions.qmd) shares specific advice on settings you as an RStudio might prefer.
 
 
 ## Positron's user interface
