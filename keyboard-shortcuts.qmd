@@ -60,10 +60,10 @@ As a specific example, you could add the following to your user `keybindings.jso
 
 If you are puzzled by the behaviour of a keyboard shortcut, here are two issues to consider:
 
-* Context: many keyboard shortcuts, including those above, are only enabled in certain contexts, such as when editing code or when working in an R package. Consider if you might be invoking the shortcut in an unexpected and unsupported context.
-* Conflicts: a keyboard shortcut can have multiple associations across different situations or extensions. When a shortcut is associated with more than one command, a priority system determines which command wins and the result might not be what you expect.
+* **Context:** Many keyboard shortcuts, including those above, are only enabled in certain contexts, such as when editing code or when working in an R package. Consider if you might be invoking the shortcut in an unexpected and unsupported context.
+* **Conflicts:** A keyboard shortcut can have multiple associations across different situations or extensions. When a shortcut is associated with more than one command, a priority system determines which command wins and the result might not be what you expect.
 
-The command 'Preferences: Open Keyboard Shortcuts' opens an interface that is a great way to investigate keyboard shortcut mysteries.
+The command _Preferences: Open Keyboard Shortcuts_ opens an interface that is a great way to investigate keyboard shortcut mysteries.
 
 Be aware that Positron's integrated terminal can [intercept some keyboard shortcuts](https://code.visualstudio.com/docs/terminal/advanced#_keyboard-shortcuts-and-the-shell). You can set up a keybinding to skip the shell by specifying its command in the [`terminal.integrated.commandsToSkipShell` setting](positron://settings/terminal.integrated.commandsToSkipShell), either via the settings UI or by editing `settings.json`:
 
