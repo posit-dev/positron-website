@@ -92,7 +92,7 @@ If you have been accustomed to using the `vscode-r` extension in VS Code, be awa
 :::
 ::::
 
-## Command palette
+## Command Palette
 
 If you are familiar with the Command Palette in Visual Studio Code, you will find the experience in Positron very similar. All Positron-specific commands are included, alongside the familiar VS Code commands.
 
