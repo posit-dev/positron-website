@@ -27,7 +27,9 @@ Our documentation shows you keyboard shortcuts based on your operating system. F
 | -------- | ----------- |
 | {{< kbd mac=Command-Shift-M win=Ctrl-Shift-M linux=Ctrl-Shift-M >}} | Insert the pipe operator (<code>&#124;></code> or `%>%`) | 
 | {{< kbd mac=Option-- win=Alt-- linux=Alt-- >}} | Insert the assignment operator (`<-`) |
-| {{< kbd mac=Command-Shift-L win=Ctrl-Shift-L linux=Ctrl-Shift-L >}} | Load the current R package, if any | 
+| {{< kbd mac=Command-Shift-Enter win=Ctrl-Shift-Enter linux=Ctrl-Shift-Enter >}} | `source()` the current R script |
+| {{< kbd mac=Command-K win=Ctrl-K linux=Ctrl-K >}}, {{< kbd H >}} | Insert section |
+| {{< kbd mac=Command-Shift-L win=Ctrl-Shift-L linux=Ctrl-Shift-L >}} | Load the current R package, if any, with `devtools::load_all()` | 
 | {{< kbd mac=Command-Shift-B win=Ctrl-Shift-B linux=Ctrl-Shift-B >}} | Build and install the current R package, if any | 
 | {{< kbd mac=Command-Shift-T win=Ctrl-Shift-T linux=Ctrl-Shift-T >}} | Test the current R package, if any | 
 | {{< kbd mac=Command-Shift-E win=Ctrl-Shift-E linux=Ctrl-Shift-E >}} | Check the current R package, if any | 
