@@ -90,6 +90,7 @@ website:
         - section: "Migrating from RStudio"
           contents:
           - migrate-rstudio-overview.qmd
+          - migrate-rstudio-user-interface.qmd
           - migrate-rstudio-keybindings.qmd
           - migrate-rstudio-workspace.qmd
           - rstudio-rproj-file.qmd
