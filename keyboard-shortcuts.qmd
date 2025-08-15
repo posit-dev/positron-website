@@ -33,9 +33,9 @@ Our documentation shows you keyboard shortcuts based on your operating system. F
 | {{< kbd mac=Command-Shift-E win=Ctrl-Shift-E linux=Ctrl-Shift-E >}} | Check the current R package, if any | 
 | {{< kbd mac=Command-Shift-D win=Ctrl-Shift-D linux=Ctrl-Shift-D >}} | Document the current R package, if any | 
 
-## RStudio keybindings
-
-If you'd prefer to use RStudio keybindings, see [our instructions](migrate-rstudio-keybindings.qmd) on how to enable them for Positron.
+:::{.callout-note}
+If you'd prefer to use RStudio keybindings, learn [how to enable them](migrate-rstudio-keybindings.qmd) in Positron.
+:::
 
 ## Custom shortcuts
 
@@ -56,14 +56,14 @@ As a specific example, you could add the following to your user `keybindings.jso
 }
 ```
 
-## Troubleshooting and customization
+## Troubleshooting
 
 If you are puzzled by the behaviour of a keyboard shortcut, here are two issues to consider:
 
-* **Context:** Many keyboard shortcuts, including those above, are only enabled in certain contexts, such as when editing code or when working in an R package. Consider if you might be invoking the shortcut in an unexpected and unsupported context.
+* **Context:** Many keyboard shortcuts are only enabled in certain contexts, such as when editing code or when working in an R package. Consider if you might be invoking the shortcut in an unexpected and unsupported context.
 * **Conflicts:** A keyboard shortcut can have multiple associations across different situations or extensions. When a shortcut is associated with more than one command, a priority system determines which command wins and the result might not be what you expect.
 
-The command _Preferences: Open Keyboard Shortcuts_ opens an interface that is a great way to investigate keyboard shortcut mysteries.
+The command _Preferences: Open Keyboard Shortcuts_ opens [an interface](https://code.visualstudio.com/docs/configure/keybindings) that is a great way to investigate keyboard shortcut mysteries.
 
 Be aware that Positron's integrated terminal can [intercept some keyboard shortcuts](https://code.visualstudio.com/docs/terminal/advanced#_keyboard-shortcuts-and-the-shell). You can set up a keybinding to skip the shell by specifying its command in the [`terminal.integrated.commandsToSkipShell` setting](positron://settings/terminal.integrated.commandsToSkipShell), either via the settings UI or by editing `settings.json`:
 

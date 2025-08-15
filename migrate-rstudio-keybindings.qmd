@@ -4,12 +4,10 @@ aliases:
   - rstudio-keybindings.html
 ---
 
-<!-- vale Posit.Contractions = NO -->
-
 Keyboard shortcuts are the most efficient way to accomplish tasks that come up frequently in your coding workflow.
-As you migrate from RStudio to Positron, maintaining your productivity means working with—not against—your muscle memory.
+As you migrate from RStudio to Positron, maintaining your productivity means working with, not against, your muscle memory.
 
-Many familiar shortcuts will work immediately, because they are built-in to Positron and its integrated R support.
+Many familiar shortcuts will work immediately, because they are built in to Positron and its integrated R support.
 These are documented with [Positron's keyboard shortcuts](keyboard-shortcuts.qmd).
 That is also where you can learn how to customize shortcuts.
 
@@ -20,23 +18,23 @@ Restart Positron after changing this setting.
 
 | Shortcut | Description |
 | -------- | ----------- |
-| <kbd>Ctrl</kbd>+<kbd>1</kbd>  |  Focus Source |
-| <kbd>Ctrl</kbd>+<kbd>2</kbd>  |  Focus Console |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>.</kbd>  |  Go to Function/Symbol |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> |  Comment/Uncomment a line |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> |  Create a new R file |
-| <kbd>F2</kbd>  |  Go to definition |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>I</kbd> |  Reindent selection |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> |  Reformat selection |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Source current R script with echo |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> |  Rename symbol  |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> | Insert code cell (Quarto) |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Enter</kbd> | Run current line (Quarto) |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> | Run current cell (Quarto) |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>M</kbd> |  Open version control pane |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Left</kbd> |  Go to previous editor tab |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Right</kbd> |  Go to next editor tab |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>D</kbd> |  Delete the current line |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> | Set working directory |
-| <kbd>Cmd/Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> |  Insert section |
-| <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> | Open global keybindings list |
+| {{< kbd Ctrl-1 >}}  |  Focus Source |
+| {{< kbd Ctrl-2 >}}  |  Focus Console |
+| {{< kbd mac=Command-. win=Ctrl-. linux=Ctrl-. >}}  |   Go to Function/Symbol |
+| {{< kbd mac=Command-Shift-C win=Ctrl-Shift-C linux=Ctrl-Shift-C >}} |  Comment/Uncomment a line |
+| {{< kbd mac=Command-Shift-N win=Ctrl-Shift-N linux=Ctrl-Shift-N >}} |  Create a new R file |
+| {{< kbd F2 >}} |  Go to definition |
+| {{< kbd mac=Command-I win=Ctrl-I linux=Ctrl-I >}} |  Reindent selection |
+| {{< kbd mac=Command-Shift-A win=Ctrl-Shift-A linux=Ctrl-Shift-A >}} |  Reformat selection |
+| {{< kbd mac=Command-Shift-S win=Ctrl-Shift-S linux=Ctrl-Shift-S >}} |  Source the current R script |
+| {{< kbd mac=Command-Option-Shift-M win=Ctrl-Alt-Shift-M linux=Ctrl-Alt-Shift-M >}} |  Rename symbol  |
+| {{< kbd mac=Command-Option-I win=Ctrl-Alt-I linux=Ctrl-Alt-I >}} | Insert code cell (Quarto) |
+| {{< kbd mac=Command-Enter win=Ctrl-Enter linux=Ctrl-Enter >}} | Run current statement (Quarto) |
+| {{< kbd mac=Command-Shift-Enter win=Ctrl-Shift-Enter linux=Ctrl-Shift-Enter >}} | Run current cell (Quarto) |
+| {{< kbd mac=Command-Option-M win=Ctrl-Alt-M linux=Ctrl-Alt-M >}} |  Open version control pane |
+| {{< kbd mac=Command-Option-← win=Ctrl-Alt-← linux=Ctrl-Alt-← >}} |  Go to previous tab |
+| {{< kbd mac=Command-Option-→ win=Ctrl-Alt-→ linux=Ctrl-Alt-→ >}} |  Go to next tab |
+| {{< kbd mac=Command-D win=Ctrl-D linux=Ctrl-D >}} |  Delete the current line |
+| {{< kbd mac=Command-Shift-H win=Ctrl-Shift-H linux=Ctrl-Shift-H >}}| Set working directory |
+| {{< kbd mac=Command-Shift-R win=Ctrl-Shift-R linux=Ctrl-Shift-R >}} |  Insert section |
+| {{< kbd mac=Option-Shift-K win=Alt-Shift-K linux=Alt-Shift-K >}} | Open global keybindings list |
