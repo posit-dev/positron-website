@@ -95,7 +95,7 @@ A snippet for `for` inserts this whole skeleton, with special placeholders that 
 ![Completion list after typing "for", showing the snippet that can be inserted](images/snippets-for-example){width=700}
 
 It is common for IDEs to provide explicit support for code snippets and this certainly holds true for both RStudio and Positron.
-This guide is intended to help users who have used snippets in RStudio adapt their approach for Positron, which inherits snippet behaviour from its Code OSS architecture.
+This guide is intended to help users who have used snippets in RStudio adapt their approach for Positron, which inherits snippet behavior from its Code OSS architecture.
 
 Documentation on snippets in:
 
