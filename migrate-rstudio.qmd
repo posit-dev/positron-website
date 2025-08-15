@@ -3,8 +3,12 @@ title: "Overview"
 ---
 
 We expect that many existing RStudio users are curious about Positron and whether they should take it for a test drive or even make it their primary IDE.
-This overview, together with guides on other topics like [keybindings](migrate-rstudio-keybindings.qmd) and [feature comparisons](migrate-rstudio-compare.qmd), should help RStudio users feel well-informed about what such a transition feels like.
+This overview, together with guides on other topics like [keybindings](migrate-rstudio-keybindings.qmd) and [feature comparison](migrate-rstudio-compare.qmd), should help RStudio users feel well-informed about what such a transition feels like.
 The goal of this migration guide is to give current RStudio users the smoothest possible experience in their early days with Positron.
+
+::: {.callout-tip}
+Try out our in-product migration guide for RStudio users by running the command _Welcome: Open Walkthrough..._ in Positron and choosing "Migrating from RStudio to Positron" from the list.
+:::
 
 ## What to know about Code OSS
 
@@ -21,11 +25,11 @@ First, let's take a high-level, side-by-side view of the two IDEs.
 This figure highlights the role each area plays in your workflow and draws similarities between Positron and RStudio.
 You write code in an editor, execute it in the R Console, and view outputs like plots and reports.
 
-![Comparison of RStudio and Positron user interfaces](images/user-interface-rstudio-vs-positron.jpeg){width=800 fig-alt="A side-by-side comparison of RStudio and Positron showing equivalent areas labelled as 'Write' (for the editor), 'Run' (for the Console), and 'Understand' (for the Variables and Plots panes)."}
+![Comparison of RStudio and Positron user interfaces](images/user-interface-rstudio-vs-positron.jpeg){fig-alt="A side-by-side comparison of RStudio and Positron showing equivalent areas labelled as 'Write' (for the editor), 'Run' (for the Console), and 'Understand' (for the Variables and Plots panes)."}
 
 Next, let's get concrete by naming the major areas of Positron's surface.
 
-![Interface of the Positron IDE](images/user-interface-for-rstudio-migration.jpeg){width=700 fig-alt="A screenshot with labelled boxes around the Activity bar, Primary side bar, Editor, Panel, and Secondary sidebar."}
+![Interface of the Positron IDE](images/user-interface-for-rstudio-migration.jpeg){fig-alt="A screenshot with labelled boxes around the Activity bar, Primary side bar, Editor, Panel, and Secondary sidebar."}
 
 ::: {.callout-note}
 If you want to hide or move some elements, it is possible to [customize many aspects of the user interface layout](layout.qmd).
@@ -55,12 +59,10 @@ Instead RStudio users are accustomed to many specialized buttons, panes, and men
 Positron leans much more heavily on the Command Palette, which is inherited from Code OSS.
 When you find yourself thinking "I want to do X in Positron" (whether that's running code, rendering a document, or configuring a setting) try making the Command Palette your first stop.
 
-::: {.callout-tip}
 To open the Command Palette, press {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}. Start typing a keyword or the name of a command and the fuzzy finder will start to display matches.
 Use the arrow keys to select a command, then press {{< kbd Enter >}} to run it.
-:::
 
-## Where do I find X?
+## I can't find my button!
 
 Some specialized panes from RStudio simply do not exist in Positron, such as, the **Build** pane for package development.
 However, do not fear!
