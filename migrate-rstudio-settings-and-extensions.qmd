@@ -2,46 +2,105 @@
 title: "Settings and Extensions"
 ---
 
-Your Positron experience can be customized through settings (at the user or workspace level) and by installing extensions.
-This is not a comprehensive guide to Positron settings, most of which are inherited from VS Code, but rather a targetted look at the settings we think are the most relevant for RStudio users.
-For comprehensive documentation on settings, visit the [VS Code settings documentation](https://code.visualstudio.com/docs/configure/settings).
-Likewise, there is [general guidance on installing extensions in Positron](extensions.qmd).
-So here we just focus on a few that have above-average interest for an RStudio user.
+Your Positron experience can be customized through _settings_ at either the user or workspace level and by installing _extensions_.
+This is not a comprehensive guide to all the ways you can customize Positron, most of which are inherited from VS Code, but rather a targeted look at what we think is most relevant for users coming from RStudio.
 
-## Top 10 settings for RStudio users
+- For comprehensive documentation on settings, visit the [VS Code settings documentation](https://code.visualstudio.com/docs/configure/settings). You can view and update your settings either via the Settings UI or by editing your `settings.json` file(s) directly.
+- Read about [how extensions work](extensions.qmd) in Positron in general, including those that are [built-in](extensions.qmd#built-in-extensions) and those that are [bootstrapped](extensions.qmd#bootstrapped-extensions).
 
-Positron includes hundreds of configurable settings, but these 10 are particularly helpful for RStudio users transitioning to Positron:
 
-1. **RStudio Keybindings** *recommended at the user level; [read more](migrate-rstudio-keybindings.qmd)*
-   ```json
+## Settings for RStudio users
+
+Positron includes hundreds of configurable settings, but the following are particularly helpful for RStudio users transitioning to Positron.
+
+### RStudio keybindings
+
+To opt in to the [RStudio keybindings](migrate-rstudio-keybindings.qmd) (recommended at the user level):[^1]
+
+[^1]: The use of `workbench` here in this setting name refers to the [overall Code OSS UI](https://code.visualstudio.com/api/extension-capabilities/extending-workbench).
+
+```json
+{
    "workbench.keybindings.rstudioKeybindings": true
-   ```
-1. **Format on Save with Air** *recommended at the workspace level; [read more](migrate-rstudio-code.qmd)*
-   ```json
-   "[r]": {
-       "editor.formatOnSave": true
+}
+```
+
+Opting in does overwrite some of Positron's default keybindings, so you might then wish to [update or remove](keyboard-shortcuts.qmd#custom-shortcuts) some of these newly enabled RStudio keybindings.
+
+### Whitespace and newlines
+
+To enable behavior similar to RStudio's (recommended at the user level):
+
+```json
+{
+   "files.trimTrailingWhitespace": true,
+   "files.insertFinalNewline": true,
+   "files.trimFinalNewlines": true,
+}
+```
+
+You can additionally control how these (or other) settings are applied to specific file types, such as markdown files:
+
+```json
+{
+   "[markdown]": {
+      "files.trimTrailingWhitespace": false
    }
-   ```
-1. **What else?**
+}
+```
 
-## Top 10 extensions for RStudio users
+File type specific settings take precedence over the general settings.
 
-1. **Shiny**
-1. **What else?**
+### Settings from extensions
+
+Be aware that in addition to Positron itself, extensions also provide configurable settings. For example, you can change the look of cells in a [Quarto](quarto.qmd) document (recommended at the user level):
+
+```json
+{
+   "quarto.cells.background.color": "useTheme",
+}
+```
+
+Or you can control how markdown is wrapped in the Quarto visual editor (recommended at the workspace level):
+
+```json
+{
+   "quarto.visualEditor.markdownWrap": "sentence",
+}
+```
+
+## Format on save
+
+You can opt into formatting your R code every time you save a file, using Air (recommended at the workspace level):
+
+```json
+{
+   "[r]": {
+      "editor.formatOnSave": true
+   }
+}
+```
+
+Read more about [formatting R code with Air](migrate-rstudio-code.qmd).
+
+## Extensions for RStudio users
+
+You can use extensions to customize your IDE theme. For example, install [Tomorrow Night Bright (R Classic)](https://open-vsx.org/extension/gvelasq/tomorrow-night-bright-r-classic) for an RStudio theme that has been ported to Positron.[^2]
+
+[^2]: Learn how [you can create a theme extension](https://ivelasq.rbind.io/blog/positron-theme/) like this yourself.
+
+You can use extensions to customize other details of your code editing experience, beyond the theme. For example, install [Indent-Rainbow](https://open-vsx.org/extension/oderwat/indent-rainbow) for colorized indentation or [Rainbow CSV](https://open-vsx.org/extension/mechatroner/rainbow-csv) for colorized CSV files.
+
+You can use extensions to add functionality for interacting with services you use. For example, install [GitHub Actions](https://open-vsx.org/extension/GitHub/vscode-github-actions) for to interact with GitHub Actions from your IDE or [GitLab Workflow](https://open-vsx.org/extension/GitLab/gitlab-workflow) for GitLab support.
+
+:::{.callout-note}
+Positron doesn't currently bundle the [Shiny](https://open-vsx.org/extension/posit/shiny) extension, so you will need to install that if you want to use it.
+:::
 
 ## Extending Positron yourself
 
-Here are two interesting ways to control or extend Positron itself:
+Positron provides shims for much of the functionality available via the [rstudioapi](https://rstudio.github.io/rstudioapi/) package, which allows you to control and extend Positron programmatically from R. For example, you can use `rstudioapi::restartSession()` to restart the active R session. Since Positron does not provide a full implementation of all RStudio API methods, use `rstudioapi::hasFun()` to defensively check if a method is implemented before calling it.
 
-* Use the rstudioapi package
-* Create a Positron extension
+You can also [create your own extensions](extension-development.qmd) for Positron. This is a powerful way to add custom functionality or integrate with other tools and services. Creating an extension is more involved than creating an [RStudio addin](https://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html) and does require some knowledge of TypeScript/JavaScript, but extensions can customize the behavior of Positron is ways that have never been possible for RStudio.
 
-### Partial implementation of rstudioapi
-
-*Give advice on how to write defensively, i.e. check if the method is implemented.*
-
-### Write an extension
-
-*Send folks to [extension development docs](extension-development.qmd).*
-
-*TO DISCUSS: Somewhere, perhaps in this page?, I think we need to enumerate relevant env vars (or options?). As in, what's the recommended way to programmatically detect that your code is running inside of Positron and any other related nuggets of info.*
+For a general approach to detect if your R code is running inside Positron, use `Sys.getenv("POSITRON")`.
