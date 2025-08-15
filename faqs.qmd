@@ -39,11 +39,11 @@ title: "Frequently Asked Questions"
   * RStudio has deeper support for Sweave and R Markdown compared to our targeted focus on Quarto in Positron, although Positron does support rendering R Markdown documents as well.    
   * Positron does not have inline output for source `.qmd` or `.Rmd` documents at this time, and Quarto or R Markdown documents will make use of the console and plot pane for execution/output. However, we are actively enhancing our Positron-native notebook UI that will provide inline outputs for R or Python sessions. Separately, we are also actively working on improving Quarto's Visual Editor to improve the authoring experience for Quarto. 
   * RStudio is extensible only via RStudio add-ins, and while Positron supports some of the same, existing RStudio add-ins, not all are supported. Rather than doubling down on the more limited RStudio add-in capabilities for novel integrations, we suggest exploring [extension development and our Positron API endpoints](extension-development.qmd).    
-  * We do _not_ plan to have a `.Rproj` equivalent for Positron (e.g. a `.positronproj`), but rather Positron can open and treat any folder as a "project" or workspace. We still suggest project-oriented workflows, and for more context, please see: [Migrating from RStudio: The Rproj File](rstudio-rproj-file.qmd).    
+  * We do _not_ plan to have a `.Rproj` equivalent for Positron (e.g. a `.positronproj`), but rather Positron can open and treat any folder as a "project" or workspace. We still suggest project-oriented workflows, and for more context, please see: [Migrating from RStudio: The Rproj File](migrate-rstudio-rproj.qmd).    
 
 ### I'm coming from RStudio, and Positron's keybindings are too different
 
-* Check out the [RStudio Keymap](keyboard-shortcuts.qmd#rstudio-keymap) section of our documentation.
+* Check out the [RStudio Keybindings](migrate-rstudio-keybindings.qmd) section of our documentation.
 * To opt in to these RStudio-like keybindings, enable the [`workbench.keybindings.rstudioKeybindings` setting](positron://settings/workbench.keybindings.rstudioKeybindings).
 
 ### How can I use Positron in an educational setting?

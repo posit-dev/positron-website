@@ -1,6 +1,84 @@
 ---
-title: "Snippets for R"
+title: "Writing R code"
+aliases:
+  - r-snippets.qmd
 ---
+
+Writing R code in Positron should feel quite familiar to RStudio users.
+However two aspects of the workflow might feel a bit different:
+
+* [Formatting via Air](#formatting-r-code-with-air)
+* [Snippets](#r-snippets), both built-in and custom
+
+## Formatting R code with Air
+
+Positron can format R code with [Air](https://posit-dev.github.io/air/), a new R formatter whose creation was largely motivated by Positron.
+
+A formatter takes charge of the layout of your R code, which refers to whitespace, newlines, indentation, and the like.
+The goal is to enforce a set of style conventions that enhance readability and robustness.
+Air shares properties with other modern formatters and linters, such as Ruff for Python:
+
+* It's highly opinionated and offers relatively few options for customization.
+* It's written in Rust, which makes it extremely fast.
+
+### How do I install Air?
+
+Air is a command line tool which automatically ships with Positron.
+Most Positron users do not need to do anything intentional to install Air or to keep it up-to-date.
+
+Under the hood, Air is packaged in a VS Code extension, included in Positron as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions) that is installed for you.
+The Air extension is published on [Open VSX](https://open-vsx.org/extension/posit/air-vscode), the marketplace used by IDEs like Positron and Cursor, and also on the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=Posit.air-vscode), which serves only the proprietary Microsoft builds of Visual Studio Code.
+
+### How do I use Air?
+
+There are various explicit and implicit gestures to run Air over your R code:
+
+* "Format on save": formats R code every time you save a file. This is a lifestyle you must opt in to, but it is our strong recommendation that you do so. Below we give details on how to set this up.
+* Formatting commands: These are explicit gestures to format specific bits of code.
+  - *Format Selection*
+  - *Format Document*
+  - *Quarto: Format Cell*
+  - *Air: Format Workspace Folder*
+
+  These are all available in the command palette.
+
+All R code receives some basic formatting as you type, but this first pass is focused only on indentation.
+A second formatting pass with Air, when you save the file or intentionally format it, produces a much better result, since Air works off of an actual syntax tree.
+
+:::{.callout-tip}
+You can use special comments to tell Air to [skip formatting specific sections of code](https://posit-dev.github.io/air/formatter.html#skip-comments), if you don't want to apply Air's strict formatting rules in a specific situation.
+:::
+
+### Opt in to "Format on save"
+
+The easiest way to get our recommended set up is to run [`usethis::use_air()`](https://usethis.r-lib.org/dev/reference/use_air.html) (note that this currently requires the development version of usethis).
+`use_air()` configures "Format on save" in the current workspace by modifying (or creating, if necessary) the `.vscode/settings.json` file.
+It also creates an `air.toml` file.
+
+VS Code and Positron let you customize settings at the user level and at the workspace level (i.e. for just the current project you are working on).
+We think "Format on save" makes the most sense to configure at the workspace level:
+
+* Workspace settings are recorded inside the workspace at `.vscode/settings.json`, allowing them to be tracked in version control. This means that all collaborators get those settings automatically when they check out the project, enforcing a common formatting style.
+* User level settings apply to any workspaces that you open. This sounds nice in theory, but you might not want automatic Air formatting in older projects or in projects that you don't own. If you opt in at the user level, you'll have to turn Air off somehow in these projects or risk creating a huge number of formatting diffs, when that's probably not your intent.
+
+Here is what `.vscode/settings.json` might look like for someone who wants their R code formatted on save, in both R scripts and Quarto documents:
+
+```json
+{
+    "[r]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "Posit.air-vscode"
+    },
+    "[quarto]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "quarto.quarto"
+    }
+}
+```
+
+To learn more about using Air, read its documentation for [Positron and VS Code](https://posit-dev.github.io/air/editor-vscode.html).
+
+## R snippets
 
 Code snippets let you insert ready-made templates for common coding patterns.
 For example, `for` is a reserved word in R that is used to create a loop.
@@ -16,15 +94,15 @@ A snippet for `for` inserts this whole skeleton, with special placeholders that 
 
 ![Completion list after typing "for", showing the snippet that can be inserted](images/snippets-for-example){width=700}
 
-It is common for IDEs to provide explicit support for code snippets and this certainly holds true for RStudio and Positron.
-This guide is intended to help users who have used snippets in RStudio adapt their approach for Positron, which inherits snippet behaviour from its VS Code roots.
+It is common for IDEs to provide explicit support for code snippets and this certainly holds true for both RStudio and Positron.
+This guide is intended to help users who have used snippets in RStudio adapt their approach for Positron, which inherits snippet behavior from its Code OSS architecture.
 
 Documentation on snippets in:
 
 * [RStudio](https://docs.posit.co/ide/user/ide/guide/productivity/snippets.html)
 * [VS Code](https://code.visualstudio.com/docs/editing/userdefinedsnippets)
 
-## Default and custom snippets in RStudio
+### Default and custom snippets in RStudio
 
 RStudio ships with a default set of snippets.
 For our purposes, it's useful to break them into two broad classes:
@@ -37,7 +115,7 @@ Under the hood, this initializes a user-level snippet file that is pre-populated
 You can then apply your desired changes, such as adding or deleting snippets.
 Going forward, this user-level file powers all of your RStudio snippets, i.e. there is no combining of built-in and user-level snippets.
 
-## Default and custom snippets in Positron
+### Default and custom snippets in Positron
 
 The completion experience in Positron arises from two components working together:
 
@@ -49,14 +127,14 @@ The completion experience in Positron arises from two components working togethe
 
 This division of labor means that the completion and snippet responsibilities are a bit different in Positron than in RStudio.
 
-### Reserved words
+#### Reserved words
 
 In Positron, the completion items related to R's reserved words are built into ark.
 Each reserved word can be completed on its own and, in some cases, as part of a larger snippet.
 
 ![Completion list with rectangles highlighting two entries for the `function` reserved word, one as a bare keyword completion and another as a snippet](images/snippets-keyword-with-two-items.png){width=700}
 
-### Everything else
+#### Everything else
 
 If you want snippets beyond those provided for R's reserved words, you'll need to configure that for yourself.
 Press {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} to open the command palette and type *Snippets: Configure Snippets*.
