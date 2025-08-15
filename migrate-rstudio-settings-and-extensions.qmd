@@ -5,7 +5,7 @@ title: "Settings and Extensions"
 Your Positron experience can be customized through _settings_ at either the user or workspace level and by installing _extensions_.
 This is not a comprehensive guide to all the ways you can customize Positron, most of which are inherited from VS Code, but rather a targeted look at what we think is most relevant for users coming from RStudio.
 
-- For comprehensive documentation on settings, visit the [VS Code settings documentation](https://code.visualstudio.com/docs/configure/settings). You can view and update your settings either via the Settings UI or by editing your `settings.json` file(s) directly.
+- For comprehensive documentation on settings, visit the [VS Code settings documentation](https://code.visualstudio.com/docs/configure/settings). You can view and update your settings either via the Settings UI or by editing your `settings.json` files (user or workspace) directly.
 - Read about [how extensions work](extensions.qmd) in Positron in general, including those that are [built-in](extensions.qmd#built-in-extensions) and those that are [bootstrapped](extensions.qmd#bootstrapped-extensions).
 
 
