@@ -112,6 +112,10 @@ Slash commands provide quick access to common tasks without writing long prompts
 
 #### Chat participants
 
+::: {.callout-tip}
+Currently, chat participants are only available in **Ask** mode.
+:::
+
 Chat participants provide specialized knowledge to Positron Assistant. You can add a chat participant by clicking the **{{< fa at >}}** button or typing `@` in the Chat pane plus the chat participant name. Please reference the [Shiny Assistant](#shiny-assistant) section for more information on the use of a Shiny chat participant.
 
 #### Chat conversation history
