@@ -2,7 +2,7 @@
 title: "Settings and Extensions"
 ---
 
-Your Positron experience can be customized through _settings_ at either the user or workspace level and by installing _extensions_.
+Your Positron experience can be customized through [settings](#settings-for-rstudio-users) at either the user or workspace level and by installing [extensions](#extensions-for-rstudio-users).
 This is not a comprehensive guide to all the ways you can customize Positron, most of which are inherited from VS Code, but rather a targeted look at what we think is most relevant for users coming from RStudio.
 
 - For comprehensive documentation on settings, visit the [VS Code settings documentation](https://code.visualstudio.com/docs/configure/settings). You can view and update your settings either via the Settings UI or by editing your `settings.json` files (user or workspace) directly.
@@ -69,7 +69,7 @@ Or you can control how markdown is wrapped in the Quarto visual editor (recommen
 }
 ```
 
-## Format on save
+### Format on save
 
 You can opt into formatting your R code every time you save a file, using Air (recommended at the workspace level):
 

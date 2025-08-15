@@ -7,8 +7,8 @@ aliases:
 Writing R code in Positron should feel quite familiar to RStudio users.
 However two aspects of the workflow might feel a bit different:
 
-* Formatting via Air
-* Snippets, both built-in and custom
+* [Formatting via Air](#formatting-r-code-with-air)
+* [Snippets](#r-snippets), both built-in and custom
 
 ## Formatting R code with Air
 
