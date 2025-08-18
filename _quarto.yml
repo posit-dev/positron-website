@@ -9,6 +9,7 @@ execute:
 
 website:
   favicon: "images/favicon.svg"
+  site-url: https://positron.posit.co
   repo-url: https://github.com/posit-dev/positron-website
   issue-url: https://github.com/posit-dev/positron/issues/
   repo-actions: [edit, source, issue]
