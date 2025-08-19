@@ -4,6 +4,10 @@ title: Migrating to Positron from VS Code
 
 This document outlines how to migrate from VS Code to Positron, a data science-focused editor built on Code OSS. It covers importing VS Code settings and extensions, and explains Positron's enhanced data science features like the Console, Variables pane, Data Explorer, and Plots pane. The guide also details Positron's native support for Python and R workflows, including prerequisites and key differences from VS Code extensions.
 
+::: {.callout-tip}
+Try out our in-product migration guide for VS Code users by running the command _Welcome: Open Walkthrough..._ in Positron and choosing "Migrating from VS Code to Positron" from the list.
+:::
+
 ## Overview
 
 Positron will feel natural to you if you use VS Code. Positron is built on [Code OSS](https://github.com/microsoft/vscode), the open source core of VS Code. You will find many familiar features like the text editor interface, Command Palette, Terminal, and extensions.
@@ -92,7 +96,7 @@ If you have been accustomed to using the `vscode-r` extension in VS Code, be awa
 :::
 ::::
 
-## Command palette
+## Command Palette
 
 If you are familiar with the Command Palette in Visual Studio Code, you will find the experience in Positron very similar. All Positron-specific commands are included, alongside the familiar VS Code commands.
 

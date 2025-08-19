@@ -41,4 +41,7 @@ Action Bar
 Action Bars
 Top Action Bar
 Jupyter Notebooks
+Air
+R
 Variables Pane
+Command Palette

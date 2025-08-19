@@ -91,6 +91,7 @@ Positron provides a 3-way merge editor to help you resolve conflicts by choosing
 **Learn more:** [Merge conflicts in VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview#_merge-conflicts)
 
 ## Integration with Git platforms
+
 Positron includes the [GitHub](https://open-vsx.org/extension/vscode/github) and [GitHub Pull Requests and Issues](https://open-vsx.org/extension/GitHub/vscode-pull-request-github) extensions out of the box, which let you manage GitHub repositories, issues, and PRs directly from within Positron. You can learn more about the extensions that Positron automatically installs for you on the [Extensions](extensions.qmd#bootstrapped-extensions) page.
 
 Other platforms are not integrated by default, but similar features are available after installing extensions like [GitLab Workflow](https://open-vsx.org/extension/GitLab/gitlab-workflow) or [Atlassian: Jira & Bitbucket](https://open-vsx.org/extension/atlassian/atlascode). You can search in the [Extensions pane](extensions.qmd#accessing-extensions) to find other extensions for the Git platform you use.

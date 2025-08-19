@@ -1,0 +1,74 @@
+---
+title: "Overview"
+---
+
+We expect that many existing RStudio users are curious about Positron and whether they should take it for a test drive or even make it their primary IDE.
+This overview, together with guides on other topics like [keybindings](migrate-rstudio-keybindings.qmd) and [feature comparison](migrate-rstudio-compare.qmd), should help RStudio users feel well-informed about what such a transition feels like.
+The goal of this migration guide is to give current RStudio users the smoothest possible experience in their early days with Positron.
+
+::: {.callout-tip}
+Try out our in-product migration guide for RStudio users by running the command _Welcome: Open Walkthrough..._ in Positron and choosing "Migrating from RStudio to Positron" from the list.
+:::
+
+## What to know about Code OSS
+
+Positron is built on [Code OSS](https://github.com/microsoft/vscode), the same foundation as Visual Studio Code. Most of what you read in documentation about VS Code also applies to Positron; Positron has largely _added_ to the Code OSS foundation with features specific to data science work, rather than remove much functionality. Positron's documentation is a good place to start when looking for information, but also be aware that the [VS Code documentation](https://code.visualstudio.com/docs) is likely to be helpful. For example:
+
+- The [VS Code documentation on code navigation](https://code.visualstudio.com/docs/editing/editingevolved) can help you understand the native Code OSS approaches for navigating code, while [Positron's documentation on the RStudio keybindings](migrate-rstudio-keybindings.qmd) provides information on RStudio-specific code navigation shortcuts that you can enable.
+- The [VS Code documentation on settings](https://code.visualstudio.com/docs/configure/settings) can give you details on how settings work in Code OSS in general, while [our RStudio migration guide on customization](migrate-rstudio-settings-and-extensions.qmd) shares specific advice on settings you as an RStudio user might prefer.
+
+
+## Positron's user interface
+
+Positron's [user interface](layout.qmd) (UI) should feel familiar to RStudio users, but there are also changes to get used to.
+First, let's take a high-level, side-by-side view of the two IDEs.
+This figure highlights the role each area plays in your workflow and draws similarities between Positron and RStudio.
+You write code in an editor, run your code in the Console, and view outputs like plots, variables, and reports in dedicated panes or tabs.
+
+![Comparison of RStudio and Positron user interfaces](images/user-interface-rstudio-vs-positron.jpeg){fig-alt="A side-by-side comparison of RStudio and Positron showing equivalent areas labelled as 'Write' (for the editor), 'Run' (for the Console), and 'Understand' (for the Variables and Plots panes)."}
+
+Next, let's get concrete by naming the major areas of Positron's surface.
+
+![Interface of the Positron IDE](images/user-interface-for-rstudio-migration.jpeg){fig-alt="A screenshot with labelled boxes around the Activity bar, Primary side bar, Editor, Panel, and Secondary sidebar."}
+
+::: {.callout-note}
+If you want to hide or move some elements, it is possible to [customize many aspects of the user interface layout](layout.qmd).
+:::
+
+Two specific UI elements are the most novel for RStudio users:
+
+* The **Activity Bar** provides access to different functional capabilities of Positron. Clicking here switches what appears in the Primary Side Bar.
+* The **Primary Side Bar** displays context-specific content based on which icon is clicked in the Activity Bar.
+
+The Activity Bar and Primary Side Bar duo help with many tasks that you would approach with a button, menu item, or specialized pane in RStudio:
+
+* {{< fa copy >}} When the Explorer is selected, the Primary Side Bar exposes file browsing functionality that RStudio provides via its Files pane, along with the current document's outline.
+* {{< fa magnifying-glass >}} Search is analogous to RStudio's *Edit > Find in files ...* menu item and has the same keyboard shortcut, {{< kbd mac=Command-Shift-F win=Ctrl-Shift-F linux=Ctrl-Shift-F >}}.
+* {{< fa code-branch >}} Source Control is like RStudio's Git pane (but is more powerful). Read about [how to use Git in Positron](git.qmd).
+
+Another icon in the Activity Bar exposes something completely new for RStudio users.
+The Test Explorer {{< fa flask >}} provides a dedicated interface for running package tests and viewing the results.
+This tool can be invoked via the *R: Test R Package in Test Explorer* command, which is also wired up to the familiar {{< kbd mac=Command-Shift-T win=Ctrl-Shift-T linux=Ctrl-Shift-T >}} shortcut.
+
+## Command Palette
+
+One overarching difference between RStudio and Positron (and VS Code) is the importance of the [Command Palette](command-palette.qmd).
+While RStudio offers a Command Palette, it was a relatively late addition to the user experience and many users never got into the habit of using it.
+Instead RStudio users are accustomed to many specialized buttons, panes, and menus.
+
+Positron leans much more heavily on the Command Palette, which is inherited from Code OSS.
+When you find yourself thinking "I want to do X in Positron" (whether that's running code, rendering a document, or configuring a setting) try making the Command Palette your first stop.
+
+To open the Command Palette, press {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}. Start typing a keyword or the name of a command and the fuzzy finder will start to display matches.
+Use the arrow keys to select a command, then press {{< kbd Enter >}} to run it.
+
+## I can't find my button!
+
+Some specialized panes from RStudio simply do not exist in Positron, such as, the **Build** pane for package development.
+However, do not fear!
+These actions are still available in Positron, just via different gestures.
+In Positron, package development moves like "Check", "Document", or "Load All" are exposed as commands in the Command Palette as well as through the usual keyboard shortcuts.
+
+::: {.callout-tip}
+If you find yourself really missing a button from RStudio, check if there's a related command in the Command Palette. Or just try [the usual keyboard shortcut](migrate-rstudio-keybindings.qmd) and see what happens!
+:::
