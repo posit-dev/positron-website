@@ -23,7 +23,7 @@ Positron is built on [Code OSS](https://github.com/microsoft/vscode), the same f
 Positron's [user interface](layout.qmd) (UI) should feel familiar to RStudio users, but there are also changes to get used to.
 First, let's take a high-level, side-by-side view of the two IDEs.
 This figure highlights the role each area plays in your workflow and draws similarities between Positron and RStudio.
-You write code in an editor, execute it in the R Console, and view outputs like plots and reports.
+You write code in an editor, run your code in the Console, and view outputs like plots, variables, and reports in dedicated panes or tabs.
 
 ![Comparison of RStudio and Positron user interfaces](images/user-interface-rstudio-vs-positron.jpeg){fig-alt="A side-by-side comparison of RStudio and Positron showing equivalent areas labelled as 'Write' (for the editor), 'Run' (for the Console), and 'Understand' (for the Variables and Plots panes)."}
 
