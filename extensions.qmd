@@ -83,7 +83,7 @@ In offline or restricted environments, users may need to manually install extens
 
 ## Extension trust and security
 
-Extensions can offer Positron powerful new capabilities in addition to the built-in data science experience. However, they can also present risks, similar to Python or R packages, such as malicious code execution or inappropriate data access. Third-party extensions can read or modify files, make network requests, and take other actions that could accidentally or maliciously result in a security issue. 
+Extensions can offer Positron powerful new capabilities. However, they can also present risks; the risks are similar to installing and using Python or R packages, and can include risk of malicious code execution or inappropriate data access. Third-party extensions can read or modify files, make network requests, and take other actions that could accidentally or maliciously result in a security issue. 
 
 ### Extension trust
 
