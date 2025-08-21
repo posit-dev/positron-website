@@ -115,7 +115,7 @@ For more information about the full set of Extension privileges and security tha
 Positron comes bundled with several extensions, both from Posit and external verified publishers. 
 
 * Posit PBC extensions  
-  * [rstudio.rstudio-workbench](https://cdn.posit.co/pwb-components/extension)  
+  * rstudio.rstudio-workbench - internal Posit Workbench extension, not open source
   * [posit.publisher](https://github.com/posit-dev/publisher)  
   * [quarto.quarto](https://github.com/quarto-dev/quarto/tree/main/apps/vscode)  
   * [posit.air-vscode](https://github.com/posit-dev/air)  
