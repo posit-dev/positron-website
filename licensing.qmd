@@ -5,3 +5,6 @@ title: "Licensing"
 Positron is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. This license makes Positron available for free to everyone to use, build on, and extend for personal, academic, and commercial use. Its primary restriction is that you can't host Positron as a service to third parties without Posit's agreement. This restriction is necessary for us to build a sustainable business around Positron while also offering it free of charge to the community.
 
 Posit remains committed to both free and open-source software, and we're releasing several components of Positron under the more permissive MIT license. These components include Positron's high-performance [R kernel and Language Server Protocol implementation](https://github.com/posit-dev/ark) and [R formatter](https://github.com/posit-dev/air).
+
+Positron's license and third-party notices are available in your Positron installation's `Resources/app` folder. The same information is available on our GitHub repository at [LICENSE.txt](https://github.com/posit-dev/positron/blob/main/LICENSE.txt) and [ThirdPartyNotices.txt](https://github.com/posit-dev/positron/blob/main/ThirdPartyNotices.txt)
+

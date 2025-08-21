@@ -80,3 +80,33 @@ See [Extension Development](extension-development.qmd) for information on creati
 ### Installing extensions manually
 
 In offline or restricted environments, users may need to manually install extensions rather than relying on the search and install capabilities from the Positron extensions tab. Users can install extensions saved as [`.vsix` files](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions). See the *Extensions: Install from VSIX* command via the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} or via the `...` in the top right of the Extensions tab.
+
+## Extension trust and security
+
+Extensions can offer Positron powerful new capabilities. However, they can also present risks; the risks are similar to installing and using Python or R packages, and can include risk of malicious code execution or inappropriate data access. Third-party extensions can read or modify files, make network requests, and take other actions that could accidentally or maliciously result in a security issue. 
+
+### Extension trust
+
+Positron has no control over the behavior of third-party extensions, including how they manage your personal data. You should only install third-party extensions if you trust the publisher. 
+
+OpenVSX has several mechanisms in place to help protect users, including requiring membership within a [namespace to publish](https://github.com/eclipse/openvsx/wiki/Namespace-Access) and displaying a Verified Publisher badge for specific, verified namespaces.
+
+For example, Posit’s Air extension displays the “Posit Software, PBC” Verified Publisher badge, and “Lionel”, the developer from Posit who published the extension.
+
+![AIR extension as displayed in the Extensions pane of Positron](images/extension-verified-publisher.png)
+
+You can vet an extension in a few different ways:
+
+- **Verified Publisher**: The ☑️ badge indicates a Verified Publisher and access to that namespace.
+- **Downloads**: Total downloads can be an indicator of adoption.
+- **Repository**: Most extensions are open source and you can inspect or scan the source code, learn more about the project and developers, and look for open issues.
+- **Ratings**: The community is able to rate extensions with a traditional star-based system.
+- **Published date**: Is the extension kept up to date?
+
+Additionally, when you first install an extension from a namespace you have not installed from before, Positron will prompt you to confirm your trust in that publisher.
+
+![Modal prompt to confirm trust in that specific extension publisher](images/extension-publisher-trust.png)
+
+OpenVSX removes known malicious extensions and also makes use of the extension blocklist from the VS Code marketplace. To report suspicious or questionable extensions, or to report abuse, please reach out to OpenVSX via their [security portal](https://github.com/eclipse/openvsx/security) or via the “Report Abuse” button on the specific extension’s page of OpenVSX.
+
+For more information about the full set of extension privileges and security that come from upstream Code OSS, please see the VS Code documentation on [Extension runtime security](https://code.visualstudio.com/docs/configure/extensions/extension-runtime-security).
