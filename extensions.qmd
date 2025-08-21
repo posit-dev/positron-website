@@ -91,13 +91,13 @@ Positron has no control over the behavior of third-party extensions, including h
 
 OpenVSX has several mechanisms in place to help protect users, including requiring membership within a [namespace to publish](https://github.com/eclipse/openvsx/wiki/Namespace-Access) and displaying a Verified Publisher badge for specific, verified namespaces.
 
-For example, Posit’s Air extension displays the “Posit Software, PBC” Verified Publisher badge, and “Lionel”, the developer from Posit who published the extension.
+For example, Posit’s Air extension displays the “Posit Software, PBC” Verified Publisher badge, and “lionel-”, the developer from Posit who published the extension.
 
-![AIR extension as displayed in the Extensions pane of Positron](images/extension-verified-publisher.png)
+![Air extension as displayed in the Extensions pane of Positron](images/extension-verified-publisher.png){width=600}
 
 You can vet an extension in a few different ways:
 
-- **Verified Publisher**: The ☑️ badge indicates a Verified Publisher and access to that namespace.
+- **Verified Publisher**: The {{<fa square-check>}} badge indicates a Verified Publisher and access to that namespace.
 - **Downloads**: Total downloads can be an indicator of adoption.
 - **Repository**: Most extensions are open source and you can inspect or scan the source code, learn more about the project and developers, and look for open issues.
 - **Ratings**: The community is able to rate extensions with a traditional star-based system.
@@ -105,7 +105,7 @@ You can vet an extension in a few different ways:
 
 Additionally, when you first install an extension from a namespace you have not installed from before, Positron will prompt you to confirm your trust in that publisher.
 
-![Modal prompt to confirm trust in that specific extension publisher](images/extension-publisher-trust.png)
+![Modal prompt to confirm trust in that specific extension publisher](images/extension-publisher-trust.png){width=500}
 
 OpenVSX removes known malicious extensions and also makes use of the extension blocklist from the VS Code marketplace. To report suspicious or questionable extensions, or to report abuse, please reach out to OpenVSX via their [security portal](https://github.com/eclipse/openvsx/security) or via the “Report Abuse” button on the specific extension’s page of OpenVSX.
 
