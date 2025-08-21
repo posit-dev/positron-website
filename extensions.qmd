@@ -95,7 +95,8 @@ For example, Posit’s Air extension displays the “Posit Software, PBC” Veri
 
 ![AIR extension as displayed in the Extensions pane of Positron](images/extension-verified-publisher.png)
 
-You can vet an extension in a few different ways::
+You can vet an extension in a few different ways:
+
 - **Verified Publisher**: The ☑️ badge indicates a Verified Publisher and access to that namespace.
 - **Downloads**: Total downloads can be an indicator of adoption.
 - **Repository**: Most extensions are open source and you can inspect or scan the source code, learn more about the project and developers, and look for open issues.
@@ -106,9 +107,9 @@ Additionally, when you first install an extension from a namespace you have not 
 
 ![Modal prompt to confirm trust in that specific extension publisher](images/extension-publisher-trust.png)
 
-OpenVSX will remove known malicious extensions and also make use of the extension blocklist from the VS Code marketplace. To report suspicious or questionable extensions, or report abuse, please reach out to OpenVSX via their [security portal](https://github.com/eclipse/openvsx/security) or via the “Report Abuse” button on the specific extension’s page of OpenVSX.
+OpenVSX removes known malicious extensions and also makes use of the extension blocklist from the VS Code marketplace. To report suspicious or questionable extensions, or to report abuse, please reach out to OpenVSX via their [security portal](https://github.com/eclipse/openvsx/security) or via the “Report Abuse” button on the specific extension’s page of OpenVSX.
 
-For more information about the full set of Extension privileges and security that come from upstream Code OSS, please see the VS Code documentation on [Extension runtime security](https://code.visualstudio.com/docs/configure/extensions/extension-runtime-security).
+For more information about the full set of extension privileges and security that come from upstream Code OSS, please see the VS Code documentation on [Extension runtime security](https://code.visualstudio.com/docs/configure/extensions/extension-runtime-security).
 
 ### Positron bundled extensions
 
