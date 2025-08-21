@@ -81,11 +81,11 @@ See [Extension Development](extension-development.qmd) for information on creati
 
 In offline or restricted environments, users may need to manually install extensions rather than relying on the search and install capabilities from the Positron extensions tab. Users can install extensions saved as [`.vsix` files](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions). See the *Extensions: Install from VSIX* command via the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} or via the `...` in the top right of the Extensions tab.
 
-## Extension Trust and Security
+## Extension trust and security
 
 Extensions can offer Positron powerful new capabilities in addition to the built-in data science experience. However, they can also present risks, similar to Python or R packages, such as malicious code execution or inappropriate data access. Third-party extensions can read or modify files, make network requests, and take other actions that could accidentally or maliciously result in a security issue. 
 
-### Extension Trust
+### Extension trust
 
 Positron has no control over the behavior of third-party extensions, including how they manage your personal data. You should only install third-party extensions if you trust the publisher. 
 
