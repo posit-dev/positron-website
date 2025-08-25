@@ -1,7 +1,7 @@
 ---
 title: "Writing R code"
 aliases:
-  - r-snippets.qmd
+  - r-snippets.html
 ---
 
 Writing R code in Positron should feel quite familiar to RStudio users.
