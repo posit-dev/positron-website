@@ -18,7 +18,26 @@ This project uses [Vale](https://vale.sh/docs/) for automated linting and compli
 - If you are a Posit employee, you can find the "Posit Documentation Style Guide" on Confluence.
 - If you are an external contributor, we as reviewers will take responsibility for compliance with the guidelines. Thank you for being willing to improve our docs!
 
+### Automated Linting
+
 Vale runs [via GH action on PRs](https://github.com/posit-dev/positron-website/actions/workflows/lint.yml), but you can also run it locally before you submit a PR if you have [installed Vale](https://vale.sh/docs/vale-cli/installation/) locally. Run `vale .` from the root directory of this project to lint the `.qmd` files used to build the site.
+
+### Pre-commit Hooks (Optional)
+
+For faster feedback during development, you can optionally install pre-commit hooks to automatically check for Vale linting before every commit.
+
+**Quick setup:**
+```bash
+pip install pre-commit && pre-commit install
+```
+
+**What it does:**
+- Runs Vale linting on Quarto files before each commit
+
+**Skip anytime:**
+```bash
+git commit --no-verify
+```
 
 ## Local development
 

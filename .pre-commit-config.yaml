@@ -1,0 +1,17 @@
+# Optional pre-commit hooks for positron-website
+# 
+# These hooks provide fast local feedback during development.
+# Installation is completely optional - CI will catch issues anyway.
+# 
+# Quick setup: pip install pre-commit && pre-commit install
+# Skip anytime: git commit --no-verify
+
+repos:
+  # Vale for style guide compliance
+  - repo: https://github.com/errata-ai/vale
+    rev: v3.0.0
+    hooks:
+      - id: vale
+        name: Vale - Style Guide Linting
+        files: \.qmd$
+        args: [--output=line, --fail-on-error]
