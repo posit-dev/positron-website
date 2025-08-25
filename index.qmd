@@ -7,6 +7,24 @@ description: |
 hide-description: true
 ---
 
+From [Posit PBC](https://posit.co/){target="_blank"}, the creators of RStudio
+
+# The Data Science IDE
+
+Positron brings exploration and production work together in one free AI-powered environment that works for Python and R.
+
+[Get Started](https://positron.posit.co/download.html){.btn .btn-primary .btn-lg target="_blank"}
+
+[View Features](features.qmd){.btn .btn-outline-primary .btn-lg}
+
+
+## License
+
+Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
+
+Positron™ and the Positron icon™ are trademarks of Posit Software, PBC. All rights reserved.
+
+<!-- 
 ## What is Positron?
 
 - A free, next-generation data science IDE built by [Posit PBC](https://posit.co/)
@@ -24,12 +42,8 @@ Find out what you need to know to [get started](start.qmd) using Positron, and t
 Positron is built on [Code OSS](https://github.com/microsoft/vscode). To learn about basic features like commands, settings, using source control, and more, see the [VS Code documentation](https://code.visualstudio.com/docs).
 
 
-## Share your feedback about Positron
-
-We invite you to join us on [GitHub Discussions](https://github.com/posit-dev/positron/discussions) to ask questions and share feedback. [Read more](feedback.qmd) about giving feedback and reporting bugs.
-
 ## License
 
 Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
 
-Positron™ and the Positron icon™ are trademarks of Posit Software, PBC. All rights reserved.
+Positron™ and the Positron icon™ are trademarks of Posit Software, PBC. All rights reserved. -->

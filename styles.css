@@ -1,4 +1,6 @@
 /* css styles */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 @font-face {
   font-family: 'Font Awesome 6 Free - Positron';
   font-style: normal;
@@ -45,3 +47,35 @@ kbd {
   margin-right: 5px;
 }
 
+/* DESIGN LANGUAGE SYSTEM COMPONENTS, See Figma https://www.figma.com/design/Z5yDdAsRfGKV5bw9b4kPLM/Design-System?node-id=310-453&p=f&t=bu1FYnD4nzRrA1hB-0 */
+
+/* Typography from the Design Language System */
+h1 {
+  font-size: 44px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 28px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 18px;
+}
+p {
+  font-size: 14x;
+}
+small-font {
+  font-size: 12px;
+}
+x-small-font {
+  font-size: 10px;
+}

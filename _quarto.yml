@@ -29,14 +29,26 @@ website:
 
   navbar:
     left:
-      - text: "Get Started"
-        href: start.qmd
-      - text: "Guides"
+      - text: "About"
+        menu:
+          - text: "Overview"
+            href: index.qmd
+          - text: "About Us"
+            href: about.qmd
+      - text: "Features"
+        href: features.qmd
+      - text: "Docs"
         href: add-to-path.qmd
       - text: "Help"
-        href: troubleshooting.qmd
-      - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
-        href: download.qmd
+        menu:
+          - text: "Troubleshooting"
+            href: troubleshooting.qmd 
+          - text: "Feedback & Issues"
+            href: feedback.qmd
+          - text: "Ask a Question"
+            href: https://github.com/posit-dev/positron/discussions
+      - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Free Download</span>"
+        href: start.qmd
     right:
       - icon: github
         aria-label: 'Link to Positron Github Repository'
@@ -53,7 +65,7 @@ website:
         - about.qmd
         - privacy.qmd
 
-    - title: "Guides"
+    - title: "Docs"
       style: "docked"
       contents:
         - add-to-path.qmd
