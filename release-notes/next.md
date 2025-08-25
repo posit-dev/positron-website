@@ -2,7 +2,12 @@
 
 #### Positron Assistant 🤖
 
-TBD coming from Sam
+The Positron Assistant is now more powerful and versatile than ever. New slash commands — `/fix`, `/explain`, and `/doc` — are available to debug, understand, and document code with ease. These commands integrate can even be triggered automatically, such as converting a chat into a Quarto document just by asking, "Can you convert this to Quarto?"
+
+Fix & Explain support for Console errors has also been introduced. With a single click, the Assistant can Fix or Explain an error, acting as a coding partner for troubleshooting. You can try it out by enabling [`positron.assistant.consoleActions.enable`](positron://settings/positron.assistant.consoleActions.enable) in Settings. 
+
+Ways you already use Assistant have been enhanced: Code completions and inline chat are now available in Notebooks, giving you access to the features you love no matter where you code. Assistant now also integrates with Git by default, letting you seamlessly chat about your project's history.
+
 
 #### Convert your Data Explorer filters to code 🐼
 
