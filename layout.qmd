@@ -37,6 +37,6 @@ Positron provides layout presets specifically designed for data science work:
 
 - **Notebook**: Emphasizes the editor workspace for full focus on a Jupyter Notebook or source file, minimizing other panes.
 
-![Notebook Layout when viewing a Jupyter Notebook](images/layouts-notebook.png){width=50%}
+![Notebook layout when viewing a Jupyter Notebook](images/layouts-notebook.png){width=50%}
 
 Use the _Customize Layout..._ command for more specific layout choices. You can also reset the whole UI back to defaults by clicking on the {{<fa rotate-left >}} icon at the top right of the layout quickpick.
