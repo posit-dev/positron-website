@@ -24,7 +24,7 @@ Vale runs [via GH action on PRs](https://github.com/posit-dev/positron-website/a
 
 1. **Vale CLI** - by manually running the Vale CLI, you can check locally.  You must have [installed Vale](https://vale.sh/docs/vale-cli/installation/) locally. Run `vale .` from the root directory of this project to lint the `.qmd` files used to build the site.
 
-2. **Pre-commit Hook** - the pre-commit hook automatically checks for Vale linting before every commit.
+2. **Pre-Commit Hook** - the pre-commit hook automatically checks for Vale linting before every commit.
 
 **Quick setup:**
 ```bash

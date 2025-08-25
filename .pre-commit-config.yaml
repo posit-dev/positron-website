@@ -13,5 +13,5 @@ repos:
     hooks:
       - id: vale
         name: Vale - Style Guide Linting
-        files: \.qmd$
+        files: \.(qmd|md)$
         args: [--output=line, --fail-on-error]
