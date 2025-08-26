@@ -33,3 +33,7 @@ We recommend matching the selected interpreter for the workspace and the noteboo
 You can manually select a different interpreter for the notebook by clicking the **Kernel Selector** button in the notebook toolbar or by running the *Notebook: Select Notebook Kernel*  from the Command Palette.
 
 ![The Kernel Selector showing the selected interpreter for a new notebook.](images/jupyter-notebooks-kernel-selector.png)
+
+### Customization
+
+To set the default working directory of notebooks, use the [`notebook.workingDirectory` setting](positron://settings/notebook.workingDirectory).
