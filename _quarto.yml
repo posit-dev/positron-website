@@ -37,8 +37,8 @@ website:
             href: about.qmd
       - text: "Features"
         href: features.qmd
-      - text: "Docs"
-        href: add-to-path.qmd
+      - text: "Guides"
+        href: guides.qmd
       - text: "Help"
         menu:
           - text: "Troubleshooting"
@@ -48,7 +48,7 @@ website:
           - text: "Ask a Question"
             href: https://github.com/posit-dev/positron/discussions
       - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Free Download</span>"
-        href: start.qmd
+        href: download.qmd
     right:
       - icon: github
         aria-label: 'Link to Positron Github Repository'
@@ -65,9 +65,10 @@ website:
         - about.qmd
         - privacy.qmd
 
-    - title: "Docs"
+    - title: "Guides"
       style: "docked"
       contents:
+        - guides.qmd
         - add-to-path.qmd
         - section: "User Interface"
           contents:

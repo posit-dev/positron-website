@@ -3,7 +3,7 @@ pagetitle: "Positron"
 toc: false
 editor: source
 description: |
-  A next-generation data science IDE
+  Positron: A free AI-powered data science IDE for Python and R, from Posit PBC, the creators of RStudio.
 hide-description: true
 ---
 
@@ -11,39 +11,106 @@ From [Posit PBC](https://posit.co/){target="_blank"}, the creators of RStudio
 
 # The Data Science IDE
 
-Positron brings exploration and production work together in one free AI-powered environment that works for Python and R.
+Positron unifies exploration and production work in one free, AI-powered environment, empowering the full spectrum of open-source data science in Python and R.
 
-[Get Started](https://positron.posit.co/download.html){.btn .btn-primary .btn-lg target="_blank"}
+[Download](https://positron.posit.co/start.html){.btn .btn-primary .btn-lg target="_blank"} 
 
-[View Features](features.qmd){.btn .btn-outline-primary .btn-lg}
-
-
-## License
-
-Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
-
-Positron™ and the Positron icon™ are trademarks of Posit Software, PBC. All rights reserved.
-
-<!-- 
-## What is Positron?
-
-- A free, next-generation data science IDE built by [Posit PBC](https://posit.co/)
-- An extensible, polyglot tool for writing code and exploring data
-- A familiar environment for reproducible authoring and publishing
-
-![Positron, a next-generation data science IDE](images/astropy.png)
-
-## Ready to learn more?
-
-{{< video https://www.youtube.com/embed/8uRcB34Hhsw >}}
-
-Find out what you need to know to [get started](start.qmd) using Positron, and then [download an installer](download.qmd). Explore our user guides on topics such as [choosing interpreters](managing-interpreters.qmd) and the [Data Explorer](data-explorer.qmd). Our [FAQs](faqs.qmd) cover some common questions you may have.
-
-Positron is built on [Code OSS](https://github.com/microsoft/vscode). To learn about basic features like commands, settings, using source control, and more, see the [VS Code documentation](https://code.visualstudio.com/docs).
+*Available for Windows, macOS, and Linux • Free under [Elastic License 2.0](https://positron.posit.co/licensing.html)*
 
 
-## License
 
-Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
 
-Positron™ and the Positron icon™ are trademarks of Posit Software, PBC. All rights reserved. -->
+<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/uaim83694f.js" async type="module"></script><style>wistia-player[media-id='uaim83694f']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/uaim83694f/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="uaim83694f" aspect="1.7777777777777777"></wistia-player>
+
+
+## Bridge the Exploration-Production Divide
+
+Positron unlocks high-dynamic-range data science, seamlessly integrating the immediacy and interactivity of a console or notebook with the robust development environment essential for production outputs—all within a single tool.
+
+* **Explore** data rapidly via a script in the integrated console or inline with a notebook
+* **Refactor** discoveries seamlessly into reusable functions in a script
+* **Build** sophisticated data apps with integrated live previews and debugging
+* **Develop** data products that will go into production, without ever leaving your development environment
+
+
+## Streamline Your End-to-End Data Science Workflows
+Stop Juggling Tools. Positron Unifies Your Entire Data Science Lifecycle in One Powerful IDE, for both Python and R.
+
+
+### Explore & Analyze with Speed
+
+::: {.panel-tabset}
+
+### Code efficiently across multiple languages
+
+Work in Python or R, leveraging one or multiple consoles for concurrent analysis and development.
+
+### Interact with Data at scale 
+
+Confidently explore and manipulate large datasets with intuitive, fast and interactive data frames.
+
+:::
+
+
+<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/zhzn80uv1u.js" async type="module"></script><style>wistia-player[media-id='zhzn80uv1u']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/zhzn80uv1u/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="zhzn80uv1u" aspect="1.7777777777777777"></wistia-player>
+
+
+### Refine & Collaborate for Impact
+
+::: {.panel-tabset}
+### Accelerate insights with AI-powered assistance
+
+Enhance code quality and accelerate insights with integrated AI assistance contextualized for data science.
+
+### Inspect your environment
+
+Thoroughly examine variables, objects, and environments for robust debugging and understanding.
+
+### Generate rapid, insightful visualizations
+
+Create high-quality visualizations quickly to uncover patterns and communicate findings effectively.
+
+### Create dynamic, shareable reports
+
+Develop compelling, dynamic reports and presentations using Quarto and Jupyter Notebooks to effectively communicate insights to any stakeholder.
+
+:::
+
+<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/shybc7tztp.js" async type="module"></script><style>wistia-player[media-id='shybc7tztp']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/shybc7tztp/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="shybc7tztp" aspect="1.7777777777777777"></wistia-player>
+
+
+### Develop with Confidence
+
+::: {.panel-tabset}
+### Build effortless applications
+
+Instantly develop and preview data applications directly from Positron.
+
+
+### Integrate Version Control Automatically
+
+ Leverage out-of-the-box GIT & GitHub integrations for seamless code management and collaboration.
+
+### Scale beyond your local workstation
+
+Scale beyond your local workstation via Posit Workbench for teams to collaborate securely or via Remote SSH access to your own servers.
+:::
+
+
+<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/d3m1291nzn.js" async type="module"></script><style>wistia-player[media-id='d3m1291nzn']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/d3m1291nzn/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="d3m1291nzn" aspect="1.7777777777777777"></wistia-player>
+
+
+## Loved by Data Scientists
+See what the community is saying about Positron
+
+> *"Positron feels like stepping into the future of data science. I work in both R and Python daily, and switching between projects has never been easier. With built-in version control, a lightning-fast data explorer, and automatic code formatting, my workflow is pure joy — building apps, packages, reports, or teaching materials has never felt this seamless."* - **Christoph Scheuch**, Tidy Intelligence - Founder
+
+
+> *"I've always loved RStudio for its powerful data science features, but I often wished it had the flexibility of VS Code. Positron delivers exactly that, all right out of the box. AND it has made it easy to start learning and upskilling with Python. It's the perfect environment for modern data science"* - **Jenna Eagleson**, People Analytics at Regal Rexnord - Manager
+
+
+## Join Thousands of Data Scientists
+Transform your workflow with the IDE built specifically for Python and R data science
+
+[Download](https://positron.posit.co/start.html){.btn .btn-primary .btn-lg target="_blank"} 
+

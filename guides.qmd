@@ -1,0 +1,25 @@
+---
+title: "Guides"
+---
+
+Welcome to the Positron user guides. Choose your path based on what you want to accomplish
+
+::: {.callout-tip}
+*Use the sidebar to browse all available guides*
+:::
+
+## 🚀 New to Positron?
+Start with [Getting Started](start.qmd) and then learn the [interface basics](layout.qmd).
+
+## 🔧 Setting Up Your Environment?
+Check out [Interpreters & Languages](managing-interpreters.qmd) to configure Python and R for your workflow.
+
+## ⚡ Coming from Another IDE?
+Jump to [VS Code](migrate-vscode.qmd) or [RStudio](migrate-rstudio.qmd) migration guides.
+
+---
+
+
+::: {.callout-note}
+Positron is built on [Code OSS](https://github.com/microsoft/vscode). To learn about basic features like commands, settings, using source control, and more, see the [VS Code documentation](https://code.visualstudio.com/docs).
+:::
