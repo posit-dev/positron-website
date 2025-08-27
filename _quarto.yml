@@ -31,6 +31,8 @@ website:
     left:
       - text: "Get Started"
         href: start.qmd
+      - text: Features
+        href: features.qmd
       - text: "Guides"
         href: add-to-path.qmd
       - text: "Help"
