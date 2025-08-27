@@ -1,6 +1,5 @@
 ---
 title: "Positron Documentation"
-description: "Documentation for Positron, the next-generation data science IDE. Learn how to get started, configure your environment, and migrate from other IDEs."
 ---
 
 Welcome to the documentation for Positron, the next-generation data science IDE built for Python and R. Whether you're new to Positron or migrating from another IDE, you'll find resources here on how to be productive quickly.
