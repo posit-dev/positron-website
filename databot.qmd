@@ -9,6 +9,8 @@ Databot is currently experimental and is not ready for production use.
 
 Databot is an assistant for analyzing and understanding data. This extension is for use with [Positron](https://positron.posit.co/). It uses functionality available only in Positron, so it will not work with VS Code or other Code OSS-based IDEs.
 
+![](images/databot-welcome.png){fig-alt="Welcome page of Databot and suggested first actions to take like checking loaded data or loading new data"}
+
 ## Installation
 
 Currently, there are a few steps to getting Databot up and running.
