@@ -45,12 +45,13 @@ website:
             href: feedback.qmd
           - text: "Ask a Question"
             href: https://github.com/posit-dev/positron/discussions
-      - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
-        href: download.qmd
+      
     right:
       - icon: github
         aria-label: 'Link to Positron Github Repository'
         href: https://github.com/posit-dev/positron
+      - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
+        href: download.qmd
 
   sidebar:
     - title: "Get Started"
