@@ -37,8 +37,8 @@ website:
             href: about.qmd
       - text: "Features"
         href: features.qmd
-      - text: "Guides"
-        href: guides.qmd
+      - text: "Docs"
+        href: docs.qmd
       - text: "Help"
         menu:
           - text: "Troubleshooting"
@@ -65,10 +65,10 @@ website:
         - about.qmd
         - privacy.qmd
 
-    - title: "Guides"
+    - title: "Docs"
       style: "docked"
       contents:
-        - guides.qmd
+        - docs.qmd
         - add-to-path.qmd
         - section: "User Interface"
           contents:
@@ -119,7 +119,7 @@ website:
 
 format:
   html:
-    css: styles.css
+    css: css/styles.css
     mermaid: 
       theme: neutral
     link-external-filter: '^(?:http:|https:)\/\/(?:positron|cdn)\.posit\.co(?:\/|$)|^(?:http:|https:)\/\/.*--positron-posit-co\.netlify\.app(?:\/|$)|^(?!https?:\/\/)'

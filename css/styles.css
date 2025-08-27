@@ -1,0 +1,50 @@
+/* css styles */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@font-face {
+  font-family: 'Font Awesome 6 Free - Positron';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("_extensions/quarto-ext/fontawesome/assets/webfonts/fa-solid-900.woff2");
+}
+
+/* Add gear icon before links with href starting with "positron://settings" */
+a[href^="positron://settings"]::before {
+  content: "\f013"; /* Unicode for gear in Font Awesome */
+  font-family: 'Font Awesome\ 6 Free - Positron';
+}
+
+/* Navbar list item aligment issues  */
+
+nav .nav-item:not(.compact) {
+  margin-bottom: -6px !important;
+}
+
+.navbar-brand img {
+  height: 40px;  /* Adjust as needed */
+  width: auto;
+}
+
+#top-bar-download-btn {
+  margin-top: -7px
+}
+
+/* Keyboard shortcuts */
+kbd {
+    padding: .2rem .4rem;
+}
+
+/* Keyboard shortcut styles 
+.quarto-dark .kbd {
+  color: #ffffff !important;
+}
+*/
+
+/* Footer */
+
+.posit-footer-logo {
+  margin-right: 5px;
+}
+
+

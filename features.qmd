@@ -2,4 +2,7 @@
 title: "Features"
 ---
 
-# Features 
+# Purpose-built IDE for Data Science 
+Features to help you stay in the flow
+
+

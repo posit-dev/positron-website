@@ -1,0 +1,63 @@
+/* Custom CSS for index.qmd */
+/* Be more specific to ensure there are no theme overrides*/
+
+/* body */
+body {
+  padding: 4rem 2rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* hero section */
+.hero {
+  text-align: center;
+}
+
+/* Hero section h1 - largest heading */
+h1 {
+  font-size: 44px; /* Posit Product Design 44 */
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Main section headings */
+h2 {
+  font-size: 36px; /* Posit Product Design 36 */
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+/* Sub-section headings */
+h3 {
+  font-size: 28px; /* Posit Product Design 28 */
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+/* Feature headings */
+h4 {
+  font-size: 24px; /* Posit Product Design 24 */
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+/* Minor headings */
+h5 {
+  font-size: 20px; /* Posit Product Design 20 */
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+/* Body text */
+p {
+  font-size: 14px; /* Posit Product Design 14 */
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
