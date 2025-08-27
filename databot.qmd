@@ -2,20 +2,18 @@
 title: "Databot"
 ---
 
-## Databot
-
 ::: {.callout-caution}
 ## Research preview
-Databot is currently experimental and is not ready for production use
+Databot is currently experimental and is not ready for production use.
 :::
 
-Databot is an assistant for analyzing and understanding data. This is an extension to be used with [Positron](https://positron.posit.co/). It uses functionality that is available only in Positron, so it will not work with VS Code or other Code OSS based IDEs.
+Databot is an assistant for analyzing and understanding data. This extension is for use with [Positron](https://positron.posit.co/). It uses functionality available only in Positron, so it will not work with VS Code or other Code OSS-based IDEs.
 
 ## Installation
 
 Currently, there are a few steps to getting Databot up and running.
 
-First, make sure you have a very recent version of Positron (2025.08.0 is the minimum version).
+First, make sure you have a recent version of Positron (2025.08.0 is the minimum version).
 
 ### Install the Databot extension
 
@@ -60,3 +58,7 @@ Close the dialog boxes. Databot is now ready to use!
 Databot will now ask you what you want to do, and will guide you through a data analysis process.
 
 To start Databot in another Positron session, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run `Open Databot`.
+
+## Databot vs Positron Assistant
+
+Positron Assistant is a _coding assistant_: it helps you write code or modify code on disk and can execute arbitrary code in Agent mode. Databot is a purpose-built exploratory data analysis agent. It writes and executes its own code on the fly to help you understand your data. It doesn’t care very much about the code you’ve already written.
