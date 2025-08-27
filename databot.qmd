@@ -1,0 +1,62 @@
+---
+title: "Databot"
+---
+
+## Databot
+
+::: {.callout-caution}
+## Research preview
+Databot is currently experimental and is not ready for production use
+:::
+
+Databot is an assistant for analyzing and understanding data. This is an extension to be used with [Positron](https://positron.posit.co/). It uses functionality that is available only in Positron, so it will not work with VS Code or other Code OSS based IDEs.
+
+## Installation
+
+Currently, there are a few steps to getting Databot up and running.
+
+First, make sure you have a very recent version of Positron (2025.08.0 is the minimum version).
+
+### Install the Databot extension
+
+In Positron, choose the [Extensions view](extensions.qmd) from the Activity Bar on the left or use the keyboard shortcut {{< kbd mac=Command-Shift-X win=Ctrl-Shift-X linux=Ctrl-Shift-X >}} and search for “Databot”. Click the Install button to install the extension.
+
+### Enable Databot
+
+Databot is an experimental product currently in research preview and is not ready for production use. To enable Databot, you must first acknowledge this.
+
+* In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run `Open User Settings`.  
+* In the search bar, type “Databot”.  
+* You will see **Databot: Research Preview Acknowledgment**. In the text box, type “Acknowledged”.
+
+### Start Databot
+
+In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run `Open Databot`.
+
+### Enable Positron Assistant 
+
+If [Positron Assistant](assistant.qmd) is not yet enabled, you will see the following message in the Databot panel: “To use Databot, enable Positron Assistant and Anthropic provider.”
+
+Click on the button labeled **Help me set it up**. This will open a dialog box.
+
+In section 2 of the dialog box, **Enable Positron Assistant**, if it says “Positron Assistant is not yet enabled” and there are any red check boxes, then click on the button labeled **Update settings**. The check boxes will turn green.
+
+### Enable Anthropic as a model provider
+
+:::{.callout-note}
+## Prerequisites: 
+For this step, you will need an Anthropic API key.
+
+:::
+
+In section 3 of the dialog box, **Add Anthropic provider**, click on the button labeled **Click here**. This will open a dialog box to configure Language Model Providers.
+
+* Select **Anthropic** and enter your API key.  
+
+Close the dialog boxes. Databot is now ready to use!
+
+## Using Databot
+
+Databot will now ask you what you want to do, and will guide you through a data analysis process.
+
+To start Databot in another Positron session, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run `Open Databot`.
