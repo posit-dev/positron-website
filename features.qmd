@@ -1,47 +1,131 @@
 ---
 title: "Positron Features"
-page-layout: custom
-sidebar: false
+description: "Positron unifies your entire data science lifecycle in one powerful IDE."
 toc: false
-css: styles/features.css
---- 
+listing:
+  - id: main-features-1
+    type: custom
+    template: features.ejs
+    contents:
+      - title: "Python or R"
+        description: "Code efficiently across multiple languages whether it's Python or R."
+        icon: "bi-code-slash"
+        link: "https://positron.posit.co/managing-interpreters.html"
+        category: "language"
+      - title: "Multi-session console"
+        description: "Work across one or multiple consoles for concurrent analysis and development."
+        icon: "bi-terminal"
+        link: "https://positron.posit.co/managing-interpreters.html"
+        category: "console"
+      - title: "Interact with data at scale"
+        description: "Explore and manipulate large datasets with intuitive, fast and interactive data frames."
+        icon: "bi-rocket"
+        link: "https://positron.posit.co/develop-data-apps.html"
+        category: "data"
+  - id: main-features-2
+    type: custom
+    template: features.ejs
+    contents:
+      - title: "Accelerate insights with AI-powered assistance"
+        description: "Enhance code quality and accelerate insights with integrated AI assistance contextualized for data science."
+        icon: "bi-robot"
+        link: "https://positron.posit.co/assistant.html"
+        category: "ai"
+        badge: "Experimental"
+      - title: "Inspect your environment"
+        description: "Thoroughly examine variables, objects, and environments for robust debugging and understanding."
+        icon: "bi-search"
+        link: "https://positron.posit.co/layout.html"
+        category: "development"
+      - title: "Generate rapid, insightful visualizations"
+        description: "Create high-quality visualizations quickly to uncover patterns and communicate findings effectively."
+        icon: "bi-graph-up"
+        link: "https://positron.posit.co/migrate-vscode.html#overview"
+        category: "visualization"
+      - title: "Create dynamic, shareable reports"
+        description: "Develop compelling, dynamic reports and presentations using Quarto and Jupyter Notebooks to effectively communicate insights to any stakeholder."
+        icon: "bi-file-earmark-text"
+        link: "https://positron.posit.co/quarto.html"
+        category: "reporting"
+  - id: main-features-3
+    type: custom
+    template: features.ejs
+    contents:
+      - title: "Build effortless applications"
+        description: "Instantly develop and preview data applications directly from Positron."
+        icon: "bi-play-circle"
+        link: "https://positron.posit.co/develop-data-apps.html"
+        category: "development"
+      - title: "Integrate Version Control Automatically"
+        description: "Leverage out-of-the-box Git & GitHub integrations for seamless code management and collaboration."
+        icon: "bi-git"
+        link: "https://positron.posit.co/git.html#additional-resources"
+        category: "collaboration"
+      - title: "Scale beyond your local workstation"
+        description: "Collaborate securely with your team via Posit Workbench or use remote SSH to access your own servers."
+        icon: "bi-cloud"
+        link: "https://posit.co/products/enterprise/workbench/"
+        category: "enterprise"
+format:
+  html:
+    css: [styles.css, styles/features.css]
+    page-layout: full
+   
+---
 
+## Explore and analyze with speed
 
-From interactive consoles to AI-powered assistance, every feature is designed to keep you in the flow.
-
-
-### Explore & analyze with speed
-<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/zhzn80uv1u.js" async type="module"></script><style>wistia-player[media-id='zhzn80uv1u']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/zhzn80uv1u/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="zhzn80uv1u" wistia-popover="true" aspect="1.7777777777777777"></wistia-player>
-
-:::grid
-::: {.g-col-4}
-#### Python or R
-Code efficiently across [multiple languages](https://positron.posit.co/managing-interpreters.html) whether it’s Python or R.
-
+::: {#main-features-1}
 :::
-::: {.g-col-4}
-#### Multi-session console
 
-Work across one or [multiple consoles](https://positron.posit.co/managing-interpreters.html) for concurrent analysis and development.
-
+::: {.video-container .mb-5}
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/zhzn80uv1u.js" async type="module"></script>
+<style>
+wistia-player[media-id='zhzn80uv1u']:not(:defined) { 
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/zhzn80uv1u/swatch'); 
+  display: block; 
+  filter: blur(5px); 
+  padding-top:56.25%; 
+}
+</style>
+<wistia-player media-id="zhzn80uv1u" aspect="1.7777777777777777"></wistia-player>
 :::
 
-::: {.g-col-4}
-#### Interact with data at scale
-
-[Explore and manipulate](https://positron.posit.co/develop-data-apps.html ) large datasets with intuitive, fast and interactive data frames.
-
+## Refine and collaborate for impact
+::: {#main-features-2}  
 :::
 
-<!-- ::: {.g-col-4}
-![](images/tbid.png){.img-fluid}
+::: {.video-container .mb-5}
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/shybc7tztp.js" async type="module"></script>
+<style>
+wistia-player[media-id='shybc7tztp']:not(:defined) { 
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/shybc7tztp/swatch'); 
+  display: block; 
+  filter: blur(5px); 
+  padding-top:56.25%; 
+}
+</style>
+<wistia-player media-id="shybc7tztp" aspect="1.7777777777777777"></wistia-player>
 :::
 
-::: {.g-col-4}
-![](images/active-interpreter-session.png){.img-fluid}
+
+
+## Develop with confidence
+::: {#main-features-3}
 :::
 
-::: {.g-col-4}
-![](images/data-explorer-flights.png){.img-fluid}
+::: {.video-container .mb-5}
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/d3m1291nzn.js" async type="module"></script>
+<style>
+wistia-player[media-id='d3m1291nzn']:not(:defined) { 
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/d3m1291nzn/swatch'); 
+  display: block; 
+  filter: blur(5px); 
+  padding-top:56.25%; 
+}
+</style>
+<wistia-player media-id="d3m1291nzn" aspect="1.7777777777777777"></wistia-player>
 :::
-::: -->
