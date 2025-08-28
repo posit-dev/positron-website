@@ -3,12 +3,14 @@ title: "Positron Features"
 page-layout: custom
 sidebar: false
 toc: false
+css: styles/features.css
 --- 
+
 
 From interactive consoles to AI-powered assistance, every feature is designed to keep you in the flow.
 
 
-### Explore & Analyze with Speed
+### Explore & analyze with speed
 <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/zhzn80uv1u.js" async type="module"></script><style>wistia-player[media-id='zhzn80uv1u']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/zhzn80uv1u/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="zhzn80uv1u" wistia-popover="true" aspect="1.7777777777777777"></wistia-player>
 
 :::grid
@@ -31,7 +33,7 @@ Work across one or [multiple consoles](https://positron.posit.co/managing-interp
 
 :::
 
-::: {.g-col-4}
+<!-- ::: {.g-col-4}
 ![](images/tbid.png){.img-fluid}
 :::
 
@@ -42,4 +44,4 @@ Work across one or [multiple consoles](https://positron.posit.co/managing-interp
 ::: {.g-col-4}
 ![](images/data-explorer-flights.png){.img-fluid}
 :::
-:::
+::: -->
