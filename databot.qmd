@@ -25,6 +25,8 @@ Currently, there are a few steps to getting Databot up and running.
 
 First, make sure you have a recent version of Positron (2025.08.0 is the minimum version).
 
+<!-- vale Posit.Headings = NO -->
+
 ### Install the Databot extension
 
 In Positron, choose the [Extensions view](extensions.qmd) from the Activity Bar on the left or use the keyboard shortcut {{< kbd mac=Command-Shift-X win=Ctrl-Shift-X linux=Ctrl-Shift-X >}} and search for “Databot”. Click the Install button to install the extension.
@@ -98,3 +100,5 @@ To start Databot in another Positron session, open the Command Palette {{< kbd m
 ### Are OpenAI, Gemini, and other models supported?
 
 * Not at this time, though we hope to add support in the future once they are exposed in Positron Assistant.
+
+<!-- vale Posit.Headings = YES -->
