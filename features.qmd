@@ -1,14 +1,12 @@
 ---
-title: "Positron Features"
-description: "Positron unifies your entire data science lifecycle in one powerful IDE."
 toc: false
 listing:
   - id: main-features-1
     type: custom
     template: features.ejs
     contents:
-      - title: "Python or R"
-        description: "Code efficiently across multiple languages whether it's Python or R."
+      - title: "R or Python"
+        description: "Code efficiently across multiple languages, whether it's R or Python."
         icon: "bi-code-slash"
         link: "https://positron.posit.co/managing-interpreters.html"
         category: "language"
@@ -18,7 +16,7 @@ listing:
         link: "https://positron.posit.co/managing-interpreters.html"
         category: "console"
       - title: "Interact with data at scale"
-        description: "Explore and manipulate large datasets with intuitive, fast and interactive data frames."
+        description: "Explore and manipulate large datasets with intuitive, fast, and interactive data frames."
         icon: "bi-rocket"
         link: "https://positron.posit.co/develop-data-apps.html"
         category: "data"
@@ -56,7 +54,7 @@ listing:
         icon: "bi-play-circle"
         link: "https://positron.posit.co/develop-data-apps.html"
         category: "development"
-      - title: "Integrate Version Control Automatically"
+      - title: "Integrate version control automatically"
         description: "Leverage out-of-the-box Git & GitHub integrations for seamless code management and collaboration."
         icon: "bi-git"
         link: "https://positron.posit.co/git.html#additional-resources"
@@ -68,17 +66,18 @@ listing:
         category: "enterprise"
 format:
   html:
-    css: [styles.css, styles/features.css]
-    page-layout: full
-   
+    css: [styles/features.css]
+    page-layout: custom
 ---
 
-## Explore and analyze with speed
+::: {.hero-section}
+# Positron Features
 
-::: {#main-features-1}
-:::
+#### Discover the complete data science toolkit designed to keep you in the flow.
 
-::: {.video-container .mb-5}
+::: {.features-section}
+## <span class="section-icon"><i class="bi-rocket"></i></span>Explore and analyze with speed
+::: {.hero-video}
 <script src="https://fast.wistia.com/player.js" async></script>
 <script src="https://fast.wistia.com/embed/zhzn80uv1u.js" async type="module"></script>
 <style>
@@ -89,14 +88,17 @@ wistia-player[media-id='zhzn80uv1u']:not(:defined) {
   padding-top:56.25%; 
 }
 </style>
-<wistia-player media-id="zhzn80uv1u" aspect="1.7777777777777777"></wistia-player>
+<wistia-player media-id="zhzn80uv1u" aspect="1.7777777777777777" aria-label="Video demonstration of Positron's multi-language coding and data exploration features"></wistia-player>
+:::
 :::
 
-## Refine and collaborate for impact
-::: {#main-features-2}  
+::: {#main-features-1}
 :::
 
-::: {.video-container .mb-5}
+
+::: {.features-section}
+## <span class="section-icon"><i class="bi-robot"></i></span>Refine and collaborate for impact
+::: {.hero-video}
 <script src="https://fast.wistia.com/player.js" async></script>
 <script src="https://fast.wistia.com/embed/shybc7tztp.js" async type="module"></script>
 <style>
@@ -107,16 +109,17 @@ wistia-player[media-id='shybc7tztp']:not(:defined) {
   padding-top:56.25%; 
 }
 </style>
-<wistia-player media-id="shybc7tztp" aspect="1.7777777777777777"></wistia-player>
+<wistia-player media-id="shybc7tztp" aspect="1.7777777777777777" aria-label="Video demonstration of Positron's AI assistance and environment inspection features"></wistia-player>
+:::
+:::
+
+::: {#main-features-2}
 :::
 
 
-
-## Develop with confidence
-::: {#main-features-3}
-:::
-
-::: {.video-container .mb-5}
+::: {.features-section}
+## <span class="section-icon"><i class="bi-shield-check"></i></span>Develop with confidence
+::: {.hero-video}
 <script src="https://fast.wistia.com/player.js" async></script>
 <script src="https://fast.wistia.com/embed/d3m1291nzn.js" async type="module"></script>
 <style>
@@ -127,5 +130,17 @@ wistia-player[media-id='d3m1291nzn']:not(:defined) {
   padding-top:56.25%; 
 }
 </style>
-<wistia-player media-id="d3m1291nzn" aspect="1.7777777777777777"></wistia-player>
+<wistia-player media-id="d3m1291nzn" aspect="1.7777777777777777" aria-label="Video demonstration of Positron's application development and version control features"></wistia-player>
+:::
+:::
+
+::: {#main-features-3}
+:::
+
+::: {.download-section}
+## Stop switching tools
+
+Join thousands of data scientists who have already made the switch to Positron.
+
+<a href="download.qmd" id='features-footer-download-btn' class='btn btn-primary'>Free Download</a>
 :::
