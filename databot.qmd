@@ -72,22 +72,29 @@ To start Databot in another Positron session, open the Command Palette {{< kbd m
 ## FAQ
 
 ### Who is Databot for?
+
 * Databot is currently intended for experienced R and Python users who are familiar with data analysis.
 
 ### Are you sure it’s not for people who aren’t comfortable writing their own code? Why not?
-* As far as we can tell, today’s models cannot be trusted to do open-ended data exploration without at least occasionally making mistakes. That’s why Databot’s user experience is intentionally code-forward, and a Databot analysis is not truly complete until the user has carefully reviewed important subsets of the model-generated code. Learn more here (TODO: Link to other post).
+
+* As far as we can tell, today’s models cannot be trusted to do open-ended data exploration without at least occasionally making mistakes. That’s why Databot’s user experience is intentionally code-forward, and a Databot analysis is not truly complete until the user has carefully reviewed important subsets of the model-generated code. [Learn more here](https://posit.co/blog/databot-is-not-a-flotation-device).
 
 ### How is Databot different from Positron Assistant?
-* Positron Assistant is a _coding assistant_: it helps you write code or modify code on disk and can execute arbitrary code in Agent mode. Databot is a purpose-built exploratory data analysis agent. It writes and executes its own code on the fly to help you understand your data. It doesn’t care very much about the code you’ve already written.
+
+* [Positron Assistant](https://positron.posit.co/assistant.html) is an _AI coding assistant_: it helps you write code or modify code on disk and can execute arbitrary code in Agent mode. Databot is a purpose-built _exploratory data analysis_ agent. It writes and executes its own code on the fly to help you understand your data. It doesn’t care very much about the code you’ve already written.
 
 ### Can I use Databot for machine learning, Shiny apps, ETL pipelines, or other tasks?
+
 * Databot will attempt other data-oriented tasks if prompted, but it was primarily designed for exploratory data analysis. The user experience is aimed at rapid iteration of short code snippets that execute quickly, and assumes that insights, not code, is the primary goal. 
 
 ### What data sources can Databot use? Will it work with databases? Parquet files on S3?
+
 * In theory, anything you can reasonably do from an R or Python console is possible in Databot, as long as Claude knows how to do it. For accessing data that isn’t on disk, you may need to provide a little more guidance to Databot to get started, like giving it a snippet of code that shows how you normally connect to your data source in Python.
 
 ### What LLMs can Databot use?
+
 * Databot is currently calibrated to work with Claude Sonnet 4. It also works well with Claude 3.5 Sonnet v2. Claude Opus performs similarly to Sonnet 4 but is more expensive, so we recommend Sonnet 4 in most cases. We do not recommend Claude 3.7 Sonnet because it tends to do far too much work before returning control to the user.
 
 ### Are OpenAI, Gemini, and other models supported?
+
 * Not at this time, though we hope to add support in the future once they are exposed in Positron Assistant.
