@@ -6,7 +6,7 @@
 
 #### New keybinding ⌨️
 
-The most upvoted feature request in this release is a new keybinding to execute the current statement in your Python or R Console _without_ advancing to the next one. You can now use <kbd>Alt+Enter</kbd> to execute your current statement without moving the cursor. (The existing keybinding <kbd>Ctrl/Cmd+Enter</kbd> executes the current statement and _does_ advance your cursor.)
+The most upvoted feature request in this release is a new keybinding to execute the current statement in your Python or R Console _without_ advancing to the next one. You can now use <kbd>Alt/Opt+Enter</kbd> to execute your current statement without moving the cursor. (The existing keybinding <kbd>Ctrl/Cmd+Enter</kbd> executes the current statement and _does_ advance your cursor.)
 
 #### Diagnostics and outlines for R 😌
 
