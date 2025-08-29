@@ -31,12 +31,14 @@ website:
     left:
       - text: "About"
         menu:
-          - text: "Overview"
-            href: index.qmd
           - text: "About Us"
             href: about.qmd
-      - text: "Docs"
-        href: docs-home.qmd
+          - text: "FAQs"
+            href: faqs.qmd
+          - text: "Privacy"
+            href: privacy.qmd 
+      - text: "Guides"
+        href: guides-home.qmd
       - text: "Help"
         menu:
           - text: "Troubleshooting"
@@ -47,27 +49,24 @@ website:
             href: https://github.com/posit-dev/positron/discussions
       
     right:
+      - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
+        href: download.qmd
       - icon: github
         aria-label: 'Link to Positron Github Repository'
         href: https://github.com/posit-dev/positron
-      - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
-        href: download.qmd
-
+      
   sidebar:
-    - title: "Get Started"
+    - title: "Guides"
       style: "docked"
       contents:
-        - start.qmd
-        - download.qmd
-        - extensions.qmd
-        - updating.qmd
-        - about.qmd
-        - privacy.qmd
-
-    - title: "Docs"
-      style: "docked"
-      contents:
-        - docs-home.qmd
+        - guides-home.qmd
+        - section: "Getting Started"
+          contents:
+            - start.qmd
+            - download.qmd
+            - extensions.qmd
+            - updating.qmd
+            - add-to-path.qmd
         - add-to-path.qmd
         - section: "User Interface"
           contents:

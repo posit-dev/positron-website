@@ -10,5 +10,3 @@
 /_site/
 /.venv/
 /.luarc.json
-
-**/*.quarto_ipynb

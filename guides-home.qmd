@@ -1,11 +1,11 @@
 ---
-title: "Positron Documentation"
+title: "Guides Overview"
 ---
 
 Welcome to the documentation for Positron, the next-generation data science IDE built for Python and R. Whether you're new to Positron or migrating from another IDE, you'll find resources here on how to be productive quickly.
 
 ::: {.callout-tip}
-**Quick tip:** Use the sidebar navigation to browse all available documentation and guides organized by topic.
+**Quick tip:** Use the sidebar navigation to browse all available documentation organized by topic.
 :::
 
 ### Get started
@@ -16,12 +16,14 @@ Learn how to configure [Python and R interpreters](managing-interpreters.qmd) fo
 
 ### Migrate from other IDEs
 Make the transition smooth with our migration guides:
-- [Migrating from VS Code](migrate-vscode.qmd) - Settings, extensions, and workflow tips
-- [Migrating from RStudio](migrate-rstudio.qmd) - Project structure, keybindings, and feature comparisons
+
+- [Migrating from VS Code](migrate-vscode.qmd)
+
+- [Migrating from RStudio](migrate-rstudio.qmd)
 
 
 ::: {.callout-note}
-**About the underlying technology:** Positron is built on [Code OSS](https://github.com/microsoft/vscode), the open-source foundation of Visual Studio Code. For general editor features like commands, settings, and source control, you can reference the [VS Code documentation](https://code.visualstudio.com/docs).
+Positron is built on [Code OSS](https://github.com/microsoft/vscode), the open-source foundation of Visual Studio Code. For general editor features like commands, settings, and source control, you can reference the [VS Code documentation](https://code.visualstudio.com/docs).
 :::
 
 **Need help?** Visit our [FAQ section](faqs.qmd) or [troubleshooting guide](troubleshooting.qmd) for answers to common questions.
