@@ -2,7 +2,7 @@
 
 #### Positron Assistant 🤖
 
-The Positron Assistant, currently available as a preview feature, is now more powerful and versatile. New slash commands (`/fix`, `/explain`, and `/doc`) are available to debug, understand, and document code. These commands can even be triggered automatically; for example, you can convert a chat into a Quarto document just by asking, "Can you convert this to Quarto?", even if you don't specify the `/exportQuarto` command as part of your message.
+Positron Assistant, currently available as a preview feature, is now more powerful and versatile. New slash commands (`/fix`, `/explain`, and `/doc`) are available to debug, understand, and document code. These commands can even be triggered automatically; for example, you can convert a chat into a Quarto document just by asking, "Can you convert this to Quarto?", even if you don't specify the `/exportQuarto` command as part of your message.
 
 "Fix" and "Explain" support for Console errors has also been introduced. With a single click, the Assistant can fix or explain an error, acting as a coding partner for troubleshooting. You can try it out by enabling [the `positron.assistant.consoleActions.enable` setting](positron://settings/positron.assistant.consoleActions.enable). 
 
@@ -28,7 +28,7 @@ The [Connections Pane](https://positron.posit.co/connections-pane.html) now supp
 - [[#9096](https://github.com/posit-dev/positron/issues/9096)] Data Explorer: column profiles render more smoothly and incrementally for tables with many rows.
 - [[#6509](https://github.com/posit-dev/positron/issues/6509)] Data Explorer: keep the collapse control always visible.
 - [[#8692](https://github.com/posit-dev/positron/issues/8692)] Assistant: improved console traceback context summary.
-- [[#7740](https://github.com/posit-dev/positron/issues/7740)] Assistant: now display a `Working...` indicator while a response is in progress.
+- [[#7740](https://github.com/posit-dev/positron/issues/7740)] Assistant: now display a "Working..." indicator while a response is in progress.
 - [[#7370](https://github.com/posit-dev/positron/issues/7370)] Assistant: added new slash commands `/fix`, `/explain`, and `/doc` especially for use in inline chat.
 - [[#8579](https://github.com/posit-dev/positron/issues/8579)] Assistant: added "Fix" and "Explain" buttons on tracebacks in the Console.
 - [[#8598](https://github.com/posit-dev/positron/issues/8598)] Assistant: now provide a new global [`positron.assistant.consoleActions.enable` setting](positron://settings/positron.assistant.consoleActions.enable) to disable Console integration. 
