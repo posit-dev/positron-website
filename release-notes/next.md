@@ -61,7 +61,7 @@ The [Connections Pane](https://positron.posit.co/connections-pane.html) now supp
 - [[#8867](https://github.com/posit-dev/positron/issues/8867)] Fixed a bug in how imported VS Code settings were displayed.
 - [[#8637](https://github.com/posit-dev/positron/issues/8637)] Resolved keyboard shortcut conflict for code cells in `.R` files.
 - [[#8794](https://github.com/posit-dev/positron/issues/8794)] Fixed the rstudioapi shim for `rstudioapi::restartSession()`.
-- [[#7679](https://github.com/posit-dev/positron/issues/7679), [#7681](https://github.com/posit-dev/positron/issues/7681)] R plots created in steps with prompts in between (e.g. `demo(graphics)` are now immediately displayed in full.
+- [[#7679](https://github.com/posit-dev/positron/issues/7679), [#7681](https://github.com/posit-dev/positron/issues/7681)] R plots created in steps with prompts in between (e.g. `demo(graphics)`) are now immediately displayed in full.
 - [[#8941](https://github.com/posit-dev/positron/issues/8941)] R plots created in steps are now consistently rendered with expected rendering settings.
 - [[#8881](https://github.com/posit-dev/positron/issues/8881)] R comment sections nested in control flow operations like `if` / `else` are now included in the outline.
 - [[#8374](https://github.com/posit-dev/positron/issues/8374), [#8504](https://github.com/posit-dev/positron/issues/8504)] R: fixed an issue preventing the R backend from opening files on Windows.
