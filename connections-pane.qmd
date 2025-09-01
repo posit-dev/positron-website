@@ -46,7 +46,7 @@ You can find more information about connecting to a specific database [from Posi
 
 ### Create a connection using Python
 
-Currently we support connections created using the [sqlite3](https://docs.python.org/3/library/sqlite3.html) and [SQLAlchemy](https://www.sqlalchemy.org) modules.
+Currently we support connections created using the [sqlite3](https://docs.python.org/3/library/sqlite3.html), [SQLAlchemy](https://www.sqlalchemy.org), and [duckdb](https://duckdb.org/docs/clients/python/overview) modules.
 To open a connection in the Connections Pane, create a top level object that represents the connection/engine.
 
 ``` python
