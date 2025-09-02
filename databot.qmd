@@ -17,7 +17,7 @@ Databot is an AI assistant designed to dramatically accelerate exploratory data 
 
 We’ve carefully designed Databot based on our many years of experience creating tools for code-first data science. Compared to most existing AI-assisted analysis tools, we believe Databot’s approach leads to more reliable, serendipitous, and transparent insights.
 
-The [Databot extension](https://open-vsx.org/extension/posit/databot) is for use with [Positron](https://positron.posit.co/). It uses functionality available only in Positron, so it will not work with VS Code or other Code OSS-based IDEs.
+The [Databot extension](https://open-vsx.org/extension/posit/databot) is available for use with [Positron](https://positron.posit.co/). It uses functionality available only in Positron, so it will not work with VS Code or other IDEs based on Code OSS.
 
 ## Installation
 
