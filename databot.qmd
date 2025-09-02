@@ -2,7 +2,7 @@
 title: "Databot"
 ---
 
-::: {.callout-caution}
+::: {.callout-important}
 ## Research preview
 
 Databot is currently experimental and is not ready for production use. 
@@ -37,7 +37,7 @@ Databot is an experimental product currently in research preview and is not read
 
 * In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run `Open User Settings`.  
 * In the search bar, type “Databot”.  
-* You will see **Databot: Research Preview Acknowledgment**. In the text box, type “Acknowledged”.
+* You will see **Databot: Research Preview Acknowledgment**. In the text box, type "Acknowledged”.
 
 ### Start Databot
 
