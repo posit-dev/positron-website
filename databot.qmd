@@ -81,7 +81,7 @@ For more information about Databot, please review the [Databot introduction blog
 
 ### Are you sure it’s not for people who aren’t comfortable writing their own code? Why not?
 
-* As far as we can tell, today’s models cannot be trusted to do open-ended data exploration without at least occasionally making mistakes. That’s why Databot’s user experience is intentionally code-forward, and a Databot analysis is not truly complete until the user has carefully reviewed important subsets of the model-generated code. [Learn more here](https://posit.co/blog/databot-is-not-a-flotation-device).
+* As far as we can tell, today’s models cannot be trusted to do open-ended data exploration without at least occasionally making mistakes. That’s why Databot’s user experience is intentionally code-forward, and a Databot analysis is not truly complete until the user has carefully reviewed important subsets of the model-generated code. Learn more at [Databot is not a flotation device](https://posit.co/blog/databot-is-not-a-flotation-device).
 
 ### How is Databot different from Positron Assistant?
 
