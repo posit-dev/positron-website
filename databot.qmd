@@ -1,0 +1,108 @@
+---
+title: "Databot"
+---
+
+::: {.callout-important}
+
+Databot is currently **experimental** and available in research preview; it is not ready for production use. 
+
+We also recommend reviewing the [Databot introduction blog post](https://posit.co/blog/introducing-databot/) and [Databot is not a flotation device blogpost](https://posit.co/blog/databot-is-not-a-flotation-device/) for additional context about this new project.
+
+:::
+
+Databot is an AI assistant designed to dramatically accelerate exploratory data analysis for data scientists fluent in Python or R, allowing them to do in minutes what might usually take hours. It’s a complement to the data scientist, not a replacement.
+
+![Databot Welcome Page](images/databot-welcome.png){width=500 fig-alt="Welcome page of Databot and suggested first actions to take, like checking loaded data or loading new data"}
+
+We’ve carefully designed Databot based on our many years of experience creating tools for code-first data science. Compared to most existing AI-assisted analysis tools, we believe Databot’s approach leads to more reliable, serendipitous, and transparent insights.
+
+The [Databot extension](https://open-vsx.org/extension/posit/databot) is available for use with [Positron](https://positron.posit.co/). It uses functionality available only in Positron, so it will not work with VS Code or other IDEs based on Code OSS.
+
+## Installation
+
+Currently, there are a few steps to getting Databot up and running.
+
+First, make sure you have a recent version of Positron (2025.08.0 is the minimum version) and have enabled [Positron Assistant](assistant.qmd).
+
+### Install the Databot extension
+
+In Positron, choose the [Extensions view](extensions.qmd) from the Activity Bar on the left or use the keyboard shortcut {{< kbd mac=Command-Shift-X win=Ctrl-Shift-X linux=Ctrl-Shift-X >}} and search for “Databot". Click the button to install the extension.
+
+### Enable Databot
+
+Databot is an experimental product currently in research preview and is not ready for production use. To enable Databot, you must first acknowledge this.
+
+To acknowledge the research preview status, find [`databot.researchPreviewAcknowledgment`](positron://settings/databot.researchPreviewAcknowledgment) in Positron's settings. In the text box, type "Acknowledged".
+
+OR
+
+* In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run _Open User Settings_.  
+* In the search bar, type “Databot".  
+* You will see **Databot: Research Preview Acknowledgment**. In the text box, type "Acknowledged".
+
+### Start Databot
+
+In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run _Open Databot_.
+
+### Enable Positron Assistant 
+
+If [Positron Assistant](assistant.qmd) is not yet enabled, you will see the following message in the Databot panel: “To use Databot, enable Positron Assistant and Anthropic provider."
+
+Click on the button labeled **Help me set it up**. This will open a dialog box.
+
+In section 2 of the dialog box, **Enable Positron Assistant**, if it says “Positron Assistant is not yet enabled" and there are any red check boxes, then click on the button labeled **Update settings**. The check boxes will turn green.
+
+### Enable Anthropic as a model provider
+
+:::{.callout-note}
+
+For this step, you will need an Anthropic API key.
+
+:::
+
+In section 3 of the dialog box, **Add Anthropic provider**, click on the button labeled **Click here**. This will open a dialog box to configure Language Model Providers.
+
+* Select **Anthropic** and enter your API key.  
+
+Close the dialog boxes. Databot is now ready to use!
+
+## Using Databot
+
+Databot will now ask you what you want to do, and will guide you through a data analysis process.
+
+To start Databot in another Positron session, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run _Open Databot_.
+
+For more information about Databot, please review the [Databot introduction blog post](https://posit.co/blog/introducing-databot/).
+
+## FAQ
+
+### Who is Databot for?
+
+* Databot is currently intended for experienced R and Python users who are familiar with data analysis.
+
+### Are you sure it’s not for people who aren’t comfortable writing their own code? Why not?
+
+* As far as we can tell, today’s models cannot be trusted to do open-ended data exploration without at least occasionally making mistakes. That’s why Databot’s user experience is intentionally code-forward, and a Databot analysis is not truly complete until the user has carefully reviewed important subsets of the model-generated code. 
+* Learn more at [Databot is not a flotation device](https://posit.co/blog/databot-is-not-a-flotation-device).
+
+### How is Databot different from Positron Assistant?
+
+* [Positron Assistant](assistant.qmd) is an _AI coding assistant_; it helps you write code or modify code on disk and can execute arbitrary code in Agent mode. 
+* Databot is a purpose-built _exploratory data analysis_ agent. It writes and executes its own code on the fly to help you understand your data. It doesn’t care very much about the code you’ve already written.
+
+### Can I use Databot for machine learning, Shiny apps, ETL pipelines, or other tasks?
+
+* Databot will attempt other data-oriented tasks if prompted, but it was primarily designed for exploratory data analysis. The user experience is aimed at rapid iteration of short code snippets that execute quickly, and assumes that insights, not code, is the primary goal. 
+
+### What data sources can Databot use? Will it work with databases? Parquet files on S3?
+
+* In theory, anything you can reasonably do from an R or Python console is possible in Databot, as long as Claude knows how to do it. For accessing data that isn’t on disk, you may need to provide a little more guidance to Databot to get started, like giving it a snippet of code that shows how you normally connect to your data source in Python.
+
+### What LLMs can Databot use?
+
+* Databot is currently calibrated to work with Claude Sonnet 4. It also works well with Claude 3.5 Sonnet v2. Claude Opus performs similarly to Sonnet 4 but is more expensive, so we recommend Sonnet 4 in most cases. We do not recommend Claude 3.7 Sonnet because it tends to do far too much work before returning control to the user.
+
+### Are OpenAI, Gemini, and other models supported?
+
+* Not at this time, though we hope to add support in the future once they are exposed in Positron Assistant.
+

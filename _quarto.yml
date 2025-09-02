@@ -80,7 +80,10 @@ website:
             - extending-connections.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
-        - assistant.qmd
+        - section: "AI Tools"
+          contents:
+          - assistant.qmd
+          - databot.qmd
         - variables-pane.qmd
         - help-pane.qmd
         - remote-ssh.qmd
