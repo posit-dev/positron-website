@@ -46,3 +46,6 @@ R
 Variables Pane
 Command Palette
 Databot
+Gemini
+Google Gemini
+OpenAI
