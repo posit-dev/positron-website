@@ -80,7 +80,7 @@ website:
             - extending-connections.qmd
         - keyboard-shortcuts.qmd
         - data-explorer.qmd
-        - section: "AI tools"
+        - section: "AI Tools"
           contents:
           - assistant.qmd
           - databot.qmd
