@@ -13,7 +13,7 @@ We also recommend reviewing the [Databot introduction blog post](https://posit.c
 
 Databot is an AI assistant designed to dramatically accelerate exploratory data analysis for data scientists fluent in Python or R, allowing them to do in minutes what might usually take hours. It’s a complement to the data scientist, not a replacement.
 
-![](images/databot-welcome.png){width=500 fig-alt="Welcome page of Databot and suggested first actions to take, like checking loaded data or loading new data"}
+![](images/databot-welcome.png){width=500 fig-align="center" fig-alt="Welcome page of Databot and suggested first actions to take, like checking loaded data or loading new data"}
 
 We’ve carefully designed Databot based on our many years of experience creating tools for code-first data science. Compared to most existing AI-assisted analysis tools, we believe Databot’s approach leads to more reliable, serendipitous, and transparent insights.
 
@@ -23,7 +23,7 @@ The [Databot extension](https://open-vsx.org/extension/posit/databot) is availab
 
 Currently, there are a few steps to getting Databot up and running.
 
-First, make sure you have a recent version of Positron (2025.08.0 is the minimum version).
+First, make sure you have a recent version of Positron (2025.08.0 is the minimum version) and have enabled [Positron Assistant](assistant.qmd).
 
 ### Install the Databot extension
 
@@ -33,11 +33,11 @@ In Positron, choose the [Extensions view](extensions.qmd) from the Activity Bar 
 
 Databot is an experimental product currently in research preview and is not ready for production use. To enable Databot, you must first acknowledge this.
 
-Click on [the `databot.researchPreviewAcknowledgment` setting](positron://settings/databot.researchPreviewAcknowledgment) to open the acknowledgement. In the text box, type "Acknowledged".
+Click on [the `databot.researchPreviewAcknowledgment` setting](positron://settings/databot.researchPreviewAcknowledgment) to open the **Research Preview Acknowledgement**. In the text box, type "Acknowledged".
 
 OR
 
-* In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run `Open User Settings`.  
+* In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run _Open User Settings_.  
 * In the search bar, type “Databot".  
 * You will see **Databot: Research Preview Acknowledgment**. In the text box, type "Acknowledged".
 
