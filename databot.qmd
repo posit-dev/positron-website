@@ -7,7 +7,7 @@ title: "Databot"
 
 Databot is currently experimental and is not ready for production use. 
 
-We also recommend reviewing the [Databot introduction blogpost](https://posit.co/blog/introducing-databot/) and [Databot is not a flotation device blogpost](https://posit.co/blog/databot-is-not-a-flotation-device/) for additional context about this new project.
+We also recommend reviewing the [Databot introduction blog post](https://posit.co/blog/introducing-databot/) and [Databot is not a flotation device blogpost](https://posit.co/blog/databot-is-not-a-flotation-device/) for additional context about this new project.
 
 :::
 
