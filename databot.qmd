@@ -27,11 +27,15 @@ First, make sure you have a recent version of Positron (2025.08.0 is the minimum
 
 ### Install the Databot extension
 
-In Positron, choose the [Extensions view](extensions.qmd) from the Activity Bar on the left or use the keyboard shortcut {{< kbd mac=Command-Shift-X win=Ctrl-Shift-X linux=Ctrl-Shift-X >}} and search for “Databot”. Click the Install button to install the extension.
+In Positron, choose the [Extensions view](extensions.qmd) from the Activity Bar on the left or use the keyboard shortcut {{< kbd mac=Command-Shift-X win=Ctrl-Shift-X linux=Ctrl-Shift-X >}} and search for “Databot”. Click the button to install the extension.
 
 ### Enable Databot
 
 Databot is an experimental product currently in research preview and is not ready for production use. To enable Databot, you must first acknowledge this.
+
+Click on [the `databot.researchPreviewAcknowledgment` setting](positron://settings/databot.researchPreviewAcknowledgment) to open and then check the box.
+
+OR
 
 * In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run `Open User Settings`.  
 * In the search bar, type “Databot”.  
@@ -39,7 +43,7 @@ Databot is an experimental product currently in research preview and is not read
 
 ### Start Databot
 
-In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run `Open Databot`.
+In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run _open Databot_.
 
 ### Enable Positron Assistant 
 
@@ -52,7 +56,7 @@ In section 2 of the dialog box, **Enable Positron Assistant**, if it says “Pos
 ### Enable Anthropic as a model provider
 
 :::{.callout-note}
-## Prerequisites: 
+
 For this step, you will need an Anthropic API key.
 
 :::
@@ -67,7 +71,7 @@ Close the dialog boxes. Databot is now ready to use!
 
 Databot will now ask you what you want to do, and will guide you through a data analysis process.
 
-To start Databot in another Positron session, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run `Open Databot`.
+To start Databot in another Positron session, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run _open Databot_.
 
 For more information about Databot, please review the [Databot introduction blog post](https://posit.co/blog/introducing-databot/).
 
