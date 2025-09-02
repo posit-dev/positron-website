@@ -1,3 +1,38 @@
+/* Custom styling for headings */
+h1, h2, h3, h4, p {
+  text-align: center;
+}
+
+
+h1 {
+  font-size: 4.0 rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2.75 rem;
+  font-weight: 700;
+}
+h3 {
+  font-size: 2 rem;
+  font-weight: 600;
+}
+h4 {
+  font-size: 1.5 rem;
+  font-weight: 500;
+}
+
+p {
+  font-size: 1.0 rem;
+  font-weight: 400;
+}
+
+small {
+  font-size: 0.875 rem;
+  font-weight: 400;
+}
+
+
 /* Custom styling for features listing cards */
 .features-grid {
   display: flex;
@@ -276,114 +311,5 @@
   .feature-details-link {
     margin: 0 18px 18px 18px;
     padding: 8px 18px;
-  }
-}
-
-/* Responsive adjustments for promo banner */
-@media (max-width: 1024px) {
-  .promo-content {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    text-align: center;
-  }
-  
-  .promo-headline {
-    font-size: 2.5rem;
-  }
-  
-  .promo-banner {
-    padding: 32px;
-    margin: 32px 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .promo-banner {
-    padding: 24px;
-    margin: 24px 0;
-  }
-  
-  .promo-headline {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .promo-btn {
-    padding: 14px 28px !important;
-    font-size: 1rem !important;
-    margin-bottom: 20px !important;
-  }
-  
-  .promo-tagline {
-    font-size: 1.1rem;
-  }
-  
-  .promo-content {
-    gap: 24px;
-  }
-}
-
-/* Testimonials Styling */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-  margin-top: 24px;
-  width: 100%;
-}
-
-.testimonial-card {
-  background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-}
-
-.testimonial-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
-}
-
-.testimonial-quote {
-  margin: 0;
-  font-style: italic;
-}
-
-.testimonial-quote p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #333;
-  margin: 0 0 24px 0;
-}
-
-.testimonial-author {
-  margin: 0;
-  text-align: right;
-}
-
-.testimonial-author cite {
-  font-style: normal;
-  font-weight: 600;
-  color: #0066cc;
-  font-size: 0.95rem;
-}
-
-/* Responsive adjustments for testimonials */
-@media (max-width: 768px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 0 16px;
-  }
-  
-  .testimonial-card {
-    padding: 24px;
-  }
-  
-  .testimonial-quote p {
-    font-size: 1rem;
-    line-height: 1.6;
   }
 }

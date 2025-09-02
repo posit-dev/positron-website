@@ -77,7 +77,7 @@ Positron unifies exploration and production work in one free, AI-powered environ
 <a href="start.html" class="btn btn-primary">Get Started</a>
 <a href="features.html" class="btn btn-outline-primary">Discover Features</a>
 
-<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/ncfm02eugr.js" async type="module"></script><style>wistia-player[media-id='ncfm02eugr']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ncfm02eugr/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="ncfm02eugr" aspect="1.7777777777777777"></wistia-player>
+<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/ncfm02eugr.js" async type="module"></script><style>wistia-player[media-id='ncfm02eugr']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ncfm02eugr/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="ncfm02eugr" aspect="1.7777777777777777" autoplay="false"></wistia-player>
 
 Find out what you need to know before [installing](install.qmd) Positron, and then [download an installer](download.qmd). Explore our user guides on topics such as [choosing interpreters](managing-interpreters.qmd) and the [Data Explorer](data-explorer.qmd). Our [FAQs](faqs.qmd) cover some common questions you may have.
 
