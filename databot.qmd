@@ -71,7 +71,7 @@ Databot will now ask you what you want to do, and will guide you through a data 
 
 To start Databot in another Positron session, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run `Open Databot`.
 
-For more information about Databot, please review the [Databot introduction blogpost](https://posit.co/blog/introducing-databot/).
+For more information about Databot, please review the [Databot introduction blog post](https://posit.co/blog/introducing-databot/).
 
 ## FAQ
 
