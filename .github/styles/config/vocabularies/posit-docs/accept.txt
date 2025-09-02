@@ -49,3 +49,4 @@ Databot
 Gemini
 Google Gemini
 OpenAI
+FAQ

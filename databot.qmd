@@ -75,8 +75,6 @@ To start Databot in another Positron session, open the Command Palette {{< kbd m
 
 For more information about Databot, please review the [Databot introduction blog post](https://posit.co/blog/introducing-databot/).
 
-<!-- vale Posit.Headings = NO -->
-
 ## FAQ
 
 ### Who is Databot for?
@@ -107,4 +105,3 @@ For more information about Databot, please review the [Databot introduction blog
 
 * Not at this time, though we hope to add support in the future once they are exposed in Positron Assistant.
 
-<!-- vale Posit.Headings = YES -->
