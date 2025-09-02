@@ -27,19 +27,19 @@ First, make sure you have a recent version of Positron (2025.08.0 is the minimum
 
 ### Install the Databot extension
 
-In Positron, choose the [Extensions view](extensions.qmd) from the Activity Bar on the left or use the keyboard shortcut {{< kbd mac=Command-Shift-X win=Ctrl-Shift-X linux=Ctrl-Shift-X >}} and search for “Databot”. Click the button to install the extension.
+In Positron, choose the [Extensions view](extensions.qmd) from the Activity Bar on the left or use the keyboard shortcut {{< kbd mac=Command-Shift-X win=Ctrl-Shift-X linux=Ctrl-Shift-X >}} and search for “Databot". Click the button to install the extension.
 
 ### Enable Databot
 
 Databot is an experimental product currently in research preview and is not ready for production use. To enable Databot, you must first acknowledge this.
 
-Click on [the `databot.researchPreviewAcknowledgment` setting](positron://settings/databot.researchPreviewAcknowledgment) to open and then check the box.
+Click on [the `databot.researchPreviewAcknowledgment` setting](positron://settings/databot.researchPreviewAcknowledgment) to open the acknowledgement. In the text box, type "Acknowledged".
 
 OR
 
 * In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run `Open User Settings`.  
-* In the search bar, type “Databot”.  
-* You will see **Databot: Research Preview Acknowledgment**. In the text box, type "Acknowledged”.
+* In the search bar, type “Databot".  
+* You will see **Databot: Research Preview Acknowledgment**. In the text box, type "Acknowledged".
 
 ### Start Databot
 
@@ -47,11 +47,11 @@ In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift
 
 ### Enable Positron Assistant 
 
-If [Positron Assistant](assistant.qmd) is not yet enabled, you will see the following message in the Databot panel: “To use Databot, enable Positron Assistant and Anthropic provider.”
+If [Positron Assistant](assistant.qmd) is not yet enabled, you will see the following message in the Databot panel: “To use Databot, enable Positron Assistant and Anthropic provider."
 
 Click on the button labeled **Help me set it up**. This will open a dialog box.
 
-In section 2 of the dialog box, **Enable Positron Assistant**, if it says “Positron Assistant is not yet enabled” and there are any red check boxes, then click on the button labeled **Update settings**. The check boxes will turn green.
+In section 2 of the dialog box, **Enable Positron Assistant**, if it says “Positron Assistant is not yet enabled" and there are any red check boxes, then click on the button labeled **Update settings**. The check boxes will turn green.
 
 ### Enable Anthropic as a model provider
 
