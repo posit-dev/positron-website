@@ -85,7 +85,7 @@ For more information about Databot, please review the [Databot introduction blog
 
 ### How is Databot different from Positron Assistant?
 
-* [Positron Assistant](https://positron.posit.co/assistant.html) is an _AI coding assistant_: it helps you write code or modify code on disk and can execute arbitrary code in Agent mode. Databot is a purpose-built _exploratory data analysis_ agent. It writes and executes its own code on the fly to help you understand your data. It doesn’t care very much about the code you’ve already written.
+* [Positron Assistant](assistant.qmd) is an _AI coding assistant_; it helps you write code or modify code on disk and can execute arbitrary code in Agent mode. Databot is a purpose-built _exploratory data analysis_ agent. It writes and executes its own code on the fly to help you understand your data. It doesn’t care very much about the code you’ve already written.
 
 ### Can I use Databot for machine learning, Shiny apps, ETL pipelines, or other tasks?
 
