@@ -18,7 +18,7 @@ listing:
             description: "Configure Python and R interpreters for data science"
             icon: "bi-code-slash"
             link: "managing-interpreters.qmd"
-        -   title: "Migrate from R Studio"
+        -   title: "Migrate from RStudio"
             description: "Transition smoothly from RStudio to Positron"
             icon: "bi-arrow-right-circle"
             link: "migrate-rstudio.qmd"
