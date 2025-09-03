@@ -9,7 +9,7 @@ format:
 
 ## Positron on desktop
 
-Find out what you need to know to [get started](start.qmd) using Positron, then download the desktop installer for your platform.
+Find out what you need to know before you [install](install.qmd) Positron, then download the desktop installer for your platform.
 
 ::: callout-important
 ## Accept license agreement

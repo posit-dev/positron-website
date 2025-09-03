@@ -1,0 +1,92 @@
+---
+title: "Welcome"
+---
+
+Welcome to Positron, the next-generation data science IDE built for Python and R. It combines the power of a full-featured IDE with interactive data science tools for Python and R.
+
+#### Positron might be a good fit for you if you...
+
+-   use VS Code for data science (Python or R) but wish it included more interactive affordances for data-specific tasks like running exploratory code, examining your variables and datasets, interacting with your plots, and developing data apps such as Shiny, Streamlit, or FastAPI.
+-   use JupyterLab or hosted notebook tools for data science (Python or R) and are ready for a more powerful, fully-featured IDE that still supports notebooks.
+-   use RStudio and want more ability to customize or extend your IDE.
+-   use additional languages beyond only Python or R in your day-to-day data science or package development work, like Rust, C++, JavaScript, or Lua.
+-   want access to powerful, data-science specific AI integrations in a modern, extensible IDE.
+
+
+::: {.listing}
+::: {.grid}
+::: {.g-col-6}
+::: {.listing-item}
+::: {.listing-item-content}
+::: {.listing-item-text}
+### Get started
+Learn what you need to know before you [install Positron](install.qmd) and [get Positron for free](download.qmd) to start your data science journey today.
+:::
+:::
+:::
+:::
+
+::: {.g-col-6}
+::: {.listing-item}
+::: {.listing-item-content}
+::: {.listing-item-text}
+### User interface
+Learn the [interface basics](layout.qmd) to understand Positron's layout and core features.
+:::
+:::
+:::
+:::
+
+::: {.g-col-6}
+::: {.listing-item}
+::: {.listing-item-content}
+::: {.listing-item-text}
+### Set up your environment
+Learn how to configure [Python and R interpreters](managing-interpreters.qmd) for your data science workflow. This includes setting up virtual environments and language-specific configurations.
+:::
+:::
+:::
+:::
+
+::: {.g-col-6}
+::: {.listing-item}
+::: {.listing-item-content}
+::: {.listing-item-text}
+### Help
+Visit our [FAQ section](faqs.qmd) or [troubleshooting guide](troubleshooting.qmd) for answers to common questions.
+:::
+:::
+:::
+:::
+
+::: {.g-col-6}
+::: {.listing-item}
+::: {.listing-item-content}
+::: {.listing-item-text}
+### Migrate from other IDEs
+Make the transition smooth with our migration guides:
+
+* [Migrating from VS Code](migrate-vscode.qmd)
+* [Migrating from RStudio](migrate-rstudio.qmd)
+
+:::
+:::
+:::
+:::
+
+::: {.g-col-6}
+::: {.listing-item}
+::: {.listing-item-content}
+::: {.listing-item-text}
+### Changelog
+[Stay up to date](https://positron.posit.co/download.html#release-notes) with the latest features and improvements.
+:::
+:::
+:::
+:::
+:::
+:::
+
+::: {.callout-note}
+Positron is built on [Code OSS](https://github.com/microsoft/vscode), the open-source foundation of Visual Studio Code. For general editor features like commands, settings, and source control, you can reference the [VS Code documentation](https://code.visualstudio.com/docs).
+:::
