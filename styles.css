@@ -45,3 +45,111 @@ kbd {
   margin-right: 5px;
 }
 
+/* Custom card styling */
+
+/* Custom card grid - three column layout */
+.custom-card-grid-3-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+}
+
+.custom-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #3a78b1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Focus states for accessibility */
+.custom-card:focus-within {
+  outline: 2px solid #3b82f6;
+  outline-offset: 4px;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+.custom-card-icon-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.custom-card-title {
+  margin-bottom: 1 rem
+}
+
+.custom-card-icon {
+  width: 60px;
+  height: 60px;
+  background: #3a78b1;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.custom-card-icon i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+
+.custom-card-description {
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.custom-card-link {
+  color: #447099;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.3s ease;
+  margin-top: auto;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  align-self: flex-start
+}
+
+.custom-card-link:hover {
+  color: #294A62;
+  text-decoration: none;
+  background: rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.custom-card-link:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  color: #294A62;
+  background: rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.custom-card-link i {
+  font-size: 0.8rem;
+  align-self: flex-start
+}
