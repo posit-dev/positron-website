@@ -44,12 +44,6 @@ website:
         href: https://github.com/posit-dev/positron
       
   sidebar:
-    - title: "About"
-      style: "docked"
-      contents:
-        - about.qmd
-        - privacy.qmd
-        - faqs.qmd    
     - title: "Guides"
       style: "docked"
       contents:
@@ -109,6 +103,13 @@ website:
       contents:
         - troubleshooting.qmd
         - feedback.qmd
+    - title: "About"
+      style: "docked"
+      contents:
+        - about.qmd
+        - privacy.qmd
+        - faqs.qmd    
+    
 
 format:
   html:
