@@ -49,18 +49,20 @@ website:
     - title: "Features"
       style: "docked"
       contents:
-        - data-explorer.qmd  
-        - variables-pane.qmd
-        - help-pane.qmd
+        - section: "AI Tools"
+          contents:
+          - assistant.qmd
+          - databot.qmd
+        - section: "Exploratory Data Analysis"
+          contents:
+            - data-explorer.qmd  
+            - variables-pane.qmd
         - section: "Dynamic Documents and Apps"
           contents:
             - quarto.qmd
             - jupyter-notebooks.qmd
             - develop-data-apps.qmd
-        - section: "AI Tools"
-          contents:
-          - assistant.qmd
-          - databot.qmd
+        - help-pane.qmd    
         - folder-templates.qmd
         - remote-ssh.qmd
         - section: "Database Connections"
