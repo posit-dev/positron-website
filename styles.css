@@ -33,6 +33,11 @@ kbd {
     padding: .2rem .4rem;
 }
 
+/* Add margin-top spacing between H1 and the meta description*/
+.description {
+  margin-top: 1.75rem !important;
+}
+
 /* Keyboard shortcut styles 
 .quarto-dark .kbd {
   color: #ffffff !important;
@@ -45,3 +50,152 @@ kbd {
   margin-right: 5px;
 }
 
+/* Custom card styling */
+
+/* Custom card grid - three column layout */
+.custom-card-grid-3-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+}
+
+.custom-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(87, 89, 89, 0.08);
+  border: 1px solid #3276B5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(87, 89, 89, 0.12);
+}
+
+/* Focus states for accessibility */
+.custom-card:focus-within {
+  outline: 2px solid #3E72A2;
+  outline-offset: 4px;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(87, 89, 89, 0.12);
+}
+
+
+.custom-card-icon-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.custom-card-title {
+  margin-bottom: 1rem;
+}
+
+.custom-card-title-link {
+  color: #595959;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.custom-card-title-link:hover {
+  color: #3276B5;
+  text-decoration: none;
+}
+
+.custom-card-title-link:focus {
+  outline: 2px solid #3E72A2;
+  outline-offset: 2px;
+}
+
+.custom-card-icon {
+  width: 60px;
+  height: 60px;
+  background: #3276B5;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.custom-card-icon i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+
+.custom-card-description {
+  color: #595959;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.custom-card-link {
+  color: #3E72A2;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.3s ease;
+  margin-top: auto;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  align-self: flex-start
+}
+
+.custom-card-link:hover {
+  color: #3276B5;
+  text-decoration: none;
+  background: #E8F1FB;
+  border-color: #3276B5;
+}
+
+.custom-card-link:focus {
+  outline: 2px solid #3E72A2;
+  outline-offset: 2px;
+  color: #3276B5;
+  background: #E8F1FB;
+  border-color: #3276B5;
+}
+
+.custom-card-link i {
+  font-size: 0.8rem;
+  align-self: flex-start;
+}
+
+/* Hide anchor links for welcome cards */
+.custom-card-title .anchor-link,
+.custom-card-title .anchor,
+.custom-card-title a[href^="#"]:not(.custom-card-title-link) {
+  display: none !important;
+}
+
+/* Make entire card clickable */
+.custom-card-wrapper {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.custom-card-wrapper:hover {
+  transform: translateY(-4px);
+}
+
+.custom-card-wrapper:hover .custom-card {
+  box-shadow: 0 8px 30px rgba(87, 89, 89, 0.12);
+  background-color: #E8F1FB; /* Light grey background on hover */
+  border-color: #3E72A2; /* Action blue border on hover */
+}

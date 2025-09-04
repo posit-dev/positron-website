@@ -1,0 +1,49 @@
+---
+title: "Welcome"
+description: "Welcome to Positron, the next-generation data science IDE built for Python and R. It combines the power of a full-featured IDE with interactive data science tools for Python and R."
+anchor-links: false
+listing:
+    id: guide-sections
+    type: custom
+    template: welcome-card.ejs
+    contents:
+        -   title: "Get started"
+            description: "Download and install Positron on your system"
+            icon: "bi-rocket-takeoff"
+            link: "install.qmd"
+        -   title: "Customize your IDE"
+            description: "Install extensions to enhance your data science workflow"
+            icon: "bi-gear-wide-connected"
+            link: "extensions.qmd"
+        -   title: "Set up your environment"
+            description: "Configure Python and R interpreters for data science"
+            icon: "bi-code-slash"
+            link: "managing-interpreters.qmd"
+        -   title: "Migrate from RStudio"
+            description: "Transition smoothly from RStudio to Positron"
+            icon: "bi-arrow-right-circle"
+            link: "migrate-rstudio.qmd"
+        -   title: "Migrate from VS Code"
+            description: "Move from VS Code to Positron built specifically for data science"
+            icon: "bi-arrow-up-right-circle"
+            link: "migrate-vscode.qmd"
+---
+
+
+## Positron might be a good fit for you if you {#use-cases}
+
+-   use VS Code for data science (Python or R) but wish it included more interactive affordances for data-specific tasks like running exploratory code, examining your variables and datasets, interacting with your plots, and developing data apps such as Shiny, Streamlit, or FastAPI.
+-   use JupyterLab or hosted notebook tools for data science (Python or R) and are ready for a more powerful, fully-featured IDE that still supports notebooks.
+-   use RStudio and want more ability to customize or extend your IDE.
+-   use additional languages beyond only Python or R in your day-to-day data science or package development work, like Rust, C++, JavaScript, or Lua.
+-   want access to powerful, data-science specific AI integrations in a modern, extensible IDE.
+
+::: {#guide-sections}
+:::
+
+::: {.callout-note}
+Positron is built on [Code OSS](https://github.com/microsoft/vscode), the open-source foundation of Visual Studio Code. For general editor features like commands, settings, and source control, reference the [VS Code documentation](https://code.visualstudio.com/docs).
+:::
+
+
+

@@ -9,7 +9,7 @@ format:
 
 ## Positron on desktop
 
-Find out what you need to know to [get started](start.qmd) using Positron, then download the desktop installer for your platform.
+Find out what you need to know before you [install](install.qmd) Positron, then download the desktop installer for your platform.
 
 ::: callout-important
 ## Accept license agreement
@@ -40,7 +40,7 @@ release_version <- Sys.getenv("RELEASE_VERSION")
 cdn_url <- "https://cdn.posit.co/positron/releases/" # Keep this in sync with cdnUrl in _download.html
 
 #######################################################################################
-# NOTE: please also check start.qmd and _download.html when updating the various URLs,
+# NOTE: please also check welcome.qmd and _download.html when updating the various URLs,
 # to ensure that we are constructing these URLs consistently in both places.
 #######################################################################################
 

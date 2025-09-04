@@ -1,21 +1,14 @@
 ---
-title: "Getting Started"
+title: "Install Positron"
 format:
   html:
     include-in-header:
       - '_download.html'
+aliases:
+  - start.html      
 ---
 
-Positron is a modern, extensible IDE for data science built on [Code OSS](https://github.com/microsoft/vscode). It combines the power of a full-featured IDE with interactive data science tools for Python and R.
-
-
-#### Positron might be a good fit for you if you...
-
--   use VS Code for data science (Python or R) but wish it included more interactive affordances for data-specific tasks like running exploratory code, examining your variables and datasets, interacting with your plots, and developing data apps such as Shiny, Streamlit, or FastAPI.
--   use JupyterLab or hosted notebook tools for data science (Python or R) and are ready for a more powerful, fully-featured IDE that still supports notebooks.
--   use RStudio and want more ability to customize or extend your IDE.
--   use additional languages beyond only Python or R in your day-to-day data science or package development work, like Rust, C++, JavaScript, or Lua.
--   want access to powerful, data-science specific AI integrations in a modern, extensible IDE.
+Positron is a modern, extensible IDE for data science built on [Code OSS](https://github.com/microsoft/vscode). Before you install Positron, please review the prerequisites below to ensure your system is ready.
 
 ## Prerequisites
 ::: {.panel-tabset}
@@ -65,7 +58,7 @@ rig system rtools add
 
 ## Install Positron
 
-Download the installer for your operating system from the button below and follow the standard installation process for your platform. You only need to install Positron once, as it automatically updates to the latest version after installation.
+Download the installer for your operating system from the button below and follow the standard installation process for your platform. You only need to install Positron once, as it [automatically updates](updating.qmd) to the latest version after installation.
 
 :::{.callout-important #privacy-policy}
 ## Accept license agreement
@@ -88,12 +81,4 @@ positronVersion <- Sys.getenv("RELEASE_VERSION")
 [Download Positron <span id="os-name"></span>](#){.btn .btn-primary .disabled #download-btn data-version="`{r} positronVersion`"}
 
 [All Downloads](download.qmd){#all-downloads}
-<!-- TODO: Can we insert release notes in the Downloads page? -->
 
-<!-- ## Migrating from other IDEs
-
-If you are coming from another IDE, check out the migration guides to help you get started with Positron:
-
-[Migrating from RStudio](#){.btn .btn-primary}
-[Migrating from VS Code](#){.btn .btn-primary} -->
-<!-- TODO: Uncomment when these pages are ready -->
