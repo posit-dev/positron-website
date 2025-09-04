@@ -2,13 +2,14 @@
 pagetitle: "Positron"
 toc: false
 editor: source
+anchor-links: false
 description: |
   A next-generation data science IDE
 hide-description: true
 format:
   html:
     css: css/index.css
-    page-layout: full
+    page-layout: custom
 
 listing:
   - id: key-features-col-4
@@ -16,26 +17,17 @@ listing:
     grid-columns: 4
     contents:
       - title: "Purpose-Built for Data Science"
+        description: "Work efficiently in an IDE specifically designed for data analysis workflows"
         icon: "bi-gear-wide-connected"
       - title: "R or Python"
+        description: "Code across multiple languages with one or more consoles"
         icon: "bi-code-slash"
       - title: "Context Aware AI"
+        description: "Integrated AI assistance contextualized for data science"
         icon: "bi-robot"
       - title: "Rapid Data Exploration"
+        description: "Explore large datasets instantly via in-memory dataframes, variable inspections, & plot visualizations"
         icon: "bi-graph-up"
-  - id: feature-video-col-1
-    template: _templates/index-feature-detail-col-1.ejs
-    grid-columns: 1
-    contents:
-      - title: "Explore data rapidly"
-        bullets: ["R or Python Support", "Multi-session console", "Integrated console", "Fast interactive data frames"]
-        video-link: "https://rstudio.wistia.com/medias/d3m1291nzn"
-      - title: "Generate discoveries quickly"
-        bullets: ["AI powered assistance", "Variable inspection", "Plot visualization"]
-        video-link: "ncfm02eugr"
-      - title: "Generate discoveries quickly"
-        bullets: ["Integrated live previews", "Database connections", "Stored credentials", "Debugging capabilities", "Integrated Version Control"]
-        video-link: "ncfm02eugr"
   - id: testimonials
     template: _templates/index-testimonials.ejs
     grid-columns: 2
@@ -67,25 +59,76 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 
 Find out what you need to know before [installing](install.qmd) Positron, and then [download an installer](download.qmd). Explore our user guides on topics such as [choosing interpreters](managing-interpreters.qmd) and the [Data Explorer](data-explorer.qmd). Our [FAQs](faqs.qmd) cover some common questions you may have.
 
+<!--Features overview section-->
+
+<div class="index-2-features-overview">
+#### FEATURES
+##  Streamline your end-to-end data science workflows with one tool {#features}
 Positron unlocks high-dynamic-range data science, seamlessly integrating the immediacy and interactivity of a console or notebook with the robust development environment essential for production outputs—all within a single tool.
 
-::: {#feature-video-col-1}
-:::
+<div class="feature">
+### Explore data rapidly
+<ul class="feature-details-bullets">
+  <li> R or Python Support </li>
+  <li> Integrated console </li>
+  <li> Fast interactive data frames </li>
+</ul>
+<div class="feature-video-container">
+  <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/d3m1291nzn.js" async type="module"></script><style>wistia-player[media-id='d3m1291nzn']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/d3m1291nzn/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="ncfm02eugr" aspect="1.7777777777777777"></wistia-player>
+</div>
+</div>
+
+<div class="feature">
+### Generate discoveries quickly
+<ul class="feature-details-bullets">
+  <li> Contextual AI assistance </li>
+  <li> Variable inspection </li>
+  <li> Plot visualization </li>
+</ul>
+<div class="feature-video-container">
+  <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/ncfm02eugr.js" async type="module"></script><style>wistia-player[media-id='ncfm02eugr']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ncfm02eugr/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="ncfm02eugr" aspect="1.7777777777777777"></wistia-player>
+</div>
+</div>
+
+
+<div class="feature">
+### Build data apps
+<ul class="feature-details-bullets">
+  <li> Integrated live previews </li>
+  <li> Debugging capabilities </li>
+  <li> Integrated Version Control </li>
+  <li> Streamlined database connection </li>
+</ul>
+<div class="feature-video-container">
+<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/d3m1291nzn.js" async type="module"></script><style>wistia-player[media-id='d3m1291nzn']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/d3m1291nzn/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="d3m1291nzn" aspect="1.7777777777777777"></wistia-player>
+</div>
+</div>
+
 
 <a href="start.html" class="btn btn-primary">Download Free</a>
 <a href="features.html" class="btn btn-outline-primary">Discover All Features</a>
+</div>
 
-## Loved by data scientists
+## Made for data scientists, by data scientists {.made-for-section}
+
+Positron is free, source-available, and brought to you by Posit, the Public Benefit Corporation who makes RStudio, Shiny, and the Tidyverse.
 
 :::{#testimonials}
 :::
 
 ## Try Positron now
-Stop juggling tools and leverage Positron's features purpose-built for data science, right out of the box.
 
-{{< placeholder format="svg" >}}
+Join thousands of data scientists who have used Positron to:
+
+* Explore data rapidly via a script in the integrated console or inline with a notebook
+* Refactor discoveries seamlessly into reusable functions in a script
+* Build sophisticated data apps with integrated live previews and debugging
+* Develop data products without ever leaving their development environment
 
 <a href="start.html" class="btn btn-primary">Download Free</a>
 
 </div>
 
+
+
+ 

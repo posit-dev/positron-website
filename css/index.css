@@ -1,40 +1,63 @@
-/* Custom styling for headings - scoped to index section */
+/* Base index section styling - full width */
+.index-section {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+}
+
+/* CLEAN TYPOGRAPHY HIERARCHY - 3 SIZES ONLY */
+/* Size 1: Large Headings (h1, h2) - 2.5rem */
 .index-section h1, 
-.index-section h2, 
-.index-section h3, 
-.index-section h4, 
-.index-section p {
+.index-section h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.2;
+  margin: 2rem 0 1rem 0;
   text-align: center;
 }
 
-.index-section h1 {
-  font-size: 4.0rem;
-  font-weight: 1400;
-}
-
-.index-section h2 {
-  font-size: 2.75rem;
-  font-weight: 700;
-}
-
-.index-section h3 {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
+/* Size 2: Medium Headings (h3, h4) - 1.5rem */
+.index-section h3, 
 .index-section h4 {
   font-size: 1.5rem;
   font-weight: 500;
+  color: #2c3e50;
+  line-height: 1.3;
+  margin: 1.5rem 0 0.75rem 0;
+  text-align: center;
 }
 
-.index-section p {
-  font-size: 1.0rem;
+/* Size 3: Body Text (p, small, li) - 1rem */
+.index-section p,
+.index-section small,
+.index-section li {
+  font-size: 1rem;
   font-weight: 400;
+  color: #555;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+  text-align: center;
 }
 
-.index-section small {
-  font-size: 0.875rem;
-  font-weight: 400;
+/* OVERRIDE ALL OTHER FONT SIZES TO MATCH HIERARCHY */
+.feature-heading,
+.key-feature-title,
+.feature-details-heading,
+.inline-feature {
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  color: #2c3e50 !important;
+}
+
+.feature-description,
+.key-feature-description,
+.feature-details-bullets li {
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  color: #555 !important;
 }
 
 
@@ -284,9 +307,9 @@
   gap: 2rem;
   margin: 3rem 0;
   width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .index-section .key-feature-card {
@@ -311,16 +334,16 @@
 
 .index-section .key-feature-title {
   font-size: 1.5rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin: 0 0 1.25rem 0;
-  line-height: 1.2;
+  font-weight: 500;
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
   text-align: center;
 }
 
 .index-section .key-feature-description {
   font-size: 1rem;
-  color: #4b5563;
+  color: #555;
   line-height: 1.6;
   margin: 0;
   text-align: center;
@@ -520,16 +543,18 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
 }
 
 .feature-heading {
   color: #2c3e50;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 1rem;
-  text-align: center;
+  text-align: left;
 }
 
 .feature-details-bullets {
@@ -544,6 +569,7 @@
   border-bottom: 1px solid #E8F1FB;
   position: relative;
   padding-left: 1.5rem;
+  text-align: left;
 }
 
 .feature-details-bullets li::before {
@@ -606,6 +632,20 @@
   box-shadow: 0 4px 12px rgba(87, 89, 89, 0.1);
 }
 
+/* Feature card video container */
+.feature-card .video-container {
+  margin: 0;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+}
+
+.feature-card .video-container wistia-player {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
 /* Hero banner styling */
 .index-1-hero-banner {
   background: linear-gradient(135deg, #E8F1FB 0%, #F8FAFF 50%, #E8F1FB 100%);
@@ -622,7 +662,7 @@
   margin-right: -50vw;
 }
 
-/* Hero video container - 30% smaller and centered */
+/* Hero video container centered */
 #hero-video-container {
   width: 75%;
   margin: 2rem auto;
@@ -652,7 +692,6 @@
   z-index: 1;
 }
 
-/* Clean, professional key features styling */
 .key-features-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -762,4 +801,208 @@
   font-size: 1.6rem;
   margin-right: 0.75rem;
   text-shadow: 0 2px 4px rgba(114, 153, 78, 0.3);
+}
+
+
+/* Hero video container centered */
+.feature-video-container {
+  width: 50%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.hero-video-container wistia-player {
+  width: 100%;
+  height: auto;
+}
+
+
+.index-2-features-overview .feature {
+  width: 80%;
+  border: 1px solid #3276B5;
+  border-radius: 12px;
+  background: white;
+  padding: 0;
+  overflow: hidden;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  display: block;
+}
+
+/* Made for data scientists section - Clean & Minimal */
+.made-for-section {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 300;
+  color: #1a1a1a;
+  margin: 5rem 0 2rem 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.made-for-section + p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Try Positron now section - Enhanced Styling */
+.index-section h2:contains("Try Positron now") {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 5rem 0 1.5rem 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.index-section h2:contains("Try Positron now")::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #3276B5, #3E72A2);
+  margin: 1.5rem auto 0 auto;
+  border-radius: 2px;
+}
+
+.index-section h2:contains("Try Positron now") + p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 600px;
+}
+
+/* Enhanced bullet points with cards */
+.index-section h2:contains("Try Positron now") + p + ul {
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.index-section h2:contains("Try Positron now") + p + ul li {
+  background: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 3rem;
+  border-left: 4px solid #3276B5;
+}
+
+.index-section h2:contains("Try Positron now") + p + ul li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(50, 118, 181, 0.15);
+  border-left-color: #3E72A2;
+  border-color: #3276B5;
+}
+
+.index-section h2:contains("Try Positron now") + p + ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  color: #3276B5;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: #E8F1FB;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Enhanced download button */
+.index-section h2:contains("Try Positron now") + p + ul + a {
+  display: block;
+  text-align: center;
+  margin: 3rem auto 0 auto;
+  max-width: 250px;
+  background: linear-gradient(135deg, #3276B5, #3E72A2);
+  color: white;
+  padding: 1.2rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 15px rgba(50, 118, 181, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.index-section h2:contains("Try Positron now") + p + ul + a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.index-section h2:contains("Try Positron now") + p + ul + a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(50, 118, 181, 0.4);
+}
+
+.index-section h2:contains("Try Positron now") + p + ul + a:hover::before {
+  left: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .index-section h2:contains("Try Positron now") {
+    font-size: 2.5rem;
+  }
+  
+  .index-section h2:contains("Try Positron now") + p + ul {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .index-section h2:contains("Try Positron now") + p + ul li {
+    padding: 1.25rem 1.5rem;
+    padding-left: 2.5rem;
+  }
+  
+  /* Feature cards responsive */
+  .feature-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .feature-heading {
+    text-align: center;
+  }
+  
+  .feature-details-bullets li {
+    text-align: center;
+  }
 }

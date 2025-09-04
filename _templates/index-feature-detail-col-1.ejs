@@ -1,0 +1,37 @@
+```{=html}
+<div class="features-grid">
+  <% for (const item of items) { %>
+    <div class="feature-card">
+      <h3 class="feature-heading"><%= item.title %></h3>
+      
+      <% if (item.bullets && Array.isArray(item.bullets)) { %>
+        <ul class="feature-details-bullets">
+          <% for (const bullet of item.bullets) { %>
+            <li><%= bullet %></li>
+          <% } %>
+        </ul>
+      <% } %>
+    
+        <div class="video-container">
+          <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <iframe 
+                src="https://fast.wistia.com/embed/<%= item['video-link'] %>?videoFoam=true"
+                title="<%= item.title %>"
+                allow="autoplay; fullscreen"
+                allowtransparency="true"
+                frameborder="0"
+                scrolling="no"
+                class="wistia_embed"
+                name="wistia_embed"
+                width="100%"
+                height="100%">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      <% } %>
+      
+      <ul class="feature-bullets"></ul>
+    </div>
+</div>
