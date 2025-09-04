@@ -1,0 +1,14 @@
+```{=html}
+<div class="testimonials-grid">
+  <% for (const item of items) { %>
+    <div class="testimonial-card">
+      <blockquote class="testimonial-quote">
+        <p>"<%= item.description %>"</p>
+        <footer class="testimonial-author">
+          <cite><%= item.author %></cite>
+        </footer>
+      </blockquote>
+    </div>
+  <% } %>
+</div>
+```

@@ -1,0 +1,18 @@
+```{=html}
+<div class="features-details-grid">
+  <% for (const item of items) { %>
+    <div class="feature-details-card">
+      <h3 class="feature-details-heading"><%= item.title %></h3>
+      <div class="feature-details-image">
+        <img src="<%- item.image %>" alt="<%= item.imageAlt || item.title %>" />
+      </div>
+      <ul class="feature-details-bullets">
+        <% for (const bullet of item.bullets) { %>
+          <li><%= bullet %></li>
+        <% } %>
+      </ul>
+      <a href="<%- item.href %>" class="feature-details-link">Learn More</a>
+    </div>
+  <% } %>
+</div>
+```

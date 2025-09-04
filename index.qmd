@@ -5,31 +5,106 @@ editor: source
 description: |
   A next-generation data science IDE
 hide-description: true
+format:
+  html:
+    css: css/index.css
+    page-layout: full
+listing:
+  - id: features-listing
+    template: _templates/index-custom-listing.ejs
+    grid-columns: 1
+    contents:
+      - title: "Explore & Analyze with Speed"
+        description: "Code efficiently across Python or R, leverage one or multiple consoles for concurrent analysis, interact with data at scale with fast dataframes"
+        image: "images/data-explorer-flights.png"
+        imageAlt: "Data exploration interface showing console and notebook integration"
+        href: "data-explorer.qmd"
+
+      - title: "Accelerate insights with AI-powered assistance"
+        description: "Enhance code quality and accelerate insights with integrated AI assistance contextualized for data science."
+        image: "images/data-explorer-flights.png"
+        imageAlt: "Code refactoring and function development interface"
+        href: "assistant.qmd"
+
+      - title: "Build sophisticated data apps with integrated live previews and debugging"
+        description: "Create interactive data applications with real-time previews and powerful debugging tools built right in."
+        image: "images/data-explorer-flights.png"
+        imageAlt: "Data app development with live preview and debugging tools"
+        href: "develop-data-apps.qmd"
+
+      - title: "Develop data products that will go into production, without ever leaving your development environment"
+        description: "Move from prototype to production seamlessly within the same environment, ensuring consistency and reliability."
+        image: "images/data-explorer-flights.png"
+        imageAlt: "Production deployment and workflow management interface"
+        href: "quarto.qmd"
+
+  - id: features-details-short
+    template: _templates/index-features-listing-short.ejs
+    grid-columns: 3
+    contents:
+      - title: "Explore & Analyze with Speed"
+        bullets: ["Code efficiently across Python or R", "Leverage one or multiple consoles for concurrent analysis", "Interact with data at scale with fast dataframes"]
+        image: "images/data-explorer-flights.png"
+        imageAlt: "Data visualization and charting tools"
+        href: "data-explorer.qmd"
+      - title: "Explore & Analyze with Speed"
+        bullets: ["Code efficiently across Python or R", "Leverage one or multiple consoles for concurrent analysis", "Interact with data at scale with fast dataframes"]
+        image: "images/data-explorer-flights.png"
+        imageAlt: "Data visualization and charting tools"
+        href: "data-explorer.qmd"
+      - title: "Explore & Analyze with Speed"
+        bullets: ["Code efficiently across Python or R", "Leverage one or multiple consoles for concurrent analysis", "Interact with data at scale with fast dataframes"]
+        image: "images/data-explorer-flights.png"
+        imageAlt: "Data visualization and charting tools"
+        href: "data-explorer.qmd"
+  - id: testimonials
+    template: _templates/index-testimonials.ejs
+    grid-columns: 2
+    contents:
+      - description: "Positron feels like stepping into the future of data science. I work in both R and Python daily, and switching between projects has never been easier. With built‑in version control, a lightning‑fast data explorer, and automatic code formatting, my workflow is pure joy — building apps, packages, reports, or teaching materials has never felt this seamless."
+        author: "Christoph Scheuch - Founder, Tidy Intelligence"
+      - description: "I've always loved RStudio for its powerful data science features, but I often wished it had the flexibility of VS Code. Positron delivers exactly that, all right out of the box. AND it has made it easy to start learning and upskilling with Python. It's the perfect environment for modern data science."
+        author: "Jenna Eagleson - Manager, People Analytics at Regal Rexnord"
+
 ---
 
-## What is Positron?
+From [Posit PBC](https://posit.co/), the creators of RStudio
 
-- A free, next-generation data science IDE built by [Posit PBC](https://posit.co/)
-- An extensible, polyglot tool for writing code and exploring data
-- A familiar environment for reproducible authoring and publishing
+# The Data Science IDE
 
-![Positron, a next-generation data science IDE](images/astropy.png)
+Positron unifies exploration and production work in one free, AI-powered environment, empowering the full spectrum of open-source data science in Python and R.
 
-## Ready to learn more?
+<a href="start.html" class="btn btn-primary">Get Started</a>
+<a href="features.html" class="btn btn-outline-primary">Discover Features</a>
 
-{{< video https://www.youtube.com/embed/8uRcB34Hhsw >}}
+<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/ncfm02eugr.js" async type="module"></script><style>wistia-player[media-id='ncfm02eugr']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ncfm02eugr/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="ncfm02eugr" aspect="1.7777777777777777"></wistia-player>
 
 Find out what you need to know before [installing](install.qmd) Positron, and then [download an installer](download.qmd). Explore our user guides on topics such as [choosing interpreters](managing-interpreters.qmd) and the [Data Explorer](data-explorer.qmd). Our [FAQs](faqs.qmd) cover some common questions you may have.
 
-Positron is built on [Code OSS](https://github.com/microsoft/vscode). To learn about basic features like commands, settings, using source control, and more, see the [VS Code documentation](https://code.visualstudio.com/docs).
+Positron unlocks high-dynamic-range data science, seamlessly integrating the immediacy and interactivity of a console or notebook with the robust development environment essential for production outputs—all within a single tool.
 
+## Access everything you need to stay in the flow
 
-## Share your feedback about Positron
+:::{#features-listing}
+:::
 
-We invite you to join us on [GitHub Discussions](https://github.com/posit-dev/positron/discussions) to ask questions and share feedback. [Read more](feedback.qmd) about giving feedback and reporting bugs.
+## Streamline your end-to-end data science workflows
+Stop juggling tools and leverage Positron's features purpose-built for data science, right out of the box.
 
-## License
+:::{#features-details-short}
+:::
 
-Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
+<a href="start.html" class="btn btn-primary">Download Free</a>
+<a href="features.html" class="btn btn-outline-primary">Discover All Features</a>
 
-Positron™ and the Positron icon™ are trademarks of Posit Software, PBC. All rights reserved.
+## Loved by data scientists
+
+:::{#testimonials}
+:::
+
+## Try Positron now
+
+{{< placeholder format="svg" >}}
+
+<a href="start.html" class="btn btn-primary">Download Free</a>
+
