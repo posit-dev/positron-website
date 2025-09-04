@@ -9,7 +9,7 @@
 
 .index-section h1 {
   font-size: 4.0rem;
-  font-weight: 800;
+  font-weight: 1400;
 }
 
 .index-section h2 {
@@ -389,4 +389,377 @@
     margin: 0 18px 18px 18px;
     padding: 8px 18px;
   }
+}
+
+
+
+/* Feature details bullets - single line, centered with spacing */
+.feature-details-bullets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.bullet-item {
+  color: #595959;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bullet-item::before {
+  content: "✓";
+  color: #72994E;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Key feature icons */
+.key-feature-icon {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Center align text in key feature cards */
+.key-feature-title {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.key-feature-description {
+  text-align: center;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.key-feature-icon i {
+  font-size: 2.5rem;
+  color: #3276B5;
+  background: #E8F1FB;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: 2px solid #3276B5;
+}
+
+/* Remove hover effects and make boxes look less like links */
+.key-feature-card {
+  cursor: default;
+  text-decoration: none;
+}
+
+.key-feature-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.key-feature-icon i:hover {
+  background: #E8F1FB;
+  color: #3276B5;
+  transform: none;
+}
+
+/* Inline key features with green checkmarks */
+.key-features-inline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+  margin: 2rem 0;
+  text-align: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inline-feature {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+}
+
+.inline-feature::before {
+  content: "✓";
+  color: #72994E;
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-right: 0.75rem;
+  text-shadow: 0 2px 4px rgba(114, 153, 78, 0.3);
+}
+
+/* Feature grid styling */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(87, 89, 89, 0.08);
+  border: 1px solid #3276B5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-heading {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.feature-details-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.feature-details-bullets li {
+  color: #595959;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #E8F1FB;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.feature-details-bullets li::before {
+  content: "✓";
+  color: #72994E;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+}
+
+/* Index page button styling - bigger, wider, taller */
+.index-section .btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  min-height: 60px;
+  min-width: 200px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+}
+
+.index-section .btn-primary {
+  background-color: #3276B5;
+  border-color: #3276B5;
+  color: white;
+}
+
+.index-section .btn-primary:hover {
+  background-color: #3E72A2;
+  border-color: #3E72A2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(50, 118, 181, 0.3);
+}
+
+.index-section .btn-outline-primary {
+  background-color: transparent;
+  border-color: #3276B5;
+  color: #3276B5;
+}
+
+.index-section .btn-outline-primary:hover {
+  background-color: #3276B5;
+  border-color: #3276B5;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(50, 118, 181, 0.3);
+}
+
+/* Video container styling */
+.video-container {
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(87, 89, 89, 0.1);
+}
+
+/* Hero banner styling */
+.index-1-hero-banner {
+  background: linear-gradient(135deg, #E8F1FB 0%, #F8FAFF 50%, #E8F1FB 100%);
+  padding: 4rem 2rem;
+  margin: -2rem calc(-50vw + 50%) 3rem calc(-50vw + 50%);
+  border-radius: 0 0 20px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Hero video container - 30% smaller and centered */
+#hero-video-container {
+  width: 75%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+#hero-video-container wistia-player {
+  width: 100%;
+  height: auto;
+}
+
+.index-1-hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(50, 118, 181, 0.05) 0%, rgba(114, 153, 78, 0.05) 100%);
+  pointer-events: none;
+}
+
+.index-1-hero-banner h1,
+.index-1-hero-banner h4,
+.index-1-hero-banner p {
+  position: relative;
+  z-index: 1;
+}
+
+/* Clean, professional key features styling */
+.key-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.key-feature-card {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(50, 118, 181, 0.08);
+  border: 1px solid #E8F1FB;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.key-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3276B5, #3E72A2);
+}
+
+.key-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(50, 118, 181, 0.15);
+  border-color: #3276B5;
+}
+
+.key-feature-icon {
+  margin-bottom: 1.5rem;
+}
+
+.key-feature-icon i {
+  font-size: 2.5rem;
+  color: #3276B5;
+  background: linear-gradient(135deg, #E8F1FB, #F8FAFF);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: 2px solid #E8F1FB;
+  transition: all 0.3s ease;
+}
+
+.key-feature-card:hover .key-feature-icon i {
+  background: linear-gradient(135deg, #3276B5, #3E72A2);
+  color: white;
+  border-color: #3276B5;
+  transform: scale(1.05);
+}
+
+.key-feature-title {
+  color: #2c3e50;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+/* Remove anchor links */
+.key-feature-title .anchor-link,
+.key-feature-title .anchor,
+.key-feature-title a[href^="#"] {
+  display: none !important;
+}
+
+/* Inline key features with green checkmarks */
+.key-features-inline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+  margin: 2rem 0;
+  text-align: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inline-feature {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+}
+
+.inline-feature::before {
+  content: "✓";
+  color: #72994E;
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-right: 0.75rem;
+  text-shadow: 0 2px 4px rgba(114, 153, 78, 0.3);
 }

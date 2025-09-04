@@ -2,9 +2,15 @@
 <div class="key-features-grid">
   <% for (const item of items) { %>
     <div class="key-feature-card">
+      <% if (item.icon) { %>
+        <div class="key-feature-icon">
+          <i class="<%= item.icon %>"></i>
+        </div>
+      <% } %>
       <h3 class="key-feature-title"><%= item.title %></h3>
       <p class="key-feature-description"><%= item.description %></p>
     </div>
   <% } %>
 </div>
 ```
+
