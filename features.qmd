@@ -132,7 +132,7 @@ wistia-player[media-id='d3m1291nzn']:not(:defined) {
 :::
 
 
-## Get Started
+## Get started
 
 Join thousands of data scientists who have already made the switch to Positron.
 
