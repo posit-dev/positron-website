@@ -1,40 +1,45 @@
-/* Custom styling for headings */
-h1, h2, h3, h4, p {
+/* Custom styling for headings - scoped to index section */
+.index-section h1, 
+.index-section h2, 
+.index-section h3, 
+.index-section h4, 
+.index-section p {
   text-align: center;
 }
 
-
-h1 {
-  font-size: 4.0 rem;
+.index-section h1 {
+  font-size: 4.0rem;
   font-weight: 800;
 }
 
-h2 {
-  font-size: 2.75 rem;
+.index-section h2 {
+  font-size: 2.75rem;
   font-weight: 700;
 }
-h3 {
-  font-size: 2 rem;
+
+.index-section h3 {
+  font-size: 2rem;
   font-weight: 600;
 }
-h4 {
-  font-size: 1.5 rem;
+
+.index-section h4 {
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
-p {
-  font-size: 1.0 rem;
+.index-section p {
+  font-size: 1.0rem;
   font-weight: 400;
 }
 
-small {
-  font-size: 0.875 rem;
+.index-section small {
+  font-size: 0.875rem;
   font-weight: 400;
 }
 
 
-/* Custom styling for features listing cards */
-.features-grid {
+/* Custom styling for features listing cards - scoped to index section */
+.index-section .features-grid {
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -43,7 +48,7 @@ small {
   max-width: 100%;
 }
 
-.feature-card {
+.index-section .feature-card {
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   background: white;
@@ -53,12 +58,12 @@ small {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.feature-card:hover {
+.index-section .feature-card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
 
-.feature-heading {
+.index-section .feature-heading {
   font-size: 1.5rem;
   font-weight: 700;
   color: #333;
@@ -67,7 +72,7 @@ small {
   line-height: 1.3;
 }
 
-.feature-image {
+.index-section .feature-image {
   width: 100%;
   height: 300px;
   overflow: hidden;
@@ -75,7 +80,7 @@ small {
   box-sizing: border-box;
 }
 
-.feature-image img {
+.index-section .feature-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -83,7 +88,7 @@ small {
   border-radius: 8px;
 }
 
-.feature-description {
+.index-section .feature-description {
   font-size: 1rem;
   color: #666;
   line-height: 1.6;
@@ -91,7 +96,7 @@ small {
   padding: 0;
 }
 
-.feature-link {
+.index-section .feature-link {
   display: inline-block;
   padding: 12px 24px;
   background: white;
@@ -106,7 +111,7 @@ small {
   text-align: center;
 }
 
-.feature-link:hover {
+.index-section .feature-link:hover {
   background: #0066cc;
   color: white;
   text-decoration: none;
@@ -114,64 +119,64 @@ small {
   box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments - scoped to index section */
 @media (max-width: 768px) {
-  .features-grid {
+  .index-section .features-grid {
     width: 100%;
     max-width: 100%;
     padding: 0 16px;
   }
   
-  .feature-card {
+  .index-section .feature-card {
     margin: 0;
   }
   
-  .feature-heading {
+  .index-section .feature-heading {
     font-size: 1.3rem;
     padding: 20px 20px 12px 20px;
   }
   
-  .feature-image {
+  .index-section .feature-image {
     height: 250px;
     padding: 0 20px;
   }
   
-  .feature-description {
+  .index-section .feature-description {
     margin: 12px 20px;
     font-size: 0.95rem;
   }
   
-  .feature-link {
+  .index-section .feature-link {
     margin: 0 20px 20px 20px;
     padding: 10px 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .feature-heading {
+  .index-section .feature-heading {
     font-size: 1.2rem;
     padding: 16px 16px 10px 16px;
   }
   
-  .feature-image {
+  .index-section .feature-image {
     height: 200px;
     padding: 0 16px;
   }
   
-  .feature-description {
+  .index-section .feature-description {
     margin: 10px 16px;
     font-size: 0.9rem;
   }
   
-  .feature-link {
+  .index-section .feature-link {
     margin: 0 16px 16px 16px;
     padding: 8px 16px;
     font-size: 0.9rem;
   }
 }
 
-/* Features Details Grid Styling */
-.features-details-grid {
+/* Features Details Grid Styling - scoped to index section */
+.index-section .features-details-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
@@ -179,7 +184,7 @@ small {
   width: 100%;
 }
 
-.feature-details-card {
+.index-section .feature-details-card {
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   background: white;
@@ -190,12 +195,12 @@ small {
   height: 100%;
 }
 
-.feature-details-card:hover {
+.index-section .feature-details-card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
 
-.feature-details-heading {
+.index-section .feature-details-heading {
   font-size: 1.25rem;
   font-weight: 700;
   color: #333;
@@ -204,7 +209,7 @@ small {
   line-height: 1.3;
 }
 
-.feature-details-image {
+.index-section .feature-details-image {
   width: 100%;
   height: 180px;
   overflow: hidden;
@@ -212,7 +217,7 @@ small {
   box-sizing: border-box;
 }
 
-.feature-details-image img {
+.index-section .feature-details-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -220,13 +225,13 @@ small {
   border-radius: 8px;
 }
 
-.feature-details-bullets {
+.index-section .feature-details-bullets {
   list-style: none;
   padding: 0;
   margin: 16px 20px;
 }
 
-.feature-details-bullets li {
+.index-section .feature-details-bullets li {
   position: relative;
   padding: 8px 0 8px 24px;
   color: #666;
@@ -235,11 +240,11 @@ small {
   border-bottom: 1px solid #f0f0f0;
 }
 
-.feature-details-bullets li:last-child {
+.index-section .feature-details-bullets li:last-child {
   border-bottom: none;
 }
 
-.feature-details-bullets li::before {
+.index-section .feature-details-bullets li::before {
   content: "✓";
   position: absolute;
   left: 0;
@@ -249,7 +254,7 @@ small {
   font-size: 1rem;
 }
 
-.feature-details-link {
+.index-section .feature-details-link {
   display: inline-block;
   padding: 10px 20px;
   background: white;
@@ -264,7 +269,7 @@ small {
   text-align: center;
 }
 
-.feature-details-link:hover {
+.index-section .feature-details-link:hover {
   background: #0066cc;
   color: white;
   text-decoration: none;
@@ -272,43 +277,115 @@ small {
   box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
 }
 
-/* Responsive adjustments for features details */
+/* Key Features Grid Styling - scoped to index section */
+.index-section .key-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.index-section .key-feature-card {
+  background: white;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #3a78b1;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.index-section .key-feature-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  border-color: #2c5a8a;
+}
+
+.index-section .key-feature-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 1.25rem 0;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.index-section .key-feature-description {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive adjustments for key features */
 @media (max-width: 1024px) {
-  .features-details-grid {
+  .index-section .key-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .index-section .key-features-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .index-section .key-feature-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Responsive adjustments for features details - scoped to index section */
+@media (max-width: 1024px) {
+  .index-section .features-details-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .features-details-grid {
+  .index-section .features-details-grid {
     grid-template-columns: 1fr;
     padding: 0 16px;
   }
   
-  .feature-details-card {
+  .index-section .feature-details-card {
     margin: 0;
   }
   
-  .feature-details-heading {
+  .index-section .feature-details-heading {
     font-size: 1.2rem;
     padding: 18px 18px 14px 18px;
   }
   
-  .feature-details-image {
+  .index-section .feature-details-image {
     height: 160px;
     padding: 0 18px;
   }
   
-  .feature-details-bullets {
+  .index-section .feature-details-bullets {
     margin: 14px 18px;
   }
   
-  .feature-details-bullets li {
+  .index-section .feature-details-bullets li {
     font-size: 0.9rem;
     padding: 6px 0 6px 20px;
   }
   
-  .feature-details-link {
+  .index-section .feature-details-link {
     margin: 0 18px 18px 18px;
     padding: 8px 18px;
   }

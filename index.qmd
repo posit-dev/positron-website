@@ -9,7 +9,20 @@ format:
   html:
     css: css/index.css
     page-layout: full
+
 listing:
+  - id: key-features-col-4
+    template: _templates/index-key-features.ejs
+    grid-columns: 4
+    contents:
+      - title: "R or Python"
+        description: "Code across multiple languages with one or more consoles concurrently"
+      - title: "AI Assistance"
+        description: "Accelerate insights with integrated AI assistance contextualized for data science"
+      - title: "Data Science First"
+        description: "Move from exploration to production efficiently with workflows built specifically for data analysis"
+      - title: "Fast Data Analysis"
+        description: "Explore large datasets with fast in-memory dataframes, variable inspections, visualization tools"
   - id: features-listing
     template: _templates/index-custom-listing.ejs
     grid-columns: 1
@@ -19,44 +32,40 @@ listing:
         image: "images/data-explorer-flights.png"
         imageAlt: "Data exploration interface showing console and notebook integration"
         href: "data-explorer.qmd"
-
       - title: "Accelerate insights with AI-powered assistance"
         description: "Enhance code quality and accelerate insights with integrated AI assistance contextualized for data science."
         image: "images/data-explorer-flights.png"
         imageAlt: "Code refactoring and function development interface"
         href: "assistant.qmd"
-
       - title: "Build sophisticated data apps with integrated live previews and debugging"
         description: "Create interactive data applications with real-time previews and powerful debugging tools built right in."
         image: "images/data-explorer-flights.png"
         imageAlt: "Data app development with live preview and debugging tools"
         href: "develop-data-apps.qmd"
-
       - title: "Develop data products that will go into production, without ever leaving your development environment"
         description: "Move from prototype to production seamlessly within the same environment, ensuring consistency and reliability."
         image: "images/data-explorer-flights.png"
         imageAlt: "Production deployment and workflow management interface"
         href: "quarto.qmd"
-
   - id: features-details-short
     template: _templates/index-features-listing-short.ejs
     grid-columns: 3
     contents:
-      - title: "Explore & Analyze with Speed"
-        bullets: ["Code efficiently across Python or R", "Leverage one or multiple consoles for concurrent analysis", "Interact with data at scale with fast dataframes"]
-        image: "images/data-explorer-flights.png"
-        imageAlt: "Data visualization and charting tools"
-        href: "data-explorer.qmd"
-      - title: "Explore & Analyze with Speed"
-        bullets: ["Code efficiently across Python or R", "Leverage one or multiple consoles for concurrent analysis", "Interact with data at scale with fast dataframes"]
-        image: "images/data-explorer-flights.png"
-        imageAlt: "Data visualization and charting tools"
-        href: "data-explorer.qmd"
-      - title: "Explore & Analyze with Speed"
-        bullets: ["Code efficiently across Python or R", "Leverage one or multiple consoles for concurrent analysis", "Interact with data at scale with fast dataframes"]
-        image: "images/data-explorer-flights.png"
-        imageAlt: "Data visualization and charting tools"
-        href: "data-explorer.qmd"
+        - title: "Explore & Analyze with Speed"
+          bullets: ["Code efficiently across Python or R", "Leverage one or multiple consoles for concurrent analysis", "Interact with data at scale with fast dataframes"]
+          image: "images/data-explorer-flights.png"
+          imageAlt: "Data visualization and charting tools"
+          href: "data-explorer.qmd"
+        - title: "Explore & Analyze with Speed"
+          bullets: ["Code efficiently across Python or R", "Leverage one or multiple consoles for concurrent analysis", "Interact with data at scale with fast dataframes"]
+          image: "images/data-explorer-flights.png"
+          imageAlt: "Data visualization and charting tools"
+          href: "data-explorer.qmd"
+        - title: "Explore & Analyze with Speed"
+          bullets: ["Code efficiently across Python or R", "Leverage one or multiple consoles for concurrent analysis", "Interact with data at scale with fast dataframes"]
+          image: "images/data-explorer-flights.png"
+          imageAlt: "Data visualization and charting tools"
+          href: "data-explorer.qmd"
   - id: testimonials
     template: _templates/index-testimonials.ejs
     grid-columns: 2
@@ -67,6 +76,8 @@ listing:
         author: "Jenna Eagleson - Manager, People Analytics at Regal Rexnord"
 
 ---
+
+<div class="index-section">
 
 From [Posit PBC](https://posit.co/), the creators of RStudio
 
@@ -107,4 +118,6 @@ Stop juggling tools and leverage Positron's features purpose-built for data scie
 {{< placeholder format="svg" >}}
 
 <a href="start.html" class="btn btn-primary">Download Free</a>
+
+</div>
 
