@@ -33,10 +33,6 @@ kbd {
     padding: .2rem .4rem;
 }
 
-/* Add margin-top spacing between H1 and the meta description*/
-.description {
-  margin-top: 1.75rem !important;
-}
 
 /* Keyboard shortcut styles 
 .quarto-dark .kbd {
@@ -52,18 +48,39 @@ kbd {
 
 /* Custom card styling */
 
-/* Custom card grid - three column layout */
+/* Custom card grid - responsive layout */
 .custom-card-grid-3-col {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 3rem auto;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 2rem auto;
   max-width: 1200px;
+  padding: 0 1rem;
+}
+
+/* Tablet and up - 2 columns */
+@media (min-width: 768px) {
+  .custom-card-grid-3-col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+}
+
+/* Desktop and up - 3 columns */
+@media (min-width: 1024px) {
+  .custom-card-grid-3-col {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem auto;
+    padding: 0;
+  }
 }
 
 .custom-card {
   background: white;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(87, 89, 89, 0.08);
   border: 1px solid #3276B5;
@@ -72,6 +89,15 @@ kbd {
   height: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Increase padding on larger screens */
+@media (min-width: 768px) {
+  .custom-card {
+    padding: 2rem;
+  }
 }
 
 .custom-card:hover {
@@ -97,31 +123,23 @@ kbd {
   margin-bottom: 1rem;
 }
 
-.custom-card-title-link {
-  color: #595959;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.custom-card-title-link:hover {
-  color: #3276B5;
-  text-decoration: none;
-}
-
-.custom-card-title-link:focus {
-  outline: 2px solid #3E72A2;
-  outline-offset: 2px;
-}
-
 .custom-card-icon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   background: #3276B5;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
+}
+
+/* Increase icon size on larger screens */
+@media (min-width: 768px) {
+  .custom-card-icon {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .custom-card-icon i {
@@ -139,46 +157,11 @@ kbd {
   flex-grow: 1;
 }
 
-.custom-card-link {
-  color: #3E72A2;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  transition: color 0.3s ease;
-  margin-top: auto;
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  align-self: flex-start
-}
-
-.custom-card-link:hover {
-  color: #3276B5;
-  text-decoration: none;
-  background: #E8F1FB;
-  border-color: #3276B5;
-}
-
-.custom-card-link:focus {
-  outline: 2px solid #3E72A2;
-  outline-offset: 2px;
-  color: #3276B5;
-  background: #E8F1FB;
-  border-color: #3276B5;
-}
-
-.custom-card-link i {
-  font-size: 0.8rem;
-  align-self: flex-start;
-}
 
 /* Hide anchor links for welcome cards */
 .custom-card-title .anchor-link,
 .custom-card-title .anchor,
-.custom-card-title a[href^="#"]:not(.custom-card-title-link) {
+.custom-card-title a[href^="#"] {
   display: none !important;
 }
 
