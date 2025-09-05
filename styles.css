@@ -53,7 +53,7 @@ kbd {
 /* Custom card styling */
 
 /* Custom card grid - responsive layout */
-.custom-card-grid-3-col {
+.custom-card-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -64,7 +64,7 @@ kbd {
 
 /* Tablet and up - 2 columns */
 @media (min-width: 768px) {
-  .custom-card-grid-3-col {
+  .custom-card-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin: 3rem auto;
@@ -74,7 +74,7 @@ kbd {
 
 /* Desktop and up - 3 columns */
 @media (min-width: 1024px) {
-  .custom-card-grid-3-col {
+  .custom-card-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin: 3rem auto;
