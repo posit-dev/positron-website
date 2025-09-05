@@ -7,70 +7,71 @@ listing:
     type: custom
     template: templates/feature-card.ejs
     contents:
-      - title: "Accelerate insights with AI-powered assistance"
-        description: "Enhance code quality and accelerate insights with integrated AI assistance contextualized for data science."
-        icon: "bi-robot"
-        link: "assistant.qmd"
-        anchor-text: "Assistant & Databot"
-      - title: "Inspect your environment"
-        description: "Thoroughly examine variables, objects, and environments for robust debugging and understanding."
-        icon: "bi-search"
-        link: "variables-pane.qmd"
-        anchor-text: "Variables Pane"
-      - title: "Generate rapid visualizations"
-        description: "Create high-quality visualizations quickly to uncover patterns and communicate findings effectively."
-        icon: "bi-graph-up"
-      - title: "Create dynamic, shareable reports"
-        description: "Develop compelling, dynamic reports & presentations using Quarto and Jupyter Notebooks to effectively communicate insights to any stakeholder."
-        icon: "bi-file-earmark-text"
-        link: "quarto.qmd"
-        anchor-text: "Quarto & Jupyter Notebooks"
-  - id: features-speed-2
-    type: custom
-    template: templates/feature-card.ejs
-    contents:
-        - title: "R or Python"
-          description: "Code efficiently across multiple languages, whether it's R or Python."
-          icon: "bi-code-slash"
-        - title: "Multi-session console"
-          description: "Work across one or multiple consoles for concurrent analysis and development."
-          icon: "bi-terminal"
-        - title: "Interact with data at scale"
-          description: "Explore and manipulate large datasets with intuitive, fast, and interactive data frames."
-          icon: "bi-rocket"
-          link: "data-explorer.qmd"
-          anchor-text: "Data explorer"
-        - title: "Automatically setup projects"
-          description: "Avoid manual setup by using templatized ready-to-use environments."
-          icon: "bi-folder-plus"
-          link: "folder-templates.qmd"
-          anchor-text: "Folder templates"
-  - id: features-develop-3
-    type: custom
-    template: templates/feature-card.ejs
-    contents:
       - title: "Build data applications"
         description: "Instantly develop and preview data applications directly from Positron."
         icon: "bi-play-circle"
         link: "develop-data-apps.qmd"
         anchor-text: "Develop Data Apps"
-      - title: "Manage & explore database connections"
-        description: "Create connections to databases, explore their schemas, and interactively preview database tables."
-        icon: "bi-database"
-        link: "connections-pane.qmd"
-        anchor-text: "Connections Pane"
+      - title: "Create dynamic, shareable reports"
+        description: "Develop compelling, dynamic reports & presentations using Quarto and Jupyter Notebooks to effectively communicate insights to any stakeholder."
+        icon: "bi-file-earmark-text"
+        link: "quarto.qmd"
+        anchor-text: "Quarto & Jupyter Notebooks"
+      - title: "Accelerate insights with AI-powered assistance"
+        description: "Enhance code quality and accelerate insights with integrated AI assistance contextualized for data science."
+        icon: "bi-robot"
+        link: "assistant.qmd"
+        anchor-text: "Assistant & Databot"
+  - id: features-speed-2
+    type: custom
+    template: templates/feature-card.ejs
+    contents:
+        - title: "Python or R"
+          description: "Code efficiently across multiple languages, whether it's Python or R."
+          icon: "bi-code-slash"
+        - title: "Interact with data at scale"
+          description: "Explore and manipulate large datasets with intuitive, fast, and interactive data frames."
+          icon: "bi-rocket"
+          link: "data-explorer.qmd"
+          anchor-text: "Data explorer"
+        - title: "Inspect your environment"
+          description: "Thoroughly examine variables, objects, and environments for robust debugging and understanding."
+          icon: "bi-search"
+          link: "variables-pane.qmd"
+          anchor-text: "Variables Pane"
+        - title: "Generate rapid visualizations"
+          description: "Create high-quality visualizations quickly to uncover patterns and communicate findings effectively."
+          icon: "bi-graph-up"
+  - id: features-develop-3
+    type: custom
+    template: templates/feature-card.ejs
+    contents:
       - title: "Scale beyond your local workstation"
         description: "Collaborate securely with your team via Posit Workbench or use remote SSH to access your own servers."
         icon: "bi-cloud"
         link: "remote-ssh.qmd"
         anchor-text: "Remote SSH"
+      - title: "Manage & explore database connections"
+        description: "Create connections to databases, explore their schemas, and interactively preview database tables."
+        icon: "bi-database"
+        link: "connections-pane.qmd"
+        anchor-text: "Connections Pane"
+      - title: "Automatically setup projects"
+        description: "Avoid manual setup by using templatized ready-to-use environments."
+        icon: "bi-folder-plus"
+        link: "folder-templates.qmd"
+        anchor-text: "Folder templates"
+      - title: "Multi-session console"
+        description: "Work across one or multiple consoles for concurrent analysis and development."
+        icon: "bi-terminal"
+        
 ---
 
 ::: {.callout-note}
 Interested in Positron for your team? [Learn about enterprise solutions](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page)
 :::
 
-## Refine and collaborate for impact
+## Bridge the exploration and production divide
 ::: {.hero-video}
 ```{=html}
 <script src="https://fast.wistia.com/player.js" async></script>
@@ -114,17 +115,7 @@ wistia-player[media-id='zhzn80uv1u']:not(:defined) {
 ## Develop with confidence
 ::: {.hero-video}
 ```{=html}
-<script src="https://fast.wistia.com/player.js" async></script>
-<script src="https://fast.wistia.com/embed/d3m1291nzn.js" async type="module"></script>
-<style>
-wistia-player[media-id='d3m1291nzn']:not(:defined) { 
-  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/d3m1291nzn/swatch'); 
-  display: block; 
-  filter: blur(5px); 
-  padding-top:56.25%; 
-}
-</style>
-<wistia-player media-id="d3m1291nzn" aspect="1.7777777777777777" autoplay="false" aria-label="Video demonstration of Positron's application development and version control features"></wistia-player>
+<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/818ycanm51.js" async type="module"></script><style>wistia-player[media-id='818ycanm51']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/818ycanm51/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="818ycanm51" aspect="1.7777777777777777" autoplay="false" aria-label="Positron features demonstration video"></wistia-player>
 ```
 :::
 

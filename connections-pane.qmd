@@ -20,7 +20,7 @@ You can create a new connection to a database either from the UI, or using Pytho
 
 ### Create a new connection from the UI
 
-To open a new connection, click on the "New connection" button in the Connections Pane. This will open a modal that allows you to select the connection type and fill in the connection details. This modal generates the code required to open the connection in your R or Python session.
+To open a new connection, click on the "New connection" button in the Connections Pane. This will open a modal that allows you to select the connection type and fill in the connection details. This modal generates the code required to open the connection in your Python or R session.
 
 ![New connections modal](images/connections-pane-new-connection.png)
 

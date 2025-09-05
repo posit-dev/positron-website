@@ -164,7 +164,7 @@ A few examples of these integration points include Positron's:
 - Variables pane, providing names, dimensions, and column names of dataframes and Python/R based database connections, as well as metadata for arrays, lists, and other objects in memory  
 - Plots pane for describing the current plot or suggesting variations and next steps for iterating on the current plot  
 - Console, available to the model for viewing inputs and code outputs, as well as allowing a user or an AI agent to execute code in the console and view the output
-- Session state, providing what language is active in the console session (R or Python, including version), what packages are loaded, and what packages are installed
+- Session state, providing what language is active in the console session (Python or R, including version), what packages are loaded, and what packages are installed
 
 All of that Positron-specific context is in addition to the core capabilities of what traditional software-oriented GenAI clients have (active files, selected lines of code, files in project, training data in the model, etc.).
 
