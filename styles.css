@@ -33,6 +33,10 @@ kbd {
     padding: .2rem .4rem;
 }
 
+/* Add margin-top spacing between H1 and the meta description*/
+.description {
+  margin-top: 1.75rem !important;
+}
 
 /* Keyboard shortcut styles 
 .quarto-dark .kbd {
