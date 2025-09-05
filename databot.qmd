@@ -96,7 +96,7 @@ For more information about Databot, please review the [Databot introduction blog
 
 ### What data sources can Databot use? Will it work with databases? Parquet files on S3?
 
-* In theory, anything you can reasonably do from an R or Python console is possible in Databot, as long as Claude knows how to do it. For accessing data that isn’t on disk, you may need to provide a little more guidance to Databot to get started, like giving it a snippet of code that shows how you normally connect to your data source in Python.
+* In theory, anything you can reasonably do from an Python or R console is possible in Databot, as long as Claude knows how to do it. For accessing data that isn’t on disk, you may need to provide a little more guidance to Databot to get started, like giving it a snippet of code that shows how you normally connect to your data source in Python.
 
 ### What LLMs can Databot use?
 
