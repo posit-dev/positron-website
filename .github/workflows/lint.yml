@@ -22,3 +22,4 @@ jobs:
         with:
           file_types: .qmd
           exclude_patterns: https://cdn.posit.co/positron/prereleases/
+          exclude_urls: https://fast.wistia.com/player.js
