@@ -12,22 +12,6 @@ format:
     page-layout: custom
 
 listing:
-  - id: key-features-col-4
-    template: _templates/index-key-features.ejs
-    grid-columns: 4
-    contents:
-      - title: "Purpose-Built for Data Science"
-        description: "Work efficiently in an IDE specifically designed for data analysis workflows"
-        icon: "bi-gear-wide-connected"
-      - title: "R or Python"
-        description: "Code across multiple languages with one or more consoles"
-        icon: "bi-code-slash"
-      - title: "Context Aware AI"
-        description: "Integrated AI assistance contextualized for data science"
-        icon: "bi-robot"
-      - title: "Rapid Data Exploration"
-        description: "Explore large datasets instantly via in-memory dataframes, variable inspections, & plot visualizations"
-        icon: "bi-graph-up"
   - id: testimonials
     template: _templates/index-testimonials.ejs
     grid-columns: 2
@@ -67,40 +51,45 @@ Find out what you need to know before [installing](install.qmd) Positron, and th
 Positron unlocks high-dynamic-range data science, seamlessly integrating the immediacy and interactivity of a console or notebook with the robust development environment essential for production outputs—all within a single tool.
 
 <div class="feature">
-### Explore data rapidly
+### Purpose-Built for Data Science
+Work efficiently in an IDE specifically designed for data analysis workflows
 <ul class="feature-details-bullets">
   <li> R or Python Support </li>
   <li> Integrated console </li>
-  <li> Fast interactive data frames </li>
+  <li> Plot visualizations </li>
+  <li> Dynamic reports with Quarto and Jupyter Notebooks</li>
 </ul>
 <div class="feature-video-container">
-  <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/d3m1291nzn.js" async type="module"></script><style>wistia-player[media-id='d3m1291nzn']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/d3m1291nzn/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="ncfm02eugr" aspect="1.7777777777777777"></wistia-player>
+  <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/p8cct3kyd9.js" async type="module"></script><style>wistia-player[media-id='p8cct3kyd9']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/p8cct3kyd9/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="p8cct3kyd9" aspect="1.7777777777777777" autoplay="false"></wistia-player>
 </div>
 </div>
 
 <div class="feature">
-### Generate discoveries quickly
+### Context Aware AI
+Accelerate insights with AI-powered assistance
 <ul class="feature-details-bullets">
-  <li> Contextual AI assistance </li>
-  <li> Variable inspection </li>
-  <li> Plot visualization </li>
+  <li> Contextual for data science </li>
+  <li> Model agnostic</li>
+  <li> Chat & inline completions </li>
+  <li> Transparent insights </li>
 </ul>
 <div class="feature-video-container">
-  <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/ncfm02eugr.js" async type="module"></script><style>wistia-player[media-id='ncfm02eugr']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ncfm02eugr/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="ncfm02eugr" aspect="1.7777777777777777"></wistia-player>
+  <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/ub8ojfret7.js" async type="module"></script><style>wistia-player[media-id='ub8ojfret7']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ub8ojfret7/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="ub8ojfret7" aspect="1.7777777777777777" autoplay="false"></wistia-player>
 </div>
 </div>
 
 
 <div class="feature">
-### Build data apps
+### Rapid Data Exploration
 <ul class="feature-details-bullets">
   <li> Integrated live previews </li>
+  <li> Fast interactive data frames </li>
   <li> Debugging capabilities </li>
-  <li> Integrated Version Control </li>
   <li> Streamlined database connection </li>
+  <li> Instantly develop and preview data applications directly from Positron.</li>
 </ul>
 <div class="feature-video-container">
-<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/d3m1291nzn.js" async type="module"></script><style>wistia-player[media-id='d3m1291nzn']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/d3m1291nzn/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="d3m1291nzn" aspect="1.7777777777777777"></wistia-player>
+<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/yd61oifzdh.js" async type="module"></script><style>wistia-player[media-id='yd61oifzdh']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/yd61oifzdh/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="yd61oifzdh" aspect="1.7777777777777777"></wistia-player>
 </div>
 </div>
 
