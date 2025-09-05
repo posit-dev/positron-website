@@ -33,10 +33,11 @@ kbd {
     padding: .2rem .4rem;
 }
 
-/* Add margin-top spacing between H1 and the meta description*/
-.description {
-  margin-top: 1.75rem !important;
+/* Add spacing between H1 and meta description */
+h1  {
+  margin-bottom: 2rem !important;
 }
+
 
 /* Keyboard shortcut styles 
 .quarto-dark .kbd {
@@ -169,20 +170,26 @@ kbd {
   display: none !important;
 }
 
-/* Make entire card clickable */
+/* Remove underlines from welcome card text */
 .custom-card-wrapper {
-  text-decoration: none;
+  text-decoration: none !important;
   color: inherit;
-  display: block;
-  transition: all 0.3s ease;
 }
 
 .custom-card-wrapper:hover {
-  transform: translateY(-4px);
+  text-decoration: none !important;
 }
 
-.custom-card-wrapper:hover .custom-card {
-  box-shadow: 0 8px 30px rgba(87, 89, 89, 0.12);
-  background-color: #E8F1FB; /* Light grey background on hover */
-  border-color: #3E72A2; /* Action blue border on hover */
+.custom-card-wrapper .custom-card-title,
+.custom-card-wrapper .custom-card-description {
+  text-decoration: none !important;
+  color: inherit;
 }
+
+.custom-card-wrapper:hover .custom-card-title,
+.custom-card-wrapper:hover .custom-card-description {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+

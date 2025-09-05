@@ -1,0 +1,23 @@
+```{=html}
+<div class="custom-card-grid-3-col">
+  <% for (const item of items) { %>
+    <a href="<%= item.link %>" class="custom-card-wrapper" aria-label="<%= item.title %>: <%= item.description %>">
+      <div class="custom-card" role="article" aria-labelledby="card-title-<%= item.title.replace(/\s+/g, '-').toLowerCase() %>">
+        <div class="custom-card-icon-container">
+          <div class="custom-card-icon">
+            <i class="<%= item.icon %>" aria-label="<%= item.title %> icon"></i>
+          </div>
+        </div>
+        
+        <h3 class="custom-card-title" id="card-title-<%= item.title.replace(/\s+/g, '-').toLowerCase() %>">
+          <%= item.title %>
+        </h3>
+        
+        <p class="custom-card-description">
+          <%= item.description %>
+        </p>
+      </div>
+    </a>
+  <% } %>
+</div>
+```

@@ -49,6 +49,7 @@ website:
     - title: "Features"
       style: "docked"
       contents:
+        - features.qmd
         - section: "AI Tools"
           contents:
           - assistant.qmd

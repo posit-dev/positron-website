@@ -5,12 +5,16 @@ anchor-links: false
 listing:
     id: guide-sections
     type: custom
-    template: welcome-card.ejs
+    template: templates/welcome-card.ejs
     contents:
         -   title: "Get started"
             description: "Download and install Positron on your system"
             icon: "bi-rocket-takeoff"
             link: "install.qmd"
+        -   title: "Explore Features"
+            description: "Discover key Positron features to streamline your workflow"
+            icon: "bi-grid-3x3-gap"
+            link: "features.qmd"
         -   title: "Customize your IDE"
             description: "Install extensions to enhance your data science workflow"
             icon: "bi-gear-wide-connected"
@@ -27,6 +31,7 @@ listing:
             description: "Move from VS Code to Positron built specifically for data science"
             icon: "bi-arrow-up-right-circle"
             link: "migrate-vscode.qmd"
+        
 ---
 
 
