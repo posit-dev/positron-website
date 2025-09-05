@@ -1,0 +1,45 @@
+---
+title: "Positron Features"
+page-layout: custom
+sidebar: false
+toc: false
+--- 
+
+From interactive consoles to AI-powered assistance, every feature is designed to keep you in the flow.
+
+
+### Explore & Analyze with Speed
+<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/zhzn80uv1u.js" async type="module"></script><style>wistia-player[media-id='zhzn80uv1u']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/zhzn80uv1u/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="zhzn80uv1u" wistia-popover="true" aspect="1.7777777777777777"></wistia-player>
+
+:::grid
+::: {.g-col-4}
+#### Python or R
+Code efficiently across [multiple languages](https://positron.posit.co/managing-interpreters.html) whether it’s Python or R.
+
+:::
+::: {.g-col-4}
+#### Multi-session console
+
+Work across one or [multiple consoles](https://positron.posit.co/managing-interpreters.html) for concurrent analysis and development.
+
+:::
+
+::: {.g-col-4}
+#### Interact with data at scale
+
+[Explore and manipulate](https://positron.posit.co/develop-data-apps.html ) large datasets with intuitive, fast and interactive data frames.
+
+:::
+
+::: {.g-col-4}
+![](images/tbid.png){.img-fluid}
+:::
+
+::: {.g-col-4}
+![](images/active-interpreter-session.png){.img-fluid}
+:::
+
+::: {.g-col-4}
+![](images/data-explorer-flights.png){.img-fluid}
+:::
+:::
