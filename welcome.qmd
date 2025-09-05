@@ -34,6 +34,8 @@ listing:
         
 ---
 
+Interested in Positron for your team? [Learn about enterprise solutions](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page)
+
 
 ## Positron might be a good fit for you if you {#use-cases}
 
@@ -49,6 +51,5 @@ listing:
 ::: {.callout-note}
 Positron is built on [Code OSS](https://github.com/microsoft/vscode), the open-source foundation of Visual Studio Code. For general editor features like commands, settings, and source control, reference the [VS Code documentation](https://code.visualstudio.com/docs).
 :::
-
 
 

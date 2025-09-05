@@ -1,15 +1,15 @@
 ```{=html}
-<div class="custom-card-grid-3-col">
+<div class="custom-card-grid">
   <% for (const item of items) { %>
-    <a href="<%= item.link %>" class="custom-card-wrapper" aria-label="<%= item.title %>: <%= item.description %>">
-      <div class="custom-card" role="article" aria-labelledby="card-title-<%= item.title.replace(/\s+/g, '-').toLowerCase() %>">
+    <a href="<%= item.link %>" class="custom-card-wrapper">
+      <div class="custom-card">
         <div class="custom-card-icon-container">
           <div class="custom-card-icon">
-            <i class="<%= item.icon %>" aria-label="<%= item.title %> icon"></i>
+            <i class="<%= item.icon %>"></i>
           </div>
         </div>
         
-        <h3 class="custom-card-title" id="card-title-<%= item.title.replace(/\s+/g, '-').toLowerCase() %>">
+        <h3 class="custom-card-title">
           <%= item.title %>
         </h3>
         
@@ -17,7 +17,7 @@
           <%= item.description %>
         </p>
       </div>
-    </a>
+    </a>  
   <% } %>
 </div>
 ```
