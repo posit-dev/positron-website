@@ -33,7 +33,7 @@ listing:
           description: "Explore and manipulate large datasets with intuitive, fast, and interactive data frames."
           icon: "bi-rocket"
           link: "data-explorer.qmd"
-          anchor-text: "Data explorer"
+          anchor-text: "Data Explorer"
         - title: "Inspect your environment"
           description: "Thoroughly examine variables, objects, and environments for robust debugging and understanding."
           icon: "bi-search"
