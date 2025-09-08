@@ -60,7 +60,7 @@ listing:
         description: "Avoid manual setup by using templatized ready-to-use environments."
         icon: "bi-folder-plus"
         link: "folder-templates.qmd"
-        anchor-text: "Folder templates"
+        anchor-text: "Folder Templates"
       - title: "Multi-session console"
         description: "Work across one or multiple consoles for concurrent analysis and development."
         icon: "bi-terminal"
