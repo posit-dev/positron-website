@@ -3,7 +3,7 @@
 /* Center content in index-section class only */
 .index-section {
   text-align: center;
-  margin: 0 auto;
+  margin-top: 1.75rem !important;
   padding: 0 1rem;
 }
 
@@ -19,11 +19,6 @@
   text-decoration: none !important;
 }
 
-.index-section h2::after,
-.index-section h2:after {
-  display: none !important;
-  content: none !important;
-}
 
 /* Hero video container styling */
 #hero-video-container {
@@ -53,7 +48,7 @@
   }
 }
 
-/* Style buttons in index-section only */
+/* Style buttons in index-section only to be larger on desktop */
 .index-section .btn {
   margin: 0.75rem;
   padding: 1rem 2rem;
