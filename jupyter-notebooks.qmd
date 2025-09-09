@@ -18,7 +18,7 @@ You can create and edit `.ipynb` files in Positron just as you would in other ed
 
 ### Setting up your environment
 
-Positron comes prepackaged with Jupyter kernels for R and Python. Once you've [configured an R or Python environment](managing-interpreters.qmd) for Positron, you do not need to install any additional dependencies into your environment before using notebooks.
+Positron comes prepackaged with Jupyter kernels for R and Python. Once you've [configured an Python or R environment](managing-interpreters.qmd) for Positron, you do not need to install any additional dependencies into your environment before using notebooks.
 
 If an environment installed on your computer isn't available in Positron, you may want to read more about how Positron discovers [Python installations](python-installations.qmd) and [R installations](r-installations.qmd).
 

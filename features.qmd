@@ -1,0 +1,132 @@
+---
+title: "Features"
+description: "Discover the complete data science toolkit designed to keep you in the flow. Quickly move from data to insight to application in one code editor."
+anchor-links: false
+listing:
+  - id: features-insights-1
+    type: custom
+    template: templates/feature-card.ejs
+    contents:
+      - title: "Build data applications"
+        description: "Instantly develop and preview data applications directly from Positron."
+        icon: "bi-play-circle"
+        link: "develop-data-apps.qmd"
+        anchor-text: "Develop Data Apps"
+      - title: "Create dynamic, shareable reports"
+        description: "Develop compelling, dynamic reports & presentations using Quarto and Jupyter Notebooks to effectively communicate insights to any stakeholder."
+        icon: "bi-file-earmark-text"
+        link: "quarto.qmd"
+        anchor-text: "Quarto & Jupyter Notebooks"
+      - title: "Accelerate insights with AI-powered assistance"
+        description: "Enhance code quality and accelerate insights with integrated AI assistance contextualized for data science."
+        icon: "bi-robot"
+        link: "assistant.qmd"
+        anchor-text: "Assistant & Databot"
+  - id: features-speed-2
+    type: custom
+    template: templates/feature-card.ejs
+    contents:
+        - title: "Python or R"
+          description: "Code efficiently across multiple languages, whether it's Python or R."
+          icon: "bi-code-slash"
+        - title: "Interact with data at scale"
+          description: "Explore and manipulate large datasets with intuitive, fast, and interactive data frames."
+          icon: "bi-rocket"
+          link: "data-explorer.qmd"
+          anchor-text: "Data Explorer"
+        - title: "Inspect your environment"
+          description: "Thoroughly examine variables, objects, and environments for robust debugging and understanding."
+          icon: "bi-search"
+          link: "variables-pane.qmd"
+          anchor-text: "Variables Pane"
+        - title: "Generate rapid visualizations"
+          description: "Create high-quality visualizations quickly to uncover patterns and communicate findings effectively."
+          icon: "bi-graph-up"
+  - id: features-develop-3
+    type: custom
+    template: templates/feature-card.ejs
+    contents:
+      - title: "Scale beyond your local workstation"
+        description: "Collaborate securely with your team via Posit Workbench or use remote SSH to access your own servers."
+        icon: "bi-cloud"
+        link: "remote-ssh.qmd"
+        anchor-text: "Remote SSH"
+      - title: "Manage & explore database connections"
+        description: "Create connections to databases, explore their schemas, and interactively preview database tables."
+        icon: "bi-database"
+        link: "connections-pane.qmd"
+        anchor-text: "Connections Pane"
+      - title: "Automatically setup projects"
+        description: "Avoid manual setup by using templatized ready-to-use environments."
+        icon: "bi-folder-plus"
+        link: "folder-templates.qmd"
+        anchor-text: "Folder Templates"
+      - title: "Multi-session console"
+        description: "Work across one or multiple consoles for concurrent analysis and development."
+        icon: "bi-terminal"
+        
+---
+
+::: {.callout-note}
+Interested in Positron for your team? [Learn about enterprise solutions.](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page)
+:::
+
+## Bridge the exploration and production divide
+::: {.hero-video}
+```{=html}
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/shybc7tztp.js" async type="module"></script>
+<style>
+wistia-player[media-id='shybc7tztp']:not(:defined) { 
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/shybc7tztp/swatch'); 
+  display: block; 
+  filter: blur(5px); 
+  padding-top:56.25%; 
+}
+</style>
+<wistia-player media-id="shybc7tztp" aspect="1.7777777777777777" autoplay="false" aria-label="Video demonstration of Positron's AI assistance and environment inspection features"></wistia-player>
+```
+:::
+
+::: {#features-insights-1}
+:::
+
+## Explore and analyze with speed
+
+::: {.hero-video}
+```{=html}
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/zhzn80uv1u.js" async type="module"></script>
+<style>
+wistia-player[media-id='zhzn80uv1u']:not(:defined) { 
+  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/zhzn80uv1u/swatch'); 
+  display: block; 
+  filter: blur(5px); 
+  padding-top:56.25%; 
+}
+</style>
+<wistia-player media-id="zhzn80uv1u" aspect="1.7777777777777777" autoplay="false" aria-label="Video demonstration of Positron's multi-language coding and data exploration features"></wistia-player>
+```
+:::
+
+::: {#features-speed-2}
+:::
+
+## Develop with confidence
+::: {.hero-video}
+```{=html}
+<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/818ycanm51.js" async type="module"></script><style>wistia-player[media-id='818ycanm51']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/818ycanm51/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="818ycanm51" aspect="1.7777777777777777" autoplay="false" aria-label="Positron features demonstration video"></wistia-player>
+```
+:::
+
+::: {#features-develop-3}
+:::
+
+
+## Get started
+
+Join thousands of data scientists who have already made the switch to Positron.
+
+<a href="welcome.qmd" class='btn btn-primary'>Get Started</a>
+
+

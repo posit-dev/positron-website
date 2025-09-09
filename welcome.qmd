@@ -5,12 +5,16 @@ anchor-links: false
 listing:
     id: guide-sections
     type: custom
-    template: welcome-card.ejs
+    template: templates/welcome-card.ejs
     contents:
         -   title: "Get started"
             description: "Download and install Positron on your system"
             icon: "bi-rocket-takeoff"
             link: "install.qmd"
+        -   title: "Explore Features"
+            description: "Discover key Positron features to streamline your workflow"
+            icon: "bi-grid-3x3-gap"
+            link: "features.qmd"
         -   title: "Customize your IDE"
             description: "Install extensions to enhance your data science workflow"
             icon: "bi-gear-wide-connected"
@@ -27,7 +31,10 @@ listing:
             description: "Move from VS Code to Positron built specifically for data science"
             icon: "bi-arrow-up-right-circle"
             link: "migrate-vscode.qmd"
+        
 ---
+
+Interested in Positron for your team? [Learn about enterprise solutions.](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page)
 
 
 ## Positron might be a good fit for you if you {#use-cases}
@@ -44,6 +51,5 @@ listing:
 ::: {.callout-note}
 Positron is built on [Code OSS](https://github.com/microsoft/vscode), the open-source foundation of Visual Studio Code. For general editor features like commands, settings, and source control, reference the [VS Code documentation](https://code.visualstudio.com/docs).
 :::
-
 
 

@@ -52,23 +52,31 @@ kbd {
 
 /* Custom card styling */
 
-/* Custom card grid - responsive layout */
+/* Custom card grid - responsive layout (Welcome page - 3 columns) */
 .custom-card-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin: 2rem auto;
+  gap: 1rem;
+  margin: 1.5rem auto;
   max-width: 1200px;
   padding: 0 1rem;
+}
+
+/* Small mobile - better spacing */
+@media (min-width: 480px) {
+  .custom-card-grid {
+    gap: 1.25rem;
+    margin: 2rem auto;
+  }
 }
 
 /* Tablet and up - 2 columns */
 @media (min-width: 768px) {
   .custom-card-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin: 3rem auto;
-    padding: 0 2rem;
+    gap: 1.5rem;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
   }
 }
 
@@ -78,13 +86,67 @@ kbd {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin: 3rem auto;
+    padding: 0 2rem;
+  }
+}
+
+/* Large desktop - more spacing */
+@media (min-width: 1200px) {
+  .custom-card-grid {
+    gap: 2.5rem;
+    padding: 0;
+  }
+}
+
+/* Features page specific grid - 2 columns max */
+.features-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.5rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+/* Small mobile - better spacing for features */
+@media (min-width: 480px) {
+  .features-card-grid {
+    gap: 1.25rem;
+    margin: 2rem auto;
+  }
+}
+
+/* Tablet and up - 2 columns for features */
+@media (min-width: 768px) {
+  .features-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+  }
+}
+
+/* Desktop and up - still 2 columns for features */
+@media (min-width: 1024px) {
+  .features-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+}
+
+/* Large desktop - more spacing for features */
+@media (min-width: 1200px) {
+  .features-card-grid {
+    gap: 2.5rem;
     padding: 0;
   }
 }
 
 .custom-card {
   background: white;
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(87, 89, 89, 0.08);
   border: 1px solid #3276B5;
@@ -97,8 +159,22 @@ kbd {
   box-sizing: border-box;
 }
 
-/* Increase padding on larger screens */
+/* Small mobile - slightly more padding */
+@media (min-width: 480px) {
+  .custom-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Tablet and up - more padding */
 @media (min-width: 768px) {
+  .custom-card {
+    padding: 1.75rem;
+  }
+}
+
+/* Desktop and up - full padding */
+@media (min-width: 1024px) {
   .custom-card {
     padding: 2rem;
   }
@@ -128,8 +204,8 @@ kbd {
 }
 
 .custom-card-icon {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background: #3276B5;
   border-radius: 12px;
   display: flex;
@@ -138,8 +214,24 @@ kbd {
   margin-bottom: 1rem;
 }
 
-/* Increase icon size on larger screens */
+/* Small mobile - slightly larger icons */
+@media (min-width: 480px) {
+  .custom-card-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Tablet and up - larger icons */
 @media (min-width: 768px) {
+  .custom-card-icon {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* Desktop and up - full size icons */
+@media (min-width: 1024px) {
   .custom-card-icon {
     width: 60px;
     height: 60px;
@@ -157,8 +249,21 @@ kbd {
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-weight: 400;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   flex-grow: 1;
+}
+
+/* Responsive font sizing */
+@media (min-width: 480px) {
+  .custom-card-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-card-description {
+    font-size: 1rem;
+  }
 }
 
 

@@ -13,3 +13,6 @@ The goal of Positron is to create an IDE for data science that supports the full
 
 We believe that powerful, user-friendly, and open tools are essential for scientific computing. Positron is freely available, aligning with our goal to make high-quality data science tools accessible to everyone.
 
+::: {.callout-note}
+Interested in Positron for your team? [Learn about enterprise solutions.](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page)
+:::

@@ -29,6 +29,8 @@ website:
 
   navbar:
     left:
+      - text: "Features"
+        href: features.qmd
       - text: "Guides"
         href: welcome.qmd
       - text: "Help"
@@ -44,6 +46,31 @@ website:
         href: https://github.com/posit-dev/positron
       
   sidebar:
+    - title: "Features"
+      style: "docked"
+      contents:
+        - features.qmd
+        - section: "AI Tools"
+          contents:
+          - assistant.qmd
+          - databot.qmd
+        - section: "Exploratory Data Analysis"
+          contents:
+            - data-explorer.qmd  
+            - variables-pane.qmd
+        - section: "Dynamic Documents and Apps"
+          contents:
+            - quarto.qmd
+            - jupyter-notebooks.qmd
+            - develop-data-apps.qmd
+        - help-pane.qmd    
+        - folder-templates.qmd
+        - remote-ssh.qmd
+        - section: "Database Connections"
+          contents:
+            - connections-pane.qmd
+            - extending-connections.qmd 
+  
     - title: "Guides"
       style: "docked"
       contents:
@@ -56,6 +83,7 @@ website:
             - updating.qmd
             - keyboard-shortcuts.qmd
             - add-to-path.qmd
+            - git.qmd
         - section: "User Interface"
           contents:
             - layout.qmd
@@ -68,26 +96,6 @@ website:
             - python-installations.qmd
             - r-installations.qmd
             - reticulate.qmd
-        - section: "Dynamic Documents and Apps"
-          contents:
-            - quarto.qmd
-            - jupyter-notebooks.qmd
-            - develop-data-apps.qmd
-        - section: "Database Connections"
-          contents:
-            - connections-pane.qmd
-            - extending-connections.qmd 
-        - section: "AI Tools"
-          contents:
-          - assistant.qmd
-          - databot.qmd
-        - data-explorer.qmd  
-        - variables-pane.qmd
-        - help-pane.qmd
-        - remote-ssh.qmd
-        - extension-development.qmd
-        - folder-templates.qmd
-        - git.qmd
         - text: "Migrating from VS Code"
           href: migrate-vscode.qmd
         - section: "Migrating from RStudio"
@@ -98,6 +106,9 @@ website:
           - migrate-rstudio-code.qmd
           - migrate-rstudio-rproj.qmd
           - migrate-rstudio-compare.qmd
+        - section: "Extending Positron"  
+          contents:
+          - extension-development.qmd
     - title: "Help"
       style: "docked"
       contents:

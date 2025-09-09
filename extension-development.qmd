@@ -20,7 +20,7 @@ For more comprehensive setup instructions see the [VS Code documentation on deve
 
 ## What can you build?
 
-The Positron API provides access to Positron-specific features like running code in active R or Python sessions, utilizing Positron's preview pane, or contributing new database connections. 
+The Positron API provides access to Positron-specific features like running code in active Python or R sessions, utilizing Positron's preview pane, or contributing new database connections. 
 
 The following are the different sections of the API and how they're used.
 
