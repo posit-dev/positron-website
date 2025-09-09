@@ -1,0 +1,83 @@
+/* Index page specific styles */
+
+/* Center content in index-section class only */
+.index-section {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Style H1 in index-section only */
+.index-section h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+/* Remove lines/borders from H2 elements in index-section */
+.index-section h2 {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
+.index-section h2::after,
+.index-section h2:after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Hero video container styling */
+#hero-video-container {
+  width: 70%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+#hero-video-container wistia-player {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Responsive adjustments for hero video */
+@media (max-width: 768px) {
+  #hero-video-container {
+    width: 90%;
+    margin: 1.5rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero-video-container {
+    width: 95%;
+    margin: 1rem auto;
+  }
+}
+
+/* Style buttons in index-section only */
+.index-section .btn {
+  margin: 0.75rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  min-height: 50px;
+  min-width: 180px;
+}
+
+/* Responsive adjustments for buttons */
+@media (max-width: 768px) {
+  .index-section .btn {
+    margin: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .index-section .btn {
+    margin: 0.5rem 0.25rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    min-width: 140px;
+  }
+}
