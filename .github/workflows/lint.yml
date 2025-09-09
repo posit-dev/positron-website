@@ -21,8 +21,8 @@ jobs:
         uses: urlstechie/urlchecker-action@master
         with:
           file_types: .qmd
-          exclude_patterns: |
+          exclude_patterns:
             https://cdn.posit.co/positron/prereleases/
-            https://positron.posit.co/images/
           exclude_urls:
             https://fast.wistia.com/player.js
+            https://positron.posit.co/images/index-positron-social-share.png
