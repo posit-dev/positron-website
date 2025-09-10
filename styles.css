@@ -24,10 +24,6 @@ nav .nav-item:not(.compact) {
   width: auto;
 }
 
-#top-bar-download-btn {
-  margin-top: -7px
-}
-
 /* Keyboard shortcuts */
 kbd {
     padding: .2rem .4rem;
