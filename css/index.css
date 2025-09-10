@@ -4,7 +4,10 @@
 .index-section {
   text-align: center;
   margin-top: 1.75rem !important;
-  padding: 0 1rem;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Style H1 in index-section only */
@@ -33,8 +36,18 @@
   border-radius: 8px;
 }
 
-/* Responsive adjustments for hero video */
+/* Responsive padding adjustments for index-section */
+@media (max-width: 1024px) {
+  .index-section {
+    padding: 0 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .index-section {
+    padding: 0 1.25rem;
+  }
+  
   #hero-video-container {
     width: 90%;
     margin: 1.5rem auto;
@@ -42,6 +55,10 @@
 }
 
 @media (max-width: 480px) {
+  .index-section {
+    padding: 0 1rem;
+  }
+  
   #hero-video-container {
     width: 95%;
     margin: 1rem auto;
