@@ -2,90 +2,18 @@
 
 /* Center content in index-section class only */
 .index-section {
-  text-align: center;
-  margin-top: 1.75rem !important;
-  padding: 0 2rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+    text-align: center !important;
 }
-
-/* Style H1 in index-section only */
+  
+  /* Style H1 in index-section only */
 .index-section h1 {
-  font-size: 3rem;
-  font-weight: 600;
+    font-size: 3rem;
+    font-weight: 600;
 }
 
-/* Remove lines/borders from H2 elements in index-section */
-.index-section h2 {
-  border-bottom: none !important;
-  text-decoration: none !important;
-}
-
-
-/* Hero video container styling */
-#hero-video-container {
-  width: 70%;
-  margin: 2rem auto;
-  text-align: center;
-}
-
-#hero-video-container wistia-player {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-/* Responsive padding adjustments for index-section */
-@media (max-width: 1024px) {
-  .index-section {
-    padding: 0 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .index-section {
-    padding: 0 1.25rem;
-  }
-  
-  #hero-video-container {
-    width: 90%;
-    margin: 1.5rem auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .index-section {
-    padding: 0 1rem;
-  }
-  
-  #hero-video-container {
-    width: 95%;
-    margin: 1rem auto;
-  }
-}
-
-/* Style buttons in index-section only to be larger on desktop */
+/* Style buttons in index-section to have more padding */
 .index-section .btn {
-  margin: 0.75rem;
-  padding: 1rem 2rem;
+    margin: 0.75rem;
+    padding: 1rem 2rem;
 }
 
-/* Responsive adjustments for buttons */
-@media (max-width: 768px) {
-  .index-section .btn {
-    margin: 0.5rem;
-    padding: 0.875rem 1.5rem;
-    font-size: 1rem;
-    min-width: 160px;
-  }
-}
-
-@media (max-width: 480px) {
-  .index-section .btn {
-    margin: 0.5rem 0.25rem;
-    padding: 0.75rem 1.25rem;
-    font-size: 0.95rem;
-    min-width: 140px;
-  }
-}

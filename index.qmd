@@ -9,7 +9,6 @@ hide-description: true
 format:
   html:
     css: css/index.css
-    page-layout: custom
     include-in-header:
       - text: |
           <!-- Open Graph Meta Tags -->
@@ -31,7 +30,7 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 
 # The Data Science IDE
 
-### Positron unifies exploration and production work in one free, AI-powered environment,<br>empowering the full spectrum of data science in Python and R.
+### Positron unifies exploration and production work in one free, AI-powered environment, empowering the full spectrum of data science in Python and R.
 
 <a href="download.qmd" class="btn btn-outline-primary">Free Download</a>
 <a href="features.qmd" class="btn btn-outline-primary">Explore Features</a>
