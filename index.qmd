@@ -2,34 +2,42 @@
 pagetitle: "Positron"
 toc: false
 editor: source
+anchor-links: false
 description: |
-  A next-generation data science IDE
+  Positron unifies exploration and production work in one free, AI-powered environment, empowering the full spectrum of data science in Python and R.
 hide-description: true
+format:
+  html:
+    css: css/index.css
+    include-in-header:
+      - text: |
+          <!-- Open Graph Meta Tags -->
+          <meta property="og:title" content="Positron - The Data Science IDE">
+          <meta property="og:description" content="Positron unifies exploration and production work in one free, AI-powered environment, empowering the full spectrum of data science in Python and R.">
+          <meta property="og:type" content="website">
+          <meta property="og:url" content="https://positron.posit.co/">
+          <meta property="og:image" content="https://positron.posit.co/images/index-positron-social-share.png">
+          <meta property="og:image:width" content="1200">
+          <meta property="og:image:height" content="630">
+          <meta property="og:site_name" content="Positron">
+          <meta property="og:locale" content="en_US">
 ---
+<div class="index-section">
 
-## What is Positron?
+<!--Hero banner section-->
 
-- A free, next-generation data science IDE built by [Posit PBC](https://posit.co/)
-- An extensible, polyglot tool for writing code and exploring data
-- A familiar environment for reproducible authoring and publishing
+From [Posit PBC](https://posit.co/), the creators of RStudio
 
-![Positron, a next-generation data science IDE](images/astropy.png)
+# The Data Science IDE
 
-## Ready to learn more?
+### Positron unifies exploration and production work in one free, AI-powered environment, empowering the full spectrum of data science in Python and R.
 
-{{< video https://www.youtube.com/embed/8uRcB34Hhsw >}}
+<a href="download.qmd" class="btn btn-outline-primary">Free Download</a>
+<a href="features.qmd" class="btn btn-outline-primary">Explore Features</a>
 
-Find out what you need to know before [installing](install.qmd) Positron, and then [download an installer](download.qmd). Explore our user guides on topics such as [choosing interpreters](managing-interpreters.qmd) and the [Data Explorer](data-explorer.qmd). Our [FAQs](faqs.qmd) cover some common questions you may have.
-
-Positron is built on [Code OSS](https://github.com/microsoft/vscode). To learn about basic features like commands, settings, using source control, and more, see the [VS Code documentation](https://code.visualstudio.com/docs).
-
-
-## Share your feedback about Positron
-
-We invite you to join us on [GitHub Discussions](https://github.com/posit-dev/positron/discussions) to ask questions and share feedback. [Read more](feedback.qmd) about giving feedback and reporting bugs.
-
-## License
+<div id="hero-video-container">
+  <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/ncfm02eugr.js" async type="module"></script><style>wistia-player[media-id='ncfm02eugr']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ncfm02eugr/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="ncfm02eugr" aspect="1.7777777777777777" title="Positron Overview - the Data Science Code Editor for Python & R"></wistia-player>
+</div>
 
 Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
-
-Positron™ and the Positron icon™ are trademarks of Posit Software, PBC. All rights reserved.
+</div>
