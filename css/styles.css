@@ -196,7 +196,7 @@ kbd {
 
 .custom-card-icon-container {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: .5rem;
 }
 
 .custom-card-title {
@@ -247,7 +247,7 @@ kbd {
 .custom-card-description {
   color: #595959;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-weight: 400;
   font-size: 0.9rem;
   flex-grow: 1;
