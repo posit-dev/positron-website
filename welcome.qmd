@@ -2,6 +2,8 @@
 title: "Welcome"
 description: "Welcome to Positron, the next-generation data science IDE built for Python and R. It combines the power of a full-featured IDE with interactive data science tools for Python and R."
 anchor-links: false
+page-layout: full
+toc: false
 listing:
     id: guide-sections
     type: custom
