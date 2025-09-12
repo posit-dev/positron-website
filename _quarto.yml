@@ -3,6 +3,7 @@ project:
   type: posit-docs
   render:
     - "*.qmd"
+    - "images/astropy.png"
 
 execute:
   freeze: auto
