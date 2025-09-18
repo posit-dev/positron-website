@@ -4,7 +4,7 @@
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: url("_extensions/quarto-ext/fontawesome/assets/webfonts/fa-solid-900.woff2");
+  src: url("../_extensions/quarto-ext/fontawesome/assets/webfonts/fa-solid-900.woff2");
 }
 
 /* Add gear icon before links with href starting with "positron://settings" */
