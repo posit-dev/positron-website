@@ -20,6 +20,10 @@ If you change the setting to `"dailies"`, what can you expect?
 - These daily builds only go through automated testing before being made available, not our full QA process. If you consider yourself an adventurous early adopter, this may be a good fit for you!
 - If some daily build happens to be entirely broken for you, the best step for you to take is to close Positron and [install the latest monthly release](download.qmd).
 
+### Retention policy
+
+Daily builds of Positron are retained for 60 days, and regular monthly releases are never deleted.
+
 ## Windows package managers
 
 We don't yet officially maintain Positron on Windows package managers, but you can install the latest version of Positron via [scoop](https://scoop.sh/) or [winget](https://learn.microsoft.com/en-us/windows/package-manager/) thanks to the efforts of community maintainers.
