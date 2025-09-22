@@ -5,7 +5,7 @@ format:
     include-in-header:
       - '_download.html'
 aliases:
-  - start.html      
+  - start.html
 ---
 
 Positron is a modern, extensible IDE for data science built on [Code OSS](https://github.com/microsoft/vscode). Before you install Positron, please review the prerequisites below to ensure your system is ready.
@@ -18,16 +18,16 @@ Positron is a modern, extensible IDE for data science built on [Code OSS](https:
 If you're using Windows, make sure you have the [latest Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version) installed.
 
 ### Python setup
-Positron works with [actively supported versions](https://devguide.python.org/versions/#versions) of Python, from 3.9 to 3.13.  
+Positron works with [actively supported versions](https://devguide.python.org/versions/#versions) of Python, from 3.9 to 3.13.
 
-We recommend [pyenv](https://github.com/pyenv/pyenv) and [pyenv for Windows](https://github.com/pyenv-win/pyenv-win) for managing Python versions.  
+We recommend [uv](https://docs.astral.sh/uv/guides/install-python/), or [pyenv](https://github.com/pyenv/pyenv) and [pyenv for Windows](https://github.com/pyenv-win/pyenv-win), for managing Python versions.
 
 Positron requires the [IPython kernel](https://pypi.org/project/ipykernel/) (version 6.19.1 or higher) to communicate with Python. By default, the IPython kernel is bundled with Positron for the CPython implementation (the standard Python implementation) and added to the [Python search path](https://docs.python.org/3/library/sys_path_init.html).
 
 If you prefer finer control over your Python environment, set the [`python.useBundledIpykernel` setting](positron://settings/python.useBundledIpykernel) to false and install the IPython kernel manually
 
 ::: callout-note
-If you're using an implementation other than CPython, you'll need to install the IPython kernel manually. 
+If you're using an implementation other than CPython, you'll need to install the IPython kernel manually.
 :::
 
 ### R setup
@@ -65,13 +65,13 @@ Download the installer for your operating system from the button below and follo
 
 Please review [Positron's license agreement](licensing.qmd) and [privacy policy](https://posit.co/about/privacy-policy/). Your acceptance of this license agreement and privacy policy is required as a condition to proceeding with your download or use of the software.
 
-<div id="privacy-policy-agreement"> 
+<div id="privacy-policy-agreement">
   <input type="checkbox" id="privacy-checkbox" onclick="updatePrivacy(this)">
   <label>I agree to the <a href="licensing.qmd">Positron license agreement</a> and <a href="https://posit.co/about/privacy-policy/">Posit Privacy Policy</a>.</label>
 </div>
 :::
 
-<!-- The below R code is used by the _download.html snippet 
+<!-- The below R code is used by the _download.html snippet
 to populate the platform-default download button -->
 ```{r}
 #| echo: false
@@ -81,4 +81,3 @@ positronVersion <- Sys.getenv("RELEASE_VERSION")
 [Download Positron <span id="os-name"></span>](#){.btn .btn-primary .disabled #download-btn data-version="`{r} positronVersion`"}
 
 [All Downloads](download.qmd){#all-downloads}
-
