@@ -93,9 +93,11 @@ website:
           contents:
             - managing-interpreters.qmd
             - interpreter-startup.qmd
-            - python-installations.qmd
-            - r-installations.qmd
-            - reticulate.qmd
+            - section: "Language-Specific Interpreter Setup"
+              contents:
+                - python-installations.qmd
+                - r-installations.qmd
+                - reticulate.qmd
         - text: "Migrating from VS Code"
           href: migrate-vscode.qmd
         - section: "Migrating from RStudio"
