@@ -1,5 +1,5 @@
 ---
-title: "Data Explorer Filter Bar"
+title: "Filter Bar"
 ---
 
 

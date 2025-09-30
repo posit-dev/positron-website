@@ -1,5 +1,5 @@
 ---
-title: "Data Explorer"
+title: "Data Grid"
 ---
 
 Each Data Explorer instance watches the underlying data for changes, so if you

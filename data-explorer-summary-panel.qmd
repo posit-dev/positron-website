@@ -1,6 +1,13 @@
 ---
-title: "Data Explorer Summary Panel"
+title: "Summary Panel"
 ---
+
+Depending on the size of the dataset, when first opening
+the Data Explorer or using its features (like scrolling, filtering, or sorting),
+you may see loading indicators in the summary pane and in the bottom left corner
+of the window:
+
+![Data Explorer Loading Indicators](images/data-explorer-loading-indicators.png){width=300}
 
 ## Summary panel
 
