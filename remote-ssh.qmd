@@ -27,7 +27,7 @@ Other features that aren't currently supported include:
 - Dev Container workflows (note however that you can start a container yourself and connect to it)
 - Connecting from Positron Pro sessions on Posit Workbench
 
-At an absolute minimum, at least 2 GB RAM is required to run the remote Positron server, but for realistic data science work, expect to need at least 4 GB RAM or more on the remote host.
+At least 2 GB RAM is required to run the remote Positron server, but for realistic data science work, expect to need at least 4 GB RAM or more on the remote host.
 
 [^1]: Although Positron doesn't officially support connecting to Windows Subsystem for Linux (WSL) backends at this time, there is a community-maintained fork of the [Open Remote - WSL](https://github.com/kv9898/open-remote-wsl) extension adapted for Positron, available on the [Open VSX Registry](https://open-vsx.org/extension/kv9898/open-remote-wsl). The community-maintained WSL extension behaves very similarly to the remote SSH functionality described in this article.
 <!-- vale Posit.Contractions = NO -->
