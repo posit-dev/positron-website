@@ -3,6 +3,8 @@ project:
   type: posit-docs
   render:
     - "*.qmd"
+  resources:
+    - "llms.txt"
 
 execute:
   freeze: auto
