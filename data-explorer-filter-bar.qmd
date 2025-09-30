@@ -1,0 +1,52 @@
+---
+title: "Data Explorer Filter Bar"
+---
+
+
+## Filtering
+
+The filter bar has controls to:
+
+1. Add, Show/Hide existing filters, or Clear Filters
+2. A {{<fa plus>}} button to quickly add a new filter
+3. The status bar at the bottom of the Data Explorer also displays the
+   percentage and number of remaining rows relative to the original total after
+   applying a filter
+
+![Overview of Filter Bar UI](images/data-explorer-filter-ui.png){width=700}
+
+When creating a new filter, you will first need to select a column either by
+scrolling the full list or searching across columns for a specific string. Once
+a column is selected, the available filters for that column type will be
+displayed. Alternatively, the context menu in each column label of the data grid
+also allows for creating filters with the column name pre-populated.
+
+Available filters vary according to the column type. For example, string columns
+have filter affordances for: contains, starts or ends with, is empty, or exact
+matches. Alternatively, numeric columns have logical operations such as: is less
+than or greater than, is equal to, or is inclusively between two values.
+
+## Sorting
+
+To sort the data by a column's values, open a column's context menu from the top
+of the grid and click either "Sort Ascending" or "Sort Descending":
+
+![Sorting Data from Column Context Menu](images/data-explorer-sort-context-menu.png){width=300}
+
+To clear an individual column's sort, click on the column header and select
+"Clear Sorting" from the context menu.
+
+When a column is sorted, the column header will have an arrow pointing up or
+down indicating the sort direction. You can sort by multiple columns by opening
+the context menu for a second column and sorting it, too. The number next to the
+sort direction indicates the sort order of the column.
+
+![Sorting Data by Multiple Columns](images/data-explorer-sort-multiple-columns.png){width=400}
+
+A Data Explorer can be sorted and filtered at the same time without any issues.
+
+To clear all sorting, click on the "Clear Column Sorting" button in the top
+action bar:
+
+![Clear Column Sorting Button](images/data-explorer-clear-column-sorting.png){width=400}
+
