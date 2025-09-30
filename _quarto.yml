@@ -89,6 +89,11 @@ website:
             - layout.qmd
             - command-palette.qmd
             - action-bars.qmd
+        - section: "Data Explorer"
+          contents:
+            - data-explorer-filter-bar.qmd
+            - data-explorer-data-grid.qmd
+            - data-explorer-summary-panel.qmd
         - section: "Interpreters"
           contents:
             - managing-interpreters.qmd
