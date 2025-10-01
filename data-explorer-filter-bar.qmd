@@ -1,7 +1,7 @@
 ---
 title: "Filter Bar"
+description: "Add filters to your data and convert the filters to code."
 ---
-
 
 ## Filtering
 
@@ -9,7 +9,8 @@ The filter bar has controls to:
 
 1. Add, Show/Hide existing filters, or Clear Filters
 2. A {{<fa plus>}} button to quickly add a new filter
-3. The status bar at the bottom of the Data Explorer also displays the
+3. Convert currently applied filters to reusable code
+4. The status bar at the bottom of the Data Explorer also displays the
    percentage and number of remaining rows relative to the original total after
    applying a filter
 
@@ -49,4 +50,6 @@ To clear all sorting, click on the "Clear Column Sorting" button in the top
 action bar:
 
 ![Clear Column Sorting Button](images/data-explorer-clear-column-sorting.png){width=400}
+
+## Convert to code
 

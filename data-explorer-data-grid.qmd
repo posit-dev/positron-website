@@ -1,23 +1,7 @@
 ---
 title: "Data Grid"
+description: "Explore data in a spreadsheet-like view."
 ---
-
-Each Data Explorer instance watches the underlying data for changes, so if you
-edit a data file or modify an in-memory dataframe, the changes will be reflected
-in the Data Explorer. Depending on the size of the dataset, when first opening
-the Data Explorer or using its features (like scrolling, filtering, or sorting),
-you may see loading indicators in the summary pane and in the bottom left corner
-of the window:
-
-![Data Explorer Loading Indicators](images/data-explorer-loading-indicators.png){width=300}
-
-
-### Supported data frame libraries
-
-pandas and Polars `DataFrame` objects are supported in Python, and `data.frame`,
-`tibble`, and `data.table` are supported in R. Previews of database connections managed by the [Connections Pane](connections-pane.qmd) are also supported, for both Python and R.
-
-Based on [user feedback](feedback.qmd#feedback-and-issues), we may add support for other libraries that expose a tabular data interface.
 
 ## Data grid
 
@@ -43,6 +27,18 @@ can see a tooltip containing the complete value by hovering over the cell:
 
 ![Data Explorer Cell Value Tooltip](images/data-explorer-cell-value-tooltip.png){width=300}
 
+Each Data Explorer instance watches the underlying data for changes, so if you
+edit a data file or modify an in-memory dataframe, the changes will be reflected
+in the Data Explorer. 
+
+
+### Supported data frame libraries
+
+pandas and Polars `DataFrame` objects are supported in Python, and `data.frame`,
+`tibble`, and `data.table` are supported in R. Previews of database connections managed by the [Connections Pane](connections-pane.qmd) are also supported, for both Python and R.
+
+Based on [user feedback](feedback.qmd#feedback-and-issues), we may add support for other libraries that expose a tabular data interface.
+
 ## Sorting
 
 To sort the data by a column's values, open a column's context menu from the top
@@ -66,7 +62,6 @@ To clear all sorting, click on the "Clear Column Sorting" button in the top
 action bar:
 
 ![Clear Column Sorting Button](images/data-explorer-clear-column-sorting.png){width=400}
-
 
 
 ## Grid selection and copy-and-paste

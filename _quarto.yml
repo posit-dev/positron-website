@@ -54,15 +54,18 @@ website:
           contents:
           - assistant.qmd
           - databot.qmd
-        - section: "Exploratory Data Analysis"
+        - section: "Viewing Data"
           contents:
-            - data-explorer.qmd  
-            - variables-pane.qmd
+            - data-explorer.qmd 
+            - data-explorer-data-grid.qmd
+            - data-explorer-filter-bar.qmd
+            - data-explorer-summary-panel.qmd
         - section: "Dynamic Documents and Apps"
           contents:
             - quarto.qmd
             - jupyter-notebooks.qmd
             - develop-data-apps.qmd
+        - variables-pane.qmd
         - help-pane.qmd    
         - folder-templates.qmd
         - remote-ssh.qmd
@@ -89,11 +92,6 @@ website:
             - layout.qmd
             - command-palette.qmd
             - action-bars.qmd
-        - section: "Data Explorer"
-          contents:
-            - data-explorer-data-grid.qmd
-            - data-explorer-filter-bar.qmd
-            - data-explorer-summary-panel.qmd
         - section: "Interpreters"
           contents:
             - managing-interpreters.qmd

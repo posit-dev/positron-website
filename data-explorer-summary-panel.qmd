@@ -1,13 +1,7 @@
 ---
 title: "Summary Panel"
+description: "View summary statistics, sparklines, and missing data for each column."
 ---
-
-Depending on the size of the dataset, when first opening
-the Data Explorer or using its features (like scrolling, filtering, or sorting),
-you may see loading indicators in the summary pane and in the bottom left corner
-of the window:
-
-![Data Explorer Loading Indicators](images/data-explorer-loading-indicators.png){width=300}
 
 ## Summary panel
 
@@ -17,6 +11,13 @@ histogram or frequency table of that column's data, and also displays the amount
 of missing data as both an inline bar graph and an increasing percentage. If you
 click on the carat symbol for a column, it will expand to show additional
 summary statistics and a larger sparkline.
+
+Depending on the size of the dataset, when first opening
+the Data Explorer or using its features (like scrolling, filtering, or sorting),
+you may see loading indicators in the summary pane and in the bottom left corner
+of the window:
+
+![Data Explorer Loading Indicators](images/data-explorer-loading-indicators.png){width=300}
 
 ![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=350}
 
