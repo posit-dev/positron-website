@@ -31,3 +31,20 @@ There is also sorting capabilities, covered in the [Data Grid](data-explorer-dat
 
 ## Convert to code
 
+The Data Explorer includes a **Convert to Code** button in the top action bar. 
+This button writes Python or R code that reproduces your current data view, including any filters or sorts you've applied during exploration.
+This allows you to quickly capture your interactive exploration as reproducible code.
+To convert your Data Explorer view to code:
+
+1. Apply any filters, sorts, or other transformations in the Data Explorer
+2. Click the **Convert to Code** button in the top action bar
+3. Preview the code in the modal
+4. Click **Copy to Clipboard** to copy the code for pasting into the console, a script, or any other location
+
+The code references the dataframe object already loaded in your session rather than reading data from disk.
+The **Convert to Code** button writes code appropriate for your dataframe type:
+
+- **pandas** dataframes produce pandas code
+- **polars** dataframes produce Polars code, with the option to convert to pandas code
+- **R** dataframes and tibbles produce dplyr code with pipe syntax
+- **Files** opened directly (`.csv`, `.tsv`, `.parquet`) produce DuckDB SQL code
