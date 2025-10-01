@@ -1,6 +1,6 @@
 ---
-title: "Data Explorer"
-description: "View and explore datasets."
+title: "Overview"
+description: "View and explore datasets in the data explorer."
 ---
 
 The Data Explorer is designed to complement code-first exploration of data,

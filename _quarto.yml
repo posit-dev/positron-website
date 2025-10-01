@@ -54,7 +54,7 @@ website:
           contents:
           - assistant.qmd
           - databot.qmd
-        - section: "Viewing Data"
+        - section: "Data Explorer"
           contents:
             - data-explorer.qmd 
             - data-explorer-data-grid.qmd
