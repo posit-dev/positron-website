@@ -27,29 +27,7 @@ have filter affordances for: contains, starts or ends with, is empty, or exact
 matches. Alternatively, numeric columns have logical operations such as: is less
 than or greater than, is equal to, or is inclusively between two values.
 
-## Sorting
-
-To sort the data by a column's values, open a column's context menu from the top
-of the grid and click either "Sort Ascending" or "Sort Descending":
-
-![Sorting Data from Column Context Menu](images/data-explorer-sort-context-menu.png){width=300 fig-alt="Dropdown menu for data column shows options: Copy, Select Column, Sort Ascending, Sort Descending, Clear Sorting, and Add Filter."}
-
-To clear an individual column's sort, click on the column header and select
-"Clear Sorting" from the context menu.
-
-When a column is sorted, the column header will have an arrow pointing up or
-down indicating the sort direction. You can sort by multiple columns by opening
-the context menu for a second column and sorting it, too. The number next to the
-sort direction indicates the sort order of the column.
-
-![Sorting Data by Multiple Columns](images/data-explorer-sort-multiple-columns.png){width=400 fig-alt="Data explorer displaying two columns, 'dep_time' with 1.00 values and 'sched_dep_time' showing 2359. Arrows next to column name indicate sorting ascending or descending. Numbers next to arrows indicate order of sort. "}
-
-A Data Explorer can be sorted and filtered at the same time without any issues.
-
-To clear all sorting, click on the "Clear Column Sorting" button in the top
-action bar:
-
-![Clear Column Sorting Button](images/data-explorer-clear-column-sorting.png){width=400 fig-alt="Data explorer showing a table with columns labeled year, month, and day, sorted by month. A 'Clear Column Sorting' button in the top left is highlighted."}
+There is also sorting capabilities, covered in the [Data Grid](data-explorer-data-grid.qmd).
 
 ## Convert to code
 
