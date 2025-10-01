@@ -27,6 +27,8 @@ Other features that aren't currently supported include:
 - Dev Container workflows (note however that you can start a container yourself and connect to it)
 - Connecting from Positron Pro sessions on Posit Workbench
 
+At least 2 GB RAM is required to run the remote Positron server, but for realistic data science work, expect to need at least 4 GB RAM or more on the remote host.
+
 [^1]: Although Positron doesn't officially support connecting to Windows Subsystem for Linux (WSL) backends at this time, there is a community-maintained fork of the [Open Remote - WSL](https://github.com/kv9898/open-remote-wsl) extension adapted for Positron, available on the [Open VSX Registry](https://open-vsx.org/extension/kv9898/open-remote-wsl). The community-maintained WSL extension behaves very similarly to the remote SSH functionality described in this article.
 <!-- vale Posit.Contractions = NO -->
 This WSL extension is not maintained by the Positron team or Posit.
@@ -116,6 +118,8 @@ The two most common problems are:
 
 - Encountering a 404 when downloading the Positron Server binary. This happens when you attempt to use Remote SSH against a host type that's not supported, for example, connecting to a macOS host.
 - Encountering an error when starting the Positron Server binary. This happens when you attempt to use Remote SSH against a version of Linux that's not supported by Positron.
+
+Occasionally, the installation on the remote server can be corrupted, for example, if the download was interrupted. If you encounter errors installing Positron on the remote server, you can try deleting the `~/.positron-server` directory on the remote host and then connecting again.
 
 If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it's not autodetected), you can edit the [`remoteSSH.serverDownloadUrlTemplate` setting](positron://settings/remoteSSH.serverDownloadUrlTemplate):
 
