@@ -3,8 +3,6 @@ title: "Data Grid"
 description: "Explore data in a spreadsheet-like view."
 ---
 
-## Data grid
-
 The data grid is the primary display, with a spreadsheet-like cell-by-cell view.
 It's intended to scale efficiently to relatively large in-memory datasets, up to
 millions of rows or columns. 
