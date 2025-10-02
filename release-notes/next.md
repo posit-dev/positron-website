@@ -8,7 +8,7 @@ TBD from Dhruvi
 
 TBD from Sharon
 
-#### Manage Positron Assistant completions 
+#### Manage Positron Assistant completions ⚙️
 
 Completions from an LLM such as GitHub Copilot can be super useful, but sometimes they can be distracting or interfere with other completions from the Python or R LSP. You now have more control over when you see Positron Assistant completions:
 
@@ -32,7 +32,7 @@ Completions from an LLM such as GitHub Copilot can be super useful, but sometime
 - [#8934, #7585] Data Explorer: added keyboard accessibility for Data Explorer filter popup.
 - [#3377] Data Explorer: added keyboard support for context menus.
 - [#6515] Data Explorer: now support previewing `ibis` tables in the Connections pane.
-- [#2010, #9416] Added support for Github Copilot Chat in Positron Assistant.
+- [#2010, #9416] Added support for GitHub Copilot Chat in Positron Assistant.
 - [#8592] Added support for OpenAI and OpenAI compatible model providers in Positron Assistant.
 - [#9308, #9046] Improved tracking and display of token usage in Positron Assistant.
 - [#9287, #9288] Improved Positron Assistant Git integration.
