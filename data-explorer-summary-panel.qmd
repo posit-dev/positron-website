@@ -22,13 +22,11 @@ of the window:
 The summary sparkline charts and missing data indicator display tooltips when
 hovered over:
 
-::: {#fig-summary-tooltips layout-ncol=2}
+::: {layout-ncol=2}
 
 ![Sparkline Tooltip](images/data-explorer-summary-sparkline-tooltip.png){width=250}
 
 ![Missing Data Tooltip](images/data-explorer-summary-missing-tooltip.png){width=300}
-
-Tooltips in the Data Explorer Summary Panel
 :::
 
 If you hover over the data type indicator next to the column name, you will see
