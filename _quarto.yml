@@ -127,6 +127,4 @@ website:
 format:
   html:
     css: css/styles.css
-    mermaid: 
-      theme: neutral
     link-external-filter: '^(?:http:|https:)\/\/(?:positron|cdn)\.posit\.co(?:\/|$)|^(?:http:|https:)\/\/.*--positron-posit-co\.netlify\.app(?:\/|$)|^(?!https?:\/\/)'

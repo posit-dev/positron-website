@@ -50,6 +50,13 @@ kbd {
   margin-right: 5px;
 }
 
+/* Mermaid diagram customization */
+:root {
+  --mermaid-label-fg-color: #3a78b1; /* positron-blue for text color */
+  --mermaid-node-bg-color: #e6eef6;  /* Light blue to go with positron-blue */
+  --mermaid-fg-color--lightest: #f9f9fb; /* Very light gray for cluster backgrounds */
+}
+
 /* Custom card styling */
 
 /* Custom card grid - responsive layout (Welcome page - 3 columns) */
