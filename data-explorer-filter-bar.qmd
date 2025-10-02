@@ -29,7 +29,9 @@ than or greater than, is equal to, or is inclusively between two values.
 
 There is also sorting capabilities, covered in the [Data Grid](data-explorer-data-grid.qmd).
 
+<!-- vale Posit.Headings = NO -->
 ## Convert to code
+<!-- vale Posit.Headings = Yes -->
 
 The Data Explorer includes a **Convert to Code** button in the top action bar. 
 This button writes Python or R code that reproduces your current data view, including any filters or sorts you've applied during exploration.
