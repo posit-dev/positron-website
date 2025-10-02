@@ -44,7 +44,7 @@ To convert your Data Explorer view to code:
 The code references the dataframe object already loaded in your session rather than reading data from disk.
 The **Convert to Code** button writes code appropriate for your dataframe type:
 
-- **pandas** dataframes produce pandas code
-- **polars** dataframes produce Polars code, with the option to convert to pandas code
-- **R** dataframes and tibbles produce dplyr code with pipe syntax
-- **Files** opened directly (`.csv`, `.tsv`, `.parquet`) produce DuckDB SQL code
+- pandas dataframes produce pandas code
+- polars dataframes produce Polars code, with the option to convert to pandas code
+- R dataframes and tibbles produce dplyr code with pipe syntax
+- Files opened directly (`.csv`, `.tsv`, `.parquet`) produce DuckDB SQL code
