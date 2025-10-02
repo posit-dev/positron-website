@@ -27,7 +27,7 @@ can see a tooltip containing the complete value by hovering over the cell:
 
 If the column is labelled, the tooltip will include the label.
 
-![Data Explorer Column Label](images/data-explorer-column-label.png){fig-alt="Hovering over column named 'age'. Tooltip reads 'Type: dbl Age in years'"}
+![Data Explorer Column Label](images/data-explorer-column-label.png){width=300 fig-alt="Hovering over column named 'age'. Tooltip reads 'Type: dbl Age in years'"}
 
 Each Data Explorer instance watches the underlying data for changes, so if you
 edit a data file or modify an in-memory dataframe, the changes will be reflected
