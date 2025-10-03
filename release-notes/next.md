@@ -8,9 +8,13 @@ Pin important columns or rows to keep them visible while scrolling through large
 
 Sort and filter rows in the Summary Panel to quickly view summary statistics for specific columns. Sort alphabetically by name or group by data type. Filter by column name to narrow down the list and focus on the columns most relevant to your current analysis.
 
-#### GitHub Copilot Chat & OpenAI in Positron Assistant 🤖
+#### GitHub Copilot Chat in Positron Assistant 🤖
 
-TBD from Sharon
+Positron Assistant now supports GitHub Copilot for both completions _and_ chat.
+
+When you have GitHub Copilot [added as a model provider](/assistant.qmd#adding-language-model-providers), GitHub Copilot models, chat participants and tools are now available in the chat pane and inline chat, in addition to inline code completions.
+
+We're continuing to expand our support for additional language model providers, with support for custom providers in progress.
 
 #### Manage Positron Assistant completions ⚙️
 
