@@ -5,7 +5,7 @@ title: "Positron Assistant"
 ::: {.callout-important}
 Positron Assistant is a **preview** feature in Positron 2025.07.0-204 and beyond.
 
-At this time, we support **Anthropic for chat**, and **GitHub Copilot for inline code completions**. We will continue to add more language model providers in future releases.
+At this time, we support **Anthropic for chat**, and **GitHub Copilot for chat and inline code completions**. We will continue to add more language model providers in future releases.
 
 We are actively improving the user experience and functionality, so please provide [feedback](https://github.com/posit-dev/positron/discussions) and [report any issues](https://github.com/posit-dev/positron/issues/new/choose) you encounter.
 :::
@@ -24,11 +24,13 @@ Positron Assistant is an AI client that provides LLM integration within Positron
 
 ### Step 2: Configure language model providers
 
-#### Chat
+#### Supported model providers
 
 ::: {.callout-important}
-Currently, only **Anthropic Claude** is available for sidebar chat and inline chat.
+Currently, we support **Anthropic** and **GitHub Copilot** for sidebar chat and inline chat. At this time, only **GitHub Copilot** is available for inline code completions.
 :::
+
+##### Anthropic
 
 Positron Assistant uses a bring-your-own API key model for Anthropic, so you'll need to get keys set up ahead of time and bring those into Positron.
 
@@ -36,14 +38,9 @@ If you have an Anthropic account, you should be able to get an API key from the 
 
 Copy and save the API key to a password manager or another secure location. In order to [add Anthropic as a language model provider](#adding-language-model-providers) in Positron, this key will be used to authenticate to Anthropic.
 
-#### Code completions
+##### GitHub Copilot
 
-::: {.callout-important}
-At this time, only **GitHub Copilot** is available for inline code completions.
-:::
-
-If you have a GitHub account with Copilot enabled, you can authenticate to GitHub Copilot in Positron Assistant in the "Configure Language Model Providers" dialog. The authentication flow will open up a browser and direct you to sign into GitHub. Once authenticated, Copilot will be available for inline code completions.
-
+If you have a GitHub account with Copilot enabled, you can authenticate to GitHub Copilot in Positron Assistant. Follow the steps in [adding language model providers](#adding-language-model-providers) to get started.
 
 ::: {.callout-tip}
 If you are using Positron with a [remote SSH](remote-ssh.qmd) session, you will need to authenticate to GitHub on the _remote server_ as well. Follow [along on GitHub](https://github.com/posit-dev/positron/issues/8409) as we make improvements in this area.
