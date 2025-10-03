@@ -2,7 +2,11 @@
 
 #### New features in the Data Explorer 🌟
 
-TBD from Dhruvi
+We've introduced new features to help focus on key columns and navigate larger datasets during exploratory analysis.
+
+Pin important columns or rows to keep them visible while scrolling through large datasets. When a column is pinned in the data grid, its corresponding row in the Summary Panel gets pinned as well, maintaining consistency across views.
+
+Sort and filter rows in the Summary Panel to quickly view summary statistics for specific columns. Sort alphabetically by name or group by data type. Filter by column name to narrow down the list and focus on the columns most relevant to your current analysis.
 
 #### GitHub Copilot Chat & OpenAI in Positron Assistant 🤖
 
