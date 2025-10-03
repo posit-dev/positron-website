@@ -50,11 +50,39 @@ kbd {
   margin-right: 5px;
 }
 
-/* Mermaid diagram customization */
-:root {
-  --mermaid-label-fg-color: #3a78b1; /* positron-blue for text color */
-  --mermaid-node-bg-color: #e6eef6;  /* Light blue to go with positron-blue */
-  --mermaid-fg-color--lightest: #f9f9fb; /* Very light gray for cluster backgrounds */
+/* Target all Mermaid diagrams */
+[id^="mermaid-"] .cluster rect {
+  fill: #f9f9fb !important;
+  stroke: #213d4f !important; /* posit-dark-blue-2 */
+}
+
+[id^="mermaid-"] .node rect {
+  fill: #e6eef6 !important;
+  stroke: #213d4f !important; /* posit-dark-blue-2 */
+}
+
+[id^="mermaid-"] .nodeLabel {
+  fill: #213d4f !important; /* posit-dark-blue-2 */
+}
+
+[id^="mermaid-"] .edgeLabel p {
+  color: #213d4f !important; /* posit-dark-blue-2 */
+}
+
+[id^="mermaid-"] foreignObject:has(.edgeLabel) {
+    background-color: #f9f9fb !important;
+    border-radius: 8px;
+}
+
+[id^="mermaid-"] p {
+    margin-inline: auto !important;
+    max-width: max-content;
+    border-radius: 8px;
+    padding: 0 0.75rem;
+}
+
+[id^=mermaid-] .labelBkg {
+    background-color: transparent !important;
 }
 
 /* Custom card styling */
