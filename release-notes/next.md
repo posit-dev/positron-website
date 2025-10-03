@@ -12,7 +12,7 @@ Sort and filter rows in the Summary Panel to quickly view summary statistics for
 
 [Positron Assistant](https://positron.posit.co/assistant) now supports GitHub Copilot for both completions _and_ chat.
 
-When you have GitHub Copilot added as a model provider, GitHub Copilot models, chat participants and tools are now available in the chat pane and inline chat, in addition to inline code completions.
+When you have GitHub Copilot added as a model provider, GitHub Copilot models, chat participants, and tools are now available in the chat pane and inline chat, in addition to inline code completions.
 
 We're continuing to expand our support for additional language model providers, with support for custom providers in progress.
 
