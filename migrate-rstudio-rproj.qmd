@@ -78,7 +78,7 @@ Finally, in the rare case that the Rproj file was the only evidence of project-h
 ## Launching Positron in a workspace
 
 From within Positron, various *Open Folder* gestures will open a folder as a workspace, in the current window or in a new window, depending on the context.
-This has a similar immediate effect as in RStudio, in terms of setting R's working directory and activating the file explorer.
+This has a similar immediate effect as in RStudio, in terms of setting R's working directory and activating the File Explorer.
 This is such a common gesture, though, that it's worth enumerating other ways of launching a project that can be more efficient, depending on the situation.
 
 ### Put Positron on the PATH and launch it from the shell

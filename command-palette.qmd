@@ -19,7 +19,7 @@ For example, you can:
 
 ### File access and navigation
 
-The Command Palette makes it easy to open files without using the file explorer. This is especially useful in large projects with many files.
+The Command Palette makes it easy to open files without using the File Explorer. This is especially useful in large projects with many files.
 
 Press {{< kbd mac=Command-P win=Ctrl-P linux=Ctrl-P >}} to open the file picker. Start typing part of a file name to see matching files. Use the arrow keys to select a file, then press {{< kbd Enter >}} to open the selected file.
 
