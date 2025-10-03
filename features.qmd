@@ -2,6 +2,7 @@
 title: "Features"
 description: "Discover the complete data science toolkit designed to keep you in the flow. Quickly move from data to insight to application in one code editor."
 anchor-links: false
+toc: false
 listing:
   - id: features-insights-1
     type: custom
