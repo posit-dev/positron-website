@@ -35,9 +35,7 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 <a href="download.qmd" class="btn btn-outline-primary">Free Download</a>
 <a href="features.qmd" class="btn btn-outline-primary">Explore Features</a>
 
-<div id="hero-video-container">
-  <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/ncfm02eugr.js" async type="module"></script><style>wistia-player[media-id='ncfm02eugr']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/ncfm02eugr/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="ncfm02eugr" aspect="1.7777777777777777" title="Positron Overview - the Data Science Code Editor for Python & R" doNotTrack="true"></wistia-player>
-</div>
+{{< video videos/positron-hero-fast-tour.mp4 >}}
 
 Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
 </div>
