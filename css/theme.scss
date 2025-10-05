@@ -188,12 +188,12 @@ kbd {
 
 // ============= MERMAID DIAGRAMS =============
 [id^="mermaid-"] .cluster rect {
-  fill: lighten($posit-light-blue-1, 15%) !important;
+  fill: #f9f9fb !important;
   stroke: $posit-dark-blue-2 !important;
 }
 
 [id^="mermaid-"] .node rect {
-  fill: $posit-light-blue-1 !important;
+  fill: #e6eef6 !important;
   stroke: $posit-dark-blue-2 !important;
 }
 
@@ -206,7 +206,7 @@ kbd {
 }
 
 [id^="mermaid-"] foreignObject:has(.edgeLabel) {
-  background-color: lighten($posit-light-blue-1, 15%) !important;
+  background-color: #f9f9fb !important; // Match cluster background
   border-radius: 8px;
 }
 
