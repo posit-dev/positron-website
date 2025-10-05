@@ -110,8 +110,16 @@ div.sidebar-item-container .sidebar-link > code {
   font-weight: 700 !important;
 }
 
-.nav-tabs .nav-link:hover,
+// Common hover and focus styles for nav links
+.nav-link:hover,
 .nav-link:focus {
+  color: $primary !important;
+  isolation: isolate;
+  border: none !important;
+}
+
+// Tab-specific hover and focus styles
+.nav-tabs .nav-link:hover {
   color: $primary;
 }
 
@@ -145,22 +153,12 @@ div.sidebar-item-container .sidebar-link > code {
   }
 }
 
+// Active states for pill navigation
 .nav-pills .nav-link.active,
-.nav-pills .nav-item.show .nav-link {
-  color: white !important;
-  text-decoration: none !important;
-}
-
-.nav-pills .nav-link:hover,
-.nav-link:focus {
-  isolation: isolate;
-  color: $primary !important;
-  border: none !important;
-}
-
-.nav-pills .nav-link.active,
+.nav-pills .nav-item.show .nav-link,
 .nav-pills .show > .nav-link {
   color: white !important;
+  text-decoration: none !important;
 }
 
 // ============= CODE & SYNTAX =============
@@ -224,8 +222,8 @@ kbd {
 }
 
 // ============= CUSTOM CARDS =============
-// Card grid layout
-.custom-card-grid {
+// Card grid mixins
+@mixin card-grid-base {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
@@ -234,78 +232,47 @@ kbd {
   padding: 0 1rem;
 }
 
-@media (min-width: 480px) {
-  .custom-card-grid {
+@mixin card-grid-responsive {
+  @media (min-width: 480px) {
     gap: 1.25rem;
     margin: 2rem auto;
   }
-}
 
-@media (min-width: 768px) {
-  .custom-card-grid {
+  @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     margin: 2.5rem auto;
     padding: 0 1.5rem;
   }
-}
 
-@media (min-width: 1024px) {
-  .custom-card-grid {
-    grid-template-columns: repeat(3, 1fr);
+  @media (min-width: 1024px) {
     gap: 2rem;
     margin: 3rem auto;
     padding: 0 2rem;
   }
-}
 
-@media (min-width: 1200px) {
-  .custom-card-grid {
+  @media (min-width: 1200px) {
     gap: 2.5rem;
     padding: 0;
+  }
+}
+
+// Card grid layout
+.custom-card-grid {
+  @include card-grid-base;
+  @include card-grid-responsive;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 // Features card grid (2 columns max)
 .features-card-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin: 1.5rem auto;
-  max-width: 1200px;
-  padding: 0 1rem;
-}
+  @include card-grid-base;
+  @include card-grid-responsive;
 
-@media (min-width: 480px) {
-  .features-card-grid {
-    gap: 1.25rem;
-    margin: 2rem auto;
-  }
-}
-
-@media (min-width: 768px) {
-  .features-card-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin: 2.5rem auto;
-    padding: 0 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .features-card-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin: 3rem auto;
-    padding: 0 2rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .features-card-grid {
-    gap: 2.5rem;
-    padding: 0;
-  }
+  // Features grid stays at 2 columns at all breakpoints
 }
 
 // Card styling
