@@ -54,7 +54,19 @@ website:
             - welcome.qmd
             - install.qmd
             - download.qmd
+        - section: "Configuration"
+          contents:
             - keyboard-shortcuts.qmd
+            - add-to-path.qmd
+            - git.qmd
+            - extensions.qmd
+            - updating.qmd
+        - section: "User Interface"
+          contents:
+            - layout.qmd
+            - command-palette.qmd
+            - action-bars.qmd
+            - help-pane.qmd
         - section: "AI Tools"
           contents:
           - assistant.qmd
@@ -72,31 +84,19 @@ website:
             - quarto.qmd
             - jupyter-notebooks.qmd
             - develop-data-apps.qmd
-        - section: "Workspace & Collaboration"
+        - section: "Workspaces"
           contents:
             - folder-templates.qmd
             - remote-ssh.qmd
-            - git.qmd
-        - section: "User Interface"
-          contents:
-            - layout.qmd
-            - command-palette.qmd
-            - action-bars.qmd
-            - help-pane.qmd        
         - section: "Interpreters"
           contents:
             - managing-interpreters.qmd
             - interpreter-startup.qmd
-            - section: "Language-Specific Interpreter Setup"
+            - section: "Language-Specific Setup"
               contents:
                 - python-installations.qmd
                 - r-installations.qmd
                 - reticulate.qmd
-        - section: "Configuration"
-          contents:
-            - extensions.qmd
-            - updating.qmd
-            - add-to-path.qmd
         - section: "Migration Guides"
           contents:
           - text: "Migrating from VS Code"
