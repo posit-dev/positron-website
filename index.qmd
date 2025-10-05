@@ -8,7 +8,6 @@ description: |
 hide-description: true
 format:
   html:
-    css: css/index.css
     include-in-header:
       - text: |
           <!-- Open Graph Meta Tags -->
