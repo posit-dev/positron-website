@@ -73,52 +73,22 @@ Interested in Positron for your team? [Learn about enterprise solutions.](https:
 :::
 
 ## Bridge the exploration and production divide
-::: {.hero-video}
-```{=html}
-<script src="https://fast.wistia.com/player.js" async></script>
-<script src="https://fast.wistia.com/embed/shybc7tztp.js" async type="module"></script>
-<style>
-wistia-player[media-id='shybc7tztp']:not(:defined) { 
-  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/shybc7tztp/swatch'); 
-  display: block; 
-  filter: blur(5px); 
-  padding-top:56.25%; 
-}
-</style>
-<wistia-player media-id="shybc7tztp" aspect="1.7777777777777777" autoplay="false" aria-label="Video demonstration of Positron's AI assistance and environment inspection features" doNotTrack="true"></wistia-player>
-```
-:::
+
+{{< video videos/positron-assistant-copytoeditor.mp4 >}}
 
 ::: {#features-insights-1}
 :::
 
 ## Explore and analyze with speed
 
-::: {.hero-video}
-```{=html}
-<script src="https://fast.wistia.com/player.js" async></script>
-<script src="https://fast.wistia.com/embed/zhzn80uv1u.js" async type="module"></script>
-<style>
-wistia-player[media-id='zhzn80uv1u']:not(:defined) { 
-  background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/zhzn80uv1u/swatch'); 
-  display: block; 
-  filter: blur(5px); 
-  padding-top:56.25%; 
-}
-</style>
-<wistia-player media-id="zhzn80uv1u" aspect="1.7777777777777777" autoplay="false" aria-label="Video demonstration of Positron's multi-language coding and data exploration features" doNotTrack="true"></wistia-player>
-```
-:::
+{{< video videos/data-explorer.mp4 >}}
 
 ::: {#features-speed-2}
 :::
 
 ## Develop with confidence
-::: {.hero-video}
-```{=html}
-<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/818ycanm51.js" async type="module"></script><style>wistia-player[media-id='818ycanm51']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/818ycanm51/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="818ycanm51" aspect="1.7777777777777777" autoplay="false" aria-label="Positron features demonstration video" doNotTrack="true"></wistia-player>
-```
-:::
+
+{{< video videos/connections.mp4 >}}
 
 ::: {#features-develop-3}
 :::
