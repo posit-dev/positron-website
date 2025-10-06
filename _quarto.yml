@@ -44,12 +44,30 @@ website:
       - icon: github
         aria-label: 'Link to Positron Github Repository'
         href: https://github.com/posit-dev/positron
-      
+    
   sidebar:
-    - title: "Features"
+    - title: "Guides"
       style: "docked"
       contents:
-        - features.qmd
+        - section: "Getting Started"
+          contents:
+            - welcome.qmd
+            - install.qmd
+            - download.qmd
+        - section: "Configuration"
+          contents:
+            - keyboard-shortcuts.qmd
+            - add-to-path.qmd
+            - git.qmd
+            - extensions.qmd
+            - updating.qmd
+        - section: "User Interface"
+          contents:
+            - layout.qmd
+            - command-palette.qmd
+            - action-bars.qmd
+            - help-pane.qmd
+            - variables-pane.qmd
         - section: "AI Tools"
           contents:
           - assistant.qmd
@@ -61,57 +79,40 @@ website:
             - data-explorer-data-grid.qmd
             - data-explorer-filter-bar.qmd
             - data-explorer-summary-panel.qmd
+        - section: "Database Connections"
+          contents:
+            - connections-pane.qmd
+            - extending-connections.qmd 
         - section: "Dynamic Documents and Apps"
           contents:
             - quarto.qmd
             - jupyter-notebooks.qmd
             - develop-data-apps.qmd
-        - variables-pane.qmd
-        - help-pane.qmd    
-        - folder-templates.qmd
-        - remote-ssh.qmd
-        - section: "Database Connections"
+        - section: "Workspaces"
           contents:
-            - connections-pane.qmd
-            - extending-connections.qmd 
-  
-    - title: "Guides"
-      style: "docked"
-      contents:
-        - section: "Getting Started"
-          contents:
-            - welcome.qmd
-            - install.qmd
-            - download.qmd
-            - extensions.qmd
-            - updating.qmd
-            - keyboard-shortcuts.qmd
-            - add-to-path.qmd
-            - git.qmd
-        - section: "User Interface"
-          contents:
-            - layout.qmd
-            - command-palette.qmd
-            - action-bars.qmd
+            - folder-templates.qmd
+            - remote-ssh.qmd
         - section: "Interpreters"
           contents:
             - managing-interpreters.qmd
             - interpreter-startup.qmd
-            - section: "Language-Specific Interpreter Setup"
+            - section: "Language-Specific Setup"
               contents:
                 - python-installations.qmd
                 - r-installations.qmd
                 - reticulate.qmd
-        - text: "Migrating from VS Code"
-          href: migrate-vscode.qmd
-        - section: "Migrating from RStudio"
+        - section: "Migration Guides"
           contents:
-          - migrate-rstudio.qmd
-          - migrate-rstudio-keybindings.qmd
-          - migrate-rstudio-settings-and-extensions.qmd
-          - migrate-rstudio-code.qmd
-          - migrate-rstudio-rproj.qmd
-          - migrate-rstudio-compare.qmd
+          - text: "Migrating from VS Code"
+            href: migrate-vscode.qmd
+          - section: "Migrating from RStudio"
+            contents:
+            - migrate-rstudio.qmd
+            - migrate-rstudio-keybindings.qmd
+            - migrate-rstudio-settings-and-extensions.qmd
+            - migrate-rstudio-code.qmd
+            - migrate-rstudio-rproj.qmd
+            - migrate-rstudio-compare.qmd
         - section: "Extending Positron"  
           contents:
           - extension-development.qmd
@@ -119,18 +120,18 @@ website:
       style: "docked"
       contents:
         - troubleshooting.qmd
+        - faqs.qmd
         - feedback.qmd
+        - release-notes.qmd
     - title: "About"
       style: "docked"
       contents:
         - about.qmd
         - privacy.qmd
-        - faqs.qmd    
+        - licensing.qmd
     
 
 format:
   html:
     css: css/styles.css
-    mermaid: 
-      theme: neutral
     link-external-filter: '^(?:http:|https:)\/\/(?:positron|cdn)\.posit\.co(?:\/|$)|^(?:http:|https:)\/\/.*--positron-posit-co\.netlify\.app(?:\/|$)|^(?!https?:\/\/)'
