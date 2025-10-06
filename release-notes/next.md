@@ -89,7 +89,7 @@ Completions from an LLM such as GitHub Copilot can be super useful, but sometime
 - [[#9527](https://github.com/posit-dev/positron/issues/9527)] Data Explorer: fixed errors computing summary sparklines for 0-row and 1-row data frames from Python and R.
 - [[#9712](https://github.com/posit-dev/positron/issues/9712)] Data Explorer: fixed generating SVGs for sparklines, for tables with zero rows.
 - [[#9281](https://github.com/posit-dev/positron/issues/9281)] Data Explorer: fixed bug where pending filters and sorts may not appear when converting to code.
-- [#9482, #2614] Data Explorer: integer types display sparkline histogram bins as whole number intervals.
+- [[#9482](https://github.com/posit-dev/positron/issues/9482), [#2614](https://github.com/posit-dev/positron/issues/2614)] Data Explorer: integer types display sparkline histogram bins as whole number intervals.
 - [[#7040](https://github.com/posit-dev/positron/issues/7040)] Assistant: the action toolbar is now present on code generated for the `executeCode` tool, allowing users to copy/apply in editor/etc.
 - [[#9183](https://github.com/posit-dev/positron/issues/9183)] Assistant: code maintains proper styling & interactivity even once executed/discarded.
 - [[#8253](https://github.com/posit-dev/positron/issues/8253)] Assistant: when using Edit mode, or Apply in Editor, the same extension that provides the chat model will now also handle mapping the edits to the file.
