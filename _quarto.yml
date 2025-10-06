@@ -67,18 +67,20 @@ website:
             - command-palette.qmd
             - action-bars.qmd
             - help-pane.qmd
-            - variables-pane.qmd
         - section: "AI Tools"
           contents:
           - assistant.qmd
           - databot.qmd
-        - section: "Data Explorer"
+        - section: "Data Analysis"
           contents:
-            - text: "Overview"
-              href: data-explorer.qmd
-            - data-explorer-data-grid.qmd
-            - data-explorer-filter-bar.qmd
-            - data-explorer-summary-panel.qmd
+            - section: "Data Explorer"
+              contents:
+              - text: "Overview"
+                href: data-explorer.qmd
+              - data-explorer-data-grid.qmd
+              - data-explorer-filter-bar.qmd
+              - data-explorer-summary-panel.qmd
+            - variables-pane.qmd
         - section: "Database Connections"
           contents:
             - connections-pane.qmd
