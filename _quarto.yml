@@ -46,6 +46,34 @@ website:
         href: https://github.com/posit-dev/positron
     
   sidebar:
+    - title: "Features"
+      style: "docked"
+      contents:
+        - features.qmd
+        - section: "AI Tools"
+          contents:
+          - assistant.qmd
+          - databot.qmd
+        - section: "Data Explorer"
+          contents:
+            - data-explorer.qmd 
+            - data-explorer-data-grid.qmd
+            - data-explorer-filter-bar.qmd
+            - data-explorer-summary-panel.qmd
+        - section: "Dynamic Documents and Apps"
+          contents:
+            - quarto.qmd
+            - jupyter-notebooks.qmd
+            - develop-data-apps.qmd
+        - variables-pane.qmd
+        - help-pane.qmd    
+        - folder-templates.qmd
+        - remote-ssh.qmd
+        - section: "Database Connections"
+          contents:
+            - connections-pane.qmd
+            - extending-connections.qmd 
+  
     - title: "Guides"
       style: "docked"
       contents:

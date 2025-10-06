@@ -6,14 +6,14 @@ The data grid is the primary display, with a spreadsheet-like cell-by-cell view.
 It's intended to scale efficiently to relatively large in-memory datasets, up to
 millions of rows or columns. 
 
-![Data Explorer Grid Example](images/data-explorer-grid-example.png){width=700}
+![Data Explorer Grid Example](images/data-explorer-grid-example.png){width=700 fig-alt="Data grid displaying flight data for January 1, 2013, with columns for year, month, day, dep_time, sched_dep_tim, and dep_delay."}
 
 Each column header has the column name above the data type, which is dependent
 on the backend type (language runtime or DuckDB). At the top right of each
 column, there is a context menu to control sorting or to add a filter for the
 selected column. Resize columns by clicking and dragging the column's borders.
 
-![Data Explorer Column Menu](images/data-explorer-column-menu.png){width=300}
+![Data Explorer Column Menu](images/data-explorer-column-menu.png){width=300 fig-alt="Data explorer column dropdown menu open, showing options: Copy, Select Column, Sort Ascending/Descending, Clear Sorting, and Add Filter."}
 
 Row labels default to the observed row index, with a zero-based index in Python
 and a one-based index in R. Alternatively, `pandas` and R users may also have
@@ -22,11 +22,11 @@ rows with modified indices or string-based labels.
 For long strings or other data values that do not fully fit in a grid cell, you
 can see a tooltip containing the complete value by hovering over the cell:
 
-![Data Explorer Cell Value Tooltip](images/data-explorer-cell-value-tooltip.png){width=300}
+![Data Explorer Cell Value Tooltip](images/data-explorer-cell-value-tooltip.png){width=300 fig-alt="Data explorer cell showing '2013-01-01 0...'. A highlighted row with an expanded view displays '2013-01-01 05:00:00.'"}
 
 If the column is labelled, the tooltip will include the label.
 
-![Data Explorer Column Label](images/data-explorer-column-label.png){width=300}
+![Data Explorer Column Label](images/data-explorer-column-label.png){width=300 fig-alt="Hovering over column named 'age'. Tooltip reads 'Type: dbl Age in years'"}
 
 Each Data Explorer instance watches the underlying data for changes, so if you
 edit a data file or modify an in-memory dataframe, the changes will be reflected
@@ -45,7 +45,7 @@ Based on [user feedback](feedback.qmd#feedback-and-issues), we may add support f
 To sort the data by a column's values, open a column's context menu from the top
 of the grid and click either "Sort Ascending" or "Sort Descending":
 
-![Sorting Data from Column Context Menu](images/data-explorer-sort-context-menu.png){width=300}
+![Sorting Data from Column Context Menu](images/data-explorer-sort-context-menu.png){width=300 fig-alt="Dropdown menu for data column shows options: Copy, Select Column, Sort Ascending, Sort Descending, Clear Sorting, and Add Filter."}
 
 To clear an individual column's sort, click on the column header and select
 "Clear Sorting" from the context menu.
@@ -55,14 +55,14 @@ down indicating the sort direction. You can sort by multiple columns by opening
 the context menu for a second column and sorting it, too. The number next to the
 sort direction indicates the sort order of the column.
 
-![Sorting Data by Multiple Columns](images/data-explorer-sort-multiple-columns.png){width=400}
+![Sorting Data by Multiple Columns](images/data-explorer-sort-multiple-columns.png){width=400 fig-alt="Data explorer displaying two columns, 'dep_time' with 1.00 values and 'sched_dep_time' showing 2359. Arrows next to column name indicate sorting ascending or descending. Numbers next to arrows indicate order of sort. "}
 
 A Data Explorer can be sorted and filtered at the same time without any issues.
 
 To clear all sorting, click on the "Clear Column Sorting" button in the top
 action bar:
 
-![Clear Column Sorting Button](images/data-explorer-clear-column-sorting.png){width=400}
+![Clear Column Sorting Button](images/data-explorer-clear-column-sorting.png){width=400 fig-alt="Data explorer showing a table with columns labeled year, month, and day, sorted by month. A 'Clear Column Sorting' button in the top left is highlighted."}
 
 
 ## Grid selection and copy-and-paste
