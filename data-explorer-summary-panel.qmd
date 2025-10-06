@@ -7,7 +7,7 @@ The summary panel displays a vertical scrolling list of all of the column names
 and an icon representing their respective type. It displays a sparkline
 histogram or frequency table of that column's data, and also displays the amount
 of missing data as both an inline bar graph and an increasing percentage. If you
-click on the carat symbol for a column, it will expand to show additional
+click on the caret symbol for a column, it will expand to show additional
 summary statistics and a larger sparkline.
 
 ![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=350 fig-alt="Column arr_delay expanded in the summary panel. There is a bar with 2%, depicting how much data is missing. There is a graph of arrival delays showing a right skew. Summary statistics are displayed: 8,824 missing, --86 min, --5 median, 6.96 mean, 1,127 max, 44.98 SD."}

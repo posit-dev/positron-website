@@ -5,7 +5,7 @@ description: "Add filters to your data and convert the filters to code."
 
 The filter bar has controls to:
 
-1. Add, Show/Hide existing filters, or Clear Filters
+1. Add a filter, show/hide existing filters, or clear filters
 2. A {{<fa plus>}} button to quickly add a new filter
 3. Convert currently applied filters to reusable code
 4. The status bar at the bottom of the Data Explorer also displays the
@@ -47,6 +47,6 @@ The code references the dataframe object already loaded in your session rather t
 The **Convert to Code** button writes code appropriate for your dataframe type:
 
 - pandas dataframes produce pandas code
-- polars dataframes produce Polars code, with the option to convert to pandas code
+- polars dataframes produce polars code, with the option to convert to pandas code
 - R dataframes and tibbles produce dplyr code with pipe syntax
 - Files opened directly (`.csv`, `.tsv`, `.parquet`) produce DuckDB SQL code

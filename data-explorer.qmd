@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Data Explorer"
 description: "View and explore datasets in the data explorer."
 ---
 
@@ -16,7 +16,7 @@ Positron workspace as well as dataframes in your active Python or R sessions.
 The Data Explorer has three primary components:
 
 * **[Data grid](data-explorer-data-grid.qmd):** Spreadsheet-like display of the individual cells and columns, as well as sorting
-* **[Summary panel](data-explorer-summary-panel.qmd):** Column name, type and missing data percentage for each column
+* **[Summary panel](data-explorer-summary-panel.qmd):** Column name, type, and missing data percentage for each column
 * **[Filter bar](data-explorer-filter-bar.qmd):** Ephemeral filters for specific columns
 
 ![Data Explorer](images/data-explorer.png){fig-alt="Data explorer displaying filtered flight data with highlights. Left column shows column distribution and summary statistics. Main section lists data in a table. Top section shows filters such as year = 2013, month >= 2, and month is not null."}
@@ -57,7 +57,7 @@ bar:
 
 ![Data Explorer Open as Plain Text](images/data-explorer-open-as-plain-text.png){width=300 fig-alt="Data explorer editor tab showing a file named 'air_quality_sample.csv.' An option to 'Open as Plain Text File' is highlighted in orange below file name."}
 
-#### Learn more:
+#### Learn more
 
 * **[Data grid](data-explorer-data-grid.qmd):** Spreadsheet-like display of the individual cells and columns, as well as sorting
 * **[Summary panel](data-explorer-summary-panel.qmd):** Column name, type and missing data percentage for each column
