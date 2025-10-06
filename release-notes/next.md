@@ -37,7 +37,7 @@ Completions from an LLM such as GitHub Copilot can be super useful, but sometime
 - [[#9083](https://github.com/posit-dev/positron/issues/9083)] Data Explorer: updated null filter labels to match summary panel.
 - [[#9383](https://github.com/posit-dev/positron/issues/9383)] Data Explorer: added new selection backend for R.
 - [[#2971](https://github.com/posit-dev/positron/issues/2971)] Data Explorer: now display R column labels in tooltips in the Data Explorer summary panel and column headers, if they exist.
-- [#8934, #7585] Data Explorer: added keyboard accessibility for Data Explorer filter popup.
+- [[#8934](https://github.com/posit-dev/positron/issues/8934), [#7585](https://github.com/posit-dev/positron/issues/7585)] Data Explorer: added keyboard accessibility for Data Explorer filter popup.
 - [[#3377](https://github.com/posit-dev/positron/issues/3377)] Data Explorer: added keyboard support for context menus.
 - [[#6515](https://github.com/posit-dev/positron/issues/6515)] Data Explorer: now support previewing `ibis` tables in the Connections pane.
 - [[#2010](https://github.com/posit-dev/positron/issues/2010), [#9416](https://github.com/posit-dev/positron/issues/9416)] Added support for GitHub Copilot Chat in Positron Assistant.
