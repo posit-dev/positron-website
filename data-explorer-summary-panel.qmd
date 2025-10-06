@@ -1,0 +1,54 @@
+---
+title: "Summary Panel"
+---
+
+The summary panel displays a vertical scrolling list of all of the column names
+and an icon representing their respective type. It displays a sparkline
+histogram or frequency table of that column's data, and also displays the amount
+of missing data as both an inline bar graph and an increasing percentage. If you
+click on the caret symbol for a column, it will expand to show additional
+summary statistics and a larger sparkline.
+
+![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=350 fig-alt="Column arr_delay expanded in the summary panel. There is a bar with 2%, depicting how much data is missing. There is a graph of arrival delays showing a right skew. Summary statistics are displayed: 8,824 missing, --86 min, --5 median, 6.96 mean, 1,127 max, 44.98 SD."}
+
+Depending on the size of the dataset, when first opening
+the Data Explorer or using its features (like scrolling, filtering, or sorting),
+you may see loading indicators in the summary pane and in the bottom left corner
+of the window:
+
+![Data Explorer Loading Indicators](images/data-explorer-loading-indicators.png){width=300 fig-alt="Summary panel showing flight data with columns like year, month, and day. A red, rectangular bar icon is highlighted in the 'year' column header, signaling loading. In the bottom status bar, a green loading indicator icon is highlighted."}
+
+The summary sparkline charts and missing data indicator display tooltips when
+hovered over:
+
+::: {layout-ncol=2}
+
+![Sparkline Tooltip](images/data-explorer-summary-sparkline-tooltip.png){width=250}
+
+![Missing Data Tooltip](images/data-explorer-summary-missing-tooltip.png){width=300}
+:::
+
+If you hover over the data type indicator next to the column name, you will see
+a tooltip showing the name of the column's data type:
+
+![Data Explorer Summary Data Type Tooltip](images/data-explorer-summary-data-type-tooltip.png){width=300 fig-alt="Histogram showing data for air_time is highlighted, with a tooltip displaying a range of 121.3 to 129.7 and count of 13,239 (4.0%)."}
+
+If the column is labelled, the tooltip will include the label.
+
+![Data Explorer Column Label](images/data-explorer-column-label-summary-panel.png){width=300 fig-alt="Hovering over column named 'age' in summary panel. Tooltip reads 'Age in years'"}
+
+Double clicking on a column name will also bring the column into focus in the
+data grid, allowing for quickly navigating wider data.
+
+1. The summary panel can be collapsed by dragging the grid and summary panel
+   divider to the edge or by clicking on the collapse button after hovering over
+   the divider. 
+
+2. The summary panel can also be placed on the left or right side of the Data
+   Explorer via the Layout control.
+
+![Data Explorer Summary Panel Collapse and Placement](images/data-explorer-summary-panel-placement.png){width=700 fig-alt="Data explorer showing filters for year 2013 and month 2 or later. The boundary between summary panel and data grid is highlighted, with a box around an arrow button pointing towards the summary panel. Layout options are highlighted."}
+
+You can change the default settings for either [`dataExplorer.summaryCollapsed`](positron://settings/dataExplorer.summaryCollapsed) or [`dataExplorer.summaryLayout`](positron://settings/dataExplorer.summaryLayout) in Positron's settings:
+
+![Data Explorer Summary Panel Configuration](images/data-explorer-summary-config.png){width=500 fig-alt="Settings UI screenshot showing 'Data Explorer: Summary Collapsed' with an unchecked box, and 'Data Explorer: Summary Layout' dropdown set to 'left.'"}

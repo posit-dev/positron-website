@@ -12,13 +12,13 @@ explore or modify the data via code.
 The Data Explorer can be used to view raw data files (CSV, Parquet, etc.) in your
 Positron workspace as well as dataframes in your active Python or R sessions.
 
-The Data Explorer has three primary components, discussed in greater detail in the sections below:
+The Data Explorer has three primary components:
 
-* **Data grid:** Spreadsheet-like display of the individual cells and columns, as well as sorting
-* **Summary panel:** Column name, type and missing data percentage for each column
-* **Filter bar:** Ephemeral filters for specific columns
+* **[Data grid](data-explorer-data-grid.qmd):** Spreadsheet-like display of the individual cells and columns, as well as sorting
+* **[Summary panel](data-explorer-summary-panel.qmd):** Column name, type, and missing data percentage for each column
+* **[Filter bar](data-explorer-filter-bar.qmd):** Ephemeral filters for specific columns
 
-![Data Explorer](images/data-explorer.png)
+![Data Explorer](images/data-explorer.png){fig-alt="Data explorer displaying filtered flight data with highlights. Left column shows column distribution and summary statistics. Main section lists data in a table. Top section shows filters such as year = 2013, month >= 2, and month is not null."}
 
 ## Opening the Data Explorer
 
@@ -26,7 +26,7 @@ There are a few ways to open the Data Explorer. If you want to look at data you
 have loaded into memory already, you can navigate to the Variables Pane and
 click on the table icon for a specific dataframe object.
 
-![Data Explorer from the Variables Pane](images/data-explorer-variables.png){width=700}
+![Data Explorer from the Variables Pane](images/data-explorer-variables.png){width=700 fig-alt="Variables pane interface showing data frame named df with expanded columns year, month, day, dep_time, sched_dep_time. In top row next to variable name and [336776 rows x 19 columns], a table icon is highlighted."}
 
 Using code or the console, you can also run one of the following commands:
 
@@ -46,23 +46,7 @@ supported by clicking on a file in the File Explorer or using the Command
 Palette. GZIP-compressed CSV files ending in `.gz` can also be opened. We may
 add support for more file types in the future.
 
-![Data Explorer from the Files Pane](images/data-explorer-files-in-env.png){width=300}
-
-Each Data Explorer instance watches the underlying data for changes, so if you
-edit a data file or modify an in-memory dataframe, the changes will be reflected
-in the Data Explorer. Depending on the size of the dataset, when first opening
-the Data Explorer or using its features (like scrolling, filtering, or sorting),
-you may see loading indicators in the summary pane and in the bottom left corner
-of the window:
-
-![Data Explorer Loading Indicators](images/data-explorer-loading-indicators.png){width=300}
-
-### Supported data frame libraries
-
-pandas and Polars `DataFrame` objects are supported in Python, and `data.frame`,
-`tibble`, and `data.table` are supported in R. Previews of database connections managed by the [Connections Pane](connections-pane.qmd) are also supported, for both Python and R.
-
-Based on [user feedback](feedback.qmd#feedback-and-issues), we may add support for other libraries that expose a tabular data interface.
+![Data Explorer from the Files Pane](images/data-explorer-files-in-env.png){width=300 fig-alt="File explorer window showing a directory named 'POSITRON-ENV-EXAMPLE' with three files: 'air_quality_sample.csv,' 'flights.parquet,' and 'test.csv.gz.'"}
 
 ### Opening CSV files as plain text
 
@@ -70,157 +54,10 @@ After opening a CSV file in the Data Explorer, if you need to view the file in
 the text editor, click on the "Open as Plain Text File" option in the top action
 bar:
 
-![Data Explorer Open as Plain Text](images/data-explorer-open-as-plain-text.png){width=300}
+![Data Explorer Open as Plain Text](images/data-explorer-open-as-plain-text.png){width=300 fig-alt="Data explorer editor tab showing a file named 'air_quality_sample.csv.' An option to 'Open as Plain Text File' is highlighted in orange below file name."}
 
-## Data grid
+#### Learn more
 
-The data grid is the primary display, with a spreadsheet-like cell-by-cell view.
-It's intended to scale efficiently to relatively large in-memory datasets, up to
-millions of rows or columns. 
-
-![Data Explorer Grid Example](images/data-explorer-grid-example.png){width=700}
-
-Each column header has the column name above the data type, which is dependent
-on the backend type (language runtime or DuckDB). At the top right of each
-column, there is a context menu to control sorting or to add a filter for the
-selected column. Resize columns by clicking and dragging the column's borders.
-
-![Data Explorer Column Menu](images/data-explorer-column-menu.png){width=300}
-
-Row labels default to the observed row index, with a zero-based index in Python
-and a one-based index in R. Alternatively, `pandas` and R users may also have
-rows with modified indices or string-based labels.
-
-For long strings or other data values that do not fully fit in a grid cell, you
-can see a tooltip containing the complete value by hovering over the cell:
-
-![Data Explorer Cell Value Tooltip](images/data-explorer-cell-value-tooltip.png){width=300}
-
-## Summary panel
-
-The summary panel displays a vertical scrolling list of all of the column names
-and an icon representing their respective type. It displays a sparkline
-histogram or frequency table of that column's data, and also displays the amount
-of missing data as both an inline bar graph and an increasing percentage. If you
-click on the carat symbol for a column, it will expand to show additional
-summary statistics and a larger sparkline.
-
-![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=350}
-
-The summary sparkline charts and missing data indicator display tooltips when
-hovered over:
-
-::: {#fig-summary-tooltips layout-ncol=2}
-
-![Sparkline Tooltip](images/data-explorer-summary-sparkline-tooltip.png){width=250}
-
-![Missing Data Tooltip](images/data-explorer-summary-missing-tooltip.png){width=300}
-
-Tooltips in the Data Explorer Summary Panel
-:::
-
-If you hover over the data type indicator next to the column name, you will see
-a tooltip showing the name of the column's data type:
-
-![Data Explorer Summary Data Type Tooltip](images/data-explorer-summary-data-type-tooltip.png){width=300}
-
-Double clicking on a column name will also bring the column into focus in the
-data grid, allowing for quickly navigating wider data.
-
-1. The summary panel can be collapsed by dragging the grid and summary panel
-   divider to the edge or by clicking on the collapse button after hovering over
-   the divider. 
-
-2. The summary panel can also be placed on the left or right side of the Data
-   Explorer via the Layout control.
-
-![Data Explorer Summary Panel Collapse and Placement](images/data-explorer-summary-panel-placement.png){width=700}
-
-You can change the default settings for either [`dataExplorer.summaryCollapsed`](positron://settings/dataExplorer.summaryCollapsed) or [`dataExplorer.summaryLayout`](positron://settings/dataExplorer.summaryLayout) in Positron's settings:
-
-![Data Explorer Summary Panel Configuration](images/data-explorer-summary-config.png){width=500}
-
-## Filtering
-
-The filter bar has controls to:
-
-1. Add, Show/Hide existing filters, or Clear Filters
-2. A {{<fa plus>}} button to quickly add a new filter
-3. The status bar at the bottom of the Data Explorer also displays the
-   percentage and number of remaining rows relative to the original total after
-   applying a filter
-
-![Overview of Filter Bar UI](images/data-explorer-filter-ui.png){width=700}
-
-When creating a new filter, you will first need to select a column either by
-scrolling the full list or searching across columns for a specific string. Once
-a column is selected, the available filters for that column type will be
-displayed. Alternatively, the context menu in each column label of the data grid
-also allows for creating filters with the column name pre-populated.
-
-Available filters vary according to the column type. For example, string columns
-have filter affordances for: contains, starts or ends with, is empty, or exact
-matches. Alternatively, numeric columns have logical operations such as: is less
-than or greater than, is equal to, or is inclusively between two values.
-
-## Sorting
-
-To sort the data by a column's values, open a column's context menu from the top
-of the grid and click either "Sort Ascending" or "Sort Descending":
-
-![Sorting Data from Column Context Menu](images/data-explorer-sort-context-menu.png){width=300}
-
-To clear an individual column's sort, click on the column header and select
-"Clear Sorting" from the context menu.
-
-When a column is sorted, the column header will have an arrow pointing up or
-down indicating the sort direction. You can sort by multiple columns by opening
-the context menu for a second column and sorting it, too. The number next to the
-sort direction indicates the sort order of the column.
-
-![Sorting Data by Multiple Columns](images/data-explorer-sort-multiple-columns.png){width=400}
-
-A Data Explorer can be sorted and filtered at the same time without any issues.
-
-To clear all sorting, click on the "Clear Column Sorting" button in the top
-action bar:
-
-![Clear Column Sorting Button](images/data-explorer-clear-column-sorting.png){width=400}
-
-## Grid selection and copy-and-paste
-
-The data grid has copy-and-paste capabilities similar to a spreadsheet. You can
-select:
-
-* A single cell
-* A rectangular range of cells
-* One or more entire rows
-* One or more entire columns
-
-To copy a single value, click on the cell of interest and press {{< kbd mac=Command-C win=Ctrl-C linux=Ctrl-C >}}. You can also copy
-using the right-click context menu:
-
-![Data Grid Cell Context Menu](images/data-explorer-copy-cell-context-menu.png){width=300}
-
-To copy a rectangular range of cells, first click on a cell, then hold the
-{{< kbd Shift >}} key and click on another cell to select the range of interest.
-Then either press {{< kbd mac=Command-C win=Ctrl-C linux=Ctrl-C >}} or use the context menu to
-copy:
-
-![Copying a Rectangular Range of Cells](images/data-explorer-copy-rectangular-range.png){width=500}
-
-When you copy a rectangular range of cells, the values are copied along with the
-column names in tab-separated format to ease pasting into Excel or Google
-Sheets. 
-
-To copy whole rows or columns, click on the first row label or column label then
-either hold {{< kbd Shift >}} and click on another row or column label to select a
-range, or use {{< kbd mac=Command-C win=Ctrl-C linux=Ctrl-C >}} to select individual rows or columns, but not
-necessarily a range:
-
-![Copying Multiple Data Rows](images/data-explorer-copy-whole-rows.png){width=500}
-
-![Copying Multiple Data Columns](images/data-explorer-copy-whole-columns.png){width=500}
-
-Like copying a rectangular range of cells, copying an entire row or column will
-include the column names in the tab-separated output.
+* **[Data grid](data-explorer-data-grid.qmd):** Spreadsheet-like display of the individual cells and columns, as well as sorting
+* **[Summary panel](data-explorer-summary-panel.qmd):** Column name, type and missing data percentage for each column
+* **[Filter bar](data-explorer-filter-bar.qmd):** Ephemeral filters for specific columns

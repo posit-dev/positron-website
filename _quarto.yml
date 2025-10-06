@@ -73,7 +73,13 @@ website:
           - databot.qmd
         - section: "Data Analysis"
           contents:
-            - data-explorer.qmd  
+            - section: "Data Explorer"
+              contents:
+              - text: "Overview"
+                href: data-explorer.qmd
+              - data-explorer-data-grid.qmd
+              - data-explorer-filter-bar.qmd
+              - data-explorer-summary-panel.qmd
             - variables-pane.qmd
         - section: "Database Connections"
           contents:
@@ -131,3 +137,4 @@ format:
   html:
     css: css/styles.css
     link-external-filter: '^(?:http:|https:)\/\/(?:positron|cdn)\.posit\.co(?:\/|$)|^(?:http:|https:)\/\/.*--positron-posit-co\.netlify\.app(?:\/|$)|^(?!https?:\/\/)'
+    
