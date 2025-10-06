@@ -98,7 +98,7 @@ Completions from an LLM such as GitHub Copilot can be super useful, but sometime
 - [[#8948](https://github.com/posit-dev/positron/issues/8948)] Fixed mishandling of `-m` in Windows paths for the Python `%run` magic.
 - [[#9579](https://github.com/posit-dev/positron/issues/9579)] Set `JUPYTER_PREFER_ENV_PATH=1` in Positron terminals and consoles so that Python virtual environments are used consistently for Quarto rendering.
 - [[#8053](https://github.com/posit-dev/positron/issues/8053)] R: Fixed how `Surv` objects are represented and formatted in the Data Explorer and Variables pane.
-- [#5338, #6708] R: Remove some problematic S3 overrides for `shiny.tag` and `shiny.tag.list`.
+- [[#5338](https://github.com/posit-dev/positron/issues/5338), [#6708](https://github.com/posit-dev/positron/issues/6708)] R: Remove some problematic S3 overrides for `shiny.tag` and `shiny.tag.list`.
 - [[#8426](https://github.com/posit-dev/positron/issues/8426)] R: Fixed R Help failing to load in the Help pane in environments with system proxies.
 
 #### Dependencies
