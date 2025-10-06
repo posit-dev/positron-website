@@ -126,7 +126,7 @@ Once you install Positron, it will [automatically check for updates moving forwa
 
 ## Positron Pro on Posit Workbench
 
-[Posit Workbench](https://posit.co/products/enterprise/workbench/) 2024.12.1 and later includes preview support for Positron Pro. To configure and use Positron Pro on Posit Workbench, please see the [Posit Workbench Administration Guide](https://docs.posit.co/ide/server-pro/positron_sessions/) and the [Positron Pro user guide](https://docs.posit.co/ide/server-pro/user/positron/getting-started/).
+[Posit Workbench](https://posit.co/products/enterprise/workbench/) 2025.09.0 and later includes support for Positron Pro. To configure and use Positron Pro on Posit Workbench, please see the [Posit Workbench Administration Guide](https://docs.posit.co/ide/server-pro/positron_sessions/) and the [Positron Pro user guide](https://docs.posit.co/ide/server-pro/user/positron/getting-started/).
 
 ## Release notes
 
