@@ -1,6 +1,5 @@
 ---
 title: "Summary Panel"
-description: "View summary statistics, sparklines, and missing data for each column."
 ---
 
 The summary panel displays a vertical scrolling list of all of the column names

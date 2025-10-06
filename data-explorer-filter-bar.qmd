@@ -1,6 +1,5 @@
 ---
 title: "Filter Bar"
-description: "Add filters to your data and convert the filters to code."
 ---
 
 The filter bar has controls to:
