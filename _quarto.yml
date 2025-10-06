@@ -56,7 +56,8 @@ website:
           - databot.qmd
         - section: "Data Explorer"
           contents:
-            - data-explorer.qmd 
+            - text: "Overview"
+              href: data-explorer.qmd
             - data-explorer-data-grid.qmd
             - data-explorer-filter-bar.qmd
             - data-explorer-summary-panel.qmd

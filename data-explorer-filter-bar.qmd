@@ -12,7 +12,7 @@ The filter bar has controls to:
    percentage and number of remaining rows relative to the original total after
    applying a filter
 
-![Overview of Filter Bar UI](images/data-explorer-filter-ui.png){width=700 fig-alt="Data explorer with active filters: 'year = 2013' and 'month >= 2.' Displays 309,772 rows of data across 19 columns. Options visible include 'Add Filter,' 'Hide Filters,' and 'Clear Filters.' A summary below indicates a large data set."}
+![Overview of Filter Bar UI](images/data-explorer-filter-ui.png){width=700}
 
 ## Filtering
 
@@ -22,10 +22,11 @@ a column is selected, the available filters for that column type will be
 displayed. Alternatively, the context menu in each column label of the data grid
 also allows for creating filters with the column name pre-populated.
 
-Available filters vary according to the column type. For example, string columns
-have filter affordances for: contains, starts or ends with, is empty, or exact
-matches. Alternatively, numeric columns have logical operations such as: is less
-than or greater than, is equal to, or is inclusively between two values.
+Available filters vary according to the column type. 
+For example, string columns can be filtered by whether they contain specific text, 
+start or end with certain characters, are empty, or match exactly. 
+Alternatively, numeric columns support logical operations that check if values are 
+less than or greater than a threshold, equal to a specific number, or fall between two values inclusively.
 
 There is also sorting capabilities, covered in the [Data Grid](data-explorer-data-grid.qmd).
 
