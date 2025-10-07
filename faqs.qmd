@@ -21,7 +21,7 @@ title: "Frequently Asked Questions"
 ### How can I use Positron with a server?
 
 * Positron is available as a free desktop app for Windows, MacOS, and Linux. This desktop app includes [support for remote SSH sessions](remote-ssh.qmd), allowing you to connect to remote Linux servers for scaling or data access purposes.  
-* The native browser or server-based version of Positron is only available via [Posit Workbench](https://posit.co/products/enterprise/workbench/). Posit Workbench currently has preview support for Positron Pro sessions; Positron Pro on Posit Workbench will move into general availability later in 2025. Posit Workbench provides enterprise-grade features such as access to highly scalable compute, single-sign on security, native authorization to data governance tools such as Databricks or Snowflake, container-backed sessions, multi-session capabilities, and more.
+* The native browser or server-based version of Positron is only available via [Posit Workbench](https://posit.co/products/enterprise/workbench/). Posit Workbench provides enterprise-grade features such as access to highly scalable compute, single-sign on security, native authorization to data governance tools such as Databricks or Snowflake, container-backed sessions, multi-session capabilities, and more.
 * We currently only support Remote SSH and Posit Workbench features on RHEL 9 and Ubuntu 22/24. However, we plan to expand this set of Linux distributions later in 2025, including adding support for RHEL 8 for Remote SSH servers and Positron Pro on Posit Workbench.
 
 ### Why build a new IDE rather than VS Code extensions?
