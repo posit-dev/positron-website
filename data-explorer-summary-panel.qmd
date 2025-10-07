@@ -55,7 +55,7 @@ Sorting changes the summary panel display but does not affect the main data grid
 
 ## Panel layout and settings
 
-You can collapse or expand the summary panel by selecting the {{<fa circle-chevron-left>}}/{{<fa circle-chevron-left>}} button or by dragging the grid and summary panel divider.
+You can collapse or expand the summary panel by selecting the {{<fa circle-chevron-left>}}/{{<fa circle-chevron-right>}} button or by dragging the grid and summary panel divider.
 
 You can also place the summary panel on the left or right side of the Data Explorer using the _Positron Data Explorer: Summary on Left_ or _Positron Data Explorer: Summary on Right_ command.
 
