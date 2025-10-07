@@ -36,6 +36,7 @@ Available filters depend on the column data type:
 - Exact matches
 
 **Numeric columns:**
+
 - Less than or greater than
 - Equal to
 - Between two values (inclusive)
