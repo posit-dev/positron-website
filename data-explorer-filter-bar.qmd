@@ -29,6 +29,7 @@ You can also create filters directly from the data grid by right-clicking a colu
 Available filters depend on the column data type:
 
 **String columns:**
+
 - Contains
 - Starts with or ends with  
 - Is empty
