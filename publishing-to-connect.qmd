@@ -10,7 +10,7 @@ Whether you're sharing reports, applications, or APIs, the Publisher extension s
 
 {{< video videos/deploy-to-connect.mp4 aria-label="Positron Publisher extension demonstrating one-click deployment to Posit Connect" >}}
 
-## Getting started with Publisher
+## Getting Started with Publisher
 
 The [Posit Publisher extension](https://open-vsx.org/extension/posit/publisher) comes pre-installed with Positron as a bootstrapped extension. This means it's automatically available when you start Positron and updates automatically when new versions are released.
 
@@ -20,8 +20,8 @@ The Publisher extension supports a wide range of content types including:
 
 - **Quarto documents** - Dynamic reports and presentations
 - **Jupyter notebooks** - Interactive data analysis notebooks
-- **Shiny applications** - Interactive web applications
-- **Plumber APIs** - RESTful APIs for data services
+- **Shiny & Streamlit Apps** - Interactive web applications
+- **FastAPI & Plumber APIs** - RESTful APIs for data services
 - **R Markdown documents** - Reproducible reports
 - **Static websites** - HTML, CSS, and JavaScript projects
 
