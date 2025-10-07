@@ -45,11 +45,11 @@ To search for specific columns in the summary panel, type part of a column name 
 
 To sort columns in the summary panel, select one of the following options from the sort dropdown:
 
-- **Sort by original** - Display columns in their original order
-- **Sort by name, ascending** - Sort column names A to Z
-- **Sort by name, descending** - Sort column names Z to A  
-- **Sort by type, ascending** - Sort data types alphabetically (float, integer, string)
-- **Sort by type, descending** - Sort data types reverse alphabetically (string, integer, float)
+- **Sort by original:** Display columns in their original order
+- **Sort by name, ascending:** Sort column names A to Z
+- **Sort by name, descending:** Sort column names Z to A  
+- **Sort by type, ascending:** Sort data types alphabetically (float, integer, string)
+- **Sort by type, descending:** Sort data types reverse alphabetically (string, integer, float)
 
 Sorting changes the summary panel display but does not affect the main data grid.
 
