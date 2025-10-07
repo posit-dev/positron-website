@@ -90,6 +90,7 @@ website:
             - quarto.qmd
             - jupyter-notebooks.qmd
             - develop-data-apps.qmd
+            - publishing-to-connect.qmd
         - section: "Workspaces"
           contents:
             - folder-templates.qmd
