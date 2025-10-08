@@ -26,14 +26,14 @@ You can also create filters directly from the data grid by right-clicking a colu
 
 ### Filter types by column
 
-Available filters depend on the column data type:
+Some filters apply to all column types, such as checking for null or missing values. Available filters also depend on the specific column data type. Here are examples for common column types:
 
 **String columns:**
 
 - Contains
 - Starts with or ends with  
 - Is empty
-- Exact matches
+- Equal to
 
 **Numeric columns:**
 
