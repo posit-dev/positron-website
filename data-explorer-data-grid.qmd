@@ -10,7 +10,7 @@ Each Data Explorer instance watches the underlying data for changes, so if you e
 
 ### Supported data frame libraries
 
-pandas and Polars `DataFrame` objects are supported in Python, and `data.frame`, `tibble`, and `data.table` are supported in R. Previews of database connections managed by the [Connections Pane](connections-pane.qmd) are also supported, for both Python and R.
+Pandas and Polars dataframe objects are supported in Python, and `data.frame`, `tibble`, and `data.table` are supported in R. Previews of database connections managed by the [Connections Pane](connections-pane.qmd) are also supported, for both Python and R.
 
 Based on [user feedback](feedback.qmd#feedback-and-issues), we may add support for other libraries that expose a tabular data interface.
 
