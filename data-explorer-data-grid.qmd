@@ -58,7 +58,7 @@ When a column is sorted, the column header displays an arrow pointing up or down
 
 To clear all sorting, click the **Clear Column Sorting** button in the top action bar.
 
-## Pinning
+## Pinning columns and rows
 
 You can pin columns and rows to keep them visible while scrolling through large datasets. Pinned columns appear on the left side of the grid, and pinned rows appear at the top.
 
