@@ -1,0 +1,64 @@
+---
+title: "Summary Panel"
+---
+
+The summary panel displays a scrollable list of all column names with an icon representing the data type. Each column will have a sparkline histogram or frequency table of the column data. Missing data for the column is displayed as both an inline bar graph and a percentage. 
+
+Select the {{<fa chevron-down>}} icon next to the column name to expand the column and see additional summary statistics and a larger sparkline.
+
+![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=350 fig-alt="Column arr_delay expanded in the summary panel. There is a bar with 2%, depicting how much data is missing. There is a graph of arrival delays showing a right skew. Summary statistics are displayed: 8,824 missing, --86 min, --5 median, 6.96 mean, 1,127 max, 44.98 SD."}
+
+Double-click a column name to bring the column into focus in the main data grid. This allows for quick navigation of wider datasets.
+
+## Loading indicators
+
+When first opening the Data Explorer or using features like scrolling, filtering, or sorting, you may see loading indicators in the summary panel and in the bottom left corner of the window:
+
+![Data Explorer Loading Indicators](images/data-explorer-loading-indicators.png){width=300 fig-alt="Summary panel showing flight data with columns like year, month, and day. A red progress bar loading indicator next to the column names shows the loading state. In the bottom status bar, a green loading indicator icon shows the loading status."}
+
+## Tooltips
+
+The summary sparkline charts and missing data indicators display tooltips when you hover over them:
+
+::: {layout-ncol=2}
+
+![Sparkline Tooltip](images/data-explorer-summary-sparkline-tooltip.png){width=250}
+
+![Missing Data Tooltip](images/data-explorer-summary-missing-tooltip.png){width=300}
+:::
+
+When you hover over the data type indicator next to the column name, a tooltip shows the name of the column data type:
+
+![Data Explorer Summary Data Type Tooltip](images/data-explorer-summary-data-type-tooltip.png){width=300 fig-alt="Histogram showing data for air_time is highlighted, with a tooltip displaying a range of 121.3 to 129.7 and count of 13,239 (4.0%)."}
+
+If the column has a label, the tooltip includes the label:
+
+![Data Explorer Column Label](images/data-explorer-column-label-summary-panel.png){width=300 fig-alt="Hovering over column named 'age' in summary panel. Tooltip reads 'Age in years'"}
+
+## Search and sort columns
+
+### Search columns
+
+To search for specific columns in the summary panel, type part of a column name into the summary panel search bar. The summary panel will display columns that match any part of the search text. Searching changes the summary panel display but does not affect the main data grid.
+
+### Sort columns
+
+To sort columns in the summary panel, select one of the following options from the sort dropdown:
+
+- **Sort by original:** Display columns in their original order
+- **Sort by name, ascending:** Sort column names A to Z
+- **Sort by name, descending:** Sort column names Z to A  
+- **Sort by type, ascending:** Sort data types alphabetically (float, integer, string)
+- **Sort by type, descending:** Sort data types reverse alphabetically (string, integer, float)
+
+Sorting changes the summary panel display but does not affect the main data grid.
+
+## Panel layout and settings
+
+You can collapse or expand the summary panel by selecting the {{<fa circle-chevron-left>}}/{{<fa circle-chevron-right>}} button or by dragging the grid and summary panel divider.
+
+You can also place the summary panel on the left or right side of the Data Explorer using the _Positron Data Explorer: Summary on Left_ or _Positron Data Explorer: Summary on Right_ command.
+
+You can change the default settings for [`dataExplorer.summaryCollapsed`](positron://settings/dataExplorer.summaryCollapsed) or [`dataExplorer.summaryLayout`](positron://settings/dataExplorer.summaryLayout) in Positron settings:
+
+![Data Explorer Summary Panel Configuration](images/data-explorer-summary-config.png){width=500 fig-alt="Settings UI screenshot showing 'Data Explorer: Summary Collapsed' with an unchecked box, and 'Data Explorer: Summary Layout' dropdown set to 'left.'"}

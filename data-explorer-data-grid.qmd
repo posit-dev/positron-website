@@ -1,0 +1,104 @@
+---
+title: "Data Grid"
+---
+
+The data grid is the primary display, with a spreadsheet-like cell-by-cell view. It's intended to scale efficiently to relatively large in-memory datasets, up to millions of rows or columns. 
+
+![Data Explorer Grid Example](images/data-explorer-grid-example.png){width=700 fig-alt="Data grid displaying flight data for January 1, 2013, with columns for year, month, day, dep_time, sched_dep_tim, and dep_delay."}
+
+Each Data Explorer instance watches the underlying data for changes, so if you edit a data file or modify an in-memory dataframe, the changes will be reflected in the Data Explorer. 
+
+### Supported data frame libraries
+
+Pandas and Polars dataframe objects are supported in Python, and `data.frame`, `tibble`, and `data.table` are supported in R. Previews of database connections managed by the [Connections Pane](connections-pane.qmd) are also supported, for both Python and R.
+
+Based on [user feedback](feedback.qmd#feedback-and-issues), we may add support for other libraries that expose a tabular data interface.
+
+### Column overview
+
+Each column header has the column name above the data type, which is dependent on the backend type (language runtime or DuckDB).
+
+At the top right of each column, there is a context menu for column specific actions.
+
+![Data Explorer Column Menu](images/data-explorer-column-menu.png){width=300 fig-alt="Data explorer column dropdown menu open, showing options: Copy Column, Select Column, Pin Column, Sort Ascending, Sort Descending, Clear Sorting, and Add Filter."}
+
+Columns can be resized by clicking and dragging the border on either side of a column.
+
+### Row overview
+
+Row labels default to the observed row index, with a zero-based index in Python and a one-based index in R. Alternatively, `pandas` and R users may also have rows with modified indices or string-based labels.
+
+Right-clicking on a row header will bring up a context menu for row specific actions.
+
+![Data Explorer Row Menu](images/data-explorer-row-menu.png){width=300 fig-alt="Data explorer row right-click menu open, showing options: Copy Row, Select Row, and Pin Row."}
+
+### Cell overview
+
+For long strings or other data values that do not fully fit in a grid cell, you can see a tooltip containing the complete value by hovering over the cell:
+
+![Data Explorer Cell Value Tooltip](images/data-explorer-cell-value-tooltip.png){width=300 fig-alt="Data explorer cell showing '2013-01-01 0...'. A highlighted row with an expanded view displays '2013-01-01 05:00:00.'"}
+
+Right-clicking or pressing {{< kbd mac=Shift-F10 win=Shift-F10 linux=Shift-F10 >}} on a cell will bring up a context menu for cell specific actions. 
+
+![Data Explorer Cell Menu](images/data-explorer-cell-menu.png){width=300 fig-alt="Data explorer row right-click menu open, showing options: Copy, Select Column, Select Row, Pin Column, Pin Row, Sort Ascending, Sort Descending, Clear Sorting, and Add Filter."}
+
+When focused on a cell you can bring up the row header menu by pressing {{< kbd mac=Option-Shift-F10 win=Alt-Shift-F10 linux=Alt-Shift-F10 >}}. You can bring up the column header menu by pressing {{< kbd mac=Ctrl-Shift-F10 win=Ctrl-Shift-F10 linux=Ctrl-Shift-F10 >}}
+
+## Sorting
+
+To sort the values in a column, open a column context menu from the top of the grid and select either **Sort Ascending** or **Sort Descending**.
+
+![Data Explorer Column Menu](images/data-explorer-column-menu.png){width=300 fig-alt="Data explorer column dropdown menu open, showing options: Copy Column, Select Column, Pin Column, Sort Ascending, Sort Descending, Clear Sorting, and Add Filter."}
+
+To clear an individual column sort, click on the column header and select **Clear Sorting** from the context menu.
+
+When a column is sorted, the column header displays an arrow pointing up or down to indicate the sort direction. You can sort by multiple columns by opening the context menu for a second column and sorting it as well. The number next to the sort direction indicates the sort order of the column.
+
+![Sorting Data by Multiple Columns](images/data-explorer-sort-multiple-columns.png){width=400 fig-alt="Data Explorer displaying two columns, 'dep_time' with 1.00 values and 'sched_dep_time' showing 2359. Arrows next to column name indicate sorting ascending or descending. Numbers next to arrows indicate order of sort."}
+
+To clear all sorting, click the **Clear Column Sorting** button in the top action bar.
+
+## Pinning columns and rows
+
+You can pin columns and rows to keep them visible while scrolling through large datasets. Pinned columns appear on the left side of the grid, and pinned rows appear at the top.
+
+### Pin columns
+
+To pin a column, right-click the column header and select **{{< fa thumbtack >}} Pin Column** from the context menu. The column moves to the left side of the grid and remains visible when you scroll horizontally.
+
+To unpin a column, right-click the pinned column header and select **{{< fa thumbtack-slash >}} Unpin Column** from the context menu.
+
+### Pin rows
+
+To pin a row, right-click the row header and select **{{< fa thumbtack >}} Pin Row** from the context menu. The row moves to the top of the grid and remains visible when you scroll vertically.
+
+To unpin a row, right-click the pinned row header and select **{{< fa thumbtack-slash >}} Unpin Row** from the context menu.
+
+### Pin multiple items
+
+You can pin multiple columns and rows. Pinned columns appear in the order you pin them, starting from the leftmost position. Pinned rows appear in the order you pin them, starting from the top.
+
+## Selection, copy, and paste
+
+The data grid provides copy-and-paste capabilities similar to a spreadsheet. You can select:
+
+* A single cell
+* A rectangular range of cells
+* One or more rows
+* One or more columns
+
+To copy a single value, select a cell and press {{< kbd mac=Command-C win=Ctrl-C linux=Ctrl-C >}}. You can also copy the value using the right-click context menu.
+
+To copy a rectangular range of cells, click a cell, then hold {{< kbd Shift >}} and click another cell to select the range. Press {{< kbd mac=Command-C win=Ctrl-C linux=Ctrl-C >}} or use the context menu to copy the values.
+
+![Copying a Rectangular Range of Cells](images/data-explorer-copy-rectangular-range.png){width=500}
+
+When you copy a rectangular range of cells, the system copies the values with column names in tab-separated format. This format makes pasting into Excel or Google Sheets easier.
+
+To copy entire rows or columns, click the first row label or column label. Then either hold {{< kbd Shift >}} and click another row or column label to select a range, or hold {{< kbd mac=Command win=Ctrl linux=Ctrl >}} and click additional labels to select individual rows or columns.
+
+![Copying Multiple Data Rows](images/data-explorer-copy-whole-rows.png){width=500}
+
+![Copying Multiple Data Columns](images/data-explorer-copy-whole-columns.png){width=500}
+
+When you copy entire rows or columns, the system includes column names in the tab-separated output, similar to copying a rectangular range of cells.

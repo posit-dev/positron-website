@@ -53,33 +53,8 @@ website:
       - icon: github
         aria-label: 'Link to Positron Github Repository'
         href: https://github.com/posit-dev/positron
-      
+    
   sidebar:
-    - title: "Features"
-      style: "docked"
-      contents:
-        - features.qmd
-        - section: "AI Tools"
-          contents:
-          - assistant.qmd
-          - databot.qmd
-        - section: "Exploratory Data Analysis"
-          contents:
-            - data-explorer.qmd  
-            - variables-pane.qmd
-        - section: "Dynamic Documents and Apps"
-          contents:
-            - quarto.qmd
-            - jupyter-notebooks.qmd
-            - develop-data-apps.qmd
-        - help-pane.qmd    
-        - folder-templates.qmd
-        - remote-ssh.qmd
-        - section: "Database Connections"
-          contents:
-            - connections-pane.qmd
-            - extending-connections.qmd 
-  
     - title: "Guides"
       style: "docked"
       contents:
@@ -88,35 +63,67 @@ website:
             - welcome.qmd
             - install.qmd
             - download.qmd
-            - extensions.qmd
-            - updating.qmd
+        - section: "Configuration"
+          contents:
             - keyboard-shortcuts.qmd
             - add-to-path.qmd
             - git.qmd
+            - extensions.qmd
+            - updating.qmd
         - section: "User Interface"
           contents:
             - layout.qmd
             - command-palette.qmd
             - action-bars.qmd
+            - help-pane.qmd
+        - section: "AI Tools"
+          contents:
+          - assistant.qmd
+          - databot.qmd
+        - section: "Data Analysis"
+          contents:
+            - section: "Data Explorer"
+              contents:
+              - text: "Overview"
+                href: data-explorer.qmd
+              - data-explorer-data-grid.qmd
+              - data-explorer-filter-bar.qmd
+              - data-explorer-summary-panel.qmd
+            - variables-pane.qmd
+        - section: "Database Connections"
+          contents:
+            - connections-pane.qmd
+            - extending-connections.qmd 
+        - section: "Dynamic Documents and Apps"
+          contents:
+            - quarto.qmd
+            - jupyter-notebooks.qmd
+            - develop-data-apps.qmd
+        - section: "Workspaces"
+          contents:
+            - folder-templates.qmd
+            - remote-ssh.qmd
         - section: "Interpreters"
           contents:
             - managing-interpreters.qmd
             - interpreter-startup.qmd
-            - section: "Language-Specific Interpreter Setup"
+            - section: "Language-Specific Setup"
               contents:
                 - python-installations.qmd
                 - r-installations.qmd
                 - reticulate.qmd
-        - text: "Migrating from VS Code"
-          href: migrate-vscode.qmd
-        - section: "Migrating from RStudio"
+        - section: "Migration Guides"
           contents:
-          - migrate-rstudio.qmd
-          - migrate-rstudio-keybindings.qmd
-          - migrate-rstudio-settings-and-extensions.qmd
-          - migrate-rstudio-code.qmd
-          - migrate-rstudio-rproj.qmd
-          - migrate-rstudio-compare.qmd
+          - text: "Migrating from VS Code"
+            href: migrate-vscode.qmd
+          - section: "Migrating from RStudio"
+            contents:
+            - migrate-rstudio.qmd
+            - migrate-rstudio-keybindings.qmd
+            - migrate-rstudio-settings-and-extensions.qmd
+            - migrate-rstudio-code.qmd
+            - migrate-rstudio-rproj.qmd
+            - migrate-rstudio-compare.qmd
         - section: "Extending Positron"  
           contents:
           - extension-development.qmd
@@ -124,13 +131,15 @@ website:
       style: "docked"
       contents:
         - troubleshooting.qmd
+        - faqs.qmd
         - feedback.qmd
+        - release-notes.qmd
     - title: "About"
       style: "docked"
       contents:
         - about.qmd
         - privacy.qmd
-        - faqs.qmd    
+        - licensing.qmd
     
 
 format:
@@ -145,4 +154,3 @@ format:
     include-in-header:
       - text: |
           <script defer file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
-
