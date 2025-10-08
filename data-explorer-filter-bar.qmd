@@ -26,7 +26,7 @@ You can also create filters directly from the data grid by right-clicking a colu
 
 ### Filter types by column
 
-Some filters apply to all column types, such as checking for null or missing values. Available filters also depend on the specific column data type. Here are examples for common column types:
+Some filters apply to all column types, such as checking for equality, null, or missing values. Available filters also depend on the specific column data type. Here are examples for common column type filters:
 
 **String columns:**
 
