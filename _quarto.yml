@@ -9,6 +9,7 @@ execute:
 
 website:
   bread-crumbs: true
+  page-navigation: true
   favicon: "images/favicon.svg"
   search:
     copy-button: true
@@ -148,6 +149,7 @@ format:
     highlight-style:
       light: github
     link-external-filter: '^(?:http:|https:)\/\/(?:positron|cdn)\.posit\.co(?:\/|$)|^(?:http:|https:)\/\/.*--positron-posit-co\.netlify\.app(?:\/|$)|^(?!https?:\/\/)'
+    lightbox: true
     code-copy: true
     toc: true
     toc-expand: true
