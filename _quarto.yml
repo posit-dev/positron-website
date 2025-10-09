@@ -1,6 +1,6 @@
 project:
   title: "Positron"
-  type: posit-docs
+  type: website
   render:
     - "*.qmd"
 
@@ -8,11 +8,17 @@ execute:
   freeze: auto
 
 website:
+  bread-crumbs: true
+  page-navigation: true
   favicon: "images/favicon.svg"
+  search:
+    copy-button: true
+    show-item-context: true
   site-url: https://positron.posit.co
   repo-url: https://github.com/posit-dev/positron-website
   issue-url: https://github.com/posit-dev/positron/issues/
   repo-actions: [edit, source, issue]
+
   page-footer:
     left:
       - text: "<img class='posit-footer-logo' alt='Posit' src='images/posit-logo-black-TM.svg'>Copyright &copy; 2022-2025 Posit Software, PBC. All Rights Reserved."
@@ -28,6 +34,10 @@ website:
         href: "https://posit.co/about/privacy-policy/"
 
   navbar:
+    pinned: true
+    logo: "assets/images/positron-icon.svg"
+    logo-alt: "Positron Documentation"
+
     left:
       - text: "Features"
         href: features.qmd
@@ -135,6 +145,14 @@ website:
 
 format:
   html:
-    css: css/styles.css
+    theme: css/theme.scss
+    highlight-style:
+      light: github
     link-external-filter: '^(?:http:|https:)\/\/(?:positron|cdn)\.posit\.co(?:\/|$)|^(?:http:|https:)\/\/.*--positron-posit-co\.netlify\.app(?:\/|$)|^(?!https?:\/\/)'
-    
+    lightbox: true
+    code-copy: true
+    toc: true
+    toc-expand: true
+    include-in-header:
+      - text: |
+          <script defer file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
