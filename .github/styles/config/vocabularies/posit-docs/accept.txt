@@ -50,3 +50,4 @@ Gemini
 Google Gemini
 OpenAI
 FAQ
+Python
