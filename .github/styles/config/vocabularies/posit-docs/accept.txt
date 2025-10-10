@@ -51,3 +51,4 @@ Google Gemini
 OpenAI
 FAQ
 Python
+DuckDB
