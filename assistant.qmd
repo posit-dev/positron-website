@@ -5,7 +5,11 @@ title: "Positron Assistant"
 ::: {.callout-important}
 Positron Assistant is a **preview** feature in Positron 2025.07.0-204 and beyond.
 
-At this time, we support **Anthropic for chat**, and **GitHub Copilot for chat and inline code completions**. We will continue to add more language model providers in future releases.
+As of Positron 2025.07.0-204, we support **Anthropic for chat** and **GitHub Copilot for inline code completions**.
+
+In Positron 2025.10.0-199, we added **GitHub Copilot for chat**.
+
+We will continue to add more language model providers in future releases.
 
 We are actively improving the user experience and functionality, so please provide [feedback](https://github.com/posit-dev/positron/discussions) and [report any issues](https://github.com/posit-dev/positron/issues/new/choose) you encounter.
 :::
@@ -39,6 +43,12 @@ If you have an Anthropic account, you should be able to get an API key from the 
 Copy and save the API key to a password manager or another secure location. In order to [add Anthropic as a language model provider](#adding-language-model-providers) in Positron, this key will be used to authenticate to Anthropic.
 
 ##### GitHub Copilot
+
+GitHub Copilot is a proprietary tool from GitHub. If you want to use GitHub Copilot, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account or to be assigned a seat by an organization with a subscription for GitHub Copilot for Business.
+
+Students and faculty can use GitHub Copilot for free as part of the GitHub Education program. For more information, see the [GitHub Education page](https://education.github.com/).
+
+Individual snippets of source code or the contents of entire files may be sent to GitHub’s servers to generate suggestions, for more information about how this information is handled, please see the [Copilot Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect).
 
 If you have a GitHub account with Copilot enabled, you can authenticate to GitHub Copilot in Positron Assistant. Follow the steps in [adding language model providers](#adding-language-model-providers) to get started.
 
@@ -133,10 +143,47 @@ To open this mini chat interface can in an editor or terminal, use the default k
 
 ### Completions
 
-If GitHub Copilot is enabled and the user pauses typing for a few seconds, Positron Assistant will offer completions in most contexts. If it is not working, check the following:
+Code completions are code suggestions that appear inline as you type in an editor.
 
-- Make sure you have a [language model provider added](#adding-language-model-providers) for completions.
+Interact with suggestions by:
+
+- Pressing the <kbd>Tab</kbd> key to accept the entire suggestion.
+- Pressing {{< kbd mac=Command-→ win=Ctrl-→ linux=Ctrl-→ >}} to accept the suggestion word-by-word for a single line suggestion, or line-by-line for mult-line suggestions.
+- Continuing to type to reject the suggestion.
+
+If you are not receiving suggestions, please:
+
+- Make sure you are authenticated with GitHub Copilot in the [language model provider configuration](#adding-language-model-providers).
 - Check the [developer tools console logs](troubleshooting.qmd#developer-tools) or the Assistant [output](./troubleshooting.qmd#output-panel) logs to see if there are any errors logged.
+
+#### Pause code completions temporarily
+
+Completions from an LLM such as GitHub Copilot can be super useful, but sometimes they can be distracting or interfere with other completions from the Python or R LSP.
+
+To pause code completions temporarily, the following methods are available:
+
+- Run the command _Snooze Inline Suggestions_ in the Command Palette and select the duration to snooze completions for; or
+- Click on the Assistant status bar icon, then the **Snooze** button to snooze completions
+Snooze these completions temporarily from the Assistant status bar popup
+
+To view the remaining time on a snooze, hover over the Assistant status bar icon to see a popup with the remaining time.
+
+To cancel the snooze early, the following methods are available:
+
+- Run the command _Cancel Snooze Inline Suggestions_ in the Command Palette; or
+- Click on the Assistant status bar icon, then the stop {{< fa circle-stop >}} button
+
+#### Disable code completions
+
+If you prefer not to receive code completions from Positron Assistant, you can disable them for all files or specific file types and patterns using the following methods:
+
+- **To toggle completions on or off for all files:** Run the command _Positron Assistant: Toggle (Enable/Disable) Completions_ in the Command Palette
+
+- **To disable completions for all files or for the current file type:** Click the Assistant status bar icon, then in the popup, uncheck **All files** to disable completions for all files, or uncheck the current file type to disable completions for that file type
+
+- **To configure the languages for which inline completions are enabled or disabled:** Modify the setting [`positron.assistant.inlineCompletions.enable`](positron://settings/positron.assistant.inlineCompletions.enable)
+
+- **To specify glob patterns for which inline completions should be disabled:** Modify the setting [`positron.assistant.inlineCompletionExcludes`](positron://settings/positron.assistant.inlineCompletionExcludes)
 
 ### Shiny Assistant
 
@@ -174,9 +221,5 @@ Posit does not provide support or assistance for any code written or generated i
 By using Anthropic Claude, you acknowledge that your use of Anthropic Claude is subject to the Anthropic [Terms of Service](https://www.anthropic.com/legal/consumer-terms) and [Privacy Policy](https://www.anthropic.com/legal/privacy). Anthropic Claude is considered "Third Party Materials" as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
 
 ### GitHub Copilot
-
-GitHub Copilot is a proprietary tool from GitHub. If you want to use GitHub Copilot, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account or to be assigned a seat by an organization with a subscription for GitHub Copilot for Business. Individual snippets of source code or the contents of entire files may be sent to GitHub’s servers to generate suggestions, for more information about how this information is handled, please see the [Copilot Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect).
-If you have a GitHub account with Copilot enabled, you can authenticate to GitHub Copilot in Positron Assistant via the language model dialog. The authentication flow will open up a browser and direct you to sign into GitHub. Once authenticated, Copilot will be available for inline code completions only.
-Students and faculty can use GitHub Copilot for free as part of the GitHub Education program. For more information, see the [GitHub Education page](https://education.github.com/).
 
 By using GitHub Copilot, you acknowledge that your use of GitHub Copilot is governed by their terms of service and you agree to abide by their [terms of service](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot). GitHub Copilot is considered “Third Party Materials” as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
