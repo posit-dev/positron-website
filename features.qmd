@@ -74,21 +74,27 @@ Interested in Positron for your team? [Learn about enterprise solutions.](https:
 
 ## Bridge the exploration and production divide
 
-{{< video videos/positron-assistant-copytoeditor.mp4 >}}
+{{< video videos/positron-assistant-copytoeditor.mp4 
+  aria-label="Video demonstration of Positron's AI assistance and environment inspection features"
+>}}
 
 ::: {#features-insights-1}
 :::
 
 ## Explore and analyze with speed
 
-{{< video videos/data-explorer.mp4 >}}
+{{< video videos/data-explorer.mp4 
+  aria-label="Video demonstration of Positron's data exploration features"
+>}}
 
 ::: {#features-speed-2}
 :::
 
 ## Develop with confidence
 
-{{< video videos/connections.mp4 >}}
+{{< video videos/connections.mp4 
+  aria-label="Video demonstration of Positron's database connection features"
+>}}
 
 ::: {#features-develop-3}
 :::
