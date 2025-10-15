@@ -1,0 +1,56 @@
+# Positron
+
+Positron is developed by Posit PBC, the creators of RStudio. It provides a modern, extensible IDE built on Code OSS with features specifically designed for data science workflows, including notebooks, scripts, consoles, plotting, and data exploration tools.
+
+## Key Features
+
+- [Data Explorer](https://positron.posit.co/data-explorer): Interactive data exploration and visualization
+- [Variables Pane](https://positron.posit.co/variables-pane): Inspect and debug variables in your session
+- [Quarto Support](https://positron.posit.co/quarto): Easily create and publish Quarto documents from Positron
+- [Jupyter Notebooks](https://positron.posit.co/jupyter-notebooks): Native notebook support
+- [AI Assistant](https://positron.posit.co/assistant): Built-in AI Assistant for inline and chat assistance to streamline your data science workflows
+- [Databot](https://positron.posit.co/databot): Databot is an experimental AI assistant designed to accelerate exploratory data analysis
+- [Database Connections](https://positron.posit.co/connections-pane): Connect and explore databases
+- [Remote Development](https://positron.posit.co/remote-ssh): Work on remote machines via SSH
+
+## Getting Started
+
+- [Download Positron](https://positron.posit.co/download): Get the latest version for macOS, Windows, or Linux
+- [Installation Guide](https://positron.posit.co/install): Step-by-step installation instructions
+- [Welcome Guide](https://positron.posit.co/welcome): First steps with Positron
+- [Managing Interpreters](https://positron.posit.co/managing-interpreters): Set up Python and R interpreters
+- [Python Setup](https://positron.posit.co/python-installations): Configure Python environments
+- [R Setup](https://positron.posit.co/r-installations): Configure R installations
+
+## Documentation
+
+- [Features Overview](https://positron.posit.co/features): Complete feature list
+- [Keyboard Shortcuts](https://positron.posit.co/keyboard-shortcuts): Essential keyboard commands
+- [Extensions](https://positron.posit.co/extensions): Extend functionality with VSIX extensions
+- [Extension Development](https://positron.posit.co/extension-development): Build custom extensions
+- [Layout](https://positron.posit.co/layout): Customize the user interface
+- [Command Palette](https://positron.posit.co/command-palette): Quick access to commands
+- [Git Integration](https://positron.posit.co/git): Version control workflows
+
+## Migration Guides
+
+- [Migrate from VS Code](https://positron.posit.co/migrate-vscode): Transitioning from Visual Studio Code
+- [Migrate from RStudio](https://positron.posit.co/migrate-rstudio): Comprehensive RStudio migration guide
+- [RStudio Keybindings](https://positron.posit.co/migrate-rstudio-keybindings): Match your RStudio shortcuts
+- [RStudio Settings & Extensions](https://positron.posit.co/migrate-rstudio-settings-and-extensions): Configure Positron like RStudio
+- [R Projects](https://positron.posit.co/migrate-rstudio-rproj): Working with .Rproj files
+
+## Support
+
+- [Troubleshooting](https://positron.posit.co/troubleshooting): Common issues and solutions
+- [FAQs](https://positron.posit.co/faqs): Frequently asked questions
+- [Feedback](https://positron.posit.co/feedback): Report issues and request features
+- [Privacy Policy](https://positron.posit.co/privacy): Data collection and privacy information
+- [GitHub Repository](https://github.com/posit-dev/positron): View source code and contribute
+- [Issue Tracker](https://github.com/posit-dev/positron/issues): Report bugs and request features
+
+## About
+
+- [About Positron](https://positron.posit.co/about): Project goals and philosophy
+- [Licensing](https://positron.posit.co/licensing): Elastic License 2.0 information
+- [Release Notes](https://positron.posit.co/release-notes): Latest updates and changes
