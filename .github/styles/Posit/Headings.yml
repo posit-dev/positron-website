@@ -16,7 +16,7 @@ indicators:
 exceptions:
   - Azure
   - CLI
-  - Code
+  - Code OSS
   - Cosmos
   - Docker
   - Emmet
@@ -32,6 +32,7 @@ exceptions:
   - URLs
   - Visual
   - VS
+  - VS Code
   - Windows
   - Shiny Server Pro
   - Posit Team
