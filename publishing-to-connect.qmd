@@ -1,0 +1,42 @@
+---
+title: "Publishing your work"
+---
+
+Publish your data science work directly from Positron to [Posit Connect](https://posit.co/products/enterprise/connect/) and [Posit Connect Cloud](https://connect.posit.cloud/) with the built-in [Publisher extension](https://open-vsx.org/extension/posit/publisher).
+
+Whether you're sharing reports, applications, or APIs, the Publisher extension streamlines the deployment process and makes it easy to get your work in front of stakeholders quickly with a button click.
+
+{{< video videos/deploy-to-connect.mp4 aria-label="Positron Publisher extension demonstrating one-click deployment to Posit Connect" >}}
+
+## Getting started with Publisher <!-- vale off -->
+
+The [Posit Publisher extension](https://open-vsx.org/extension/posit/publisher) comes pre-installed with Positron as a bootstrapped extension. This means it's automatically available when you start Positron and updates automatically when new versions are released.
+
+## What you can publish
+
+The Publisher extension supports a wide range of content types including:
+
+- **Quarto documents** - Dynamic reports and presentations
+- **Jupyter notebooks** - Interactive data analysis notebooks
+- **Shiny & Streamlit apps** - Interactive web applications
+- **FastAPI & Plumber APIs** - RESTful APIs for data services
+- **R Markdown documents** - Reproducible reports
+- **Static websites** - HTML, CSS, and JavaScript projects
+
+For a full list of supported files, view the [publisher documentation](https://github.com/posit-dev/publisher/blob/main/docs/configuration.md).
+
+## Publishing workflow
+
+1. Ensure your project is ready for publication
+
+2. In the Activty Bar, select the Publisher icon.
+3. Select the type of content you're publishing
+4. Choose your target Posit Connect server
+5. Configure any deployment settings
+6. Add your API credentials
+7. Click "Publish"
+
+### Getting help
+- See the [troubleshooting guide](https://github.com/posit-dev/publisher/blob/main/docs/troubleshooting.md)
+- Check the [Posit Connect documentation](https://docs.posit.co/connect/) for server-specific guidance
+- Review the [Publisher extension repository](https://github.com/posit-dev/publisher) for updates and issues
