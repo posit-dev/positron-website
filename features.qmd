@@ -70,7 +70,7 @@ listing:
     template: templates/feature-card.ejs
     contents:
       - title: "Enhanced Security"
-        description: "Move development off unmanaged laptops into a secure, server-based environment that integrates with your existing identity and data providers like AWS, Databricks and Snowflake."
+        description: "Move development off unmanaged laptops into a secure, server-based environment that integrates with your existing identity and data providers like AWS, Databricks, and Snowflake."
         icon: "bi-shield-check"
         link: "https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page"
         anchor-text: "Enhanced Security"
