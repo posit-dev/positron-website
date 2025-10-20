@@ -65,6 +65,30 @@ listing:
       - title: "Multi-session console"
         description: "Work across one or multiple consoles for concurrent analysis and development."
         icon: "bi-terminal"
+  - id: features-pro-4
+    type: custom
+    template: templates/feature-card.ejs
+    contents:
+      - title: "Enhanced Security"
+        description: "Move development off unmanaged laptops into a secure, server-based environment that integrates with your existing identity and data providers."
+        icon: "bi-shield-check"
+        link: "https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page"
+        anchor-text: "Enhanced Security"
+      - title: "Scalable Compute"
+        description: "Give data scientists access to powerful servers with more CPU, RAM, and GPUs than their laptops could ever provide."
+        icon: "bi-cpu"
+        link: "https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page"
+        anchor-text: "Scalable Compute"
+      - title: "Centralized Management"
+        description: "Administer all your IDEs (Positron, RStudio, VSCode, JupyterLab) in one place, reducing IT overhead and ensuring consistent environments."
+        icon: "bi-gear"
+        link: "https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page"
+        anchor-text: "Centralized Management"
+      - title: "Dedicated Support"
+        description: "Get help from Posit experts about how to deploy, maintain, and troubleshoot your Posit Workbench environment."
+        icon: "bi-headset"
+        link: "https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page"
+        anchor-text: "Dedicated Support"
         
 ---
 
@@ -93,6 +117,16 @@ Interested in Positron for your team? [Learn about enterprise solutions.](https:
 ::: {#features-develop-3}
 :::
 
+
+## Enterprise-ready with Positron Pro
+
+For teams that need enterprise-grade capabilities, [Positron Pro]((https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page)) on Posit Workbench provides the admin configuration and security your organization requires.
+
+
+{{< video videos/positron-workbench.mp4 >}}
+
+::: {#features-pro-4}
+:::
 
 ## Get started
 
