@@ -2,6 +2,10 @@
 title: "Jupyter Notebooks"
 ---
 
+::: {.callout-note}
+We're actively researching how to build a better Notebook experience in Positron and we want to hear from you. Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or schedule a time to chat with our product & engineering team [here](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience).
+:::
+
 [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html) offer a flexible, interactive UI for combining code, prose, and visualizations.
 
 Positron enhances Jupyter Notebooks in several key ways:
