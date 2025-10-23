@@ -78,7 +78,7 @@ listing:
         icon: "bi-cpu"
         anchor-text: "Scalable Compute"
       - title: "Centralized Management"
-        description: "Administer all your IDEs (Positron, RStudio, VSCode, JupyterLab) in one place, reducing IT overhead and ensuring consistent environments."
+        description: "Administer all your IDEs (Positron, RStudio, VS Code, JupyterLab) in one place, reducing IT overhead and ensuring consistent environments."
         icon: "bi-gear"
         anchor-text: "Centralized Management"
       - title: "Dedicated Support"
