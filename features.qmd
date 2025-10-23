@@ -116,7 +116,7 @@ Interested in Positron for your team? [Learn about enterprise solutions.](https:
 
 ## Enterprise-ready with Positron Pro
 
-For teams that need enterprise-grade capabilities, [Positron Pro](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page) on [Posit Workbench](https://posit.co/products/enterprise/workbench/?utm_source=positron-docs&utm_medium=features-page) provides the admin configuration and security your organization requires.
+For teams that need enterprise-grade capabilities, [Positron Pro](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page) on [Posit Workbench](https://posit.co/products/enterprise/workbench/?utm_source=positron-docs&utm_medium=features-page) provides the scalability, data access, admin configuration, and security your organization requires.
 
 
 {{< video videos/positron-workbench.mp4 >}}
