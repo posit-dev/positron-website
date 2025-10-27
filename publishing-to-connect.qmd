@@ -24,7 +24,7 @@ The Publisher extension supports a wide range of content types including:
 - **R Markdown documents:** Reproducible reports for R
 - **Static websites:** HTML, CSS, and JavaScript projects
 
-For a full list of supported files, view the [publisher documentation](https://github.com/posit-dev/publisher/blob/main/docs/configuration.md).
+For a full list of supported project types, view the [Publisher documentation](https://github.com/posit-dev/publisher/blob/main/docs/configuration.md).
 
 ## Publishing workflow
 
