@@ -65,10 +65,10 @@ listing:
       - title: "Multi-session console"
         description: "Work across one or multiple consoles for concurrent analysis and development."
         icon: "bi-terminal"
-      - title: "Publish reports in seconds"
+      - title: "Publish reports quickly"
         description: "With a click of a button, seamlessly deploy your project to share using Posit Publisher to [Posit Connect](https://posit.co/products/enterprise/connect/) and [Posit Connect Cloud](https://connect.posit.cloud/)"
         icon: "bi-upload"
-        anchor-text: "Publish reports in seconds"
+        anchor-text: "Publish reports quickly"
         
 ---
 
