@@ -65,6 +65,26 @@ listing:
       - title: "Multi-session console"
         description: "Work across one or multiple consoles for concurrent analysis and development."
         icon: "bi-terminal"
+  - id: features-pro-4
+    type: custom
+    template: templates/feature-card.ejs
+    contents:
+      - title: "Enhanced Security"
+        description: "Move development off unmanaged laptops into a secure, server-based environment that integrates with your existing SSO identity providers or data governance tools like AWS, Databricks, and Snowflake."
+        icon: "bi-shield-check"
+        anchor-text: "Enhanced Security"
+      - title: "Scalable Compute"
+        description: "Give data scientists access to powerful servers with more CPU, RAM, and GPUs than their laptops could ever provide."
+        icon: "bi-cpu"
+        anchor-text: "Scalable Compute"
+      - title: "Centralized Management"
+        description: "Administer all your IDEs (Positron, RStudio, VS Code, JupyterLab) in one place, reducing IT overhead and ensuring consistent environments."
+        icon: "bi-gear"
+        anchor-text: "Centralized Management"
+      - title: "Dedicated Support"
+        description: "Get help from Posit experts about how to deploy, maintain, and troubleshoot your Posit Workbench environment."
+        icon: "bi-headset"
+        anchor-text: "Dedicated Support"
         
 ---
 
@@ -93,6 +113,16 @@ Interested in Positron for your team? [Learn about enterprise solutions.](https:
 ::: {#features-develop-3}
 :::
 
+
+## Enterprise-ready with Positron Pro
+
+For teams that need enterprise-grade capabilities, [Positron Pro](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page) on [Posit Workbench](https://posit.co/products/enterprise/workbench/?utm_source=positron-docs&utm_medium=features-page) provides the scalability, data access, admin configuration, and security your organization requires.
+
+
+{{< video videos/positron-workbench.mp4 >}}
+
+::: {#features-pro-4}
+:::
 
 ## Get started
 
