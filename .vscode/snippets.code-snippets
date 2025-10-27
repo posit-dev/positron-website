@@ -1,0 +1,48 @@
+{
+	// Place your positron-website workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example snippet for R:
+	// "switch": {
+	// 	"scope": "r",
+	// 	"prefix": "switch",
+	// 	"body": [
+	// 		"switch(${1:object},",
+	// 		"\t${2:case} = ${3:action}",
+	// 		")"
+	// 	],
+	// 	"description": "Define a switch statement"
+	// },
+	// Example snippet for Python:
+	// "match-case": {
+	// 	"scope": "python",
+	// 	"prefix": "match",
+	// 	"body": [
+	// 		"match ${1:expression}:",
+	// 		"\tcase ${2:pattern}:",
+	// 		"\t\t${3:# action}",
+	// 		"\tcase _:",
+	// 		"\t\t${4:# default action}"
+	// 	],
+	// 	"description": "Define a match-case statement (Python 3.10+)"
+	// },
+	"font-awesome-icon": {
+		"scope": "quarto",
+		"prefix": "fontawesome",
+		"body": [
+			"{{< fa ${1:font-awesome-id} >}}"
+		],
+		"description": "Insert Font Awesome icon shortcode. Search on https://fontawesome.com/icons for icon IDs."
+	},
+	"settings-link": {
+		"scope": "quarto",
+		"prefix": "setting",
+		"body": [
+			"[`${1:positron.settings.id}`](positron://settings/${1:positron.settings.id})"
+		],
+		"description": "Insert Positron settings link with auto-matching setting ID"
+	}
+}

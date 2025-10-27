@@ -71,7 +71,7 @@ The discovery process runs in the background and updates the interpreter list as
 
 ### Unsupported Python versions
 
-Positron only supports Python minor versions 3.9 through 3.13, which are the [currently supported versions](https://devguide.python.org/versions/).
+Positron only supports Python minor versions 3.9 through 3.14, which are the [currently supported versions](https://devguide.python.org/versions/).
 Other versions may be discovered, but you may run into issues using them.
 
 ### Locator type

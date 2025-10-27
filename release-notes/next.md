@@ -1,4 +1,9 @@
-### Highlights
+
+### Patch Notes
+
+ The 2025.10.1 patch release addresses [this issue](https://github.com/posit-dev/positron/milestone/32).
+
+### Release Highlights
 
 #### New features in the Data Explorer 🌟
 

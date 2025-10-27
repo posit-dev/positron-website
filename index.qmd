@@ -4,16 +4,15 @@ toc: false
 editor: source
 anchor-links: false
 description: |
-  Positron unifies exploration and production work in one free, AI-powered environment, empowering the full spectrum of data science in Python and R.
+  Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.
 hide-description: true
 format:
   html:
-    css: css/index.css
     include-in-header:
       - text: |
           <!-- Open Graph Meta Tags -->
           <meta property="og:title" content="Positron - The Data Science IDE">
-          <meta property="og:description" content="Positron unifies exploration and production work in one free, AI-powered environment, empowering the full spectrum of data science in Python and R.">
+          <meta property="og:description" content="Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.">
           <meta property="og:type" content="website">
           <meta property="og:url" content="https://positron.posit.co/">
           <meta property="og:image" content="https://positron.posit.co/images/index-positron-social-share.png">
@@ -30,7 +29,7 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 
 # The Data Science IDE
 
-### Positron unifies exploration and production work in one free, AI-powered environment, empowering the full spectrum of data science in Python and R.
+### Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.
 
 <a href="download.qmd" class="btn btn-outline-primary">Free Download</a>
 <a href="features.qmd" class="btn btn-outline-primary">Explore Features</a>
