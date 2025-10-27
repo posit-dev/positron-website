@@ -65,11 +65,10 @@ listing:
       - title: "Multi-session console"
         description: "Work across one or multiple consoles for concurrent analysis and development."
         icon: "bi-terminal"
-      - title: "Publish reports in seconds"
-        description: "With a click of a button, seamlessly deploy your project to share using Posit Publisher to Posit Connect and Posit Connect Cloud"
+      - title: "Publish reports quickly"
+        description: "With a click of a button, seamlessly deploy and share your project with Posit Publisher to [Posit Connect](https://posit.co/products/enterprise/connect/) and [Posit Connect Cloud](https://connect.posit.cloud/)"
         icon: "bi-upload"
-        link: "publishing-to-connect.qmd"
-        anchor-text: "Publish reports in seconds"
+        anchor-text: "Publish reports quickly"
         
 ---
 
@@ -104,5 +103,3 @@ Interested in Positron for your team? [Learn about enterprise solutions.](https:
 Join thousands of data scientists who have already made the switch to Positron.
 
 <a href="welcome.qmd" class='btn btn-primary'>Get Started</a>
-
-

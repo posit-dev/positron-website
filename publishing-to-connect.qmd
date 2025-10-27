@@ -1,5 +1,10 @@
+
+
+
 ---
-title: "Publishing your work"
+title: "Publish your work"
+description: "Publish your data science work from Positron to Posit Connect and Posit Connect Cloud using the built-in Publisher extension."
+meta-description: "Publish Quarto documents, Shiny apps, Jupyter notebooks, and APIs from Positron to Posit Connect with one-click deployment using the Publisher extension."
 ---
 
 Publish your data science work directly from Positron to [Posit Connect](https://posit.co/products/enterprise/connect/) and [Posit Connect Cloud](https://connect.posit.cloud/) with the built-in [Publisher extension](https://open-vsx.org/extension/posit/publisher).
@@ -8,35 +13,31 @@ Whether you're sharing reports, applications, or APIs, the Publisher extension s
 
 {{< video videos/deploy-to-connect.mp4 aria-label="Positron Publisher extension demonstrating one-click deployment to Posit Connect" >}}
 
-## Getting started with Publisher <!-- vale off -->
+## Getting Started with Publisher
 
-The [Posit Publisher extension](https://open-vsx.org/extension/posit/publisher) comes pre-installed with Positron as a bootstrapped extension. This means it's automatically available when you start Positron and updates automatically when new versions are released.
-
+The [Posit Publisher extension](https://open-vsx.org/extension/posit/publisher) comes pre-installed with Positron as a [bootstrapped extension](extensions.qmd#bootstrapped-extension). This means it's available by default when you start Positron and updates automatically when new versions are released.
 ## What you can publish
 
 The Publisher extension supports a wide range of content types including:
 
-- **Quarto documents** - Dynamic reports and presentations
-- **Jupyter notebooks** - Interactive data analysis notebooks
-- **Shiny & Streamlit apps** - Interactive web applications
-- **FastAPI & Plumber APIs** - RESTful APIs for data services
-- **R Markdown documents** - Reproducible reports
-- **Static websites** - HTML, CSS, and JavaScript projects
+- **Quarto documents:** Dynamic reports and presentations
+- **Jupyter notebooks:** Interactive data analysis notebooks
+- **Shiny & Streamlit apps:** Interactive web applications
+- **FastAPI & Plumber APIs:** RESTful APIs for data services
+- **R Markdown documents:** Reproducible reports for R
+- **Static websites:** HTML, CSS, and JavaScript projects
 
-For a full list of supported files, view the [publisher documentation](https://github.com/posit-dev/publisher/blob/main/docs/configuration.md).
+For a full list of supported project types, view the [Publisher documentation](https://github.com/posit-dev/publisher/blob/main/docs/configuration.md).
 
 ## Publishing workflow
 
 1. Ensure your project is ready for publication
-
-2. In the Activty Bar, select the Publisher icon.
-3. Select the type of content you're publishing
-4. Choose your target Posit Connect server
-5. Configure any deployment settings
-6. Add your API credentials
-7. Click "Publish"
+2. In the Activity Bar, select the Publisher icon.
+3. Follow the steps outlined based on your preferred Connect product:
+    * Publishing with [Connect Cloud](https://docs.posit.co/connect-cloud/user/publish/ide.html)
+    * Publishing with [Connect](https://docs.posit.co/connect/user/publishing-positron-vscode/)
 
 ### Getting help
-- See the [troubleshooting guide](https://github.com/posit-dev/publisher/blob/main/docs/troubleshooting.md)
-- Check the [Posit Connect documentation](https://docs.posit.co/connect/) for server-specific guidance
-- Review the [Publisher extension repository](https://github.com/posit-dev/publisher) for updates and issues
+- See the [troubleshooting guide](https://github.com/posit-dev/publisher/blob/main/docs/troubleshooting.md) for the Publisher extension.
+- Review the [Publisher extension repository](https://github.com/posit-dev/publisher) for updates and issues.
+- Check out both the [Posit Connect documentation](https://docs.posit.co/connect/) and the [Posit Connect Cloud documentation](https://docs.posit.co/connect-cloud/).
