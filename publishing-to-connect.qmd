@@ -1,6 +1,3 @@
-
-
-
 ---
 title: "Publish your work"
 description: "Publish your data science work from Positron to Posit Connect and Posit Connect Cloud using the built-in Publisher extension."
