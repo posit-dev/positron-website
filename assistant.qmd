@@ -186,32 +186,24 @@ If you prefer not to receive code completions from Positron Assistant, you can d
 - **To specify glob patterns for which inline completions should be disabled:** Modify the setting [`positron.assistant.inlineCompletionExcludes`](positron://settings/positron.assistant.inlineCompletionExcludes)
 
 ### Console actions
-Positron Assistant is available within the Console, and provides quick help when errors are encountered. 
 
-Two options are available on errors in the Console: Fix and Explain. Clicking one of these options sends your session to Assistant, which then immediately starts on a solution; details on each of these are available below. 
+Positron Assistant provides quick help for errors in the Console. When you see an error, you can choose **Fix** or **Explain** to send your session to Assistant for immediate feedback.
 
-Assistant automatically receives the appropriate context, including the traceback you're troubleshooting, your recent code inputs, and the active file. You can respond to Assistant after it provides feedback, allowing you to tailor code in Fix mode or ask addition queries in Explain mode. 
+- **Fix:** Assistant diagnoses the error and suggests a corrected version of your code. Use Fix to resolve errors quickly or apply recommended changes.
 
-All of these interactions are triggered directly from within the Console and exchanges with Assistant happen within the Quick Chat interface. This is separate from the standard chat in the sidebar, allowing you to multitask without interrupting either your Console or Assistant flows. You can pull open the Quick Chat at any time to explore your Fix and Explain history by search for `Open Quick Chat` in the command palette. 
+- **Explain:** Assistant describes what your code does, analyzes the error, and suggests possible solutions. Use Explain to learn more about your code or get advice on complex issues.
 
-When using Fix and Explain, since Assistant starts immediately, the Quick Chat inherits the following settings from the primary sidebar chat interface:  
+You can review your Fix and Explain history by searching for _Open Quick Chat_ in the Command Palette.
+
+Fix and Explain inherits these options from the sidebar chat:
 
 - Selected model
-- Files added or removed from context 
-- Whether the Console session is visible or hidden
-
-
-
-#### Fix
-
-Fix triggers Assistant to diagnose and propose a fixed revision of the code you're running. The code it generates can be run directly in the Console, or applied in an Editor if you're coding in files. Assistant  uses the traceback to see where the error originates, and will suggest if a fix should be applied to a file instead of run in the Console. Assistant will focus primarily on code in Fix mode, with addition information being limited to 1-2 lines of context for the code it generates.
-
-#### Explain
-
-Explain takes a different approach: Assistant will focus on providing a description of the code's function, an analysis of the error condition, and possible paths towards a solution. As opposed to Fix, Explain provides a teaching experience whether you want to understand the code better or the issue requires domain expertise only a human can provide. 
+- Files added or removed from context
+- Console session visibility
 
 #### Disabling Console actions
-Console actions are enabled by default when both Assistant is enabled and you are signed into a model provider. If you want to disable these actions while still using other Assistant features, toggle the setting [`positron.assistant.consoleActions.enable`](positron://settings/positron.assistant.consoleActions.enable). This will remove the actions from any errors which appear in the Console, and can be turned on or off at any time.
+
+Console actions are enabled by default when Assistant is active and you are signed into a model provider. Disable Console actions with the [`positron.assistant.consoleActions.enable`](positron://settings/positron.assistant.consoleActions.enable) setting. 
 
 ### Shiny Assistant
 
