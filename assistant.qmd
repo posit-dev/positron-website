@@ -185,6 +185,26 @@ If you prefer not to receive code completions from Positron Assistant, you can d
 
 - **To specify glob patterns for which inline completions should be disabled:** Modify the setting [`positron.assistant.inlineCompletionExcludes`](positron://settings/positron.assistant.inlineCompletionExcludes)
 
+### Console actions
+
+Positron Assistant provides quick help for errors in the Console. When you see an error, you can choose **Fix** or **Explain** to send your session to Assistant for immediate feedback.
+
+- **Fix:** Assistant diagnoses the error and suggests a corrected version of your code. Use Fix to resolve errors quickly or apply recommended changes.
+
+- **Explain:** Assistant describes what your code does, analyzes the error, and suggests possible solutions. Use Explain to learn more about your code or get advice on complex issues.
+
+You can review your Fix and Explain history by searching for _Open Quick Chat_ in the Command Palette.
+
+Fix and Explain inherits these options from the sidebar chat:
+
+- Selected model
+- Files added or removed from context
+- Console session visibility
+
+#### Disabling Console actions
+
+Console actions are enabled by default when Assistant is active and you are signed into a model provider. Disable Console actions with the [`positron.assistant.consoleActions.enable`](positron://settings/positron.assistant.consoleActions.enable) setting. 
+
 ### Shiny Assistant
 
 Shiny Assistant is a chat participant available within Positron Assistant that provides context-aware assistance for developing Shiny applications in Python or R. It can help you with tasks such as generating Shiny UI components, server logic, and reactive expressions.
