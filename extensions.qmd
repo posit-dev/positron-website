@@ -17,7 +17,7 @@ Open VSX includes most popular VS Code extensions, but not all; some authors don
 Posit is a major sponsor of Open VSX.
 <!-- vale Posit.Contractions = YES -->
 :::
- 
+
 ## Accessing extensions
 
 To manage your extensions in Positron, choose the Extensions view from the Activity Bar on the left or use the keyboard shortcut {{< kbd mac=Command-Shift-X win=Ctrl-Shift-X linux=Ctrl-Shift-X >}}. From here you can manage extensions you already have installed or search the Open VSX marketplace for new ones. 

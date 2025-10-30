@@ -87,6 +87,10 @@ website:
           contents:
           - assistant.qmd
           - databot.qmd
+        - section: "Language Guides"
+          contents: 
+            - guide-python.qmd
+            - guide-r.qmd
         - section: "Data Analysis"
           contents:
             - section: "Data Explorer"

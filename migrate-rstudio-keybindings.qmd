@@ -8,8 +8,8 @@ Keyboard shortcuts are the most efficient way to accomplish tasks that come up f
 As you migrate from RStudio to Positron, maintaining your productivity means working with, not against, your muscle memory.
 
 Many familiar shortcuts will work immediately, because they are built in to Positron and its integrated R support.
-These are documented with [Positron's keyboard shortcuts](keyboard-shortcuts.qmd).
-That is also where you can learn how to customize shortcuts.
+These are documented with [Positron's general keyboard shortcuts](keyboard-shortcuts.qmd) (where you can also learn how to customize shortcuts) and [keyboard shortcuts specific to R programming](guide-r.qmd#keyboard-shortcuts). Another set of shortcuts can be enabled to align as closely as possible to RStudio's behavior.
+
 
 ## RStudio keybindings in Positron
 
