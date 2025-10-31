@@ -33,7 +33,7 @@ One of the most upvoted features in this month's release is a new setting to cus
 - [[#9788](https://github.com/posit-dev/positron/issues/9788), [#9983](https://github.com/posit-dev/positron/issues/9983)] Assistant: added [a new setting `positron.assistant.filterModels`](positron://settings/positron.assistant.filterModels) to configure available models. Positron provides defaults to this setting to only show models that are known to work well with Positron Assistant, but you can customize it as needed.
 - [[#9388](https://github.com/posit-dev/positron/issues/9388)] Assistant: added [a new setting `positron.assistant.preferredModel`](positron://settings/positron.assistant.preferredModel) to set the preferred model to pre-select in the model selector. 
 - [[#9388](https://github.com/posit-dev/positron/issues/9388)] Assistant: added [a new setting `positron.assistant.defaultModels`](positron://settings/positron.assistant.defaultModels) to set the default model per provider. 
-- [#9738, #9643] Assistant: now dynamically fetch Bedrock models from AWS.
+- [[#9738](https://github.com/posit-dev/positron/issues/9738), [#9643](https://github.com/posit-dev/positron/issues/9643)] Assistant: now dynamically fetch Bedrock models from AWS.
 - [[#9563](https://github.com/posit-dev/positron/issues/9563)] Assistant: enabled custom chat modes, instructions, and prompt files.
 - [[#10174](https://github.com/posit-dev/positron/issues/10174)] Assistant: simplified project tree tool output structure.
 - [[#9847](https://github.com/posit-dev/positron/issues/9847)] Data Explorer: updated the column selector to use our new backend search.
