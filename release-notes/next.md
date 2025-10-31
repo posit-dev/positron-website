@@ -30,7 +30,7 @@ One of the most upvoted features in this month's release is a new setting to cus
 
 #### New features
 
-- [[#10039](https://github.com/posit-dev/positron/issues/10039)] Added new preview Catalog Explorer functionality for interacting with data catalogs, with initial support today available for Databricks catalogs. This feature is in preview and can be enabled by opting in to the new [`catalogExplorer.enable` setting](positron://settings/catalogExplorer.enable). 
+- [[#10039](https://github.com/posit-dev/positron/issues/10039)] Added new preview Catalog Explorer functionality for interacting with data catalogs, with initial support today available for Databricks catalogs. This feature is in preview and can be enabled by opting in to the new [`catalogExplorer.enable` setting](positron://settings/catalogExplorer.enable).
 - [[#4366](https://github.com/posit-dev/positron/issues/4366)] Remote sessions: added native support for remote sessions on WSL.
 - [[#4799](https://github.com/posit-dev/positron/issues/4799)] Remote sessions: improved _Remote-SSH: Connect to host_ command.
 - [[#10017](https://github.com/posit-dev/positron/issues/10017)] Remote sessions: the new [`remoteSSH.serverInstallPath` setting](positron://settings/remoteSSH.serverInstallPath) lets you customize the directory for the Positron server installation.
