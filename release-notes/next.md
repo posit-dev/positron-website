@@ -4,7 +4,7 @@
 
 This release brings a slew of improvements to the remote SSH experience in Positron. We've improved:
 
-- our UI treatment of configured hosts, 
+- our UI treatment of configured hosts
 - the command to connect to your remote machine(s)
 - bundling of components such as Quarto
 - what happens when something goes wrong with the server download on your remote machine
