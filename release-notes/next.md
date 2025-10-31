@@ -71,7 +71,7 @@ One of the most upvoted features in this month's release is a new setting to cus
 - [[#9985](https://github.com/posit-dev/positron/issues/9985)] R: fixed `browseURL()` behavior for non-ASCII text on Windows.
 - [[#9467](https://github.com/posit-dev/positron/issues/9467)] R: fixed a crash when interrupting R while output is emitted in the console.
 - [[#9927](https://github.com/posit-dev/positron/issues/9927)] R: the setting that restores an R workspace is now respected on Windows. Thanks to our contributor [@kv9898](https://github.com/kv9898)!
-- [[[#917](https://github.com/posit-dev/positron/issues/917)](https://github.com/posit-dev/ark/issues/917)] R: the R backend is now more robust to loading issues of internal graphics packages such as ragg.
+- [[#917](https://github.com/posit-dev/ark/issues/917)] R: the R backend is now more robust to loading issues of internal graphics packages such as ragg.
 - [[#10192](https://github.com/posit-dev/positron/issues/10192)] The R backend now works on macOS 11. Thanks to our contributor [@kv9898](https://github.com/kv9898)!
 - [[#9488](https://github.com/posit-dev/positron/issues/9488)] Workbench: fixed a bug when opening workspaces such as with `usethis::create_from_github()`.
 - [[#10060](https://github.com/posit-dev/positron/issues/10060)] Workbench: fixed Positron details in the "About" dialog.
