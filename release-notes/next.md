@@ -14,7 +14,7 @@ Additionally, the most upvoted feature in this month's release is native support
 
 #### Positron Assistant 🤖
 
-Our new release brings initial preview support for using [Positron Assistant](https://positron.posit.co/assistant) with models provided by Amazon Bedrock, in addition to the existing support for models provided by Anthropic, GitHub Copilot, and [OpenAI and OpenAI-compatible providers](https://github.com/posit-dev/positron/discussions/9988).
+Our new release adds initial preview support for using [Positron Assistant](https://positron.posit.co/assistant) with models provided by Amazon Bedrock, in addition to the existing support for models provided by Anthropic, GitHub Copilot, and [OpenAI and OpenAI-compatible providers](https://github.com/posit-dev/positron/discussions/9988).
 
 Positron Pro sessions on Posit Workbench benefit from a smoother authentication experience with [Workbench-managed AWS Credentials](https://docs.posit.co/ide/server-pro/user/posit-workbench/managed-credentials/aws.html). Positron Desktop users can get started with Bedrock models by [manually authenticating via the AWS CLI](https://github.com/posit-dev/positron/discussions/10322).
 
@@ -47,7 +47,7 @@ One of the most upvoted features in this month's release is a new setting to cus
 - [[#1301](https://github.com/posit-dev/positron/issues/1301)] The Shiny extension (which provides support for both Python and R) is now included as a bootstrap installed extension.
 - [[#9554](https://github.com/posit-dev/positron/issues/9554)] Added support for Databricks-style `# COMMAND ----------` code cells in `.py` and `.R` files. You can customize this behavior by changing the new [`codeCells.additionalCellDelimiter` setting](positron://settings/codeCells.additionalCellDelimiter).
 - [[#9573](https://github.com/posit-dev/positron/issues/9573)] Workbench: settings in Positron can now be enforced by Workbench admins. 
-- [[#8393](https://github.com/posit-dev/positron/issues/8393)] Now support pasting or dropping files as paths in R and Python scripts. You can now copy files from a file manager and paste (or <kbd>Shift</kbd> then drop) into an R or Python file to automatically insert properly formatted, quoted file paths. Paths use forward slashes and are made relative when possible.
+- [[#8393](https://github.com/posit-dev/positron/issues/8393)] You can now paste or drop files as paths in R and Python scripts. You can now copy files from a file manager and paste (or <kbd>Shift</kbd> then drop) into an R or Python file to automatically insert properly formatted, quoted file paths. Paths use forward slashes and are made relative when possible.
 - [[#7268](https://github.com/posit-dev/positron/issues/7268)] Added new [`plots.defaultSizingPolicy` setting](positron://settings/plots.defaultSizingPolicy) to configure the sizing policy used for creating plots, and updated other existing plots settings to have new names [`plots.darkFilter`](positron://settings/plots.darkFilter) and [`plots.freezeSlowPlots`](positron://settings/plots.freezeSlowPlots).
 
 #### Bug fixes
