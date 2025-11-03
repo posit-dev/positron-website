@@ -19,20 +19,16 @@ end
 
 ## System requirements
 
-Remote SSH sessions can be *initiated* from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux; Windows and macOS remote hosts are not currently supported. 
+Remote SSH sessions can be *initiated* from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux[^1]; native Windows and macOS remote hosts are not currently supported. 
 
 Other features that aren't currently supported include:
 
-- Connecting to Windows Subsystem for Linux (WSL) backends[^1]
 - Dev Container workflows (note however that you can start a container yourself and connect to it)
 - Connecting from Positron Pro sessions on Posit Workbench
 
 At least 2 GB RAM is required to run the remote Positron server, but for realistic data science work, expect to need at least 4 GB RAM or more on the remote host.
 
-[^1]: Although Positron doesn't officially support connecting to Windows Subsystem for Linux (WSL) backends at this time, there is a community-maintained fork of the [Open Remote - WSL](https://github.com/kv9898/open-remote-wsl) extension adapted for Positron, available on the [Open VSX Registry](https://open-vsx.org/extension/kv9898/open-remote-wsl). The community-maintained WSL extension behaves very similarly to the remote SSH functionality described in this article.
-<!-- vale Posit.Contractions = NO -->
-This WSL extension is not maintained by the Positron team or Posit.
-<!-- vale Posit.Contractions = YES -->
+[^1]: Positron does provide support for using WSL (Windows Subsystem for Linux) on Windows as a remote host.
 
 ## Creating a connection
 

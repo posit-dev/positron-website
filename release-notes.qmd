@@ -1,13 +1,26 @@
 ---
-title: "Older Releases"
+title: "Release Notes"
 listing:
   type: table
   sort: "title desc"
-  fields: ["title"]
+  fields: ["title", "subtitle"]
   field-display-names:
     title: "Release"
+    subtitle: "Link"
   contents:
     - "release-notes/release-2025-*.qmd"
 ---
 
-Also see the [current release notes](download.qmd#release-notes).
+```{r}
+#| echo: false
+#| warning: false
+current_release <- Sys.getenv("RELEASE_VERSION")
+```
+
+## Latest release
+
+The current release of Positron is {{< env RELEASE_VERSION >}}.
+
+{{< include release-notes/release.md >}}
+
+## Older releases

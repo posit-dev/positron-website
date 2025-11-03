@@ -14,9 +14,8 @@ Currently, Positron supports the following Python app frameworks:
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [Flask](https://flask.palletsprojects.com/en/stable/)
 - [Gradio](https://www.gradio.app/)
-- [Shiny](https://shiny.posit.co/py/)
 - [Streamlit](https://streamlit.io/)
-
+- [Shiny](https://shiny.posit.co/py/) via the [Shiny extension](https://open-vsx.org/extension/posit/shiny) which is included as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions)
 
 ## Running a data app
 
