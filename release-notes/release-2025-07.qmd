@@ -1,5 +1,6 @@
 ---
-title: "2025.07 Release Notes"
+title: "2025.07.0-204 Release Notes"
+date: 2025-07-02
 ---
 
 ### Highlights
