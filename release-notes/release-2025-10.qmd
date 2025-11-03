@@ -3,11 +3,11 @@ title: "2025.10.0-199 Release Notes"
 date: 2025-10-10
 ---
 
-### Patch Notes
+### Patch notes
 
 The 2025.10.1-4 patch release (2025-10-15) addresses [this issue](https://github.com/posit-dev/positron/milestone/32).
 
-### Release Highlights
+### Release highlights
 
 #### New features in the Data Explorer 🌟
 
