@@ -22,7 +22,7 @@ We'll continue to improve the Bedrock experience in Positron, particularly aroun
 
 #### Customize your plots display 📊
 
-One of the most upvoted features in this month's release is a new setting to customize the default sizing policy for the Plots pane, giving you more control over how your visualizations are displayed. Use the new [`plots.defaultSizingPolicy` setting](positron://settings/plots.defaultSizingPolicy) to configure how your plots are displayed by default if, for example, you prefer to always start with the "fill" option instead of the "auto" option. You can still change the sizing policy via the UI for plots after they are created, but this setting lets you set your preferred default behavior.
+One of the most upvoted features in this month's release is a new setting to customize the default sizing policy for the Plots pane, giving you more control over how your visualizations are displayed. Use the new [`plots.defaultSizingPolicy`](positron://settings/plots.defaultSizingPolicy) setting to configure how your plots are displayed by default if, for example, you prefer to always start with the "fill" option instead of the "auto" option. You can still change the sizing policy via the UI for plots after they are created, but this setting lets you set your preferred default behavior.
 
 <div id="checkbox"></div>
 
@@ -30,13 +30,13 @@ One of the most upvoted features in this month's release is a new setting to cus
 
 #### New features
 
-- [[#10039](https://github.com/posit-dev/positron/issues/10039)] Added new preview Catalog Explorer functionality for interacting with data catalogs, with initial support today available for Databricks catalogs. This feature is in preview and can be enabled by opting in to the new [`catalogExplorer.enable` setting](positron://settings/catalogExplorer.enable).
+- [[#10039](https://github.com/posit-dev/positron/issues/10039)] Added new preview Catalog Explorer functionality for interacting with data catalogs, with initial support today available for Databricks catalogs. This feature is in preview and can be enabled by opting in to the new [`catalogExplorer.enable`](positron://settings/catalogExplorer.enable) setting.
 - [[#4366](https://github.com/posit-dev/positron/issues/4366)] Remote sessions: added native support for remote sessions on WSL.
 - [[#4799](https://github.com/posit-dev/positron/issues/4799)] Remote sessions: improved _Remote-SSH: Connect to host_ command.
-- [[#10017](https://github.com/posit-dev/positron/issues/10017)] Remote sessions: the new [`remoteSSH.serverInstallPath` setting](positron://settings/remoteSSH.serverInstallPath) lets you customize the directory for the Positron server installation.
-- [[#9788](https://github.com/posit-dev/positron/issues/9788), [#9983](https://github.com/posit-dev/positron/issues/9983)] Assistant: added [a new setting `positron.assistant.filterModels`](positron://settings/positron.assistant.filterModels) to configure available models. Positron provides defaults to this setting to only show models that are known to work well with Positron Assistant, but you can customize it as needed.
-- [[#9388](https://github.com/posit-dev/positron/issues/9388)] Assistant: added [a new setting `positron.assistant.preferredModel`](positron://settings/positron.assistant.preferredModel) to set the preferred model to pre-select in the model selector. 
-- [[#9388](https://github.com/posit-dev/positron/issues/9388)] Assistant: added [a new setting `positron.assistant.defaultModels`](positron://settings/positron.assistant.defaultModels) to set the default model per provider. 
+- [[#10017](https://github.com/posit-dev/positron/issues/10017)] Remote sessions: the new [`remoteSSH.serverInstallPath`](positron://settings/remoteSSH.serverInstallPath) setting lets you customize the directory for the Positron server installation.
+- [[#9788](https://github.com/posit-dev/positron/issues/9788), [#9983](https://github.com/posit-dev/positron/issues/9983)] Assistant: added a new setting [`positron.assistant.filterModels`](positron://settings/positron.assistant.filterModels) to configure available models. Positron provides defaults to this setting to only show models that are known to work well with Positron Assistant, but you can customize it as needed.
+- [[#9388](https://github.com/posit-dev/positron/issues/9388)] Assistant: added a new setting [`positron.assistant.preferredModel`](positron://settings/positron.assistant.preferredModel) to set the preferred model to pre-select in the model selector. 
+- [[#9388](https://github.com/posit-dev/positron/issues/9388)] Assistant: added a new setting [`positron.assistant.defaultModels`](positron://settings/positron.assistant.defaultModels) to set the default model per provider. 
 - [[#9738](https://github.com/posit-dev/positron/issues/9738), [#9643](https://github.com/posit-dev/positron/issues/9643)] Assistant: now dynamically fetch Bedrock models from AWS.
 - [[#9563](https://github.com/posit-dev/positron/issues/9563)] Assistant: enabled custom chat modes, instructions, and prompt files.
 - [[#10174](https://github.com/posit-dev/positron/issues/10174)] Assistant: simplified project tree tool output structure.
@@ -45,10 +45,10 @@ One of the most upvoted features in this month's release is a new setting to cus
 - [[#10094](https://github.com/posit-dev/positron/issues/10094)] R: Positron now reads R repository configuration from `/etc/rstudio/repos.conf` automatically if no other repository configuration is present.
 - [[#964](https://github.com/posit-dev/positron/issues/964)] R: added a new setting [`positron.r.saveAndRestoreWorkspace`](positron://settings/positron.r.saveAndRestoreWorkspace) to opt in to saving a workspace to `.RData` on exit and restoring on startup.
 - [[#1301](https://github.com/posit-dev/positron/issues/1301)] The Shiny extension (which provides support for both Python and R) is now included as a bootstrap installed extension.
-- [[#9554](https://github.com/posit-dev/positron/issues/9554)] Added support for Databricks-style `# COMMAND ----------` code cells in `.py` and `.R` files. You can customize this behavior by changing the new [`codeCells.additionalCellDelimiter` setting](positron://settings/codeCells.additionalCellDelimiter).
+- [[#9554](https://github.com/posit-dev/positron/issues/9554)] Added support for Databricks-style `# COMMAND ----------` code cells in `.py` and `.R` files. You can customize this behavior by changing the new [`codeCells.additionalCellDelimiter`](positron://settings/codeCells.additionalCellDelimiter) setting.
 - [[#9573](https://github.com/posit-dev/positron/issues/9573)] Workbench: settings in Positron can now be enforced by Workbench admins. 
 - [[#8393](https://github.com/posit-dev/positron/issues/8393)] You can now paste or drop files as paths in R and Python scripts. You can now copy files from a file manager and paste (or <kbd>Shift</kbd> then drop) into an R or Python file to automatically insert properly formatted, quoted file paths. Paths use forward slashes and are made relative when possible.
-- [[#7268](https://github.com/posit-dev/positron/issues/7268)] Added new [`plots.defaultSizingPolicy` setting](positron://settings/plots.defaultSizingPolicy) to configure the sizing policy used for creating plots, and updated other existing plots settings to have new names [`plots.darkFilter`](positron://settings/plots.darkFilter) and [`plots.freezeSlowPlots`](positron://settings/plots.freezeSlowPlots).
+- [[#7268](https://github.com/posit-dev/positron/issues/7268)] Added new [`plots.defaultSizingPolicy`](positron://settings/plots.defaultSizingPolicy) setting to configure the sizing policy used for creating plots, and updated other existing plots settings to have new names [`plots.darkFilter`](positron://settings/plots.darkFilter) and [`plots.freezeSlowPlots`](positron://settings/plots.freezeSlowPlots).
 
 #### Bug fixes
 
@@ -79,7 +79,7 @@ One of the most upvoted features in this month's release is a new setting to cus
 - [[#10192](https://github.com/posit-dev/positron/issues/10192)] The R backend now works on macOS 11. Thanks to our contributor [@kv9898](https://github.com/kv9898)!
 - [[#9488](https://github.com/posit-dev/positron/issues/9488)] Workbench: fixed a bug when opening workspaces such as with `usethis::create_from_github()`.
 - [[#10060](https://github.com/posit-dev/positron/issues/10060)] Workbench: fixed Positron details in the "About" dialog.
-- [[#9631](https://github.com/posit-dev/positron/issues/9631)] Fixed the [`notebook.workingDirectory` setting](positron://settings/notebook.workingDirectory) for untitled Jupyter notebooks.
+- [[#9631](https://github.com/posit-dev/positron/issues/9631)] Fixed the [`notebook.workingDirectory`](positron://settings/notebook.workingDirectory) setting for untitled Jupyter notebooks.
 - [[#7205](https://github.com/posit-dev/positron/issues/7205)] Fixed the `positron.RuntimeCodeExecutionMode.Silent` behavior for extensions, for queued code in the console. Thanks to our contributor [@kv9898](https://github.com/kv9898)!
 - [[#7861](https://github.com/posit-dev/positron/issues/7861)] Fixed what Positron reports to extensions in `positron.runtime.getForegroundSession()`.
 - [[#9820](https://github.com/posit-dev/positron/issues/9820)] Fixed Quarto bundling on Windows.
