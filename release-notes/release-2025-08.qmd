@@ -1,6 +1,7 @@
 ---
 title: "2025.08.0-130 Release Notes"
 date: 2025-08-04
+subtitle: <https://github.com/posit-dev/positron/releases/tag/2025.08.0-130>
 ---
 
 ### Highlights

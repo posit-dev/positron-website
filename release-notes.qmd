@@ -3,9 +3,10 @@ title: "Release Notes"
 listing:
   type: table
   sort: "title desc"
-  fields: ["title"]
+  fields: ["title", "subtitle"]
   field-display-names:
     title: "Release"
+    subtitle: "Link"
   contents:
     - "release-notes/release-2025-*.qmd"
 ---
