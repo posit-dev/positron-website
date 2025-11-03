@@ -14,7 +14,7 @@ Additionally, the most upvoted feature in this month's release is native support
 
 #### Positron Assistant 🤖
 
-Our new release adds initial preview support for using [Positron Assistant](https://positron.posit.co/assistant) with models provided by Amazon Bedrock, in addition to the existing support for models provided by Anthropic, GitHub Copilot, and [OpenAI and OpenAI-compatible providers](https://github.com/posit-dev/positron/discussions/9988).
+Our new release adds initial preview support for using [Positron Assistant](https://positron.posit.co/assistant) with models provided by Amazon Bedrock, in addition to the existing Anthropic and GitHub Copilot model providers and the experimental [OpenAI and OpenAI-compatible model providers](https://github.com/posit-dev/positron/discussions/9988)).
 
 Positron Pro sessions on Posit Workbench benefit from a smoother authentication experience with [Workbench-managed AWS Credentials](https://docs.posit.co/ide/server-pro/user/posit-workbench/managed-credentials/aws.html). Positron Desktop users can get started with Bedrock models by [manually authenticating via the AWS CLI](https://github.com/posit-dev/positron/discussions/10322).
 
