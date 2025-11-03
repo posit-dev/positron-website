@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Python in Positron"
 format: html
 ---
 
@@ -7,9 +7,19 @@ Positron ships with first class support for Python, along with [R](guide-r.qmd).
 
 ## Settings
 
-## Keyboard shortcuts
+::: {.callout-tip}
+In addition to providing settings, Positron also provides keyboard shortcuts and bundled extensions, for a "batteries included" experience for data science with Python.
+:::
 
-## Debugging
+## Magics
+
+Positron provides support for [IPython-style magics](https://ipython.readthedocs.io/en/stable/interactive/magics.html) in the Positron console (as well as Python scripts and Jupyter notebooks, where appropriate). Magics are special commands prefixed with the `%` or `%%` symbol that provide convenient shortcuts for common tasks. You can see the supported magics by running the `%lsmagic` command in the Positron console.
+
+Positron provides three new, custom magics created specifically for working in Positron:
+
+- `%view` opens a Python object in the [Data Explorer](data-explorer.qmd). You can use this magic most simply via `%view df`, or additionally like `%view df.groupby('column').sum()` or `%view df "My Dataset"`.
+- `%connection_show` shows a connection object in the [Connections Pane](connections-pane.qmd). Use this magic like `%connection_show my_connection`.
+- `%clear` clears the Positron console.
 
 ## Code formatting
 
@@ -26,4 +36,4 @@ You can format your Python code with various explicit and implicit gestures. You
 }
 ```
 
-## Magics
+## Debugging
