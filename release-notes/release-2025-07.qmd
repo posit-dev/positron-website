@@ -12,7 +12,7 @@ Stable releases of Positron are now available! Thank you to all our beta users w
 
 #### Daily builds 🪩
 
-For users who are interested in trying out new features at a faster cadence, we now provide a channel of daily builds; you can opt in to these builds by changing the [`update.positron.channel` setting](positron://settings/update.positron.channel) to `"dailies"`. 
+For users who are interested in trying out new features at a faster cadence, we now provide a channel of daily builds; you can opt in to these builds by changing the [`update.positron.channel`](positron://settings/update.positron.channel) setting to `"dailies"`. 
 
 #### Migrating to Positron 💫
 
@@ -51,7 +51,7 @@ For more information please see the [Positron Assistant](https://positron.posit.
 - [[#7550](https://github.com/posit-dev/positron/issues/7550)] The support for scaffolding a new folder based on templates has been revamped. Try out the improved _Workspaces: New Folder from Template..._ command.
 - [[#7838](https://github.com/posit-dev/positron/issues/7838)] The Assistant project tree tool now takes parameters to filter the tree output.
 - [[#7404](https://github.com/posit-dev/positron/issues/7404)] Improved the Assistant Language Model Provider Configuration Modal close experience.
-- [[#6158](https://github.com/posit-dev/positron/issues/6158)] Python Consoles now automatically reload imported files, so any changes made to a module are automatically picked up without needing to restart the Console session. You can opt out of this behavior with the [`python.enableAutoReload` setting](positron://settings/python.enableAutoReload).
+- [[#6158](https://github.com/posit-dev/positron/issues/6158)] Python Consoles now automatically reload imported files, so any changes made to a module are automatically picked up without needing to restart the Console session. You can opt out of this behavior with the [`python.enableAutoReload`](positron://settings/python.enableAutoReload) setting.
 - [[#7202](https://github.com/posit-dev/positron/issues/7202)] The Positron version field can now be specified and validated in Positron extensions.
 - [[#8018](https://github.com/posit-dev/positron/issues/8018)] Added a new Agent mode to Positron Assistant; note that you'll now need to use this new mode if you want Assistant to run code on your behalf.
 - [[#7902](https://github.com/posit-dev/positron/issues/7902)] New Python Projects can optionally now create a `pyproject.toml` file.
@@ -62,8 +62,8 @@ For more information please see the [Positron Assistant](https://positron.posit.
 - [[#7582](https://github.com/posit-dev/positron/issues/7582)] Moved the Editor Title Run button to the left of the Editor Action Bar. 
 - [[#4546](https://github.com/posit-dev/positron/issues/4546)] The Plots pane no longer attempts to autoresize plots that are slow to initially render. 
 - [[#7974](https://github.com/posit-dev/positron/issues/7974)] Section headers in `.R` files (from special comments like `# A section ----`) now act as end boundaries for code cells, thanks to [@kylebutts](https://github.com/kylebutts)!
-- [[#8188](https://github.com/posit-dev/positron/issues/8188)] The Plots pane no longer applies a theme-based filter by default; reenable the [`positron.plots.darkFilter` setting](positron://settings/positron.plots.darkFilter) if you prefer dark mode plots.
-- [[#8166](https://github.com/posit-dev/positron/issues/8166)] R and Python are no longer run in a login shell by default; if you want to use shell startup scripts to customize R and Python session startup, update the [`kernelSupervisor.runInShell` setting](positron://settings/kernelSupervisor.runInShell). 
+- [[#8188](https://github.com/posit-dev/positron/issues/8188)] The Plots pane no longer applies a theme-based filter by default; reenable the [`positron.plots.darkFilter`](positron://settings/positron.plots.darkFilter) setting if you prefer dark mode plots.
+- [[#8166](https://github.com/posit-dev/positron/issues/8166)] R and Python are no longer run in a login shell by default; if you want to use shell startup scripts to customize R and Python session startup, update the [`kernelSupervisor.runInShell`](positron://settings/kernelSupervisor.runInShell) setting. 
 - [[#8178](https://github.com/posit-dev/positron/issues/8178)] Enabled streaming edits in Assistant inline editor chats by default.
 - [[#7724](https://github.com/posit-dev/positron/issues/7724)] Added configuration to exclude files from AI inline completions.
 - [[#5023](https://github.com/posit-dev/positron/issues/5023)] R: Pressing <kbd>Cmd/Ctrl+Enter</kbd> to run a statement of R code now falls back to running one line at a time when there are parse errors in the file.

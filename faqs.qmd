@@ -41,11 +41,6 @@ title: "Frequently Asked Questions"
   * RStudio is extensible only via RStudio add-ins, and while Positron supports some of the same, existing RStudio add-ins, not all are supported. Rather than doubling down on the more limited RStudio add-in capabilities for novel integrations, we suggest exploring [extension development and our Positron API endpoints](extension-development.qmd).    
   * We do _not_ plan to have a `.Rproj` equivalent for Positron (e.g. a `.positronproj`), but rather Positron can open and treat any folder as a "project" or workspace. We still suggest project-oriented workflows, and for more context, please see: [Migrating from RStudio: The Rproj File](migrate-rstudio-rproj.qmd).    
 
-### I'm coming from RStudio, and Positron's keybindings are too different
-
-* Check out the [RStudio Keybindings](migrate-rstudio-keybindings.qmd) section of our documentation.
-* To opt in to these RStudio-like keybindings, enable the [`workbench.keybindings.rstudioKeybindings` setting](positron://settings/workbench.keybindings.rstudioKeybindings).
-
 ### How can I use Positron in an educational setting?
 
 * Under [Positron's Elastic license](https://positron.posit.co/licensing.html), individual students are free to install and use the software for any purpose.  

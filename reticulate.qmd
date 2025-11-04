@@ -4,7 +4,7 @@ title: Reticulate
 
 Positron has built-in support for Python interpreters managed by the [reticulate](https://rstudio.github.io/reticulate/) R package. When the reticulate package is installed, you can use the `repl_python()` function to start a Python interpreter session directly within Positron. This allows you to run Python code interactively, exactly the same way as you would in a standard Python interpreter.
 
-The feature is controlled by the [`positron.reticulate.enabled` setting](positron://settings/positron.reticulate.enabled) which is set to `'auto'` by default. When `'auto'` is selected, Positron's reticulate integration will be enabled in workspaces where the reticulate R package has
+The feature is controlled by the [`positron.reticulate.enabled`](positron://settings/positron.reticulate.enabled) setting which is set to `'auto'` by default. When `'auto'` is selected, Positron's reticulate integration will be enabled in workspaces where the reticulate R package has
 been loaded at least once. You can also explicitly enable or disable the reticulate integration by setting the value to `'always'` or `'never'`, respectively.
 
 To start a reticulate Python interpreter session, execute the following in an active R interpreter session:

@@ -59,7 +59,7 @@ Completions from an LLM such as GitHub Copilot can be super useful, but sometime
 - [[#9645](https://github.com/posit-dev/positron/issues/9645)] Assistant's Console actions enabled by default.
 - [[#9163](https://github.com/posit-dev/positron/issues/9163)] Assistant: added a timeout to language model provider sign-in.
 - [[#8674](https://github.com/posit-dev/positron/issues/8674)] Assistant: now show a warning when destructive code/actions are suggested.
-- [[#9416](https://github.com/posit-dev/positron/issues/9416)] Assistant: use [`chat.useCopilotParticipantsWithOtherProviders` setting](positron://settings/chat.useCopilotParticipantsWithOtherProviders) to enable Copilot participants with other providers.
+- [[#9416](https://github.com/posit-dev/positron/issues/9416)] Assistant: use [`chat.useCopilotParticipantsWithOtherProviders`](positron://settings/chat.useCopilotParticipantsWithOtherProviders) setting to enable Copilot participants with other providers.
 - [[#8992](https://github.com/posit-dev/positron/issues/8992)] Assistant: use a more efficient format for sending session variables, to reduce token usage.
 - [[#9155](https://github.com/posit-dev/positron/issues/9155)] The <kbd>Ctrl+L</kbd> keybinding to clear the console now works when the editor is focused, in addition to when the console is focused.
 - [[#8404](https://github.com/posit-dev/positron/issues/8404)] Improved user feedback when using the command _Interpreter: Discover All Interpreters_.
@@ -70,7 +70,7 @@ Completions from an LLM such as GitHub Copilot can be super useful, but sometime
 - [[#8580](https://github.com/posit-dev/positron/issues/8580)] Python: added support for the Python Snowflake connector in the Connections Pane.
 - [[#9419](https://github.com/posit-dev/positron/issues/9419)] Added preview support for Python 3.14.
 - [[#9129](https://github.com/posit-dev/positron/issues/9129)] R: The keyboard shortcuts for _R: Source R File_ and _R: Source R File with Echo_ are now consistent with RStudio's defaults.
-- [[#9165](https://github.com/posit-dev/positron/issues/9165)] R: A new [`positron.r.packageManagerRepository` setting](positron://settings/positron.r.packageManagerRepository) allows overriding the Posit Package Manager URL used to install R packages when `positron.r.defaultRepositories` is set to `auto`.
+- [[#9165](https://github.com/posit-dev/positron/issues/9165)] R: A new [`positron.r.packageManagerRepository`](positron://settings/positron.r.packageManagerRepository) setting allows overriding the Posit Package Manager URL used to install R packages when `positron.r.defaultRepositories` is set to `auto`.
 - [[#9099](https://github.com/posit-dev/positron/issues/9099)] R: added support for `rstudioapi::showPrompt`.
 
 #### Bug fixes

@@ -24,7 +24,7 @@ We recommend [uv](https://docs.astral.sh/uv/guides/install-python/), or [pyenv](
 
 Positron requires the [IPython kernel](https://pypi.org/project/ipykernel/) (version 6.19.1 or higher) to communicate with Python. By default, the IPython kernel is bundled with Positron for the CPython implementation (the standard Python implementation) and added to the [Python search path](https://docs.python.org/3/library/sys_path_init.html).
 
-If you prefer finer control over your Python environment, set the [`python.useBundledIpykernel` setting](positron://settings/python.useBundledIpykernel) to false and install the IPython kernel manually
+If you prefer finer control over your Python environment, set the [`python.useBundledIpykernel`](positron://settings/python.useBundledIpykernel) setting to false and install the IPython kernel manually
 
 ::: callout-note
 If you're using an implementation other than CPython, you'll need to install the IPython kernel manually.
