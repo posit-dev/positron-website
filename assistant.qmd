@@ -20,7 +20,7 @@ Positron Assistant is an AI client that provides LLM integration within Positron
 
 ### Step 1: Enable Positron Assistant
 
-1. Opt in to the [`positron.assistant.enable` setting](positron://settings/positron.assistant.enable) to enable Positron Assistant.
+1. Opt in to the [`positron.assistant.enable`](positron://settings/positron.assistant.enable) setting to enable Positron Assistant.
 
 1. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
 

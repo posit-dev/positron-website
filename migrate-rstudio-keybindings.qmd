@@ -13,7 +13,7 @@ That is also where you can learn how to customize shortcuts.
 
 ## RStudio keybindings in Positron
 
-A large set of RStudio keybindings can be enabled with the [`workbench.keybindings.rstudioKeybindings` setting](positron://settings/workbench.keybindings.rstudioKeybindings).
+A large set of RStudio keybindings can be enabled with the [`workbench.keybindings.rstudioKeybindings`](positron://settings/workbench.keybindings.rstudioKeybindings) setting.
 Restart Positron after changing this setting.
 
 | Shortcut | Description |

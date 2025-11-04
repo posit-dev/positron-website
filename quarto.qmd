@@ -28,6 +28,6 @@ The Quarto extension is included as a [bootstrapped extension](extensions.qmd#bo
 
 ## Managing Quarto installations
 
-Positron bundles a version of the Quarto CLI, but you can also use a version of the Quarto CLI that you have installed yourself. This should typically work automatically, but you can manage exactly which Quarto to use via the [`quarto.path` setting](positron://settings/quarto.path). Check the bottom status bar to see which version of Quarto is being used currently.[^1]
+Positron bundles a version of the Quarto CLI, but you can also use a version of the Quarto CLI that you have installed yourself. This should typically work automatically, but you can manage exactly which Quarto to use via the [`quarto.path`](positron://settings/quarto.path) setting. Check the bottom status bar to see which version of Quarto is being used currently.[^1]
 
 [^1]: If you change the version of Quarto you are using, you will need to restart Positron to see the status bar update.
