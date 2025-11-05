@@ -57,8 +57,8 @@ website:
         menu:
           - text: "Blog posts"
             icon: box-arrow-up-right
-            href: "https://posit.co/blog/?post_tag=positron"  
-            target: "_blank"
+            href: https://posit.co/blog/?post_tag=positron  
+            target: _blank
       - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
         href: download.qmd     
       
