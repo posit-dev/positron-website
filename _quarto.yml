@@ -52,9 +52,15 @@ website:
       - text: "Help"
         href: troubleshooting.qmd
       - text: "About"
-        href: about.qmd  
+        href: about.qmd
+      - text: "Resources"
+        menu:
+          - text: "Blog posts"
+            icon: box-arrow-up-right
+            href: "https://posit.co/blog/?post_tag=positron"  
+            target: "_blank"
       - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
-        href: download.qmd        
+        href: download.qmd     
       
     right:
       - icon: github
