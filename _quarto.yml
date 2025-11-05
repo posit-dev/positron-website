@@ -55,9 +55,13 @@ website:
         href: about.qmd
       - text: "Resources"
         menu:
-          - text: "Blog posts"
+          - text: "Blog Posts"
             icon: box-arrow-up-right
             href: https://posit.co/blog/?post_tag=positron  
+            target: _blank
+          - text: "Events"
+            icon: calendar-event
+            href: https://posit.co/events/?search=positron&poststatus=all
             target: _blank
       - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
         href: download.qmd     
