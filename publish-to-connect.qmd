@@ -1,5 +1,5 @@
 ---
-title: "Publish your work"
+title: "Publish Your Work"
 
 ---
 
@@ -22,10 +22,12 @@ For a full list of supported project types, view the [Publisher documentation](h
 ## Publishing workflow
 
 Once your project is ready for publication, you can publish directly from Positron. Follow the steps outlined based your deployment target:
-    * Publishing with [Connect Cloud](https://docs.posit.co/connect-cloud/user/publish/ide.html)
-    * Publishing with [Connect](https://docs.posit.co/connect/user/publishing-positron-vscode/)
 
-### Getting help
+- Publishing with [Connect Cloud](https://docs.posit.co/connect-cloud/user/publish/ide.html)
+- Publishing with [Connect](https://docs.posit.co/connect/user/publishing-positron-vscode/)
+
+## Getting help
+
 - See the [troubleshooting guide](https://github.com/posit-dev/publisher/blob/main/docs/troubleshooting.md) for the Publisher extension.
 - Review the [Publisher extension repository](https://github.com/posit-dev/publisher) for updates and issues.
 - Check out both the [Posit Connect documentation](https://docs.posit.co/connect/) and the [Posit Connect Cloud documentation](https://docs.posit.co/connect-cloud/).
