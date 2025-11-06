@@ -9,21 +9,19 @@ Whether you're sharing reports, applications, or APIs, the Publisher extension s
 
 {{< video videos/deploy-to-connect.mp4 aria-label="Positron Publisher extension demonstrating one-click deployment to Posit Connect" >}}
 
-## Getting Started With Publisher
+## Getting started with Publisher
 
 The [Posit Publisher extension](https://open-vsx.org/extension/posit/publisher) comes pre-installed with Positron as a [bootstrapped extension](extensions.qmd#bootstrapped-extension). This means it's available by default when you start Positron and updates automatically when new versions are released.
 
 ## What you can publish
 
-Connect supports many of the most popular Python and R frameworks such as: Shiny, Dash, Gradio, Streamlit, Bokeh, Quarto, R Markdown, Jupyter Notebook, FastAPI, Flask, Plumber, and more in one convenient place.
+[Connect](https://docs.posit.co/connect/user/publishing-positron-vscode/) and [Connect Cloud](https://docs.posit.co/connect-cloud/user/publish/ide.html) support many of the most popular Python and R frameworks such as Shiny, Dash, Gradio, Streamlit, Bokeh, Quarto, R Markdown, Jupyter Notebook, FastAPI, Flask, Plumber, and more.
 
 For a full list of supported project types, view the [Publisher documentation](https://github.com/posit-dev/publisher/blob/main/docs/configuration.md).
 
 ## Publishing workflow
 
-1. Ensure your project is ready for publication
-2. In the Activity Bar, select the Publisher icon.
-3. Follow the steps outlined based on your preferred Connect product:
+Once your project is ready for publication, you can publish directly from Positron. Follow the steps outlined based your deployment target:
     * Publishing with [Connect Cloud](https://docs.posit.co/connect-cloud/user/publish/ide.html)
     * Publishing with [Connect](https://docs.posit.co/connect/user/publishing-positron-vscode/)
 
