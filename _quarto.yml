@@ -9,7 +9,6 @@ execute:
 
 website:
   open-graph: true
-    site-name: "Positron"
   bread-crumbs: true
   page-navigation: true
   favicon: "images/favicon.svg"
