@@ -44,8 +44,8 @@ cdn_url <- "https://cdn.posit.co/positron/releases/" # Keep this in sync with cd
 # to ensure that we are constructing these URLs consistently in both places.
 #######################################################################################
 
-windows_system <- glue("Positron-{release_version}-Setup.exe")
-windows_user <- glue("Positron-{release_version}-UserSetup.exe")
+windows_system <- glue("Positron-{release_version}-Setup-x64.exe")
+windows_user <- glue("Positron-{release_version}-UserSetup-x64.exe")
 macos_universal <- glue("Positron-{release_version}-universal.dmg")
 macos_arm64 <- glue("Positron-{release_version}-arm64.dmg")
 macos_x64 <- glue("Positron-{release_version}-x64.dmg")
@@ -134,4 +134,4 @@ Once you install Positron, it will [automatically check for updates moving forwa
 
 ## Older releases
 
-Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases), and you can also find the [release notes for previous versions](release-notes.qmd).
+Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases), and you can also find the [release notes for previous versions](release-notes.qmd#older-releases).

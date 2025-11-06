@@ -31,6 +31,7 @@ Positron Pro
 Positron Assistant
 Shiny Assistant
 GitHub Copilot
+GitHub Copilot Chat
 Anthropic Claude
 Anthropic Claude Sonnet
 Google Gemini

@@ -1,5 +1,7 @@
 ---
-title: "2025.09 Release Notes"
+title: "2025.09.0-139 Release Notes"
+date: 2025-09-02
+subtitle: <https://github.com/posit-dev/positron/releases/tag/2025.09.0-139>
 ---
 
 ### Highlights
@@ -8,7 +10,7 @@ title: "2025.09 Release Notes"
 
 Positron Assistant, currently available as a preview feature, is now more powerful and versatile. New slash commands (`/fix`, `/explain`, and `/doc`) are available to debug, understand, and document code. These commands can even be triggered automatically; for example, you can convert a chat into a Quarto document just by asking, "Can you convert this to Quarto?", even if you don't specify the `/exportQuarto` command as part of your message.
 
-"Fix" and "Explain" support for Console errors has also been introduced. With a single click, the Assistant can fix or explain an error, acting as a coding partner for troubleshooting. You can try it out by enabling the [`positron.assistant.consoleActions.enable` setting](positron://settings/positron.assistant.consoleActions.enable). 
+"Fix" and "Explain" support for Console errors has also been introduced. With a single click, the Assistant can fix or explain an error, acting as a coding partner for troubleshooting. You can try it out by enabling the [`positron.assistant.consoleActions.enable`](positron://settings/positron.assistant.consoleActions.enable) setting. 
 
 Ways you already use Assistant have been enhanced. Code completions and inline chat are now available in notebooks, giving you access to the features you love no matter where you code. Assistant now also integrates with Git by default, letting you seamlessly chat about your project's history and providing suggestions when writing commit messages. Assistant can also now use the data summary tool for R objects, similar to what you have already been able to do in Python.
 
@@ -35,18 +37,18 @@ The [Connections Pane](https://positron.posit.co/connections-pane.html) now supp
 - [[#7740](https://github.com/posit-dev/positron/issues/7740)] Assistant: now display a "Working..." indicator while a response is in progress.
 - [[#7370](https://github.com/posit-dev/positron/issues/7370)] Assistant: added new slash commands `/fix`, `/explain`, and `/doc` especially for use in inline chat.
 - [[#8579](https://github.com/posit-dev/positron/issues/8579)] Assistant: added "Fix" and "Explain" buttons on tracebacks in the Console.
-- [[#8598](https://github.com/posit-dev/positron/issues/8598)] Assistant: now provide a new global [`positron.assistant.consoleActions.enable` setting](positron://settings/positron.assistant.consoleActions.enable) to disable Console integration. 
+- [[#8598](https://github.com/posit-dev/positron/issues/8598)] Assistant: now provide a new global [`positron.assistant.consoleActions.enable`](positron://settings/positron.assistant.consoleActions.enable) setting to disable Console integration. 
 - [[#7370](https://github.com/posit-dev/positron/issues/7370)] Assistant: added editor inline chat slash commands to capture user intent.
 - [[#8061](https://github.com/posit-dev/positron/issues/8061)] Assistant: Copilot inline completions are now available in Jupyter notebooks.
 - [[#8871](https://github.com/posit-dev/positron/issues/8871)] Assistant: allow use of an Anthropic API key set via environment variable.
 - [[#8343](https://github.com/posit-dev/positron/issues/8343)] Assistant can now use the data summary tool for R objects.
 - [[#9066](https://github.com/posit-dev/positron/issues/9066)] Assistant: git integration Assistant tools are now available by default.
 - [[#8305](https://github.com/posit-dev/positron/issues/8305)] Assistant: code generation now avoids unnecessary `print()` and similar statements.
-- [[#7988](https://github.com/posit-dev/positron/issues/7988)] Added new [`notebook.workingDirectory` setting](positron://settings/notebook.workingDirectory), which can be used to set the default working directory for notebooks.
+- [[#7988](https://github.com/posit-dev/positron/issues/7988)] Added new [`notebook.workingDirectory`](positron://settings/notebook.workingDirectory) setting, which can be used to set the default working directory for notebooks.
 - [[#8563](https://github.com/posit-dev/positron/issues/8563)] Positron's reticulate integration will now be automatically enabled in workspaces where the reticulate R package has been loaded at least once; read more [in the reticulate documentation](https://positron.posit.co/reticulate).
 - [[#8988](https://github.com/posit-dev/positron/issues/8988)] Python: added support for managing and exploring native DuckDB connections in the Connections Pane.
 - [[#3906](https://github.com/posit-dev/positron/issues/3906)] Added initial support for debugging Python Jupyter notebooks.
-- [[#8731](https://github.com/posit-dev/positron/issues/8731)] macOS: When the [`window.nativeTabs` setting](positron://settings/window.nativeTabs) is set to `true`, new windows will now always open in native tabs. Previously they would only do so if the global macOS setting to always prefer opening in native tabs was also set.
+- [[#8731](https://github.com/posit-dev/positron/issues/8731)] macOS: When the [`window.nativeTabs`](positron://settings/window.nativeTabs) setting is set to `true`, new windows will now always open in native tabs. Previously they would only do so if the global macOS setting to always prefer opening in native tabs was also set.
 
 #### Bug fixes
 

@@ -1,5 +1,7 @@
 ---
-title: "2025.08 Release Notes"
+title: "2025.08.0-130 Release Notes"
+date: 2025-08-04
+subtitle: <https://github.com/posit-dev/positron/releases/tag/2025.08.0-130>
 ---
 
 ### Highlights
@@ -22,7 +24,7 @@ Our engine for providing R diagnostics has undergone a major upgrade! You'll not
 
 #### New features
 
-- [[#8072](https://github.com/posit-dev/positron/issues/8072), [#8207](https://github.com/posit-dev/positron/issues/8207)] Assistant now has a new experimental git integration. You can try it out by enabling the [`positron.assistant.gitIntegration.enable` setting](positron://settings/positron.assistant.gitIntegration.enable).
+- [[#8072](https://github.com/posit-dev/positron/issues/8072), [#8207](https://github.com/posit-dev/positron/issues/8207)] Assistant now has a new experimental git integration. You can try it out by enabling the [`positron.assistant.gitIntegration.enable`](positron://settings/positron.assistant.gitIntegration.enable) setting.
 - [[#8325](https://github.com/posit-dev/positron/issues/8325)] Assistant now uses Anthropic prompt caching to reduce token usage.
 - [[#8327](https://github.com/posit-dev/positron/issues/8327)] Improved keyboard navigation in the Plots pane; arrow keys now navigate the plot history.
 - [[#8041](https://github.com/posit-dev/positron/issues/8041)] It is now possible to interrupt R and Python sessions in order to reconnect to them.
@@ -30,9 +32,9 @@ Our engine for providing R diagnostics has undergone a major upgrade! You'll not
 - [[#8016](https://github.com/posit-dev/positron/issues/8016)] Assistant can now reference R help pages and package vignettes via a tool call.
 - [[#4411](https://github.com/posit-dev/positron/issues/4411)] The console font can now be configured independently of the editor font; see settings like `console.fontFamily`, `console.fontSize`, and related.
 - [[#8465](https://github.com/posit-dev/positron/issues/8465)] Assistant: the `documentCreate` tool is now available in Edit mode.
-- [[#7817](https://github.com/posit-dev/positron/issues/7817), [#8233](https://github.com/posit-dev/positron/issues/8233), [#8472](https://github.com/posit-dev/positron/issues/8472)] Added token usage to Assistant for chat. You can try it out by enabling the [`positron.assistant.showTokenUsage.enable` setting](positron://settings/positron.assistant.showTokenUsage.enable).
+- [[#7817](https://github.com/posit-dev/positron/issues/7817), [#8233](https://github.com/posit-dev/positron/issues/8233), [#8472](https://github.com/posit-dev/positron/issues/8472)] Added token usage to Assistant for chat. You can try it out by enabling the [`positron.assistant.showTokenUsage.enable`](positron://settings/positron.assistant.showTokenUsage.enable) setting.
 - [[#8033](https://github.com/posit-dev/positron/issues/8033), [#8429](https://github.com/posit-dev/positron/issues/8429)] Assistant: chat log can now be exported and contains prompt and Positron context info. Use the commands that begin _Positron Assistant: Export the current chat_ to export logs when you want to report a problem with the Assistant.
-- [[#7595](https://github.com/posit-dev/positron/issues/7595)] You can now control Assistant's access to data in your Python and R sessions. Opt out via the [`chat.implicitSessionContext.enabled` setting](positron://settings/chat.implicitSessionContext.enabled).
+- [[#7595](https://github.com/posit-dev/positron/issues/7595)] You can now control Assistant's access to data in your Python and R sessions. Opt out via the [`chat.implicitSessionContext.enabled`](positron://settings/chat.implicitSessionContext.enabled) setting.
 - [[#8539](https://github.com/posit-dev/positron/issues/8539)] The default log level has been returned to info (this was previously debug) to reduce log noise. Please consider using the _Set Log Level_ command to restore debug logging when reporting bugs. 
 - [[#5486](https://github.com/posit-dev/positron/issues/5486)] R: `browseURL()` in R now delegates to the operating system's default opener for inputs that are not recognized as a web URL or an HTML file.
 - [[#8078](https://github.com/posit-dev/positron/issues/8078)] Assistant: tools are now disabled if the context doesn't include the info needed for the tool.
@@ -42,8 +44,8 @@ Our engine for providing R diagnostics has undergone a major upgrade! You'll not
 - [[#6546](https://github.com/posit-dev/positron/issues/6546)] R: all functions passed as named arguments also gain outline, breadcrumbs, and sticky scroll support. This improves the UX for R6 methods in particular.
 - [[#8402](https://github.com/posit-dev/positron/issues/8402)] R: added support for comment sections (like `# Title ----`) in function calls. This is especially useful for users of the `targets` package where it is common to have very large targets calls that can now be sectioned in the outline, with breadcrumbs and sticky scroll support.
 - [[#6549](https://github.com/posit-dev/positron/issues/6549)] R: R6 methods are now exported as workspace symbols. You now search for them with <kbd>Ctrl/Cmd + T</kbd>.
-- [[#8330](https://github.com/posit-dev/positron/issues/8330)] R: Added new [`positron.r.symbols.includeAssignmentsInBlocks` setting](positron://settings/positron.r.symbols.includeAssignmentsInBlocks) to control whether local variables in functions and nested `{}` blocks (e.g. in `test_that()` calls) appear in the outline. It's turned off by default to keep the outline focused on the overall structure of the file.
-- [[#4886](https://github.com/posit-dev/positron/issues/4886)] R: Added new [`positron.r.workspaceSymbols.includeCommentSections` setting](positron://settings/positron.r.workspaceSymbols.includeCommentSections) to control whether comment sections (like `# Title ----`) are exported as workspace symbols. When enabled, you can search for the sections with <kbd>Ctrl/Cmd + T</kbd>. This is disabled by default to keep symbol search focused on actual symbols.
+- [[#8330](https://github.com/posit-dev/positron/issues/8330)] R: Added new [`positron.r.symbols.includeAssignmentsInBlocks`](positron://settings/positron.r.symbols.includeAssignmentsInBlocks) setting to control whether local variables in functions and nested `{}` blocks (e.g. in `test_that()` calls) appear in the outline. It's turned off by default to keep the outline focused on the overall structure of the file.
+- [[#4886](https://github.com/posit-dev/positron/issues/4886)] R: Added new [`positron.r.workspaceSymbols.includeCommentSections`](positron://settings/positron.r.workspaceSymbols.includeCommentSections) setting to control whether comment sections (like `# Title ----`) are exported as workspace symbols. When enabled, you can search for the sections with <kbd>Ctrl/Cmd + T</kbd>. This is disabled by default to keep symbol search focused on actual symbols.
 - [[#5486](https://github.com/posit-dev/positron/issues/5486)] R: `browseURL()` now delegates to the operating system's default opener for inputs that are not recognized as a web URL or an HTML file.
 - [[#1325](https://github.com/posit-dev/positron/issues/1325), [#8708](https://github.com/posit-dev/positron/issues/8708), [#2252](https://github.com/posit-dev/positron/issues/2252)] R: the diagnostics engine is vastly improved in fresh sessions. You no longer have to attach packages in the console session to silence "unknown symbol" diagnostics in scripts. The issue has also been resolved in packages where a `load_all()` is no longer necessary to silence symbol diagnostics.
 - [[#2778](https://github.com/posit-dev/positron/issues/2778)] Added new keybinding <kbd>Alt+Enter</kbd> to execute the current statement _without_ advancing.

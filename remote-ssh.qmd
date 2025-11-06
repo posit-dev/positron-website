@@ -19,20 +19,16 @@ end
 
 ## System requirements
 
-Remote SSH sessions can be *initiated* from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux; Windows and macOS remote hosts are not currently supported. 
+Remote SSH sessions can be *initiated* from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux[^1]; native Windows and macOS remote hosts are not currently supported. 
 
 Other features that aren't currently supported include:
 
-- Connecting to Windows Subsystem for Linux (WSL) backends[^1]
 - Dev Container workflows (note however that you can start a container yourself and connect to it)
 - Connecting from Positron Pro sessions on Posit Workbench
 
 At least 2 GB RAM is required to run the remote Positron server, but for realistic data science work, expect to need at least 4 GB RAM or more on the remote host.
 
-[^1]: Although Positron doesn't officially support connecting to Windows Subsystem for Linux (WSL) backends at this time, there is a community-maintained fork of the [Open Remote - WSL](https://github.com/kv9898/open-remote-wsl) extension adapted for Positron, available on the [Open VSX Registry](https://open-vsx.org/extension/kv9898/open-remote-wsl). The community-maintained WSL extension behaves very similarly to the remote SSH functionality described in this article.
-<!-- vale Posit.Contractions = NO -->
-This WSL extension is not maintained by the Positron team or Posit.
-<!-- vale Posit.Contractions = YES -->
+[^1]: Positron does provide support for using WSL (Windows Subsystem for Linux) on Windows as a remote host.
 
 ## Creating a connection
 
@@ -80,7 +76,7 @@ For example, note that this Shiny application running on `:6868` automatically g
 
 ## Long-running sessions
 
-By default, Positron will forcefully end your R and Python sessions when you close Positron. If you want to leave your sessions running even after you close Positron -- for example, to leave data loaded in memory or let long-running computations continue -- you can tell Positron's kernel supervisor to keep the sessions running using the [`kernelSupervisor.shutdownTimeout` setting](positron://settings/kernelSupervisor.shutdownTimeout).
+By default, Positron will forcefully end your R and Python sessions when you close Positron. If you want to leave your sessions running even after you close Positron -- for example, to leave data loaded in memory or let long-running computations continue -- you can tell Positron's kernel supervisor to keep the sessions running using the [`kernelSupervisor.shutdownTimeout`](positron://settings/kernelSupervisor.shutdownTimeout) setting.
 
 ![Shutdown Timeout Settings](./images/remote-ssh-shutdown-timeout){width=638}
 
@@ -92,7 +88,7 @@ The long-running sessions are associated with the workspace in which you use the
 
 ### Shutdown timeout details
 
-Because the supervisor runs your R and Python sessions without any UI attached, it can't tell when you're done with them. In order to prevent sessions from running indefinitely and consuming resources on your remote host, the supervisor will shut them down after a certain period of inactivity. This period is controlled by the [`kernelSupervisor.shutdownTimeout` setting](positron://settings/kernelSupervisor.shutdownTimeout).
+Because the supervisor runs your R and Python sessions without any UI attached, it can't tell when you're done with them. In order to prevent sessions from running indefinitely and consuming resources on your remote host, the supervisor will shut them down after a certain period of inactivity. This period is controlled by the [`kernelSupervisor.shutdownTimeout`](positron://settings/kernelSupervisor.shutdownTimeout) setting.
 
 The shutdown timeout will never interrupt a kernel that's busy running code; it doesn't start counting down until the kernel is  idle _and_ it's not connected to any Positron windows. 
 
@@ -121,6 +117,6 @@ The two most common problems are:
 
 Occasionally, the installation on the remote server can be corrupted, for example, if the download was interrupted. If you encounter errors installing Positron on the remote server, you can try deleting the `~/.positron-server` directory on the remote host and then connecting again.
 
-If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it's not autodetected), you can edit the [`remoteSSH.serverDownloadUrlTemplate` setting](positron://settings/remoteSSH.serverDownloadUrlTemplate):
+If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it's not autodetected), you can edit the [`remoteSSH.serverDownloadUrlTemplate`](positron://settings/remoteSSH.serverDownloadUrlTemplate) setting:
 
 ![Remote SSH: Server Download Url Template Setting](./images/remote-ssh-server-template.png){width=650}

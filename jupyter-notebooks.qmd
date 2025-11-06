@@ -40,4 +40,4 @@ You can manually select a different interpreter for the notebook by clicking the
 
 ### Customization
 
-To set the default working directory of notebooks, use the [`notebook.workingDirectory` setting](positron://settings/notebook.workingDirectory).
+To set the default working directory of notebooks, use the [`notebook.workingDirectory`](positron://settings/notebook.workingDirectory) setting.

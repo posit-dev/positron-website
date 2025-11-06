@@ -37,7 +37,7 @@ For that reason, we recommend using virtual environments.
 
 **Custom locations**
 
-* Interpreters listed in the [`python.interpreters.[include,exclude,override]` settings](positron://settings/python.interpreters.include) (see [Related Settings](#related-settings) below for details)
+* Interpreters listed in the [`python.interpreters.[include,exclude,override]`](positron://settings/python.interpreters.include) settings (see [Related Settings](#related-settings) below for details)
 
 ## Environment creation and discovery
 
@@ -81,7 +81,7 @@ Positron can use two different discovery mechanisms:
 * **JavaScript locator** (default): Pure TypeScript implementation for more comprehensive discovery
 * **Native locator** (experimental): Uses a native binary for faster discovery
 
-You can control this with the [`python.locator` setting](positron://settings/python.locator) (`"js"` or `"native"`).
+You can control this with the [`python.locator`](positron://settings/python.locator) setting (`"js"` or `"native"`).
 Keep in mind that the `native` locator is experimental and may not work completely as intended.
 
 ## Troubleshooting
