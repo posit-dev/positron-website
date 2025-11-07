@@ -66,7 +66,7 @@ listing:
         description: "Work across one or multiple consoles for concurrent analysis and development."
         icon: "bi-terminal"
       - title: "Publish reports quickly"
-        description: "With a click of a button, seamlessly deploy and share your project with Posit Publisher to [Posit Connect](https://posit.co/products/enterprise/connect/) and [Posit Connect Cloud](https://connect.posit.cloud/)"
+        description: "With a click of a button, seamlessly deploy and share your project with Posit Publisher to Posit Connect and Posit Connect Cloud"
         icon: "bi-upload"
         link: "publish-to-connect.qmd"
         anchor-text: "Publish reports quickly"
