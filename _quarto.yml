@@ -8,6 +8,7 @@ execute:
   freeze: auto
 
 website:
+  open-graph: true
   bread-crumbs: true
   page-navigation: true
   favicon: "images/favicon.svg"
@@ -116,6 +117,7 @@ website:
             - quarto.qmd
             - jupyter-notebooks.qmd
             - develop-data-apps.qmd
+            - publish-to-connect.qmd
         - section: "Workspaces"
           contents:
             - folder-templates.qmd

@@ -29,6 +29,7 @@ File Explorer
 Connections Pane
 Positron Pro
 Positron Assistant
+Publisher
 Shiny Assistant
 GitHub Copilot
 GitHub Copilot Chat

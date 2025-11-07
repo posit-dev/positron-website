@@ -65,6 +65,11 @@ listing:
       - title: "Multi-session console"
         description: "Work across one or multiple consoles for concurrent analysis and development."
         icon: "bi-terminal"
+      - title: "Publish reports quickly"
+        description: "With a click of a button, seamlessly deploy and share your project with Posit Publisher to Posit Connect and Posit Connect Cloud"
+        icon: "bi-upload"
+        link: "publish-to-connect.qmd"
+        anchor-text: "Publish reports quickly"
   - id: features-pro-4
     type: custom
     template: templates/feature-card.ejs
@@ -129,5 +134,3 @@ For teams that need enterprise-grade capabilities, [Positron Pro](https://posit.
 Join thousands of data scientists who have already made the switch to Positron.
 
 <a href="welcome.qmd" class='btn btn-primary'>Get Started</a>
-
-

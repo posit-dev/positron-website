@@ -47,7 +47,7 @@ Some examples of the bootstrapped extensions include:
 
 - [posit.shiny](https://open-vsx.org/extension/posit/shiny): Support for developing Shiny applications in Python and R within Positron.
 
-- [posit.publisher](https://open-vsx.org/extension/posit/publisher): A publishing tool for deploying content to Posit Connect. It streamlines the process of sharing data science applications, reports, and APIs with stakeholders.
+- [posit.publisher](https://open-vsx.org/extension/posit/publisher): A publishing tool for deploying content to Posit Connect and Posit Connect Cloud. It streamlines the process of sharing data science applications, reports, and APIs with stakeholders. Explore the [Publisher guide](publish-to-connect.qmd).
 
 - [quarto.quarto](https://open-vsx.org/extension/quarto/quarto): Support for the Quarto publishing system. It enables creation of dynamic documents that combine code, visualizations, and narrative text for reproducible research and reporting.
 
