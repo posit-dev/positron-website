@@ -152,11 +152,11 @@ website:
         - troubleshooting.qmd
         - faqs.qmd
         - feedback.qmd
-        - release-notes.qmd
     - title: "About"
       style: "docked"
       contents:
         - about.qmd
+        - release-notes.qmd
         - privacy.qmd
         - licensing.qmd
     
