@@ -94,13 +94,39 @@ Positron Assistant's Chat pane (in the Activity Panel by default) has access to 
 
 #### Chat modes
 
-To switch between modes, click the mode selector at the bottom of the Chat pane.
+Positron Assistant supports three chat modes: **Ask**, **Edit**, and **Agent**. These modes are used to fine-tune Assistant to specific tasks by providing instructions unique to the mode, and tailoring what tools are accessible for use by Assistant.
 
-Positron Assistant supports the following chat modes:
+To switch between modes:
 
-- **Ask**: Use this mode to ask questions, get help with debugging, or request code generation. This is the default mode when you open the chat.
-- **Edit**: Use this mode to make code changes with the model's help. The model will suggest code changes based on your prompts, and you can apply those changes to your code.
-- **Agent**: Use this mode if you'd like Positron Assistant to determine the steps needed for your request and autonomously carry out the work. On your behalf, Positron Assistant can execute code in the Console, create and modify files, and identify the next steps based on the results of the previous steps.
+1. Click the mode selector dropdown at the bottom of the Chat pane.
+2. Select **Ask**, **Edit**, or **Agent** as needed.
+3. The Chat pane updates to reflect the selected mode.
+
+**Ask mode**
+
+Use this mode to ask questions, get help with debugging, or request code generation. Ask mode may provide code you can apply in your editor or run in the Console, but it will not edit or run code automatically.
+
+- "How do I plot a histogram in Python?"
+- "Why am I getting a syntax error in my R script?"
+- "Can you explain what this function does?"
+
+**Edit mode**
+
+Use this mode to make code changes with the model's help. The model suggests code changes based on your prompts, and you can apply those changes to your code.
+
+- "Refactor this function to improve readability."
+- "Convert this R code to Python."
+- "Add error handling to this script."
+
+**Agent mode**
+
+Use this mode if you want Positron Assistant to determine the steps needed for your request and autonomously carry out the work. Positron Assistant can execute code in the Console, create and modify files, and identify the next steps based on previous results.
+
+- "Create a new Python file and set up a basic data analysis workflow."
+- "Install the required packages and run the code in the Console."
+- "Generate a summary report from my current dataset."
+
+For more details on chat modes and other chat features, see [Get started with chat in VS Code](https://code.visualstudio.com/docs/copilot/chat/copilot-chat#_switch-between-chat-modes).
 
 #### Attaching context
 
