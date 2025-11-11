@@ -182,7 +182,7 @@ Code completions are code suggestions that appear inline as you type in an edito
 Interact with suggestions by:
 
 - Pressing the <kbd>Tab</kbd> key to accept the entire suggestion.
-- Pressing {{< kbd mac=Command-→ win=Ctrl-→ linux=Ctrl-→ >}} to accept the suggestion word-by-word for a single line suggestion, or line-by-line for mult-line suggestions.
+- Pressing {{< kbd mac=Command-→ win=Ctrl-→ linux=Ctrl-→ >}} to accept the suggestion word-by-word for a single line suggestion, or line-by-line for multi-line suggestions.
 - Continuing to type to reject the suggestion.
 
 If you are not receiving suggestions, please:
