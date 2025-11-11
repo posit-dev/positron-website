@@ -216,7 +216,7 @@ Adding custom prompt files allows you to:
 1. Run the command _Chat: New Prompt File..._ in the Command Palette.
 1. Choose a location for the new prompt file from the dropdown.
 1. Name the file and press <kbd>Enter</kbd>.
-1. Edit the newly created `.prompt.md` file to specify the prompt `description`, chat `mode`(s) the prompt should be available for, the `tools` the prompt can use, as well as the prompt content.
+1. Edit the newly created `.prompt.md` file to specify the prompt `description`, chat `mode`s the prompt should be available for, the `tools` the prompt can use, as well as the prompt content.
 
 **To use a custom prompt in a chat or inline chat session:**
 
