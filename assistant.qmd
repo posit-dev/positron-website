@@ -128,6 +128,32 @@ Use this mode if you want Positron Assistant to determine the steps needed for y
 
 For more details on chat modes and other chat features, see [Get started with chat in VS Code](https://code.visualstudio.com/docs/copilot/chat/copilot-chat#_switch-between-chat-modes).
 
+##### Custom chat modes
+
+Adding custom chat modes allows you to:
+
+- Create specialized modes for specific tasks or workflows
+- Tailor the model's behavior and available tools for different use cases
+
+**To create a custom chat mode:**
+
+1. Run the command _Chat: New Mode File..._ in the Command Palette.
+1. Choose a location for the new chat mode file from the dropdown.
+1. Name the file and press <kbd>Enter</kbd>.
+1. Edit the newly created `.chatmode.md` file to specify the chat mode `description`, the `tools` the chat mode can use, as well as the chat mode prompt content.
+
+Once you have created a custom chat mode, it will appear in the mode selector dropdown in the Chat pane, allowing you to select and use it like the default [chat modes](#chat-modes).
+
+**To configure your custom chat modes:**
+
+- Run the command _Chat: Configure Chat Modes..._ in the Command Palette.
+
+To learn more about the format of custom chat modes, see the following VS Code documentation:
+
+- [Chat mode file structure](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes#_chat-mode-file-structure)
+    - Note: Positron Assistant does not support the `model` field at this time.
+- [Custom chat modes in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes)
+
 #### Attaching context
 
 Providing context to the model is crucial for getting accurate and relevant responses. To attach specific files or directories as context for your prompts, you can either:
@@ -157,9 +183,83 @@ It's important to start a new chat conversation for each new task, so the model 
 
 To view your chat conversations, click the clock icon in the top right of the Chat pane or run the _Chat: Show Chats..._ command in the Command Palette. You can then select a previous conversation to switch back to it.
 
-#### Customizing the default prompt
+#### Customizing prompts and instructions
 
-To add further instructions to the default prompt for Positron Assistant, create a file named `llms.txt` in your workspace directory. The contents of this file will be appended to the default prompt, which is used for all chat and inline chat interactions. This file does not affect code completions.
+##### Extend the default prompt
+
+Extending the default prompt allows you to:
+
+- Add project-specific coding standards or conventions
+- Include domain-specific terminology or context
+- Define preferred libraries or frameworks for your project
+
+To customize Positron Assistant's behavior, create one or more of these files in your workspace root directory:
+
+- `agents.md`
+- `agent.md`
+- `positron.md`
+- `claude.md`
+- `gemini.md`
+- `llms.txt`
+
+Positron Assistant looks for these files and appends each file's content to the default prompt for all chat and inline chat interactions. This customization does not affect code completions.
+
+##### Custom prompt files
+
+Adding custom prompt files allows you to:
+
+- Reuse prompts across chat requests and sessions
+- Explicitly apply prompts to specific chat requests
+
+**To create a custom prompt file:**
+
+1. Run the command _Chat: New Prompt File..._ in the Command Palette.
+1. Choose a location for the new prompt file from the dropdown.
+1. Name the file and press <kbd>Enter</kbd>.
+1. Edit the newly created `.prompt.md` file to specify the prompt `description`, chat `mode`(s) the prompt should be available for, the `tools` the prompt can use, as well as the prompt content.
+
+**To use a custom prompt in a chat or inline chat session:**
+
+1. Type `/` in the chat input box to open the slash command menu
+1. Continue typing the custom prompt name or select the prompt from the slash command menu.
+1. Finish your message and send it to the model. Your custom prompt will be included in the request.
+
+For example, if you have a prompt file named `emojis.prompt.md`, you can type `/emojis` in the chat input box to use that prompt.
+
+**To configure your custom prompt files:**
+
+- Run the command _Chat: Configure Prompt Files..._ in the Command Palette.
+
+To learn more about the format of custom prompt files, see the following VS Code documentation:
+
+- [Prompt file format](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_prompt-file-format)
+    - Note: Positron Assistant does not support the `model` field at this time.
+- [Tips for defining prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_tips-for-defining-prompt-files)
+
+##### Custom instructions
+
+Define custom instructions to apply specific prompts to files that match glob patterns. This allows you to:
+
+- Enforce coding standards for specific file types, such as Python or R scripts
+- Provide context-specific guidelines for different parts of your project, such as data processing or visualization scripts
+
+**To define custom instructions:**
+
+1. Run the command _Chat: New Instructions File..._ in the Command Palette.
+1. Choose a location for the new instructions file from the dropdown.
+1. Name the file and press <kbd>Enter</kbd>.
+1. Edit the newly created `.instructions.md` file to specify the `applyTo` file glob pattern and the instructions you want to apply.
+
+Once you have created custom instructions files, Positron Assistant will automatically apply the relevant instructions based on the file glob patterns when you interact with the model in chat or inline chat.
+
+**To configure your custom instructions files:**
+
+- Run the command _Chat: Configure Instructions..._ in the Command Palette.
+
+To learn more about the format of custom instructions files, see the following VS Code documentation:
+
+- [Instructions file format](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_instructions-file-format)
+- [Tips for defining custom instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_tips-for-defining-custom-instructions)
 
 ### Inline chat
 
