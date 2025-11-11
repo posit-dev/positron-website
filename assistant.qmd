@@ -30,17 +30,25 @@ Positron Assistant is an AI client that provides LLM integration within Positron
 
 #### Supported model providers
 
-::: {.callout-important}
 Currently, we support **Anthropic** and **GitHub Copilot** for sidebar chat and inline chat. At this time, only **GitHub Copilot** is available for inline code completions.
-:::
 
 ##### Anthropic
 
-Positron Assistant uses a bring-your-own API key model for Anthropic, so you'll need to get keys set up ahead of time and bring those into Positron.
+:::{.callout-important}
+Positron Assistant requires a **Claude Console account** with API access. See Anthropic's [Claude API and Console](https://support.claude.com/en/collections/5370014-claude-api-and-console) documentation for more information.
 
-If you have an Anthropic account, you should be able to get an API key from the [Anthropic Console](https://console.anthropic.com/) on the [admin keys page](https://console.anthropic.com/settings/admin-keys).
+Positron Assistant **does not** support logging into Anthropic with the Claude Pro Plan, Max Plan, or other Claude subscription plans.
+:::
 
-Copy and save the API key to a password manager or another secure location. In order to [add Anthropic as a language model provider](#adding-language-model-providers) in Positron, this key will be used to authenticate to Anthropic.
+To use Anthropic's Claude models in Positron Assistant, you need to bring your own API key (BYOK). To obtain an API key from Anthropic:
+
+1. Log in to or create an account for Anthropic's [Claude Console](https://platform.claude.com).
+1. Navigate to the [API keys](https://platform.claude.com/settings/keys) management page.
+1. Click the {{< fa plus >}} **Create Key** button.
+1. Fill out any required information and click **Add** to generate your API key.
+1. Copy and save the API key to a password manager or another secure location.
+
+After creating your API key, use it to [add Anthropic as a language model provider](#adding-language-model-providers) in Positron.
 
 ##### GitHub Copilot
 
