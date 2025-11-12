@@ -190,6 +190,12 @@ If you are not receiving suggestions, please:
 - Make sure you are authenticated with GitHub Copilot in the [language model provider configuration](#adding-language-model-providers).
 - Check the [developer tools console logs](troubleshooting.qmd#developer-tools) or the Assistant [output](./troubleshooting.qmd#output-panel) logs to see if there are any errors logged.
 
+#### Set minimum delay before showing completions
+
+By default, completion suggestions are shown immediately as you write code.
+
+To configure a minimum delay before showing completions, modify the setting [`editor.inlineSuggest.minShowDelay`](positron://settings/editor.inlineSuggest.minShowDelay), which defaults to `0` milliseconds. For example, setting this value to `500` introduces a half-second delay before showing completion suggestions.
+
 #### Pause code completions temporarily
 
 Completions from an LLM such as GitHub Copilot can be super useful, but sometimes they can be distracting or interfere with other completions from the Python or R LSP.
