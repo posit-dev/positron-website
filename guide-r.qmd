@@ -1,6 +1,5 @@
 ---
-title: "R in Positron"
-format: html
+title: "Overview"
 ---
 
 Positron ships with first class support for R, along with [Python](guide-python.qmd). Start with our guide on how Positron [discovers and manages R installations](r-installations.qmd), then read on for details on working with R code in Positron.
@@ -44,70 +43,6 @@ If you'd prefer to use keybindings as similar as possible to RStudio, learn [how
 
 You can create [custom keyboard shortcuts](keyboard-shortcuts.qmd#custom-shortcuts) as well.
 
-## Code formatting
 
-Positron can format R code with [Air](https://posit-dev.github.io/air/), a new R formatter whose creation was largely motivated by Positron.
-
-A formatter takes charge of the layout of your R code, which refers to whitespace, newlines, indentation, and the like.
-The goal is to enforce a set of style conventions that enhance readability and robustness.
-Air shares properties with other modern formatters and linters, such as Ruff for Python:
-
-* It's highly opinionated and offers relatively few options for customization.
-* It's written in Rust, which makes it extremely fast.
-
-### How do I install Air?
-
-Air is a command line tool which automatically ships with Positron.
-Most Positron users do not need to do anything intentional to install Air or to keep it up-to-date.
-Under the hood, Air is packaged in a VS Code extension, included in Positron as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions) that is installed for you.
-
-### How do I use Air?
-
-There are various explicit and implicit gestures to run Air over your R code:
-
-* "Format on save": formats R code every time you save a file. This is a lifestyle you must opt in to, but it is our strong recommendation that you do so. Below we give details on how to set this up.
-* Formatting commands: These are explicit gestures to format specific bits of code.
-  - *Format Selection*
-  - *Format Document*
-  - *Quarto: Format Cell*
-  - *Air: Format Workspace Folder*
-
-These are all available in the command palette.
-
-All R code receives some basic formatting as you type, but this first pass is focused only on indentation.
-A second formatting pass with Air, when you save the file or intentionally format it, produces a much better result, since Air works off of an actual syntax tree.
-
-:::{.callout-tip}
-You can use special comments to tell Air to [skip formatting specific sections of code](https://posit-dev.github.io/air/formatter.html#skip-comments), if you don't want to apply Air's strict formatting rules in a specific situation.
-:::
-
-### Opt in to "Format on save"
-
-The easiest way to get our recommended set up is to run [`usethis::use_air()`](https://usethis.r-lib.org/dev/reference/use_air.html).
-`use_air()` configures "Format on save" in the current workspace by modifying (or creating, if necessary) the `.vscode/settings.json` file.
-It also creates an `air.toml` file.
-
-VS Code and Positron let you customize settings at the user level and at the workspace level (i.e. for just the current project you are working on).
-We think "Format on save" makes the most sense to configure at the workspace level:
-
-* Workspace settings are recorded inside the workspace at `.vscode/settings.json`, allowing them to be tracked in version control. This means that all collaborators get those settings automatically when they check out the project, enforcing a common formatting style.
-* User level settings apply to any workspaces that you open. This sounds nice in theory, but you might not want automatic Air formatting in older projects or in projects that you don't own. If you opt in at the user level, you'll have to turn Air off somehow in these projects or risk creating a huge number of formatting diffs, when that's probably not your intent.
-
-Here is what `.vscode/settings.json` might look like for someone who wants their R code formatted on save, in both R scripts and Quarto documents:
-
-```json
-{
-    "[r]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "Posit.air-vscode"
-    },
-    "[quarto]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "quarto.quarto"
-    }
-}
-```
-
-To learn more about using Air, read its documentation for [Positron and VS Code](https://posit-dev.github.io/air/editor-vscode.html).
 
 ## Debugging
