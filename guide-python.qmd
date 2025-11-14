@@ -10,7 +10,7 @@ Positron ships with first class support for Python, along with [R](guide-r.qmd).
 In addition to providing settings, Positron also provides [keyboard shortcuts](keyboard-shortcuts.qmd) and [bundled extensions](extensions.qmd#included-extensions), for a "batteries included" experience for data science with Python.
 :::
 
-Positron provides setting defaults for working with Python for data science, but you can override or change these defaults if you prefer a difference experience. For example:
+Positron provides setting defaults for working with Python for data science, but you can override or change these defaults if you prefer a different experience. For example:
 
 - Positron bundles [Pyright](https://github.com/microsoft/pyright) to provide type checking for Python code, but disables the language services since these would duplicate some functionality provided by Positron itself. If you prefer to see Pyright's type completion, definitions, and references (in addition to other Python language services), then change the [`pyright.disableLanguageServices`](positron://settings/pyright.disableLanguageServices) setting from the Positron default. 
 - Positron bundles [Ruff](https://docs.astral.sh/ruff/) to provide [formatting](#code-formatting) for Python and sets the [`ruff.importStrategy`](positron://settings/ruff.importStrategy) setting to `"useBundled"`. If you prefer to use a Ruff installation that you manage yourself, change this setting to `"fromEnvironment"`.
