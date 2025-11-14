@@ -81,7 +81,7 @@ You can opt into formatting your R code every time you save a file, using Air (r
 }
 ```
 
-Read more about [formatting R code with Air](guide-r.qmd#code-formatting).
+Read more about [formatting R code with Air](guide-r-air.qmd).
 
 ## Extensions for RStudio users
 
