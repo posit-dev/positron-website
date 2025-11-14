@@ -3,13 +3,25 @@ title: "R in Positron"
 format: html
 ---
 
-Positron ships with first class support for R, along with [Python](guide-python.qmd).
+Positron ships with first class support for R, along with [Python](guide-python.qmd). Start with our guide on how Positron [discovers and manages R installations](r-installations.qmd), then read on for details on working with R code in Positron.
 
 ## Settings
 
 :::{.callout-tip}
-If you'd prefer to customize Positron to feel similar to RStudio, learn [what settings to consider](migrate-rstudio-settings-and-extensions.qmd#extensions-for-rstudio-users).
+If you'd prefer to customize Positron to feel similar to RStudio, learn [what settings to consider](migrate-rstudio-settings-and-extensions.qmd#settings-for-rstudio-users).
 :::
+
+Positron provides setting defaults for working with R, but you can override or change these defaults if you prefer a difference experience. For example, Positron sets the tab size for R code to 2 spaces, but if you prefer 4 spaces, you can change the [`editor.tabSize`](positron://settings/editor.tabSize) setting for R files by adding the following to your user or workspace `settings.json`:
+
+```json
+{
+    "[r]":  {
+		"editor.tabSize": 4
+	}
+}
+```
+
+You can see _all_ the setting defaults that Positron provides with the command _Preferences: Open Default Settings (JSON)_.
 
 ## Keyboard shortcuts
 

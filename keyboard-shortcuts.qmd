@@ -8,8 +8,6 @@ Positron's keyboard shortcuts, with a few exceptions, are a superset of the keyb
 Our documentation shows you keyboard shortcuts based on your operating system. For example, if you visit this page using Windows, you will see keyboard shortcuts for Windows. Hover your mouse over the keyboard shortcut to see the information for other platforms.
 :::
 
-## Global shortcuts
-
 | Shortcut | Description |
 | -------- | ----------- |
 | {{< kbd mac=Command-Enter win=Ctrl-Enter linux=Ctrl-Enter >}}| Run the selected code in the editor; if no code is selected, run the current statement | 
@@ -21,7 +19,6 @@ Our documentation shows you keyboard shortcuts based on your operating system. F
 | {{< kbd mac=Command-K win=Ctrl-K linux=Ctrl-K >}}, {{< kbd V >}} | Focus the Variables pane |
 | {{< kbd Ctrl-L >}} | Clear the Console |
 
-Positron also provides keyboard shortcuts specific to [Python](guide-python.qmd#keyboard-shortcuts) and [R](guide-r.qmd#keyboard-shortcuts).
 
 ## Custom shortcuts
 
