@@ -10,7 +10,7 @@ Positron ships with first class support for R, along with [Python](guide-python.
 If you'd prefer to customize Positron to feel similar to RStudio, learn [what settings to consider](migrate-rstudio-settings-and-extensions.qmd#settings-for-rstudio-users).
 :::
 
-Positron provides setting defaults for working with R, but you can override or change these defaults if you prefer a difference experience. For example, Positron sets the tab size for R code to 2 spaces, but if you prefer 4 spaces, you can change the [`editor.tabSize`](positron://settings/editor.tabSize) setting for R files by adding the following to your user or workspace `settings.json`:
+Positron provides setting defaults for working with R, but you can override or change these defaults if you prefer a different experience. For example, Positron sets the tab size for R code to 2 spaces, but if you prefer 4 spaces, you can change the [`editor.tabSize`](positron://settings/editor.tabSize) setting for R files by adding the following to your user or workspace `settings.json`:
 
 ```json
 {
@@ -44,5 +44,17 @@ If you'd prefer to use keybindings as similar as possible to RStudio, learn [how
 You can create [custom keyboard shortcuts](keyboard-shortcuts.qmd#custom-shortcuts) as well.
 
 
-
 ## Debugging
+
+Positron currently provides initial debugging support via the [Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol/), including virtual document support for debugging package code. You can currently use:
+
+- `browser()` to set breakpoints in your R code,
+- `traceback()` to inspect the call stack after an error occurs,
+- `debug(myFunction)` to step through function calls, and
+- `debugonce(myFunction)` to step through a function call just once.
+
+When you are in a debug session, you can use standard R debugging commands like `n`, `s`, `c`, and `Q`.
+
+:::{.callout-note}
+Positron does not yet support debugging R code via visual breakpoints in `.R` files. [Follow along on GitHub for updates](https://github.com/posit-dev/positron/issues/1766) on breakpoints.
+:::
