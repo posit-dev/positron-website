@@ -146,7 +146,7 @@ When an interpreter session is attached, Positron Assistant can access:
 - The active plot in the Plots pane
 - Tool calls that require the interpreter session
 
-Manage interpreter session context:
+You can manage the attached interpreter session context in the following ways:
 
 - To switch the attached interpreter session for chat, click the interpreter session in the Console pane to make it active. Positron Assistant automatically updates to use the newly active interpreter session.
 
