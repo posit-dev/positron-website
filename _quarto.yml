@@ -96,8 +96,14 @@ website:
             - help-pane.qmd
         - section: "AI Tools"
           contents:
-          - assistant.qmd
-          - databot.qmd
+            - section: "Positron Assistant"
+              contents:
+              - text: "Overview"
+                href: assistant.qmd
+              - assistant-0.qmd
+              - assistant-1.qmd
+              - assistant-2.qmd
+            - databot.qmd
         - section: "Language Guides"
           contents: 
             - guide-python.qmd
