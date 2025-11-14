@@ -126,7 +126,7 @@ Use this mode if you want Positron Assistant to determine the steps needed for y
 - "Install the required packages and run the code in the Console."
 - "Generate a summary report from my current dataset."
 
-For more details on chat modes and other chat features, see [Get started with chat in VS Code](https://code.visualstudio.com/docs/copilot/chat/copilot-chat#_switch-between-chat-modes).
+For more details on chat modes and other chat features, see [Get started with chat in VS Code](https://code.visualstudio.com/docs/copilot/chat/copilot-chat#_switch-between-agents).
 
 ##### Custom chat modes
 
@@ -148,11 +148,13 @@ Once you have created a custom chat mode, it will appear in the mode selector dr
 
 - Run the command _Chat: Configure Chat Modes..._ in the Command Palette.
 
-To learn more about the format of custom chat modes, see the following VS Code documentation:
+**Additional resources**
 
-- [Chat mode file structure](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes#_chat-mode-file-structure)
+Custom chat modes are now called custom agents in VS Code documentation. To learn more about the format of custom agents, see the following VS Code documentation:
+
+- [Custom agent file structure](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure)
     - Note: Positron Assistant does not support the `model` field at this time.
-- [Custom chat modes in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes)
+- [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
 
 #### Attaching context
 
@@ -202,7 +204,7 @@ To customize Positron Assistant's behavior, create one or more of these files in
 - `gemini.md`
 - `llms.txt`
 
-Positron Assistant looks for these files and appends each file's content to the default prompt for all chat and inline chat interactions. This customization does not affect code completions.
+Positron Assistant looks for these files and appends each file's content to the default prompt for all chat and inline chat interactions. This customization does not affect code completions. Note that the order in which these files are appended is not guaranteed. Follow issue [#10571](https://github.com/posit-dev/positron/issues/10571) for updates.
 
 ##### Custom prompt files
 
@@ -230,9 +232,11 @@ For example, if you have a prompt file named `emojis.prompt.md`, you can type `/
 
 - Run the command _Chat: Configure Prompt Files..._ in the Command Palette.
 
+**Additional resources**
+
 To learn more about the format of custom prompt files, see the following VS Code documentation:
 
-- [Prompt file format](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_prompt-file-format)
+- [Prompt file structure](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_prompt-file-structure)
     - Note: Positron Assistant does not support the `model` field at this time.
 - [Tips for defining prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_tips-for-defining-prompt-files)
 
@@ -255,6 +259,8 @@ Once you have created custom instructions files, Positron Assistant will automat
 **To configure your custom instructions files:**
 
 - Run the command _Chat: Configure Instructions..._ in the Command Palette.
+
+**Additional resources**
 
 To learn more about the format of custom instructions files, see the following VS Code documentation:
 
