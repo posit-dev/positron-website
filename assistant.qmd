@@ -148,13 +148,13 @@ When an interpreter session is attached, Positron Assistant can access:
 
 Manage interpreter session context:
 
-- **To switch the attached interpreter session for chat**: click the interpreter session in the Console pane to make it active. Positron Assistant automatically updates to use the newly active interpreter session.
+- To switch the attached interpreter session for chat, click the interpreter session in the Console pane to make it active. Positron Assistant automatically updates to use the newly active interpreter session.
 
-- **To attach more than one interpreter session**: click the **{{< fa paperclip >}} Add Context...** button in the Chat pane and choose "Interpreter Sessions..." to select additional interpreter sessions.
+- To attach more than one interpreter session, click the **{{< fa paperclip >}} Add Context...** button in the Chat pane and choose "Interpreter Sessions..." to select additional interpreter sessions.
 
-- **To toggle the visibility of the active Console session**: click the **{{< fa eye >}} eye** button on the Console session attachment in the Chat pane. When the eye icon appears without a slash through it, the Console session is visible. When the eye icon has a slash through it, the Console session is hidden.
+- To toggle the visibility of the active Console session, click the **{{< fa eye >}} eye** button on the Console session attachment in the Chat pane. When the eye icon appears without a slash through it, the Console session is visible. When the eye icon has a slash through it, the Console session is hidden.
 
-- **To change the default visibility of the active interpreter session**: modify the [`chat.implicitSessionContext.enabled`](positron://settings/chat.implicitSessionContext.enabled) setting. By default, the `panel` setting is `always`, which always attaches the Console session in the Chat pane. To disable the Console session context in the Chat pane, change the `panel` setting to `never`.
+- To change the default visibility of the active interpreter session, modify the [`chat.implicitSessionContext.enabled`](positron://settings/chat.implicitSessionContext.enabled) setting. By default, the `panel` setting is `always`, which always attaches the Console session in the Chat pane. To disable the Console session context in the Chat pane, change the `panel` setting to `never`.
 
 #### Code generation and execution
 
