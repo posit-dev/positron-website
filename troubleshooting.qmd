@@ -48,8 +48,9 @@ Use these instructions to open the developer tools and check for errors or relev
 
 If you seem to have gotten things in a bad state, you can reset Positron to factory-fresh as follows.
 
-1. Close all Positron instances completely.
-2. Clear out Positron state according to your operating system.
+1. Back up any configuration you want to keep, like your personalized keyboard shortcuts (use the command _Preferences: Open Keyboard Shortcuts (JSON)_) or your user settings (use the command _Preferences: Open User Settings (JSON)_). You'll want to keep these JSON files in a new location away from where Positron stores them.
+2. Close all Positron instances completely.
+3. Clear out Positron state according to your operating system.
 
 ::: {.panel-tabset group="os"}
 
@@ -97,7 +98,8 @@ rm -rf ~/.positron
 
 :::
 
-3. [Download the latest release](./download.qmd) of Positron and install it.
+4. [Download the latest release](./download.qmd) of Positron and install it.
+5. Add back in any configuration you backed up, like your keyboard shortcuts or settings.
 
 ## Ask for help
 
