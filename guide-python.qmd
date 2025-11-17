@@ -19,7 +19,7 @@ You can see _all_ the setting defaults that Positron provides with the command _
 
 ## Magics
 
-Positron provides support for [IPython-style magics](https://ipython.readthedocs.io/en/stable/interactive/magics.html) in the Positron console (as well as Python scripts and Jupyter notebooks, where appropriate). Magics are special commands prefixed with the `%` or `%%` symbol that provide convenient shortcuts for common tasks. You can see the supported magics by running the `%lsmagic` command in the Positron console.
+Positron provides support for [IPython-style magics](https://ipython.readthedocs.io/en/stable/interactive/magics.html) in the Positron console (as well as Python scripts and Jupyter notebooks, where appropriate). Magics are special commands prefixed with the `%` symbol that provide convenient shortcuts for common tasks. You can see the supported magics by running the `%lsmagic` command in the Positron console.
 
 Positron provides three new, custom magics created specifically for working in Positron:
 
