@@ -38,7 +38,7 @@ The keyboard shortcuts in Positron are largely a superset of the keyboard shortc
 | {{< kbd mac=Command-Shift-D win=Ctrl-Shift-D linux=Ctrl-Shift-D >}} | Document the current R package, if any | 
 
 :::{.callout-tip}
-If you'd prefer to use keybindings as similar as possible to RStudio, learn [how to enable them](migrate-rstudio-keybindings.qmd) in Positron.
+If you'd prefer to use keybindings as similar as possible to RStudio, learn [how to enable them](migrate-rstudio-keybindings.qmd) in Positron. This will overwrite some of Positron's default keybindings, but will provide a more familiar experience for RStudio users.
 :::
 
 You can create [custom keyboard shortcuts](keyboard-shortcuts.qmd#custom-shortcuts) as well.
@@ -53,7 +53,7 @@ Positron currently provides initial debugging support via the [Debug Adapter Pro
 - `debug(myFunction)` to step through function calls, and
 - `debugonce(myFunction)` to step through a function call just once.
 
-When you are in a debug session, you can use standard R debugging commands like `n`, `s`, `c`, and `Q`.
+When you are in a debug session, you can use standard R debugging commands like `n`, `s`, `c`, and `Q` or the dedicated buttons on the debug toolbar.
 
 :::{.callout-note}
 Positron does not yet support debugging R code via visual breakpoints in `.R` files. [Follow along on GitHub for updates](https://github.com/posit-dev/positron/issues/1766) on breakpoints.

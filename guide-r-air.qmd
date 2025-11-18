@@ -9,7 +9,7 @@ The goal is to enforce a set of style conventions that enhance readability and r
 Air shares properties with other modern formatters and linters, such as Ruff for Python:
 
 * It's highly opinionated and offers relatively few options for customization.
-* It's written in Rust, which makes it extremely fast.
+* It's written in Rust and based on the Biome formatter engine, which makes it extremely fast.
 
 ## How do I install Air?
 
@@ -30,8 +30,8 @@ There are various explicit and implicit gestures to run Air over your R code:
 
 These are all available in the command palette.
 
-All R code receives some basic formatting as you type, but this first pass is focused only on indentation.
-A second formatting pass with Air, when you save the file or intentionally format it, produces a much better result, since Air works off of an actual syntax tree.
+All R code receives some basic formatting when you type {{< kbd Enter >}}, but this first pass is focused only on indentation.
+A second formatting pass with Air, when you save the file or intentionally format it, produces a much better result because Air uses a richer set of rules based on more context.
 
 :::{.callout-tip}
 You can use special comments to tell Air to [skip formatting specific sections of code](https://posit-dev.github.io/air/formatter.html#skip-comments), if you don't want to apply Air's strict formatting rules in a specific situation.
@@ -39,8 +39,7 @@ You can use special comments to tell Air to [skip formatting specific sections o
 
 ## Opt in to "Format on save"
 
-The easiest way to get our recommended set up is to run [`usethis::use_air()`](https://usethis.r-lib.org/dev/reference/use_air.html).
-`use_air()` configures "Format on save" in the current workspace by modifying (or creating, if necessary) the `.vscode/settings.json` file.
+The easiest way to get our recommended set up is to run the command _Air: Initialize Workspace Folder_. This configures "Format on save" in the current workspace by modifying (or creating, if necessary) the `.vscode/settings.json` file.
 It also creates an `air.toml` file.
 
 VS Code and Positron let you customize settings at the user level and at the workspace level (i.e. for just the current project you are working on).
