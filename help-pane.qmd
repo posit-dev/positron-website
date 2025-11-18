@@ -29,6 +29,7 @@ The Help Pane supports the following types of documentation in Python:
 - Modules, classes, functions, and objects with docstrings
 - Rich rendering for common docstring formats: Google, NumPy, Sphinx, Epytext
 
+Additionally, you can use syntax like `int??` to view the source code for functions and classes, when available.
 
 ### R
 
