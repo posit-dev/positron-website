@@ -135,7 +135,7 @@ website:
             - migrate-rstudio.qmd
             - migrate-rstudio-keybindings.qmd
             - migrate-rstudio-settings-and-extensions.qmd
-            - migrate-rstudio-code.qmd
+            - migrate-rstudio-snippets.qmd
             - migrate-rstudio-rproj.qmd
             - migrate-rstudio-compare.qmd
         - section: "Extending Positron"  

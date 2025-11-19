@@ -28,7 +28,7 @@ The keyboard shortcuts in Positron are largely a superset of the keyboard shortc
 
 | Shortcut | Description |
 | -------- | ----------- |
-| {{< kbd mac=Command-Shift-M win=Ctrl-Shift-M linux=Ctrl-Shift-M >}} | Insert the pipe operator (<code>&#124;></code> or `%>%`) | 
+| {{< kbd mac=Command-Shift-M win=Ctrl-Shift-M linux=Ctrl-Shift-M >}} | Insert the pipe operator (<code>&#124;></code> or `%>%`)[^1] | 
 | {{< kbd mac=Option-- win=Alt-- linux=Alt-- >}} | Insert the assignment operator (`<-`) |
 | {{< kbd mac=Command-K win=Ctrl-K linux=Ctrl-K >}}, {{< kbd H >}} | Insert section |
 | {{< kbd mac=Command-Shift-L win=Ctrl-Shift-L linux=Ctrl-Shift-L >}} | Load the current R package, if any, with `devtools::load_all()` | 
@@ -43,6 +43,7 @@ If you'd prefer to use keybindings as similar as possible to RStudio, learn [how
 
 You can create [custom keyboard shortcuts](keyboard-shortcuts.qmd#custom-shortcuts) as well.
 
+[^1]: You can choose which pipe operator to insert via the [`positron.r.pipe`](positron://settings/positron.r.pipe) setting.
 
 ## Debugging
 

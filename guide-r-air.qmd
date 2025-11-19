@@ -28,7 +28,7 @@ There are various explicit and implicit gestures to run Air over your R code:
   - *Quarto: Format Cell*
   - *Air: Format Workspace Folder*
 
-These are all available in the command palette.
+These are all available in the [Command Palette](command-palette.qmd).
 
 All R code receives some basic formatting when you type {{< kbd Enter >}}, but this first pass is focused only on indentation.
 A second formatting pass with Air, when you save the file or intentionally format it, produces a much better result because Air uses a richer set of rules based on more context.
