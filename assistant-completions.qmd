@@ -1,0 +1,75 @@
+---
+title: "Completions"
+---
+
+Code completions are text suggestions that appear inline as you type in an editor. These suggestions can be lines or blocks of code based on the context of what you're writing. Other names for code completions include inline suggestions, ghost text, or inline completions.
+
+Positron Assistant enables completions by default when you authenticate with a language model provider that generates completions, such as GitHub Copilot.
+Interact with suggestions by:
+
+- Pressing the {{< kbd Tab >}} key to accept the entire suggestion.
+- Pressing {{< kbd mac=Command-→ win=Ctrl-→ linux=Ctrl-→ >}} to accept the suggestion word-by-word for a single line suggestion, or line-by-line for multi-line suggestions.
+- Pressing {{< kbd Esc >}} or continuing to type to dismiss the suggestion.
+
+If you are not receiving suggestions:
+
+- Make sure you are authenticated with GitHub Copilot in the [language model provider configuration](#adding-language-model-providers).
+- Check the [developer tools console logs](troubleshooting.qmd#developer-tools) or the Assistant [output](./troubleshooting.qmd#output-panel) logs to see if there are any errors logged.
+
+## Set minimum delay before showing completions
+
+By default, completion suggestions are shown immediately as you write code.
+
+To configure a minimum delay before showing completions, modify the setting [`editor.inlineSuggest.minShowDelay`](positron://settings/editor.inlineSuggest.minShowDelay), which defaults to `0` milliseconds. For example, setting this value to `500` introduces a half-second delay before showing completion suggestions.
+
+## Pause code completions
+
+Completions from an LLM such as GitHub Copilot can be super useful, but sometimes they can be distracting or interfere with other completions from the Python or R LSP.
+
+To pause code completions temporarily:
+
+- Open the Command Palette and run the command _Snooze Inline Suggestions_ and select the duration to snooze completions for; or
+- Click on the Assistant status bar icon, then the **Snooze** button to snooze completions
+
+To view the remaining time on a snooze, hover over the Assistant status bar icon to see a popup with the remaining time.
+
+To cancel the snooze early:
+
+- Open the Command Palette and run the command _Cancel Snooze Inline Suggestions_; or
+- Click on the Assistant status bar icon, then the stop {{< fa circle-stop >}} button
+
+## Toggle completions on or off for all files
+
+### Toggle via the Command Palette
+
+1. Open the Command Palette and run the command _Positron Assistant: Toggle (Enable/Disable) Completions_
+1. Completions are now disabled altogether, until you run the command again to enable them
+
+### Toggle via the Assistant status bar popup
+
+1. Click the Assistant status bar icon
+1. In the popup, uncheck **All files** to disable completions for all files
+
+## Enable or disable inline completions by language
+
+### Configure via settings
+
+1. Open the Command Palette and run the command _Preferences: Open User Settings_
+1. Search for the setting [`positron.assistant.inlineCompletions.enable`](positron://settings/positron.assistant.inlineCompletions.enable)
+1. Modify the list of languages and whether completions should be enabled or disabled
+
+### Configure via the Assistant status bar popup
+
+1. Click the Assistant status bar icon
+1. In the popup, uncheck the current file type to disable completions for that file type
+
+## Disable inline completions by glob pattern
+
+1. Open the Command Palette and run the command _Preferences: Open User Settings_
+1. Search for the setting [`positron.assistant.inlineCompletionExcludes`](positron://settings/positron.assistant.inlineCompletionExcludes)
+1. Modify the list of [glob patterns](https://aka.ms/vscode-glob-patterns)
+
+## Related settings
+
+- [`editor.inlineSuggest.fontFamily`](positron://settings/editor.inlineSuggest.fontFamily): Controls the font family used for inline suggestions.
+- [`editor.inlineSuggest.showToolbar`](positron://settings/editor.inlineSuggest.showToolbar): Controls when to show the inline suggestion toolbar.

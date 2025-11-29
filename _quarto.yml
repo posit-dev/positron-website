@@ -100,9 +100,11 @@ website:
               contents:
               - text: "Overview"
                 href: assistant.qmd
-              - assistant-0.qmd
-              - assistant-1.qmd
-              - assistant-2.qmd
+              - assistant-getting-started.qmd
+              - assistant-chat.qmd
+              - assistant-completions.qmd
+              - assistant-customization.qmd
+              - assistant-tips.qmd
             - databot.qmd
         - section: "Language Guides"
           contents: 

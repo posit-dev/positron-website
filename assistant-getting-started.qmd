@@ -1,0 +1,94 @@
+---
+title: "Getting Started"
+---
+
+To use Positron Assistant, follow these steps to enable it in Positron, configure language model providers, and start using its features.
+
+## Step 1: Enable Positron Assistant
+
+1. Open the Command Palette and run the command _Preferences: Open User Settings_.
+1. Search for the setting [`positron.assistant.enable`](positron://settings/positron.assistant.enable).
+1. Check the box to enable Positron Assistant.
+1. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
+1. Click on the chat robot icon in the sidebar, or run the command _Chat: Open Chat_ in the Command Palette to open the chat.
+
+## Step 2: Configure language model providers
+
+### Supported model providers
+
+Currently, we support **Anthropic** and **GitHub Copilot** for sidebar chat and inline chat. At this time, only **GitHub Copilot** is available for inline code completions.
+
+::: {.panel-tabset group="providers"}
+
+## Anthropic
+
+### Obtain an Anthropic API key
+
+:::{.callout-important}
+Positron Assistant requires a **Claude Console account** with API access. See Anthropic's [Claude API and Console](https://support.claude.com/en/collections/5370014-claude-api-and-console) documentation for more information.
+
+Positron Assistant **does not** support logging into Anthropic with the Claude Pro Plan, Max Plan, or other Claude subscription plans.
+:::
+
+To use Anthropic's Claude models in Positron Assistant, you need to bring your own API key (BYOK). To obtain an API key from Anthropic:
+
+1. Log in to or create an account for Anthropic's [Claude Console](https://platform.claude.com).
+1. Navigate to the [API keys](https://platform.claude.com/settings/keys) management page.
+1. Click the {{< fa plus >}} **Create Key** button.
+1. Fill out any required information and click **Add** to generate your API key.
+1. Copy and save the API key to a password manager or another secure location.
+
+### Add Anthropic as a language model provider
+
+After creating your API key, use it to add Anthropic as a language model provider in Positron.
+
+1. Open the Command Palette and run the _Positron Assistant: Configure Language Model Providers_ command to open the language model provider dialog.
+    - Alternatively, from the Chat pane, you can click the model selector and then **Configure Model Providers...** to open the dialog.
+1. Select **Anthropic** as the model provider.
+1. Paste your API key into the input field and click **Sign in**.
+1. Once authenticated successfully, the **Sign in** button will change to **Sign out**, and available models from Anthropic will be registered.
+1. Click the **Done** button to close the dialog.
+
+You can now use Anthropic Claude models in Positron Assistant for chat and inline chat.
+
+## GitHub Copilot
+
+### Obtain GitHub Copilot access
+
+GitHub Copilot is a proprietary tool from GitHub. If you want to use GitHub Copilot, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account or to be assigned a seat by an organization with a subscription for GitHub Copilot for Business.
+
+Students and faculty can use GitHub Copilot for free as part of the GitHub Education program. For more information, see the [GitHub Education page](https://education.github.com/).
+
+GitHub may send individual snippets of source code or the contents of entire files to its servers to generate suggestions. For more details about how this information is handled, please see the [Copilot Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect).
+
+### Add GitHub Copilot as a language model provider
+
+If you have a GitHub account with Copilot enabled, you can authenticate to GitHub Copilot in Positron Assistant.
+
+1. Open the Command Palette and run the _Positron Assistant: Configure Language Model Providers_ command to open the language model provider dialog.
+    - Alternatively, from the Chat pane, you can click the model selector and then **Configure Model Providers...** to open the dialog.
+1. Select **GitHub Copilot** as the model provider.
+1. Click the **Sign in** button to initiate GitHub's OAuth authentication flow.
+    1. A code will be copied to your clipboard for the authentication flow, and a browser window will open to GitHub's authorization page.
+    1. In the browser window, follow the prompts to authorize Positron Assistant to access your GitHub Copilot subscription.
+    1. After authorizing, return to Positron.
+1. Once authenticated successfully, the **Sign in** button will change to **Sign out**, and available models from GitHub Copilot will be registered.
+1. Click the **Done** button to close the dialog.
+
+::: {.callout-tip}
+If you are using Positron with a [remote SSH](remote-ssh.qmd) session, you will need to authenticate to GitHub on the _remote server_ as well. Follow [along on GitHub](https://github.com/posit-dev/positron/issues/8409) as we make improvements in this area.
+:::
+
+:::
+
+### Removing language model providers
+
+1. Run the _Positron Assistant: Configure Language Model Providers_ command to open the language model provider dialog.
+    - Alternatively, from the Chat pane, you can click the model selector and then **Configure Model Providers...** to open the dialog.
+1. Select the model provider you want to remove.
+1. Click the **Sign out** button to remove the provider from Positron Assistant.
+1. Click the **Done** button to close the dialog.
+
+## Step 3: Use Positron Assistant!
+
+Use the [Chat pane](./assistant-chat.qmd), [inline chat](./assistant-chat.qmd#inline-chat), [code completions in an Editor](./assistant-completions.qmd), or [Console actions](./assistant-chat.qmd#console-actions) to interact with the language models.
