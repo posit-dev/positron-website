@@ -195,7 +195,7 @@ Inline chat is a mini chat interface that can be opened directly within your cod
 
 ::: {.panel-tabset group="inline-chat-area"}
 
-## Editor or Notebook
+## Editor or notebook
 
 To use the inline chat interface in an Editor or Notebook:
 

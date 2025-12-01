@@ -53,7 +53,7 @@ We're actively expanding provider support and improving the experience, and welc
 
 To get started with Positron Assistant, check out the [Getting Started](assistant-getting-started.qmd) guide.
 
-## Built for Data Science Workflows
+## Built for data science workflows
 
 Positron Assistant is developed with the understanding that data science work is interactive and exploratory. Beyond having access to your code files, it can also see your loaded data, plots, and Console inputs and outputs.
 

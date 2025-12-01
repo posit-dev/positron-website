@@ -87,7 +87,7 @@ If you encounter any issues or have suggestions, please let us know by:
 
 ### Logs
 
-#### View Assistant output logs
+#### View output logs
 
 1. Open the Command Palette
 1. Run the command _Output: Show Output Channels..._
