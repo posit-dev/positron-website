@@ -42,8 +42,9 @@ website:
 
   navbar:
     pinned: true
-    logo: "assets/images/positron-icon.svg"
+    logo: "assets/images/positron-logo_fullcolor-TM.png"
     logo-alt: "Positron Documentation"
+    title: false
 
     left:
       - text: "Features"
@@ -64,10 +65,10 @@ website:
             icon: calendar-event
             href: https://posit.co/events/?search=positron&poststatus=all
             target: _blank
-      - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
-        href: download.qmd     
       
     right:
+      - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
+        href: download.qmd
       - icon: github
         aria-label: 'Link to Positron Github Repository'
         href: https://github.com/posit-dev/positron

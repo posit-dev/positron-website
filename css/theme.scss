@@ -62,18 +62,16 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid $posit-light-blue-1;
 }
 
-.navbar-title small {
-  font-size: 14px;
-  display: block;
-}
-
 .navbar-collapse {
   margin-left: 2ch;
 }
 
 .navbar-brand img {
-  height: 40px;
-  width: auto;
+  height: auto !important;
+  width: auto !important;
+  max-height: none !important;
+  max-width: 150px;
+  min-height: 30px;
 }
 
 #top-bar-download-btn {
