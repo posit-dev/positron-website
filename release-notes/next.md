@@ -15,7 +15,7 @@ This release brings several improvements to make Assistant more reliable and eas
 - _Positron Assistant: Reset State_ lets you start totally fresh when needed.
 - _Positron Assistant: Collect Diagnostics_ generates a diagnostics report to help identify issues. 
   
-We've also improved token efficiency across many tools and introduced preview support for Snowflake Cortex as a language model provider. If you're on Posit Workbench, AWS Bedrock is now automatically enabled when managed credentials are available, with graceful handling of credential expiration.
+We have also improved token efficiency across many tools and introduced preview support for Snowflake Cortex as a language model provider. If you're on Posit Workbench, AWS Bedrock is now automatically enabled when managed credentials are available, with graceful handling of credential expiration.
 
 #### Run your code with new keyboard shortcuts 💥
 
