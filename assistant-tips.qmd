@@ -56,19 +56,19 @@ To enable tool call details:
 
 If you receive unexpected or incorrect responses from the model, consider the following steps:
 
-- Provide more context: Ensure that your messages include sufficient context about your code, data, or the task at hand.
-- Rephrase your query: Try rewording your question or request to be more specific or clear.
-- Start a new conversation: If the current conversation has become lengthy or confusing, [starting a new chat conversation](#starting-new-chat-conversations) may help reset the context.
-- Reach out for support: If you continue to experience issues, consider reaching out for support to provide [feedback or report the problem](#feedback--issues).
+- **Provide more context:** Ensure that your messages include sufficient context about your code, data, or the task at hand.
+- **Rephrase your query:** Try rewording your question or request to be more specific or clear.
+- **Start a new conversation:** If the current conversation has become lengthy or confusing, [starting a new chat conversation](#starting-new-chat-conversations) may help reset the context.
+- **Reach out for support:** If you continue to experience issues, consider reaching out for support to provide [feedback or report the problem](#feedback--issues).
 
 ### I am getting an error message
 
 If you encounter an error message while using Positron Assistant, try the following:
 
-- Try again: Sometimes, transient issues can cause errors. Retry your request to see if the issue persists.
-- Start a new conversation: If the error is related to the current chat context, [starting a new chat conversation](#starting-new-chat-conversations) may resolve it.
-- Check if your language model provider has any service outages or issues.
-- Reach out for support: If the error persists, consider reaching out for support to provide [feedback or report the problem](#feedback--issues).
+- **Try again:** Sometimes, transient issues can cause errors. Retry your request to see if the issue persists.
+- **Start a new conversation:** If the error is related to the current chat context, [starting a new chat conversation](#starting-new-chat-conversations) may resolve it.
+- **Check provider status:** Check if your language model provider has any service outages or issues.
+- **Reach out for support:** If the error persists, consider reaching out for support to provide [feedback or report the problem](#feedback--issues).
 
 ## Feedback & Issues
 

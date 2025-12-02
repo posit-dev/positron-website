@@ -222,11 +222,11 @@ Learn more about how to [Use terminal inline chat](https://code.visualstudio.com
 
 Positron Assistant provides quick assistance for errors in the Console. When you see an error, you can choose **Fix** or **Explain** to send your Console session to Assistant for immediate help.
 
-- Fix: Assistant diagnoses the error and suggests a corrected version of your code. Use Fix to resolve errors quickly or apply recommended changes.
+- **Fix:** Assistant diagnoses the error and suggests a corrected version of your code. Use Fix to resolve errors quickly or apply recommended changes.
 
-- Explain: Assistant describes what your code does, analyzes the error, and suggests possible solutions. Use Explain to learn more about your code or get advice on complex issues.
+- **Explain:** Assistant describes what your code does, analyzes the error, and suggests possible solutions. Use Explain to learn more about your code or get advice on complex issues.
 
-Fix and Explain inherits these options from the Chat pane:
+Fix and Explain inherit these options from the Chat pane:
 
 - Selected model
 - Files added or removed from context
