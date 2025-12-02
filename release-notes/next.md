@@ -38,17 +38,17 @@ The most upvoted feature in this month's release is a new set of keyboard shortc
 - [[#9652](https://github.com/posit-dev/positron/issues/9652)] Assistant: the AWS Bedrock provider now gracefully handles credential expiration, and automatically refreshes them with the `aws` CLI tool.
 - [[#9971](https://github.com/posit-dev/positron/issues/9971)] Assistant: added initial support for user-defined model listing.
 - [[#8613](https://github.com/posit-dev/positron/issues/8613)] Assistant: added preview support for Snowflake Cortex language model provider with OAuth managed credentials integration.
-- [[#8334](https://github.com/posit-dev/positron/issues/8334)] Added a new layout present for an Assistant-centric workflow (in addition to the existing stacked, side-by-side, and notebook layout presets).
+- [[#8334](https://github.com/posit-dev/positron/issues/8334)] Added a new layout preset for an Assistant-centric workflow (in addition to the existing stacked, side-by-side, and notebook layout presets).
 - [[#3731](https://github.com/posit-dev/positron/issues/3731), [#10304](https://github.com/posit-dev/positron/issues/10304)] Python: we now bundle the Pyrefly extension, which gives a much richer Python editing experience, including better syntax highlighting.
-- [[#2318](https://github.com/posit-dev/positron/issues/2318)] R: now apply syntax highlighting to roxygen `@examplesif` sections.
+- [[#2318](https://github.com/posit-dev/positron/issues/2318)] R: now apply syntax highlighting to roxygen `@examplesIf` sections.
 - [[#10325](https://github.com/posit-dev/positron/issues/10325)] R: added shim for `rstudioapi::readRStudioPreference()`.
-- [[#7430](https://github.com/posit-dev/positron/issues/7430)] R: allow extensions contribute F1 "show help topic" entries.
+- [[#7430](https://github.com/posit-dev/positron/issues/7430)] R: allow extensions to contribute F1 "show help topic" entries.
 - [[#10645](https://github.com/posit-dev/positron/issues/10645)] R: the syntax highlighting for `T` and `F` now treats them as regular variables (since they are not reserved words or constants in R).
 - [[#8559](https://github.com/posit-dev/positron/issues/8559)] R: <kbd>Cmd/Ctrl+Enter</kbd> within roxygen2 `@examples` and `@examplesIf` tags now executes entire R expressions rather than executing one line at a time.
 - [[#4395](https://github.com/posit-dev/positron/issues/4395)] Added new keyboard shortcuts to run code from the document beginning to the current line <kbd>Ctrl/Cmd+Alt+Home</kbd> and from the current line to the document end <kbd>Ctrl/Cmd+Alt+End</kbd>. If you opt in the RStudio Keymap, these are available as <kbd>Ctrl/Cmd+Alt+B</kbd> and <kbd>Ctrl/Cmd+Alt+E</kbd>.
 - [[#6479](https://github.com/posit-dev/positron/issues/6479)] Added a new [`workbench.topActionBar.visible`](positron://settings/workbench.topActionBar.visible) setting to control whether the Positron top bar is visible.
 - [[#7054](https://github.com/posit-dev/positron/issues/7054)] Added new command _Plots: Open Plots Gallery in New Window_ to open the whole Plots pane UI in an auxiliary window. You can also pop out the new standalone window from the plots action bar.
-- [[#10329](https://github.com/posit-dev/positron/issues/10329)] Added new setting [`plots.historyPolicy`](positron://settings/plots.historyPolicy) to control the when the plot history filmstrip is visible.
+- [[#10329](https://github.com/posit-dev/positron/issues/10329)] Added new setting [`plots.historyPolicy`](positron://settings/plots.historyPolicy) to control when the plot history filmstrip is visible.
 - [[#7747](https://github.com/posit-dev/positron/issues/7747)] Added new button to interrupt a running app (such as Streamlit or FastAPI) from the Viewer pane.
 - [[#10580](https://github.com/posit-dev/positron/issues/10580)] Added new command `positron.executeCodeInConsole` for extensions to execute code for a given language, URI, and position (such as for the Quarto visual editor).
 
@@ -61,8 +61,8 @@ The most upvoted feature in this month's release is a new set of keyboard shortc
 - [[#9761](https://github.com/posit-dev/positron/issues/9761)] Console: fixed issue causing code from scripts to be executed in a notebook console if it had the same language.
 - [[#9989](https://github.com/posit-dev/positron/issues/9989)] Console: fixed the "play" button behavior for split editors.
 - [[#10115](https://github.com/posit-dev/positron/issues/10115)] Assistant: fixed issue where Console Fix/Explain Actions were hidden when only logged in with Copilot.
-- [[#9700](https://github.com/posit-dev/positron/issues/9700)] Assistant: Remove "Next Edit Suggestions" from being displayed in chat status.
-- [[#10332](https://github.com/posit-dev/positron/issues/10332)] Assistant: Disable completions for custom providers.
+- [[#9700](https://github.com/posit-dev/positron/issues/9700)] Assistant: remove "Next Edit Suggestions" from being displayed in chat status.
+- [[#10332](https://github.com/posit-dev/positron/issues/10332)] Assistant: disable completions for custom providers.
 - [[#9770](https://github.com/posit-dev/positron/issues/9770), [#10719](https://github.com/posit-dev/positron/issues/10719)] Assistant: fixed Copilot tools included in chat requests not using a Copilot model and filtering the tools from the "Configure Tools" quick pick.
 - [[#10763](https://github.com/posit-dev/positron/issues/10763)] Assistant: fixed stale Assistant model listing when Bedrock is the only registered provider.
 - [[#10823](https://github.com/posit-dev/positron/issues/10823)] Assistant: fixed API key error when signing in to Anthropic.
