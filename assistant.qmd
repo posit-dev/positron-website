@@ -51,7 +51,9 @@ Positron Assistant is an AI client that provides LLM integration within Positron
 
 We're actively expanding provider support and improving the experience, and welcome you to provide [feedback](https://github.com/posit-dev/positron/discussions) and report any [issues](https://github.com/posit-dev/positron/issues/new/choose) you encounter!
 
+::: {.callout-tip}
 To get started with Positron Assistant, check out the [Getting Started](assistant-getting-started.qmd) guide.
+:::
 
 ## Built for data science workflows
 
