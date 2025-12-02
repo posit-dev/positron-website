@@ -2,7 +2,7 @@
 
 #### Try our new Python language server options 🐍
 
-Our new release provides both a better default experience for editing Python code, as well as more flexibility for folks who want to customize their experience. We changed our Python language server approach so you can install your own language server extension to provide syntax highlighting and other language server features; we've tested out basedpyright, ty, Pyrefly, and ZubanLS and expect all to work in Positron now. One of our goals is to provide a great "batteries included" experience for all users (including those who aren't sure which to choose) so, starting with this release, we now bundle the [Pyrefly](https://open-vsx.org/extension/meta/pyrefly) extension.
+Our new release provides both a better default experience for editing Python code, as well as more flexibility for folks who want more control. We changed our Python language server approach so you can install your own extension of choice to provide syntax highlighting and other language server features; we've tested out basedpyright, ty, Pyrefly, and ZubanLS and expect all to work in Positron now. One of our goals is to provide a great "batteries included" experience for all users (including those who aren't sure which to choose) so, starting with this release, we now bundle the [Pyrefly](https://open-vsx.org/extension/meta/pyrefly) extension.
 
 We no longer bundle the Pyright extension because its functionality overlaps with Pyrefly. If you do not want to use Pyrefly, disable that extension. You also will want to uninstall the Python Environments extension if you have it, because its features do not work in Positron.
 
