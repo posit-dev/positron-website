@@ -57,16 +57,16 @@ To get started with Positron Assistant, check out the [Getting Started](assistan
 
 ## Built for data science workflows
 
-Positron Assistant is developed with the understanding that data science work is interactive and exploratory. Beyond having access to your code files, it can also see your loaded data, plots, and Console inputs and outputs.
+Positron Assistant is developed with the understanding that data science work is interactive and exploratory. Beyond having access to your code files, it can also see your loaded data, plots, and Console inputs and outputs as context.
 
-Since much of data science and analysis happens interactively as you load data, explore it through cleaning and transformations, create visualizations, and build models, this context allows Assistant to provide more relevant guidance.
+Since much of data science and analysis happens interactively as you load, clean, and reshape data, create visualizations, and build models, this additional context allows Assistant to provide more relevant guidance.
 
 Positron Assistant is provided relevant information about your current workspace through metadata about your Positron environment and through tool calling:
 
-- Variables pane: Names, dimensions, and column names of dataframes and database connections, plus metadata for arrays, lists, and other objects in memory
-- Plots pane: Describe current plots and suggest variations or next steps for iteration
-- Console: View inputs and outputs, plus execute code and see results
-- Session state: Active language (Python/R + version), loaded packages, and installed packages
+- **Variables pane:** Names, dimensions, and column names of dataframes and database connections, plus metadata for arrays, lists, and other objects in memory
+- **Plots pane:** Describe current plots and suggest variations or next steps for iteration
+- **Console:** View inputs and outputs, plus execute code and see results
+- **Session state:** Active language (Python/R + version), loaded packages, and installed packages
 
 This session-aware context works alongside traditional AI capabilities like understanding your active files, selected code, and project structure.
 
