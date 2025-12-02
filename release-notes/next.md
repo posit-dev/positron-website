@@ -31,7 +31,6 @@ The most upvoted feature in this month's release is a new set of keyboard shortc
 - [[#10430](https://github.com/posit-dev/positron/issues/10430)] Added Connections Pane support for Python Databricks SQL Connector.
 - [[#10431](https://github.com/posit-dev/positron/issues/10431)] Added Connections Pane support for Python Google BigQuery.
 - [[#10348](https://github.com/posit-dev/positron/issues/10348), [#10236](https://github.com/posit-dev/positron/issues/10236)] Assistant: improved token efficiency of project tools.
-- [[#10368](https://github.com/posit-dev/positron/issues/10368)] Assistant: added directory structure tool.
 - [[#10346](https://github.com/posit-dev/positron/issues/10346)] Assistant: added command _Positron Assistant: Reset State_ to reset Assistant state.
 - [[#10344](https://github.com/posit-dev/positron/issues/10344)] Assistant: added command _Positron Assistant: Collect Diagnostics_ to generate a diagnostics report.
 - [[#10179](https://github.com/posit-dev/positron/issues/10179)] Assistant: on Posit Workbench, AWS Bedrock is automatically enabled within Assistant when Managed Credentials are available.
