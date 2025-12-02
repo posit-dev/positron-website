@@ -4,7 +4,7 @@
 
 Our new release provides both a better default experience for editing Python code, as well as more flexibility for folks who want to customize their experience. We changed our approach to providing a Python LSP so you can bring your own chosen Python LSP extension to provide syntax highlighting and other LSP features; we've tested out basedpyright, ty, Pyrefly, and ZubanLS and expect all to work in Positron now. One of our goals is to provide a great "batteries included" experience for all users (including those who aren't sure which to choose) so, starting with this release, we now bundle the Pyrefly extension.
 
-We no longer bundle the Pyright extension because its functionality overlaps with Pyrefly; if you don't want to use it, go ahead and uninstall that extension. You also will want to uninstall the Python Environments extension if you have that, because its features do not work in Positron.
+We no longer bundle the Pyright extension because its functionality overlaps with Pyrefly. If you do not want to use Pyrefly, uninstall that extension. You also will want to uninstall the Python Environments extension if you have it, because its features do not work in Positron.
 
 [Let us know](https://github.com/posit-dev/positron/discussions) how it goes with our new Python language server support!
 
@@ -15,7 +15,7 @@ This release brings several improvements to make Assistant more reliable and eas
 - _Positron Assistant: Reset State_ lets you start totally fresh when needed.
 - _Positron Assistant: Collect Diagnostics_ generates a diagnostics report to help identify issues. 
   
-We've also improved token efficiency across many tools and introduced preview support for Snowflake Cortex as a language model provider. If you're on Posit Workbench, AWS Bedrock is now automatically enabled when managed credentials are available, with graceful handling of credential expiration.
+We have also improved token efficiency across many tools and introduced preview support for Snowflake Cortex as a language model provider. If you're on Posit Workbench, AWS Bedrock is now automatically enabled when managed credentials are available, with graceful handling of credential expiration.
 
 #### Run your code with new keyboard shortcuts 💥
 
