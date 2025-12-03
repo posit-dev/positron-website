@@ -11,7 +11,7 @@ subtitle: <https://github.com/posit-dev/positron/releases/tag/2025.11.0-234>
 This release brings a slew of improvements to the remote SSH experience in Positron. We've improved:
 
 - our UI treatment of configured hosts
-- the command to connect to your remote machine(s)
+- the command to connect to your remote machines
 - bundling of components such as Quarto
 - what happens when something goes wrong with the server download on your remote machine
 - how you can manage the installation location of Positron server
