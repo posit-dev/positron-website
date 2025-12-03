@@ -130,6 +130,8 @@ Once you install Positron, it will [automatically check for updates moving forwa
 
 ## Release notes
 
+The current release of Positron is {{< env RELEASE_VERSION >}}.
+
 {{< include release-notes/release.md >}}
 
 ## Older releases
