@@ -12,7 +12,7 @@ In addition to providing settings, Positron also provides [keyboard shortcuts](k
 
 Positron provides setting defaults for working with Python for data science, but you can override or change these defaults if you prefer a different experience. For example:
 
-- Positron bundles [Pyright](https://github.com/microsoft/pyright) to provide type checking for Python code, but disables the language services since these would duplicate some functionality provided by Positron itself. If you prefer to see Pyright's type completion, definitions, and references (in addition to other Python language services), then change the [`pyright.disableLanguageServices`](positron://settings/pyright.disableLanguageServices) setting from the Positron default. 
+- Positron bundles [Pyrefly](https://open-vsx.org/extension/meta/pyrefly) to provide Python language server features including syntax highlighting, type checking, and code completion. By default, Pyrefly will only provide type check squiggles in Positron if your file is covered by a Pyrefly configuration. If you prefer to see these diagnostics more or less than this, then change the [`python.pyrefly.displayTypeErrors`](positron://settings/python.pyrefly.displayTypeErrors) setting from the Positron default.
 - Positron bundles [Ruff](https://docs.astral.sh/ruff/) to provide [formatting](#code-formatting) for Python and sets the [`ruff.importStrategy`](positron://settings/ruff.importStrategy) setting to `"useBundled"`. If you prefer to use a Ruff installation that you manage yourself, change this setting to `"fromEnvironment"`.
 
 You can see _all_ the setting defaults that Positron provides with the command _Preferences: Open Default Settings (JSON)_.

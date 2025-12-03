@@ -29,6 +29,7 @@ Positron provides layout presets specifically designed for data science work:
 
 - **Stacked** (default): Editor above with Console and Terminal below, and the Variables and Plots panes to the right. Designed for interactive workflows with regular scripts or literate programming documents such as Quarto.
 - **Side-by-side**: Useful for wide-screen users or those who prefer their editor and console next to each other.
-- **Notebook**: Emphasizes the editor workspace for full focus on a Jupyter Notebook or source file, minimizing other panes.  
+- **Notebook**: Emphasizes the editor workspace for full focus on a Jupyter Notebook or source file, minimizing other panes.
+- **Assistant**: Optimized for an Assistant-centric workflow, with easy access to [Positron Assistant](assistant.qmd) features alongside your code and console.
 
 Use the _Customize Layout..._ command for more specific layout choices. You can also reset the whole UI back to defaults by clicking on the {{<fa rotate-left >}} icon at the top right of the layout quickpick.
