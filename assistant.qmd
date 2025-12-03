@@ -21,14 +21,6 @@ listing:
     type: custom
     template: templates/welcome-card.ejs
     contents:
-      - title: "Getting Started"
-        description: "Learn how to set up Positron Assistant and connect to a language model provider."
-        icon: "bi-rocket-takeoff"
-        link: "assistant-getting-started.qmd"
-      - title: "Customization"
-        description: "Explore options for customizing Positron Assistant to fit your workflow, such as custom prompts and chat modes."
-        icon: "bi-sliders"
-        link: "assistant-customization.qmd"
       - title: "Tips & Troubleshooting"
         description: "Find tips for using Positron Assistant effectively and troubleshooting common issues."
         icon: "bi-life-preserver"
@@ -41,10 +33,6 @@ listing:
         description: "Stay on top of important AI developments at Posit and beyond with curated updates."
         icon: "bi-newspaper"
         link: "https://posit.co/blog/?post_tag=ai-newsletter"
-      - title: "Databot"
-        description: "Learn about Databot, a companion to Positron Assistant that focuses on exploratory data analysis."
-        icon: "bi-robot"
-        link: "databot.qmd"
 ---
 
 Positron Assistant is an AI client that provides LLM integration within Positron, both for chat and for inline completions. Currently available in **preview** (Positron 2025.07.0-204 and beyond), it supports **Anthropic Claude for chat** and **GitHub Copilot for code completions and chat**.
