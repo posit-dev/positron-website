@@ -43,7 +43,7 @@ Some examples of the bootstrapped extensions include:
 
 - [charliermarsh.ruff](https://open-vsx.org/extension/charliermarsh/ruff): A Python linter and code formatter built in Rust. It provides fast and comprehensive Python code quality checking with support for hundreds of lint rules.
 
-- [ms-pyright.pyright](https://open-vsx.org/extension/ms-pyright/pyright): A fast Python static type checker and language server. It provides intelligent code completion, type checking, and helps catch errors before runtime.
+- [meta.pyrefly](https://open-vsx.org/extension/meta/pyrefly): A fast Python language server that provides syntax highlighting, type checking, code completion, and other language features to enhance your Python editing experience.
 
 - [posit.shiny](https://open-vsx.org/extension/posit/shiny): Support for developing Shiny applications in Python and R within Positron.
 

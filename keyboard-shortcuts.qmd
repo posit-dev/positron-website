@@ -10,9 +10,11 @@ Our documentation shows you keyboard shortcuts based on your operating system. F
 
 | Shortcut | Description |
 | -------- | ----------- |
-| {{< kbd mac=Command-Enter win=Ctrl-Enter linux=Ctrl-Enter >}}| Run the selected code in the editor; if no code is selected, run the current statement | 
-| {{< kbd mac=Command-Shift-0 win=Ctrl-Shift-0 linux=Ctrl-Shift-0 >}} | Restart the interpreter currently open in the Console | 
-| {{< kbd mac=Command-Shift-Enter win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} | Run the current file in the Console (using e.g. `source()` for `.R` or `%run` for `.py`) | 
+| {{< kbd mac=Command-Enter win=Ctrl-Enter linux=Ctrl-Enter >}}| Run the selected code in the editor; if no code is selected, run the current statement |
+| {{< kbd mac=Command-Alt-Home win=Ctrl-Alt-Home linux=Ctrl-Alt-Home >}} | Run code from document beginning to current line |
+| {{< kbd mac=Command-Alt-End win=Ctrl-Alt-End linux=Ctrl-Alt-End >}} | Run code from current line to document end |
+| {{< kbd mac=Command-Shift-0 win=Ctrl-Shift-0 linux=Ctrl-Shift-0 >}} | Restart the interpreter currently open in the Console |
+| {{< kbd mac=Command-Shift-Enter win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} | Run the current file in the Console (using e.g. `source()` for `.R` or `%run` for `.py`) |
 | {{< kbd F1 >}} | Show contextual help for the topic under the cursor |
 | {{< kbd mac=Command-K win=Ctrl-K linux=Ctrl-K >}}, {{< kbd mac=Command-R win=Ctrl-R linux=Ctrl-R >}} | Show contextual help for the topic under the cursor (alternate binding) |
 | {{< kbd mac=Command-K win=Ctrl-K linux=Ctrl-K >}}, {{< kbd F >}} | Focus the Console |
