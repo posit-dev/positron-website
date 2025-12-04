@@ -5,10 +5,6 @@ listing:
     type: custom
     template: templates/welcome-card.ejs
     contents:
-      - title: "Code completions"
-        description: "Receive code suggestions directly in your Editor or Notebook."
-        icon: "bi-cursor-text"
-        link: "assistant-completions.qmd"
       - title: "Chat pane"
         description: "A dedicated AI chat pane for coding, troubleshooting, and planning."
         icon: "bi-chat-text"
@@ -17,6 +13,10 @@ listing:
         description: "In-context AI assistance within your code Editor, Notebook, or Terminal."
         icon: "bi-chat-square-text"
         link: "assistant-chat.qmd#inline-chat"
+      - title: "Code completions"
+        description: "Receive code suggestions directly in your Editor or Notebook."
+        icon: "bi-cursor-text"
+        link: "assistant-completions.qmd"
   - id: learn-more
     type: custom
     template: templates/welcome-card.ejs
@@ -61,8 +61,12 @@ Posit does not provide support or assistance for any code written or generated i
 
 ### Anthropic
 
-By using Anthropic Claude, you acknowledge that your use of Anthropic Claude is subject to the Anthropic [Terms of Service](https://www.anthropic.com/legal/consumer-terms) and [Privacy Policy](https://www.anthropic.com/legal/privacy). Anthropic Claude is considered "Third Party Materials" as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
+Anthropic may collect and store your prompts, responses, and related usage data. For more information about Anthropic's data handling and retention policies, review their [Privacy Policy](https://www.anthropic.com/legal/privacy), their [Commercial Privacy Center](https://privacy.claude.com/en/collections/10663361-commercial-customers) documentation, and your Claude Console [Privacy controls](https://platform.claude.com/settings/privacy).
+
+By using Anthropic, you acknowledge that your use of Anthropic is subject to their [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms). Anthropic is considered "Third Party Materials" as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
 
 ### GitHub Copilot
+
+GitHub may send individual snippets of source code or the contents of entire files to its servers to generate suggestions. For more details about how this information is handled, please see the [Copilot Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect).
 
 By using GitHub Copilot, you acknowledge that your use of GitHub Copilot is governed by their terms of service and you agree to abide by their [terms of service](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot). GitHub Copilot is considered “Third Party Materials” as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
