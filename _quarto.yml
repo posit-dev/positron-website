@@ -111,8 +111,8 @@ website:
                   - href: assistant-chat-commands-participants.qmd
                   - href: assistant-chat-instructions.qmd
               - assistant-completions.qmd
-              - assistant-tips.qmd
               - assistant-troubleshooting.qmd
+              - assistant-tips.qmd
             - databot.qmd
         - section: "Language Guides"
           contents: 
