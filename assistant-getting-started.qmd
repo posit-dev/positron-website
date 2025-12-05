@@ -59,7 +59,7 @@ To use Anthropic's Claude models in Positron Assistant, you need to bring your o
 
 1. Run the command _Positron Assistant: Configure Language Model Providers_
 1. Select **Anthropic** as the model provider.
-    ![Anthropic selected in Provider modal](images/assistant-provider-modal-anthropic.png)
+    ![Anthropic selected in Provider modal](images/assistant-provider-modal-anthropic.png){width=650}
 1. Paste your Claude Console API key into the input field and click **Sign in**.
 
 ## GitHub Copilot
@@ -81,7 +81,7 @@ Students and faculty can use GitHub Copilot for free as part of the GitHub Educa
 
 1. Run the command _Positron Assistant: Configure Language Model Providers_
 1. Select **GitHub Copilot** as the model provider.
-    ![GitHub Copilot selected in Provider modal](images/assistant-provider-modal-github-copilot.png)
+    ![GitHub Copilot selected in Provider modal](images/assistant-provider-modal-github-copilot.png){width=650}
 1. Click the **Sign in** button to initiate GitHub's OAuth authentication flow.
     - Complete the authentication flow in your browser, and return to Positron when finished.
 
@@ -97,7 +97,7 @@ Once you've authenticated with at least one language model provider, you're all 
 
 1. Click on the chat robot icon in the sidebar, or run the command _Chat: Open Chat_ in the Command Palette to open the chat:
 
-    ![Assistant Sidebar Icon](images/assistant-sidebar-icon.png)
+    ![Assistant Sidebar Icon](images/assistant-sidebar-icon.png){height=450}
 
 1. Chat with Assistant by typing your question or request in the chat input box at the bottom of the chat pane, then pressing {{< kbd Enter >}} or the {{< fa paper-plane regular >}} send button.
 

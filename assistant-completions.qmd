@@ -47,7 +47,7 @@ To learn more about GitHub Copilot code completions, visit the GitHub Copilot [i
 
 The Assistant status bar icon indicates the current state of code completions from Positron Assistant.
 
-![Assistant status bar icon](images/assistant-status-bar-icon.png)
+![Assistant status bar icon](images/assistant-status-bar-icon.png){width=750}
 
 To manage code completions using the status bar icon:
 
