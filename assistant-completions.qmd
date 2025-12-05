@@ -4,7 +4,9 @@ title: "Completions"
 
 Code completions are text suggestions that appear inline as you type in an editor. These suggestions can be lines or blocks of code based on the context of what you're writing. Other names for code completions include inline suggestions, ghost text, or inline completions.
 
-Positron Assistant enables completions by default when you authenticate with **GitHub Copilot** as a language model provider.
+::: {.callout-tip}
+Completions are powered by **GitHub Copilot**. Ensure you've [added GitHub Copilot as a language model provider](assistant-getting-started.qmd#add-github-copilot-as-a-language-model-provider).
+:::
 
 ## Using code completions
 

@@ -5,7 +5,7 @@ listing:
     type: custom
     template: templates/welcome-card.ejs
     contents:
-      - title: "chat pane"
+      - title: "Chat pane"
         description: "A dedicated AI chat pane for coding, troubleshooting, and planning."
         icon: "bi-chat-text"
         link: "assistant-chat.qmd#chat-pane"
