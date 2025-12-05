@@ -8,7 +8,7 @@ listing:
       - title: "Chat pane"
         description: "A dedicated AI chat pane for coding, troubleshooting, and planning."
         icon: "bi-chat-text"
-        link: "assistant-chat.qmd"
+        link: "assistant-chat.qmd#chat-pane"
       - title: "Inline chat"
         description: "In-context AI assistance within your code Editor, Notebook, or Terminal."
         icon: "bi-chat-square-text"
@@ -23,32 +23,21 @@ Positron Assistant supports **Anthropic Claude for chat** and **GitHub Copilot f
 
 We're actively expanding provider support and welcome your [feedback](https://github.com/posit-dev/positron/discussions) and [issue reports](https://github.com/posit-dev/positron/issues/new/choose)!
 
-To use Positron Assistant, follow these steps to enable it in Positron, configure language model providers, and start using its features.
-
 ## Step 1: Enable Positron Assistant
 
-1. Open the Command Palette and run the command _Preferences: Open User Settings_.
-1. Search for the setting [`positron.assistant.enable`](positron://settings/positron.assistant.enable).
-1. Check the box to enable Positron Assistant.
+1. Enable the setting [`positron.assistant.enable`](positron://settings/positron.assistant.enable).
 1. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
-1. Click on the chat robot icon in the sidebar, or run the command _Chat: Open Chat_ in the Command Palette to open the chat.
-
-![Assistant Sidebar Icon](images/assistant-sidebar-icon.png)
 
 ## Step 2: Configure language model providers
 
-### Supported model providers
-
 Currently, we support **Anthropic** and **GitHub Copilot** for sidebar chat and inline chat. At this time, only **GitHub Copilot** is available for inline code completions.
-
-To add a language model provider, use the following steps to sign in to your account for the provider and authorize Positron Assistant to access it. To remove a provider, sign out from your account in Positron Assistant.
 
 ::: {.panel-tabset group="providers"}
 
 ## Anthropic
 
 ::: {.callout-important}
-Positron Assistant requires a **Claude Console account** with API access. See Anthropic's [Claude API and Console](https://support.claude.com/en/collections/5370014-claude-api-and-console) documentation for more information.
+Positron Assistant requires a **Claude Console account with API access**. See Anthropic's [Claude API and Console](https://support.claude.com/en/collections/5370014-claude-api-and-console) documentation for more information.
 
 Positron Assistant **does not** support logging into Anthropic with the Claude Pro Plan, Max Plan, or other Claude subscription plans.
 
@@ -72,7 +61,6 @@ To use Anthropic's Claude models in Positron Assistant, you need to bring your o
 1. Select **Anthropic** as the model provider.
     ![Anthropic selected in Provider modal](images/assistant-provider-modal-anthropic.png)
 1. Paste your Claude Console API key into the input field and click **Sign in**.
-1. Once authenticated successfully, the **Sign in** button will change to **Sign out**, and available models from Anthropic will be registered.
 
 ## GitHub Copilot
 
@@ -96,7 +84,6 @@ Students and faculty can use GitHub Copilot for free as part of the GitHub Educa
     ![GitHub Copilot selected in Provider modal](images/assistant-provider-modal-github-copilot.png)
 1. Click the **Sign in** button to initiate GitHub's OAuth authentication flow.
     - Complete the authentication flow in your browser, and return to Positron when finished.
-1. Once authenticated successfully, the **Sign in** button will change to **Sign out**, and available models from GitHub Copilot will be registered.
 
 ::: {.callout-tip}
 If you are using Positron with a [remote SSH](remote-ssh.qmd) session, you will need to authenticate to GitHub on the _remote server_ as well. Follow [along on GitHub](https://github.com/posit-dev/positron/issues/8409) as we make improvements in this area.
@@ -106,7 +93,15 @@ If you are using Positron with a [remote SSH](remote-ssh.qmd) session, you will 
 
 ## Step 3: Use Positron Assistant!
 
-Once you've authenticated with at least one language model provider, you're all set to use Positron Assistant. Explore the core features to get started:
+Once you've authenticated with at least one language model provider, you're all set to use Positron Assistant.
+
+1. Click on the chat robot icon in the sidebar, or run the command _Chat: Open Chat_ in the Command Palette to open the chat:
+
+    ![Assistant Sidebar Icon](images/assistant-sidebar-icon.png)
+
+1. Chat with Assistant by typing your question or request in the chat input box at the bottom of the chat pane, then pressing {{< kbd Enter >}} or the {{< fa paper-plane regular >}} send button.
+
+To learn more about Positron Assistant's core features, check out the following guides:
 
 ::: {#chat-features}
 :::

@@ -101,10 +101,18 @@ website:
               - text: "Overview"
                 href: assistant.qmd
               - assistant-getting-started.qmd
-              - assistant-chat.qmd
+              - section: "Chat"
+                href: assistant-chat.qmd
+                contents:
+                  - text: "Overview"
+                    href: assistant-chat.qmd
+                  - href: assistant-chat-agents.qmd
+                  - href: assistant-chat-context.qmd
+                  - href: assistant-chat-commands-participants.qmd
+                  - href: assistant-chat-instructions.qmd
               - assistant-completions.qmd
-              - assistant-customization.qmd
               - assistant-tips.qmd
+              - assistant-troubleshooting.qmd
             - databot.qmd
         - section: "Language Guides"
           contents: 

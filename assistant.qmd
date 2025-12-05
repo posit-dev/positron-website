@@ -5,37 +5,37 @@ listing:
     type: custom
     template: templates/welcome-card.ejs
     contents:
-      - title: "Chat pane"
+      - title: "chat pane"
         description: "A dedicated AI chat pane for coding, troubleshooting, and planning."
         icon: "bi-chat-text"
-        link: "assistant-chat.qmd"
+        link: "assistant-chat.qmd#chat-pane"
       - title: "Inline chat"
         description: "In-context AI assistance within your code Editor, Notebook, or Terminal."
         icon: "bi-chat-square-text"
         link: "assistant-chat.qmd#inline-chat"
       - title: "Code completions"
         description: "Receive code suggestions directly in your Editor or Notebook."
-        icon: "bi-cursor-text"
+        icon: "bi-code"
         link: "assistant-completions.qmd"
   - id: learn-more
     type: custom
     template: templates/welcome-card.ejs
     contents:
-      - title: "Tips & Troubleshooting"
-        description: "Find tips for using Positron Assistant effectively and troubleshooting common issues."
-        icon: "bi-life-preserver"
+      - title: "Tips & Glossary"
+        description: "Check out tips for using Positron Assistant effectively, along with a glossary of common terms."
+        icon: "bi-lightbulb"
         link: "assistant-tips.qmd"
-      - title: "Feedback & Issues"
-        description: "Help us improve Positron Assistant by sharing your suggestions and reporting problems."
-        icon: "bi-chat-left-dots"
-        link: "assistant-tips.qmd#feedback-issues"
+      - title: "Troubleshooting & Feedback"
+        description: "Find solutions to common issues and share feedback to help improve Positron Assistant."
+        icon: "bi-tools"
+        link: "assistant-troubleshooting.qmd"
       - title: "Posit AI Newsletter"
         description: "Stay on top of important AI developments at Posit and beyond with curated updates."
-        icon: "bi-newspaper"
+        icon: "bi-journal-text"
         link: "https://posit.co/blog/?post_tag=ai-newsletter"
 ---
 
-Positron Assistant is an AI client built specifically for data science workflows, currently available in **preview** starting from Positron 2025.07.0-204.
+Positron Assistant is an AI coding assistant built specifically for data science workflows. It is currently available in **preview** starting from Positron 2025.07.0-204.
 
 Beyond your active files, selected code, and project structure, it's provided with context about your interactive data science work, such as your loaded data, plots, and console history, enabling more relevant guidance for exploratory analysis and modeling.
 
@@ -44,8 +44,6 @@ To get started with Positron Assistant, check out the [Getting Started](assistan
 :::
 
 ## Features
-
-Use Positron Assistant for code suggestions, debugging help, and guidance with your data science projects.
 
 ::: {#chat-features}
 :::

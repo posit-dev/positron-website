@@ -1,0 +1,75 @@
+---
+title: "Commands & Participants"
+---
+
+## Slash commands
+
+Slash commands provide quick access to common tasks without writing long prompts.
+
+### Using slash commands
+
+To use a slash command in the chat pane or inline chat, type the `/` character to bring up the command popup. Then, select a command and optionally add any additional instructions before sending the message.
+
+### Available slash commands
+
+Slash commands are provided by Positron Assistant and other installed extensions, as well as any [custom prompt files](./assistant-chat-prompts.qmd#custom-prompt-files) you have created.
+
+Some built-in slash commands include:
+
+- `/exportQuarto`: Generate a Quarto document from the current chat conversation.
+- `/fix`: Fix a piece of code.
+- `/explain`: Explain a piece of code or concept.
+
+### Custom slash commands
+
+Create custom slash commands by adding custom prompt files. This allows you to:
+
+- Reuse prompts across chat requests and sessions
+- Explicitly apply prompts to specific chat requests
+
+Run the command _Chat: Configure Prompt Files..._ to manage custom prompt files in your chat sessions.
+
+#### Create a custom prompt file
+
+1. Run the command _Chat: New Prompt File..._ and follow the prompts to create a new prompt file.
+1. Edit the newly created `.prompt.md` file to specify the prompt `description`, chat `agent`s the prompt should be available for, the `tools` the prompt can use, as well as the prompt content.
+
+After creating a custom prompt file, you can access it through [slash commands](./assistant-chat-commands-participants.qmd#slash-commands) in both the chat pane and inline chat.
+
+To learn more about the format of custom prompt files, see the following VS Code documentation:
+
+- [Prompt file structure](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_prompt-file-structure)
+    - Note: Positron Assistant does not support the `model` field at this time.
+- [Tips for defining prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_tips-for-defining-prompt-files)
+
+## Chat participants
+
+Chat participants provide specialized knowledge to Positron Assistant. If you want help with a specific topic, you can add a chat participant to your conversation.
+
+### Adding chat participants
+
+To add a chat participant, enter `@` to bring up the chat participant popup. Then, select a participant and optionally add any additional instructions before sending the message.
+
+### Available chat participants
+
+Chat participants are provided by Positron Assistant and other installed extensions.
+
+<details>
+<summary>Shiny Assistant</summary>
+
+Shiny Assistant is a chat participant available within Positron Assistant that provides context-aware assistance for developing Shiny applications in Python or R. It can help you with tasks such as generating Shiny UI components, server logic, and reactive expressions.
+
+Shiny Assistant is available in the chat once you have installed the [Shiny extension](https://open-vsx.org/extension/posit/shiny). Like other chat participants, Shiny Assistant can be invoked by typing `@shiny` in the chat pane or inline chat, followed by your question or request related to Shiny development.
+
+Shiny Assistant enhances the default prompt with additional information about Shiny that we have found improves the quality of generated apps and Shiny components. It is also kept up to date with the latest Shiny features and best practices, in a way that is not practical with foundation models or fine-tuning.
+
+</details>
+
+<details>
+<summary>GitHub Copilot</summary>
+
+If you are authenticated with GitHub Copilot as a language model provider in Positron, you can use chat participants provided by GitHub Copilot when chatting with GitHub Copilot models in Positron Assistant.
+
+Refer to the GitHub Copilot [Chat participants](https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features#_chat-participants) documentation for more information on available chat participants and how to use them.
+
+</details>
