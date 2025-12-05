@@ -37,7 +37,7 @@ listing:
 
 Positron Assistant is an AI coding assistant built specifically for data science workflows. It is currently available in **preview** starting from Positron 2025.07.0-204.
 
-Beyond your active files, selected code, and project structure, it's provided with context about your interactive data science work, such as your loaded data, plots, and console history, enabling more relevant guidance for exploratory analysis and modeling.
+Beyond your active files, selected code, and project structure, Positron Assistant is provided with context about your interactive data science work, such as your loaded data, plots, and console history, enabling more relevant guidance for exploratory analysis and modeling.
 
 ::: {.callout-tip}
 To get started with Positron Assistant, check out the [Getting Started](assistant-getting-started.qmd) guide.
