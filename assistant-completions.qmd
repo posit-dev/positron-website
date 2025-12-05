@@ -22,7 +22,7 @@ If you are not receiving suggestions:
 
 - Check if you've enabled inline completions in the settings (see [Settings](#settings) below).
 - Check that completions aren't snoozed (paused). If they are, you can either wait for the snooze period to end or cancel the snooze.
-- Make sure you are authenticated with GitHub Copilot in the [language model provider configuration](#adding-language-model-providers).
+- Make sure you are authenticated with GitHub Copilot in the [language model provider configuration](assistant-getting-started.qmd#add-github-copilot-as-a-language-model-provider).
 - Refer to the [Troubleshooting](assistant-troubleshooting.qmd) guide for more help.
 
 To learn more about GitHub Copilot code completions, visit the GitHub Copilot [inline suggestions](https://code.visualstudio.com/docs/copilot/ai-powered-suggestions#_getting-your-first-suggestions) documentation. Note that we do not currently support Next Edit Suggestions (NES) in Positron Assistant.

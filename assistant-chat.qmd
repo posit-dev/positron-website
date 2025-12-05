@@ -19,7 +19,7 @@ Key features include:
 - **[Chat agents](./assistant-chat-agents.qmd)**: Choose from default agents (Ask, Edit, Agent, Plan) or create custom agents to tailor Assistant's responses.
 - **[Context](./assistant-chat-context.qmd)**: Attach files, interpreter sessions, tools, and source control history for more relevant responses.
 - **[Commands and participants](./assistant-chat-commands-participants.qmd)**: Use commands for pre-defined actions and interact with dedicated participants for specific tasks.
-- **[Custom prompts and instructions](./assistant-chat-prompts.qmd)**: Create and use custom prompt files and instructions to personalize your chat experience.
+- **[Custom instructions](./assistant-chat-instructions.qmd)**: Create and use custom instructions to personalize your chat experience.
 
 ## Inline Chat
 

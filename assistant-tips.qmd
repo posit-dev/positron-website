@@ -58,7 +58,7 @@ Bring Your Own (API) Key. This means you need to obtain and provide your own API
 
 ### Context
 
-The information available to the language model when generating responses. In Positron Assistant, context may include the current file content, session state (such as loaded data and plots), and any relevant metadata about your Positron environment. Providing rich context helps the model generate more accurate and relevant responses.
+The information available to the language model when generating responses. In Positron Assistant, context includes your current file content, active interpreter session (loaded data, variables, plots), project structure, and any manually attached files or tools. Richer context helps the model generate more accurate and relevant responses for your specific data science workflow.
 
 ### Model
 
@@ -66,7 +66,7 @@ A specific version or configuration of a language model provided by a language m
 
 ### Prompt
 
-The input text or instructions given to a language model to generate a response. Prompts can include questions, commands, or context to guide the model's output. Positron Assistant has predefined prompts for various tasks, and you can also create custom prompts. These prompts are provided to the model along with your messages in chat or inline chat sessions.
+The input text or instructions given to a language model to generate a response. Prompts can include questions, commands, or context to guide the model's output. Positron Assistant has predefined prompts for various tasks, and you can also define custom prompts or instructions. These prompts and instructions are provided to the model along with your messages in chat or inline chat sessions.
 
 ### Provider
 
@@ -78,4 +78,5 @@ Units of text that language models process. Tokens can be as short as one charac
 
 ### Tool
 
-A specialized function or capability that a language model can use to enhance its responses. Positron Assistant provides tools that give language models access to the Variables pane, Plots pane, and Console, among other session and workspace context.
+A specialized function that enables language models to interact with your Positron environment. Tools allow Assistant to read variables from your session, view plots, execute code in the Console, access file contents, and perform other workspace operations beyond just generating text responses.
+
