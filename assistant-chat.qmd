@@ -21,7 +21,7 @@ Key features include:
 - **[Commands and participants](./assistant-chat-commands-participants.qmd)**: Use commands for pre-defined actions and interact with dedicated participants for specific tasks.
 - **[Custom instructions](./assistant-chat-instructions.qmd)**: Create and use custom instructions to personalize your chat experience.
 
-## Inline Chat
+## Inline chat
 
 Inline chat is a mini chat interface that can be opened directly within your code Editor, Notebook, or Terminal. It allows you to ask questions, get suggestions, and apply changes without leaving your current context.
 
