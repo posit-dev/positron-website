@@ -12,7 +12,7 @@ To use a slash command in the chat pane or inline chat, type the `/` character t
 
 ### Available slash commands
 
-Slash commands are provided by Positron Assistant and other installed extensions, as well as any [custom prompt files](./assistant-chat-prompts.qmd#custom-prompt-files) you have created.
+Slash commands are provided by Positron Assistant and other installed extensions, as well as any [custom prompt files](assistant-chat-agents.qmd#custom-chat-agents) you have created.
 
 Some built-in slash commands include:
 
@@ -34,7 +34,7 @@ Run the command _Chat: Configure Prompt Files..._ to manage custom prompt files 
 1. Run the command _Chat: New Prompt File..._ and follow the prompts to create a new prompt file.
 1. Edit the newly created `.prompt.md` file to specify the prompt `description`, chat `agent`s the prompt should be available for, the `tools` the prompt can use, as well as the prompt content.
 
-After creating a custom prompt file, you can access it through [slash commands](./assistant-chat-commands-participants.qmd#slash-commands) in both the chat pane and inline chat.
+After creating a custom prompt file, you can access it through [slash commands](assistant-chat-commands-participants.qmd#slash-commands) in both the chat pane and inline chat.
 
 To learn more about the format of custom prompt files, see the following VS Code documentation:
 
