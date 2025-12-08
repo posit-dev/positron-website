@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Preview Docs (Chrome)",
+            "name": "Preview Docs (default browser)",
             "request": "launch",
             "runtimeArgs": [
                 "preview"
@@ -13,25 +13,7 @@
             ],
             "type": "node",
             "serverReadyAction": {
-                "action": "debugWithChrome",
-                "pattern": "Browse at http://localhost:(\\d+)",
-                "uriFormat": "http://localhost:%s",
-                "killOnServerStop": true
-            }
-        },
-        {
-            "name": "Preview Docs (Edge)",
-            "request": "launch",
-            "runtimeArgs": [
-                "preview"
-            ],
-            "runtimeExecutable": "quarto",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "type": "node",
-            "serverReadyAction": {
-                "action": "debugWithEdge",
+                "action": "openExternally",
                 "pattern": "Browse at http://localhost:(\\d+)",
                 "uriFormat": "http://localhost:%s",
                 "killOnServerStop": true
