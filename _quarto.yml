@@ -78,6 +78,7 @@ website:
       style: "docked"
       contents:
         - section: "Getting Started"
+          href: welcome.qmd
           contents:
             - welcome.qmd
             - install.qmd
@@ -90,6 +91,7 @@ website:
             - extensions.qmd
             - updating.qmd
         - section: "User Interface"
+          href: layout.qmd
           contents:
             - layout.qmd
             - command-palette.qmd
@@ -126,6 +128,7 @@ website:
         - section: "Data Analysis"
           contents:
             - section: "Data Explorer"
+              href: data-explorer.qmd
               contents:
               - text: "Overview"
                 href: data-explorer.qmd
