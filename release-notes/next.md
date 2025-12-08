@@ -1,10 +1,8 @@
 ### Patch notes for 2025.12.1
 
-The [2025.12.1-TODO patch release](https://github.com/posit-dev/positron/releases/tag/TODO) (2025-12-08) addresses [this issue](https://github.com/posit-dev/positron/issues/10904), deduplicating Python completions and fixing some situations where Python hover popups and function signature help popups wouldn't appear.
+The [2025.12.1-4 patch release](https://github.com/posit-dev/positron/releases/tag/2025.12.1-4) (2025-12-08) addresses [this issue](https://github.com/posit-dev/positron/issues/10904), deduplicating Python completions and fixing some situations where Python hover popups and function signature help popups wouldn't appear.
 
 ### Release highlights for 2025.12.0
-
-### Highlights
 
 #### Try our new Python language server options 🐍
 
