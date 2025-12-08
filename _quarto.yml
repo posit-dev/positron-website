@@ -98,6 +98,7 @@ website:
         - section: "AI Tools"
           contents:
             - section: "Positron Assistant"
+              href: assistant.qmd
               contents:
               - text: "Overview"
                 href: assistant.qmd
