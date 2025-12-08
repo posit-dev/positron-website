@@ -1,4 +1,8 @@
-### Highlights
+### Patch notes
+
+The 2025.12.1 patch release addresses [this issue](https://github.com/posit-dev/positron/issues/10904), deduplicating Python completions and fixing some situations where Python hover popups and function signature help popups wouldn't appear.
+
+### Release highlights
 
 #### Try our new Python language server options 🐍
 
