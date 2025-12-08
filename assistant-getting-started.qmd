@@ -1,0 +1,111 @@
+---
+title: "Getting Started"
+listing:
+  - id: chat-features
+    type: custom
+    template: templates/welcome-card.ejs
+    contents:
+      - title: "Chat pane"
+        description: "A dedicated AI chat pane for coding, troubleshooting, and planning."
+        icon: "bi-chat-text"
+        link: "assistant-chat.qmd#chat-pane"
+      - title: "Inline chat"
+        description: "In-context AI assistance within your code Editor, Notebook, or Terminal."
+        icon: "bi-chat-square-text"
+        link: "assistant-chat.qmd#inline-chat"
+      - title: "Code completions"
+        description: "Receive code suggestions directly in your Editor or Notebook."
+        icon: "bi-cursor-text"
+        link: "assistant-completions.qmd"
+---
+
+Positron Assistant supports **Anthropic Claude for chat** and **GitHub Copilot for code completions and chat**.
+
+We're actively expanding provider support and welcome your [feedback](https://github.com/posit-dev/positron/discussions) and [issue reports](https://github.com/posit-dev/positron/issues/new/choose)!
+
+## Step 1: Enable Positron Assistant
+
+1. Enable the setting [`positron.assistant.enable`](positron://settings/positron.assistant.enable).
+1. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
+
+## Step 2: Configure language model providers
+
+Currently, we support **Anthropic** and **GitHub Copilot** for sidebar chat and inline chat. At this time, only **GitHub Copilot** is available for inline code completions.
+
+::: {.panel-tabset group="providers"}
+
+## Anthropic
+
+::: {.callout-important}
+Positron Assistant requires a **Claude Console account with API access**. See Anthropic's [Claude API and Console](https://support.claude.com/en/collections/5370014-claude-api-and-console) documentation for more information.
+
+Positron Assistant **does not** support logging into Anthropic with the Claude Pro Plan, Max Plan, or other Claude subscription plans.
+
+<details>
+<summary>How to get an Anthropic API key</summary>
+
+To use Anthropic's Claude models in Positron Assistant, you need to bring your own API key (BYOK). To obtain an API key from Anthropic:
+
+1. Log in to or create an account for Anthropic's [Claude Console](https://platform.claude.com).
+1. Navigate to the [API keys](https://platform.claude.com/settings/keys) management page.
+1. Click the {{< fa plus >}} **Create Key** button.
+1. Fill out any required information and click **Add** to generate your API key.
+1. Copy and save the API key to a password manager or another secure location.
+
+</details>
+:::
+
+### Add Anthropic as a language model provider
+
+1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Select **Anthropic** as the model provider.
+
+    ![Anthropic selected in Provider modal](images/assistant-provider-modal-anthropic.png){width=600}
+
+1. Paste your Claude Console API key into the input field and click **Sign in**.
+
+## GitHub Copilot
+
+::: {.callout-important}
+Positron Assistant requires a **GitHub account with Copilot enabled**.
+
+<details>
+<summary>How to get GitHub Copilot access</summary>
+
+GitHub Copilot is a proprietary tool from GitHub. If you want to use GitHub Copilot, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account or to be assigned a seat by an organization with a subscription for GitHub Copilot for Business.
+
+Students and faculty can use GitHub Copilot for free as part of the GitHub Education program. For more information, see the [GitHub Education page](https://education.github.com/).
+
+</details>
+:::
+
+### Add GitHub Copilot as a language model provider
+
+1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Select **GitHub Copilot** as the model provider.
+
+    ![GitHub Copilot selected in Provider modal](images/assistant-provider-modal-github-copilot.png){width=600}
+
+1. Click the **Sign in** button to initiate GitHub's OAuth authentication flow.
+    - Complete the authentication flow in your browser, and return to Positron when finished.
+
+::: {.callout-tip}
+If you are using Positron with a [remote SSH](remote-ssh.qmd) session, you will need to authenticate to GitHub on the _remote server_ as well. Follow [along on GitHub](https://github.com/posit-dev/positron/issues/8409) as we make improvements in this area.
+:::
+
+:::
+
+## Step 3: Use Positron Assistant!
+
+Once you've authenticated with at least one language model provider, you're all set to use Positron Assistant.
+
+1. Click on the chat robot icon in the sidebar, or run the command _Chat: Open Chat_ in the Command Palette to open the chat:
+
+    ![Assistant Sidebar Icon](images/assistant-sidebar-icon.png){height=450}
+
+1. Chat with Assistant by typing your question or request in the chat input box at the bottom of the chat pane, then pressing {{< kbd Enter >}} or the {{< fa paper-plane regular >}} send button.
+
+To learn more about Positron Assistant's core features, check out the following guides:
+
+::: {#chat-features}
+:::
