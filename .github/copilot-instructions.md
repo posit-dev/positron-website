@@ -63,7 +63,8 @@ Follow these exact rules, which are based on our style guide.
 
 - Titles/H1s: Use **Title Case**
 - Other headings: Use **sentence case**
-- Do not format documentation titles. Do not italicize or use quotations. 
+- Do not format documentation titles. Do not italicize or use quotations.
+- Add `description` as YAML front matter for each `.qmd` file, to be used as social sharing metadata. 
 
 ## Formatting Rules
 
