@@ -1,5 +1,6 @@
 ---
 title: "Variables Pane"
+description: "View and inspect all variables in your Python or R session. Browse objects, data tables, and connections in a convenient sidebar interface."
 ---
 
 The Variables pane allows you to view the variables in your Python or R session and by default, is located in the Secondary side bar.

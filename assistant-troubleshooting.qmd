@@ -1,5 +1,6 @@
 ---
 title: "Troubleshooting"
+description: "Solve common Positron Assistant issues with troubleshooting guides for unexpected responses, connection problems, and authentication errors."
 ---
 
 If you're having trouble with Positron Assistant, here are some resources and tools to help diagnose the issue and get things working smoothly.

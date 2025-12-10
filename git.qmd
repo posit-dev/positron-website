@@ -1,5 +1,6 @@
 ---
 title: Git Version Control
+description: "Track changes, collaborate on code, and manage project history with built-in Git integration in Positron."
 ---
 
 Git is a powerful version control system that helps you track changes to your code, collaborate with others, and maintain a history of your project. Positron provides built-in Git integration that works seamlessly with Git repositories.

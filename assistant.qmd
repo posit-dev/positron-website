@@ -1,5 +1,6 @@
 ---
 title: "Positron Assistant"
+description: "Positron Assistant is an AI coding assistant built for data science. Get chat support, inline assistance, and code completions with context from your data, plots, and console history."
 listing:
   - id: chat-features
     type: custom

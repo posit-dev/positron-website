@@ -1,5 +1,6 @@
 ---
 title: "Custom Instructions"
+description: "Tailor Positron Assistant to your project with custom instructions. Set up workspace-specific AI behavior and coding preferences automatically."
 ---
 
 ::: {.callout-note}

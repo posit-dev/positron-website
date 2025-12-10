@@ -1,5 +1,6 @@
 ---
 title: "Release Notes"
+description: "View release notes for all Positron versions. Track new features, bug fixes, and improvements across monthly releases."
 listing:
   type: table
   sort: "title desc"

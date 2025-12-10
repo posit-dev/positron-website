@@ -1,5 +1,6 @@
 ---
 title: "Interpreter Startup"
+description: "Control how Python and R interpreters start in Positron. Learn about automatic detection and workspace-based interpreter selection."
 ---
 
 ## First run

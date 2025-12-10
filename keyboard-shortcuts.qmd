@@ -1,5 +1,6 @@
 ---
 title: "Keyboard Shortcuts"
+description: "Master Positron's keyboard shortcuts for running code, navigating panes, and accessing help. Includes custom keybinding options and troubleshooting tips."
 ---
 
 Positron's keyboard shortcuts, with a few exceptions, are a superset of the keyboard shortcuts used by Visual Studio Code. This table lists the shortcuts specifically added for Positron.

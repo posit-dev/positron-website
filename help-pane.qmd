@@ -1,5 +1,6 @@
 ---
 title: "Help Pane"
+description: "Access rich, in-IDE documentation for Python and R with the Help Pane. View function docs, package vignettes, and source code without leaving Positron."
 ---
 
 

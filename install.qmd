@@ -1,5 +1,6 @@
 ---
 title: "Install Positron"
+description: "Get started with Positron right away. Install the free data science IDE for Python and R, with prerequisites and setup instructions for all platforms."
 format:
   html:
     include-in-header:

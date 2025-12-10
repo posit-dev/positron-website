@@ -1,5 +1,6 @@
 ---
 title: "Troubleshooting"
+description: "Solve common Positron issues with troubleshooting guides for startup problems, extension errors, interpreter issues, and more."
 ---
 
 If you're having trouble with Positron, here are some resources and tools to help troubleshoot and resolve your problems.

@@ -1,5 +1,6 @@
 ---
 title: "Layout"
+description: "Customize your Positron workspace with flexible layout options. Choose from presets like Stacked, Side-by-side, Notebook, or Assistant to match your workflow."
 ---
 
 The Positron interface provides a flexible environment for data science that can be tailored to your needs. You can organize tools and outputs into distinct, customizable panes. This lets you tailor your workspace to your workflows in Python, R, and other languages.

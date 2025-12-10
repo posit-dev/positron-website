@@ -1,5 +1,6 @@
 ---
 title: "Extension Development"
+description: "Build VS Code-compatible extensions for Positron. Create custom tools using TypeScript, Node.js, and the @posit-dev/positron npm package."
 ---
 
 Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code](https://code.visualstudio.com/api/get-started/your-first-extension). You can use Positron to develop your extension and run it in a new **Extension Development Host** window. 

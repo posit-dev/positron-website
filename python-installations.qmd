@@ -1,5 +1,6 @@
 ---
 title: "Discovering Python Installations"
+description: "Understand how Positron discovers Python installations. Covers support for uv, pyenv, conda, venv, pipenv, poetry, and more environment managers."
 ---
 
 This guide explains how Python installations are discovered and managed in Positron.

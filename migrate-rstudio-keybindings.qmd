@@ -1,5 +1,6 @@
 ---
 title: "RStudio Keybindings"
+description: "Keep your RStudio keyboard shortcuts in Positron. Learn which shortcuts work immediately and how to customize keybindings for a familiar workflow."
 aliases:
   - rstudio-keybindings.html
 ---

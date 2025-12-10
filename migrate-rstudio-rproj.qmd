@@ -1,5 +1,6 @@
 ---
 title: "The Rproj File"
+description: "Understand how Positron handles RStudio files and project management. Learn about workspace settings and project organization."
 aliases:
   - rstudio-rproj-file.html
 ---

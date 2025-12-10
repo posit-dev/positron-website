@@ -1,5 +1,6 @@
 ---
 title: "Formatting R code with Air"
+description: "Format R code automatically with Air, a fast Rust-based formatter built into Positron. Enforce consistent style conventions for better readability."
 ---
 
 Positron can format R code with [Air](https://posit-dev.github.io/air/), a new R formatter whose creation was largely motivated by Positron.

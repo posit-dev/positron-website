@@ -1,5 +1,6 @@
 ---
 title: Reticulate
+description: "Use Python from R with reticulate in Positron. Run Python code interactively within your R session with built-in reticulate integration."
 ---
 
 Positron has built-in support for Python interpreters managed by the [reticulate](https://rstudio.github.io/reticulate/) R package. When the reticulate package is installed, you can use the `repl_python()` function to start a Python interpreter session directly within Positron. This allows you to run Python code interactively, exactly the same way as you would in a standard Python interpreter.

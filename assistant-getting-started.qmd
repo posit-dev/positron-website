@@ -1,5 +1,6 @@
 ---
 title: "Getting Started"
+description: "Set up Positron Assistant with your model provider of choice."
 listing:
   - id: chat-features
     type: custom

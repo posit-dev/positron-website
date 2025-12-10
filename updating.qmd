@@ -1,5 +1,6 @@
 ---
 title: "Updating Positron"
+description: "Keep Positron up to date with automatic monthly releases or opt into daily builds. Learn about update settings and Windows package manager options."
 ---
 
 By default, Positron automatically checks for updates from our channel of monthly releases.

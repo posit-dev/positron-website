@@ -1,5 +1,6 @@
 ---
 title: "Settings and Extensions"
+description: "Customize Positron to feel familiar to RStudio. Configure user and workspace settings, install extensions, and personalize your data science environment."
 ---
 
 Your Positron experience can be customized through [settings](#settings-for-rstudio-users) at either the user or workspace level and by installing [extensions](#extensions-for-rstudio-users).

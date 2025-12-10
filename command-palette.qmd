@@ -1,5 +1,6 @@
 ---
 title: "Command Palette"
+description: "Access any Positron command instantly with the keyboard-driven Command Palette. Find commands, open files, and navigate your project without using menus."
 ---
 
 Positron inherits the Command Palette from VS Code. The Command Palette is a fast and powerful way to interact with Positron without taking your hands off the keyboard. Think of it as a search bar for functionality. Rather than navigating menus, you can quickly find and run commands from a single interface.

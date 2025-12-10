@@ -1,5 +1,6 @@
 ---
 title: "Overview"
+description: "Transition smoothly from RStudio to Positron. Explore our comprehensive migration guide covering keybindings, settings, features, and what to expect as an RStudio user."
 ---
 
 We expect that many existing RStudio users are curious about Positron and whether they should take it for a test drive or even make it their primary IDE.

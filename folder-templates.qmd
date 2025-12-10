@@ -1,5 +1,6 @@
 ---
 title: "Folder Templates"
+description: "Start new projects with Folder Templates. Automated setup creates environments, version control, and project structure for Python, R, and more."
 ---
 
 The **New Folder from Template** feature helps you start new projects faster. Use this feature when you want to avoid manual setup, or ensure your project includes all recommended files and settings from the start. Instead of running multiple setup commands, you can make a few selections and Positron sets up everything for you automatically. This feature is ideal if you want to:

@@ -1,5 +1,6 @@
 ---
 title: "Licensing"
+description: "Positron is licensed under Elastic License 2.0, a source-available license. Free for personal, academic, and commercial use with minimal restrictions."
 ---
 
 Positron is licensed under the Elastic License 2.0, a source-available license. This license makes Positron available for free to everyone to use, build on, and extend for personal, academic, and commercial use. Its primary restriction is that you can't host Positron as a service to third parties without Posit's agreement. This restriction is necessary for us to build a sustainable business around Positron while also offering it free of charge to the community.

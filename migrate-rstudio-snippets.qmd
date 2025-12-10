@@ -1,5 +1,6 @@
 ---
 title: "Creating R snippets"
+description: "Create custom R code snippets in Positron. Speed up coding with ready-made templates for loops, functions, and common patterns."
 aliases:
   - r-snippets.html
   - migrate-rstudio-code.html
