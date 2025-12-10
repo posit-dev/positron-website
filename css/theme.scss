@@ -418,9 +418,9 @@ a.footnote-back {
   font-size: 1.1rem;
 }
 
-// Description spacing
+// Description - hide from page display but keep in metadata for SEO/social sharing
 .description {
-  margin-top: 1.75rem !important;
+  display: none !important;
 }
 
 // Footer
