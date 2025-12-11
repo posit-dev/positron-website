@@ -1,5 +1,6 @@
 ---
 title: "Summary Panel"
+description: "Get instant column statistics and visualizations with Data Explorer's Summary Panel. View histograms, missing data, and detailed stats for every column."
 ---
 
 The summary panel displays a scrollable list of all column names with an icon representing the data type. Each column will have a sparkline histogram or frequency table of the column data. Missing data for the column is displayed as both an inline bar graph and a percentage. 

@@ -1,6 +1,6 @@
 ---
 title: "Page Not Found"
-format: html
+description: "The page you're looking for isn't available. Search Positron documentation or get started with our free data science IDE for Python and R."
 ---
 
 Oops! The page you requested isn't available. Try [searching our documentation](/404.qmd?q=%20&show-results=1) or find out [how to get started](welcome.qmd) with Positron.

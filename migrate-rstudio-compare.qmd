@@ -1,5 +1,6 @@
 ---
 title: "Comparing RStudio and Positron Features"
+description: "Compare RStudio and Positron features side-by-side. Understand what's available now, what's coming, and the future of both IDEs."
 ---
 
 ## What is happening to RStudio?

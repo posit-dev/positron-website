@@ -1,5 +1,6 @@
 ---
 title: "Extensions"
+description: "Customize Positron with extensions from Open VSX. Learn about included extensions, security best practices, and manual installation options."
 ---
 
 Since Positron is built on [Code OSS](https://github.com/microsoft/vscode) (the open-source core of VS Code), you can use VS Code extensions in Positron. Extensions installed for Positron are _separate_ from the extensions you have installed for VS Code, and they won't interfere with each other.

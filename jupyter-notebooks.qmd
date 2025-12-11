@@ -1,5 +1,6 @@
 ---
 title: "Jupyter Notebooks"
+description: "Work with Jupyter Notebooks in Positron with built-in support for Python and R. No extra dependencies needed as notebooks integrate seamlessly with the IDE."
 ---
 
 ::: {.callout-note}

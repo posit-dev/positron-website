@@ -1,5 +1,6 @@
 ---
 title: "Privacy"
+description: "Learn about Positron's privacy practices and data collection. Understand what information is collected, why, and how to opt out of telemetry."
 ---
 
 ## Positron data collection

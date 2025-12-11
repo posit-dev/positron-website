@@ -1,5 +1,6 @@
 ---
 title: "Commands & Participants"
+description: "Speed up your workflow with slash commands and chat participants in Positron Assistant. Access quick actions and specialized AI help without long prompts."
 ---
 
 ## Slash commands

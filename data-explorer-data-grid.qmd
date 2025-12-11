@@ -1,5 +1,6 @@
 ---
 title: "Data Grid"
+description: "View millions of rows and columns in Positron's efficient Data Explorer, with real-time updates and support for Pandas, Polars, tibbles, and database connections."
 ---
 
 The data grid is the primary display, with a spreadsheet-like cell-by-cell view. It's intended to scale efficiently to relatively large in-memory datasets, up to millions of rows or columns. 

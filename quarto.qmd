@@ -1,5 +1,6 @@
 ---
 title: "Quarto"
+description: "Create reproducible documents combining narrative and code with Quarto in Positron."
 ---
 
 [Quarto](https://quarto.org/) is an open-source scientific and technical publishing system for creating reproducible documents that combine narrative and executable code.

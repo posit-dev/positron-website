@@ -1,5 +1,6 @@
 ---
 title: "Publish Your Work"
+description: "Deploy reports, apps, and APIs directly from Positron to Posit Connect or Posit Connect Cloud with one click, using the bundled Publisher extension."
 
 ---
 

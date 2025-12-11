@@ -1,5 +1,6 @@
 ---
 title: "Overview"
+description: "Master R development in Positron with native language support. Discover settings, keyboard shortcuts, debugging tools, and interactive Console features."
 ---
 
 Positron ships with first class support for R, along with [Python](guide-python.qmd). Start with our guide on how Positron [discovers and manages R installations](r-installations.qmd), then read on for details on working with R code in Positron.

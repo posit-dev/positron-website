@@ -1,5 +1,6 @@
 ---
 title: "Remote SSH"
+description: "Connect Positron to remote servers via SSH. Run your IDE locally while accessing files, projects, and interpreter sessions on remote machines."
 ---
 
 Positron has support for Remote SSH sessions. This feature allows the Positron IDE's front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine. The two machines communicate using an ordinary secure shell (SSH) connection.

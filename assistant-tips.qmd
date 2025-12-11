@@ -1,5 +1,6 @@
 ---
 title: "Tips & Glossary"
+description: "Learn best practices for using Positron Assistant effectively. Explore tips for better prompts, managing conversations, and understanding key AI assistant terms."
 ---
 
 This guide provides tips for using Positron Assistant effectively, as well as some common terms and definitions in the [Glossary](#glossary) section.

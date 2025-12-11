@@ -1,5 +1,6 @@
 ---
 title: "Python in Positron"
+description: "Complete guide to Python development in Positron. Learn about environment management, IPython magics, formatting with Ruff, and interactive data science features."
 ---
 
 Positron ships with first class support for Python, along with [R](guide-r.qmd). Start with our guide on how Positron [discovers and manages Python installations](python-installations.qmd), then read on for details on working with Python code in Positron.

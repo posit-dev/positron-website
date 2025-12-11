@@ -1,5 +1,6 @@
 ---
 title: "Download Positron"
+description: "Download Positron for Windows, macOS, or Linux. Free data science IDE supporting Python and R with automatic updates included."
 format:
   html:
     include-in-header:

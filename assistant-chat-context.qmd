@@ -1,5 +1,6 @@
 ---
 title: "Context"
+description: "Give Positron Assistant context from your data, plots, Console activity, and files. Learn how to attach relevant context for smarter AI assistance."
 ---
 
 Positron Assistant goes beyond reading your code files; it accesses your loaded data, plots, and Console activity by calling tools and executing code in your R or Python interpreter session or running commands in the Terminal.

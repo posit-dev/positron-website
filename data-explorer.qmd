@@ -1,5 +1,6 @@
 ---
 title: "Data Explorer"
+description: "Explore dataframes and data files in a spreadsheet-like grid with filtering, sorting, and summary statistics. View CSV, Parquet, and in-memory data interactively."
 ---
 
 The Data Explorer is designed to complement code-first exploration of data,

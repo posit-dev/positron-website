@@ -1,5 +1,6 @@
 ---
 title: "Chat Agents"
+description: "Customize AI behavior with chat agents in Positron Assistant. Choose from Ask, Edit, Agent, and Plan modes or create custom agents for specific tasks."
 ---
 
 ::: {.callout-note}

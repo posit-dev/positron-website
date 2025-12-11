@@ -1,5 +1,6 @@
 ---
 title: "Chat"
+description: "Use Positron Assistant's chat pane for AI-powered coding help, inline assistance in editors and terminals, and quick Console error fixes."
 ---
 
 Positron Assistant provides multiple ways to interact with AI assistance across your workspace. Whether you use the dedicated chat pane, inline chat within your Editor or Terminal, or quick Console actions for errors, Assistant integrates seamlessly with your development environment.

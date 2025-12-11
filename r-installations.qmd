@@ -1,5 +1,6 @@
 ---
 title: "Discovering R Installations"
+description: "Learn how Positron finds R installations on your system. Covers automatic discovery across macOS, Windows, Linux, and rig-managed installations."
 ---
 
 This guide pertains to how R installations are discovered and show up in the Interpreter picker.

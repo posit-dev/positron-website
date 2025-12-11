@@ -1,5 +1,6 @@
 ---
 title: "Action Bars"
+description: "Discover how Positron's Action Bars put essential functionality at your fingertips with context-aware buttons, menus, and controls throughout the interface."
 ---
 
 Positron uses Action Bars throughout the application to put essential functionality at your fingertips.

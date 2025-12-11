@@ -1,5 +1,6 @@
 ---
 title: "Feedback and Issues"
+description: "Share feedback, report bugs, and contribute to Positron development. Connect with the team through GitHub Discussions and issue tracking."
 ---
 
 ## Giving feedback

@@ -1,6 +1,6 @@
 ---
 title: "Welcome"
-description: "Welcome to Positron, the next-generation data science IDE built for Python and R. It combines the power of a full-featured IDE with interactive data science tools for Python and R."
+description: "Welcome to Positron, the next-generation data science IDE built for Python and R."
 anchor-links: false
 page-layout: full
 toc: false
@@ -35,6 +35,8 @@ listing:
             link: "migrate-vscode.qmd"
         
 ---
+
+Welcome to Positron, the next-generation data science IDE built for Python and R. It combines the power of a full-featured IDE with interactive data science tools for Python and R
 
 ![Execute code and explore data in Positron](images/astropy.png)
 

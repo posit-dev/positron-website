@@ -1,5 +1,6 @@
 ---
 title: "Filter Bar"
+description: "Filter and sort data interactively in the Data Explorer. Create filters, convert them to code, and see real-time row counts as you explore datasets."
 ---
 
 The filter bar provides controls to:
