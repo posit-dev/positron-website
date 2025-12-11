@@ -1,6 +1,6 @@
 ---
 title: "Completions"
-description: "Get AI-powered code suggestions as you type with GitHub Copilot completions. Inline suggestions support faster coding in Python, R, and more."
+description: "Boost your productivity with AI code suggestions via Github Copilot completions. Inline suggestions support faster coding in Python, R, and more."
 ---
 
 Code completions are text suggestions that appear inline as you type in an editor. These suggestions can be lines or blocks of code based on the context of what you're writing. Other names for code completions include inline suggestions, ghost text, or inline completions.

@@ -1,6 +1,6 @@
 ---
 title: "Getting Started"
-description: "Set up Positron Assistant with your model provider of choice."
+description: "Configure and customize Positron Assistant by connecting it to your preferred AI model provider, such as Anthropic or GitHub Copilot. Choose the exact LLM provider that fits your workflow and security needs."
 listing:
   - id: chat-features
     type: custom
