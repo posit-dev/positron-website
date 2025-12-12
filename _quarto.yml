@@ -12,6 +12,7 @@ website:
   bread-crumbs: true
   page-navigation: true
   favicon: "images/favicon.svg"
+  image: "images/positron-social.png"
   search:
     copy-button: true
     show-item-context: true
