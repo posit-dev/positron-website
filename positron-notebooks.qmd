@@ -13,7 +13,7 @@ If you'd like to be an early design partner and help shape our future roadmap, p
 
 :::
 
-## Our Vision 
+## Our vision
 
 Positron Native Notebooks provides a familiar notebook experience for Jupyter (`.ipynb`) files. Positron IDE features work out of the box in notebooks, including AI assistance, data exploration, and debugging.
 
