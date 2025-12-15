@@ -54,6 +54,19 @@ Some examples of the bootstrapped extensions include:
 
 - [posit.air-vscode](https://open-vsx.org/extension/posit/air-vscode): Comprehensive R language support including syntax highlighting, code completion, debugging, and environment management. It provides tools needed for professional R development.
 
+If you do not want to use one or more of these extensions, you can use the [`extensions.allowed`](positron://settings/extensions.allowed) setting to control how these get installed (or activated, if they happen to be already installed). For example, if you only use Python and never use R, you might set up your `settings.json` like this:
+
+```json
+{
+    "extensions.allowed": {
+        "posit.air-vscode": false,
+        "*": true
+    }
+}
+```
+
+Learn more about how this setting works at the [VS Code documentation on allowed extensions](https://code.visualstudio.com/docs/setup/enterprise#_allowed-extensions-setting-values).
+
 ### Non-compatible extensions
 
 Almost all extensions for Visual Studio Code are fully compatible with Positron, and in fact Positron is built with this kind of extensibility in mind. There are two known exceptions:
