@@ -5,7 +5,7 @@ format: html
 
 ::: {.callout-important}
 
-Positron Native Notebooks is currently in **pre-alpha testing** and is not yet available for production use. 
+Positron Native Notebooks are currently in **pre-alpha testing** and are not yet available for production use. 
 
 We are targeting a public alpha in February 2026. 
 
