@@ -22,7 +22,7 @@ Positron Native Notebooks provides a familiar notebook experience for Jupyter (`
 ## Key features 
 
 * Batteries-included experience, with no extensions required for core features
-* Simplified user experience for core data science workflows 
+* Improved user experience for core data science workflows 
 * Notebook-aware AI assistance 
 * Integrated data exploration (Variables Pane and Data Explorer) 
 * Debugging that works out of the box 
@@ -37,8 +37,6 @@ Positron Native Notebooks provides a familiar notebook experience for Jupyter (`
    a. Ensure Assistant is enabled: [`positron.assistant.enable`](positron://settings/positron.assistant.enable)
    b. Enable Positron notebooks: [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled)
    c. Enable Notebook AI features: [`positron.assistant.notebookMode.enable`](positron://settings/positron.assistant.notebookMode.enable)
-
-3. We recommend using the _View: Notebook Layout_ command for the best experience. Search for this command in the Command Palette. This layout displays the Variables pane by default.
 
 4. Pick a notebook to explore:
    a. Explore our demo [World Happiness Report notebook](https://github.com/posit-dev/positron-demos-notebooks/tree/main/notebooks/world-happiness-report) by following the **New** > **New Folder from Git** workflow, or 
@@ -56,6 +54,10 @@ Positron Native Notebooks provides a familiar notebook experience for Jupyter (`
    ![Open with](images/positron-notebooks-open-with-options.png)
    
    d. (Optional) Click the **Set as Default** button to always open `.ipynb` files with Positron Notebooks in the future
+
+::: {.callout-tip}
+We recommend using the _View: Notebook Layout_ command for the best experience. Search for this command in the Command Palette. This layout displays the Variables pane by default.
+:::
 
 ## Share your feedback 
 
