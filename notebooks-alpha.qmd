@@ -9,7 +9,7 @@ Positron Native Notebooks is currently in **pre-alpha testing** and is not yet a
 
 We are targeting a public alpha in February 2026. 
 
-If you'd like to be an early design partner and help shape our future roadmap, please book time to chat with [us here](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience)
+If you'd like to be an early design partner and help shape our future roadmap, please book time to chat with [us here](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience).
 
 :::
 
@@ -21,7 +21,7 @@ Positron Native Notebooks provides a familiar notebook experience for Jupyter (`
 
 ## Key features 
 
-* Batteries-included experience—no extensions required for core features
+* Batteries-included experience, with no extensions required for core features
 * Simplified user experience for core data science workflows 
 * Notebook-aware AI assistance 
 * Integrated data exploration (Variables Pane and Data Explorer) 
@@ -33,7 +33,7 @@ Positron Native Notebooks provides a familiar notebook experience for Jupyter (`
 ## How to test 
 1. Download the latest Positron release [here](https://positron.posit.co/download.html). Use at least version 2025.12.1-4.
 
-2. Update your User Settings with the following settings to enable Positron Notebooks and Notebook AI features:
+2. Update your user settings to enable Positron Notebooks and Notebook AI features::
    a. Ensure Assistant is enabled: [`positron.assistant.enable`](positron://settings/positron.assistant.enable)
    b. Enable Positron notebooks: [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled)
    c. Enable Notebook AI features: [`positron.assistant.notebookMode.enable`](positron://settings/positron.assistant.notebookMode.enable)
