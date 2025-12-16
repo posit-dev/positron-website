@@ -65,6 +65,10 @@ To use Anthropic's Claude models in Positron Assistant, you need to bring your o
 
 1. Paste your Claude Console API key into the input field and click **Sign in**.
 
+::: {.callout-tip}
+Alternatively, set the `ANTHROPIC_API_KEY` environment variable to authenticate with Anthropic in Positron Assistant.
+:::
+
 ## GitHub Copilot
 
 ::: {.callout-important}
