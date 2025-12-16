@@ -48,8 +48,13 @@ Positron Native Notebooks provides a familiar notebook experience for Jupyter (`
 
 5. When you open a `.ipynb` file for the first time, you see the default VS Code notebook UI. To see the Positron Native Notebook view:
    a. Right-click on the file in the Explorer 
+
    b. Click **Open With** 
+   ![Open with](images/positron-notebooks-open-with.png)
+   
    c. Select **Positron Notebooks**
+   ![Open with](images/positron-notebooks-open-with-options.png)
+   
    d. (Optional) Click the **Set as Default** button to always open `.ipynb` files with Positron Notebooks in the future
 
 ## Share your feedback 
@@ -62,7 +67,7 @@ We’d love your feedback. Please book time to chat with [us here](https://sched
 
 3. Upvote on features you want to see next:
 
-* [Features we are exploring for post alpha](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3Anotebooks-roadmap)
+   * [Features we are exploring for post alpha](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3Anotebooks-roadmap)
 
-* [All open issues](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22area%3A%20notebooks%22%20-label%3Anotebooks-alpha)
+   * [All open issues](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22area%3A%20notebooks%22%20-label%3Anotebooks-alpha)
 
