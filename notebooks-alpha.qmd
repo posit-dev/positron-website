@@ -31,7 +31,7 @@ Positron Native Notebooks provides a familiar notebook experience for Jupyter (`
 *These features are a work in progress, and we expect to regularly deploy changes as you are testing. *
 
 ## How to test 
-1. Download the latest Positron release [here](https://positron.posit.co/download.html). Use at least version 2025.12.1-4.
+1. Download the latest Positron release [here](download.qmd). Use at least version 2025.12.1-4.
 
 2. Update your user settings to enable Positron Notebooks and Notebook AI features::
    a. Ensure Assistant is enabled: [`positron.assistant.enable`](positron://settings/positron.assistant.enable)
