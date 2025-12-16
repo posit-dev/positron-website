@@ -52,7 +52,8 @@ Positron Native Notebooks provides a familiar notebook experience for Jupyter (`
    ![Open with](images/positron-notebooks-open-with.png){width=400}
    
    c. Select **Positron Notebooks**
-   ![Open with](images/positron-notebooks-open-with-options.png)
+
+   ![Open with](images/positron-notebooks-open-with-options.png){width=600}
    
    d. (Optional) Click the **Set as Default** button to always open `.ipynb` files with Positron Notebooks in the future
 
