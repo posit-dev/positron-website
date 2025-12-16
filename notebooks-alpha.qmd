@@ -48,7 +48,8 @@ Positron Native Notebooks provides a familiar notebook experience for Jupyter (`
    a. Right-click on the file in the Explorer 
 
    b. Click **Open With** 
-   ![Open with](images/positron-notebooks-open-with.png)
+   
+   ![Open with](images/positron-notebooks-open-with.png){width=400}
    
    c. Select **Positron Notebooks**
    ![Open with](images/positron-notebooks-open-with-options.png)
