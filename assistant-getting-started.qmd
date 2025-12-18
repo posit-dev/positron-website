@@ -213,7 +213,7 @@ Use the OpenAI provider to connect to a provider that implements the [OpenAI Res
 
 ::: {.callout-important}
 
-Positron Assistant's custom provider support is intended for use with any [OpenAI-compatible](https://ai-sdk.dev/providers/openai-compatible-providers) API endpoint that uses the `v1/chat/completions` endpoint for chat.
+Positron Assistant's custom provider support is intended for use with any [OpenAI-compatible](https://ai-sdk.dev/providers/openai-compatible-providers) API endpoint that uses the `/v1/chat/completions` endpoint for chat.
 
 At this time, we don't recommend using a local model as a custom provider. Read more about why [local models are not there (yet)](https://posit.co/blog/local-models-are-not-there-yet/) on Posit's blog.
 
