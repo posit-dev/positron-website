@@ -154,8 +154,6 @@ To specify a different AWS CLI profile or region, update the [`positron.assistan
 
 To use Snowflake Cortex in Positron Desktop, Positron Assistant requires a **Snowflake account with Cortex access**, as well as a Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier) and [programmatic access token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) (PAT).
 
-TBD: link to workbench docs for Managed Credentials
-
 :::
 
 ### Enable Snowflake Cortex as a provider
