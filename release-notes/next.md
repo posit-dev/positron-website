@@ -1,3 +1,7 @@
+### Patch notes for 2025.12.2
+
+The [2025.12.2-5 patch release](https://github.com/posit-dev/positron/releases/tag/2025.12.2-5) (2025-12-18) addresses [this issue](https://github.com/posit-dev/positron/issues/11011), contributing defaults for the Pyright extension to improve the Python editing experience.
+
 ### Patch notes for 2025.12.1
 
 The [2025.12.1-4 patch release](https://github.com/posit-dev/positron/releases/tag/2025.12.1-4) (2025-12-08) addresses [this issue](https://github.com/posit-dev/positron/issues/10904), deduplicating Python completions and fixing some situations where Python hover popups and function signature help popups wouldn't appear.
