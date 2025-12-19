@@ -106,6 +106,7 @@ website:
               - text: "Overview"
                 href: assistant.qmd
               - assistant-getting-started.qmd
+              - assistant-models.qmd
               - section: "Chat"
                 href: assistant-chat.qmd
                 contents:
