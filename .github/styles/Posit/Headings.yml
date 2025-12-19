@@ -83,3 +83,5 @@ exceptions:
   - Local Launcher
   - SUSE 15 SP5/SP6
   - RStudio Server License Server
+  - Snowflake Cortex
+  - Amazon Bedrock
