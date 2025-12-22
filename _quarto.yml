@@ -26,6 +26,12 @@ website:
   repo-url: https://github.com/posit-dev/positron-website
   issue-url: https://github.com/posit-dev/positron/issues/
   repo-actions: [edit, source, issue]
+  announcement:
+    icon: heart
+    dismissable: true
+    content: "Thank you for an incredible 2025! Share how Positron has helped you this year — [Tell your story](https://forms.gle/DRCf8wgbaafz5fcG8)"
+    type: primary
+    position: below-navbar
 
   page-footer:
     left:
