@@ -73,3 +73,15 @@ Fix and Explain inherit these options from the chat pane:
 
 - To disable Console actions, modify the [`positron.assistant.consoleActions.enable`](positron://settings/positron.assistant.consoleActions.enable) setting.
 - To review your Fix and Explain chat history for the current chat session, run the _Chat: Open Quick Chat_ command and your chat history will appear in the Quick Chat overlay.
+
+## Managing models
+
+Positron Assistant supports multiple language model providers. You can customize which models Assistant has access to and set default preferences using the following settings:
+
+- [`positron.assistant.models.preference.global`](positron://settings/positron.assistant.models.preference.global): Set a preferred model to be pre-selected across all providers. Matching is case-insensitive and supports partial matches.
+
+- [`positron.assistant.models.preference.byProvider`](positron://settings/positron.assistant.models.preference.byProvider): Set default models for specific providers. Provider-specific preferences take precedence over the global preference.
+
+- [`positron.assistant.models.include`](positron://settings/positron.assistant.models.include): Restrict which models are available by specifying patterns. Supports wildcards and regular expressions. Does not affect GitHub Copilot models.
+
+- [`positron.assistant.models.custom`](positron://settings/positron.assistant.models.custom): Manually configure models for providers instead of retrieving listings automatically. Does not affect GitHub Copilot models.
