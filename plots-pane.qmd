@@ -43,6 +43,6 @@ Key settings control how you interact with your data visualizations.
 
 * [`plots.defaultSizingPolicy`](positron://settings/plots.defaultSizingPolicy): The default sizing policy to use for newly created plots
 * [`plots.darkFilter`](positron://settings/plots.darkFilter): Use a color filter to make light plots appear dark
-* [`plots.freezeSlowPlots`](positron://settings/plots.freezeSlowPlots): Freeze slow-to-generate plots at a fixed size to avoid rendering repeatedly on viewport changes, improving responsiveness of the IDE when working with complex charts
+* [`plots.freezeSlowPlots`](positron://settings/plots.freezeSlowPlots): Freeze slow-to-generate plots at a fixed size to avoid rendering repeatedly on viewport changes
 * [`plots.historyPolicy`](positron://settings/plots.historyPolicy): When the plot history filmstrip is visible
 
