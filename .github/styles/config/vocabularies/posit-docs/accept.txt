@@ -54,3 +54,4 @@ OpenAI
 FAQ
 Python
 DuckDB
+Plots Pane
