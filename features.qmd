@@ -43,6 +43,8 @@ listing:
         - title: "Generate rapid visualizations"
           description: "Create high-quality visualizations quickly to uncover patterns and communicate findings effectively."
           icon: "bi-graph-up"
+          link: "plots-pane.qmd"
+          anchor-text: "Plots Pane"
   - id: features-develop-3
     type: custom
     template: templates/feature-card.ejs
