@@ -137,6 +137,7 @@ website:
               - data-explorer-filter-bar.qmd
               - data-explorer-summary-panel.qmd
             - variables-pane.qmd
+            - plots-pane.qmd
         - section: "Database Connections"
           contents:
             - connections-pane.qmd
