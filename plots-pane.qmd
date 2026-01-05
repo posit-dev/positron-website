@@ -9,7 +9,10 @@ The Plots Pane displays visualizations generated from your Python or R session a
 
 ## Opening the Plots Pane
 
-If the **Plots** pane is not already displayed, you can open it by clicking **View** > **Plots** or by running *Session: Focus on Plots View* from the Command Palette.
+If the Plots Pane is not already displayed, you can access it via:
+
+- Clicking **View** > **Plots** from the menu bar
+- Running *Session: Focus on Plots View* from the [Command Palette](command-palette.qmd)
 
 ## Viewing plots
 
