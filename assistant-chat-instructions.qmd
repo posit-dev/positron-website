@@ -44,7 +44,43 @@ Positron Assistant automatically uses these instructions when you work with file
 1. Edit the newly created `.instructions.md` file to specify the `applyTo` file glob pattern and the instructions you want to apply
 1. To manage existing files, run the command _Chat: Configure Instructions..._
 
+::: {.callout-tip}
+
 To learn more about the format of custom instructions files, see the following VS Code documentation:
 
 - [Instructions file format](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_instructions-file-format)
 - [Tips for defining custom instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_tips-for-defining-custom-instructions)
+:::
+
+### Example custom instructions
+This example demonstrates how a `quarto.instructions.md` file shapes Positron Assistant behavior when working with Quarto documentation files. The filename was chosen to reflect the purpose of these instructions, but can be anything ending with `.instructions.md`.  
+
+By automatically applying these rules to all `.qmd` files, Assistant is instructed to write in a consistent style that prioritizes clarity, brevity, and accessibility. The instructions guide Assistant to use active voice, avoid technical jargon, maintain proper formatting conventions, and produce content suitable for screen readers and translation tools to ensure the content aligns with your project's standards without needing to specify these preferences in every chat request.
+
+```{.default .code-overflow-wrap}
+---
+name: "Quarto Documentation Standards"
+description: "Writing guidelines for Quarto documentation following Positron style guide"
+applyTo: "**/*.qmd"
+---
+
+# Quarto Documentation Guidelines
+
+## Writing and Style
+
+- Write at approximately 12th grade reading level with sentences of 28-30 words or fewer
+- Use present tense and active voice; avoid contractions and gerunds as nouns
+- Use the Oxford comma and spell out acronyms on first use
+- Maintain an energetic, compassionate tone that is simple and direct
+- Use clear, literal language suitable for screen readers and translation tools; avoid idioms and metaphors
+- Do not use possessives with product names
+
+## Formatting
+
+- Use Title Case for titles/H1s; sentence case for other headings
+- Always include `title` and `description` in YAML front matter
+- Bold UI elements, italicize commands, use backticks for code
+- Use the Quarto `kbd` shortcode for keyboard shortcuts: `{{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}`
+- Link to settings: `[positron://settings/category.nameOfSetting](positron://settings/category.nameOfSetting)`
+- Use em dashes (—) for emphasis; en dashes (–) for ranges
+```
