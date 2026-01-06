@@ -37,11 +37,53 @@ Run the command _Chat: Configure Prompt Files..._ to manage custom prompt files 
 
 After creating a custom prompt file, you can access it through [slash commands](assistant-chat-commands-participants.qmd#slash-commands) in both the chat pane and inline chat.
 
+<details>
+<summary>Example custom prompt file</summary>
+
+This file demonstrates key features of custom prompts in Positron Assistant. It includes header fields like description, name, agent, tools, and argument-hint to configure behavior and guide users. The prompt body uses an input variable (${input:filePath}) to accept dynamic user input, making it reusable across different datasets. By specifying the agent mode and restricting what tools are available, the prompt tailors Assistant's behavior to exactly what's at hand.
+
+```{.default .code-overflow-wrap}
+---
+description: Perform exploratory data analysis on the selected dataset
+name: eda
+agent: agent
+tools: ['search', 'todos', 'getPlot', 'executeCode', 'getTableSummary', 'inspectVariables']
+argument-hint: "Path to data file or dataset description"
+---
+
+You are a data analysis expert. Perform a comprehensive exploratory data analysis (EDA) on the provided dataset.
+
+## Analysis Steps
+
+1. **Load and inspect the data**: Display the first few rows, shape, and data types
+2. **Summary statistics**: Generate descriptive statistics for all numeric columns
+3. **Missing data analysis**: Identify and report any missing or null values
+4. **Distributions**: Suggest visualizations for key columns
+5. **Correlations**: Identify relationships between numeric variables
+
+## Output Format
+
+Structure your analysis as follows:
+- **Dataset Overview**: Dimensions and column types
+- **Key Findings**: Notable patterns or issues discovered
+- **Recommended Next Steps**: Suggest specific analyses or visualizations
+
+The user's dataset location is: ${input:filePath:e.g., data/sales.csv}
+
+Perform the analysis using the available tools to execute code directly.
+
+```
+
+</details>
+
+::: {.callout-tip}
 To learn more about the format of custom prompt files, see the following VS Code documentation:
 
 - [Prompt file structure](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_prompt-file-structure)
-    - Note: Positron Assistant does not support the `model` field at this time.
 - [Tips for defining prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_tips-for-defining-prompt-files)
+
+*Note:* Positron Assistant does not support the `model` field at this time.
+:::
 
 ## Chat participants
 
