@@ -26,7 +26,7 @@ Positron also includes an option to share the primary data science languages in 
 
 - To stop Positron sharing the primary data science languages in use, disable the  [`update.primaryLanguageReporting`](positron://settings/update.primaryLanguageReporting) setting.
 
-### What information we do NOT collect?
+### What information do we NOT collect?
 
 #### AI usage
 
