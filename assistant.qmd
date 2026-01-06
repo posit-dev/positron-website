@@ -58,11 +58,11 @@ To get started with Positron Assistant, check out the [Getting Started](assistan
 
 Posit does not provide support or assistance for any code written or generated in Positron, with or without Positron Assistant via any model provider. Posit does not support the Anthropic or GitHub Copilot output, or test the logic used by either to generate code from prompts.
 
-### Positron AI Agents
+### Positron AI agents
 
 The Positron AI tools are “BYO-key”, meaning that the tools can interact with a number of different model providers (e.g., Anthropic, AWS Bedrock, GitHub Copilot, or OpenAI) and the user or organization has an agreement with, pays the model provider, directly for access to the model.
 
-### Data Collection and Privacy
+### Data collection and privacy
 
 Positron provides local software as a client to the user’s selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when using AI features within Positron (i.e. Positron Assistant, Databot, etc). These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. 
 
