@@ -70,8 +70,6 @@ If you voluntarily share diagnostic logs or information with Posit for troublesh
 However, your AI model provider (such as [Anthropic](#anthropic) or [GitHub Copilot](#github-copilot)) may store or collect data according to their own privacy policies and terms of service. Please review your AI model provider's data practices for details on what information they collect and how it's used.
 
 By using an external model provider, you acknowledge that your use is subject to their Terms of Service. All external model providers are considered “Third Party Materials” as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
-If you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with [Posit's privacy policy](privacy.qmd).
-
 
 ### Anthropic
 
