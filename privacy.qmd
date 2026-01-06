@@ -25,3 +25,17 @@ When you visit our website or download our software, Posit logs network access i
 Positron also includes an option to share the primary data science languages in use, such as Python and/or R.
 
 - To stop Positron sharing the primary data science languages in use, disable the  [`update.primaryLanguageReporting`](positron://settings/update.primaryLanguageReporting) setting.
+
+### What information we do NOT collect?
+
+#### AI usage
+
+Posit does not track, collect, or store your prompts, code or conversations when using AI features within Positron (i.e. Assistant, Databot, etc) with external model providers. However, your AI model provider (such as Anthropic or GitHub Copilot) may collect data according to their own privacy policies and terms of service. Please review your provider's data practices for details on what information they collect and how it's used.
+
+#### Your work
+
+Posit does not collect, store, or transmit the contents of your code files or data unless you explicitly share them with us (such as when submitting diagnostic logs for support).
+
+#### Voluntary information sharing
+
+If you choose to share diagnostic logs or other information with Posit for troubleshooting purposes, that information will be handled in accordance with [Posit’s Privacy Policy](https://posit.co/about/privacy-policy/).
