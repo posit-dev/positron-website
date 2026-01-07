@@ -42,7 +42,7 @@ After creating a custom prompt file, you can access it through [slash commands](
 
 This shows a custom prompt tailored to exploratory data analysis which demonstrates key features of custom prompts in Positron Assistant. It includes header fields like `description`, `name`, `agent`, `tools`, and `argument-hint` to configure behavior and guide users. The prompt body uses an input variable (`${input:filePath}`) to accept dynamic user input, making it reusable across different projects and datasets. By specifying the agent mode and restricting what tools are available, the prompt tailors Assistant's behavior to exactly what's at hand.
 
-```{.default .code-overflow-wrap}
+```{.md .code-overflow-wrap filename="eda.prompt.md"}
 ---
 description: Perform exploratory data analysis on the selected dataset
 name: eda

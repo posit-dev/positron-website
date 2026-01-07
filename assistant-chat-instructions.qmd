@@ -52,12 +52,13 @@ To learn more about the format of custom instructions files, see the following V
 - [Tips for defining custom instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_tips-for-defining-custom-instructions)
 :::
 
-### Example custom instructions
+<details>
+<summary>Example custom instructions</summary>
 This example demonstrates how a `quarto.instructions.md` file shapes Positron Assistant behavior when working with Quarto documentation files. The filename was chosen to reflect the purpose of these instructions, but can be anything ending with `.instructions.md`.  
 
 By automatically applying these rules to all `.qmd` files, Assistant is instructed to write in a consistent style that prioritizes clarity, brevity, and accessibility. The instructions guide Assistant to use active voice, avoid technical jargon, maintain proper formatting conventions, and produce content suitable for screen readers and translation tools to ensure the content aligns with your project's standards without needing to specify these preferences in every chat request.
 
-```{.default .code-overflow-wrap}
+```{.md .code-overflow-wrap filename="quarto.instructions.md" shortcodes="false"}
 ---
 name: "Quarto Documentation Standards"
 description: "Writing guidelines for Quarto documentation following Positron style guide"
@@ -84,3 +85,4 @@ applyTo: "**/*.qmd"
 - Link to settings: `[positron://settings/category.nameOfSetting](positron://settings/category.nameOfSetting)`
 - Use em dashes (—) for emphasis; en dashes (–) for ranges
 ```
+</details>

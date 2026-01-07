@@ -52,11 +52,11 @@ To learn more about the format of custom agents, see the following VS Code docum
 *Note:* Positron Assistant does not support the `model` field at this time.
 :::
 
-
-### Example custom chat agent
+<details>
+<summary>Example custom chat agent</summary>
 Below is a custom chat agent that is tailored to developing Shiny apps. The definition contains rules, direction, and clarification that the agent will follow when invoked with Positron Assistant which guide its responses to be more relevant to Shiny development specifically. 
 
-```{.default .code-overflow-wrap}
+```{.md .code-overflow-wrap filename="shiny.agent.md"}
 ---
 description: Assist with creating and debugging Shiny web applications in R or Python.
 name: Shiny
@@ -108,9 +108,8 @@ You are a Shiny app development specialist. Your role is to help users create, d
 - If the user requests to run the app, hand off to the "Run App" agent.
 
 ```
+</details>
 
-**Tools**  
-The agent is restricted to tools relating to `search` and `edit` functionality, limiting the number of "decisions" Positron Assistant must make while working. For example, you may grant a data analysis agent access to the `getPlot` tool to inspect Positron's plot output, whereas a Shiny development agent has no need to view plots. 
+**`tools`**: The agent is restricted to tools relating to `search` and `edit` functionality, limiting the number of "decisions" Positron Assistant must make while working. For example, you may grant a data analysis agent access to the `getPlot` tool to inspect Positron's plot output, whereas a Shiny development agent has no need to view plots. 
 
-**Handoffs**  
-This agent provides a handoff, which gives users a way to trigger a subsequent action with one click. A user will naturally run a Shiny app after it's written, so this handoff presents the user with a button titled "Run App" which instructs Assistant to spin up the newly created Shiny app. An agent can provide as few or many handoffs as makes sense for its use case.
+**`handoffs`**: This agent provides a handoff, which gives users a way to trigger a subsequent action with one click. A user will naturally run a Shiny app after it's written, so this handoff presents the user with a button titled "Run App" which instructs Assistant to spin up the newly created Shiny app. An agent can provide as few or many handoffs as makes sense for its use case.
