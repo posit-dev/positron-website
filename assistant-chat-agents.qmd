@@ -99,8 +99,9 @@ You are a debugging expert for R and Python. Your role is to identify, diagnose,
 - Use `executeCode` to test fixes when appropriate.
 
 ```
-</details>
 
 **`tools`**: The agent is restricted to tools relating to debugging functionality, limiting the number of "decisions" Positron Assistant must make while working. For example, you may grant a data analysis agent access to the `getPlot` tool to inspect Positron's plot output, whereas a debugging agent focuses on code inspection and execution tools.
 
 **`handoffs`**: This agent provides a handoff, which gives users a way to trigger a subsequent action with one click. A user will naturally want to test code after it's fixed, so this handoff presents the user with a button titled "Test Code" which instructs Assistant to run the code and verify the fix. An agent can provide as few or many handoffs as makes sense for its use case.
+
+</details>
