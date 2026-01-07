@@ -67,18 +67,7 @@ The Positron AI tools are “BYO-key”, meaning that the tools can interact wit
 Positron provides local software as a client to the user’s selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when using AI features within Positron (i.e. Positron Assistant, Databot, etc). These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. 
 
 If you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with [Posit's privacy policy](privacy.qmd).
-However, your AI model provider (such as [Anthropic](#anthropic) or [GitHub Copilot](#github-copilot)) may store or collect data according to their own privacy policies and terms of service. Please review your AI model provider's data practices for details on what information they collect and how it's used.
+
+However, your AI model provider (such as [Anthropic](assistant-provider-info.qmd#anthropic) or [GitHub Copilot](assistant-provider-info.qmd#github-copilot)) may store or collect data according to their own privacy policies and terms of service. Please review your [AI model provider's data practices](assistant-provider-info.qmd) for details on what information they collect and how it's used.
 
 By using an external model provider, you acknowledge that your use is subject to their Terms of Service. All external model providers are considered “Third Party Materials” as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
-
-### Anthropic
-
-Anthropic may collect and store your prompts, responses, and related usage data. For more information about Anthropic's data handling and retention policies, review their [Privacy Policy](https://www.anthropic.com/legal/privacy), their [Commercial Privacy Center](https://privacy.claude.com/en/collections/10663361-commercial-customers) documentation, and your Claude Console [Privacy controls](https://platform.claude.com/settings/privacy).
-
-By using Anthropic, you acknowledge that your use of Anthropic is subject to their [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms). Anthropic is considered "Third Party Materials" as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
-
-### GitHub Copilot
-
-GitHub may send individual snippets of source code or the contents of entire files to its servers to generate suggestions. For more details about how this information is handled, please see the [Copilot Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect).
-
-By using GitHub Copilot, you acknowledge that your use of GitHub Copilot is governed by their terms of service and you agree to abide by their [terms of service](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot). GitHub Copilot is considered “Third Party Materials” as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.

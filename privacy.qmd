@@ -30,7 +30,7 @@ Positron also includes an option to share the primary data science languages in 
 
 #### AI usage
 
-Posit does not track, collect, or store your prompts, code or conversations when using AI features within Positron (i.e. Assistant, Databot, etc) with external model providers. However, your AI model provider (such as Anthropic or GitHub Copilot) may collect data according to their own privacy policies and terms of service. Please review your provider's data practices for details on what information they collect and how it's used.
+Posit does not track, collect, or store your prompts, code or conversations when using AI features within Positron (i.e. Assistant, Databot, etc) with external model providers. However, your AI model provider (such as [Anthropic](assistant-provider-info.qmd#anthropic) or [GitHub Copilot](assistant-provider-info.qmd#github-copilot)) may collect data according to their own privacy policies and terms of service. Please review your provider's data practices for details on what information they collect and how it's used.
 
 #### Your work
 
