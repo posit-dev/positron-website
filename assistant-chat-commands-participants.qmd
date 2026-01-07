@@ -37,6 +37,15 @@ Run the command _Chat: Configure Prompt Files..._ to manage custom prompt files 
 
 After creating a custom prompt file, you can access it through [slash commands](assistant-chat-commands-participants.qmd#slash-commands) in both the chat pane and inline chat.
 
+::: {.callout-tip}
+To learn more about the format of custom prompt files, see the following VS Code documentation:
+
+- [Prompt file structure](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_prompt-file-structure)
+- [Tips for defining prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_tips-for-defining-prompt-files)
+
+*Note:* Positron Assistant does not support the `model` field at this time.
+:::
+
 <details>
 <summary>Example custom prompt file</summary>
 
@@ -76,15 +85,6 @@ Use the available tools to search the codebase and execute code examples if need
 ```
 
 </details>
-
-::: {.callout-tip}
-To learn more about the format of custom prompt files, see the following VS Code documentation:
-
-- [Prompt file structure](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_prompt-file-structure)
-- [Tips for defining prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_tips-for-defining-prompt-files)
-
-*Note:* Positron Assistant does not support the `model` field at this time.
-:::
 
 ## Chat participants
 
