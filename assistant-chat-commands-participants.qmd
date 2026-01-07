@@ -37,11 +37,54 @@ Run the command _Chat: Configure Prompt Files..._ to manage custom prompt files 
 
 After creating a custom prompt file, you can access it through [slash commands](assistant-chat-commands-participants.qmd#slash-commands) in both the chat pane and inline chat.
 
+::: {.callout-tip}
 To learn more about the format of custom prompt files, see the following VS Code documentation:
 
 - [Prompt file structure](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_prompt-file-structure)
-    - Note: Positron Assistant does not support the `model` field at this time.
 - [Tips for defining prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_tips-for-defining-prompt-files)
+
+*Note:* Positron Assistant does not support the `model` field at this time.
+:::
+
+<details>
+<summary>Example custom prompt file</summary>
+
+This shows a custom prompt tailored to code review which demonstrates key features of custom prompts in Positron Assistant. It includes header fields like `description`, `name`, `agent`, `tools`, and `argument-hint` to configure behavior and guide users. The prompt body uses an input variable (`${input:codeContext}`) to accept dynamic user input, making it reusable across different code snippets and files. By specifying the agent mode and restricting what tools are available, the prompt tailors Assistant's behavior to exactly what's at hand.
+
+```{.md .code-overflow-wrap filename="code-review.prompt.md"}
+---
+description: Perform a thorough code review focusing on best practices and potential issues
+name: code-review
+agent: agent
+tools: ['search', 'todos', 'executeCode']
+argument-hint: "File path or brief description of code to review"
+---
+
+You are an expert code reviewer. Perform a comprehensive code review of the provided code, focusing on code quality, best practices, and potential issues.
+
+## Review Criteria
+
+1. **Code quality**: Assess readability, maintainability, and adherence to style guidelines
+2. **Logic and correctness**: Identify potential bugs, edge cases, or logical errors
+3. **Performance**: Highlight inefficient operations or opportunities for optimization
+4. **Security**: Check for common security vulnerabilities or unsafe practices
+5. **Best practices**: Suggest improvements based on language-specific conventions
+
+## Output Format
+
+Structure your review as follows:
+- **Overall assessment**: Brief summary of code quality
+- **Strengths**: What the code does well
+- **Issues found**: List specific problems with severity (critical/moderate/minor)
+- **Recommendations**: Concrete suggestions for improvement
+
+The code to review is: ${input:codeContext:e.g., src/utils/data-processor.py}
+
+Use the available tools to search the codebase and execute code examples if needed.
+
+```
+
+</details>
 
 ## Chat participants
 
