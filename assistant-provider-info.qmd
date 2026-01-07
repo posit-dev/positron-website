@@ -1,5 +1,5 @@
 ---
-title: "Positron Assistant Provider Information"
+title: "Positron Assistant Provider Privacy Information"
 description: "Information about data handling, privacy, and terms of service for AI model providers used in Positron Assistant."
 ---
 
@@ -22,13 +22,13 @@ Any Provider is considered "Third Party Materials" as defined in the [Posit End 
 
 * [Privacy Policy](https://www.anthropic.com/legal/privacy)
 * [Commercial Privacy Center](https://privacy.claude.com/en/collections/10663361-commercial-customers)
-* Claude Console [Privacy Controls](https://platform.claude.com/settings/privacy).
-* [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms). 
+* [Console Privacy Controls](https://platform.claude.com/settings/privacy)
+* [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms)
 
 ### GitHub Copilot
 
-* [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect).
-* [Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot). 
+* [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect)
+* [Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 
 ### OpenAI
 * [Privacy Policy](https://openai.com/policies/row-privacy-policy/)
