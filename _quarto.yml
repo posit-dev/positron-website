@@ -118,6 +118,7 @@ website:
               - assistant-completions.qmd
               - assistant-troubleshooting.qmd
               - assistant-tips.qmd
+              - assistant-provider-info.qmd
             - databot.qmd
         - section: "Language Guides"
           contents: 

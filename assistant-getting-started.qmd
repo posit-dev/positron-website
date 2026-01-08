@@ -33,6 +33,10 @@ Positron Assistant supports the following language model providers:
 
 We're actively expanding provider support and welcome your [feedback](https://github.com/posit-dev/positron/discussions) and [issue reports](https://github.com/posit-dev/positron/issues/new/choose)!
 
+Please ensure you consult your provider's privacy policy for information on the data they collect and how it is used. For reference links, see the [Positron Assistant Provider Information](assistant-provider-info.qmd) guide.
+
+For information on what information is collected by Posit, review [Posit's Data Privacy](privacy.qmd).
+
 ## Step 1: Enable Positron Assistant
 
 1. Enable the setting [`positron.assistant.enable`](positron://settings/positron.assistant.enable).
