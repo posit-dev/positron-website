@@ -36,7 +36,7 @@ Positron now has early, experimental support for [Dev Containers](https://contai
 - [[#7613](https://github.com/posit-dev/positron/issues/7613)] Plots: "Open in new window" for plots now uses compact mode in the new window.
 - [[#10491](https://github.com/posit-dev/positron/issues/10491)] Assistant: now use native implementation of Copilot completion engine, addressing a variety of authentication and performance issues.
 - [[#8409](https://github.com/posit-dev/positron/issues/8409)] Assistant: now use local Copilot credentials in Remote SSH.
-- [[#8623](https://github.com/posit-dev/positron/issues/8623)] Assistant: use VS Code proxy settings when connecting to Github Copilot.
+- [[#8623](https://github.com/posit-dev/positron/issues/8623)] Assistant: use VS Code proxy settings when connecting to GitHub Copilot.
 - [[#10721](https://github.com/posit-dev/positron/issues/10721)] Assistant: combined directory structure tool with project tree tool.
 - [[#10671](https://github.com/posit-dev/positron/issues/10671)] Assistant: Positron Assistant's file editing tool will now wait for user feedback after proposing edits rather than returning immediately. This means that the agent will "see" the user's choice of Keep vs. Undo when making changes and incorporate feedback from the user more seamlessly.
 - [[#10889](https://github.com/posit-dev/positron/issues/10889)] Assistant: added support for custom agent files in `.vscode/positron/agents/<FILE_NAME>.agent.md`.
@@ -50,7 +50,6 @@ Positron now has early, experimental support for [Dev Containers](https://contai
 - [[#10615](https://github.com/posit-dev/positron/issues/10615)] Data Explorer: a new "File options" action bar button opens a modal that allows toggling whether a CSV/TSV file has a header row (the default) or not. Other options may be added in the future.
 - [[#507](https://github.com/posit-dev/positron/issues/507)] The Variables view can now be hidden, for troubleshooting or when working with large or sensitive objects in memory.
 - [[#10186](https://github.com/posit-dev/positron/issues/10186)] Improved user feedback when "Check for Updates" is manually triggered.
-
 
 #### Bug fixes
 
@@ -69,10 +68,10 @@ Positron now has early, experimental support for [Dev Containers](https://contai
 - [[#10686](https://github.com/posit-dev/positron/issues/10686)] Assistant: fixed inaccurate tooltip indicating image attachments not supported.
 - [[#10904](https://github.com/posit-dev/positron/issues/10904)] Python: now deduplicate Python completions, and fixed some situations where hover popups and function signature help popups wouldn't appear.
 - [[#10998](https://github.com/posit-dev/positron/issues/10998)] Python: completions now more accurately reflect what's in your environment.
-- [[#11011](https://github.com/posit-dev/positron/issues/11011)] Python: added back in our contributed defaults for the Pyright extension.
+- [[#11011](https://github.com/posit-dev/positron/issues/11011)] Python: added back our contributed defaults for the Pyright extension.
 - [[#7741](https://github.com/posit-dev/positron/issues/7741)] Python: fixed proxy error when opening Plotly plots in an external browser.
 - [[#10258](https://github.com/posit-dev/positron/issues/10258)] Python: adjusted web app detection to look for app creation before imports.
-- [[#9640](https://github.com/posit-dev/positron/issues/9640)] Help calls for Python's builtin `input()` function include explanation of `ipykernel.kernelbase.Kernel.raw_input` involvement.
+- [[#9640](https://github.com/posit-dev/positron/issues/9640)] Python: help calls for Python's builtin `input()` function now include explanation of `ipykernel.kernelbase.Kernel.raw_input` involvement.
 - [[#3136](https://github.com/posit-dev/positron/issues/3136)] Help: fixed styling of code elements in the Help pane.
 - [[#5975](https://github.com/posit-dev/positron/issues/5975), [#10378](https://github.com/posit-dev/positron/issues/10378)] Workbench: fixed a bug when opening editors such as with `rstudioapi::navigateToFile()` or when using reprex.
 - [[#10669](https://github.com/posit-dev/positron/issues/10669)] Only copy data explorer contents if the data explorer has focus.
