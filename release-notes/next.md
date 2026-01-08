@@ -9,12 +9,12 @@ Positron has a new History Pane, similar to RStudio's. Your Console inputs are t
 Positron Assistant, available as a preview feature, is now more powerful and reliable:
 
 - Assistant has switched to using a native implementation of the Copilot completion engine, addressing a variety of authentication and performance issues. Copilot credentials now also work in Remote SSH sessions, and VS Code proxy settings are respected when connecting to GitHub Copilot.
-- Assistant's tools, such as for editig files, installing packages, and getting directory structure, have been refined.
+- Assistant's tools, such as for editing files, installing packages, and getting directory structure, have been refined.
 - You can now create custom agent files for your projects. Read more at <https://positron.posit.co/assistant-chat-agents>.
 
 #### Try experimental Dev Container support 🐳
 
-Positron now has early, experimental support for [Dev Containers](https://containers.dev/). You can build or rebuild a container and open your workspace inside it. To try it out, enable the [`dev.containers.enable`](positron://settings/dev.containers.enable) setting. Note that this early version has some limitations: only single-container configurations are supported (no Docker Compose), and musl-based Linux distributions like Alpine are not yet supported.
+Positron now has early, experimental support for [Dev Containers](https://containers.dev/). You can build or rebuild a container and open your workspace inside it. To try it out, enable the [`dev.containers.enable`](positron://settings/dev.containers.enable) setting. Note that this early version has some limitations; only single-container configurations are supported (no Docker Compose), and musl-based Linux distributions like Alpine are not yet supported.
 
 [Let us know](https://github.com/posit-dev/positron/discussions) how it goes with our new Dev Container support!
 
