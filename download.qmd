@@ -12,7 +12,7 @@ format:
 
 Find out what you need to know before you [install](install.qmd) Positron, then download the desktop installer for your platform.
 
-::: callout-important
+:::: callout-important
 ## Accept license agreement
 
 Please review [Positron's license agreement](licensing.qmd) and [privacy policy](https://posit.co/about/privacy-policy/). Your acceptance of this license agreement and privacy policy is required as a condition to proceeding with your download or use of the software.
