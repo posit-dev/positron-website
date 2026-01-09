@@ -54,6 +54,7 @@ Currently we support connections created using:
 - [duckdb](https://duckdb.org/docs/clients/python/overview)
 - [Databricks SQL Connector](https://docs.databricks.com/en/dev-tools/python-sql-connector.html)
 - [Google BigQuery](https://cloud.google.com/python/docs/reference/bigquery/)
+- [AWS Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/python-redshift-driver.html)
 
 To open a connection in the Connections Pane, create a top level object that represents the connection/engine.
 

@@ -36,7 +36,7 @@ In Python, the `%view` magic can also be used with expressions, for example `%vi
 df |> mutate(doubled_column = column * 2) |> View()
 ```
 
-Directly opening `.csv`, `.tsv`, and `.parquet` files (using DuckDB) is supported by clicking on a file in the File Explorer or using the Command Palette. GZIP-compressed CSV files ending in `.gz` can also be opened. We may add support for more file types in the future.
+Directly opening `.csv`, `.tsv`, and `.parquet` files (using DuckDB) is supported by clicking on a file in the File Explorer or using the Command Palette.^[Use the **File Options** button in the action bar to configure how a `.csv` or `.tsv` file is parsed by DuckDB.] GZIP-compressed CSV files ending in `.gz` can also be opened. We may add support for more file types in the future.
 
 ### Opening CSV files as plain text
 
