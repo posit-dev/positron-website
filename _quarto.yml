@@ -3,6 +3,8 @@ project:
   type: website
   render:
     - "*.qmd"
+  resources:
+    - "llms.txt"
 
 execute:
   freeze: auto
