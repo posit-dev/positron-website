@@ -8,7 +8,7 @@ Positron has a new History Pane, similar to RStudio's. Your Console inputs are t
 
 Positron Assistant, available as a preview feature, is now more powerful and reliable:
 
-- Assistant has switched to using a native implementation of the Copilot completion engine, addressing a variety of authentication and performance issues. Copilot credentials now also work in Remote SSH sessions, and VS Code proxy settings are respected when connecting to GitHub Copilot.
+- Assistant has switched to using a native implementation of the Copilot completion engine, addressing a variety of authentication and performance issues. Copilot credentials now also work in Remote SSH sessions, and VS Code proxy settings are respected when connecting to GitHub Copilot. If you were logged in to GitHub Copilot previously, you will need to sign out and back in to use Copilot in this latest release.
 - Assistant's tools, such as for editing files, installing packages, and getting directory structure, have been refined.
 - You can now create custom agent files for your projects. Read more at <https://positron.posit.co/assistant-chat-agents>.
 
