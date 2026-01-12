@@ -8,7 +8,7 @@ If you're having trouble with Positron Assistant, here are some resources and to
 Can't find what you're looking for? Reach out through our [feedback channels](#feedback-issues) and we'll help you out!
 
 ::: {.callout-important}
-## GitHub Copilot Authentication Change
+## GitHub Copilot authentication change
 
 In Positron 2026.01.0, Positron Assistant has switched to using a native implementation of the Copilot completion engine, addressing a variety of authentication and performance issues. Copilot credentials now also work in Remote SSH sessions, and VS Code proxy settings are respected when connecting to GitHub Copilot. 
 
