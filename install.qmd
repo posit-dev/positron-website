@@ -81,4 +81,9 @@ positronVersion <- Sys.getenv("RELEASE_VERSION")
 
 [Download Positron <span id="os-name"></span>](#){.btn .btn-primary .disabled #download-btn data-version="`{r} positronVersion`"}
 
+::: {#macos-buttons .hidden}
+[Download for macOS (Apple Silicon)](#){.btn .btn-primary .disabled #download-btn-mac-arm data-version="`{r} positronVersion`"}
+[Download for macOS (Intel)](#){.btn .btn-secondary .disabled #download-btn-mac-intel data-version="`{r} positronVersion`"}
+:::
+
 [All Downloads](download.qmd){#all-downloads}
