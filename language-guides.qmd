@@ -1,0 +1,32 @@
+---
+title: "Language Guides"
+description: "Positron ships with first-class support for both Python and R. Learn about settings, keyboard shortcuts, debugging, and interactive features for each language."
+listing:
+  - id: language-guides
+    type: custom
+    template: templates/welcome-card.ejs
+    contents:
+      - title: "Python in Positron"
+        description: "Settings, IPython magics, and formatting for interactive data science"
+        icon: "bi-terminal"
+        link: "guide-python.qmd"
+        columns: 2
+      - title: "R in Positron"
+        description: "Keyboard shortcuts, formatting, and debugging for R development"
+        icon: "bi-graph-up"
+        link: "guide-r.qmd"
+        columns: 2
+---
+
+Positron ships with first-class support for both Python and R, making it an ideal environment for data science workflows. Each language has dedicated features, settings, and tools to enhance your development experience.
+
+::: {#language-guides}
+:::
+
+## Going further
+
+In addition to the language-specific guides, learn more about:
+
+- How to [manage interpreters](managing-interpreters.qmd) for Positron's fully interactive console sessions
+- [Prerequisites for using Python or R](install.qmd#prerequisites) in Positron
+- Migrating from either [RStudio](migrate-rstudio.qmd) or [VS Code](migrate-vscode.qmd)

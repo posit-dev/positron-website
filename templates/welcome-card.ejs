@@ -1,5 +1,5 @@
 ```{=html}
-<div class="custom-card-grid">
+<div class="custom-card-grid<%= items[0].columns === 2 ? ' columns-2' : '' %>">
   <% for (const item of items) { %>
     <a href="<%= item.link %>" class="custom-card-wrapper">
       <div class="custom-card">

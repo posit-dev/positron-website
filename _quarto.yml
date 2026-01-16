@@ -121,7 +121,10 @@ website:
               - assistant-provider-info.qmd
             - databot.qmd
         - section: "Language Guides"
-          contents: 
+          href: language-guides.qmd
+          contents:
+            - text: "Overview"
+              href: language-guides.qmd
             - guide-python.qmd
             - section: "R in Positron"
               contents:
