@@ -91,9 +91,9 @@ Keep in mind that the `native` locator is experimental and may not work complete
 
 If the above settings are configured correctly, and the Python version is supported, and _Interpreter: Discover All Interpreters_ or a restart of Positron is not helping, you can check logs. See more in the [troubleshooting guide](troubleshooting.qmd).
 
-For the `js` (default) locator, the discovery process is logged in the Python Language Pack channel of the Output panel.
+For the `native` (default) locator, the discovery process is logged in the Python Locator channel.
 
-For the `native` locator, it is instead logged in the Python Locator channel.
+For the `js` (default) locator, it is instead logged in the Python Language Pack channel of the Output panel.
 
 ## Related settings
 
