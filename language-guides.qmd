@@ -27,6 +27,6 @@ Positron ships with first-class support for both Python and R, making it an idea
 
 In addition to the language-specific guides, learn more about:
 
-- [Managing interpreters](managing-interpreters.qmd) with Positron's fully interactive console sessions
+- [Managing interpreters](managing-interpreters.qmd) to learn how to switch between and manage multiple Python and R interpreters in Positron
 - [Prerequisites for using Python or R](install.qmd#prerequisites) in Positron
 - Migrating from either [RStudio](migrate-rstudio.qmd) or [VS Code](migrate-vscode.qmd)

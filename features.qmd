@@ -28,7 +28,7 @@ listing:
     template: templates/feature-card.ejs
     contents:
         - title: "Python and R"
-          description: "Code efficiently across multiple languages, whether it's Python or R."
+          description: "Code efficiently with full support for both Python and R in a single, integrated editor."
           icon: "bi-code-slash"
           link: "language-guides.qmd"
           anchor-text: "Python and R"
