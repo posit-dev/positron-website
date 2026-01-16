@@ -263,6 +263,12 @@ kbd {
   @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  &.columns-2 {
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }
 
 // Features card grid (2 columns max)
