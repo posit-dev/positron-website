@@ -19,7 +19,6 @@ Some of these features may eventually come to Positron, but if any of these are 
 * Inline output in Quarto documents, i.e. a notebook-style interface for `.qmd` (or `.Rmd`) files. Follow along for updates on this feature request in <https://github.com/posit-dev/positron/issues/5640>.
 * Saving and reloading workspace state when you restart R.
 * Dedicated panes and buttons for specialized tasks, such code profiling or installing or developing packages.
-* History pane. Follow along for updates on this feature request in <https://github.com/posit-dev/positron/issues/5484>.
 * Data import widget. Follow along for updates on this feature request in <https://github.com/posit-dev/positron/issues/5515>.
 * RStudio add-ins. Follow along for updates on this feature request in <https://github.com/posit-dev/positron/issues/1313>.
 
