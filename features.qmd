@@ -27,9 +27,11 @@ listing:
     type: custom
     template: templates/feature-card.ejs
     contents:
-        - title: "Python or R"
+        - title: "Python and R"
           description: "Code efficiently across multiple languages, whether it's Python or R."
           icon: "bi-code-slash"
+          link: "language-guides.qmd"
+          anchor-text: "Python and R"
         - title: "Interact with data at scale"
           description: "Explore and manipulate large datasets with intuitive, fast, and interactive data frames."
           icon: "bi-rocket"
@@ -67,6 +69,8 @@ listing:
       - title: "Multi-session console"
         description: "Work across one or multiple consoles for concurrent analysis and development."
         icon: "bi-terminal"
+        link: "managing-interpreters.qmd"
+        anchor-text: "Managing Interpreters"
       - title: "Publish reports quickly"
         description: "With a click of a button, seamlessly deploy and share your project with Posit Publisher to Posit Connect and Posit Connect Cloud"
         icon: "bi-upload"
