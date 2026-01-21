@@ -105,6 +105,12 @@ Students and faculty can use GitHub Copilot for free as part of the GitHub Educa
 1. Click the **Sign in** button to initiate GitHub's OAuth authentication flow.
     - Complete the authentication flow in your browser, and return to Positron when finished.
 
+::: {.callout-tip}
+You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon in the sidebar. To sign out, use the Accounts icon or run the _Accounts: Manage Accounts_ command.
+
+Note that the Accounts section manages your GitHub authentication for all extensions that use GitHub, not just Positron Assistant.
+:::
+
 ## Amazon Bedrock
 
 ::: {.callout-important}
