@@ -65,7 +65,7 @@ If you do not want to use one or more of these extensions, you can use the [`ext
 }
 ```
 
-Learn more about how this setting works at the [VS Code documentation on allowed extensions](https://code.visualstudio.com/docs/setup/enterprise#_allowed-extensions-setting-values).
+Learn more about how this setting works at the [VS Code documentation on allowed extensions](https://code.visualstudio.com/docs/enterprise/extensions).
 
 ### Non-compatible extensions
 
