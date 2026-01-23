@@ -5,6 +5,15 @@ description: "Solve common Positron issues with troubleshooting guides for start
 
 If you're having trouble with Positron, here are some resources and tools to help troubleshoot and resolve your problems.
 
+::: {.content-visible when-profile="workbench"}
+
+::: {.callout-tip}
+Reach out to your Workbench administrator for help with issues specific to Positron on your Workbench deployment.
+:::
+
+:::
+
+::: {.content-visible unless-profile="workbench"}
 ## Reloading
 
 Positron is an Electron app. If you're seeing what looks like a temporary glitch, you can try reloading the window.
@@ -12,6 +21,7 @@ Positron is an Electron app. If you're seeing what looks like a temporary glitch
 A window reload shouldn't cause you to lose any session state, but it does cause the Positron front end, extensions, and all language packs to restart. Note that undo/redo history will also be cleared when you reload.
 
 To reload the window, open the Command Palette and run the _Developer: Reload Window_ command.
+:::
 
 ## Python and R logs
 
