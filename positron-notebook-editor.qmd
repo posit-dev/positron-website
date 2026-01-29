@@ -108,3 +108,4 @@ We’d love your feedback. Please book time to chat with [us here](https://sched
    * [Features we are exploring after alpha launch](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3Anotebooks-roadmap)
 
    * [All open issues](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22area%3A%20notebooks%22%20-label%3Anotebooks-alpha)
+   

@@ -15,21 +15,18 @@ Positron enhances Jupyter Notebooks in several key ways:
 
 ## Notebook Editors
 
-Positron offers two editors for working with Jupyter Notebooks:
+Positron currently offers two editors for working with Jupyter Notebooks: the [Positron Notebook Editor](positron-notebook-editor.qmd) which is currently in alpha, and the [Legacy Notebook Editor](legacy-notebook-editor.qmd) which is the default VS Code based notebook editor.
 
-- Positron Notebook Editor (Alpha)
-- Legacy Notebook Editor
-
-### Positron Notebook Editor 
-
-The [Positron Notebook Editor](positron-notebook-editor.qmd) is a native notebook experience built specifically for Positron. It provides notebook-aware AI assistance, integrated data exploration, and an improved user experience for data science workflows.
-
-To enable the **Positron Notebook Editor**, see the [setup instructions](positron-notebook-editor.qmd#enable-the-positron-notebook-editor).     
+### Positron Notebook Editor
 
 :::{.callout-note}
 The Positron Notebook Editor is currently in **public alpha**. We are actively working on improving the Notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or schedule a time to chat with our product & engineering team [here](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience).
 :::
 
+The [Positron Notebook Editor](positron-notebook-editor.qmd) is a native notebook experience built specifically for Positron. It provides notebook-aware AI assistance, integrated data exploration, and an improved user experience for data science workflows.
+
+To enable the **Positron Notebook Editor**, see the [setup instructions](positron-notebook-editor.qmd#enable-the-positron-notebook-editor).     
+
 ### Legacy Notebook Editor
 
-The [Legacy Notebook Editor](legacy-notebook-editor.qmd) is based on the VS Code notebook editor. If you're familiar with Jupyter Notebooks in VS Code, this editor will feel familiar.
+The [Legacy Notebook Editor](legacy-notebook-editor.qmd) is the default VS Code based notebook editor. If you're familiar with Jupyter Notebooks in VS Code, this editor will feel familiar.
