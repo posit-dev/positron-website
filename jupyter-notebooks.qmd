@@ -13,7 +13,7 @@ Positron enhances Jupyter Notebooks in several key ways:
 
 ![An example of a Jupyter Notebook in Positron, with interactive code, rich outputs, and the integrated Help Pane.](images/jupyter-notebooks-astropy.png)
 
-## Notebook Editors
+## Notebook editors
 
 Positron currently offers two editors for working with Jupyter Notebooks: the [Positron Notebook Editor](positron-notebook-editor.qmd) which is currently in alpha, and the [Legacy Notebook Editor](legacy-notebook-editor.qmd) which is the default VS Code based notebook editor.
 
@@ -27,6 +27,6 @@ The [Positron Notebook Editor](positron-notebook-editor.qmd) is a native noteboo
 
 To enable the **Positron Notebook Editor**, see the [setup instructions](positron-notebook-editor.qmd#enable-the-positron-notebook-editor).     
 
-### Legacy Notebook Editor
+### Legacy notebook editor
 
 The [Legacy Notebook Editor](legacy-notebook-editor.qmd) is the default VS Code based notebook editor. If you're familiar with Jupyter Notebooks in VS Code, this editor will feel familiar.
