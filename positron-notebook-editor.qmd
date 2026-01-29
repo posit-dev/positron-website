@@ -1,0 +1,110 @@
+---
+title: "Positron Notebook Editor"
+description: "Use the Positron Notebook Editor, currently in public alpha, for a native notebook experience with integrated AI assistance, data exploration, and improved data science workflows."
+---
+
+::: {.callout-important} 
+The Positron Notebook Editor is currently in **public alpha**. We are actively working on improving the Notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or schedule a time to chat with our product & engineering team [here](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience).
+:::
+
+The Positron Notebook Editor provides a familiar notebook experience for Jupyter (`.ipynb`) files. Positron IDE features work out of the box in notebooks, including AI assistance, data exploration, and debugging.
+
+## Key Features
+
+- **Batteries-included experience**: No extensions required for core features
+- **Improved user experience**: Optimized for data science workflows
+- **Notebook-aware AI assistance**: AI understands your notebook context, execution history, and execution order
+- **Integrated data exploration**: Variables Pane and Data Explorer work seamlessly
+- **Debugging**: Works out of the box without additional setup
+
+## Enable the Positron Notebook Editor
+
+To make the Positron Notebook Editor the default Jupyter Notebook editor, update your settings:
+
+1. Enable the [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled) setting.
+2. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
+
+## Getting Started
+
+You can create and edit `.ipynb` files in Positron just as you would in other editors.
+
+:::{.callout-tip}
+We recommend using the **View: Notebook Layout** command from the Command Palette for the best experience. This layout arranges the IDE panes into a notebook friendly setup.
+:::
+
+### Setting up your environment
+
+Positron comes prepackaged with Jupyter kernels for R and Python. Once you've [configured an Python or R environment](managing-interpreters.qmd) for Positron, you do not need to install any additional dependencies into your environment before using a notebook.
+
+If an environment installed on your computer isn't available in Positron, you may want to read more about how Positron discovers [Python installations](python-installations.qmd) and [R installations](r-installations.qmd).
+
+### Selecting an interpreter
+
+When you first open a Jupyter Notebook, Positron will automatically select an interpreter based on the notebook's language, the current workspace, and your configuration. The interpreter used by the notebook is visible in the *Kernel Selector* in the notebook editor action bar.
+
+![The Positron Notebook Editor action bar with the kernel selector highlighted, showing Python 3.12.11 as the selected interpreter.](images/positron-notebook-editor-kernel-selector.png)
+
+::: callout-tip
+We recommend matching the notebook interpreter to the workspace interpreter, however, they can be controlled separately. See [Managing Interpreters](./managing-interpreters.qmd#active-interpreter-session) to learn more about the workspace interpreter. 
+:::
+
+You can manually select a different interpreter for the notebook by selecting the *Kernel Selector* in the notebook editor action bar. The **Change Kernel...** option will display a list of all the registered interpreters. Select an interpreter from the list. 
+
+Alternatively, you can run the *Positron Notebook: Change Kernel...* command from the Command Palette.
+
+### Customization
+
+To set the default working directory for a notebook, use the [`notebook.workingDirectory`](positron://settings/notebook.workingDirectory) setting.
+
+## AI Integration
+
+The Positron Notebook Editor integrates with [Positron Assistant](assistant.qmd) to provide notebook-aware AI assistance:
+
+- **Context-Aware**: Assistant has access to rich context about your notebook, including cell states, execution history, code and outputs including images and tables.
+- **Dynamic Suggestions**: Assistant follows your work and dynamically suggests actions to improve your notebook.
+- **Actionable Editing**: With your permission, Assistant can directly edit and run cells in your notebook.
+- **Transparent**: You can inspect and control the specific context the Assistant is using.
+- **Collaborative**: Use [Follow Assistant](#follow-assistant) to automatically scroll and highlight cells as they're edited 
+
+### Enable Positron Notebook Editor AI Features
+
+To use the integrated notebook AI features in the Positron Notebook Editor, you will need to:
+
+1. Enable the [`positron.assistant.enable`](positron://settings/positron.assistant.enable) setting.
+2. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
+
+Once enabled, you will see assistant specific actions in the notebook editor action bar.
+
+![The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle.](images/positron-notebook-assistant-action-bar.png)
+
+### Notebook Assistant Panel
+
+The Notebook Assistant Panel provides a quick way to interact with Assistant directly from your notebook. To open it, click the **Assistant** icon button in the notebook editor action bar.
+
+![The Notebook Assistant Panel showing the cells included in the context, quick actions to fix, explain, or improve the current notebook, and an action to generate AI suggestions based off the current state of the notebook.](images/positron-notebook-assistant-panel.png)
+
+From the panel, you can:
+
+- **View context**: See which cells are included in the Assistant context
+- **Quick actions**: Run common actions like explaining the contents of a notebook or fixing errors in a notebook
+- **Generate suggestions**: View dynamically generated suggestions based on the current state of the notebook
+
+Selecting an option from the Assistant Panel will open a new [Chat Pane](assistant-chat.qmd) with the notebook context already attached.
+
+### Follow Assistant
+
+When the Assistant is actively editing cells in your notebook, you may want to watch its progress. Click **Follow Assistant** in the notebook editor action bar to have the notebook automatically scroll to cells as they are edited. This lets you review changes in real-time.
+
+## Share your feedback 
+
+We’d love your feedback. Please book time to chat with [us here](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) or:
+
+1. Complete [this short survey](https://forms.gle/2RjhZBMfMew2kbKVA) to help shape what we build. 
+
+2. File issues [here](https://github.com/posit-dev/positron/issues) for any bugs or improvements you want to see. 
+
+3. Upvote on features you want to see next:
+
+   * [Features we are exploring after alpha launch](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3Anotebooks-roadmap)
+
+   * [All open issues](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22area%3A%20notebooks%22%20-label%3Anotebooks-alpha)
