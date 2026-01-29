@@ -26,7 +26,7 @@ The [Positron Notebook Editor](positron-notebook-editor.qmd) is a native noteboo
 
 To enable the **Positron Notebook Editor**, see the [setup instructions](positron-notebook-editor.qmd#enable-the-positron-notebook-editor).     
 
-:::{.callout-important}
+:::{.callout-note}
 The Positron Notebook Editor is currently in **public alpha**. We are actively working on improving the Notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or schedule a time to chat with our product & engineering team [here](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience).
 :::
 
