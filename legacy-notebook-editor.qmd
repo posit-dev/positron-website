@@ -9,7 +9,7 @@ For a general introduction to working with Jupyter Notebooks, see the [VS Code J
 
 ### Setting up your environment
 
-Positron comes prepackaged with Jupyter kernels for R and Python. Once you've [configured a Python or R environment](managing-interpreters.qmd) for Positron, you do not need to install any additional dependencies into your environment before using a notebook.
+Positron comes bundled with Jupyter kernel support for R and Python. Once you've [configured a Python or R environment](managing-interpreters.qmd) for Positron, you do not need to install any additional dependencies into your environment before using a notebook.
 
 If an environment installed on your computer isn't available in Positron, you may want to read more about how Positron discovers [Python installations](python-installations.qmd) and [R installations](r-installations.qmd).
 
