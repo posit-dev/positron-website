@@ -2,7 +2,7 @@
 
 #### New Positron Notebook Editor is available for alpha testing! 📓
 
-We're excited to invite you to try the new Positron Notebook Editor, our reimagined experience for working with `.ipynb` notebooks. While still in alpha, we're releasing early because we believe the best tools are built in collaboration with the community.
+We're excited to invite you to try the new Positron Notebook Editor, our reimagined experience for working with Jupyter (`.ipynb`) notebooks. While still in alpha, we're releasing early because we believe the best tools are built in collaboration with the community.
 
 The Positron Notebook Editor provides a batteries-included environment for data science workflows with integrated panes for inspecting variables and exploring dataframes, context-aware AI that understands your notebook's execution history and variables, and streamlined interpreter management.
 
