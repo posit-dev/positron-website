@@ -20,13 +20,13 @@ Positron currently offers two editors for working with Jupyter Notebooks: the [P
 ### Positron Notebook Editor
 
 :::{.callout-note}
-The Positron Notebook Editor is currently in **public alpha**. We are actively working on improving the Notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or schedule a time to chat with our product & engineering team [here](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience).
+The Positron Notebook Editor is currently in public alpha. We are actively working on improving the Notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or [schedule a call](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) with our product and engineering team.
 :::
 
 The [Positron Notebook Editor](positron-notebook-editor.qmd) is a native notebook experience built specifically for Positron. It provides notebook-aware AI assistance, integrated data exploration, and an improved user experience for data science workflows.
 
-To enable the **Positron Notebook Editor**, see the [setup instructions](positron-notebook-editor.qmd#enable-the-positron-notebook-editor).     
+To enable the Positron Notebook Editor, see the [setup instructions](positron-notebook-editor.qmd#enable-the-positron-notebook-editor).     
 
 ### Legacy notebook editor
 
-The [Legacy Notebook Editor](legacy-notebook-editor.qmd) is the default VS Code based notebook editor. If you're familiar with Jupyter Notebooks in VS Code, this editor will feel familiar.
+The [Legacy Notebook Editor](legacy-notebook-editor.qmd) is the default Code OSS based notebook editor. If you're familiar with Jupyter Notebooks in VS Code, this editor will feel familiar.

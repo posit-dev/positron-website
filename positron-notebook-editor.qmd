@@ -4,10 +4,10 @@ description: "Use the Positron Notebook Editor, currently in public alpha, for a
 ---
 
 ::: {.callout-note} 
-The Positron Notebook Editor is currently in **public alpha**. We are actively working on improving the Notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or schedule a time to chat with our product & engineering team [here](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience).
+The Positron Notebook Editor is currently in public alpha. We are actively working on improving the Notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or [schedule a call](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) with our product and engineering team.
 :::
 
-The Positron Notebook Editor provides a familiar notebook experience for Jupyter (`.ipynb`) files. Positron IDE features work out of the box in notebooks, including AI assistance, data exploration, and debugging.
+The Positron Notebook Editor provides a familiar notebook experience for Jupyter (`.ipynb`) files. IDE features work out of the box in notebooks, including AI assistance, data exploration, and debugging.
 
 ## Key features
 
@@ -28,13 +28,13 @@ To make the Positron Notebook Editor the default Jupyter Notebook editor, update
 
 You can create and edit `.ipynb` files in Positron just as you would in other editors.
 
-:::{.callout-tip}
+:::{.callout-note}
 We recommend using the **View: Notebook Layout** command from the Command Palette for the best experience. This layout arranges the IDE panes into a notebook friendly setup.
 :::
 
 ### Setting up your environment
 
-Positron comes prepackaged with Jupyter kernels for R and Python. Once you've [configured an Python or R environment](managing-interpreters.qmd) for Positron, you do not need to install any additional dependencies into your environment before using a notebook.
+Positron comes prepackaged with Jupyter kernels for R and Python. Once you've [configured a Python or R environment](managing-interpreters.qmd) for Positron, you do not need to install any additional dependencies into your environment before using a notebook.
 
 If an environment installed on your computer isn't available in Positron, you may want to read more about how Positron discovers [Python installations](python-installations.qmd) and [R installations](r-installations.qmd).
 
@@ -44,7 +44,7 @@ When you first open a Jupyter Notebook, Positron will automatically select an in
 
 ![The Positron Notebook Editor action bar with the kernel selector highlighted, showing Python 3.12.11 as the selected interpreter.](images/positron-notebook-editor-kernel-selector.png)
 
-::: callout-tip
+::: callout-note
 We recommend matching the notebook interpreter to the workspace interpreter, however, they can be controlled separately. See [Managing Interpreters](./managing-interpreters.qmd#active-interpreter-session) to learn more about the workspace interpreter. 
 :::
 
@@ -92,11 +92,11 @@ When the Assistant is actively editing cells in your notebook, you may want to w
 
 ## Share your feedback 
 
-We’d love your feedback. Please book time to chat with [us here](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) or:
+We’d love your feedback. Please [book time to chat with us](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) or:
 
 1. Complete [this short survey](https://forms.gle/2RjhZBMfMew2kbKVA) to help shape what we build. 
 
-2. File issues [here](https://github.com/posit-dev/positron/issues) for any bugs or improvements you want to see. 
+2. [File issues](https://github.com/posit-dev/positron/issues) for any bugs or improvements you want to see. 
 
 3. Upvote on features you want to see next:
 
