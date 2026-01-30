@@ -11,7 +11,7 @@ Positron enhances Jupyter Notebooks in several key ways:
 -   Notebooks are integrated into the IDE, allowing you to manage data sources in the [Connections Pane](connections-pane.qmd), view data at a glance in the [Variables Pane](variables-pane.qmd), explore data in depth with the [Data Explorer](data-explorer.qmd), and browse documentation in the [Help Pane](help-pane.qmd).
 -   Language features such as autocompletion and go-to-definition work seamlessly across notebooks and plaintext files.
 
-![An example of a Jupyter Notebook in Positron, with interactive code, rich outputs, and the integrated Help Pane.](images/jupyter-notebooks-astropy.png)
+![A Jupyter Notebook in Positron with a Python code cell, a monthly electricity usage chart as output, the Assistant panel open to the left, andthe Variables pane open to the right.](images/positron-notebook.png)
 
 ## Notebook editors
 
