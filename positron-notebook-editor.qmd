@@ -5,7 +5,7 @@ aliases:
   - notebooks-alpha.html
 ---
 
-::: {.callout-note} 
+::: {.callout-important} 
 The Positron Notebook Editor is currently in public alpha. We are actively working on improving the Notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or [schedule a call](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) with our product and engineering team.
 :::
 
@@ -28,7 +28,7 @@ To make the Positron Notebook Editor the default Jupyter Notebook editor, update
 
 ## Getting started
 
-You can create and edit `.ipynb` files in Positron just as you would in other editors.
+You can create and edit `.ipynb` files in Positron just as you would in other editors. To learn how to setup and use the Positron Notebook Editor, check out our [demo notebook](https://github.com/posit-dev/positron-demos-notebooks/).
 
 :::{.callout-note}
 We recommend opening the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and running the _View: Notebook Layout_ command for the best experience. This layout arranges the IDE panes into a notebook friendly setup.
@@ -47,7 +47,7 @@ When you first open a Jupyter Notebook, Positron will automatically select an in
 ![The Positron Notebook Editor action bar with the kernel selector highlighted, showing Python 3.12.11 as the selected interpreter.](images/positron-notebook-editor-kernel-selector.png)
 
 ::: callout-note
-We recommend matching the notebook interpreter to the workspace interpreter, however, they can be controlled separately. See [Managing Interpreters](./managing-interpreters.qmd#active-interpreter-session) to learn more about the workspace interpreter. 
+We recommend matching the notebook interpreter to the [active interpreter](./managing-interpreters.qmd#active-interpreter-session) of the IDE, however, they can be controlled separately. See [Managing Interpreters](./managing-interpreters.qmd) to learn more. 
 :::
 
 You can manually select a different interpreter for the notebook by selecting the *Kernel Selector* in the notebook editor action bar. The **Change Kernel...** option will display a list of all the registered interpreters. Select an interpreter from the list. 
@@ -96,13 +96,11 @@ When the Assistant is actively editing cells in your notebook, you may want to w
 
 We’d love your feedback. Please [book time to chat with us](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) or:
 
-1. Complete [this short survey](https://forms.gle/2RjhZBMfMew2kbKVA) to help shape what we build. 
+1. [File issues](https://github.com/posit-dev/positron/issues) for any bugs or improvements you want to see. 
 
-2. [File issues](https://github.com/posit-dev/positron/issues) for any bugs or improvements you want to see. 
+2. Upvote on features you want to see next:
 
-3. Upvote on features you want to see next:
-
-   * [Features we are exploring after alpha launch](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3Anotebooks-roadmap)
+   * [Features in exploration](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3Anotebooks-roadmap)
 
    * [All open issues](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22area%3A%20notebooks%22%20-label%3Anotebooks-alpha)
    

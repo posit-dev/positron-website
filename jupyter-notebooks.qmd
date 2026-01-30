@@ -19,7 +19,7 @@ Positron currently offers two editors for working with Jupyter Notebooks: the [P
 
 ### Positron Notebook Editor
 
-:::{.callout-note}
+:::{.callout-important}
 The Positron Notebook Editor is currently in public alpha. We are actively working on improving the Notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or [schedule a call](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) with our product and engineering team.
 :::
 
