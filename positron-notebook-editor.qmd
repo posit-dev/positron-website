@@ -31,7 +31,7 @@ To make the Positron Notebook Editor the default Jupyter Notebook editor, update
 You can create and edit `.ipynb` files in Positron just as you would in other editors.
 
 :::{.callout-note}
-We recommend opening the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and running the **View: Notebook Layout** command for the best experience. This layout arranges the IDE panes into a notebook friendly setup.
+We recommend opening the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and running the _View: Notebook Layout_ command for the best experience. This layout arranges the IDE panes into a notebook friendly setup.
 :::
 
 ### Setting up your environment
