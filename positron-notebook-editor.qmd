@@ -68,6 +68,10 @@ The Positron Notebook Editor integrates with [Positron Assistant](assistant.qmd)
 - **Transparent**: You can inspect and control the specific context the Assistant is using.
 - **Collaborative**: Use [Follow Assistant](#follow-assistant) to automatically scroll and highlight cells as they're edited 
 
+{{< video videos/notebook-ai-quick-actions.mp4 aria-label="Using Positron Assistant to generate AI-powered suggestions and edits in a notebook" >}}
+
+### Enable Positron Assistant
+
 To use the integrated notebook AI features, you will need to set up Positron Assistant. See [Getting Started with Positron Assistant](assistant-getting-started.qmd) for setup instructions.
 
 Once enabled, you will see assistant specific actions in the notebook editor action bar.
