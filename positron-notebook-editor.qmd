@@ -1,6 +1,8 @@
 ---
 title: "Positron Notebook Editor"
 description: "Use the Positron Notebook Editor, currently in public alpha, for a native notebook experience with integrated AI assistance, data exploration, and improved data science workflows."
+aliases:
+  - notebooks-alpha.html
 ---
 
 ::: {.callout-note} 
