@@ -74,11 +74,11 @@ Once enabled, you will see assistant specific actions in the notebook editor act
 
 ![The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle.](images/positron-notebook-assistant-action-bar.png)
 
-### Notebook assistant panel
+### Notebook Assistant panel
 
-The Notebook Assistant Panel provides a quick way to interact with Assistant directly from your notebook. To open it, click the **Assistant** icon button in the notebook editor action bar.
+The Notebook Assistant panel provides a quick way to interact with Assistant directly from your notebook. To open it, click the **Assistant** icon button in the notebook editor action bar.
 
-![The Notebook Assistant Panel showing the cells included in the context, quick actions to fix, explain, or improve the current notebook, and an action to generate AI suggestions based off the current state of the notebook.](images/positron-notebook-assistant-panel.png)
+![The Notebook Assistant panel showing the cells included in the context, quick actions to fix, explain, or improve the current notebook, and an action to generate AI suggestions based off the current state of the notebook.](images/positron-notebook-assistant-panel.png)
 
 From the panel, you can:
 
@@ -86,7 +86,7 @@ From the panel, you can:
 - **Quick actions**: Run common actions like explaining the contents of a notebook or fixing errors in a notebook
 - **Generate suggestions**: View dynamically generated suggestions based on the current state of the notebook
 
-Selecting an option from the Assistant Panel will open a new [Chat Pane](assistant-chat.qmd) with the notebook context already attached.
+Selecting an option from the panel will open a new [Chat Pane](assistant-chat.qmd) with the notebook context already attached.
 
 ### Follow assistant
 

@@ -56,3 +56,4 @@ Python
 DuckDB
 Plots Pane
 Positron Notebook Editor
+Notebook Assistant
