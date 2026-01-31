@@ -21,7 +21,7 @@ The Positron Notebook Editor provides a familiar notebook experience for Jupyter
 
 ## Enable the Positron Notebook Editor
 
-To make the Positron Notebook Editor the default Jupyter Notebook editor, update your settings:
+To make the Positron Notebook Editor the default Jupyter Notebook editor:
 
 1. Enable the [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled) setting.
 2. Restart Positron, or open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run the _Developer: Reload Window_ command.
