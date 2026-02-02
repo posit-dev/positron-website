@@ -1,22 +1,24 @@
 ### Highlights
 
-#### Explore your Console history 📜
+#### New Positron Notebook Editor is available for alpha testing! 📓
 
-Positron has a new History Pane, similar to RStudio's. Your Console inputs are tracked by language and grouped by time period. You can search your history, send entries to the Console or an editor, and clear individual entries (handy if you accidentally entered a secret) or the entire history. Find the History pane on the right in the secondary side bar by default, or run _History: Focus on History View_ from the command palette.
+We're excited to invite you to try the new Positron Notebook Editor, our reimagined experience for working with Jupyter (`.ipynb`) notebooks. While still in alpha, we're releasing early because we believe the best tools are built in collaboration with the community.
 
-#### Positron Assistant 🤖
+The Positron Notebook Editor provides a batteries-included environment for data science workflows with integrated panes for inspecting variables and exploring dataframes, context-aware AI that understands your notebook's execution history and variables, and streamlined interpreter management.
 
-Positron Assistant, available as a preview feature, is now more powerful and reliable:
+To try it out, enable the [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled) setting. Check out our [documentation](https://positron.posit.co/notebooks-alpha) to get started, and please [share your feedback](https://github.com/posit-dev/positron/discussions/10047)!
 
-- Assistant has switched to using a native implementation of the Copilot completion engine, addressing a variety of authentication and performance issues. Copilot credentials now also work in Remote SSH sessions, and VS Code proxy settings are respected when connecting to GitHub Copilot. If you were logged in to GitHub Copilot previously, you will need to sign out and back in to use Copilot in this latest release.
-- Assistant's tools, such as for editing files, installing packages, and getting directory structure, have been refined.
-- You can now create custom agent files for your projects. Read more at <https://positron.posit.co/assistant-chat-agents>.
+#### Connections Pane 🔌
 
-#### Try experimental Dev Container support 🐳
+The [Connections Pane](https://positron.posit.co/connections-pane) lets you create connections to databases, explore their schemas, and interactively preview tables in the Data Explorer. This release expands Python database support with new drivers for SQL Server (via pymssql or pyodbc), Databricks, Snowflake, and BigQuery, each with multiple authentication methods including OAuth and service account options.
 
-Positron now has early, experimental support for [Dev Containers](https://containers.dev/). You can build or rebuild a container and open your workspace inside it. To try it out, enable the [`dev.containers.enable`](positron://settings/dev.containers.enable) setting. Note that this early version has some limitations; only single-container configurations are supported (no Docker Compose), and musl-based Linux distributions like Alpine are not yet supported.
+For R users, database connections now also appear in the Variables Pane, making it easier to access and explore your connections alongside other session objects.
 
-[Let us know](https://github.com/posit-dev/positron/discussions) how it goes with our new Dev Container support!
+#### Breakpoints and debugging in R 🛠️
+
+R now has first-class support for breakpoints in Positron. Set breakpoints in the editor gutter and step through your code interactively. In scripts, breakpoints are enabled after evaluation or sourcing. In packages, install the latest version of pkgload and call `load_all()` to activate breakpoints.
+
+This release also adds debug-specific command history; use <kbd>Ctrl+R</kbd> or <kbd>Cmd/Ctrl+Up</kbd> to navigate through commands from your debugging sessions separately from your regular console history.
 
 <div id="checkbox"></div>
 
@@ -24,66 +26,56 @@ Positron now has early, experimental support for [Dev Containers](https://contai
 
 #### New features
 
-- [[#5484](https://github.com/posit-dev/positron/issues/5484)] Added a History pane to Positron, similar to RStudio's.
-- [[#4691](https://github.com/posit-dev/positron/issues/4691)] Added experimental support for Dev Containers.
-- [[#9948](https://github.com/posit-dev/positron/issues/9948)] Console: following up on the shared notebook/console kernel feature, notebook console action buttons are now hidden by default. Enable **Console: Show Notebook Console Actions** to display "Show Notebook Console" option in notebook toolbars.
-- [[#4478](https://github.com/posit-dev/positron/issues/4478)] Console: now use a separate console history during debugging sessions.
-- [[#7460](https://github.com/posit-dev/positron/issues/7460)] Console: log output channels have been consolidated. There is now a single "Kernel", "Supervisor", and "Language Server" channel per language.
-- [[#10330](https://github.com/posit-dev/positron/issues/10330)] Auxiliary windows in compact mode (for example, _Plots: Open Plot in New Window_ and _Chat: New Chat Window_) now hide the editor action bar by default. Switch away from compact mode to access the editor action bar.
-- [[#10432](https://github.com/posit-dev/positron/issues/10432)] Connections Pane: added Python support for AWS Redshift.
-- [[#11082](https://github.com/posit-dev/positron/issues/11082)] Connections Pane: extensions can now register multiple database drivers with the same name and get them rendered as options when creating a new database connection.
-- [[#10835](https://github.com/posit-dev/positron/issues/10835)] Connections Pane: new spinning icon is shown when the connections pane is loading a table preview.
-- [[#7613](https://github.com/posit-dev/positron/issues/7613)] Plots: "Open in new window" for plots now uses compact mode in the new window.
-- [[#10491](https://github.com/posit-dev/positron/issues/10491)] Assistant: now use native implementation of Copilot completion engine, addressing a variety of authentication and performance issues.
-- [[#8409](https://github.com/posit-dev/positron/issues/8409)] Assistant: now use local Copilot credentials in Remote SSH.
-- [[#8623](https://github.com/posit-dev/positron/issues/8623)] Assistant: use VS Code proxy settings when connecting to GitHub Copilot.
-- [[#10721](https://github.com/posit-dev/positron/issues/10721)] Assistant: combined directory structure tool with project tree tool.
-- [[#10671](https://github.com/posit-dev/positron/issues/10671)] Assistant: Positron Assistant's file editing tool will now wait for user feedback after proposing edits rather than returning immediately. This means that the agent will "see" the user's choice of Keep vs. Undo when making changes and incorporate feedback from the user more seamlessly.
-- [[#10889](https://github.com/posit-dev/positron/issues/10889)] Assistant: added support for custom agent files in `.vscode/positron/agents/<FILE_NAME>.agent.md`.
-- [[#10232](https://github.com/posit-dev/positron/issues/10232)] Assistant: updated setting names and behavior (`positron.assistant.filterModels` moved to `positron.assistant.models.include`, `positron.assistant.configuredModels` moved to `positron.assistant.models.custom`, `positron.assistant.preferredModel` moved to `positron.assistant.models.preference.global`, `positron.assistant.defaultModels` moved to `positron.assistant.models.preference.byProvider`).
-- [[#11003](https://github.com/posit-dev/positron/issues/11003)] Assistant: removed `testModels` setting.
-- [[#9654](https://github.com/posit-dev/positron/issues/9654)] Python: now fully support Python 3.14.
-- [[#10712](https://github.com/posit-dev/positron/issues/10712)] Python: now warn users if they have more than one Python language server extension installed.
-- [[#4398](https://github.com/posit-dev/positron/issues/4398), [#3724](https://github.com/posit-dev/positron/issues/3724)] R: added experimental support for starting Conda and Pixi R sessions in Positron via conda activate. Note that not all of Positron's R features have been tested with Conda or Pixi R.
-- [[#3681](https://github.com/posit-dev/positron/issues/3681)] R: added a link to the "Run and Debug" pane with info on debugging R code.
-- [[#3269](https://github.com/posit-dev/positron/issues/3269)] R: now show Profvis (R profiler) output in the editor.
-- [[#10615](https://github.com/posit-dev/positron/issues/10615)] Data Explorer: a new "File options" action bar button opens a modal that allows toggling whether a CSV/TSV file has a header row (the default) or not. Other options may be added in the future.
-- [[#507](https://github.com/posit-dev/positron/issues/507)] The Variables view can now be hidden, for troubleshooting or when working with large or sensitive objects in memory.
-- [[#10186](https://github.com/posit-dev/positron/issues/10186)] Improved user feedback when "Check for Updates" is manually triggered.
+- [[#9074](https://github.com/posit-dev/positron/issues/9074)] Per-kernel resource usage information is now displayed in the console tab list.
+- [[#10433](https://github.com/posit-dev/positron/issues/10433)] Connections Pane: added support for SQL Server databases using pymssql or pyodbc.
+- [[#11080](https://github.com/posit-dev/positron/issues/11080)] Connections Pane: added Python Databricks connection drivers supporting Personal Access Token, OAuth M2M, and OAuth U2M authentication methods.
+- [[#9961](https://github.com/posit-dev/positron/issues/9961), [#11078](https://github.com/posit-dev/positron/issues/11078)] Connections Pane: added Snowflake connection support with multiple authentication methods.
+- [[#11079](https://github.com/posit-dev/positron/issues/11079)] Connections Pane: added BigQuery connection driver for Python with support for Application Default Credentials and Service Account authentication.
+- [[#10818](https://github.com/posit-dev/positron/issues/10818), [#11357](https://github.com/posit-dev/positron/issues/11357)] Connections Pane: added viewer support for R database connections in the Variables Pane.
+- [[#7031](https://github.com/posit-dev/positron/issues/7031)] Plots: the Plots Pane now shows which session created the plot.
+- [[#10183](https://github.com/posit-dev/positron/issues/10183)] Plots: the Plots Pane can now navigate to, copy, or re-run the code used to create a plot.
+- [[#8216](https://github.com/posit-dev/positron/issues/8216)] Assistant: added [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes) setting to exclude files from all AI features including inline completions and chat context.
+- [[#10967](https://github.com/posit-dev/positron/issues/10967)] Assistant: improved reliability of Positron Assistant to edit files directly while in Edit mode.
+- [[#11166](https://github.com/posit-dev/positron/issues/11166)] Assistant: model picker now shows a "(Default)" indicator next to the model configured as default for each provider.
+- [[#11463](https://github.com/posit-dev/positron/issues/11463)] Assistant: added setting to configure Amazon Bedrock inference profile region for use with Positron Assistant.
+- [[#8075](https://github.com/posit-dev/positron/issues/8075)] Added support for using R and Python installations via environment modules/Lmod.
+- [[#11246](https://github.com/posit-dev/positron/issues/11246)] Added new button to interrupt a running Shiny app (Python or R) from the Viewer pane.
+- [[#8870](https://github.com/posit-dev/positron/issues/8870)] Python: Assistant will now use `uv add` when appropriate when installing Python packages.
+- [[#3156](https://github.com/posit-dev/positron/issues/3156), [#10045](https://github.com/posit-dev/positron/issues/10045)] Python: If code is run from an editor, the editor path is now added to `sys.path` for that cell.
+- [[#3673](https://github.com/posit-dev/positron/issues/3673)] R: opening a file via `rstudioapi::navigateToFile(path)` now opens a non-preview, pinned editor.
+- [[#2955](https://github.com/posit-dev/positron/issues/2955)] R: added [`positron.r.localPackageInstallMethod`](positron://settings/positron.r.localPackageInstallMethod) setting to use base R commands for package development tasks. When changed from the default, uses `R CMD INSTALL` instead of pak for installing a local R package project.
+- [[#1766](https://github.com/posit-dev/positron/issues/1766)] R: gained support for breakpoints. In scripts, breakpoints are enabled after evaluation or sourcing. In packages, you need to install the latest version of pkgload (e.g. with `pak::pak("r-lib/pkgload")`) and call `load_all()` to activate breakpoints.
+- [[#11289](https://github.com/posit-dev/positron/issues/11289)] Data Explorer: added new [`dataExplorer.enablePreview`](positron://settings/dataExplorer.enablePreview) setting that controls whether preview mode is used for Data Explorer tabs (similar to `workbench.editor.enablePreview` for regular editors).
+- [[#10516](https://github.com/posit-dev/positron/issues/10516)] Release notes now display a header with the Positron logo and version number for clearer identification.
 
 #### Bug fixes
 
-- [[#2075](https://github.com/posit-dev/positron/issues/2075)] Console: Python syntax errors now show traceback information.
-- [[#6553](https://github.com/posit-dev/positron/issues/6553)] Console: R consoles can now be restarted while the debugger is active.
-- [[#598](https://github.com/posit-dev/ark/issues/598), [#722](https://github.com/posit-dev/ark/issues/722)] Console: some R syntax errors no longer cause a distracting backtrace in the console.
-- [[#10798](https://github.com/posit-dev/positron/issues/10798)] Console: fixed an issue that could cause R and Python sessions to exit unexpectedly after reloading the window.
-- [[#10593](https://github.com/posit-dev/positron/issues/10593)] Console: fixed typing for Positron's `console.fontLigatures` setting.
-- [[#10058](https://github.com/posit-dev/positron/issues/10058)] Console: copying commands in the console with spaces can now be pasted back into the console and executed.
-- [[#8720](https://github.com/posit-dev/positron/issues/8720)] Assistant: disabled the `installPythonPackage` tool when in an R context.
-- [[#7632](https://github.com/posit-dev/positron/issues/7632)] Assistant: fixed model provider config dialog error message covered by dialog button.
-- [[#10914](https://github.com/posit-dev/positron/issues/10914)] Assistant: inline chat now better handles inserting text when editing a selection.
-- [[#10364](https://github.com/posit-dev/positron/issues/10364)] Assistant: fixed error when chat history has a participant.
-- [[#10980](https://github.com/posit-dev/positron/issues/10980)] Assistant: project tree tool now returns accurate results for multi-root workspaces.
-- [[#11044](https://github.com/posit-dev/positron/issues/11044)] Assistant: fixed issue preventing tool calls for Snowflake and Bedrock when using managed credentials.
-- [[#10686](https://github.com/posit-dev/positron/issues/10686)] Assistant: fixed inaccurate tooltip indicating image attachments not supported.
-- [[#10904](https://github.com/posit-dev/positron/issues/10904)] Python: now deduplicate Python completions, and fixed some situations where hover popups and function signature help popups wouldn't appear.
-- [[#10998](https://github.com/posit-dev/positron/issues/10998)] Python: completions now more accurately reflect what's in your environment.
-- [[#11011](https://github.com/posit-dev/positron/issues/11011)] Python: added back our contributed defaults for the Pyright extension.
-- [[#7741](https://github.com/posit-dev/positron/issues/7741)] Python: fixed proxy error when opening Plotly plots in an external browser.
-- [[#10258](https://github.com/posit-dev/positron/issues/10258)] Python: adjusted web app detection to look for app creation before imports.
-- [[#9640](https://github.com/posit-dev/positron/issues/9640)] Python: help calls for Python's builtin `input()` function now include explanation of `ipykernel.kernelbase.Kernel.raw_input` involvement.
-- [[#3136](https://github.com/posit-dev/positron/issues/3136)] Help: fixed styling of code elements in the Help pane.
-- [[#5975](https://github.com/posit-dev/positron/issues/5975), [#10378](https://github.com/posit-dev/positron/issues/10378)] Workbench: fixed a bug when opening editors such as with `rstudioapi::navigateToFile()` or when using reprex.
-- [[#10669](https://github.com/posit-dev/positron/issues/10669)] Only copy data explorer contents if the data explorer has focus.
-- [[#8728](https://github.com/posit-dev/positron/issues/8728)] The menu item "New Folder from Git..." is now enabled the first time you open the menu.
-- [[#9327](https://github.com/posit-dev/positron/issues/9327)] Fixed issue preventing text from being copied from Output pane.
-- [[#4076](https://github.com/posit-dev/positron/issues/4076)] Fixed text overflow of drop down entries with long text content.
-- [[#8073](https://github.com/posit-dev/positron/issues/8073)] Centered checkmarks in modal dialogs (e.g. the New Folder from Template flow).
-- [[#8434](https://github.com/posit-dev/positron/issues/8434)] Use theme background color for code blocks in settings UI.
-- [[#10688](https://github.com/posit-dev/positron/issues/10688)] Fixed how bootstrap installed extensions check Positron's version so that the dailies get correct extensions installed.
-- [[#9809](https://github.com/posit-dev/positron/issues/9809)] Fixed branding on the process that finalizes the Positron update on Windows.
-- [[#10843](https://github.com/posit-dev/positron/issues/10843)] Fixed Windows installer launching Positron when run in silent mode.
+- [[#11370](https://github.com/posit-dev/positron/issues/11370)] The [`remoteSSH.serverInstallPath`](positron://settings/remoteSSH.serverInstallPath) setting now puts all server data in the specified directory, instead of just the server binary. **BREAKING CHANGE:** if you were using a custom `serverInstallPath` and don't want to lose application state, make sure to move the files on your remote host in `~/.positron-server` to that custom path.
+- [[#3651](https://github.com/posit-dev/positron/issues/3651)] Plots: fixed poor contrast ratio in the Close button in the Plot history.
+- [[#9891](https://github.com/posit-dev/positron/issues/9891)] Assistant: settings for sharing Copilot tools/participants across providers are clearer about possible data sharing.
+- [[#11188](https://github.com/posit-dev/positron/issues/11188)] Assistant: fixed model preference matching by provider to be case-insensitive as documented.
+- [[#9170](https://github.com/posit-dev/positron/issues/9170)] Assistant: the `/doc` command no longer modifies code logic, only comments/docstrings.
+- [[#11390](https://github.com/posit-dev/positron/issues/11390)] Assistant: Amazon Bedrock providers stay enabled across restarts of Positron.
+- [[#10212](https://github.com/posit-dev/positron/issues/10212)] Assistant can no longer make edits when in Ask mode.
+- [[#10818](https://github.com/posit-dev/positron/issues/10818)] Assistant: updated `ai-sdk` to v5, providing updated behavior for OpenAI-compatible model providers.
+- [[#9750](https://github.com/posit-dev/positron/issues/9750)] Assistant works more consistently when interfacing with variable names & access keys.
+- [[#10327](https://github.com/posit-dev/positron/issues/10327)] Assistant: OpenAI now works when [`positron.assistant.alwaysIncludeCopilotTools`](positron://settings/positron.assistant.alwaysIncludeCopilotTools) is enabled.
+- [[#10759](https://github.com/posit-dev/positron/issues/10759)] Assistant: fixed `getPlot` tool errors for OpenAI-compatible providers.
+- [[#11054](https://github.com/posit-dev/positron/issues/11054)] Changed default for [`terminal.integrated.detectLocale`](positron://settings/terminal.integrated.detectLocale) to `'on'` to ensure consistent locale behavior, fixing issues where R and Python sessions could behave differently across platforms.
+- [[#11453](https://github.com/posit-dev/positron/issues/11453)] Python: fixed the Streamlit web app detection regex.
+- [[#9230](https://github.com/posit-dev/positron/issues/9230)] Python: fixed bug where Python's builtin `map` was eagerly consumed by the Variables Pane.
+- [[#7052](https://github.com/posit-dev/positron/issues/7052), [#9069](https://github.com/posit-dev/positron/issues/9069)] R: fixed language features (completions, outline, statement code execution) not working after an extension host restart or reloading the window.
+- [[#11402](https://github.com/posit-dev/positron/issues/11402)] R: <kbd>Ctrl+R</kbd> and <kbd>Cmd/Ctrl+Up</kbd> now support debug-specific command histories.
+- [[#5024](https://github.com/posit-dev/positron/issues/5024)] R: fixed a deadlock occurring when stepping rapidly in the debugger.
+- [[#1006](https://github.com/posit-dev/ark/issues/1006)] R: fixed regression where evaluating empty lines was no longer interpreted as stepping to next expression in the debugger.
+- [[#855](https://github.com/quarto-dev/quarto/issues/855)] Fixed spurious diagnostics from Quarto virtual documents appearing in Problems pane.
+- [[#11161](https://github.com/posit-dev/positron/issues/11161)] Fixed "Initialize Git Repository" option not working for an empty project in the New Folder from Template flow.
+- [[#11322](https://github.com/posit-dev/positron/issues/11322)] Fixed error messages when attempting to install an extension that is incompatible with the version of Positron.
+- [[#10488](https://github.com/posit-dev/positron/issues/10488)] Fixed issue causing a mixup in tab titles when native macOS tabs are enabled.
+- [[#11230](https://github.com/posit-dev/positron/issues/11230)] Fixed console startup hang when launching Positron for the first time after an upgrade.
 
 #### Dependencies
 
-- Updated `vscode-python` upstream to v2025.20.0.
+- Updated `vscode-python` upstream to v2026.0.0.
+- Updated bundled Quarto to 1.8.27.
+- Updated bundled version of Air to [0.20.0](https://github.com/posit-dev/air/blob/main/editors/code/CHANGELOG.md#0200).
