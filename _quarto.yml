@@ -127,8 +127,10 @@ website:
               href: language-guides.qmd
             - guide-python.qmd
             - section: "R in Positron"
+              href: guide-r.qmd
               contents:
               - guide-r.qmd
+              - guide-r-debugging.qmd
               - guide-r-air.qmd
         - section: "Data Analysis"
           contents:

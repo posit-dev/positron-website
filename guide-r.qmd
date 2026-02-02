@@ -29,14 +29,14 @@ The keyboard shortcuts in Positron are largely a superset of the keyboard shortc
 
 | Shortcut | Description |
 | -------- | ----------- |
-| {{< kbd mac=Command-Shift-M win=Ctrl-Shift-M linux=Ctrl-Shift-M >}} | Insert the pipe operator (<code>&#124;></code> or `%>%`)[^1] | 
+| {{< kbd mac=Command-Shift-M win=Ctrl-Shift-M linux=Ctrl-Shift-M >}} | Insert the pipe operator (<code>&#124;></code> or `%>%`)[^1] |
 | {{< kbd mac=Option-- win=Alt-- linux=Alt-- >}} | Insert the assignment operator (`<-`) |
 | {{< kbd mac=Command-K win=Ctrl-K linux=Ctrl-K >}}, {{< kbd H >}} | Insert section |
-| {{< kbd mac=Command-Shift-L win=Ctrl-Shift-L linux=Ctrl-Shift-L >}} | Load the current R package, if any, with `devtools::load_all()` | 
-| {{< kbd mac=Command-Shift-B win=Ctrl-Shift-B linux=Ctrl-Shift-B >}} | Build and install the current R package, if any | 
-| {{< kbd mac=Command-Shift-T win=Ctrl-Shift-T linux=Ctrl-Shift-T >}} | Test the current R package, if any | 
-| {{< kbd mac=Command-Shift-E win=Ctrl-Shift-E linux=Ctrl-Shift-E >}} | Check the current R package, if any | 
-| {{< kbd mac=Command-Shift-D win=Ctrl-Shift-D linux=Ctrl-Shift-D >}} | Document the current R package, if any | 
+| {{< kbd mac=Command-Shift-L win=Ctrl-Shift-L linux=Ctrl-Shift-L >}} | Load the current R package, if any, with `devtools::load_all()` |
+| {{< kbd mac=Command-Shift-B win=Ctrl-Shift-B linux=Ctrl-Shift-B >}} | Build and install the current R package, if any |
+| {{< kbd mac=Command-Shift-T win=Ctrl-Shift-T linux=Ctrl-Shift-T >}} | Test the current R package, if any |
+| {{< kbd mac=Command-Shift-E win=Ctrl-Shift-E linux=Ctrl-Shift-E >}} | Check the current R package, if any |
+| {{< kbd mac=Command-Shift-D win=Ctrl-Shift-D linux=Ctrl-Shift-D >}} | Document the current R package, if any |
 
 :::{.callout-tip}
 If you'd prefer to use keybindings as similar as possible to RStudio, learn [how to enable them](migrate-rstudio-keybindings.qmd) in Positron. This will overwrite some of Positron's default keybindings, but will provide a more familiar experience for RStudio users.
@@ -48,15 +48,4 @@ You can create [custom keyboard shortcuts](keyboard-shortcuts.qmd#custom-shortcu
 
 ## Debugging
 
-Positron currently provides initial debugging support via the [Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol/), including virtual document support for debugging package code. You can currently use:
-
-- `browser()` to set breakpoints in your R code,
-- `traceback()` to inspect the call stack after an error occurs,
-- `debug(myFunction)` to step through function calls, and
-- `debugonce(myFunction)` to step through a function call just once.
-
-When you are in a debug session, you can use standard R debugging commands like `n`, `s`, `c`, and `Q` or the dedicated buttons on the debug toolbar.
-
-:::{.callout-note}
-Positron does not yet support debugging R code via visual breakpoints in `.R` files. [Follow along on GitHub for updates](https://github.com/posit-dev/positron/issues/1766) on breakpoints.
-:::
+Positron supports a modern R debugging workflow with breakpoints, variables inspections, and more. See [Debugging R code](guide-r-debugging.qmd) for details on setting breakpoints and stepping through your code.
