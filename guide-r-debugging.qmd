@@ -25,7 +25,7 @@ See the [VS Code documentation on breakpoints](https://code.visualstudio.com/doc
 In scripts, if you evaluate code that immediately reaches a breakpoint, such as a `for` loop or `lapply()` call, the breakpoint activates and triggers in one step.
 :::
 
-### Why is my breakpoint gray?
+## Why is my breakpoint gray?
 
 A gray dot means the breakpoint is not yet active. This happens when:
 
@@ -33,7 +33,7 @@ A gray dot means the breakpoint is not yet active. This happens when:
 - **You edited the file.** Editing invalidates all breakpoints in that file to prevent stepping through a stale view of the code. Run the code again to reactivate them.
 - **The breakpoint is in an invalid location.** If the breakpoint remains gray after sourcing or evaluating, it is in an invalid location. For instance, breakpoints on closing braces `}` cannot be hit. Hover over the dot to see the reason.
 
-### Differences with RStudio
+## Differences with RStudio
 
 If you are coming from RStudio, note these differences:
 
@@ -41,7 +41,7 @@ If you are coming from RStudio, note these differences:
 - Breakpoints work everywhere, including R6 methods.
 - In packages, breakpoints do not activate automatically. In RStudio, you can run `load_all()` once and breakpoints update automatically thereafter. In Positron, you need to call `load_all()` again to activate new breakpoints.
 
-### Differences with other debuggers
+## Differences with other debuggers
 
 If you are coming from debuggers in other languages, note these differences:
 
