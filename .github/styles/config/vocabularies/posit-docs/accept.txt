@@ -55,5 +55,6 @@ FAQ
 Python
 DuckDB
 Plots Pane
+Dev Container
 Positron Notebook Editor
 Notebook Assistant

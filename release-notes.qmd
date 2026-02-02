@@ -10,8 +10,9 @@ listing:
     subtitle: "Link"
   contents:
     - "release-notes/release-2025-*.qmd"
+    - "release-notes/release-2026-*.qmd"
 aliases:
-  - release-notes/release-2026-01.html     
+  - release-notes/release-2026-02.html     
 ---
 
 ```{r}

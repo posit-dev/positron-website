@@ -52,7 +52,9 @@ Currently we support connections created using:
 - [sqlite3](https://docs.python.org/3/library/sqlite3.html)
 - [SQLAlchemy](https://www.sqlalchemy.org)
 - [duckdb](https://duckdb.org/docs/clients/python/overview)
+- SQL Server via [pymssql](https://pymssql.readthedocs.io/) or [pyodbc](https://github.com/mkleehammer/pyodbc)
 - [Databricks SQL Connector](https://docs.databricks.com/en/dev-tools/python-sql-connector.html)
+- [Snowflake Connector](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector)
 - [Google BigQuery](https://cloud.google.com/python/docs/reference/bigquery/)
 - [AWS Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/python-redshift-driver.html)
 
