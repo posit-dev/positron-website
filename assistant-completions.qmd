@@ -38,7 +38,7 @@ To learn more about GitHub Copilot code completions, visit the GitHub Copilot [i
 
 ## Settings
 
-- [`positron.assistant.inlineCompletions.enable`](positron://settings/positron.assistant.inlineCompletions.enable): Enable or disable code completions altogether.
+- [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes): Enable or disable code completions altogether.
 
 - [`positron.assistant.inlineCompletionExcludes`](positron://settings/positron.assistant.inlineCompletionExcludes): Disable inline code completions for files matching specified glob patterns.
 
