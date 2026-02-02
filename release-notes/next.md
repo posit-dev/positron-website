@@ -16,7 +16,7 @@ For R users, database connections now also appear in the Variables Pane, making 
 
 #### Breakpoints and debugging in R 🛠️
 
-R now has first-class support for breakpoints in Positron. Set breakpoints in the editor gutter and step through your code interactively. In scripts, breakpoints are enabled after evaluation or sourcing. In packages, install the latest version of pkgload (e.g., with `pak::pak("r-lib/pkgload")`) and call `load_all()` to activate breakpoints.
+R now has first-class support for breakpoints in Positron. Set breakpoints in the editor gutter and step through your code interactively. In scripts, breakpoints are enabled after evaluation or sourcing. In packages, install the latest version of pkgload and call `load_all()` to activate breakpoints.
 
 This release also adds debug-specific command history; use <kbd>Ctrl+R</kbd> or <kbd>Cmd/Ctrl+Up</kbd> to navigate through commands from your debugging sessions separately from your regular console history.
 
