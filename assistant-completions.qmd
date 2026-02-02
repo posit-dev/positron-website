@@ -38,9 +38,9 @@ To learn more about GitHub Copilot code completions, visit the GitHub Copilot [i
 
 ## Settings
 
-- [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes): Enable or disable code completions altogether.
+- [`positron.assistant.inlineCompletions.enable`](positron://settings/positron.assistant.inlineCompletions.enable): Enable or disable code completions altogether.
 
-- [`positron.assistant.inlineCompletionExcludes`](positron://settings/positron.assistant.inlineCompletionExcludes): Disable inline code completions for files matching specified glob patterns.
+- [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes): Files matching these patterns will not have their contents sent to AI providers for inline completions or chat context.
 
 - [`editor.inlineSuggest.minShowDelay`](positron://settings/editor.inlineSuggest.minShowDelay): Delay in milliseconds before showing inline suggestions. For example, setting this to `500` will show suggestions half a second after typing.
 
