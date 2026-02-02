@@ -1,0 +1,7 @@
+### Selecting a notebook kernel
+
+When you first open a Jupyter Notebook, Positron will automatically select an interpreter based on the notebook's language, the current workspace, and your configuration. The interpreter used by the notebook is visible in the _Kernel Selector_ in the notebook editor action bar.
+
+::: callout-note
+We recommend matching the notebook interpreter to the [active interpreter](./managing-interpreters.qmd#active-interpreter-session) of the IDE, however, they can be controlled separately. See [Managing Interpreters](./managing-interpreters.qmd) to learn more. 
+:::

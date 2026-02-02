@@ -151,7 +151,13 @@ website:
         - section: "Dynamic Documents and Apps"
           contents:
             - quarto.qmd
-            - jupyter-notebooks.qmd
+            - section: "Jupyter Notebooks"
+              href: jupyter-notebooks.qmd
+              contents:
+                - text: "Overview"
+                  href: jupyter-notebooks.qmd
+                - positron-notebook-editor.qmd
+                - legacy-notebook-editor.qmd
             - develop-data-apps.qmd
             - publish-to-connect.qmd
         - section: "Workspaces"
