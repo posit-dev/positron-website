@@ -1,0 +1,57 @@
+---
+title: "Debugging R code"
+description: "Debug R code in Positron with a modern breakpoints workflow."
+---
+
+Breakpoints let you pause R code at specific lines so you can inspect variables and step through execution.
+
+## Setting breakpoints in the editor
+
+To set a breakpoint, click in the gutter to the left of a line number. A gray dot appears, indicating the breakpoint is set but not yet active.
+
+To activate a breakpoint, you need to run the code:
+
+- **In scripts**: Either evaluate the code with {{< kbd mac=Cmd-Enter win=Ctrl-Enter linux=Ctrl-Enter >}}, or source the file. Evaluating has the advantage that you do not need to run the entire script from the start and reset any state.
+
+- **In packages**: Call `devtools::load_all()` to load the package with breakpoints enabled. This requires a recent version of pkgload. If breakpoints do not activate, install the latest version.
+
+The dot turns red once the breakpoint is active. Positron may also adjust breakpoints to valid locations. For example, a breakpoint inside a multi-line expression moves to the first line of that expression.
+
+When R reaches an active breakpoint, it pauses execution and opens the debugger. You can then inspect variables, step through code line by line using the debug toolbar, or continue running.
+
+See the [VS Code documentation on breakpoints](https://code.visualstudio.com/docs/debugtest/debugging#_breakpoints) for more ways to manage breakpoints.
+
+:::{.callout-tip}
+In scripts, if you evaluate code that immediately reaches a breakpoint, such as a `for` loop or `lapply()` call, the breakpoint activates and triggers in one step.
+:::
+
+### Why is my breakpoint gray?
+
+A gray dot means the breakpoint is not yet active. This happens when:
+
+- **You have not run the code yet.** Evaluate or source the code to activate the breakpoint.
+- **You edited the file.** Editing invalidates all breakpoints in that file to prevent stepping through a stale view of the code. Run the code again to reactivate them.
+- **The breakpoint is in an invalid location.** If the breakpoint remains gray after sourcing or evaluating, it is in an invalid location. For instance, breakpoints on closing braces `}` cannot be hit. Hover over the dot to see the reason.
+
+### Differences with RStudio
+
+If you are coming from RStudio, note these differences:
+
+- You do not need to source files. Evaluating code is enough.
+- Breakpoints work everywhere, including R6 methods.
+- In packages, breakpoints do not activate automatically. In RStudio, you can run `load_all()` once and breakpoints update automatically thereafter. In Positron, you need to call `load_all()` again to activate new breakpoints.
+
+### Differences with other debuggers
+
+If you are coming from debuggers in other languages, note these differences:
+
+- **Step Out** (`f`) finishes the current loop or function rather than returning to the caller.
+- **Editing a file invalidates all breakpoints** in that file immediately, even if the breakpoint line did not change. This prevents stepping through a stale view of the code.
+
+:::{.callout-tip}
+## Classic R debugging
+
+Familiar R debugging workflows are well integrated in Positron. You can insert `browser()` directly in your code to pause execution at that point. Other useful functions include `debug(fn)` to step through every call to a function, or `debugonce(fn)` for a single call.
+
+Once in the debugger, you can type debug commands as an alternative to using the debug toolbar: `n` (Step Over), `s` (Step Into), `f` (Step Out), `c` (Continue), or `Q` (Disconnect).
+:::
