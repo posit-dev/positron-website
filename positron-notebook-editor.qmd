@@ -21,14 +21,11 @@ The Positron Notebook Editor provides a familiar notebook experience for Jupyter
 
 ## Enable the Positron Notebook Editor
 
-To make the Positron Notebook Editor the default Jupyter Notebook editor:
-
-1. Enable the [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled) setting.
-2. Restart Positron, or open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run the _Developer: Reload Window_ command.
+To make the Positron Notebook Editor the default Jupyter Notebook editor, enable the [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled) setting.
 
 ## Getting started
 
-You can create and edit `.ipynb` files in Positron just as you would in other editors. To learn how to setup and use the Positron Notebook Editor, check out our [demo notebook](https://github.com/posit-dev/positron-demos-notebooks/).
+You can create and edit `.ipynb` files in Positron just as you would in other editors. To learn how to use the Positron Notebook Editor, check out our [demo notebook](https://github.com/posit-dev/positron-demos-notebooks/).
 
 ### Notebook layout
 
@@ -44,7 +41,7 @@ Positron comes bundled with Jupyter kernel support for R and Python. Once you've
 
 If an environment installed on your computer isn't available in Positron, you may want to read more about how Positron discovers [Python installations](python-installations.qmd) and [R installations](r-installations.qmd).
 
-### Selecting an interpreter
+### Selecting a notebook kernel
 
 When you first open a Jupyter Notebook, Positron will automatically select an interpreter based on the notebook's language, the current workspace, and your configuration. The interpreter used by the notebook is visible in the *Kernel Selector* in the notebook editor action bar.
 
@@ -76,7 +73,7 @@ The Positron Notebook Editor integrates with [Positron Assistant](assistant.qmd)
 
 ### Enable Positron Assistant
 
-To use the integrated notebook AI features, you will need to set up Positron Assistant. See [Getting Started with Positron Assistant](assistant-getting-started.qmd) for setup instructions.
+To use the integrated notebook AI features, you will need to set up Positron Assistant. See [Getting Started with Positron Assistant](assistant-getting-started.qmd) for setup instructions. Currently, we recommend using Anthropic as a model provider for the best experience.
 
 Once enabled, you will see assistant specific actions in the notebook editor action bar.
 
