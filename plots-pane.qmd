@@ -31,7 +31,7 @@ You can zoom in on plots to examine details more closely. Use the zoom controls 
 
 ### Navigating to plot source code
 
-The Plots Pane can navigate to, copy, or re-run the code that created a plot. Click the {{< fa code >}} icon in the toolbar to access these actions.
+The Plots Pane can navigate to, copy, or rerun the code that created a plot. Click the {{< fa code >}} icon in the toolbar to access these actions.
 
 ### Saving and exporting plots
 
