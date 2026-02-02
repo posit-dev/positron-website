@@ -41,23 +41,15 @@ Positron comes bundled with Jupyter kernel support for R and Python. Once you've
 
 If an environment installed on your computer isn't available in Positron, you may want to read more about how Positron discovers [Python installations](python-installations.qmd) and [R installations](r-installations.qmd).
 
-### Selecting a notebook kernel
-
-When you first open a Jupyter Notebook, Positron will automatically select an interpreter based on the notebook's language, the current workspace, and your configuration. The interpreter used by the notebook is visible in the *Kernel Selector* in the notebook editor action bar.
+{{< include "_notebook-kernel-selection.qmd" >}}
 
 ![The Positron Notebook Editor action bar with the kernel selector highlighted, showing Python 3.12.11 as the selected interpreter.](images/positron-notebook-editor-kernel-selector.png)
 
-::: callout-note
-We recommend matching the notebook interpreter to the [active interpreter](./managing-interpreters.qmd#active-interpreter-session) of the IDE, however, they can be controlled separately. See [Managing Interpreters](./managing-interpreters.qmd) to learn more. 
-:::
-
-You can manually select a different interpreter for the notebook by selecting the *Kernel Selector* in the notebook editor action bar. The **Change Kernel...** option will display a list of all the registered interpreters. Select an interpreter from the list. 
+You can manually select a different interpreter for the notebook by selecting the **Kernel Selector** in the notebook editor action bar. The **Change Kernel...** option will display a list of all the registered interpreters. Select an interpreter from the list. 
 
 Alternatively, you can run the *Positron Notebook: Change Kernel...* command from the Command Palette.
 
-### Customization
-
-To set the default working directory for a notebook, use the [`notebook.workingDirectory`](positron://settings/notebook.workingDirectory) setting.
+{{< include "_notebook-customization.qmd" >}}
 
 ## Positron Assistant integration
 

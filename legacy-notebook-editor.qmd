@@ -17,18 +17,10 @@ Positron comes bundled with Jupyter kernel support for R and Python. Once you've
 
 If an environment installed on your computer isn't available in Positron, you may want to read more about how Positron discovers [Python installations](python-installations.qmd) and [R installations](r-installations.qmd).
 
-### Selecting an interpreter
+{{< include "_notebook-kernel-selection.qmd" >}}
 
-When you first open a Jupyter Notebook, Positron automatically selects an interpreter based on the notebook's language, the current workspace, and your configuration.
+![The Legacy Notebook Editor action bar with the kernel selector highlighted, showing Python 3.12.8 as the selected interpreter.](images/jupyter-notebooks-kernel-selector.png)
 
-::: callout-note
-We recommend matching the selected interpreter for the workspace and the notebook, however, they can be controlled separately.
-:::
+You can manually select a different interpreter for the notebook by clicking the **Kernel Selector** button in the notebook editor action bar or by running the *Notebook: Select Notebook Kernel* command from the Command Palette.
 
-You can manually select a different interpreter for the notebook by clicking the **Kernel Selector** button in the notebook editor action bar or by running the *Notebook: Select Notebook Kernel*  from the Command Palette.
-
-![The Kernel Selector showing the selected interpreter for a new notebook.](images/jupyter-notebooks-kernel-selector.png)
-
-### Customization
-
-To set the default working directory of notebooks, use the [`notebook.workingDirectory`](positron://settings/notebook.workingDirectory) setting.
+{{< include "_notebook-customization.qmd" >}}
