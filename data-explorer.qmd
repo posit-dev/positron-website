@@ -23,7 +23,7 @@ The Data Explorer has three primary components:
 
 ## Opening the Data Explorer
 
-There are a few ways to open the Data Explorer. If you want to look at data you have loaded into memory already, you can navigate to the Variables Pane and click on the {{< fa table >}} icon for a specific dataframe object.
+There are a few ways to open the Data Explorer. If you want to look at data you have loaded into memory already, you can navigate to the [Variables Pane](variables-pane.qmd) and click on the {{< fa table >}} icon for a specific dataframe object.
 
 Using code or the console, you can also run one of the following commands:
 
