@@ -13,6 +13,7 @@ listing:
             description: "Download and install Positron on your system"
             icon: "bi-rocket-takeoff"
             link: "install.qmd"
+            hide-profiles: [workbench]
         -   title: "Explore Features"
             description: "Discover key Positron features to streamline your workflow"
             icon: "bi-grid-3x3-gap"

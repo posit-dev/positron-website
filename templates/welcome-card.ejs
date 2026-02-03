@@ -1,6 +1,8 @@
 ```{=html}
+<% const profile = process.env.QUARTO_PROFILE || 'positron'; %>
 <div class="custom-card-grid<%= items[0].columns === 2 ? ' columns-2' : '' %>">
   <% for (const item of items) { %>
+    <% if (item['hide-profiles'] && item['hide-profiles'].includes(profile)) continue; %>
     <a href="<%= item.link %>" class="custom-card-wrapper">
       <div class="custom-card">
         <div class="custom-card-icon-container">
