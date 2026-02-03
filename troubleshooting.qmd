@@ -55,6 +55,8 @@ Use these instructions to open the developer tools and check for errors or relev
 1. From the Developer Tools panel that appears, select the _Console_ tab.
 1. When filing an issue on Github, include errors or log messages from the _Console_ tab that are related to the issue you're seeing.
 
+::: {.content-visible unless-profile="workbench"}
+
 ## Resetting Positron
 
 If you seem to have gotten things in a bad state, you can reset Positron to factory-fresh as follows.
@@ -111,6 +113,8 @@ rm -rf ~/.positron
 
 4. [Download the latest release](./download.qmd) of Positron and install it.
 5. Apply any configuration you backed up, like your keyboard shortcuts or settings.
+
+:::
 
 ## Ask for help
 
