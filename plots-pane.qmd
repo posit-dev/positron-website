@@ -16,7 +16,7 @@ If the Plots Pane is not already displayed, you can access it via:
 
 ## Viewing plots
 
-When you create a plot in Python or R, it automatically appears in the Plots Pane. The pane maintains a history of all plots generated during your session, allowing you to navigate back and forth between them.
+When you create a plot in Python or R, it automatically appears in the Plots Pane. The pane maintains a history of all plots generated during your session, allowing you to navigate back and forth between them. Each plot displays which session (Python or R) created it.
 
 ### Plot history navigation
 
@@ -28,6 +28,10 @@ Use the navigation arrows in the Plots Pane toolbar to browse through your plot 
 ### Zooming
 
 You can zoom in on plots to examine details more closely. Use the zoom controls in the toolbar or open your plot in an editor tab or a new window.
+
+### Navigating to plot source code
+
+The Plots Pane can navigate to, copy, or rerun the code that created a plot. Click the {{< fa code >}} icon in the toolbar to access these actions.
 
 ### Saving and exporting plots
 
