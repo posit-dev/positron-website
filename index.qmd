@@ -38,7 +38,9 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 :::
 
 ::: {.content-visible when-profile="workbench"}
-<a href="features.qmd" class="btn btn-outline-primary">Explore Features</a>
+<a href="features.qmd" class="btn btn-outline-primary">Features</a>
+<a href="release-notes.qmd" class="btn btn-outline-primary">Release Notes</a>
+<a href="welcome.qmd" class="btn btn-outline-primary">Guides</a>
 :::
 
 {{< video videos/positron-hero-fast-tour.mp4 >}}
