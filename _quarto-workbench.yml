@@ -18,7 +18,6 @@ website:
     copy-button: true
     show-item-context: true
     keyboard-shortcut: ["?", "H"]
-  site-url: https://positron.posit.co
 
   page-footer:
     left:
