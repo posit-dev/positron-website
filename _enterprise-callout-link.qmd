@@ -1,0 +1,7 @@
+::: {.content-visible unless-profile="workbench"}
+
+::: {.callout-note}
+Interested in Positron for your team? [Learn about enterprise solutions.](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page)
+:::
+
+:::
