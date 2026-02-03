@@ -184,7 +184,9 @@ website:
 
 format:
   html:
-    theme: css/theme.scss
+    theme:
+      - css/theme.scss
+      - css/theme-workbench.scss
     highlight-style:
       light: github
     lightbox: true
