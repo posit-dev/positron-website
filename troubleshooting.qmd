@@ -8,7 +8,7 @@ If you're having trouble with Positron, here are some resources and tools to hel
 ::: {.content-visible when-profile="workbench"}
 
 ::: {.callout-tip}
-Reach out to your Workbench administrator for help with issues specific to Positron on your Workbench deployment.
+Use the [Posit Workbench User Guide for Positron](https://docs.posit.co/ide/server-pro/user/positron/getting-started/) for help with Workbench-specific Positron features, and reach out to your Workbench administrator for help with issues specific to Positron on your own Workbench deployment.
 :::
 
 :::

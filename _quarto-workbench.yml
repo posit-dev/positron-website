@@ -28,6 +28,10 @@ website:
     right:
       - text: "Support"
         href: "https://support.posit.co/"
+      - text: "User Guide"
+        href: "https://docs.posit.co/ide/server-pro/user/"
+      - text: "Admin Guide"
+        href: "https://docs.posit.co/ide/server-pro/admin/"
       - text: "Privacy Policy"
         aria-label: "Link to Privacy Policy"
         href: "https://posit.co/about/privacy-policy/"
