@@ -213,9 +213,7 @@ Use the OpenAI provider to connect to a provider that implements the [OpenAI Res
 
 :::
 
-<!-- vale Posit.Headings = NO -->
 ## Custom Provider
-<!-- vale Posit.Headings = Yes -->
 
 ::: {.callout-important}
 
@@ -225,9 +223,7 @@ At this time, we don't recommend using a local model as a custom provider. Read 
 
 :::
 
-<!-- vale Posit.Headings = NO -->
 ### Enable Custom Provider as a provider
-<!-- vale Posit.Headings = Yes -->
 
 Custom provider support is currently **experimental** and must be manually enabled.
 
@@ -239,9 +235,7 @@ Run the command _Preferences: Open User Settings (JSON)_ and add the following t
 ]
 ```
 
-<!-- vale Posit.Headings = NO -->
 ### Add Custom Provider as a language model provider
-<!-- vale Posit.Headings = Yes -->
 
 1. Run the command _Positron Assistant: Configure Language Model Providers_
 1. Select **Custom Provider** as the model provider.

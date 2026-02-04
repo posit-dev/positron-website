@@ -5,6 +5,15 @@ description: "Solve common Positron issues with troubleshooting guides for start
 
 If you're having trouble with Positron, here are some resources and tools to help troubleshoot and resolve your problems.
 
+::: {.content-visible when-profile="workbench"}
+
+::: {.callout-tip}
+Use the [Posit Workbench User Guide for Positron](https://docs.posit.co/ide/server-pro/user/positron/getting-started/) for help with Workbench-specific Positron features, and reach out to your Workbench administrator for help with issues specific to Positron on your own Workbench deployment.
+:::
+
+:::
+
+::: {.content-visible unless-profile="workbench"}
 ## Reloading
 
 Positron is an Electron app. If you're seeing what looks like a temporary glitch, you can try reloading the window.
@@ -12,6 +21,7 @@ Positron is an Electron app. If you're seeing what looks like a temporary glitch
 A window reload shouldn't cause you to lose any session state, but it does cause the Positron front end, extensions, and all language packs to restart. Note that undo/redo history will also be cleared when you reload.
 
 To reload the window, open the Command Palette and run the _Developer: Reload Window_ command.
+:::
 
 ## Python and R logs
 
@@ -44,6 +54,8 @@ Use these instructions to open the developer tools and check for errors or relev
 1. From the Command Palette, run the _Developer: Toggle Developer Tools_ command.
 1. From the Developer Tools panel that appears, select the _Console_ tab.
 1. When filing an issue on Github, include errors or log messages from the _Console_ tab that are related to the issue you're seeing.
+
+::: {.content-visible unless-profile="workbench"}
 
 ## Resetting Positron
 
@@ -101,6 +113,8 @@ rm -rf ~/.positron
 
 4. [Download the latest release](./download.qmd) of Positron and install it.
 5. Apply any configuration you backed up, like your keyboard shortcuts or settings.
+
+:::
 
 ## Ask for help
 

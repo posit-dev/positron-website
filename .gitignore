@@ -8,6 +8,7 @@
 *_cache/
 /env/
 /_site/
+/_site-workbench/
 /.venv/
 /.luarc.json
 

@@ -1,6 +1,8 @@
 ```{=html}
+<% const profile = process.env.QUARTO_PROFILE || 'positron'; %>
 <div class="features-card-grid">
   <% for (const item of items) { %>
+    <% if (item['hide-profiles'] && item['hide-profiles'].includes(profile)) continue; %>
     <div class="custom-card" role="article" aria-labelledby="feature-title-<%= item.title.replace(/\s+/g, '-').toLowerCase() %>">
       <div class="custom-card-icon-container">
         <div class="custom-card-icon">

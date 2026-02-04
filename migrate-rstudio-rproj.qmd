@@ -5,8 +5,6 @@ aliases:
   - rstudio-rproj-file.html
 ---
 
-<!-- vale Posit.Contractions = NO -->
-
 Expert data scientists keep all the files associated with a given project together — input data, scripts, analytical results, and figures.
 This is such a wise and common practice, in data science and in software development more broadly, that most integrated development environments (IDEs) have built-in support for this practice.
 
@@ -76,6 +74,7 @@ That's because, even if they choose to proactively remove the Rproj file^[An Rpr
 Similarly, projects that fulfill any of the other criteria for project-hood (e.g., Quarto or renv projects or R packages) will also continue to have a well-defined root.
 Finally, in the rare case that the Rproj file was the only evidence of project-hood, one can simply leave that file in place or place an empty file named `.here` in the project root.
 
+::: {.content-visible unless-profile="workbench"}
 ## Launching Positron in a workspace
 
 From within Positron, various *Open Folder* gestures will open a folder as a workspace, in the current window or in a new window, depending on the context.
@@ -167,3 +166,4 @@ You should now be able to use this gesture to launch a Positron window in a spec
 Positron is still in beta and is therefore evolving quite rapidly.
 If you are installing frequent updates to Positron, we've found that the Raycast "Search Project Manager" extension is prone to reverting back to launching VS Code.
 This can generally be resolved by reconfiguring the extension to use Positron.
+:::

@@ -3,9 +3,9 @@ title: "Feedback and Issues"
 description: "Share feedback, report bugs, and contribute to Positron development. Connect with the team through GitHub Discussions and issue tracking."
 ---
 
-## Share your success story
-
-We'd love to hear how you're using Positron! Whether you've streamlined your workflow, completed an exciting project, or discovered a feature you love, [share your testimonial](https://forms.gle/DRCf8wgbaafz5fcG8) to help others learn about the possibilities with Positron.
+::: {.callout-tip}
+Reach out to your Workbench administrator for help with issues specific to Positron on your Workbench deployment.
+:::
 
 ## Giving feedback
 
@@ -47,3 +47,8 @@ When filing an issue, please include the following:
 We're a small team, so it may take some time for us to follow up! Watch your issue for questions or clarifications from the team. 
 
 If your issue is fixed by the Positron team, don't close it yourself; someone from the team will close the issue once we've verified the fix internally.
+
+## Share your success story
+
+We'd love to hear how you're using Positron! Whether you've streamlined your workflow, completed an exciting project, or discovered a feature you love, [share your testimonial](https://forms.gle/DRCf8wgbaafz5fcG8) to help others learn about the possibilities with Positron.
+::: {.content-visible when-profile="workbench"}
