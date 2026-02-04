@@ -5,8 +5,6 @@ aliases:
   - rstudio-rproj-file.html
 ---
 
-<!-- vale Posit.Contractions = NO -->
-
 Expert data scientists keep all the files associated with a given project together — input data, scripts, analytical results, and figures.
 This is such a wise and common practice, in data science and in software development more broadly, that most integrated development environments (IDEs) have built-in support for this practice.
 

@@ -1,7 +1,0 @@
-extends: existence
-message: 'Punctuation should be inside the quotes unless it is a piece of code being used inside of the quotation OR if you are directing someone to type into a field.'
-link: https://positpbc.atlassian.net/wiki/spaces/ENG/pages/594509972/Posit+Documentation+Style+Guide#Word-list-&-terms[inlineExtension]
-level: warning
-nonword: true
-tokens:
-  - '["“][^"”“]+["”][.,]'

@@ -1,8 +1,0 @@
-extends: existence
-message: 'Confirm that user-supplied values are in quotes. In the field, type "password".'
-link: https://learn.microsoft.com/en-us/style-guide/procedures-instructions/describing-interactions-with-ui
-level: suggestion
-nonword: true
-tokens:
-  - '[in the]+[field]+[type,]'
-
