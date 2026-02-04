@@ -56,6 +56,7 @@ listing:
         icon: "bi-cloud"
         link: "remote-ssh.qmd"
         anchor-text: "Remote SSH"
+        hide-profiles: [workbench]
       - title: "Manage & explore database connections"
         description: "Create connections to databases, explore their schemas, and interactively preview database tables."
         icon: "bi-database"
@@ -99,9 +100,7 @@ listing:
         
 ---
 
-::: {.callout-note}
-Interested in Positron for your team? [Learn about enterprise solutions.](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page)
-:::
+{{< include "_enterprise-callout-link.qmd" >}}
 
 ## Bridge the exploration and production divide
 

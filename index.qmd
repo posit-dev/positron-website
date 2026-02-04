@@ -32,10 +32,21 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 
 ### Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.
 
+::: {.content-visible unless-profile="workbench"}
 <a href="download.qmd" class="btn btn-outline-primary">Free Download</a>
 <a href="features.qmd" class="btn btn-outline-primary">Explore Features</a>
+:::
+
+::: {.content-visible when-profile="workbench"}
+<a href="features.qmd" class="btn btn-outline-primary">Features</a>
+<a href="release-notes.qmd" class="btn btn-outline-primary">Release Notes</a>
+<a href="welcome.qmd" class="btn btn-outline-primary">Guides</a>
+:::
 
 {{< video videos/positron-hero-fast-tour.mp4 >}}
 
+::: {.content-visible unless-profile="workbench"}
 Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
+:::
+
 </div>
