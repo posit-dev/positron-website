@@ -13,11 +13,6 @@ listing:
         icon: "bi-play-circle"
         link: "develop-data-apps.qmd"
         anchor-text: "Develop Data Apps"
-      - title: "Work with Jupyter Notebooks"
-        description: "Experience our batteries-included native Jupyter notebook editor with AI-powered assistance, integrated data exploration, and more."
-        icon: "bi-journal-code"
-        link: "positron-notebook-editor.qmd"
-        anchor-text: "Positron Notebook Editor"
       - title: "Create dynamic reports with Quarto"
         description: "Develop compelling, reproducible reports and presentations with Quarto to effectively communicate insights to any stakeholder."
         icon: "bi-file-earmark-text"
@@ -52,6 +47,11 @@ listing:
           icon: "bi-graph-up"
           link: "plots-pane.qmd"
           anchor-text: "Plots Pane"
+        - title: "Work with Jupyter Notebooks"
+          description: "Get started instantly with our batteries-included Positron Notebook Editor that bridges Jupyter's functionality with IDE capabilities built for data science"
+          icon: "bi-journal-code"
+          link: "positron-notebook-editor.qmd"
+          anchor-text: "Positron Notebook Editor"
   - id: features-develop-3
     type: custom
     template: templates/feature-card.ejs

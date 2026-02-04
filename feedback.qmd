@@ -55,4 +55,3 @@ If your issue is fixed by the Positron team, don't close it yourself; someone fr
 ## Share your success story
 
 We'd love to hear how you're using Positron! Whether you've streamlined your workflow, completed an exciting project, or discovered a feature you love, [share your testimonial](https://forms.gle/DRCf8wgbaafz5fcG8) to help others learn about the possibilities with Positron.
-::: {.content-visible when-profile="workbench"}
