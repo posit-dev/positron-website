@@ -54,9 +54,7 @@ When filters are hidden, the data remains filtered. Only the filter controls are
 
 To remove all applied filters, select **Clear Filters** from the **Manage Filter** dropdown. All filters are removed and the data returns to its original state. You can remove individual filters by clicking the {{<fa x>}} button on each filter control.
 
-<!-- vale Posit.Headings = NO -->
 ## Convert to code
-<!-- vale Posit.Headings = Yes -->
 
 The Data Explorer includes a **Convert to Code** button in the top action bar. 
 This button writes Python or R code that reproduces your current data view, including any filters or sorts you've applied during exploration.

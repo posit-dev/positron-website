@@ -2,7 +2,6 @@
 title: "Frequently Asked Questions"
 description: "Get answers to common questions about Positron: supported languages, RStudio differences, enterprise options, and more."
 ---
-<!-- vale Posit.Contractions = NO -->
 
 ### What programming languages are supported in Positron?
 
