@@ -1,7 +1,0 @@
-extends: existence
-message: "'%s' looks like you used may. Consider deleting it since it implies ability but not action."
-link: https://positpbc.atlassian.net/wiki/spaces/ENG/pages/594509972/Posit+Documentation+Style+Guide#Word-list-&-terms[inlineExtension]
-ignorecase: true
-level: suggestion
-raw:
-  - \b(may|you may)\b\s*
