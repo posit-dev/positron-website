@@ -13,11 +13,16 @@ listing:
         icon: "bi-play-circle"
         link: "develop-data-apps.qmd"
         anchor-text: "Develop Data Apps"
-      - title: "Create dynamic, shareable reports"
-        description: "Develop compelling, dynamic reports & presentations using Quarto and Jupyter Notebooks to effectively communicate insights to any stakeholder."
+      - title: "Work with Jupyter Notebooks"
+        description: "Experience our batteries-included native Jupyter notebook editor with AI-powered assistance, integrated data exploration, and more."
+        icon: "bi-journal-code"
+        link: "positron-notebook-editor.qmd"
+        anchor-text: "Positron Notebook Editor"
+      - title: "Create dynamic reports with Quarto"
+        description: "Develop compelling, reproducible reports and presentations with Quarto to effectively communicate insights to any stakeholder."
         icon: "bi-file-earmark-text"
         link: "quarto.qmd"
-        anchor-text: "Quarto & Jupyter Notebooks"
+        anchor-text: "Quarto"
       - title: "Accelerate insights with AI-powered assistance"
         description: "Enhance code quality and accelerate insights with integrated AI assistance contextualized for data science."
         icon: "bi-robot"
@@ -140,3 +145,4 @@ For teams that need enterprise-grade capabilities, [Positron Pro](https://posit.
 Join thousands of data scientists who have already made the switch to Positron.
 
 <a href="welcome.qmd" class='btn btn-primary'>Get Started</a>
+<a href="https://posit.co/positron-updates-signup/" class='btn btn-outline-primary'>Stay Updated</a>

@@ -58,6 +58,10 @@ website:
         href: about.qmd
       - text: "Resources"
         menu:
+          - text: "Get Updates"
+            icon: envelope
+            href: https://posit.co/positron-updates-signup/
+            target: _blank
           - text: "Blog Posts"
             icon: box-arrow-up-right
             href: https://posit.co/blog/?post_tag=positron  
@@ -66,6 +70,11 @@ website:
             icon: calendar-event
             href: https://posit.co/events/?search=positron&poststatus=all
             target: _blank
+          - text: "Share Your Story"
+            icon: chat-heart
+            href: https://forms.gle/DRCf8wgbaafz5fcG8
+            target: _blank
+
       
     right:
       - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"

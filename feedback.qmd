@@ -3,6 +3,10 @@ title: "Feedback and Issues"
 description: "Share feedback, report bugs, and contribute to Positron development. Connect with the team through GitHub Discussions and issue tracking."
 ---
 
+## Share your success story
+
+We'd love to hear how you're using Positron! Whether you've streamlined your workflow, completed an exciting project, or discovered a feature you love, [share your testimonial](https://forms.gle/DRCf8wgbaafz5fcG8) to help others learn about the possibilities with Positron.
+
 ## Giving feedback
 
 Most feedback should start in [GitHub Discussions](https://github.com/posit-dev/positron/discussions). This is a great place to share ideas, ask questions, and get feedback from the team.
