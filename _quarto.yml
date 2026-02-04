@@ -6,7 +6,6 @@ project:
 
 execute:
   freeze: auto
-
 profile:
   group: 
     - [positron, workbench]

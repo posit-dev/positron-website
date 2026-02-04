@@ -2,6 +2,7 @@
 title: "Feedback and Issues"
 description: "Share feedback, report bugs, and contribute to Positron development. Connect with the team through GitHub Discussions and issue tracking."
 ---
+
 ::: {.content-visible when-profile="workbench"}
 
 ::: {.callout-tip}
@@ -9,6 +10,7 @@ Reach out to your Workbench administrator for help with issues specific to Posit
 :::
 
 :::
+
 ## Giving feedback
 
 Most feedback should start in [GitHub Discussions](https://github.com/posit-dev/positron/discussions). This is a great place to share ideas, ask questions, and get feedback from the team.
