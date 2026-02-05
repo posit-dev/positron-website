@@ -2,6 +2,7 @@ project:
   output-dir: _site-workbench
   render:
     - "!licensing.qmd"
+    - "!privacy.qmd"
     - "!download.qmd"
     - "!install.qmd"
     - "!updating.qmd"
@@ -182,8 +183,6 @@ website:
       contents:
         - about.qmd
         - release-notes.qmd
-        - privacy.qmd
-    
 
 format:
   html:
