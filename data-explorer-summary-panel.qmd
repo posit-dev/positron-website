@@ -7,7 +7,7 @@ The summary panel displays a scrollable list of all column names with an icon re
 
 Select the {{<fa chevron-down>}} icon next to the column name to expand the column and see additional summary statistics and a larger sparkline.
 
-![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=350 fig-alt="Column arr_delay expanded in the summary panel. There is a bar with 2%, depicting how much data is missing. There is a graph of arrival delays showing a right skew. Summary statistics are displayed: 8,824 missing, --86 min, --5 median, 6.96 mean, 1,127 max, 44.98 SD."}
+![Data Explorer Summary Panel](images/data-explorer-summary-panel.png){width=350 fig-alt="Column arr_delay expanded in the summary panel. There is a bar with 2 percent, depicting how much data is missing. There is a graph of arrival delays showing a right skew. Summary statistics are displayed: 8,824 missing, --86 min, --5 median, 6.96 mean, 1,127 max, 44.98 SD."}
 
 Double-click a column name to bring the column into focus in the main data grid. This allows for quick navigation of wider datasets.
 
