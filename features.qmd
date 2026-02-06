@@ -52,11 +52,6 @@ listing:
           icon: "bi-graph-up"
           link: "plots-pane.qmd"
           anchor-text: "Plots Pane"
-        - title: "Work with Jupyter Notebooks"
-          description: "Get started instantly with our batteries-included Positron Notebook Editor that bridges Jupyter's functionality with IDE capabilities built for data science"
-          icon: "bi-journal-code"
-          link: "positron-notebook-editor.qmd"
-          anchor-text: "Positron Notebook Editor"
   - id: features-develop-3
     type: custom
     template: templates/feature-card.ejs
