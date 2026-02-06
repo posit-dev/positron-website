@@ -35,7 +35,7 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 ::: {.content-visible unless-profile="workbench"}
 <a href="download.qmd" class="btn btn-outline-primary">Free Download</a>
 <a href="features.qmd" class="btn btn-outline-primary">Explore Features</a>
-<a href="features.qmd" class="btn btn-outline-primary">Get Updates</a>
+<a href="https://posit.co/positron-updates-signup/" class="btn btn-outline-primary">Get Updates</a>
 :::
 
 ::: {.content-visible when-profile="workbench"}
