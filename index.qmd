@@ -35,6 +35,7 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 ::: {.content-visible unless-profile="workbench"}
 <a href="download.qmd" class="btn btn-outline-primary">Free Download</a>
 <a href="features.qmd" class="btn btn-outline-primary">Explore Features</a>
+<a href="features.qmd" class="btn btn-outline-primary">Get Updates</a>
 :::
 
 ::: {.content-visible when-profile="workbench"}
@@ -44,12 +45,6 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 :::
 
 {{< video videos/positron-hero-fast-tour.mp4 >}}
-
-## Stay connected
-
-Get notified about new releases, tips, and upcoming events.
-
-<a href="https://posit.co/positron-updates-signup/" class="btn btn-outline-primary">Sign up for updates</a>
 
 ::: {.content-visible unless-profile="workbench"}
 Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
