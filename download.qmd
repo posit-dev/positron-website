@@ -119,6 +119,11 @@ knitr::kable(download_table, format = "html", escape = FALSE)
 
 Once you install Positron, it will [automatically check for updates moving forward](updating.qmd).
 
+::: {.callout-tip}
+## Stay in the loop
+Want to be notified about upcoming releases, new features, and community events? [Sign up for Positron updates](https://posit.co/positron-updates-signup/).
+:::
+
 ## Positron Pro on Posit Workbench
 
 [Posit Workbench](https://posit.co/products/enterprise/workbench/) 2025.09.0 and later includes support for Positron Pro. To configure and use Positron Pro on Posit Workbench, please see the [Posit Workbench Administration Guide](https://docs.posit.co/ide/server-pro/positron_sessions/) and the [Positron Pro user guide](https://docs.posit.co/ide/server-pro/user/positron/getting-started/).
