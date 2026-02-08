@@ -49,6 +49,10 @@ website:
         href: about.qmd
       - text: "Resources"
         menu:
+          - text: "Sign up for updates"
+            href: https://posit.co/positron-updates-signup/
+            target: _blank
+            icon: envelope
           - text: "Blog Posts"
             icon: box-arrow-up-right
             href: https://posit.co/blog/?post_tag=positron  
