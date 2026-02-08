@@ -143,5 +143,5 @@ For teams that need enterprise-grade capabilities, [Positron Pro](https://posit.
 
 Join thousands of data scientists who have already made the switch to Positron.
 
-<a href="welcome.qmd" class='btn btn-primary'>Get Started</a>
-<a href="https://posit.co/positron-updates-signup/" class='btn btn-primary'>Stay Updated</a>
+<a href="welcome.qmd" class="btn btn-outline-primary">Get Started</a>
+<a href="https://posit.co/positron-updates-signup/" class="btn btn-outline-primary">Stay Updated</a>
