@@ -13,7 +13,6 @@ quarto preview                # Local development with hot reload
 quarto render                 # Render all .qmd files to HTML
 ```
 
-VS Code/Positron debug configurations are available for "Preview Docs (Chrome)" and "Preview Docs (Edge)".
 
 ## Multi-Profile Build System
 
