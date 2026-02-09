@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the documentation website for Positron IDE, built with Quarto and hosted on Netlify at https://positron.posit.co/. Documentation pages are `.qmd` files in the repository root.
+This is the documentation website for Positron IDE, built with Quarto and hosted on Netlify at https://positron.posit.co/. Documentation pages are `.qmd` files in the repository root, including reusable content in `.qmd` files that are prefixed with `_`. We use a mostly flat directory structure, especially for any files that get rendered into pages. The directories `/assets` and `/css` contain files we use for styling, and the directories `/images` and `/videos` contain visual content assets.
 
 ## Build Commands
 
@@ -51,6 +51,9 @@ Key formatting rules:
   ```markdown
   [`category.nameOfSetting`](positron://settings/category.nameOfSetting)
   ```
+- **Font Awesome icons**: Use the Quarto `fa` shortcode:
+  - Example: `{{< fa font-awesome-id >}}`
+  - Refer to [fontawesome.com/icons](https://fontawesome.com/icons) for available icon IDs  
 - Add `description` YAML front matter for social sharing metadata
 
 ## CI/CD
