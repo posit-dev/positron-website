@@ -34,7 +34,7 @@ In the Catalog Explorer, right-click on a table to:
 ## Work with files
 
 Along with support for tables, the Catalog Explorer also supports previewing and downloading files like CSVs.
-Right click on a CSV to:
+Right-click on a CSV to:
 
 - **Open With...**: Preview file in the [Data Explorer](data-explorer.qmd)
 - **Download File in Active Session**: Download file locally to your machine using the active console
