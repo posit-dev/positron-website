@@ -18,7 +18,7 @@ You can explore catalogs, schemas, and tables in a tree view, and copy Python an
 3. Select your catalog type (e.g., Snowflake, Databricks)
 4. Enter your account credentials
 
-For Snowflake connections, the catalog explorer will look for configuration in a [`connections.toml` file](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-connect#connecting-using-the-connections-toml-file).
+For Snowflake connections, the Catalog Explorer will look for configuration in a [`connections.toml` file](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-connect#connecting-using-the-connections-toml-file).
 The default path is `$SNOWFLAKE_HOME`, but you can configure where this file is saved with the setting [`catalogExplorer.snowflakeConnections`](positron://settings/catalogExplorer.snowflakeConnections).
 
 ## Work with tables
