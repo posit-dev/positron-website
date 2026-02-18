@@ -1,4 +1,8 @@
-### Highlights
+### Patch notes
+
+The [2026.02.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.02.1-5) (2026-02-17) provides fixes for Positron Pro on Workbench.
+
+### Release highlights
 
 #### New Positron Notebook Editor is available for alpha testing! 📓
 
