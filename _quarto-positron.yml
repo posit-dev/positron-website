@@ -210,3 +210,5 @@ format:
     include-in-header:
       - text: |
           <script defer file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
+
+show-videos: true
