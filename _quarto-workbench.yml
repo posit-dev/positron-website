@@ -8,6 +8,8 @@ project:
     - "!updating.qmd"
     - "!remote-ssh.qmd"
     - "!add-to-path.qmd"
+  resources:
+    - "!videos/**"
 
 website:
   open-graph: true
@@ -195,3 +197,9 @@ format:
     code-copy: true
     toc: true
     toc-expand: true
+
+show-videos: false
+
+filters:
+  - quarto
+  - video-filter

@@ -22,6 +22,8 @@ The site has two Quarto profiles defined in `_quarto.yml`:
 
 New pages will likely need to be added to both profile config files.
 
+**Videos are excluded from the workbench profile.** A Lua filter (`_extensions/video-filter/`) automatically removes video elements when building for workbench. Use the standard `{{< video >}}` shortcode; videos will appear in the public site but not in the workbench bundle.
+
 ## Code Execution and Freeze
 
 Some pages contain executable code (e.g., download.qmd, install.qmd). The project uses Quarto's "freeze" feature (`execute: freeze: auto`). When updating pages with computations:
@@ -53,7 +55,7 @@ Key formatting rules:
   ```
 - **Font Awesome icons**: Use the Quarto `fa` shortcode:
   - Example: `{{< fa font-awesome-id >}}`
-  - Refer to [fontawesome.com/icons](https://fontawesome.com/icons) for available icon IDs  
+  - Refer to [fontawesome.com/icons](https://fontawesome.com/icons) for available icon IDs
 - Add `description` YAML front matter for social sharing metadata
 
 ## CI/CD
