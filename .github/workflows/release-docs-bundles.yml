@@ -10,6 +10,15 @@ on:
         required: false
         type: boolean
         default: false
+      release_channel:
+        description: "Release interval, e.g. 'dailies', 'releases'"
+        options:
+          - dailies
+          - staging
+          - releases
+        default: releases
+        required: true
+        type: choice
 
 name: Release Documentation Bundles
 
@@ -18,6 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      id-token: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -81,3 +91,27 @@ jobs:
           files: |
             positron-docs-${{ steps.get-version.outputs.release_version }}.zip
             positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip
+
+      - name: Configure AWS Credentials for S3
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_S3_RW_ROLE }}
+          aws-region: us-east-1
+
+      - name: Upload docs bundles to S3
+        run: |
+          S3_PREFIX="s3://posit-positron-downloads/positron/${{ inputs.release_channel }}/docs"
+          aws s3 cp "positron-docs-${{ steps.get-version.outputs.release_version }}.zip" "${S3_PREFIX}/positron-docs-${{ steps.get-version.outputs.release_version }}.zip" --no-progress
+          aws s3 cp "positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip" "${S3_PREFIX}/positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip" --no-progress
+
+      - name: Configure AWS Credentials for CloudFront
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_CDN_RW_ROLE }}
+          aws-region: us-east-1
+
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.AWS_CDN_DISTRIBUTION_ID }} \
+            --paths "/positron/${{ inputs.release_channel }}/docs/*"
