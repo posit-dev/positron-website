@@ -4,7 +4,7 @@ description: "Browse and access data from catalog systems directly in Positron. 
 ---
 
 ::: {.callout-note}
-Catalog Explorer is an experimental feature. Enable [`catalogExplorer.enabled`](positron://settings/catalogExplorer.enabled) in settings and restart Positron.
+Catalog Explorer is an experimental feature. Opt in via the [`catalogExplorer.enabled`](positron://settings/catalogExplorer.enabled) setting, and restart Positron to apply.
 :::
 
 The Catalog Explorer provides an interface for browsing data in data catalog systems.
