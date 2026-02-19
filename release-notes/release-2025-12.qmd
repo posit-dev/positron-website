@@ -39,7 +39,7 @@ The most upvoted feature in this month's release is a new set of keyboard shortc
 
 #### New features
 
-- [[#10104](https://github.com/posit-dev/positron/issues/10104), [#10243](https://github.com/posit-dev/positron/issues/10243), [#10241](https://github.com/posit-dev/positron/issues/10241)] Added new Catalog Explorer support for Snowflake data catalogs. This feature is in preview and can be enabled by opting in to the new [`catalogExplorer.enable`](positron://settings/catalogExplorer.enable) setting.
+- [[#10104](https://github.com/posit-dev/positron/issues/10104), [#10243](https://github.com/posit-dev/positron/issues/10243), [#10241](https://github.com/posit-dev/positron/issues/10241)] Added new Catalog Explorer support for Snowflake data catalogs. This feature is in preview and can be enabled by opting in to the new [`catalogExplorer.enabled`](positron://settings/catalogExplorer.enabled) setting.
 - [[#10430](https://github.com/posit-dev/positron/issues/10430)] Added Connections Pane support for Python Databricks SQL Connector.
 - [[#10431](https://github.com/posit-dev/positron/issues/10431)] Added Connections Pane support for Python Google BigQuery.
 - [[#10348](https://github.com/posit-dev/positron/issues/10348), [#10236](https://github.com/posit-dev/positron/issues/10236)] Assistant: improved token efficiency of project tools.
