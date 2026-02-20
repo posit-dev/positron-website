@@ -71,7 +71,7 @@ To use Anthropic's Claude models in Positron Assistant, you need to bring your o
 
 ### Enable Anthropic as a provider
 
-Anthropic is enabled by default. Clear the [`positron.assistant.provider.anthropic.enable`](positron://settings/positron.assistant.provider.anthropic.enable) setting to disable it.
+Anthropic is enabled by default. Opt out of the [`positron.assistant.provider.anthropic.enable`](positron://settings/positron.assistant.provider.anthropic.enable) setting to disable it.
 
 ### Add Anthropic as a language model provider
 
@@ -103,7 +103,7 @@ Students and faculty can use GitHub Copilot for free as part of the GitHub Educa
 
 ### Enable GitHub Copilot as a provider
 
-GitHub Copilot is enabled by default. Clear the [`positron.assistant.provider.githubCopilot.enable`](positron://settings/positron.assistant.provider.githubCopilot.enable) setting to disable it.
+GitHub Copilot is enabled by default. Opt out of the [`positron.assistant.provider.githubCopilot.enable`](positron://settings/positron.assistant.provider.githubCopilot.enable) setting to disable it.
 
 ### Add GitHub Copilot as a language model provider
 
@@ -139,7 +139,7 @@ To use Amazon Bedrock in Positron Desktop, Positron Assistant requires an **AWS 
 
 ### Enable Amazon Bedrock as a provider
 
-Amazon Bedrock provider support is currently in preview and must be manually enabled. Select the [`positron.assistant.provider.amazonBedrock.enable`](positron://settings/positron.assistant.provider.amazonBedrock.enable) setting to enable it.
+Amazon Bedrock provider support is currently in preview and must be manually enabled. Opt in to the [`positron.assistant.provider.amazonBedrock.enable`](positron://settings/positron.assistant.provider.amazonBedrock.enable) setting to enable it.
 
 ### (Optional) Configure AWS region and profile
 
@@ -166,7 +166,7 @@ To use Snowflake Cortex in Positron Desktop, Positron Assistant requires a **Sno
 
 ### Enable Snowflake Cortex as a provider
 
-Snowflake Cortex provider support is currently in preview and must be manually enabled. Select the [`positron.assistant.provider.snowflakeCortex.enable`](positron://settings/positron.assistant.provider.snowflakeCortex.enable) setting to enable it.
+Snowflake Cortex provider support is currently in preview and must be manually enabled. Opt in to the [`positron.assistant.provider.snowflakeCortex.enable`](positron://settings/positron.assistant.provider.snowflakeCortex.enable) setting to enable it.
 
 ### Add Snowflake Cortex as a language model provider
 
@@ -182,7 +182,7 @@ Snowflake Cortex provider support is currently in preview and must be manually e
 
 ### Enable OpenAI as a provider
 
-OpenAI provider support is currently in preview and must be manually enabled. Select the [`positron.assistant.provider.openAI.enable`](positron://settings/positron.assistant.provider.openAI.enable) setting to enable it.
+OpenAI provider support is currently in preview and must be manually enabled. Opt in to the [`positron.assistant.provider.openAI.enable`](positron://settings/positron.assistant.provider.openAI.enable) setting to enable it.
 
 ### Add OpenAI as a language model provider
 
@@ -211,7 +211,7 @@ At this time, we don't recommend using a local model as a custom provider. Read 
 
 ### Enable Custom Provider as a provider
 
-Custom provider support is currently experimental and must be manually enabled. Select the [`positron.assistant.provider.customProvider.enable`](positron://settings/positron.assistant.provider.customProvider.enable) setting to enable it.
+Custom provider support is currently experimental and must be manually enabled. Opt in to the [`positron.assistant.provider.customProvider.enable`](positron://settings/positron.assistant.provider.customProvider.enable) setting to enable it.
 
 ### Add Custom Provider as a language model provider
 
