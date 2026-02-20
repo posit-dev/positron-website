@@ -5,7 +5,7 @@ description: "Use Positron Assistant's chat pane for AI-powered coding help, inl
 
 Positron Assistant provides multiple ways to interact with AI assistance across your workspace. Whether you use the dedicated chat pane, inline chat within your Editor or Terminal, or quick Console actions for errors, Assistant integrates seamlessly with your development environment.
 
-::: {.callout-tip}
+::: {.callout-note}
 To use Positron Assistant features, you'll need to first configure a language model provider. See the [Getting Started](assistant-getting-started.qmd) guide for more details.
 :::
 
