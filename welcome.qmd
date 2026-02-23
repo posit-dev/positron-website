@@ -40,7 +40,7 @@ listing:
 Welcome to Positron, the next-generation data science IDE built for Python and R. It combines the power of a full-featured IDE with interactive data science tools for Python and R
 
 ::: {.content-visible unless-profile="workbench"}
-![Execute code and explore data in Positron](images/astropy.png)
+![Execute code and explore data in Positron](images/astropy.png){fig-alt="Positron IDE showing Python code for astronomical data visualization with a galactic coordinate plot and Variables pane displaying data objects."}
 :::
 
 {{< include "_enterprise-callout-link.qmd" >}}

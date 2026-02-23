@@ -44,7 +44,7 @@ Positron Assistant automatically uses these instructions when you work with file
 1. Edit the newly created `.instructions.md` file to specify the `applyTo` file glob pattern and the instructions you want to apply
 1. To manage existing files, run the command _Chat: Configure Instructions..._
 
-::: {.callout-tip}
+::: {.callout-note}
 
 To learn more about the format of custom instructions files, see the following VS Code documentation:
 

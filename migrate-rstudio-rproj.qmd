@@ -60,7 +60,7 @@ The concept in Positron that's most analogous to an RStudio Project is a **works
 You can read more in the VS Code documentation [What is a VS Code "workspace"?](https://code.visualstudio.com/docs/editor/workspaces).
 A Positron (or VS Code) workspace is often just a project folder that's been opened in its own window via *Open Folder* or similar.^[In VS Code and, therefore, Positron, the words "folder", "workspace", and "project" are used almost interchangeably, because the most common way to work is in a single-folder workspace. It is possible to work with so-called multi-root workspaces, which encompass two or more folders, but this is fairly exotic. It is also possible to work without a workspace, by opening just a file, but this not a recommended *modus operandi* since many IDE features are unavailable in this state.]
 
-![Various ways to open a folder in Positron, highlighted in orange.](images/open-folder.png)
+![Various ways to open a folder in Positron, highlighted in orange.](images/open-folder.png){fig-alt="Positron Welcome screen with Open button and folder dropdown highlighted in orange, showing options like New Folder, Open Folder, and recent folders list."}
 
 A workspace does not necessarily get marked with some characteristic file.
 Positron and VS Code will place an explicit file at `.vscode/settings.json` if (and only if) the user does some configuration that's specific to the project.
@@ -110,7 +110,7 @@ There are probably other extensions that offer similar functionality.
 We'll point out some specifics about Project Manager here, but the main goal is to raise awareness of how useful an extension like this can be.
 
 After installing Project Manager from the Open VSX Registry, it appears as a stack of folders in the Activity Bar.
-When clicked, you gain access to a clickable, organized listing of your projects.
+When selected, you gain access to a selectable, organized listing of your projects.
 
 ::: {.float-end .mx-4}
 ![Project Manager in the Activity Bar](images/project-manager-activity-bar.png){height=400}
@@ -150,9 +150,9 @@ There are a few steps and choices involved in setting this up, but here is the b
 * Install [Raycast](https://www.raycast.com/). Accept or configure a hotkey for it.
 * Install the [Project Manager extension](https://open-vsx.org/extension/alefragnani/project-manager) in Positron and do basic setup. For example, save one or more projects as favorites or configure one or more Git base folders.
 * Install a Raycast extension that creates a bridge between Raycast and Project Manager:
-  - In Raycast, type "store" to reveal and run the Store command. Search for and install the "Visual Studio Code - Project Manager" extension. After installation, this extension appears as "Search Project Manager".
+  - In Raycast, enter "store" to reveal and run the Store command. Search for and install the "Visual Studio Code - Project Manager" extension. After installation, this extension appears as "Search Project Manager".
 * Configure the extension to target Positron instead of VS Code:
-  - In Raycast, type enough to locate the "Search Project Manager" extension and select it. Click on Actions in the lower right corner or type Cmd + K. Go to Configure Extension or Configure Command.
+  - In Raycast, enter enough to locate the "Search Project Manager" extension and select it. Select Actions in the lower right corner or press {{< kbd Cmd-K >}}. Go to Configure Extension or Configure Command.
   - The VSCode dropdown menu is where you can specify which application to launch. The default is VS Code, but you can and should change that to Positron. We find it favorable to *not* do any additional configuration. For example, do *not* configure Project Location here.
   - In the lefthand panel, you can configure an alias (such as "pos") or record a hotkey.
 
@@ -160,7 +160,7 @@ You should now be able to use this gesture to launch a Positron window in a spec
 
 * Invoke your Raycast hotkey.
 * Invoke the alias you associated with "Search Project Manager".
-* Type just enough of your target folder name to disambiguate.
+* Enter just enough of your target folder name to disambiguate.
 * Accept, launch, and flourish!
 
 Positron is still in beta and is therefore evolving quite rapidly.

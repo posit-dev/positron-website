@@ -3,7 +3,7 @@ title: "Positron Assistant Provider Privacy Information"
 description: "Information about data handling, privacy, and terms of service for AI model providers used in Positron Assistant."
 ---
 
-::: {.callout-tip}
+::: {.callout-note}
 For information on what information is collected by Posit, review [Posit's Data Privacy](privacy.qmd).
 :::
 

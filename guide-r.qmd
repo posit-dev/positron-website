@@ -7,7 +7,7 @@ Positron ships with first class support for R, along with [Python](guide-python.
 
 ## Settings
 
-:::{.callout-tip}
+:::{.callout-note}
 If you'd prefer to customize Positron to feel similar to RStudio, learn [what settings to consider](migrate-rstudio-settings-and-extensions.qmd#settings-for-rstudio-users).
 :::
 
@@ -38,7 +38,7 @@ The keyboard shortcuts in Positron are largely a superset of the keyboard shortc
 | {{< kbd mac=Command-Shift-E win=Ctrl-Shift-E linux=Ctrl-Shift-E >}} | Check the current R package, if any |
 | {{< kbd mac=Command-Shift-D win=Ctrl-Shift-D linux=Ctrl-Shift-D >}} | Document the current R package, if any |
 
-:::{.callout-tip}
+:::{.callout-note}
 If you'd prefer to use keybindings as similar as possible to RStudio, learn [how to enable them](migrate-rstudio-keybindings.qmd) in Positron. This will overwrite some of Positron's default keybindings, but will provide a more familiar experience for RStudio users.
 :::
 

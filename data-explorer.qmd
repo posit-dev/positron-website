@@ -23,7 +23,7 @@ The Data Explorer has three primary components:
 
 ## Opening the Data Explorer
 
-There are a few ways to open the Data Explorer. If you want to look at data you have loaded into memory already, you can navigate to the [Variables Pane](variables-pane.qmd) and click on the {{< fa table >}} icon for a specific dataframe object.
+There are a few ways to open the Data Explorer. If you want to look at data you have loaded into memory already, you can navigate to the [**Variables** pane](variables-pane.qmd) and select the {{< fa table >}} icon for a specific dataframe object.
 
 Using code or the console, you can also run one of the following commands:
 
@@ -36,8 +36,8 @@ In Python, the `%view` magic can also be used with expressions, for example `%vi
 df |> mutate(doubled_column = column * 2) |> View()
 ```
 
-Directly opening `.csv`, `.tsv`, and `.parquet` files (using DuckDB) is supported by clicking on a file in the File Explorer or using the Command Palette.^[Use the **File Options** button in the action bar to configure how a `.csv` or `.tsv` file is parsed by DuckDB.] GZIP-compressed CSV files ending in `.gz` can also be opened. We may add support for more file types in the future.
+Directly opening `.csv`, `.tsv`, and `.parquet` files (using DuckDB) is supported by selecting a file in the File Explorer or using the Command Palette.^[Use the **File Options** button in the action bar to configure how a `.csv` or `.tsv` file is parsed by DuckDB.] GZIP-compressed CSV files ending in `.gz` can also be opened. We may add support for more file types in the future.
 
 ### Opening CSV files as plain text
 
-After opening a CSV file in the Data Explorer, if you need to view the file in the text editor, click on the **Open as Plain Text File** option in the top action bar.
+After opening a CSV file in the Data Explorer, if you need to view the file in the text editor, select the **Open as Plain Text File** option in the top action bar.

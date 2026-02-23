@@ -37,7 +37,7 @@ Run the command _Chat: Configure Prompt Files..._ to manage custom prompt files 
 
 After creating a custom prompt file, you can access it through [slash commands](assistant-chat-commands-participants.qmd#slash-commands) in both the chat pane and inline chat.
 
-::: {.callout-tip}
+::: {.callout-note}
 To learn more about the format of custom prompt files, see the following VS Code documentation:
 
 - [Prompt file structure](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_prompt-file-structure)

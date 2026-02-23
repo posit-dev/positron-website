@@ -11,7 +11,7 @@ Positron enhances how you can use Quarto in several important ways:
 - Features such as statement execution work seamlessly in Positron's Console, and Positron supports integrated rendering and preview of Quarto documents.
 - Positron provides rich UI via [custom action bars](action-bars.qmd) to preview your Quarto document, control rendering behavior, and switch between source and visual mode,
 
-![A Quarto document in Positron, with narrative, executable code chunks, and the rendered preview in Positron's integrated Viewer Pane.](images/quarto-hello-python.png){width=700}
+![A Quarto document in Positron, with narrative, executable code chunks, and the rendered preview in Positron's integrated Viewer pane.](images/quarto-hello-python.png){width=700}
 
 Learn more in the Quarto documentation about [getting started with Quarto and Positron](https://quarto.org/docs/get-started/hello/positron.html), or [the details of using Positron as a tool for working with Quarto](https://quarto.org/docs/tools/positron/).
 

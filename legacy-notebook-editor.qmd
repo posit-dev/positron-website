@@ -7,7 +7,7 @@ You can create and edit `.ipynb` files in Positron just as you would in other ed
 
 For a general introduction to working with Jupyter Notebooks, see the [VS Code Jupyter Notebooks documentation](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
 
-:::{.callout-tip}
+:::{.callout-note}
 Looking for integrated AI assistance, data exploration, and improved data science workflows? Try the [Positron Notebook Editor](positron-notebook-editor.qmd), currently in public alpha. Give it a try and share your feedback to help us build the best experience together!
 :::
 
@@ -19,8 +19,8 @@ If an environment installed on your computer isn't available in Positron, you ma
 
 {{< include "_notebook-kernel-selection.qmd" >}}
 
-![The Legacy Notebook Editor action bar with the kernel selector highlighted, showing Python 3.12.8 as the selected interpreter.](images/jupyter-notebooks-kernel-selector.png)
+![The Legacy Notebook Editor action bar with the kernel selector highlighted, showing Python 3.12.8 as the selected interpreter.](images/jupyter-notebooks-kernel-selector.png){fig-alt="Notebook Editor action bar with the kernel selector button highlighted, displaying Python 3.12.8 as the current kernel."}
 
-You can manually select a different interpreter for the notebook by clicking the **Kernel Selector** button in the notebook editor action bar or by running the *Notebook: Select Notebook Kernel* command from the Command Palette.
+You can manually select a different interpreter for the notebook by selecting the **Kernel Selector** button in the notebook editor action bar or by running the *Notebook: Select Notebook Kernel* command from the Command Palette.
 
 {{< include "_notebook-customization.qmd" >}}

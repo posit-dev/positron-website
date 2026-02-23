@@ -47,7 +47,7 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 {{< video videos/positron-hero-fast-tour.mp4 >}}
 
 ::: {.content-visible when-profile="workbench"}
-![Execute code and explore data in Positron](images/astropy.png)
+![Execute code and explore data in Positron](images/astropy.png){fig-alt="Positron IDE showing Python code for astronomical data visualization with a galactic coordinate plot and Variables pane displaying data objects."}
 :::
 
 ::: {.content-visible unless-profile="workbench"}

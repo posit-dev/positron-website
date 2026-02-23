@@ -7,7 +7,7 @@ Positron ships with first class support for Python, along with [R](guide-r.qmd).
 
 ## Settings
 
-::: {.callout-tip}
+::: {.callout-note}
 In addition to providing settings, Positron also provides [keyboard shortcuts](keyboard-shortcuts.qmd) and [bundled extensions](extensions.qmd#included-extensions), for a "batteries included" experience for data science with Python.
 :::
 
@@ -25,7 +25,7 @@ Positron provides support for [IPython-style magics](https://ipython.readthedocs
 Positron provides three new, custom magics created specifically for working in Positron:
 
 - `%view` opens a Python object in the [Data Explorer](data-explorer.qmd). You can use this magic most simply via `%view df`, or additionally like `%view df.groupby('column').sum()` or `%view df "My Dataset"`.
-- `%connection_show` shows a connection object in the [Connections Pane](connections-pane.qmd). Use this magic like `%connection_show my_connection`.
+- `%connection_show` shows a connection object in the [**Connections** pane](connections-pane.qmd). Use this magic like `%connection_show my_connection`.
 - `%clear` clears the Console.
 
 ## Code formatting

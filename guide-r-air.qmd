@@ -34,7 +34,7 @@ These are all available in the [Command Palette](command-palette.qmd).
 All R code receives some basic formatting when you type {{< kbd Enter >}}, but this first pass is focused only on indentation.
 A second formatting pass with Air, when you save the file or intentionally format it, produces a much better result because Air uses a richer set of rules based on more context.
 
-:::{.callout-tip}
+:::{.callout-note}
 You can use special comments to tell Air to [skip formatting specific sections of code](https://posit-dev.github.io/air/formatter.html#skip-comments), if you don't want to apply Air's strict formatting rules in a specific situation.
 :::
 
@@ -43,7 +43,7 @@ You can use special comments to tell Air to [skip formatting specific sections o
 The easiest way to get our recommended set up is to run the command _Air: Initialize Workspace Folder_. This configures "Format on save" in the current workspace by modifying (or creating, if necessary) the `.vscode/settings.json` file.
 It also creates an `air.toml` file.
 
-VS Code and Positron let you customize settings at the user level and at the workspace level (i.e. for just the current project you are working on).
+VS Code and Positron let you customize settings at the user level and at the workspace level (i.e., for just the current project you are working on).
 We think "Format on save" makes the most sense to configure at the workspace level:
 
 * Workspace settings are recorded inside the workspace at `.vscode/settings.json`, allowing them to be tracked in version control. This means that all collaborators get those settings automatically when they check out the project, enforcing a common formatting style.

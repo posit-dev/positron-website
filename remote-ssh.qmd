@@ -35,17 +35,17 @@ At least 2 GB RAM is required to run the remote Positron server, but for realist
 
 To create a connection, open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and type "Remote Menu". Run the _Remote SSH: Show Remote Menu_ command.
 
-![The Remote SSH menu](./images/remote-ssh-menu.png){width=700}
+![The Remote SSH menu](./images/remote-ssh-menu.png){fig-alt="Remote SSH menu showing options including Connect to Host, Connect Current Window to Host, and Configure SSH Hosts." width=700}
 
 From there, run the _Connect to Host_ command. You will be prompted to enter the hostname and your credentials.
 
-If you want to avoid having to type the hostname every time, add the connection information to your user SSH config (e.g. `~/.ssh/config` on Unix-alikes). Then you can use the _Remote Explorer_ view to connect to the system again in the future. Use the _View: Show Remote Explorer_ command to open it.
+If you want to avoid having to enter the hostname every time, add the connection information to your user SSH config (e.g., `~/.ssh/config` on Unix-alikes). Then you can use the _Remote Explorer_ view to connect to the system again in the future. Use the _View: Show Remote Explorer_ command to open it.
 
 ## Remote sessions
 
 You can identify remote SSH sessions via a small indicator in the bottom left of Positron's window.
 
-![Remote SSH Status Indicator](./images/remote-ssh-status.png){width=350}
+![Remote SSH Status Indicator](./images/remote-ssh-status.png){fig-alt="Status bar indicator showing SSH connection to a remote host." width=350}
 
 There are some notable differences between these sessions and "regular" Positron desktop sessions.
 
@@ -69,17 +69,17 @@ All Terminals as well as your R and Python sessions will run on the remote host.
 
 ### Port forwarding
 
-When you run web applications (e.g. Shiny applications) in Positron, Positron automatically maps the port on the remote host to a port on your local machine.
+When you run web applications (e.g., Shiny applications) in Positron, Positron automatically maps the port on the remote host to a port on your local machine.
 
 For example, note that this Shiny application running on `:6868` automatically gets a forwarded port `6868` on the local host. The _Ports_ tab shows which ports are currently forwarded from the remote to the local host. Positron tries to use the same port on both hosts when it's available.
 
-![Port Forwarding for Local Web Content](./images/remote-ssh-port-forwarding.png)
+![Port Forwarding for Local Web Content](./images/remote-ssh-port-forwarding.png){fig-alt="Ports panel showing multiple forwarded ports with a Shiny app displaying 'Hello Shiny!' and a histogram in the Viewer pane."}
 
 ## Long-running sessions
 
 By default, Positron will forcefully end your R and Python sessions when you close Positron. If you want to leave your sessions running even after you close Positron -- for example, to leave data loaded in memory or let long-running computations continue -- you can tell Positron's kernel supervisor to keep the sessions running using the [`kernelSupervisor.shutdownTimeout`](positron://settings/kernelSupervisor.shutdownTimeout) setting.
 
-![Shutdown Timeout Settings](./images/remote-ssh-shutdown-timeout){width=638}
+![Shutdown Timeout Settings](./images/remote-ssh-shutdown-timeout){fig-alt="Settings panel showing Kernel Supervisor Shutdown Timeout dropdown with options including never, when idle, and various time intervals." width=638}
 
 Note that this setting only takes effect after restarting Positron!
 
@@ -102,7 +102,7 @@ There's also an option to allow the kernels to run forever; if you use this opti
 When Positron connects to a new host for the first time, it does the following:
 
 1. Establishes an SSH connection to the host.
-2. Forms the name and download URL of the correct Positron Server binary, e.g. `positron-reh-linux-x64-2025.01.0-39.tar.gz`.
+2. Forms the name and download URL of the correct Positron Server binary, e.g., `positron-reh-linux-x64-2025.01.0-39.tar.gz`.
 3. On the remote host, downloads this binary into `~/.positron-server` and unpacks it.
 4. Starts the headless Positron Server inside the remote host.
 5. Connects to the server from the front end.

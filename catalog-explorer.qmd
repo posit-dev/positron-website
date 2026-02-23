@@ -3,7 +3,7 @@ title: "Catalog Explorer"
 description: "Browse and access data from catalog systems directly in Positron. Explore schemas, tables, and generate code snippets for Python and R."
 ---
 
-::: {.callout-note}
+::: {.callout-important}
 Catalog Explorer is an experimental feature. Opt in via the [`catalogExplorer.enabled`](positron://settings/catalogExplorer.enabled) setting, and restart Positron to apply.
 :::
 
@@ -23,7 +23,7 @@ The default path is `$SNOWFLAKE_HOME`, but you can configure where this file is 
 
 ## Work with tables
 
-The Catalog Explorer differs from the [Connections Pane](connections-pane.qmd) in that it offers a view of many warehouses and tables at once.
+The Catalog Explorer differs from the [**Connections** pane](connections-pane.qmd) in that it offers a view of many warehouses and tables at once.
 It is particularly useful to browse many different tables quickly before connecting to a specific table.
 In the Catalog Explorer, right-click on a table to:
 
@@ -44,7 +44,7 @@ Right-click on a CSV to:
 
 ## Remove a catalog provider
 
-Click the trash icon next to a provider name to remove it, or run _Catalogs: Remove Catalog Provider_ from the Command Palette.
+Select the trash icon next to a provider name to remove it, or run _Catalogs: Remove Catalog Provider_ from the Command Palette.
 
 ## Settings
 

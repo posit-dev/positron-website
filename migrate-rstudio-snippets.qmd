@@ -39,7 +39,7 @@ For our purposes, it's useful to break them into two broad classes:
 You can customize your RStudio snippets via the *Edit Snippets* button in *Global Options > Code*.
 Under the hood, this initializes a user-level snippet file that is pre-populated with RStudio's default snippets.
 You can then apply your desired changes, such as adding or deleting snippets.
-Going forward, this user-level file powers all of your RStudio snippets, i.e. there is no combining of built-in and user-level snippets.
+Going forward, this user-level file powers all of your RStudio snippets, i.e., there is no combining of built-in and user-level snippets.
 
 ## Default and custom snippets in Positron
 

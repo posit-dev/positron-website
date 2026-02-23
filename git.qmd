@@ -39,11 +39,11 @@ If you are working with an existing project that does not use Git, you can also 
 
 1. Open your project folder in Positron
 2. Open the Source Control view from the Activity Bar
-3. Click **Initialize Repository** to create a new Git repository in your current folder
+3. Select **Initialize Repository** to create a new Git repository in your current folder
 
 This creates a `.git` folder in your project directory and begins tracking your files.
 
-::: callout-tip
+::: callout-note
 If you are a more advanced Git user, consider installing the [GitLens extension](https://open-vsx.org/vscode/item?itemName=eamodio.gitlens) for extended Git capabilities in Positron.
 :::
 

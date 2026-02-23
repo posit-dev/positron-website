@@ -7,7 +7,7 @@ We expect that many existing RStudio users are curious about Positron and whethe
 This overview, together with guides on other topics like [keybindings](migrate-rstudio-keybindings.qmd) and [feature comparison](migrate-rstudio-compare.qmd), should help RStudio users feel well-informed about what such a transition feels like.
 The goal of this migration guide is to give current RStudio users the smoothest possible experience in their early days with Positron.
 
-::: {.callout-tip}
+::: {.callout-note}
 Try out our in-product migration guide for RStudio users by running the command _Welcome: Open Walkthrough..._ in Positron and choosing "Migrating from RStudio to Positron" from the list.
 :::
 
@@ -26,7 +26,7 @@ First, let's take a high-level, side-by-side view of the two IDEs.
 This figure highlights the role each area plays in your workflow and draws similarities between Positron and RStudio.
 You write code in an editor, run your code in the Console, and view outputs like plots, variables, and reports in dedicated panes or tabs.
 
-![Comparison of RStudio and Positron user interfaces](images/user-interface-rstudio-vs-positron.jpeg){fig-alt="A side-by-side comparison of RStudio and Positron showing equivalent areas labelled as 'Write' (for the editor), 'Run' (for the Console), and 'Understand' (for the Variables and Plots panes)."}
+![Comparison of RStudio and Positron user interfaces](images/user-interface-rstudio-vs-positron.jpeg){fig-alt="A side-by-side comparison of RStudio and Positron showing equivalent areas labelled as 'Write' (for the Editor), 'Run' (for the Console), and 'Understand' (for the Variables and Plots panes)."}
 
 Next, let's get concrete by naming the major areas of Positron's surface.
 
@@ -70,6 +70,6 @@ However, do not fear!
 These actions are still available in Positron, just via different gestures.
 In Positron, package development moves like "Check", "Document", or "Load All" are exposed as commands in the Command Palette as well as through the usual keyboard shortcuts.
 
-::: {.callout-tip}
+::: {.callout-note}
 If you find yourself really missing a button from RStudio, check if there's a related command in the Command Palette. Or just try [the usual keyboard shortcut](migrate-rstudio-keybindings.qmd) and see what happens!
 :::

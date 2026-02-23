@@ -62,9 +62,9 @@ This allows you to quickly capture your interactive exploration as reproducible 
 To convert your Data Explorer view to code:
 
 1. Apply any filters, sorts, or other transformations in the Data Explorer
-2. Click the **Convert to Code** button in the top action bar
+2. Select the **Convert to Code** button in the top action bar
 3. Preview the code in the modal
-4. Click **Copy to Clipboard** to copy the code for pasting into the console, a script, or any other location
+4. Select **Copy to Clipboard** to copy the code for pasting into the console, a script, or any other location
 
 The code references the dataframe object already loaded in your session rather than reading data from disk.
 The **Convert to Code** button writes code appropriate for your dataframe type:
