@@ -119,7 +119,7 @@ knitr::kable(download_table, format = "html", escape = FALSE)
 
 Once you install Positron, it will [automatically check for updates moving forward](updating.qmd).
 
-::: {.callout-important}
+::: {.callout-note}
 ## Stay in the loop
 Want to be notified about upcoming releases, new features, and community events? [Sign up for Positron updates](https://posit.co/positron-updates-signup/).
 :::
