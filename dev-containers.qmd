@@ -32,7 +32,7 @@ Dev containers are an **experimental** feature and must be manually enabled. Use
 
 Or put this in your `settings.json`:
 
-```{json}
+```json
 {
     "dev.containers.enable": true
 }
