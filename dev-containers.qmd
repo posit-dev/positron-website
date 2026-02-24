@@ -66,6 +66,8 @@ When you've made changes to your `devcontainer.json` or `Dockerfile`:
 - **Dev Containers: Rebuild Without Cache** - Full rebuild from scratch
 - **Dev Containers: Rebuild and Reopen in Container** - Rebuild and automatically reopen
 
+### Developing inside a Container
+
 Positron's dev container's feature uses a subset of the commands and settings of those available in VS Code; read their guide [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers) for more information.
 
 ## Limitations
