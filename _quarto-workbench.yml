@@ -9,6 +9,7 @@ project:
     - "!remote-ssh.qmd"
     - "!add-to-path.qmd"
   resources:
+    - _redirects
     - "!videos/**"
 
 website:
