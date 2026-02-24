@@ -22,10 +22,7 @@ end
 
 Remote SSH sessions can be *initiated* from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux[^1]; native Windows and macOS remote hosts are not currently supported. 
 
-Other features that aren't currently supported include:
-
-- Dev Container workflows (note however that you can start a container yourself and connect to it)
-- Connecting from Positron Pro sessions on Posit Workbench
+Note that Remote SSH is *only* supported on the desktop app; it is not currently possible to use Remote SSH from Positron Pro sessions on Posit Workbench
 
 At least 2 GB RAM is required to run the remote Positron server, but for realistic data science work, expect to need at least 4 GB RAM or more on the remote host.
 
