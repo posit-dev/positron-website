@@ -5,7 +5,7 @@ description: "Use Positron Assistant's chat pane for AI-powered coding help, inl
 
 Positron Assistant provides multiple ways to interact with AI assistance across your workspace. Whether you use the dedicated chat pane, inline chat within your Editor or Terminal, or quick Console actions for errors, Assistant integrates seamlessly with your development environment.
 
-::: {.callout-note}
+::: {.callout-tip}
 To use Positron Assistant features, you'll need to first configure a language model provider. See the [Getting Started](assistant-getting-started.qmd) guide for more details.
 :::
 
@@ -76,12 +76,12 @@ Fix and Explain inherit these options from the chat pane:
 
 ## Managing models
 
-You can customize which models Assistant has access to and set default preferences using the following settings:
+Positron Assistant supports multiple language model providers. You can customize which models Assistant has access to and set default preferences using the following settings:
 
 - [`positron.assistant.models.preference.global`](positron://settings/positron.assistant.models.preference.global): Set a preferred model to be pre-selected across all providers. Matching is case-insensitive and supports partial matches.
 
-- `positron.assistant.models.preference.<provider>` such as [`positron.assistant.models.preference.amazonBedrock`](positron://settings/positron.assistant.models.preference.amazonBedrock): Set a default model for a specific provider. Provider-specific preferences take precedence over the global preference.
+- [`positron.assistant.models.preference.byProvider`](positron://settings/positron.assistant.models.preference.byProvider): Set default models for specific providers. Provider-specific preferences take precedence over the global preference.
 
 - [`positron.assistant.models.include`](positron://settings/positron.assistant.models.include): Restrict which models are available by specifying patterns. Supports wildcards and regular expressions. Does not affect GitHub Copilot models.
 
-- `positron.assistant.models.overrides.<provider>` such as [`positron.assistant.models.overrides.amazonBedrock`](positron://settings/positron.assistant.models.overrides.amazonBedrock): Manually configure models for a specific provider instead of retrieving listings automatically. Does not affect GitHub Copilot models.
+- [`positron.assistant.models.custom`](positron://settings/positron.assistant.models.custom): Manually configure models for providers instead of retrieving listings automatically. Does not affect GitHub Copilot models.
