@@ -14,3 +14,9 @@ jobs:
         with:
           file_types: .qmd
           exclude_patterns: https://cdn.posit.co/positron/prereleases/,https://positron.posit.co/images/,https://github.com/posit-dev/positron/issues
+
+      - name: Check URLs in _redirects
+        uses: urlstechie/urlchecker-action@master
+        with:
+          include_files: _redirects
+          file_types: _redirects

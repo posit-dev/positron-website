@@ -7,8 +7,10 @@ project:
     - "!install.qmd"
     - "!updating.qmd"
     - "!remote-ssh.qmd"
+    - "!dev-containers.qmd"
     - "!add-to-path.qmd"
   resources:
+    - _redirects
     - "!videos/**"
 
 website:

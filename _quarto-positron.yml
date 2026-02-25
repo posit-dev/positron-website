@@ -1,3 +1,7 @@
+project:
+  resources:
+    - _redirects
+
 website:
   open-graph: true
   bread-crumbs: true
@@ -159,6 +163,7 @@ website:
           contents:
             - folder-templates.qmd
             - remote-ssh.qmd
+            - dev-containers.qmd
         - section: "Interpreters"
           contents:
             - managing-interpreters.qmd
