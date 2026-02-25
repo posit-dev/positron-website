@@ -41,10 +41,10 @@ To stop the app, you can either:
 2. Set breakpoints in the `.py` file by selecting the editor margin.
 
     ![Editor margin area for adding breakpoints](images/run-app-debug-breakpoint.png){fig-alt="Editor showing a red breakpoint dot in the left margin next to a line of Python code."}
-3. Select the **Play** button drop-down context menu and choose **Debug [*{SUPPORTED_APP_TYPE}*] App in Terminal**.  
+3. Select the **Play** button dropdown context menu and choose **Debug [*{SUPPORTED_APP_TYPE}*] App in Terminal**.  
     - For this example, we select **Debug Steamlit App in Terminal**.
 
-    ![Play button drop-down context menu](images/run-app-debug-streamlit.png){fig-alt="Play button dropdown menu showing options including Run Streamlit App in Terminal and Debug Streamlit App in Terminal."}
+    ![Play button dropdown context menu](images/run-app-debug-streamlit.png){fig-alt="Play button dropdown menu showing options including Run Streamlit App in Terminal and Debug Streamlit App in Terminal."}
 
 Then, Positron runs the app in a dedicated **Terminal** tab, opens the app URL in the **Viewer** pane, and starts the app in debug mode.
 

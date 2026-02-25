@@ -66,7 +66,7 @@ You can select the {{<fa plus>}} icon to create a new interpreter session for th
 
 When you delete an interpreter session, the state of the session will be lost, including any variables you've defined.
 
-Select the {{<fa trash-can>}} icon when *hovering* over the **Console** pane list to shut down and dispose of the session.
+Select the {{<fa trash-can>}} icon when holding the pointer over the **Console** pane list to shut down and dispose of the session.
 
 ## Restart an interpreter session
 
