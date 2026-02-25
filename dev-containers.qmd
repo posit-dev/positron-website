@@ -30,7 +30,7 @@ Note that you cannot currently use dev containers in environments that are *alre
 Dev containers are an experimental feature and must be manually enabled. Opt in to the [`dev.containers.enable`](positron://settings/dev.containers.enable) setting to enable the feature.
 :::
 
-![The Dev Containers Enable setting checkbox, marked as Experimental](./images/dev-containers-setting.png){width=578}
+![Dev Containers experimental setting](./images/dev-containers-setting.png){width=578 fig-alt="The Dev Containers Enable setting checkbox, marked as Experimental"}
 
 Or put this in your `settings.json`:
 
@@ -46,7 +46,7 @@ Or put this in your `settings.json`:
 
 Open a folder that contains a `.devcontainer.json` file. You'll see a prompt like this:
 
-![Notification prompting to reopen folder in a container with Reopen in Container button](./images/dev-containers-reopen.png){width=468}
+![Reopen in Container](./images/dev-containers-reopen.png){width=468 fig-alt="Notification prompting to reopen folder in a container with Reopen in Container button"}
 
 Click the notification to reopen in a container.
 
@@ -54,7 +54,7 @@ Alternately, if you've dismissed or disabled the notification, use the command _
 
 ### Attaching to a running container
 
-![Remote Explorer view showing a list of running dev containers with action buttons](./images/dev-containers-remote-explorer.png){width=256}
+![Remote Explorer](./images/dev-containers-remote-explorer.png){width=256 fig-alt="Remote Explorer view showing a list of running dev containers with action buttons"}
 
 1. Open the Remote Explorer view
 2. Expand the "Dev Containers" section
