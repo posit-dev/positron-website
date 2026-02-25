@@ -19,4 +19,4 @@ jobs:
         uses: urlstechie/urlchecker-action@master
         with:
           include_files: _redirects
-          file_types: "_*"
+          file_types: _redirects
