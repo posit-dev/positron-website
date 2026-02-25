@@ -13,11 +13,16 @@ listing:
         icon: "bi-play-circle"
         link: "develop-data-apps.qmd"
         anchor-text: "Develop Data Apps"
-      - title: "Create dynamic, shareable reports"
-        description: "Develop compelling, dynamic reports & presentations using Quarto and Jupyter Notebooks to effectively communicate insights to any stakeholder."
+      - title: "Create dynamic reports with Quarto"
+        description: "Develop compelling, reproducible reports and presentations with Quarto to effectively communicate insights to any stakeholder."
         icon: "bi-file-earmark-text"
         link: "quarto.qmd"
-        anchor-text: "Quarto & Jupyter Notebooks"
+        anchor-text: "Quarto"
+      - title: "Work with Jupyter Notebooks"
+        description: "Get started instantly with our batteries-included Positron Notebook Editor that bridges Jupyter's functionality with IDE capabilities built for data science."
+        icon: "bi-journal-code"
+        link: "positron-notebook-editor.qmd"
+        anchor-text: "Positron Notebook Editor"
       - title: "Accelerate insights with AI-powered assistance"
         description: "Enhance code quality and accelerate insights with integrated AI assistance contextualized for data science."
         icon: "bi-robot"
@@ -27,9 +32,11 @@ listing:
     type: custom
     template: templates/feature-card.ejs
     contents:
-        - title: "Python or R"
-          description: "Code efficiently across multiple languages, whether it's Python or R."
+        - title: "Python and R"
+          description: "Code efficiently with full support for both Python and R in a single, integrated editor."
           icon: "bi-code-slash"
+          link: "language-guides.qmd"
+          anchor-text: "Python and R"
         - title: "Interact with data at scale"
           description: "Explore and manipulate large datasets with intuitive, fast, and interactive data frames."
           icon: "bi-rocket"
@@ -43,6 +50,8 @@ listing:
         - title: "Generate rapid visualizations"
           description: "Create high-quality visualizations quickly to uncover patterns and communicate findings effectively."
           icon: "bi-graph-up"
+          link: "plots-pane.qmd"
+          anchor-text: "Plots Pane"
   - id: features-develop-3
     type: custom
     template: templates/feature-card.ejs
@@ -52,6 +61,7 @@ listing:
         icon: "bi-cloud"
         link: "remote-ssh.qmd"
         anchor-text: "Remote SSH"
+        hide-profiles: [workbench]
       - title: "Manage & explore database connections"
         description: "Create connections to databases, explore their schemas, and interactively preview database tables."
         icon: "bi-database"
@@ -65,12 +75,37 @@ listing:
       - title: "Multi-session console"
         description: "Work across one or multiple consoles for concurrent analysis and development."
         icon: "bi-terminal"
+        link: "managing-interpreters.qmd"
+        anchor-text: "Managing Interpreters"
+      - title: "Publish reports quickly"
+        description: "With a click of a button, seamlessly deploy and share your project with Posit Publisher to Posit Connect and Posit Connect Cloud"
+        icon: "bi-upload"
+        link: "publish-to-connect.qmd"
+        anchor-text: "Publish reports quickly"
+  - id: features-pro-4
+    type: custom
+    template: templates/feature-card.ejs
+    contents:
+      - title: "Enhanced Security"
+        description: "Move development off unmanaged laptops into a secure, server-based environment that integrates with your existing SSO identity providers or data governance tools like AWS, Databricks, and Snowflake."
+        icon: "bi-shield-check"
+        anchor-text: "Enhanced Security"
+      - title: "Scalable Compute"
+        description: "Give data scientists access to powerful servers with more CPU, RAM, and GPUs than their laptops could ever provide."
+        icon: "bi-cpu"
+        anchor-text: "Scalable Compute"
+      - title: "Centralized Management"
+        description: "Administer all your IDEs (Positron, RStudio, VS Code, JupyterLab) in one place, reducing IT overhead and ensuring consistent environments."
+        icon: "bi-gear"
+        anchor-text: "Centralized Management"
+      - title: "Dedicated Support"
+        description: "Get help from Posit experts about how to deploy, maintain, and troubleshoot your Posit Workbench environment."
+        icon: "bi-headset"
+        anchor-text: "Dedicated Support"
         
 ---
 
-::: {.callout-note}
-Interested in Positron for your team? [Learn about enterprise solutions.](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page)
-:::
+{{< include "_enterprise-callout-link.qmd" >}}
 
 ## Bridge the exploration and production divide
 
@@ -100,10 +135,19 @@ Interested in Positron for your team? [Learn about enterprise solutions.](https:
 :::
 
 
+## Enterprise-ready with Positron Pro
+
+For teams that need enterprise-grade capabilities, [Positron Pro](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page) on [Posit Workbench](https://posit.co/products/enterprise/workbench/?utm_source=positron-docs&utm_medium=features-page) provides the scalability, data access, admin configuration, and security your organization requires.
+
+
+{{< video videos/positron-workbench.mp4 >}}
+
+::: {#features-pro-4}
+:::
+
 ## Get started
 
 Join thousands of data scientists who have already made the switch to Positron.
 
-<a href="welcome.qmd" class='btn btn-primary'>Get Started</a>
-
-
+<a href="welcome.qmd" class="btn btn-outline-primary">Get Started</a>
+<a href="https://posit.co/positron-updates-signup/" class="btn btn-outline-primary">Stay Updated</a>

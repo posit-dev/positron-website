@@ -1,0 +1,466 @@
+/*-- scss:defaults --*/
+
+// Import font
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+// Import shared colors
+@import '_posit-colors';
+
+/*-- scss:variables --*/
+
+// ============= COLOR VARIABLES =============
+$primary: $positron-blue;
+$body-color: $posit-dark-gray-2;
+
+// ============= TYPOGRAPHY =============
+// Font families
+$font-family-sans-serif: "Open Sans", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial,
+  sans-serif, system-ui;
+$font-family-monospace: "Source Code Pro", monospace;
+$font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+// Font sizes and properties
+$font-size-base: 1rem;
+$line-height-base: 1.7;
+$headings-font-weight: 400 !default;
+
+// ============= COMPONENT VARIABLES =============
+// Navigation
+$navbar-bg: white;
+$navbar-fg: $posit-light-gray-3;
+$navbar-hl: $primary;
+$navbar-brand: $posit-dark-gray-2;
+$navbar-brand-hl: $navbar-brand;
+$navbar-brand-font-size: 1rem !default;
+
+// Tables
+$table-hover-bg: $posit-light-blue-2 !default;
+$table-striped-bg: $posit-light-blue-1 !default;
+
+// Callouts
+$callout-color-note: $primary;
+$callout-color-warning: $posit-orange;
+$callout-color-important: $posit-burgundy;
+
+/*-- scss:rules --*/
+
+// ============= LAYOUT & STRUCTURE =============
+// Base styles
+body {
+  letter-spacing: -0.2px;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $headings-font-weight !important;
+}
+
+// ============= NAVIGATION =============
+// Navbar
+.navbar {
+  border-bottom: 1px solid $posit-light-blue-1;
+}
+
+.navbar-collapse {
+  margin-left: 2ch;
+}
+
+.navbar-brand img {
+  height: auto !important;
+  width: auto !important;
+  max-height: none !important;
+  max-width: 150px;
+  min-height: 30px;
+}
+
+#top-bar-download-btn {
+  margin-top: -7px;
+}
+
+nav .nav-item:not(.compact) {
+  margin-bottom: -6px !important;
+}
+
+// Sidebar
+div.sidebar-item-container .active,
+div.sidebar-item-container .show > .nav-link,
+div.sidebar-item-container .sidebar-link > code {
+  background-color: lighten($posit-light-blue-1, 10%);
+  border-radius: 5px;
+  margin-bottom: 2px;
+  margin-left: -5px;
+  padding: 6px;
+  font-weight: 500;
+}
+
+// ============= COMPONENTS =============
+// Tabs and pills
+.nav-tabs .nav-link {
+  text-transform: none !important;
+  font-family: $font-family-sans-serif;
+  color: $navbar-fg;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: $primary !important;
+  font-weight: 700 !important;
+}
+
+// Common hover and focus styles for nav links
+.nav-link:hover,
+.nav-link:focus {
+  color: $primary !important;
+  isolation: isolate;
+  border: none !important;
+}
+
+// Tab-specific hover and focus styles
+.nav-tabs .nav-link:hover {
+  color: $primary;
+}
+
+.nav-pills {
+  border: none !important;
+}
+
+.nav-pills,
+.panel-underline {
+  > .nav {
+    display: flex;
+    border: none !important;
+    flex-direction: row;
+    justify-content: center;
+    .nav-link {
+      cursor: pointer;
+    }
+  }
+}
+
+.nav-pills > .nav .nav-link {
+  border: none !important;
+}
+
+.nav-pills,
+.panel-underline {
+  .tab-content {
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+  }
+}
+
+// Active states for pill navigation
+.nav-pills .nav-link.active,
+.nav-pills .nav-item.show .nav-link,
+.nav-pills .show > .nav-link {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+// ============= CODE & SYNTAX =============
+// Code blocks
+div.sourceCode {
+  background-color: lighten($posit-light-gray-3, 55%) !important;
+}
+
+.code-with-filename .code-with-filename-file {
+  padding: .25rem;
+  border: none !important;
+  box-shadow: 0px 0px 2px rgba(5, 10, 15, .14), 0px 2px 4px rgba(29, 31, 33, .16);
+}
+
+div.sourceCode, pre.console {
+  border: none !important;
+  box-shadow: 0px 0px 2px rgba(5, 10, 15, 0.14), 0px 2px 4px rgba(29, 31, 33, .16);
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  padding: .25rem;
+}
+
+// Keyboard shortcuts
+kbd {
+  padding: .2rem .4rem;
+}
+
+// ============= MERMAID DIAGRAMS =============
+[id^="mermaid-"] .cluster rect {
+  fill: #f9f9fb !important;
+  stroke: $posit-dark-blue-2 !important;
+}
+
+[id^="mermaid-"] .node rect {
+  fill: #e6eef6 !important;
+  stroke: $posit-dark-blue-2 !important;
+}
+
+[id^="mermaid-"] .nodeLabel {
+  fill: $posit-dark-blue-2 !important;
+}
+
+[id^="mermaid-"] .edgeLabel p {
+  color: $posit-dark-blue-2 !important;
+}
+
+[id^="mermaid-"] foreignObject:has(.edgeLabel) {
+  background-color: #f9f9fb !important; // Match cluster background
+  border-radius: 8px;
+}
+
+[id^="mermaid-"] p {
+  margin-inline: auto !important;
+  max-width: max-content;
+  border-radius: 8px;
+  padding: 0 0.75rem;
+}
+
+[id^=mermaid-] .labelBkg {
+  background-color: transparent !important;
+}
+
+// ============= CUSTOM CARDS =============
+// Card grid mixins
+@mixin card-grid-base {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.5rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+@mixin card-grid-responsive {
+  @media (min-width: 480px) {
+    gap: 1.25rem;
+    margin: 2rem auto;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 2rem;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+
+  @media (min-width: 1200px) {
+    gap: 2.5rem;
+    padding: 0;
+  }
+}
+
+// Card grid layout
+.custom-card-grid {
+  @include card-grid-base;
+  @include card-grid-responsive;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &.columns-2 {
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+// Features card grid (2 columns max)
+.features-card-grid {
+  @include card-grid-base;
+  @include card-grid-responsive;
+
+  // Features grid stays at 2 columns at all breakpoints
+}
+
+// Card styling
+.custom-card {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(87, 89, 89, 0.08);
+  border: 1px solid $positron-blue;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 480px) {
+  .custom-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-card {
+    padding: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom-card {
+    padding: 2rem;
+  }
+}
+
+.custom-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(87, 89, 89, 0.12);
+}
+
+.custom-card:focus-within {
+  outline: 2px solid $positron-blue;
+  outline-offset: 4px;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(87, 89, 89, 0.12);
+}
+
+// Card content elements
+.custom-card-icon-container {
+  position: relative;
+  margin-bottom: .5rem;
+}
+
+.custom-card-title {
+  margin-bottom: 1rem;
+}
+
+.custom-card-icon {
+  width: 45px;
+  height: 45px;
+  background: $positron-blue;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 480px) {
+  .custom-card-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-card-icon {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom-card-icon {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.custom-card-icon i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.custom-card-description {
+  color: $posit-light-gray-3;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+
+@media (min-width: 480px) {
+  .custom-card-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-card-description {
+    font-size: 1rem;
+  }
+}
+
+// Card link behaviors
+.custom-card-title .anchor-link,
+.custom-card-title .anchor,
+.custom-card-title a[href^="#"] {
+  display: none !important;
+}
+
+.custom-card-wrapper {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.custom-card-wrapper:hover {
+  transform: translateY(-4px);
+}
+
+.custom-card-wrapper:hover .custom-card {
+  box-shadow: 0 8px 30px rgba(87, 89, 89, 0.12);
+  background-color: lighten($posit-light-blue-1, 10%);
+  border-color: $positron-blue;
+}
+
+// ============= MISC ELEMENTS =============
+// Footnotes
+a.footnote-back {
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+// Description - hide from page display but keep in metadata for SEO/social sharing
+.description {
+  display: none !important;
+}
+
+// Footer
+.posit-footer-logo {
+  margin-right: 5px;
+}
+
+// ============= INDEX PAGE =============
+.index-section {
+  text-align: center !important;
+}
+
+.index-section h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.index-section .btn {
+  margin: 0.75rem;
+  padding: 1rem 2rem;
+}
+
+// ============= ICONS =============
+/* Add gear icon before links with href starting with "positron://settings" */
+@font-face {
+  font-family: 'Font Awesome 6 Free - Positron';
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("_extensions/quarto-ext/fontawesome/assets/webfonts/fa-solid-900.woff2");
+}
+
+a[href^="positron://settings"]::before {
+  content: "\f013"; /* Unicode for gear in Font Awesome */
+  font-family: 'Font Awesome 6 Free - Positron';
+  font-weight: 900;
+}

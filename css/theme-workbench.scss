@@ -1,0 +1,12 @@
+/*-- scss:rules --*/
+
+// Disable positron://settings links in Workbench
+// (these links don't work in browser-based Positron)
+a[href^="positron://settings"] {
+  pointer-events: none;
+  text-decoration: none;
+
+  &::before {
+    content: none;
+  }
+}

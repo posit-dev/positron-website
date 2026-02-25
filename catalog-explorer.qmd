@@ -1,0 +1,54 @@
+---
+title: "Catalog Explorer"
+description: "Browse and access data from catalog systems directly in Positron. Explore schemas, tables, and generate code snippets for Python and R."
+---
+
+::: {.callout-note}
+Catalog Explorer is an experimental feature. Opt in via the [`catalogExplorer.enabled`](positron://settings/catalogExplorer.enabled) setting, and restart Positron to apply.
+:::
+
+The Catalog Explorer provides an interface for browsing data in data catalog systems.
+Currently, there is support for Snowflake Horizon Catalogs and Databricks Catalogs.
+You can explore catalogs, schemas, and tables in a tree view, and copy Python and R code snippets to preview data.
+
+## Add a catalog provider
+
+1. Open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}
+2. Run _Catalogs: Add Catalog Provider_
+3. Select your catalog type (e.g., Snowflake, Databricks)
+4. Enter your account credentials
+
+For Snowflake connections, the Catalog Explorer will look for configuration in a [`connections.toml` file](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-connect#connecting-using-the-connections-toml-file).
+The default path is `$SNOWFLAKE_HOME`, but you can configure where this file is saved with the setting [`catalogExplorer.snowflakeConnections`](positron://settings/catalogExplorer.snowflakeConnections).
+
+## Work with tables
+
+The Catalog Explorer differs from the [Connections Pane](connections-pane.qmd) in that it offers a view of many warehouses and tables at once.
+It is particularly useful to browse many different tables quickly before connecting to a specific table.
+In the Catalog Explorer, right-click on a table to:
+
+- **Preview Table in Active Session**: Load a data preview using the active console 
+- **Preview Table with Python**: Copy Python code to access the table and print column names
+- **Preview Table with R**: Copy R code to access the table and print column names
+
+## Work with files
+
+Along with support for tables, the Catalog Explorer also supports previewing and downloading files like CSVs.
+Right-click on a CSV to:
+
+- **Open With...**: Preview file in the [Data Explorer](data-explorer.qmd)
+- **Download File in Active Session**: Download file locally to your machine using the active console
+- **Copy Path**: Copy path to file, based on location in your catalog
+- **Download File with R**: Download file locally to your machine using an active R console
+- **Download File with Python**: Download file locally to your machine using an active Python console
+
+## Remove a catalog provider
+
+Click the trash icon next to a provider name to remove it, or run _Catalogs: Remove Catalog Provider_ from the Command Palette.
+
+## Settings
+
+| Setting | Description |
+|---------|-------------|
+| [`catalogExplorer.enabled`](positron://settings/catalogExplorer.enabled) | Enable or disable Catalog Explorer. Requires a restart. |
+| [`catalogExplorer.snowflakeConnections`](positron://settings/catalogExplorer.snowflakeConnections) | Path to the Snowflake connections directory containing `connections.toml`. Defaults to `$SNOWFLAKE_HOME`. |

@@ -1,0 +1,56 @@
+---
+title: "Completions"
+description: "Boost your productivity with AI code suggestions via Github Copilot completions. Inline suggestions support faster coding in Python, R, and more."
+---
+
+Code completions are text suggestions that appear inline as you type in an editor. These suggestions can be lines or blocks of code based on the context of what you're writing. Other names for code completions include inline suggestions, ghost text, or inline completions.
+
+::: {.callout-tip}
+Completions are powered by **GitHub Copilot**. Ensure you've [added GitHub Copilot as a language model provider](assistant-getting-started.qmd#add-github-copilot-as-a-language-model-provider).
+:::
+
+## Using code completions
+
+When code completions are available, you'll see ghost text appear in your editor as you type. The ghost text represents the suggested completion.
+
+Interact with suggestions by:
+
+- Pressing the {{< kbd Tab >}} key to accept the entire suggestion.
+- Pressing {{< kbd mac=Command-→ win=Ctrl-→ linux=Ctrl-→ >}} to accept the suggestion word-by-word for a single line suggestion, or line-by-line for multi-line suggestions.
+- Pressing {{< kbd Esc >}} or continuing to type to dismiss the suggestion.
+
+If you are not receiving suggestions:
+
+- Check if you've enabled inline completions in the settings (see [Settings](#settings) below).
+- Check that completions aren't snoozed (paused). If they are, you can either wait for the snooze period to end or cancel the snooze.
+- Make sure you are authenticated with GitHub Copilot in the [language model provider configuration](assistant-getting-started.qmd#add-github-copilot-as-a-language-model-provider).
+- Refer to the [Troubleshooting](assistant-troubleshooting.qmd) guide for more help.
+
+To learn more about GitHub Copilot code completions, visit the GitHub Copilot [inline suggestions](https://code.visualstudio.com/docs/copilot/ai-powered-suggestions#_getting-your-first-suggestions) documentation. Note that we do not currently support Next Edit Suggestions (NES) in Positron Assistant.
+
+## Commands
+
+| Command | Description |
+| --- | --- |
+| _Positron Assistant: Toggle (Enable/Disable) Completions_ | Enable or disable code completions from Positron Assistant altogether. |
+| _Snooze Inline Suggestions_ | Pause code completions temporarily for a specified duration. |
+| _Cancel Snooze Inline Suggestions_ | Resume code completions immediately if they have been snoozed. |
+
+## Settings
+
+- [`positron.assistant.inlineCompletions.enable`](positron://settings/positron.assistant.inlineCompletions.enable): Enable or disable code completions altogether.
+
+- [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes): Files matching these patterns will not have their contents sent to AI providers for inline completions or chat context.
+
+- [`editor.inlineSuggest.minShowDelay`](positron://settings/editor.inlineSuggest.minShowDelay): Delay in milliseconds before showing inline suggestions. For example, setting this to `500` will show suggestions half a second after typing.
+
+## Status bar icon
+
+The Assistant status bar icon indicates the current state of code completions from Positron Assistant.
+
+![Assistant status bar icon](images/assistant-status-bar-icon.png){width=750}
+
+To manage code completions using the status bar icon:
+
+1. Click the status bar icon to open the popup.
+2. From the popup, you can enable or disable completions for the current file type, or for all files, or view the remaining time for snoozed completions.

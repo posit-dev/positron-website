@@ -1,5 +1,6 @@
 ---
 title: "Data Explorer"
+description: "Explore dataframes and data files in a spreadsheet-like grid with filtering, sorting, and summary statistics. View CSV, Parquet, and in-memory data interactively."
 ---
 
 The Data Explorer is designed to complement code-first exploration of data,
@@ -14,50 +15,29 @@ Positron workspace as well as dataframes in your active Python or R sessions.
 
 The Data Explorer has three primary components:
 
-* **[Data grid](data-explorer-data-grid.qmd):** Spreadsheet-like display of the individual cells and columns, as well as sorting
-* **[Summary panel](data-explorer-summary-panel.qmd):** Column name, type, and missing data percentage for each column
+* **[Data grid](data-explorer-data-grid.qmd):** Spreadsheet-like display of the individual cells and columns
+* **[Summary panel](data-explorer-summary-panel.qmd):** Summary statistics for each column in the dataset
 * **[Filter bar](data-explorer-filter-bar.qmd):** Ephemeral filters for specific columns
 
-![Data Explorer](images/data-explorer.png){fig-alt="Data explorer displaying filtered flight data with highlights. Left column shows column distribution and summary statistics. Main section lists data in a table. Top section shows filters such as year = 2013, month >= 2, and month is not null."}
+![Data Explorer](images/data-explorer.png){fig-alt="Data explorer displaying filtered flight data. Left column shows column distribution and summary statistics. Main section lists data in a table sorted by month in ascending order. Top section shows filters such as dep_time is not missing, month > 1."}
 
 ## Opening the Data Explorer
 
-There are a few ways to open the Data Explorer. If you want to look at data you
-have loaded into memory already, you can navigate to the Variables Pane and
-click on the table icon for a specific dataframe object.
-
-![Data Explorer from the Variables Pane](images/data-explorer-variables.png){width=700 fig-alt="Variables pane interface showing data frame named df with expanded columns year, month, day, dep_time, sched_dep_time. In top row next to variable name and [336776 rows x 19 columns], a table icon is highlighted."}
+There are a few ways to open the Data Explorer. If you want to look at data you have loaded into memory already, you can navigate to the [Variables Pane](variables-pane.qmd) and click on the {{< fa table >}} icon for a specific dataframe object.
 
 Using code or the console, you can also run one of the following commands:
 
 * In Python: `%view dataframe label`
 * In R: `View(dataframe, "label")`
 
-In Python, the `%view` magic can also be used with expressions, for example
-`%view df[df['column'] > 10]`. In R, the `View` function can be composed
-with expressions using pipe syntax:
+In Python, the `%view` magic can also be used with expressions, for example `%view df[df['column'] > 10]`. In R, the `View` function can be composed with expressions using pipe syntax:
 
 ```r
 df |> mutate(doubled_column = column * 2) |> View()
 ```
 
-Directly opening `.csv`, `.tsv`, and `.parquet` files (using DuckDB) is
-supported by clicking on a file in the File Explorer or using the Command
-Palette. GZIP-compressed CSV files ending in `.gz` can also be opened. We may
-add support for more file types in the future.
-
-![Data Explorer from the Files Pane](images/data-explorer-files-in-env.png){width=300 fig-alt="File explorer window showing a directory named 'POSITRON-ENV-EXAMPLE' with three files: 'air_quality_sample.csv,' 'flights.parquet,' and 'test.csv.gz.'"}
+Directly opening `.csv`, `.tsv`, and `.parquet` files (using DuckDB) is supported by clicking on a file in the File Explorer or using the Command Palette.^[Use the **File Options** button in the action bar to configure how a `.csv` or `.tsv` file is parsed by DuckDB.] GZIP-compressed CSV files ending in `.gz` can also be opened. We may add support for more file types in the future.
 
 ### Opening CSV files as plain text
 
-After opening a CSV file in the Data Explorer, if you need to view the file in
-the text editor, click on the "Open as Plain Text File" option in the top action
-bar:
-
-![Data Explorer Open as Plain Text](images/data-explorer-open-as-plain-text.png){width=300 fig-alt="Data explorer editor tab showing a file named 'air_quality_sample.csv.' An option to 'Open as Plain Text File' is highlighted in orange below file name."}
-
-#### Learn more
-
-* **[Data grid](data-explorer-data-grid.qmd):** Spreadsheet-like display of the individual cells and columns, as well as sorting
-* **[Summary panel](data-explorer-summary-panel.qmd):** Column name, type and missing data percentage for each column
-* **[Filter bar](data-explorer-filter-bar.qmd):** Ephemeral filters for specific columns
+After opening a CSV file in the Data Explorer, if you need to view the file in the text editor, click on the **Open as Plain Text File** option in the top action bar.

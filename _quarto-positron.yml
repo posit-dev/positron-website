@@ -1,0 +1,220 @@
+project:
+  resources:
+    - _redirects
+
+website:
+  open-graph: true
+  bread-crumbs: true
+  page-navigation: true
+  favicon: "images/favicon.svg"
+  image: "images/positron-social.png"
+  search:
+    copy-button: true
+    show-item-context: true
+    keyboard-shortcut: ["?", "H"]
+    algolia: 
+      index-name: positron-site-default
+      application-id: 4IQWY8RZ9P
+      search-only-api-key: 401a594b2604f56c43959eaee6dd6f35
+      show-logo: true
+  site-url: https://positron.posit.co
+  repo-url: https://github.com/posit-dev/positron-website
+  issue-url: https://github.com/posit-dev/positron/issues/
+  repo-actions: [edit, source, issue]
+
+  page-footer:
+    left:
+      - text: "<img class='posit-footer-logo' alt='Posit' src='images/posit-logo-black-TM.svg'>Copyright &copy; 2022-2026 Posit Software, PBC. All Rights Reserved."
+        href: "https://posit.co/"
+    center: "Positron {{< env RELEASE_VERSION >}}"
+    right:
+      - text: "Support"
+        href: "https://support.posit.co/"
+      - text: "License"
+        href: licensing.qmd
+      - text: "Privacy Policy"
+        aria-label: "Link to Privacy Policy"
+        href: "https://posit.co/about/privacy-policy/"
+
+  navbar:
+    pinned: true
+    logo: "assets/images/positron-logo_fullcolor-TM.png"
+    logo-alt: "Positron Documentation"
+    title: false
+
+    left:
+      - text: "Features"
+        href: features.qmd
+      - text: "Guides"
+        href: welcome.qmd
+      - text: "Help"
+        href: troubleshooting.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "Resources"
+        menu:
+          - text: "Sign up for updates"
+            href: https://posit.co/positron-updates-signup/
+            target: _blank
+            icon: envelope
+          - text: "Blog Posts"
+            icon: box-arrow-up-right
+            href: https://posit.co/blog/?post_tag=positron  
+            target: _blank
+          - text: "Events"
+            icon: calendar-event
+            href: https://posit.co/events/?search=positron&poststatus=all
+            target: _blank
+      
+    right:
+      - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
+        href: download.qmd
+      - icon: github
+        aria-label: 'Link to Positron Github Repository'
+        href: https://github.com/posit-dev/positron
+    
+  sidebar:
+    - title: "Guides"
+      style: "docked"
+      contents:
+        - section: "Getting Started"
+          href: welcome.qmd
+          contents:
+            - welcome.qmd
+            - install.qmd
+            - download.qmd
+        - section: "Configuration"
+          contents:
+            - keyboard-shortcuts.qmd
+            - add-to-path.qmd
+            - git.qmd
+            - extensions.qmd
+            - updating.qmd
+        - section: "User Interface"
+          href: layout.qmd
+          contents:
+            - layout.qmd
+            - command-palette.qmd
+            - action-bars.qmd
+            - help-pane.qmd
+        - section: "AI Tools"
+          contents:
+            - section: "Positron Assistant"
+              href: assistant.qmd
+              contents:
+              - text: "Overview"
+                href: assistant.qmd
+              - assistant-getting-started.qmd
+              - section: "Chat"
+                href: assistant-chat.qmd
+                contents:
+                  - text: "Overview"
+                    href: assistant-chat.qmd
+                  - href: assistant-chat-agents.qmd
+                  - href: assistant-chat-context.qmd
+                  - href: assistant-chat-commands-participants.qmd
+                  - href: assistant-chat-instructions.qmd
+              - assistant-completions.qmd
+              - assistant-troubleshooting.qmd
+              - assistant-tips.qmd
+              - assistant-provider-info.qmd
+            - databot.qmd
+        - section: "Language Guides"
+          href: language-guides.qmd
+          contents:
+            - text: "Overview"
+              href: language-guides.qmd
+            - guide-python.qmd
+            - section: "R in Positron"
+              href: guide-r.qmd
+              contents:
+              - guide-r.qmd
+              - guide-r-air.qmd
+        - section: "Data Analysis"
+          contents:
+            - section: "Data Explorer"
+              href: data-explorer.qmd
+              contents:
+              - text: "Overview"
+                href: data-explorer.qmd
+              - data-explorer-data-grid.qmd
+              - data-explorer-filter-bar.qmd
+              - data-explorer-summary-panel.qmd
+            - variables-pane.qmd
+            - plots-pane.qmd
+        - section: "Database Connections"
+          contents:
+            - connections-pane.qmd
+            - extending-connections.qmd 
+            - catalog-explorer.qmd
+        - section: "Dynamic Documents and Apps"
+          contents:
+            - quarto.qmd
+            - section: "Jupyter Notebooks"
+              href: jupyter-notebooks.qmd
+              contents:
+                - text: "Overview"
+                  href: jupyter-notebooks.qmd
+                - positron-notebook-editor.qmd
+                - legacy-notebook-editor.qmd
+            - develop-data-apps.qmd
+            - publish-to-connect.qmd
+        - section: "Workspaces"
+          contents:
+            - folder-templates.qmd
+            - remote-ssh.qmd
+            - dev-containers.qmd
+        - section: "Interpreters"
+          contents:
+            - managing-interpreters.qmd
+            - interpreter-startup.qmd
+            - section: "Language-Specific Setup"
+              contents:
+                - python-installations.qmd
+                - guide-r-debugging.qmd
+                - r-installations.qmd
+                - reticulate.qmd
+        - section: "Migration Guides"
+          contents:
+          - text: "Migrating from VS Code"
+            href: migrate-vscode.qmd
+          - section: "Migrating from RStudio"
+            contents:
+            - migrate-rstudio.qmd
+            - migrate-rstudio-keybindings.qmd
+            - migrate-rstudio-settings-and-extensions.qmd
+            - migrate-rstudio-snippets.qmd
+            - migrate-rstudio-rproj.qmd
+            - migrate-rstudio-compare.qmd
+        - section: "Extending Positron"  
+          contents:
+          - extension-development.qmd
+    - title: "Help"
+      style: "docked"
+      contents:
+        - troubleshooting.qmd
+        - faqs.qmd
+        - feedback.qmd
+    - title: "About"
+      style: "docked"
+      contents:
+        - about.qmd
+        - release-notes.qmd
+        - privacy.qmd
+        - licensing.qmd
+    
+
+format:
+  html:
+    theme: css/theme.scss
+    highlight-style:
+      light: github
+    lightbox: true
+    code-copy: true
+    toc: true
+    toc-expand: true
+    include-in-header:
+      - text: |
+          <script defer file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
+
+show-videos: true

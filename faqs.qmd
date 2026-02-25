@@ -1,7 +1,7 @@
 ---
 title: "Frequently Asked Questions"
+description: "Get answers to common questions about Positron: supported languages, RStudio differences, enterprise options, and more."
 ---
-<!-- vale Posit.Contractions = NO -->
 
 ### What programming languages are supported in Positron?
 
@@ -12,17 +12,19 @@ title: "Frequently Asked Questions"
 
 ### How is Positron different from RStudio, VS Code, or Jupyter notebooks?
 
-* Positron has first-class, built-in support for R and/or Python via an integrated Console, with extensibility options for other languages in the future. This native support includes specialized views and panes throughout Positron such as a [Data Explorer](/data-explorer.qmd), [Connections Pane](connections-pane.qmd), Variables Pane, and more.
+* Positron has first-class, built-in support for R and/or Python via an integrated Console, with extensibility options for other languages in the future. This native support includes specialized views and panes throughout Positron such as a [Data Explorer](/data-explorer.qmd), [Connections Pane](connections-pane.qmd), [Variables Pane](variables-pane.qmd), and more.
 * Positron runs the interpreter separately from the IDE, so unlike in RStudio a crash in R/Python won't always crash the IDE. It also means that you can swap between versions of your preferred language on the fly without a full reload of the IDE, just the integrated console.
 * Positron supports VS Code compatible extensions (`.vsix` files), providing extensibility of capabilities beyond the core IDE itself. By building on Code OSS, Positron gets rich text editor capabilities and access to 1,000s of community extensions out of the box. [Read more about using extensions with Positron](/extensions.qmd).
 * Positron is deeply focused on native data science workflows; it provides a batteries-included and cohesive experience beyond that of a general-purpose IDE or text editor such as VS Code. 
 * Positron Assistant is our native GenAI client and offers novel data science and Positron-specific context compared to other IDE AI tooling. We provide a data-science-centric IDE and allow the LLM to interact with the most important parts of Positron to get better context for better results! This includes providing optional information such as the active R/Python session state, defined dataframe or other objects, viewing plots from the plots pane, and the console inputs and outputs.   
 
+::: {.content-visible unless-profile="workbench"}
 ### How can I use Positron with a server?
 
 * Positron is available as a free desktop app for Windows, MacOS, and Linux. This desktop app includes [support for remote SSH sessions](remote-ssh.qmd), allowing you to connect to remote Linux servers for scaling or data access purposes.  
 * The native browser or server-based version of Positron is only available via [Posit Workbench](https://posit.co/products/enterprise/workbench/). Posit Workbench provides enterprise-grade features such as access to highly scalable compute, single-sign on security, native authorization to data governance tools such as Databricks or Snowflake, container-backed sessions, multi-session capabilities, and more.
-* We currently only support Remote SSH and Posit Workbench features on RHEL 9 and Ubuntu 22/24. However, we plan to expand this set of Linux distributions later in 2025, including adding support for RHEL 8 for Remote SSH servers and Positron Pro on Posit Workbench.
+* We currently only support Remote SSH and Posit Workbench features on RHEL 8, 9, and 10 and Ubuntu 22/24. However, we plan to expand this set of Linux distributions in the future. Full Posit Team platform support is available on the [Posit Platform Support page](https://docs.posit.co/platform-support.html#positron-pro-sessions-in-workbench).
+:::
 
 ### Why build a new IDE rather than VS Code extensions?
 
@@ -41,13 +43,10 @@ title: "Frequently Asked Questions"
   * RStudio is extensible only via RStudio add-ins, and while Positron supports some of the same, existing RStudio add-ins, not all are supported. Rather than doubling down on the more limited RStudio add-in capabilities for novel integrations, we suggest exploring [extension development and our Positron API endpoints](extension-development.qmd).    
   * We do _not_ plan to have a `.Rproj` equivalent for Positron (e.g. a `.positronproj`), but rather Positron can open and treat any folder as a "project" or workspace. We still suggest project-oriented workflows, and for more context, please see: [Migrating from RStudio: The Rproj File](migrate-rstudio-rproj.qmd).    
 
-### I'm coming from RStudio, and Positron's keybindings are too different
-
-* Check out the [RStudio Keybindings](migrate-rstudio-keybindings.qmd) section of our documentation.
-* To opt in to these RStudio-like keybindings, enable the [`workbench.keybindings.rstudioKeybindings` setting](positron://settings/workbench.keybindings.rstudioKeybindings).
-
+::: {.content-visible unless-profile="workbench"}
 ### How can I use Positron in an educational setting?
 
 * Under [Positron's Elastic license](https://positron.posit.co/licensing.html), individual students are free to install and use the software for any purpose.  
 * Posit provides [free teaching licenses of Posit Workbench](https://posit.co/pricing/academic/), which includes Positron Pro for browser-based access by multiple users. In addition to Posit Workbench, when the functionality is available, we will permit qualified academic institutions to host Positron as a service for their currently enrolled students solely for educational purposes in connection with their coursework via a free teaching license.
 * Please reach out to [academic-licenses@posit.co](mailto:academic-licenses@posit.co) and indicate your interest in Positron if you have further questions.  
+:::

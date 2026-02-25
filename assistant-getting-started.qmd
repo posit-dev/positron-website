@@ -1,0 +1,268 @@
+---
+title: "Getting Started"
+description: "Configure and customize Positron Assistant by connecting it to your preferred AI model provider, such as Anthropic or GitHub Copilot. Choose the exact LLM provider that fits your workflow and security needs."
+listing:
+  - id: chat-features
+    type: custom
+    template: templates/welcome-card.ejs
+    contents:
+      - title: "Chat pane"
+        description: "A dedicated AI chat pane for coding, troubleshooting, and planning."
+        icon: "bi-chat-text"
+        link: "assistant-chat.qmd#chat-pane"
+      - title: "Inline chat"
+        description: "In-context AI assistance within your code Editor, Notebook, or Terminal."
+        icon: "bi-chat-square-text"
+        link: "assistant-chat.qmd#inline-chat"
+      - title: "Code completions"
+        description: "Receive code suggestions directly in your Editor or Notebook."
+        icon: "bi-cursor-text"
+        link: "assistant-completions.qmd"
+---
+
+Positron Assistant supports the following language model providers:
+
+| Provider | Chat | Code Completions | Authentication |
+|------|:--:|:---:|---------|
+| Anthropic | {{< fa check >}} | | API Key |
+| GitHub Copilot (Preview) | {{< fa check >}} | {{< fa check >}} | GitHub OAuth |
+| Amazon Bedrock (Preview) | {{< fa check >}} | | AWS CLI or Posit Workbench Managed Credentials |
+| Snowflake Cortex (Preview) | {{< fa check >}} | | API Key or Posit Workbench Managed Credentials |
+| OpenAI (Preview) | {{< fa check >}} | | API Key |
+| Custom Provider (Experimental) | {{< fa check >}} | | API Key |
+
+We're actively expanding provider support and welcome your [feedback](https://github.com/posit-dev/positron/discussions) and [issue reports](https://github.com/posit-dev/positron/issues/new/choose)!
+
+Please ensure you consult your provider's privacy policy for information on the data they collect and how it is used. For reference links, see the [Positron Assistant Provider Information](assistant-provider-info.qmd) guide.
+
+{{< include _privacy-link.qmd >}}
+
+## Step 1: Enable Positron Assistant
+
+1. Enable the setting [`positron.assistant.enable`](positron://settings/positron.assistant.enable).
+1. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
+
+## Step 2: Configure language model providers
+
+::: {.panel-tabset group="providers"}
+
+## Anthropic
+
+::: {.callout-important}
+Positron Assistant requires a **Claude Console account with API access**. See Anthropic's [Claude API and Console](https://support.claude.com/en/collections/5370014-claude-api-and-console) documentation for more information.
+
+Positron Assistant **does not** support logging into Anthropic with the Claude Pro Plan, Max Plan, or other Claude subscription plans.
+
+<details>
+<summary>How to get an Anthropic API key</summary>
+
+To use Anthropic's Claude models in Positron Assistant, you need to bring your own API key (BYOK). To obtain an API key from Anthropic:
+
+1. Log in to or create an account for Anthropic's [Claude Console](https://platform.claude.com).
+1. Navigate to the [API keys](https://platform.claude.com/settings/keys) management page.
+1. Click the {{< fa plus >}} **Create Key** button.
+1. Fill out any required information and click **Add** to generate your API key.
+1. Copy and save the API key to a password manager or another secure location.
+
+</details>
+:::
+
+### Add Anthropic as a language model provider
+
+1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Select **Anthropic** as the model provider.
+
+    ![Anthropic selected in provider modal](images/assistant-provider-modal-anthropic.png){width=600}
+
+1. Paste your Claude Console API key into the input field and click **Sign in**.
+
+::: {.callout-tip}
+Alternatively, set the `ANTHROPIC_API_KEY` environment variable to authenticate with Anthropic in Positron Assistant.
+:::
+
+## GitHub Copilot
+
+::: {.callout-important}
+Positron Assistant requires a **GitHub account with Copilot enabled**.
+
+<details>
+<summary>How to get GitHub Copilot access</summary>
+
+GitHub Copilot is a proprietary tool from GitHub. If you want to use GitHub Copilot, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account or to be assigned a seat by an organization with a subscription for GitHub Copilot for Business.
+
+Students and faculty can use GitHub Copilot for free as part of the GitHub Education program. For more information, see the [GitHub Education page](https://education.github.com/).
+
+</details>
+:::
+
+### Add GitHub Copilot as a language model provider
+
+1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Select **GitHub Copilot** as the model provider.
+
+    ![GitHub Copilot selected in provider modal](images/assistant-provider-modal-github-copilot.png){width=600}
+
+1. Click the **Sign in** button to initiate GitHub's OAuth authentication flow.
+    - Complete the authentication flow in your browser, and return to Positron when finished.
+
+::: {.callout-tip}
+You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon in the Activity Bar. To sign out, use the Accounts icon or run the _Accounts: Manage Accounts_ command.
+
+Note that the Accounts section manages your GitHub authentication for all extensions that use GitHub, not just Positron Assistant.
+:::
+
+## Amazon Bedrock
+
+::: {.callout-important}
+To use Amazon Bedrock in Positron Desktop, Positron Assistant requires an **AWS account with Amazon Bedrock access**, and you must be signed in using the AWS CLI.
+
+<details>
+<summary>Login with the AWS CLI</summary>
+
+1. [Download and install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+1. [Configure your AWS credentials for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+1. [Login with the AWS CLI](https://docs.aws.amazon.com/signin/latest/userguide/command-line-sign-in.html)
+
+</details>
+
+:::
+
+### Enable Amazon Bedrock as a provider
+
+Amazon Bedrock provider support is currently in **preview** and must be manually enabled.
+
+Run the command _Preferences: Open User Settings (JSON)_ and add the following to your settings file:
+
+```{.json filename="settings.json"}
+"positron.assistant.enabledProviders": [
+    "amazon-bedrock"
+]
+```
+
+### (Optional) Configure AWS region and profile
+
+By default, Positron Assistant uses the `default` AWS CLI profile and the `us-east-1` region to connect to Amazon Bedrock.
+
+To specify a different AWS CLI profile or region, update the [`positron.assistant.providerVariables.bedrock`](positron://settings/positron.assistant.providerVariables.bedrock) setting.
+
+### Add Amazon Bedrock as a language model provider
+
+1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Select **Amazon Bedrock** as the model provider.
+
+    ![Amazon Bedrock selected in provider modal](images/assistant-provider-modal-amazon-bedrock.png){width=600}
+
+1. Click **Sign in** so Positron Assistant can verify your AWS CLI authentication.
+
+## Snowflake Cortex
+
+::: {.callout-important}
+
+To use Snowflake Cortex in Positron Desktop, Positron Assistant requires a **Snowflake account with Cortex access**, as well as a Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier) and [programmatic access token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) (PAT).
+
+:::
+
+### Enable Snowflake Cortex as a provider
+
+Snowflake Cortex provider support is currently in **preview** and must be manually enabled.
+
+Run the command _Preferences: Open User Settings (JSON)_ and add the following to your settings file:
+
+```{.json filename="settings.json"}
+"positron.assistant.enabledProviders": [
+    "snowflake-cortex"
+]
+```
+
+### Add Snowflake Cortex as a language model provider
+
+1. Add your `SNOWFLAKE_ACCOUNT` ID to the [`positron.assistant.providerVariables.snowflake`](positron://settings/positron.assistant.providerVariables.snowflake) setting
+1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Select **Snowflake Cortex** as the model provider.
+
+    ![Snowflake Cortex selected in provider modal](images/assistant-provider-modal-snowflake-cortex.png){width=600}
+
+1. Paste your Snowflake Cortex PAT into the API key field, then click **Sign in**.
+
+## OpenAI
+
+### Enable OpenAI as a provider
+
+OpenAI provider support is currently in **preview** and must be manually enabled.
+
+Run the command _Preferences: Open User Settings (JSON)_ and add the following to your settings file:
+
+```{.json filename="settings.json"}
+"positron.assistant.enabledProviders": [
+    "openai-api"
+]
+```
+
+### Add OpenAI as a language model provider
+
+1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Select **OpenAI** as the model provider.
+
+    ![OpenAI selected in provider modal](images/assistant-provider-modal-openai.png){width=600}
+
+1. Paste your OpenAI API key into the input field and click **Sign in**.
+
+::: {.callout-tip}
+
+Use the OpenAI provider to connect to a provider that implements the [OpenAI Responses API](https://platform.openai.com/docs/api-reference/responses), by replacing the base URL with your compatible custom endpoint.
+
+:::
+
+## Custom Provider
+
+::: {.callout-important}
+
+Positron Assistant's custom provider support is intended for use with any [OpenAI-compatible](https://ai-sdk.dev/providers/openai-compatible-providers) API endpoint that uses the `/v1/chat/completions` endpoint for chat.
+
+At this time, we don't recommend using a local model as a custom provider. Read more about why [local models are not there (yet)](https://posit.co/blog/local-models-are-not-there-yet/) on Posit's blog.
+
+:::
+
+### Enable Custom Provider as a provider
+
+Custom provider support is currently **experimental** and must be manually enabled.
+
+Run the command _Preferences: Open User Settings (JSON)_ and add the following to your settings file:
+
+```{.json filename="settings.json"}
+"positron.assistant.enabledProviders": [
+    "openai-compatible"
+]
+```
+
+### Add Custom Provider as a language model provider
+
+1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Select **Custom Provider** as the model provider.
+
+    ![Custom Provider selected in provider modal](images/assistant-provider-modal-custom-provider.png){width=600}
+
+1. Enter your API key and base URL into the input fields and click **Sign in**.
+
+::: {.callout-tip}
+
+Some OpenAI-compatible providers may not implement the `/models` endpoint, which Positron Assistant uses to list available models. If this is the case for your provider, you can manually configure a model listing using the [`positron.assistant.models.custom`](positron://settings/positron.assistant.models.custom) setting.
+
+:::
+
+:::
+
+## Step 3: Use Positron Assistant!
+
+Once you've authenticated with at least one language model provider, you're all set to use Positron Assistant.
+
+1. Click on the chat robot icon in the sidebar, or run the command _Chat: Open Chat_ in the Command Palette to open the chat:
+
+    ![Assistant Sidebar Icon](images/assistant-sidebar-icon.png){height=450}
+
+1. Chat with Assistant by typing your question or request in the chat input box at the bottom of the chat pane, then pressing {{< kbd Enter >}} or the {{< fa paper-plane regular >}} send button.
+
+To learn more about Positron Assistant's core features, check out the following guides:
+
+::: {#chat-features}
+:::

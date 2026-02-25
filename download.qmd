@@ -1,5 +1,6 @@
 ---
 title: "Download Positron"
+description: "Download Positron for Windows, macOS, or Linux. Free data science IDE supporting Python and R with automatic updates included."
 format:
   html:
     include-in-header:
@@ -11,17 +12,15 @@ format:
 
 Find out what you need to know before you [install](install.qmd) Positron, then download the desktop installer for your platform.
 
-::: callout-important
+:::: callout-important
 ## Accept license agreement
 
 Please review [Positron's license agreement](licensing.qmd) and [privacy policy](https://posit.co/about/privacy-policy/). Your acceptance of this license agreement and privacy policy is required as a condition to proceeding with your download or use of the software.
 
-<div id="privacy-policy-agreement">
-  <input type="checkbox" id="privacy-checkbox" onclick="updatePrivacy(this)">
-  <label>I agree to the [Positron license agreement](licensing.qmd) and [Posit Privacy Policy](https://posit.co/about/privacy-policy/).</label>
-</div>
+::: {#privacy-policy-agreement}
+<input type="checkbox" id="privacy-checkbox" onclick="updatePrivacy(this)"> <label>I agree to the [Positron license agreement](licensing.qmd) and [Posit Privacy Policy](https://posit.co/about/privacy-policy/).</label>
 :::
-
+::::
 
 ```{r, id='download-table'}
 #| echo: false
@@ -44,9 +43,8 @@ cdn_url <- "https://cdn.posit.co/positron/releases/" # Keep this in sync with cd
 # to ensure that we are constructing these URLs consistently in both places.
 #######################################################################################
 
-windows_system <- glue("Positron-{release_version}-Setup.exe")
-windows_user <- glue("Positron-{release_version}-UserSetup.exe")
-macos_universal <- glue("Positron-{release_version}-universal.dmg")
+windows_system <- glue("Positron-{release_version}-Setup-x64.exe")
+windows_user <- glue("Positron-{release_version}-UserSetup-x64.exe")
 macos_arm64 <- glue("Positron-{release_version}-arm64.dmg")
 macos_x64 <- glue("Positron-{release_version}-x64.dmg")
 debian_x64 <- glue("Positron-{release_version}-x64.deb")
@@ -56,7 +54,6 @@ redhat_arm <- glue("Positron-{release_version}-arm64.rpm")
 urls <- list(
   glue("{cdn_url}win/x86_64/{windows_system}"),
   glue("{cdn_url}win/x86_64/{windows_user}"),
-  glue("{cdn_url}mac/universal/{macos_universal}"),
   glue("{cdn_url}mac/arm64/{macos_arm64}"),
   glue("{cdn_url}mac/x64/{macos_x64}"),
   glue("{cdn_url}deb/x86_64/{debian_x64}"),
@@ -74,7 +71,6 @@ checksum_data <- rlang::try_fetch(
 all_installers <- list(
   windows_system,
   windows_user,
-  macos_universal,
   macos_arm64,
   macos_x64,
   debian_x64,
@@ -99,7 +95,6 @@ download_table <- data.frame(
   Platform = c(
     "Windows 10, 11 x64 (system level install)",
     "Windows 10, 11 x64 (user level install)",
-    "MacOS 11.0+ (universal)",
     "MacOS 11.0+ (arm64/Apple Silicon)",
     "MacOS 11.0+ (x64/Intel)",
     "Debian-based Linux x64 (Ubuntu 20+)",
@@ -124,14 +119,21 @@ knitr::kable(download_table, format = "html", escape = FALSE)
 
 Once you install Positron, it will [automatically check for updates moving forward](updating.qmd).
 
+::: {.callout-tip}
+## Stay in the loop
+Want to be notified about upcoming releases, new features, and community events? [Sign up for Positron updates](https://posit.co/positron-updates-signup/).
+:::
+
 ## Positron Pro on Posit Workbench
 
 [Posit Workbench](https://posit.co/products/enterprise/workbench/) 2025.09.0 and later includes support for Positron Pro. To configure and use Positron Pro on Posit Workbench, please see the [Posit Workbench Administration Guide](https://docs.posit.co/ide/server-pro/positron_sessions/) and the [Positron Pro user guide](https://docs.posit.co/ide/server-pro/user/positron/getting-started/).
 
 ## Release notes
 
+The current release of Positron is {{< env RELEASE_VERSION >}}.
+
 {{< include release-notes/release.md >}}
 
 ## Older releases
 
-Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases), and you can also find the [release notes for previous versions](release-notes.qmd).
+Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases), and you can also find the [release notes for previous versions](release-notes.qmd#older-releases).

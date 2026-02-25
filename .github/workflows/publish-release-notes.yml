@@ -3,9 +3,13 @@ on:
     inputs:
       release_channel:
         description: 'Release channel to publish to (e.g., "releases", "dailies", "staging")'
+        options:
+          - dailies
+          - staging
+          - releases
+        default: releases
         required: true
-        default: 'releases'
-        type: string
+        type: choice
 
 name: Publish Release Notes
 
@@ -33,7 +37,7 @@ jobs:
 
       - name: Upload Release Notes to S3
         run: |
-          S3_PREFIX="s3://posit-positron-downloads/positron/${{ inputs.release_channel}}"
+          S3_PREFIX="s3://posit-positron-downloads/positron/${{ inputs.release_channel }}"
           aws s3 cp "${GITHUB_WORKSPACE}/release-notes/next.md" "${S3_PREFIX}/release-notes/release-${{ steps.get-next-release.outputs.next_release }}.md" --no-progress
 
       - name: Configure AWS Credentials for CloudFront
@@ -46,5 +50,4 @@ jobs:
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.AWS_CDN_DISTRIBUTION_ID }} \
-            --paths \
-              "/positron/releases/release-notes/*" \
+            --paths "/positron/${{ inputs.release_channel }}/release-notes/*" \

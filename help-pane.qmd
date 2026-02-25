@@ -1,5 +1,6 @@
 ---
 title: "Help Pane"
+description: "Access rich, in-IDE documentation for Python and R with the Help Pane. View function docs, package vignettes, and source code without leaving Positron."
 ---
 
 
@@ -29,6 +30,7 @@ The Help Pane supports the following types of documentation in Python:
 - Modules, classes, functions, and objects with docstrings
 - Rich rendering for common docstring formats: Google, NumPy, Sphinx, Epytext
 
+Additionally, you can use syntax like `int??` to view the source code for functions and classes, when available.
 
 ### R
 

@@ -1,5 +1,6 @@
 ---
 title: "Settings and Extensions"
+description: "Customize Positron to feel familiar to RStudio. Configure user and workspace settings, install extensions, and personalize your data science environment."
 ---
 
 Your Positron experience can be customized through [settings](#settings-for-rstudio-users) at either the user or workspace level and by installing [extensions](#extensions-for-rstudio-users).
@@ -81,7 +82,7 @@ You can opt into formatting your R code every time you save a file, using Air (r
 }
 ```
 
-Read more about [formatting R code with Air](migrate-rstudio-code.qmd#formatting-r-code-with-air).
+Read more about [formatting R code with Air](guide-r-air.qmd).
 
 ## Extensions for RStudio users
 
@@ -92,10 +93,6 @@ You can use extensions to customize your IDE theme. For example, install [Tomorr
 You can use extensions to customize other details of your code editing experience, beyond the theme. For example, install [Indent-Rainbow](https://open-vsx.org/extension/oderwat/indent-rainbow) for colorized indentation or [Rainbow CSV](https://open-vsx.org/extension/mechatroner/rainbow-csv) for colorized CSV files.
 
 You can use extensions to add functionality for interacting with services you use. For example, install [GitHub Actions](https://open-vsx.org/extension/GitHub/vscode-github-actions) to interact with GitHub Actions from your IDE or [GitLab Workflow](https://open-vsx.org/extension/GitLab/gitlab-workflow) for GitLab support.
-
-:::{.callout-note}
-Positron doesn't currently bundle the [Shiny](https://open-vsx.org/extension/posit/shiny) extension, so you will need to install that if you want to use it.
-:::
 
 ## Extending Positron yourself
 

@@ -1,5 +1,6 @@
 ---
 title: "RStudio Keybindings"
+description: "Keep your RStudio keyboard shortcuts in Positron. Learn which shortcuts work immediately and how to customize keybindings for a familiar workflow."
 aliases:
   - rstudio-keybindings.html
 ---
@@ -8,12 +9,12 @@ Keyboard shortcuts are the most efficient way to accomplish tasks that come up f
 As you migrate from RStudio to Positron, maintaining your productivity means working with, not against, your muscle memory.
 
 Many familiar shortcuts will work immediately, because they are built in to Positron and its integrated R support.
-These are documented with [Positron's keyboard shortcuts](keyboard-shortcuts.qmd).
-That is also where you can learn how to customize shortcuts.
+These are documented with [Positron's general keyboard shortcuts](keyboard-shortcuts.qmd) (where you can also learn how to customize shortcuts) and [keyboard shortcuts specific to R programming](guide-r.qmd#keyboard-shortcuts). Another set of shortcuts can be enabled to align as closely as possible to RStudio's behavior.
+
 
 ## RStudio keybindings in Positron
 
-A large set of RStudio keybindings can be enabled with the [`workbench.keybindings.rstudioKeybindings` setting](positron://settings/workbench.keybindings.rstudioKeybindings).
+A large set of RStudio keybindings can be enabled with the [`workbench.keybindings.rstudioKeybindings`](positron://settings/workbench.keybindings.rstudioKeybindings) setting.
 Restart Positron after changing this setting.
 
 | Shortcut | Description |

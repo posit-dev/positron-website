@@ -1,0 +1,107 @@
+---
+title: "Chat Agents"
+description: "Customize AI behavior with chat agents in Positron Assistant. Choose from Ask, Edit, Agent, and Plan modes or create custom agents for specific tasks."
+---
+
+::: {.callout-note}
+Chat agents were previously called chat modes.
+:::
+
+Chat agents tailor Assistant's behavior for specific tasks by providing unique instructions and tools. Click the agent selector dropdown at the bottom of the chat pane to switch between agents.
+
+It's also possible to create [custom chat agents](#custom-chat-agents) to suit your specific workflows and requirements.
+
+## Default chat agents
+
+- **Ask**: Provides answers and code suggestions without automatic execution
+- **Edit**: Suggests code changes for you to apply to files
+- **Agent**: Autonomously executes work including running code and modifying files
+- **Plan**: Creates detailed step-by-step plans before execution
+
+<details>
+<summary>View detailed descriptions and example prompts</summary>
+
+| Agent | Description | Example Prompts |
+| -- | ---------------- | --------------- |
+| **Ask** | Provides answers to questions, helps with debugging, and generates code suggestions.<br><br>The Ask agent offers code you can apply in your Editor or run in the Console, but it will not edit or run code automatically. | "How do I plot a histogram in Python?"<br><br>"Why am I getting a syntax error in my R script?"<br><br>"Can you explain what this function does?" |
+| **Edit** | Suggests code changes based on your prompts that you can apply to your files.<br><br>The Edit agent helps you modify existing code but requires your approval for each change. | "Refactor this function to improve readability."<br><br>"Convert this R code to Python."<br><br>"Add error handling to this script." |
+| **Agent** | Determines the steps needed for your request and autonomously carries out the work.<br><br>The Agent can execute code in the Console, create and modify files, and identify next steps based on previous results. | "Create a new Python file and set up a basic data analysis workflow."<br><br>"Install the required packages and run the code in the Console."<br><br>"Generate a summary report from my current dataset." |
+| **Plan** | Creates a step-by-step plan to accomplish your request.<br><br>The Plan agent retrieves relevant context and develops a detailed plan, which it presents for your review before proceeding with execution. | "Outline the steps needed to analyze a dataset and generate visualizations."<br><br>"Plan how to test and debug this R script."<br><br>"Create a plan to display my data in an interactive Shiny app." |
+
+</details>
+
+## Custom chat agents
+
+Adding custom chat agents allows you to:
+
+- Create specialized agents for specific tasks or workflows
+- Tailor the Positron Assistant's behavior and available tools for different use cases
+
+### Create a custom chat agent
+
+1. Run the command _Chat: New Custom Agent..._ and follow the prompts to create a new chat agent file.
+1. Edit the newly created `.agent.md` file to specify the chat agent `description`, the `tools` the chat agent can use, as well as the chat agent prompt content.
+1. Once you have created a custom chat agent, it will be available in the agent selector dropdown in the chat pane.
+
+::: {.callout-tip}
+To learn more about the format of custom agents, see the following VS Code documentation:
+
+- [Custom agent file structure](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure)  
+- [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
+
+*Note:* Positron Assistant does not support the `model` field at this time.
+:::
+
+<details>
+<summary>Example custom chat agent</summary>
+Below is a custom chat agent that is tailored to debugging R and Python code. The definition contains rules, direction, and clarification that the agent will follow when invoked with Positron Assistant which guide its responses to be more relevant to troubleshooting and fixing code issues.
+
+```{.md .code-overflow-wrap filename="debug-code.agent.md"}
+---
+description: Debug and troubleshoot issues in R or Python code.
+name: Code Debugger
+tools: ['search', 'edit', 'executeCode', 'inspectVariables', 'runCommands', 'runTasks']
+handoffs:
+  - label: Test Code
+    agent: agent
+    prompt: Run the code to verify the fix works correctly.
+    send: false
+---
+# R/Python Debugging Specialist
+
+You are a debugging expert for R and Python. Your role is to identify, diagnose, and fix issues in code.
+
+## Your debugging expertise includes:
+
+* **Logic Errors**: Identify incorrect algorithms, off-by-one errors, and faulty conditional logic
+* **Runtime Errors**: Diagnose exceptions, type errors, and null/missing value issues
+* **Data Issues**: Detect problems with data types, shapes, and unexpected values
+
+## Debugging workflow:
+
+1. Ask the user to describe the problem, error messages, and expected behavior
+2. Review relevant code sections and identify potential issues
+3. Use available tools to inspect variables and test code snippets
+4. Explain the root cause and suggest specific code changes
+5. Edit the code directly with the proposed solution
+
+## Common issues you solve:
+
+- Index out of bounds errors
+- Type mismatches and conversion errors
+- Incorrect function arguments or return values
+- Logic errors producing unexpected results
+
+## Rules
+
+- Always explain the root cause before proposing a fix.
+- Edit files directly rather than just providing code snippets.
+- Use `executeCode` to test fixes when appropriate.
+
+```
+
+**`tools`**: The agent is restricted to tools relating to debugging functionality, limiting the number of "decisions" Positron Assistant must make while working. For example, you may grant a data analysis agent access to the `getPlot` tool to inspect Positron's plot output, whereas a debugging agent focuses on code inspection and execution tools.
+
+**`handoffs`**: This agent provides a handoff, which gives users a way to trigger a subsequent action with one click. A user will naturally want to test code after it's fixed, so this handoff presents the user with a button titled "Test Code" which instructs Assistant to run the code and verify the fix. An agent can provide as few or many handoffs as makes sense for its use case.
+
+</details>

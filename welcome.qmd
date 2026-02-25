@@ -1,6 +1,6 @@
 ---
 title: "Welcome"
-description: "Welcome to Positron, the next-generation data science IDE built for Python and R. It combines the power of a full-featured IDE with interactive data science tools for Python and R."
+description: "Welcome to Positron, the next-generation data science IDE built for Python and R."
 anchor-links: false
 page-layout: full
 toc: false
@@ -13,6 +13,7 @@ listing:
             description: "Download and install Positron on your system"
             icon: "bi-rocket-takeoff"
             link: "install.qmd"
+            hide-profiles: [workbench]
         -   title: "Explore Features"
             description: "Discover key Positron features to streamline your workflow"
             icon: "bi-grid-3x3-gap"
@@ -36,9 +37,13 @@ listing:
         
 ---
 
-![Execute code and explore data in Positron](images/astropy.png)
+Welcome to Positron, the next-generation data science IDE built for Python and R. It combines the power of a full-featured IDE with interactive data science tools for Python and R
 
-Interested in Positron for your team? [Learn about enterprise solutions.](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page)
+::: {.content-visible unless-profile="workbench"}
+![Execute code and explore data in Positron](images/astropy.png)
+:::
+
+{{< include "_enterprise-callout-link.qmd" >}}
 
 ## Positron might be a good fit for you if you {#use-cases}
 

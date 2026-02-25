@@ -1,0 +1,94 @@
+---
+title: "Dev Containers"
+description: "Run Positron projects in ephemeral containers, for reproducible development and deployment environments and dependency isolation."
+---
+
+Positron has preview support for [Development Containers](https://containers.dev/). With dev containers, you can run your sessions inside ephemeral containers, giving you full control over the execution environment and encouraging reproducibility and isolation.
+
+```{mermaid}
+%%| fig-align: center
+flowchart LR
+subgraph "Host Machine"
+p[Positron UI]
+end
+subgraph "Container"
+p --> r[Positron Backend]
+r --> py[Python Session]
+r --> ark[R Session]
+end
+```
+
+## System requirements
+
+Dev containers are supported in Positron Desktop on macOS, Windows, and Linux. However, the container itself must be built from a supported version of Linux. You also need a Docker-compatible container runtime, such as [Docker Desktop](https://www.docker.com/products/docker-desktop/) or [Podman](https://podman.io/). 
+
+Note that you cannot currently use dev containers in environments that are *already* remote, such as Remote SSH, WSL, and Positron Pro sessions on Posit Workbench.
+
+## Enabling
+
+::: {.callout-important}
+Dev containers are an experimental feature and must be manually enabled. Opt in to the [`dev.containers.enable`](positron://settings/dev.containers.enable) setting to enable the feature.
+:::
+
+![Dev Containers experimental setting](./images/dev-containers-setting.png){width=578 fig-alt="The Dev Containers Enable setting checkbox, marked as Experimental"}
+
+Or put this in your `settings.json`:
+
+```json
+{
+    "dev.containers.enable": true
+}
+```
+
+## Use
+
+### Opening a folder in a container
+
+Open a folder that contains a `.devcontainer.json` file. You'll see a prompt like this:
+
+![Reopen in Container](./images/dev-containers-reopen.png){width=468 fig-alt="Notification prompting to reopen folder in a container with Reopen in Container button"}
+
+Click the notification to reopen in a container.
+
+Alternately, if you've dismissed or disabled the notification, use the command _Dev Containers: Reopen in Container_.
+
+### Attaching to a running container
+
+![Remote Explorer](./images/dev-containers-remote-explorer.png){width=256 fig-alt="Remote Explorer view showing a list of running dev containers with action buttons"}
+
+1. Open the Remote Explorer view
+2. Expand the "Dev Containers" section
+3. Right-click a running container and select "Attach in Current Window" or "Attach in New Window", or use one of the buttons on the right
+
+### Rebuilding a container
+
+When you've made changes to your `devcontainer.json` or `Dockerfile`:
+
+- _Dev Containers: Rebuild Container_ - Rebuild using cache
+- _Dev Containers: Rebuild Without Cache_ - Full rebuild from scratch
+- _Dev Containers: Rebuild and Reopen in Container_ - Rebuild and automatically reopen
+
+### Developing inside a container
+
+Positron's dev containers feature uses a subset of the commands and settings available in VS Code. Read the VS Code guide on [developing inside a container](https://code.visualstudio.com/docs/devcontainers/containers) for more information.
+
+## Limitations
+
+Unlike the Code OSS core, VS Code's Dev Containers support is not open source. It is provided by a proprietary, closed-source extension released under a [commercial license](https://code.visualstudio.com/preview-license). Consequently, Positron's implementation is novel, and does not have all the same features. Specifically, it has the following limitations:
+
+- Positron does not support musl-based Linux distributions (such as Alpine) ([tracking issue](https://github.com/posit-dev/positron/issues/10468)); the container must run a version of Linux that Positron already supports.
+- Only single-container configurations are supported (no `docker compose`).
+- No tools or templates are supplied for creating or authoring `devcontainer.json` files.
+- Only one container is supported per project.
+- Docker volumes are not supported, just regular mounts.
+- In the MRU, dev containers show up with the remote rather than local path (e.g., `/workspaces/foo`).
+- VS Code container customizations [are not supported](https://github.com/posit-dev/positron/issues/11070).
+- `RemoteCommand` [is not supported](https://github.com/posit-dev/positron/issues/10009).
+- Containers are not supported in environments that are already remote (such as Remote SSH, WSL, and Posit Workbench).
+- Container management features (see/attach to running containers) are not available when already inside a container.
+
+## Remote sessions
+
+Once inside a container, your session will behave similarly to a Remote SSH session, as though you had started an SSH server on the container and used Remote SSH to connect to it. See [Remote SSH](remote-ssh.qmd) for more information.
+
+

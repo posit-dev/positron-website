@@ -1,5 +1,6 @@
 ---
 title: "Databot"
+description: "Experimental AI assistant for exploratory data analysis in Python and R. Accelerate insights by letting AI write and execute analysis code for you."
 ---
 
 ::: {.callout-important}

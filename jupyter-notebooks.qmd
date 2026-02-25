@@ -1,5 +1,6 @@
 ---
 title: "Jupyter Notebooks"
+description: "Work with Jupyter Notebooks in Positron with built-in support for Python and R. No extra dependencies needed as notebooks integrate seamlessly with the IDE."
 ---
 
 [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html) offer a flexible, interactive UI for combining code, prose, and visualizations.
@@ -7,33 +8,27 @@ title: "Jupyter Notebooks"
 Positron enhances Jupyter Notebooks in several key ways:
 
 -   Notebooks work out of the box. You don't need to install any additional dependencies into your Python or R environments.
--   Notebooks are integrated into the IDE, allowing you to manage data sources in the [Connections Pane](connections-pane.qmd), view data at a glance in the Variables Pane, explore data in depth with the [Data Explorer](data-explorer.qmd), and browse documentation in the [Help Pane](help-pane.qmd).
+-   Notebooks are integrated into the IDE, allowing you to manage data sources in the [Connections Pane](connections-pane.qmd), view data at a glance in the [Variables Pane](variables-pane.qmd), explore data in depth with the [Data Explorer](data-explorer.qmd), and browse documentation in the [Help Pane](help-pane.qmd).
 -   Language features such as autocompletion and go-to-definition work seamlessly across notebooks and plaintext files.
 
-![An example of a Jupyter Notebook in Positron, with interactive code, rich outputs, and the integrated Help Pane.](images/jupyter-notebooks-astropy.png)
+![A Jupyter Notebook in Positron with a Python code cell, a monthly electricity usage chart as output, the Assistant panel open to the left, and the Variables pane open to the right.](images/positron-notebook.png)
 
-## Using Jupyter Notebooks
+## Notebook editors
 
-You can create and edit `.ipynb` files in Positron just as you would in other editors. For a general introduction to working with Jupyter Notebooks, see the [VS Code Jupyter Notebooks documentation](https://code.visualstudio.com/docs/datascience/jupyter-notebooks).
+Positron currently offers two editors for working with Jupyter Notebooks: the [Positron Notebook Editor](positron-notebook-editor.qmd) which is currently in alpha, and the [Legacy Notebook Editor](legacy-notebook-editor.qmd) which is the default VS Code based notebook editor.
 
-### Setting up your environment
+### Positron Notebook Editor
 
-Positron comes prepackaged with Jupyter kernels for R and Python. Once you've [configured an Python or R environment](managing-interpreters.qmd) for Positron, you do not need to install any additional dependencies into your environment before using notebooks.
-
-If an environment installed on your computer isn't available in Positron, you may want to read more about how Positron discovers [Python installations](python-installations.qmd) and [R installations](r-installations.qmd).
-
-### Selecting an interpreter
-
-When you first open a Jupyter Notebook, Positron automatically selects an interpreter based on the notebook's language, the current workspace, and your configuration.
-
-::: callout-tip
-We recommend matching the selected interpreter for the workspace and the notebook, however, they can be controlled separately.
+:::{.callout-important}
+The Positron Notebook Editor is currently in public alpha. We are actively working on improving the Notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or [schedule a call](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) with our product and engineering team.
 :::
 
-You can manually select a different interpreter for the notebook by clicking the **Kernel Selector** button in the notebook toolbar or by running the *Notebook: Select Notebook Kernel*  from the Command Palette.
+The [Positron Notebook Editor](positron-notebook-editor.qmd) is a native notebook experience built specifically for Positron. It provides notebook-aware AI assistance, integrated data exploration, and an improved user experience for data science workflows. Check out the [launch article](https://posit.co/blog/announcing-the-positron-notebook-editor-for-jupyter-notebooks/) for more details.
 
-![The Kernel Selector showing the selected interpreter for a new notebook.](images/jupyter-notebooks-kernel-selector.png)
+Read the [launch blog post](https://posit.co/blog/announcing-the-positron-notebook-editor-for-jupyter-notebooks/) to learn more about why we built the Positron Notebook Editor.
 
-### Customization
+To enable the Positron Notebook Editor, see the [setup instructions](positron-notebook-editor.qmd#enable-the-positron-notebook-editor).     
 
-To set the default working directory of notebooks, use the [`notebook.workingDirectory` setting](positron://settings/notebook.workingDirectory).
+### Legacy notebook editor
+
+The [Legacy Notebook Editor](legacy-notebook-editor.qmd) is the default Code OSS based notebook editor. If you're familiar with Jupyter Notebooks in VS Code, this editor will feel familiar.

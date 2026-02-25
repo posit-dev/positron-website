@@ -1,5 +1,6 @@
 ---
 title: "Discovering Python Installations"
+description: "Understand how Positron discovers Python installations. Covers support for uv, pyenv, conda, venv, pipenv, poetry, and more environment managers."
 ---
 
 This guide explains how Python installations are discovered and managed in Positron.
@@ -37,7 +38,7 @@ For that reason, we recommend using virtual environments.
 
 **Custom locations**
 
-* Interpreters listed in the [`python.interpreters.[include,exclude,override]` settings](positron://settings/python.interpreters.include) (see [Related Settings](#related-settings) below for details)
+* Interpreters listed in the [`python.interpreters.[include,exclude,override]`](positron://settings/python.interpreters.include) settings (see [Related Settings](#related-settings) below for details)
 
 ## Environment creation and discovery
 
@@ -71,7 +72,7 @@ The discovery process runs in the background and updates the interpreter list as
 
 ### Unsupported Python versions
 
-Positron only supports Python minor versions 3.9 through 3.13, which are the [currently supported versions](https://devguide.python.org/versions/).
+Positron only supports Python minor versions 3.9 through 3.14, which are the [currently supported versions](https://devguide.python.org/versions/).
 Other versions may be discovered, but you may run into issues using them.
 
 ### Locator type
@@ -81,7 +82,7 @@ Positron can use two different discovery mechanisms:
 * **JavaScript locator** (default): Pure TypeScript implementation for more comprehensive discovery
 * **Native locator** (experimental): Uses a native binary for faster discovery
 
-You can control this with the [`python.locator` setting](positron://settings/python.locator) (`"js"` or `"native"`).
+You can control this with the [`python.locator`](positron://settings/python.locator) setting (`"js"` or `"native"`).
 Keep in mind that the `native` locator is experimental and may not work completely as intended.
 
 ## Troubleshooting
@@ -90,9 +91,9 @@ Keep in mind that the `native` locator is experimental and may not work complete
 
 If the above settings are configured correctly, and the Python version is supported, and _Interpreter: Discover All Interpreters_ or a restart of Positron is not helping, you can check logs. See more in the [troubleshooting guide](troubleshooting.qmd).
 
-For the `js` (default) locator, the discovery process is logged in the Python Language Pack channel of the Output panel.
+For the `native` (default) locator, the discovery process is logged in the Python Locator channel.
 
-For the `native` locator, it is instead logged in the Python Locator channel.
+For the `js` (default) locator, it is instead logged in the Python Language Pack channel of the Output panel.
 
 ## Related settings
 

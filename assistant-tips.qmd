@@ -1,0 +1,83 @@
+---
+title: "Tips & Glossary"
+description: "Learn best practices for using Positron Assistant effectively. Explore tips for better prompts, managing conversations, and understanding key AI assistant terms."
+---
+
+This guide provides tips for using Positron Assistant effectively, as well as some common terms and definitions in the [Glossary](#glossary) section.
+
+### Starting new chat conversations
+
+You may want to start a new conversation when:
+
+- Beginning a new topic or task
+- Your chat conversation has become lengthy and the context is less relevant
+- You want to reset Assistant's context to avoid confusion from previous messages
+- You feel Assistant is "stuck" or not responding as expected
+
+Starting a new conversation helps ensure that Assistant focuses on the current context and provides more accurate and relevant responses.
+
+To create a new chat conversation:
+
+1. Open the chat pane.
+1. Click the **{{< fa plus >}}** button in the top right of the chat pane or use the keyboard shortcut {{< kbd mac=Command-N win=Ctrl-N linux=Ctrl-N >}} in the chat pane.
+
+### Viewing previous chat conversations
+
+To view your chat conversations:
+
+1. Click the clock icon in the top right of the chat pane, or run the _Chat: Show Chats..._ command in the Command Palette.
+1. You can then select a previous conversation to switch back to it.
+
+### Understanding token usage
+
+Your language model provider bills you for each chat message and response that consumes tokens. Contact your language model provider for detailed token usage and pricing information.
+
+Positron Assistant can display token usage for each chat message and response pair. To view token usage:
+
+1. Open the Command Palette and run the command _Preferences: Open User Settings_ to open the settings.
+1. Search for the setting [`positron.assistant.showTokenUsage.enable`](positron://settings/positron.assistant.showTokenUsage.enable).
+1. Check the box to enable token usage display.
+    - Note that token usage may not be supported for all language model providers.
+1. Return to the chat pane. Token usage will now be displayed below each message and response pair.
+
+### Visibility into tool calls
+
+The inputs and outputs of tool calls can help you understand how Assistant is using your session context to generate responses.
+
+To enable tool call details:
+
+1. Open the Command Palette and run the command _Preferences: Open User Settings_ to open the settings.
+1. Search for the setting [`positron.assistant.toolDetails.enable`](positron://settings/positron.assistant.toolDetails.enable).
+1. Check the box to enable tool call details in the chat pane.
+1. Return to the chat pane. Tool call details will now be displayed when tools are used.
+
+## Glossary
+
+### Bring your own key (BYOK)
+
+Bring Your Own (API) Key. This means you need to obtain and provide your own API key from the language model provider in order to use their models with Positron Assistant.
+
+### Context
+
+The information available to the language model when generating responses. In Positron Assistant, context includes your current file content, active interpreter session (loaded data, variables, plots), project structure, and any manually attached files or tools. Richer context helps the model generate more accurate and relevant responses for your specific data science workflow.
+
+### Model
+
+A specific version or configuration of a language model provided by a language model provider, such as Anthropic Claude or GitHub Copilot. Different models may have different capabilities, performance characteristics, and pricing. Examples include "Claude Sonnet 4.5" or "GPT-5".
+
+### Prompt
+
+The input text or instructions given to a language model to generate a response. Prompts can include questions, commands, or context to guide the model's output. Positron Assistant has predefined prompts for various tasks, and you can also define custom prompts or instructions. These prompts and instructions are provided to the model along with your messages in chat or inline chat sessions.
+
+### Provider
+
+A company or service that offers access to language models via APIs. Also known as a language model provider or a vendor. Examples include Anthropic and GitHub Copilot.
+
+### Tokens
+
+Units of text that language models process. Tokens can be as short as one character or as long as one word. Language models have limits on the number of tokens they can process in a single request, which includes both the input prompt and the generated response.
+
+### Tool
+
+A specialized function that enables language models to interact with your Positron environment. Tools allow Assistant to read variables from your session, view plots, execute code in the Console, access file contents, and perform other workspace operations beyond just generating text responses.
+

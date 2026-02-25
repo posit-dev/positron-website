@@ -1,23 +1,20 @@
 ---
 title: "Extensions"
+description: "Customize Positron with extensions from Open VSX. Learn about included extensions, security best practices, and manual installation options."
 ---
 
 Since Positron is built on [Code OSS](https://github.com/microsoft/vscode) (the open-source core of VS Code), you can use VS Code extensions in Positron. Extensions installed for Positron are _separate_ from the extensions you have installed for VS Code, and they won't interfere with each other.
 
-<!-- vale Posit.Contractions = NO -->
 ## Open VSX
-<!-- vale Posit.Contractions = YES -->
 
 Positron has an Extensions view, just like VS Code. The primary difference is that when you browse extensions in Positron, the extensions don't come from VS Code's Marketplace. Instead, they come from [Open VSX](https://open-vsx.org/), an Eclipse open-source project and vendor-neutral alternative to the Visual Studio Marketplace. This is necessary for licensing reasons; Microsoft doesn't permit access to the Marketplace outside of their Visual Studio Code (VS Code) builds.
 
 Open VSX includes most popular VS Code extensions, but not all; some authors don't bother to publish their extensions to Open VSX (it's an extra step) and others don't keep the Open VSX version of the extension up to date. Open VSX has a suggested [template](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md) to request that the authors of an extension cross-publish their extension on the Open VSX Registry.
 
 :::{.callout-note}
-<!-- vale Posit.Contractions = NO -->
 Posit is a major sponsor of Open VSX.
-<!-- vale Posit.Contractions = YES -->
 :::
- 
+
 ## Accessing extensions
 
 To manage your extensions in Positron, choose the Extensions view from the Activity Bar on the left or use the keyboard shortcut {{< kbd mac=Command-Shift-X win=Ctrl-Shift-X linux=Ctrl-Shift-X >}}. From here you can manage extensions you already have installed or search the Open VSX marketplace for new ones. 
@@ -43,18 +40,28 @@ Some examples of the bootstrapped extensions include:
 
 - [charliermarsh.ruff](https://open-vsx.org/extension/charliermarsh/ruff): A Python linter and code formatter built in Rust. It provides fast and comprehensive Python code quality checking with support for hundreds of lint rules.
 
-- [ms-pyright.pyright](https://open-vsx.org/extension/ms-pyright/pyright): A fast Python static type checker and language server. It provides intelligent code completion, type checking, and helps catch errors before runtime.
+- [meta.pyrefly](https://open-vsx.org/extension/meta/pyrefly): A fast Python language server that provides syntax highlighting, type checking, code completion, and other language features to enhance your Python editing experience.
 
-- [posit.publisher](https://open-vsx.org/extension/posit/publisher): A publishing tool for deploying content to Posit Connect. It streamlines the process of sharing data science applications, reports, and APIs with stakeholders.
+- [posit.shiny](https://open-vsx.org/extension/posit/shiny): Support for developing Shiny applications in Python and R within Positron.
+
+- [posit.publisher](https://open-vsx.org/extension/posit/publisher): A publishing tool for deploying content to Posit Connect and Posit Connect Cloud. It streamlines the process of sharing data science applications, reports, and APIs with stakeholders. Explore the [Publisher guide](publish-to-connect.qmd).
 
 - [quarto.quarto](https://open-vsx.org/extension/quarto/quarto): Support for the Quarto publishing system. It enables creation of dynamic documents that combine code, visualizations, and narrative text for reproducible research and reporting.
 
 - [posit.air-vscode](https://open-vsx.org/extension/posit/air-vscode): Comprehensive R language support including syntax highlighting, code completion, debugging, and environment management. It provides tools needed for professional R development.
 
+If you do not want to use one or more of these extensions, you can use the [`extensions.allowed`](positron://settings/extensions.allowed) setting to control how these get installed (or activated, if they happen to be already installed). For example, if you only use Python and never use R, you might set up your `settings.json` like this:
 
-:::{.callout-note}
-Positron doesn't currently bundle the [Shiny](https://open-vsx.org/extension/posit/shiny) extension, so you will need to install that if you want to use it.
-:::
+```json
+{
+    "extensions.allowed": {
+        "posit.air-vscode": false,
+        "*": true
+    }
+}
+```
+
+Learn more about how this setting works at the [VS Code documentation on allowed extensions](https://code.visualstudio.com/docs/enterprise/extensions).
 
 ### Non-compatible extensions
 

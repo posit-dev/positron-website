@@ -1,5 +1,6 @@
 ---
 title: "Extending the Connections Pane"
+description: "Extend Positron's Connections Pane with custom database connection types. Learn to add new database connection providers and integrate with the New Connections modal."
 format: html
 ---
 

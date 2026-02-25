@@ -1,0 +1,52 @@
+---
+title: "Python in Positron"
+description: "Complete guide to Python development in Positron. Learn about environment management, IPython magics, formatting with Ruff, and interactive data science features."
+---
+
+Positron ships with first class support for Python, along with [R](guide-r.qmd). Start with our guide on how Positron [discovers and manages Python installations](python-installations.qmd), then read on for details on working with Python code in Positron.
+
+## Settings
+
+::: {.callout-tip}
+In addition to providing settings, Positron also provides [keyboard shortcuts](keyboard-shortcuts.qmd) and [bundled extensions](extensions.qmd#included-extensions), for a "batteries included" experience for data science with Python.
+:::
+
+Positron provides setting defaults for working with Python for data science, but you can override or change these defaults if you prefer a different experience. For example:
+
+- Positron bundles [Pyrefly](https://open-vsx.org/extension/meta/pyrefly) to provide Python language server features including syntax highlighting, type checking, and code completion. Positron sets the [`pyrefly.commentFoldingRanges`](positron://settings/pyrefly.commentFoldingRanges) setting to true to provide folding ranges for special `# Section Name ----` comment sections. If you prefer to disable this feature, change the setting to false.
+- Positron bundles [Ruff](https://docs.astral.sh/ruff/) to provide [formatting](#code-formatting) for Python and sets the [`ruff.importStrategy`](positron://settings/ruff.importStrategy) setting to `"useBundled"`. If you prefer to use a Ruff installation that you manage yourself, change this setting to `"fromEnvironment"`.
+
+You can see _all_ the setting defaults that Positron provides with the command _Preferences: Open Default Settings (JSON)_.
+
+## Magics
+
+Positron provides support for [IPython-style magics](https://ipython.readthedocs.io/en/stable/interactive/magics.html) in the Positron console (as well as Python scripts and Jupyter notebooks, where appropriate). Magics are special commands prefixed with the `%` symbol that provide convenient shortcuts for common tasks. You can see the supported magics by running the `%lsmagic` command in the Positron console.
+
+Positron provides three new, custom magics created specifically for working in Positron:
+
+- `%view` opens a Python object in the [Data Explorer](data-explorer.qmd). You can use this magic most simply via `%view df`, or additionally like `%view df.groupby('column').sum()` or `%view df "My Dataset"`.
+- `%connection_show` shows a connection object in the [Connections Pane](connections-pane.qmd). Use this magic like `%connection_show my_connection`.
+- `%clear` clears the Console.
+
+## Code formatting
+
+Positron can format Python code with [Ruff](https://docs.astral.sh/ruff/), a Python linter and formatter. Ruff is included in Positron as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions) that is installed for you, including the bundled Ruff command line tool. Most Positron users do not need to do anything intentional to install Ruff or to keep it up-to-date.
+
+You can format your Python code with various explicit and implicit gestures. You can use the commands *Format Selection* or *Format Document* to format specific bits of code. You can even configure Positron to run Ruff automatically whenever you save a Python file. In the Settings UI, search for `@lang:python editor.formatOnSave` and enable the setting, either at the workspace (recommended) or user level. This will add the following to the appropriate `settings.json`:
+
+``` json
+{
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true
+    }
+}
+```
+
+## Debugging
+
+Positron bundles the [Python Debugger](https://open-vsx.org/extension/ms-python/debugpy) as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions) to provide debugging support for Python code. You can set breakpoints, step through code, and inspect variables during debugging sessions. Learn more from the [VS Code documentation on debugging Python](https://code.visualstudio.com/docs/python/debugging).
+
+::: {.callout-note}
+Positron provides basic support for debugging in the console via `import ipdb; ipdb.set_trace()` and `%debug`. [Follow along on GitHub for further improvements](https://github.com/posit-dev/positron/issues/8688) in this support.
+:::

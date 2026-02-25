@@ -1,9 +1,19 @@
 ---
 title: "Troubleshooting"
+description: "Solve common Positron issues with troubleshooting guides for startup problems, extension errors, interpreter issues, and more."
 ---
 
 If you're having trouble with Positron, here are some resources and tools to help troubleshoot and resolve your problems.
 
+::: {.content-visible when-profile="workbench"}
+
+::: {.callout-tip}
+Use the [Posit Workbench User Guide for Positron](https://docs.posit.co/ide/server-pro/user/positron/getting-started/) for help with Workbench-specific Positron features, and reach out to your Workbench administrator for help with issues specific to Positron on your own Workbench deployment.
+:::
+
+:::
+
+::: {.content-visible unless-profile="workbench"}
 ## Reloading
 
 Positron is an Electron app. If you're seeing what looks like a temporary glitch, you can try reloading the window.
@@ -11,6 +21,7 @@ Positron is an Electron app. If you're seeing what looks like a temporary glitch
 A window reload shouldn't cause you to lose any session state, but it does cause the Positron front end, extensions, and all language packs to restart. Note that undo/redo history will also be cleared when you reload.
 
 To reload the window, open the Command Palette and run the _Developer: Reload Window_ command.
+:::
 
 ## Python and R logs
 
@@ -24,15 +35,15 @@ Here's a list of some Positron-specific channels you may be interested in:
 
 | Channel | Description |
 | ------- | ----------- |
-| Kernel | Communication from the Python or R kernel itself: requests to execute code, output to be shown in the Console, data used to build plots/environment/help panes, etc. This channel will have a name like "R X.Y.Z: Kernel." |
-| Console/Notebook | Communication from the Console or Notebook running the Python or R kernel: messages the Console sends and receives, changes in the Console's state, etc. This channel will have a name like "Python X.Y.Z: Console." |
-| Language Server | Debug logs from the server side of the language server Positron uses for any given interpreter. This channel will have a name like "R X.Y.Z: Language Server (Console)." |
+| Kernel | Communication from the Python or R kernel itself: requests to execute code, output to be shown in the Console, data used to build plots/environment/help panes, etc. This channel will have a name like "R Kernel." |
+| Supervisor | Communication from the kernel supervisor: messages the Console or Notebook sends and receives, changes in their state, etc. This channel will have a name like "Python Supervisor." |
+| Language Server | Debug logs from the server side of the language server Positron uses for any given interpreter. This channel will have a name like "R Language Server." |
 | Language Pack | Debug logs from the extension that Positron uses to discover, start, and manage interpreters. This channel will have a name like "Python Language Pack." |
 | Assistant | Debug logs from Positron Assistant, which powers the AI chat and code completions interfaces in Positron. |
 
 ### Log level
 
-Most of these output channels have a log level associated with them that you can change in the settings UI. For example, you can change the log level for how much information is passed from the R kernel itself to the "R X.Y.Z: Kernel" output channel using the [`positron.r.kernel.logLevel` setting](positron://settings/positron.r.kernel.logLevel).
+Most of these output channels have a log level associated with them that you can change in the settings UI. For example, you can change the log level for how much information is passed from the R kernel itself to the "R Kernel" output channel using the [`positron.r.kernel.logLevel`](positron://settings/positron.r.kernel.logLevel) setting.
 
 ## Developer tools
 
@@ -44,12 +55,15 @@ Use these instructions to open the developer tools and check for errors or relev
 1. From the Developer Tools panel that appears, select the _Console_ tab.
 1. When filing an issue on Github, include errors or log messages from the _Console_ tab that are related to the issue you're seeing.
 
+::: {.content-visible unless-profile="workbench"}
+
 ## Resetting Positron
 
 If you seem to have gotten things in a bad state, you can reset Positron to factory-fresh as follows.
 
-1. Close all Positron instances completely.
-2. Clear out Positron state according to your operating system.
+1. Back up any configuration you want to keep, like your personalized keyboard shortcuts (use the command _Preferences: Open Keyboard Shortcuts (JSON)_) or your user settings (use the command _Preferences: Open User Settings (JSON)_). You'll want to keep these JSON files in a new location away from where Positron stores them.
+2. Close all Positron instances completely.
+3. Clear out Positron state according to your operating system.
 
 ::: {.panel-tabset group="os"}
 
@@ -97,7 +111,10 @@ rm -rf ~/.positron
 
 :::
 
-3. [Download the latest release](./download.qmd) of Positron and install it.
+4. [Download the latest release](./download.qmd) of Positron and install it.
+5. Apply any configuration you backed up, like your keyboard shortcuts or settings.
+
+:::
 
 ## Ask for help
 

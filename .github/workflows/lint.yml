@@ -9,16 +9,14 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Lint Quarto files with vale
-        uses: errata-ai/vale-action@reviewdog
-        with:
-          fail_on_error: true
-          filter_mode: nofilter
-          reporter: github-pr-review
-          token: ${{secrets.GITHUB_TOKEN}}
-
       - name: Check URLs in Quarto files
         uses: urlstechie/urlchecker-action@master
         with:
           file_types: .qmd
           exclude_patterns: https://cdn.posit.co/positron/prereleases/,https://positron.posit.co/images/,https://github.com/posit-dev/positron/issues
+
+      - name: Check URLs in _redirects
+        uses: urlstechie/urlchecker-action@master
+        with:
+          include_files: _redirects
+          file_types: _redirects

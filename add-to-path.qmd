@@ -1,5 +1,6 @@
 ---
 title: "Launch Positron from a Terminal"
+description: "Launch Positron from your terminal by adding it to your PATH. Walk through step-by-step instructions for macOS, Windows, and Linux."
 ---
 
 If Positron is on your PATH, you can launch it from the terminal:

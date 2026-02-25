@@ -1,5 +1,6 @@
 ---
 title: "Updating Positron"
+description: "Keep Positron up to date with automatic monthly releases or opt into daily builds. Learn about update settings and Windows package manager options."
 ---
 
 By default, Positron automatically checks for updates from our channel of monthly releases.
@@ -8,11 +9,11 @@ By default, Positron automatically checks for updates from our channel of monthl
 - For our Windows system installation, if an update is available, Positron will download it and notify you in the {{< fa cog >}} icon at the bottom left that the new version is available.
 - On Linux, Positron will show a notification when an update is available.
 
-You can opt out of this automatic checking by changing the [`update.mode` setting](positron://settings/update.mode) to `"none"`; see [our page on privacy and data collection](privacy.qmd) for more details.
+You can opt out of this automatic checking by changing the [`update.mode`](positron://settings/update.mode) setting to `"none"`; see [our page on privacy and data collection](privacy.qmd) for more details.
 
 ## Daily builds
 
-For users who are interested in trying out new features at a faster cadence, we also provide a channel of daily builds; you can opt in to these builds by changing the [`update.positron.channel` setting](positron://settings/update.positron.channel) to `"dailies"`.
+For users who are interested in trying out new features at a faster cadence, we also provide a channel of daily builds; you can opt in to these builds by changing the [`update.positron.channel`](positron://settings/update.positron.channel) setting to `"dailies"`.
 
 If you change the setting to `"dailies"`, what can you expect? 
 

@@ -1,0 +1,40 @@
+---
+title: "Positron Assistant Provider Privacy Information"
+description: "Information about data handling, privacy, and terms of service for AI model providers used in Positron Assistant."
+---
+
+::: {.callout-tip}
+{{< include _privacy-link.qmd >}}
+:::
+
+When using Positron, data including your prompts, responses and data usage may be shared with third-party AI model providers, such as Anthropic and GitHub Copilot, depending on the providers you use. Each provider has its own data handling, privacy policies, and terms of service. 
+
+Please review your providers' websites directly for complete and updated details on their data practices and terms of service. The following list may not be the latest information.
+
+Any Provider is considered "Third Party Materials" as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
+
+### Amazon Bedrock
+
+* [Privacy Notice](https://aws.amazon.com/privacy/)
+* [Terms of Service](https://aws.amazon.com/service-terms/)
+
+### Anthropic
+
+* [Privacy Policy](https://www.anthropic.com/legal/privacy)
+* [Commercial Privacy Center](https://privacy.claude.com/en/collections/10663361-commercial-customers)
+* [Console Privacy Controls](https://platform.claude.com/settings/privacy)
+* [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms)
+
+### GitHub Copilot
+
+* [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect)
+* [Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
+
+### OpenAI
+* [Privacy Policy](https://openai.com/policies/row-privacy-policy/)
+* [Privacy Portal](https://privacy.openai.com/policies/en/?name=welcome-to-open-ai-privacy-portal)
+* [Terms of Use](https://openai.com/policies/row-terms-of-use/)
+
+### Snowflake Cortex
+* [Privacy Policy](https://www.snowflake.com/en/legal/privacy/privacy-policy/)
+* [Terms of Service](https://www.snowflake.com/en/legal/terms-of-service/)
