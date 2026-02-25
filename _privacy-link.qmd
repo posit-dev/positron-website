@@ -1,0 +1,6 @@
+::: {.content-visible when-profile="positron"}
+For information on what information is collected by Posit, review [Posit's privacy policy](privacy.qmd).
+:::
+::: {.content-visible when-profile="workbench"}
+For information on what information is collected by Posit, review [Posit's privacy policy](https://posit.co/about/privacy-policy/).
+:::
