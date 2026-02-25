@@ -44,6 +44,8 @@ For information on what information is collected by Posit, review [Posit's Data 
 
 ## Step 2: Configure language model providers
 
+Anthropic and GitHub Copilot are enabled by default. Other providers are in preview or experimental status and must be enabled manually through settings.
+
 ::: {.panel-tabset group="providers"}
 
 ## Anthropic
@@ -67,6 +69,10 @@ To use Anthropic's Claude models in Positron Assistant, you need to bring your o
 </details>
 :::
 
+### Enable Anthropic as a provider
+
+Anthropic is enabled by default. Opt out of the [`positron.assistant.provider.anthropic.enable`](positron://settings/positron.assistant.provider.anthropic.enable) setting to disable it.
+
 ### Add Anthropic as a language model provider
 
 1. Run the command _Positron Assistant: Configure Language Model Providers_
@@ -76,7 +82,7 @@ To use Anthropic's Claude models in Positron Assistant, you need to bring your o
 
 1. Paste your Claude Console API key into the input field and click **Sign in**.
 
-::: {.callout-tip}
+::: {.callout-note}
 Alternatively, set the `ANTHROPIC_API_KEY` environment variable to authenticate with Anthropic in Positron Assistant.
 :::
 
@@ -95,6 +101,10 @@ Students and faculty can use GitHub Copilot for free as part of the GitHub Educa
 </details>
 :::
 
+### Enable GitHub Copilot as a provider
+
+GitHub Copilot is enabled by default. Opt out of the [`positron.assistant.provider.githubCopilot.enable`](positron://settings/positron.assistant.provider.githubCopilot.enable) setting to disable it.
+
 ### Add GitHub Copilot as a language model provider
 
 1. Run the command _Positron Assistant: Configure Language Model Providers_
@@ -105,7 +115,7 @@ Students and faculty can use GitHub Copilot for free as part of the GitHub Educa
 1. Click the **Sign in** button to initiate GitHub's OAuth authentication flow.
     - Complete the authentication flow in your browser, and return to Positron when finished.
 
-::: {.callout-tip}
+::: {.callout-note}
 You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon in the Activity Bar. To sign out, use the Accounts icon or run the _Accounts: Manage Accounts_ command.
 
 Note that the Accounts section manages your GitHub authentication for all extensions that use GitHub, not just Positron Assistant.
@@ -129,15 +139,7 @@ To use Amazon Bedrock in Positron Desktop, Positron Assistant requires an **AWS 
 
 ### Enable Amazon Bedrock as a provider
 
-Amazon Bedrock provider support is currently in **preview** and must be manually enabled.
-
-Run the command _Preferences: Open User Settings (JSON)_ and add the following to your settings file:
-
-```{.json filename="settings.json"}
-"positron.assistant.enabledProviders": [
-    "amazon-bedrock"
-]
-```
+Amazon Bedrock provider support is currently in preview and must be manually enabled. Opt in to the [`positron.assistant.provider.amazonBedrock.enable`](positron://settings/positron.assistant.provider.amazonBedrock.enable) setting to enable it.
 
 ### (Optional) Configure AWS region and profile
 
@@ -164,15 +166,7 @@ To use Snowflake Cortex in Positron Desktop, Positron Assistant requires a **Sno
 
 ### Enable Snowflake Cortex as a provider
 
-Snowflake Cortex provider support is currently in **preview** and must be manually enabled.
-
-Run the command _Preferences: Open User Settings (JSON)_ and add the following to your settings file:
-
-```{.json filename="settings.json"}
-"positron.assistant.enabledProviders": [
-    "snowflake-cortex"
-]
-```
+Snowflake Cortex provider support is currently in preview and must be manually enabled. Opt in to the [`positron.assistant.provider.snowflakeCortex.enable`](positron://settings/positron.assistant.provider.snowflakeCortex.enable) setting to enable it.
 
 ### Add Snowflake Cortex as a language model provider
 
@@ -188,15 +182,7 @@ Run the command _Preferences: Open User Settings (JSON)_ and add the following t
 
 ### Enable OpenAI as a provider
 
-OpenAI provider support is currently in **preview** and must be manually enabled.
-
-Run the command _Preferences: Open User Settings (JSON)_ and add the following to your settings file:
-
-```{.json filename="settings.json"}
-"positron.assistant.enabledProviders": [
-    "openai-api"
-]
-```
+OpenAI provider support is currently in preview and must be manually enabled. Opt in to the [`positron.assistant.provider.openAI.enable`](positron://settings/positron.assistant.provider.openAI.enable) setting to enable it.
 
 ### Add OpenAI as a language model provider
 
@@ -207,7 +193,7 @@ Run the command _Preferences: Open User Settings (JSON)_ and add the following t
 
 1. Paste your OpenAI API key into the input field and click **Sign in**.
 
-::: {.callout-tip}
+::: {.callout-note}
 
 Use the OpenAI provider to connect to a provider that implements the [OpenAI Responses API](https://platform.openai.com/docs/api-reference/responses), by replacing the base URL with your compatible custom endpoint.
 
@@ -225,15 +211,7 @@ At this time, we don't recommend using a local model as a custom provider. Read 
 
 ### Enable Custom Provider as a provider
 
-Custom provider support is currently **experimental** and must be manually enabled.
-
-Run the command _Preferences: Open User Settings (JSON)_ and add the following to your settings file:
-
-```{.json filename="settings.json"}
-"positron.assistant.enabledProviders": [
-    "openai-compatible"
-]
-```
+Custom provider support is currently experimental and must be manually enabled. Opt in to the [`positron.assistant.provider.customProvider.enable`](positron://settings/positron.assistant.provider.customProvider.enable) setting to enable it.
 
 ### Add Custom Provider as a language model provider
 
@@ -244,9 +222,9 @@ Run the command _Preferences: Open User Settings (JSON)_ and add the following t
 
 1. Enter your API key and base URL into the input fields and click **Sign in**.
 
-::: {.callout-tip}
+::: {.callout-note}
 
-Some OpenAI-compatible providers may not implement the `/models` endpoint, which Positron Assistant uses to list available models. If this is the case for your provider, you can manually configure a model listing using the [`positron.assistant.models.custom`](positron://settings/positron.assistant.models.custom) setting.
+Some OpenAI-compatible providers may not implement the `/models` endpoint, which Positron Assistant uses to list available models. If this is the case for your provider, you can manually configure a model listing using the [`positron.assistant.models.overrides.customProvider`](positron://settings/positron.assistant.models.overrides.customProvider) setting.
 
 :::
 
