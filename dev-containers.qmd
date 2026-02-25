@@ -26,7 +26,9 @@ Note that you cannot currently use dev containers in environments that are *alre
 
 ## Enabling
 
-Dev containers are an **experimental** feature and must be manually enabled. Use the *Dev > Containers: Enable* setting to enable the feature.
+::: {.callout-important}
+Dev containers are an experimental feature and must be manually enabled. Opt in to the [`dev.containers.enable`](positron://settings/dev.containers.enable) setting to enable the feature.
+:::
 
 ![The Dev Containers Enable setting checkbox, marked as Experimental](./images/dev-containers-setting.png){width=578}
 
@@ -74,16 +76,16 @@ Positron's dev containers feature uses a subset of the commands and settings ava
 
 Unlike the Code OSS core, VS Code's Dev Containers support is not open source. It is provided by a proprietary, closed-source extension released under a [commercial license](https://code.visualstudio.com/preview-license). Consequently, Positron's implementation is novel, and does not have all the same features. Specifically, it has the following limitations:
 
-- Positron does not support musl-based Linux distributions (such as Alpine) ([tracking issue](https://github.com/posit-dev/positron/issues/10468)); the container must run a version of Linux that Positron already supports
-- Only single-container configurations are supported (no `docker compose`)
-- No tools or templates are supplied for creating or authoring `devcontainer.json` files
-- Only one container is supported per project
-- Docker volumes are not supported, just regular mounts
-- In the MRU, dev containers show up with the remote rather than local path (e.g., `/workspaces/foo`)
-- VS Code container customizations [are not supported](https://github.com/posit-dev/positron/issues/11070)
-- `RemoteCommand` [is not supported](https://github.com/posit-dev/positron/issues/10009)
-- Containers are not supported in environments that are already remote (such as Remote SSH, WSL, and Posit Workbench)
-- Container management features (see/attach to running containers) are not available when already inside a container
+- Positron does not support musl-based Linux distributions (such as Alpine) ([tracking issue](https://github.com/posit-dev/positron/issues/10468)); the container must run a version of Linux that Positron already supports.
+- Only single-container configurations are supported (no `docker compose`).
+- No tools or templates are supplied for creating or authoring `devcontainer.json` files.
+- Only one container is supported per project.
+- Docker volumes are not supported, just regular mounts.
+- In the MRU, dev containers show up with the remote rather than local path (e.g., `/workspaces/foo`).
+- VS Code container customizations [are not supported](https://github.com/posit-dev/positron/issues/11070).
+- `RemoteCommand` [is not supported](https://github.com/posit-dev/positron/issues/10009).
+- Containers are not supported in environments that are already remote (such as Remote SSH, WSL, and Posit Workbench).
+- Container management features (see/attach to running containers) are not available when already inside a container.
 
 ## Remote sessions
 
