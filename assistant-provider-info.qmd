@@ -4,7 +4,7 @@ description: "Information about data handling, privacy, and terms of service for
 ---
 
 ::: {.callout-tip}
-For information on what information is collected by Posit, review [Posit's Data Privacy](privacy.qmd).
+{{< include _privacy-link.qmd >}}
 :::
 
 When using Positron, data including your prompts, responses and data usage may be shared with third-party AI model providers, such as Anthropic and GitHub Copilot, depending on the providers you use. Each provider has its own data handling, privacy policies, and terms of service. 

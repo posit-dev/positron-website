@@ -35,7 +35,7 @@ We're actively expanding provider support and welcome your [feedback](https://gi
 
 Please ensure you consult your provider's privacy policy for information on the data they collect and how it is used. For reference links, see the [Positron Assistant Provider Information](assistant-provider-info.qmd) guide.
 
-For information on what information is collected by Posit, review [Posit's Data Privacy](privacy.qmd).
+{{< include _privacy-link.qmd >}}
 
 ## Step 1: Enable Positron Assistant
 
