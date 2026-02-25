@@ -76,7 +76,7 @@ To use Anthropic's Claude models in Positron Assistant, you need to bring your o
 
 1. Paste your Claude Console API key into the input box and select **Sign in**.
 
-::: {.callout-tip}
+::: {.callout-note}
 Alternatively, set the `ANTHROPIC_API_KEY` environment variable to authenticate with Anthropic in Positron Assistant.
 :::
 
@@ -105,7 +105,7 @@ Students and faculty can use GitHub Copilot for free as part of the GitHub Educa
 1. Select the **Sign in** button to initiate GitHub's OAuth authentication flow.
     - Complete the authentication flow in your browser, and return to Positron when finished.
 
-::: {.callout-tip}
+::: {.callout-note}
 You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon in the Activity Bar. To sign out, use the Accounts icon or run the _Accounts: Manage Accounts_ command.
 
 Note that the Accounts section manages your GitHub authentication for all extensions that use GitHub, not just Positron Assistant.
@@ -207,7 +207,7 @@ Run the command _Preferences: Open User Settings (JSON)_ and add the following t
 
 1. Paste your OpenAI API key into the input box and select **Sign in**.
 
-::: {.callout-tip}
+::: {.callout-note}
 
 Use the OpenAI provider to connect to a provider that implements the [OpenAI Responses API](https://platform.openai.com/docs/api-reference/responses), by replacing the base URL with your compatible custom endpoint.
 
@@ -244,7 +244,7 @@ Run the command _Preferences: Open User Settings (JSON)_ and add the following t
 
 1. Enter your API key and base URL into the input boxes and select **Sign in**.
 
-::: {.callout-tip}
+::: {.callout-note}
 
 Some OpenAI-compatible providers may not implement the `/models` endpoint, which Positron Assistant uses to list available models. If this is the case for your provider, you can manually configure a model listing using the [`positron.assistant.models.custom`](positron://settings/positron.assistant.models.custom) setting.
 
