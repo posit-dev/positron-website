@@ -1,4 +1,6 @@
 # Netlify redirects
 # https://docs.netlify.com/manage/routing/redirects/overview/
 
-/resources/aws-bedrock-iam-permissions  https://docs.posit.co/ide/server-pro/admin/authenticating_users/aws_credentials.html#amazon-bedrock-permissions  301
+# Redirect links
+# Prefix redirect links with /redirect/ to avoid conflicts with actual content paths.
+/redirect/aws-bedrock-iam-permissions  https://docs.posit.co/ide/server-pro/admin/authenticating_users/aws_credentials.html#amazon-bedrock-permissions  301
