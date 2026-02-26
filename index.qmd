@@ -44,7 +44,9 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 <a href="welcome.qmd" class="btn btn-outline-primary">Guides</a>
 :::
 
-{{< video videos/positron-hero-fast-tour.mp4 >}}
+{{< video videos/positron-hero-fast-tour.mp4 
+  aria-label="Video demonstration of Positron, the data science IDE for Python and R"
+>}}
 
 ::: {.content-visible when-profile="workbench"}
 ![Execute code and explore data in Positron](images/astropy.png)

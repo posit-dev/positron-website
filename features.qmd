@@ -109,21 +109,27 @@ listing:
 
 ## Bridge the exploration and production divide
 
-{{< video videos/positron-assistant-copytoeditor.mp4 >}}
+{{< video videos/positron-assistant-copytoeditor.mp4 
+  aria-label="Video demonstration of Positron's AI assistance and environment inspection features"
+>}}
 
 ::: {#features-insights-1}
 :::
 
 ## Explore and analyze with speed
 
-{{< video videos/data-explorer.mp4 >}}
+{{< video videos/data-explorer.mp4 
+  aria-label="Video demonstration of Positron's data exploration features"
+>}}
 
 ::: {#features-speed-2}
 :::
 
 ## Develop with confidence
 
-{{< video videos/connections.mp4 >}}
+{{< video videos/connections.mp4 
+  aria-label="Video demonstration of Positron's database connection features"
+>}}
 
 ::: {#features-develop-3}
 :::
@@ -134,7 +140,7 @@ listing:
 For teams that need enterprise-grade capabilities, [Positron Pro](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page) on [Posit Workbench](https://posit.co/products/enterprise/workbench/?utm_source=positron-docs&utm_medium=features-page) provides the scalability, data access, admin configuration, and security your organization requires.
 
 
-{{< video videos/positron-workbench.mp4 >}}
+{{< video videos/positron-workbench.mp4 aria-label="Video demonstration of Positron Pro on Posit Workbench for enterprise teams" >}}
 
 ::: {#features-pro-4}
 :::
