@@ -20,7 +20,7 @@ By default, the active editor file and the active interpreter session (if any) a
 
 To include additional attachments as context for your prompts:
 
-- Select the {{< fa paperclip >}} paperclip button in the chat pane
+- Click the {{< fa paperclip >}} paperclip button in the chat pane
 - Choose from options such as:
     - **Files & Folders**: specific files or folders in your workspace.
     - **Source Control**: commits from your version control history.
@@ -41,19 +41,19 @@ When an interpreter session is attached, Positron Assistant can access:
 
 ### Switch the attached interpreter session
 
-1. Select the interpreter session in the Console pane to make it active.
+1. Click the interpreter session in the Console pane to make it active.
 1. Positron Assistant automatically updates to use the newly active interpreter session.
 
 ### Toggle the visibility of the active interpreter session
 
-In the chat pane, select the {{< fa eye >}} eye button on the interpreter session attachment to toggle whether Assistant can access the session data.
+In the chat pane, click the {{< fa eye >}} eye button on the interpreter session attachment to toggle whether Assistant can access the session data.
 
 - {{< fa eye >}}: When the eye icon appears without a slash through it, the interpreter session is visible.
 - {{< fa eye-slash >}}: When the eye icon has a slash through it, the interpreter session is hidden.
 
 ### Manually attach an interpreter session
 
-1. Select the {{< fa paperclip >}} paperclip button in the chat pane
+1. Click the {{< fa paperclip >}} paperclip button in the chat pane
 1. Choose "Interpreter Sessions..." to select an interpreter session to attach.
 
 ## Source control context
@@ -73,7 +73,7 @@ From the Source Control pane, you can use Positron Assistant to generate commit 
 
 1. Open the Source Control pane (_Source Control: Focus on Changes View_ in the Command Palette).
 1. Ensure you have staged changes to commit.
-1. Select the sparkles icon in the commit message input box.
+1. Click the sparkles icon in the commit message input box.
 1. Positron Assistant will analyze your staged changes and generate a commit message.
 
 ## Settings

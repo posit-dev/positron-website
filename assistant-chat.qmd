@@ -17,7 +17,7 @@ You can interact with your R and Python Console sessions, including code, output
 
 ### Opening the chat pane
 
-To open the chat pane, select the chat robot icon in the sidebar or run the command _Chat: Open Chat_ from the Command Palette.
+To open the chat pane, click the chat robot icon in the sidebar or run the command _Chat: Open Chat_ from the Command Palette.
 
 ### Key features
 
