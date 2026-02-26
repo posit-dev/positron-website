@@ -3,7 +3,7 @@ title: "Positron Assistant Provider Privacy Information"
 description: "Information about data handling, privacy, and terms of service for AI model providers used in Positron Assistant."
 ---
 
-::: {.callout-tip}
+::: {.callout-note}
 {{< include _privacy-link.qmd >}}
 :::
 

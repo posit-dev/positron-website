@@ -19,13 +19,13 @@ Starting a new conversation helps ensure that Assistant focuses on the current c
 To create a new chat conversation:
 
 1. Open the chat pane.
-1. Click the **{{< fa plus >}}** button in the top right of the chat pane or use the keyboard shortcut {{< kbd mac=Command-N win=Ctrl-N linux=Ctrl-N >}} in the chat pane.
+1. Select the **{{< fa plus >}}** button in the top right of the chat pane or use the keyboard shortcut {{< kbd mac=Command-N win=Ctrl-N linux=Ctrl-N >}} in the chat pane.
 
 ### Viewing previous chat conversations
 
 To view your chat conversations:
 
-1. Click the clock icon in the top right of the chat pane, or run the _Chat: Show Chats..._ command in the Command Palette.
+1. Select the clock icon in the top right of the chat pane, or run the _Chat: Show Chats..._ command in the Command Palette.
 1. You can then select a previous conversation to switch back to it.
 
 ### Understanding token usage

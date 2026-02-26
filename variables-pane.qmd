@@ -3,16 +3,16 @@ title: "Variables Pane"
 description: "View and inspect all variables in your Python or R session. Browse objects, data tables, and connections in a convenient sidebar interface."
 ---
 
-The Variables Pane allows you to view the variables in your Python or R session and by default, is located in the Secondary Side Bar.
+The **Variables** pane allows you to view the variables in your Python or R session and by default, is located in the Secondary Side Bar.
 
 In addition to variables, if applicable, it displays data tables and any open [connections](connections-pane.qmd) for your session.
 
-![Variables Pane](images/variables-pane.png)
+![Variables pane](images/variables-pane.png){fig-alt="Variables pane showing a list of variables including data frames, values like numbers and strings, and a Plots section, with R 4.2.2 interpreter active."}
 
 ### Viewing variables
 
-If the **Variables** pane is not already displayed, you can open it by clicking **View** > **Variables** or by running *Session: Focus on Variables View* from the Command Palette.
+If the **Variables** pane is not already displayed, you can open it by selecting **View** > **Variables** or by running *Session: Focus on Variables View* from the Command Palette.
 
 ### Viewing data tables
 
-If your session includes data tables, they appear in the **DATA** section of the Variables Pane. For more information about viewing your data tables, see the [Data Explorer](data-explorer.qmd) section.
+If your session includes data tables, they appear in the **DATA** section of the **Variables** pane. For more information about viewing your data tables, see the [Data Explorer](data-explorer.qmd) section.

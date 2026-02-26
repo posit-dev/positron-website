@@ -40,7 +40,7 @@ Positron Assistant is an AI coding assistant built specifically for data science
 
 Beyond your active files, selected code, and project structure, Positron Assistant is provided with context about your interactive data science work, such as your loaded data, plots, and console history, enabling more relevant guidance for exploratory analysis and modeling.
 
-::: {.callout-tip}
+::: {.callout-note}
 To get started with Positron Assistant, check out the [Getting Started](assistant-getting-started.qmd) guide.
 :::
 
@@ -60,11 +60,11 @@ Posit does not provide support or assistance for any code written or generated i
 
 ### Positron AI agents
 
-The Positron AI tools are “BYO-key”, meaning that the tools can interact with a number of different model providers (e.g., Anthropic, AWS Bedrock, GitHub Copilot, or OpenAI) and the user or organization has an agreement with, pays the model provider, directly for access to the model.
+The Positron AI tools are "BYO-key," meaning that the tools can interact with a number of different model providers (e.g., Anthropic, AWS Bedrock, GitHub Copilot, or OpenAI) and the user or organization has an agreement with, and pays the model provider directly for access to the model.
 
 ### Data collection and privacy
 
-Positron provides local software as a client to the user’s selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when using AI features within Positron (i.e. Positron Assistant, Databot, etc). These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. 
+Positron provides local software as a client to the user's selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when using AI features within Positron (i.e., Positron Assistant, Databot, etc.). These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client's software and nor does Posit ever access or store your data. 
 
 If you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with [[Posit's privacy policy](privacy.qmd)]{.content-visible when-profile="positron"}[[Posit's privacy policy](https://posit.co/about/privacy-policy/)]{.content-visible when-profile="workbench"}.
 

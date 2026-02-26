@@ -5,7 +5,7 @@ description: "Use Positron Assistant's chat pane for AI-powered coding help, inl
 
 Positron Assistant provides multiple ways to interact with AI assistance across your workspace. Whether you use the dedicated chat pane, inline chat within your Editor or Terminal, or quick Console actions for errors, Assistant integrates seamlessly with your development environment.
 
-::: {.callout-tip}
+::: {.callout-important}
 To use Positron Assistant features, you'll need to first configure a language model provider. See the [Getting Started](assistant-getting-started.qmd) guide for more details.
 :::
 
@@ -40,7 +40,7 @@ To use the inline chat interface in an Editor or Notebook:
 
 1. In an Editor or Notebook, place your cursor where you want to open the inline chat interface.
 1. Open the inline chat interface using the default keybinding {{< kbd mac=Command-I win=Ctrl-I linux=Ctrl-I >}}; or, by running the command _Inline Chat: Open Inline Chat_ from the Command Palette.
-1. Type your question or request in the inline chat input box and press {{< kbd Enter >}} to send the message.
+1. Enter your question or request in the inline chat input box and press {{< kbd Enter >}} to send the message.
 1. Accept or dismiss suggestions directly from the inline chat response.
 
 Learn more about how to [Use editor inline chat](https://code.visualstudio.com/docs/copilot/chat/inline-chat#_use-editor-inline-chat) in the VS Code documentation.
@@ -51,7 +51,7 @@ To use the inline chat interface in a Terminal:
 
 1. In a Terminal, place your cursor where you want to open the inline chat interface.
 1. Open the inline chat interface using the default keybinding {{< kbd mac=Command-I win=Ctrl-I linux=Ctrl-I >}}; or, by running the command _Terminal: Open Inline Chat_ from the Command Palette.
-1. Type your question or request in the inline chat input box and press {{< kbd Enter >}} to send the message.
+1. Enter your question or request in the inline chat input box and press {{< kbd Enter >}} to send the message.
 1. Accept or dismiss suggestions directly from the inline chat response.
 
 :::

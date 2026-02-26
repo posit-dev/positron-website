@@ -5,7 +5,7 @@ description: "Share feedback, report bugs, and contribute to Positron developmen
 
 ::: {.content-visible when-profile="workbench"}
 
-::: {.callout-tip}
+::: {.callout-important}
 Reach out to your Workbench administrator for help with issues specific to Positron on your Workbench deployment.
 :::
 

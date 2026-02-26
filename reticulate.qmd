@@ -14,11 +14,11 @@ To start a reticulate Python interpreter session, execute the following in an ac
 reticulate::repl_python()
 ```
 
-![Reticulate Python interpreter session](images/reticulate-interpreter.png)
+![Reticulate Python interpreter session](images/reticulate-interpreter.png){fig-alt="Console showing Python (reticulate) started with version info, alongside interpreter list showing both R 4.4.1 and Python (reticulate) sessions."}
 
 The Reticulate Python interpreter can also be started by selecting "Python (reticulate)" when creating a new interpreter session. 
 
-![New interpreter session list](images/reticulate-interpreter-list.png)
+![New interpreter session list](images/reticulate-interpreter-list.png){fig-alt="Start New Interpreter Session dialog showing Python (reticulate) as suggested option, along with R and various Python virtual environments."}
 
 Python interpreters managed by the reticulate package have some important differences compared to standard Python interpreters:
 
@@ -30,7 +30,7 @@ The latter has a few important implications:
 
 - You can access R objects directly from Python code using the `r` prefix. For example, if you have an R object named `my_data`, you can access it in Python as `r.my_data`. 
 
-![Accessing R objects in Python](images/reticulate-python-objs.png)
+![Accessing R objects in Python](images/reticulate-python-objs.png){fig-alt="Python console showing r.mtcars output displaying the mpg column values from the R mtcars dataset accessed via reticulate."}
 
 - You can access Python objects from R using the `py` prefix. For example, if you have a Python function named `my_function`, you can call it in R as `py$my_function()`.
 

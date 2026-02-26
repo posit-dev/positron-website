@@ -16,7 +16,7 @@ RStudio's development, on the other hand, is much more focused on bug fixes and 
 Some features are present in RStudio, but not in Positron as of today.
 Some of these features may eventually come to Positron, but if any of these are dealbreakers for you, that is a reason for you to stick with RStudio.
 
-* Inline output in Quarto documents, i.e. a notebook-style interface for `.qmd` (or `.Rmd`) files. Follow along for updates on this feature request in <https://github.com/posit-dev/positron/issues/5640>.
+* Inline output in Quarto documents, i.e., a notebook-style interface for `.qmd` (or `.Rmd`) files. Follow along for updates on this feature request in <https://github.com/posit-dev/positron/issues/5640>.
 
 * Saving and reloading workspace state when you restart R.
 
@@ -44,11 +44,11 @@ If any of these features are very appealing to you, that is a reason to move som
 * Extensibility via a large marketplace of 3rd party [extensions](extensions.qmd).
 
 ::: {.content-visible unless-profile="workbench"}
-* [Remote sessions](remote-ssh.qmd), i.e. where the user interface is local but the compute is elsewhere.
+* [Remote sessions](remote-ssh.qmd), i.e., where the user interface is local but the compute is elsewhere.
 :::
 
 
-::: {.callout-tip}
+::: {.callout-note}
 It's worth pointing out that using Positron is not an all-or-nothing decision.
 It is entirely reasonable to use Positron in some projects and RStudio in others.
 Likewise, within a specific project, some tasks might feel easier in Positron and others in RStudio.

@@ -69,7 +69,7 @@ To export the log of a chat conversation:
 
 1. Focus your cursor in the chat interface of the conversation you want to export, either in the chat pane or inline chat
 1. Run one of the commands that start with _Positron Assistant: Export the current chat_
-1. Click the button in the notification that appears to open the exported chat log
+1. Select the button in the notification that appears to open the exported chat log
 
 ## Diagnostics
 

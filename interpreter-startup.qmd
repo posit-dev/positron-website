@@ -7,7 +7,7 @@ description: "Control how Python and R interpreters start in Positron. Learn abo
 
 When Positron starts for the first time in a new workspace, it will start a Python and/or R interpreter session based on your workspace characteristics and whether there is evidence of RStudio being used recently.
 
-Typically when starting Python or R without other clues about which version to start, Positron will start the most recent version of the interpreter (e.g. if you have R 4.2 and R 4.3 installed, it'll start R 4.3).
+Typically when starting Python or R without other clues about which version to start, Positron will start the most recent version of the interpreter (e.g., if you have R 4.2 and R 4.3 installed, it'll start R 4.3).
 
 See the [Python discovery](python-installations.qmd) and [R discovery](r-installations.qmd) guides for more information on language-specific installations.
 

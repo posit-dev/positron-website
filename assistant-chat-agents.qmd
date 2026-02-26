@@ -7,7 +7,7 @@ description: "Customize AI behavior with chat agents in Positron Assistant. Choo
 Chat agents were previously called chat modes.
 :::
 
-Chat agents tailor Assistant's behavior for specific tasks by providing unique instructions and tools. Click the agent selector dropdown at the bottom of the chat pane to switch between agents.
+Chat agents tailor Assistant's behavior for specific tasks by providing unique instructions and tools. Select the agent selector dropdown at the bottom of the chat pane to switch between agents.
 
 It's also possible to create [custom chat agents](#custom-chat-agents) to suit your specific workflows and requirements.
 
@@ -43,10 +43,10 @@ Adding custom chat agents allows you to:
 1. Edit the newly created `.agent.md` file to specify the chat agent `description`, the `tools` the chat agent can use, as well as the chat agent prompt content.
 1. Once you have created a custom chat agent, it will be available in the agent selector dropdown in the chat pane.
 
-::: {.callout-tip}
+::: {.callout-note}
 To learn more about the format of custom agents, see the following VS Code documentation:
 
-- [Custom agent file structure](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure)  
+- [Custom agent file structure](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure)
 - [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
 
 *Note:* Positron Assistant does not support the `model` field at this time.

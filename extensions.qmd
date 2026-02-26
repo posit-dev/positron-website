@@ -80,7 +80,7 @@ if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == ""
 
 There may be extensions that aren't available for Positron for licensing rather than technical reasons. These extensions would typically contain proprietary Microsoft code and are only licensed for use with Microsoft's proprietary VS Code product.
 
-:::{.callout-tip}
+:::{.callout-note}
 See [Extension Development](extension-development.qmd) for information on creating extensions specifically for Positron.
 :::
 

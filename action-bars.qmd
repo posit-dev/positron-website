@@ -5,7 +5,7 @@ description: "Discover how Positron's Action Bars put essential functionality at
 
 Positron uses Action Bars throughout the application to put essential functionality at your fingertips.
 
-![Action Bars](images/action-bars.png)
+![Action Bars](images/action-bars.png){fig-alt="Positron IDE showing action bars in various panes including the Editor, Console, Variables pane, and Plots pane."}
 
 ## Anatomy of an Action Bar
 
@@ -34,13 +34,13 @@ Action Bars are made up of Action Bar Elements.
 
 Hovering over an Action Bar Element reveals its tooltip, helping you quickly understand what it does.
 
-![Action Bar Tooltip](images/action-bar-tooltip.png)
+![Action Bar Tooltip](images/action-bar-tooltip.png){fig-alt="Action bar showing a tooltip that reads 'Restart Python' when hovering over the restart button."}
 
 ## Top Action Bar
 
 The Top Action Bar helps you manage your work. On the left, you will find actions to create or open files and folders. In the center, you can navigate backward and forward through recent cursor positions and use the command center to quickly access Positron commands or locate files in your project. On the right, the [interpreter selector](managing-interpreters.qmd) lets you start new interpreters or switch between running ones, while the folder selector allows you to open recently used folders, either in the current window or a new one.
 
-![Top Action Bar](images/top-action-bar.png)
+![Top Action Bar](images/top-action-bar.png){fig-alt="Annotated top action bar showing New File/Folder, Open File/Folder, Backward/Forward navigation, Command Center search, Interpreter Selector, and Folder Selector."}
 
 ## Wrapping up
 

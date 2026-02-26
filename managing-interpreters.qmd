@@ -3,18 +3,18 @@ title: "Managing Interpreters"
 description: "Manage multiple Python and R interpreter sessions in Positron. Switch between environments, configure startup options, and run multiple sessions simultaneously."
 ---
 
-Positron is designed to support multiple R and Python interpreter sessions. This enables workflows that span multiple environments, and allows you to switch between them easily within a single workspace. Interpreter sessions are managed primarily through the Interpreter picker and Console pane.
+Positron is designed to support multiple R and Python interpreter sessions. This enables workflows that span multiple environments, and allows you to switch between them easily within a single workspace. Interpreter sessions are managed primarily through the Interpreter picker and **Console** pane.
 
 At any given time, one interpreter session is designated as the **active interpreter session**. This is the language environment currently in use for interactive and language-specific features within the IDE.
 
 
 ## Active interpreter session
 
-The active interpreter session is the language environment currently in use. It provides the execution context for various panes within the IDE such as the Console, Variables, Plots, and Editor panes. Language-specific features such as code execution, completion, and diagnostics are all scoped to the active interpreter session.
+The active interpreter session is the language environment currently in use. It provides the execution context for various panes within the IDE such as the **Console**, **Variables**, **Plots**, and **Editor** panes. Language-specific features such as code execution, completion, and diagnostics are all scoped to the active interpreter session.
 
-The active interpreter session can always be identified in the Interpreter picker located in the top right. The active interpreter is highlighted in the Console pane list.
+The active interpreter session can always be identified in the Interpreter picker located in the top right. The active interpreter is highlighted in the **Console** pane list.
 
-![Active interpreter session](images/active-interpreter-session.png)
+![Active interpreter session](images/active-interpreter-session.png){fig-alt="Positron IDE showing the active interpreter session R 4.5.0 highlighted in the interpreter picker and Console pane list with multiple interpreter options visible."}
 
 ### Documents in the Editor pane
 
@@ -44,11 +44,11 @@ When working with multiple interpreter sessions for the same language, keep thes
 
 ## View running interpreter sessions
 
-You can view a list of running interpreter sessions from the Console pane. The active interpreter is highlighted. Alternatively, you can select the Interpreter picker to view a list of the running interpreter sessions.
+You can view a list of running interpreter sessions from the **Console** pane. The active interpreter is highlighted. Alternatively, you can select the Interpreter picker to view a list of the running interpreter sessions.
 
 ## Change the active interpreter session
 
-Select an interpreter session from the list in the Console pane to make it the active interpreter. Alternatively, you can select the Interpreter picker and then select a running interpreter session from the list.
+Select an interpreter session from the list in the **Console** pane to make it the active interpreter. Alternatively, you can select the Interpreter picker and then select a running interpreter session from the list.
 
 You can also change the active interpreter session by running the _Interpreter: Select Interpreter Session_ command from the Command Palette. Select an interpreter from the list of running interpreters to make it the active interpreter.
 
@@ -56,17 +56,17 @@ You can also change the active interpreter session by running the _Interpreter: 
 
 Select the Interpreter picker and choose "New Interpreter Session..." to see a list of all the registered interpreters. You can also bring up the list by running the _Interpreter: Start New Interpreter Session_ command from the Command Palette. Select an interpreter from the list to start a session for it.
 
-Alternatively, you can select the {{<fa chevron-down>}} icon next to the {{<fa plus>}} icon in the Console pane. The dropdown lists the most recently used interpreters. The **Start Another...** option will display a list of all the registered interpreters. Select an interpreter from either list to start an instance.
+Alternatively, you can select the {{<fa chevron-down>}} icon next to the {{<fa plus>}} icon in the **Console** pane. The dropdown lists the most recently used interpreters. The **Start Another...** option will display a list of all the registered interpreters. Select an interpreter from either list to start an instance.
 
-::: {.callout-tip}
-You can select the {{<fa plus>}} icon to create a new interpreter session for the currently active interpreter. 
+::: {.callout-note}
+You can select the {{<fa plus>}} icon to create a new interpreter session for the currently active interpreter.
 :::
 
 ## Delete an interpreter session
 
 When you delete an interpreter session, the state of the session will be lost, including any variables you've defined.
 
-Select the {{<fa trash-can>}} icon when *hovering* over the Console pane list to shut down and dispose of the session.
+Select the {{<fa trash-can>}} icon when holding the pointer over the **Console** pane list to shut down and dispose of the session.
 
 ## Restart an interpreter session
 
@@ -78,7 +78,7 @@ Select the {{<fa rotate-right>}} icon from the Console action bar to restart a s
 
 Renaming interpreter sessions is a useful tool to distinguish sessions for the same interpreter version.
 
-Right-click an interpreter session from the Console pane list and select the **Rename...** option. 
+Right-click an interpreter session from the **Console** pane list and select the **Rename...** option. 
 
 You can also rename a session by running the _Interpreter: Rename Active Interpreter Session_ command from the Command Palette. 
 
@@ -94,13 +94,13 @@ The pop-up window displays the following information about the active interprete
 * **Interpreter path**: The file system location of the interpreter executable.
 * **Interpreter source**: The method used to discover the interpreter (for example, system PATH, conda environment, or manual configuration).
 
-::: {.callout-tip}
+::: {.callout-note}
 The popup includes shortcuts to relevant output channels for the interpreter session. Select one to view the logs for that channel.
 :::
 
 ### Interpreter session status
 
-The Console pane list displays an execution status indicator next to each interpreter session.
+The **Console** pane list displays an execution status indicator next to each interpreter session.
 
 An interpreter session can be in one of the following states:
 
@@ -108,4 +108,4 @@ An interpreter session can be in one of the following states:
 * **Busy (blue)**:: The interpreter session is busy with a task
 * **Shutdown (red)**: The interpreter session has shutdown
 
-![Interpreter session status icons from Console pane](images/console-pane-interpreter-session-status.png)
+![Interpreter session status icons from **Console** pane](images/console-pane-interpreter-session-status.png){fig-alt="Three status indicators: green circle for idle, blue spinner for busy, and red circle for shutdown."}
