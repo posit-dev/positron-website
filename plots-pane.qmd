@@ -5,7 +5,7 @@ description: "View, explore, and manage plots from your Python or R session. Nav
 
 The Plots Pane displays visualizations generated from your Python or R session and by default, is located in the Secondary Side Bar.
 
-{{< video videos/plots.mp4 >}}
+{{< video videos/plots.mp4 aria-label="Video demonstration of the Plots Pane displaying and navigating visualizations from an R session" >}}
 
 ## Opening the Plots Pane
 

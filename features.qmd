@@ -140,7 +140,7 @@ listing:
 For teams that need enterprise-grade capabilities, [Positron Pro](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page) on [Posit Workbench](https://posit.co/products/enterprise/workbench/?utm_source=positron-docs&utm_medium=features-page) provides the scalability, data access, admin configuration, and security your organization requires.
 
 
-{{< video videos/positron-workbench.mp4 >}}
+{{< video videos/positron-workbench.mp4 aria-label="Video demonstration of Positron Pro on Posit Workbench for enterprise teams" >}}
 
 ::: {#features-pro-4}
 :::
