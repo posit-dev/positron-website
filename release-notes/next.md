@@ -44,7 +44,7 @@ The Positron Notebook Editor continues to be available for alpha testing and is 
 - [[#11889](https://github.com/posit-dev/positron/issues/11889)] R: virtual sources generated while stepping in the debugger now show the function name in the source to make where R is paused clearer.
 - [[#11784](https://github.com/posit-dev/positron/issues/11784)] R: Shiny is now fully supported by the R debugger. Please update to the latest version of the `shiny` package to get full support.
 - [[#11797](https://github.com/posit-dev/positron/issues/11797)] R: debugger now supports error and warning breakpoints. Set these in the Breakpoints pane to drop in the debugger as soon as an error or warning is emitted.
-- [[#11799](https://github.com/posit-dev/positron/issues/11799)] R: debugger can now be invoked while R code is running. You can either run the command "Debug: Pause", or check the Interrupt breakpoint option in the Breakpoints pane and interrupt R. This feature allows you to peak at what R is doing while running long computations or stucked in an infinite loop. You can even resume the computation by clicking on Continue in the Debug Toolbar.
+- [[#11799](https://github.com/posit-dev/positron/issues/11799)] R: debugger can now be invoked while R code is running. You can either run the command "Debug: Pause", or check the Interrupt breakpoint option in the Breakpoints pane and interrupt R. This feature allows you to peek at what R is doing while running long computations or stuck in an infinite loop. You can even resume the computation by clicking on Continue in the Debug Toolbar.
 - [[#11892](https://github.com/posit-dev/positron/issues/11892)] R: Shiny internals are now excluded from call stack by default. Set the global option `"ark.debugger.show_hidden_frames"` to `"fenced"` to show them (or to `TRUE` to show all hidden frames).
 - [[#11144](https://github.com/posit-dev/positron/issues/11144), [#11848](https://github.com/posit-dev/positron/issues/11848)] Added new _Runtime Startup Diagnostics_ command for troubleshooting slow or failing R or Python environments.
 - [[#1765](https://github.com/posit-dev/positron/issues/1765)] R: debugger now has support for the Watch Pane. This is especially useful for tracking variables that do not show in the Debug Variables pane, or the result of computations. If you prefix expressions with `/print`, the result shows the R output instead of a structured variable.
@@ -52,7 +52,7 @@ The Positron Notebook Editor continues to be available for alpha testing and is 
 - [[#11050](https://github.com/posit-dev/positron/issues/11050)] R: dynamic completions (e.g. for data frame columns) are now sensitive to which call frame is selected in the debugger.
 - [[#12131](https://github.com/posit-dev/positron/issues/12131)] R: Variable pane is now synchronized with the frame selected in the call stack.
 - [[#2702](https://github.com/posit-dev/positron/issues/2702)] Added a warning when an interpreter's architecture doesn't match the system architecture, helping users understand potential performance or package compatibility issues.
-- [[#11735](https://github.com/posit-dev/positron/issues/11735)] Deprecated the `update.systemArchitecture` setting to always automatically detect the system architecture on upgrade. 
+- [[#11735](https://github.com/posit-dev/positron/issues/11735)] Deprecated the `update.systemArchitecture` setting to always automatically detect the system architecture on upgrade.
 - [[#11816](https://github.com/posit-dev/positron/issues/11816)] Added [`files.enableDownloads`](positron://settings/files.enableDownloads) and [`files.enableUploads`](positron://settings/files.enableUploads) settings for file transfer restrictions.
 
 #### Bug fixes
@@ -69,8 +69,8 @@ The Positron Notebook Editor continues to be available for alpha testing and is 
 - [[#11361](https://github.com/posit-dev/positron/issues/11361)] Assistant: file editing tools no longer delete code at wrong locations when text appears multiple times in a document.
 - [[#11923](https://github.com/posit-dev/positron/issues/11923)] Assistant: fixed "Working..." progress message when streaming chat response.
 - [[#12070](https://github.com/posit-dev/positron/issues/12070)] Assistant: fixed issue where token usage was not being reported in progress data part.
-- [[#11611](https://github.com/posit-dev/positron/issues/11611)] Notebooks: cells now auto-scroll into view during keyboard navigation (Arrow Up/Down, Shift+Arrow) so the active cell is always visible.
-- [[#10641](https://github.com/posit-dev/positron/issues/10641)] Notebooks: multiple cells can now be run at a time with the shift + run keyboard shortcut when in a multi-selection state.
+- [[#11611](https://github.com/posit-dev/positron/issues/11611)] Notebooks: cells now auto-scroll into view during keyboard navigation (<kbd>Arrow Up</kbd>/<kbd>Arrow Down</kbd>, <kbd>Shift+Arrow</kbd>) so the active cell is always visible.
+- [[#10641](https://github.com/posit-dev/positron/issues/10641)] Notebooks: multiple cells can now be run at a time with <kbd>Shift+Enter</kbd> when in a multi-selection state.
 - [[#9070](https://github.com/posit-dev/positron/issues/9070)] Notebooks: fixed notebook language features (code completions, hover, etc.) not working after restoring a session.
 - [[#10600](https://github.com/posit-dev/positron/issues/10600)] Notebooks: fixed superscript (`^text^`) and subscript (`~text~`) syntax not rendering in Positron notebooks.
 - [[#12087](https://github.com/posit-dev/positron/issues/12087)] Notebooks: fixed Assistant using wrong notebook tools for package management when Positron notebook mode is active.
@@ -86,7 +86,7 @@ The Positron Notebook Editor continues to be available for alpha testing and is 
 - [[#11553](https://github.com/posit-dev/positron/issues/11553)] Python: fixed column name completions not appearing for multi-column DataFrame selection with `df[["` syntax.
 - [[#11270](https://github.com/posit-dev/positron/issues/11270)] Python: fixed `uv` package installs not respecting the [`http.proxy`](positron://settings/http.proxy) setting.
 - [[#11137](https://github.com/posit-dev/positron/issues/11137)] R: plots are no longer always saved as PNG in Plots pane.
-- [[#8350](https://github.com/posit-dev/positron/issues/8350)] R: Stepping through code with <kbd>Cmd + Enter</kbd> now works more reliably when there are syntax errors in the document, both in R code and Quarto documents.
+- [[#8350](https://github.com/posit-dev/positron/issues/8350)] R: Stepping through code with <kbd>Cmd/Ctrl+Enter</kbd> now works more reliably when there are syntax errors in the document, both in R code and Quarto documents.
 - [[#8979](https://github.com/posit-dev/positron/issues/8979), [#12021](https://github.com/posit-dev/positron/issues/12021)] R: fixed a debugger crash that occurred under some circumstances.
 - [[#11890](https://github.com/posit-dev/positron/issues/11890)] R: the R debugger now disables the JIT compiler before executing the "stepping into" gesture. This prevents the debugger from confusingly pausing in the compiler's internal frames.
 - [[#11891](https://github.com/posit-dev/positron/issues/11891)] R: long call stacks in the debugger are no longer truncated.
