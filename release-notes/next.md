@@ -6,7 +6,7 @@ The most upvoted issue we addressed this release was about stepping through code
 
 #### Integrated PDF viewer 📄
 
-Positron now includes a built-in PDF viewer. Click any PDF in the Explorer and it opens directly in Positron, with no need for external applications or additional extensions. The viewer automatically matches your IDE theme (light or dark) and updates when you switch themes. This works in Positron Desktop, Positron Server, and Workbench environments, making it easy to view reports, papers, and documentation alongside your code.
+Positron now includes a built-in PDF viewer. Click any PDF in the Explorer and it opens directly in Positron, with no need for external applications or additional extensions. The viewer automatically matches your IDE theme (light or dark) and updates when you switch themes. This works in Positron Desktop, Positron Server, and Posit Workbench environments, making it easy to view reports, papers, and documentation alongside your code.
 
 #### Positron Notebook Editor 📓
 
@@ -40,17 +40,17 @@ The Positron Notebook Editor continues to be available for alpha testing and is 
 - [[#5436](https://github.com/posit-dev/positron/issues/5436)] Python: column name completions now appear inside pandas and polars DataFrame method string arguments such as `groupby()`, `sort_values()`, `select()`, `merge()`, and others.
 - [[#2347](https://github.com/posit-dev/positron/issues/2347)] R: added support for opening `.RData` and `.rds` files in Positron, importing them into your R session.
 - [[#9841](https://github.com/posit-dev/positron/issues/9841)] R: Quarto documents using `engine: jupyter` with `jupyter: ark` can now use Positron's bundled ark kernel.
-- [[#8939](https://github.com/posit-dev/positron/issues/8939)] R: classed lists like data frames or model results can now be expanded in the debugger's variables pane.
+- [[#8939](https://github.com/posit-dev/positron/issues/8939)] R: classed lists like data frames or model results can now be expanded in the debugger's Variables pane.
 - [[#11889](https://github.com/posit-dev/positron/issues/11889)] R: virtual sources generated while stepping in the debugger now show the function name in the source to make where R is paused clearer.
 - [[#11784](https://github.com/posit-dev/positron/issues/11784)] R: Shiny is now fully supported by the R debugger. Please update to the latest version of the `shiny` package to get full support.
 - [[#11797](https://github.com/posit-dev/positron/issues/11797)] R: debugger now supports error and warning breakpoints. Set these in the Breakpoints pane to drop in the debugger as soon as an error or warning is emitted.
 - [[#11799](https://github.com/posit-dev/positron/issues/11799)] R: debugger can now be invoked while R code is running. You can either run the command "Debug: Pause", or check the Interrupt breakpoint option in the Breakpoints pane and interrupt R. This feature allows you to peek at what R is doing while running long computations or stuck in an infinite loop. You can even resume the computation by clicking on Continue in the Debug Toolbar.
-- [[#11892](https://github.com/posit-dev/positron/issues/11892)] R: Shiny internals are now excluded from call stack by default. Set the global option `"ark.debugger.show_hidden_frames"` to `"fenced"` to show them (or to `TRUE` to show all hidden frames).
+- [[#11892](https://github.com/posit-dev/positron/issues/11892)] R: the debugger now excludes Shiny internals from the call stack by default. Set the global option `"ark.debugger.show_hidden_frames"` to `"fenced"` to show them (or to `TRUE` to show all hidden frames).
 - [[#11144](https://github.com/posit-dev/positron/issues/11144), [#11848](https://github.com/posit-dev/positron/issues/11848)] Added new _Runtime Startup Diagnostics_ command for troubleshooting slow or failing R or Python environments.
 - [[#1765](https://github.com/posit-dev/positron/issues/1765)] R: debugger now has support for the Watch Pane. This is especially useful for tracking variables that do not show in the Debug Variables pane, or the result of computations. If you prefix expressions with `/print`, the result shows the R output instead of a structured variable.
-- [[#3078](https://github.com/posit-dev/positron/issues/3078)] R: the Console is now synchronized with the frame environment selected in the Call Stack view of the debugger pane. You can now interact with local objects higher up in the call stack, just like you would with `base::recover()`.
-- [[#11050](https://github.com/posit-dev/positron/issues/11050)] R: dynamic completions (e.g. for data frame columns) are now sensitive to which call frame is selected in the debugger.
-- [[#12131](https://github.com/posit-dev/positron/issues/12131)] R: Variable pane is now synchronized with the frame selected in the call stack.
+- [[#3078](https://github.com/posit-dev/positron/issues/3078)] R: the Console now synchronizes with the frame environment selected in the Call Stack view of the debugger pane. You can now interact with local objects higher up in the call stack, just like you would with `base::recover()`.
+- [[#11050](https://github.com/posit-dev/positron/issues/11050)] R: dynamic completions (e.g., for data frame columns) are now sensitive to which call frame is selected in the debugger.
+- [[#12131](https://github.com/posit-dev/positron/issues/12131)] R: the Variables pane now synchronizes with the frame selected in the call stack.
 - [[#2702](https://github.com/posit-dev/positron/issues/2702)] Added a warning when an interpreter's architecture doesn't match the system architecture, helping users understand potential performance or package compatibility issues.
 - [[#11735](https://github.com/posit-dev/positron/issues/11735)] Deprecated the `update.systemArchitecture` setting to always automatically detect the system architecture on upgrade.
 - [[#11816](https://github.com/posit-dev/positron/issues/11816)] Added [`files.enableDownloads`](positron://settings/files.enableDownloads) and [`files.enableUploads`](positron://settings/files.enableUploads) settings for file transfer restrictions.
