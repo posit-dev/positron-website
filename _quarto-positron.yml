@@ -129,6 +129,7 @@ website:
               href: guide-r.qmd
               contents:
               - guide-r.qmd
+              - guide-r-debugging.qmd
               - guide-r-air.qmd
         - section: "Data Analysis"
           contents:
@@ -171,7 +172,6 @@ website:
             - section: "Language-Specific Setup"
               contents:
                 - python-installations.qmd
-                - guide-r-debugging.qmd
                 - r-installations.qmd
                 - reticulate.qmd
         - section: "Migration Guides"
