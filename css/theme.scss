@@ -260,7 +260,8 @@ kbd {
   @include card-grid-base;
   @include card-grid-responsive;
 
-  @media (min-width: 1024px) {
+  // Use larger breakpoint for 3 columns to account for Quarto sidebars
+  @media (min-width: 1400px) {
     grid-template-columns: repeat(3, 1fr);
   }
 
