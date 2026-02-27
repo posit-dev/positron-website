@@ -114,14 +114,16 @@ Note that the Accounts section manages your GitHub authentication for all extens
 ## Amazon Bedrock
 
 ::: {.callout-important}
-To use Amazon Bedrock in Positron Desktop, Positron Assistant requires an **AWS account with Amazon Bedrock access**, and you must be signed in using the AWS CLI.
+To use Amazon Bedrock in Positron Desktop, Positron Assistant requires an **AWS account with Amazon Bedrock access**, and you must sign in using the AWS CLI.
+
+You must also [request access to the foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html) you want to use in your AWS Bedrock console before they appear in Positron.
 
 <details>
-<summary>Login with the AWS CLI</summary>
+<summary>Sign in with the AWS CLI</summary>
 
 1. [Download and install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 1. [Configure your AWS credentials for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-1. [Login with the AWS CLI](https://docs.aws.amazon.com/signin/latest/userguide/command-line-sign-in.html)
+1. [Sign in with the AWS CLI](https://docs.aws.amazon.com/signin/latest/userguide/command-line-sign-in.html)
 
 </details>
 
@@ -129,22 +131,13 @@ To use Amazon Bedrock in Positron Desktop, Positron Assistant requires an **AWS 
 
 ### Enable Amazon Bedrock as a provider
 
-Amazon Bedrock provider support is currently in **preview** and must be manually enabled.
-
-Run the command _Preferences: Open User Settings (JSON)_ and add the following to your settings file:
+Amazon Bedrock provider support is currently in **preview**. To enable it, run the command _Preferences: Open User Settings (JSON)_ and add the following to your settings file:
 
 ```{.json filename="settings.json"}
-"positron.assistant.enabledProviders": [
-    "amazon-bedrock"
-]
+{
+    "positron.assistant.provider.amazonBedrock.enable": true
+}
 ```
-
-### (Optional) Configure AWS region and profile
-
-By default, Positron Assistant uses the `default` AWS CLI profile and the `us-east-1` region to connect to Amazon Bedrock.
-
-To specify a different AWS CLI profile or region, update the [`positron.assistant.providerVariables.bedrock`](positron://settings/positron.assistant.providerVariables.bedrock) setting.
-
 ### Add Amazon Bedrock as a language model provider
 
 1. Run the command _Positron Assistant: Configure Language Model Providers_
@@ -153,6 +146,58 @@ To specify a different AWS CLI profile or region, update the [`positron.assistan
     ![Amazon Bedrock selected in provider modal](images/assistant-provider-modal-amazon-bedrock.png){width=600}
 
 1. Select **Sign in** so Positron Assistant can verify your AWS CLI authentication.
+
+### (Optional) Configure AWS region and profile
+
+**`AWS_REGION`**
+
+Positron Assistant reads `AWS_REGION` from your environment automatically. You only need to set it here if your shell does not already have `AWS_REGION` configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier format (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the region identifier for each location. You must also ensure the models you want to use are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
+
+**`AWS_PROFILE`**
+
+Positron Assistant uses your `default` AWS CLI profile when no profile is specified. Set `AWS_PROFILE` if the profile you use for Bedrock is not named `default` — for example, when you have a dedicated Bedrock role separate from your general development credentials, or when your Bedrock access lives in a different AWS account. To see your available profiles, run `aws configure list-profiles` in a terminal. 
+
+::: {.callout-note}
+Do not set `AWS_PROFILE` if you use Posit Workbench managed credentials or environment variable credentials (`AWS_ACCESS_KEY_ID`/`AWS_SECRET_ACCESS_KEY`). Both of those paths bypass named profile resolution, and setting a profile name in those cases causes credential resolution to fail.
+:::
+
+To set either value, add them to the [`positron.assistant.providerVariables.bedrock`](positron://settings/positron.assistant.providerVariables.bedrock) setting. These override any matching environment variables already set on your system for Positron Assistant only; they do not affect your terminal or other tools. Changes require a restart to take effect.
+
+```{.json filename="settings.json"}
+{
+    "positron.assistant.providerVariables.bedrock": {
+        "AWS_REGION": "eu-west-1",
+        "AWS_PROFILE": "my-bedrock-profile"
+    }
+}
+```
+
+### (Optional) Configure inference profile region
+
+Positron Assistant uses [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) to route requests across multiple AWS regions for higher availability and throughput. Positron derives the inference profile region automatically from `AWS_REGION` by taking its geographic prefix:
+
+| `AWS_REGION` | Derived inference profile region |
+|---|---|
+| `us-east-1`, `us-west-2` | `us` |
+| `eu-west-1`, `eu-central-1` | `eu` |
+| `ap-southeast-1`, `ap-northeast-1` | `apac` |
+
+Most users do not need to change this. Use the [`positron.assistant.bedrock.inferenceProfileRegion`](positron://settings/positron.assistant.bedrock.inferenceProfileRegion) setting to override the derived value if:
+
+- Your AWS account has Bedrock model access enabled in a different geographic pool than your `AWS_REGION` implies — for example, you connect through `us-east-1` but want to route inference through `eu` profiles.
+- You want to use a `global` inference profile, which Positron cannot derive automatically from any region.
+
+```{.json filename="settings.json"}
+{
+    "positron.assistant.bedrock.inferenceProfileRegion": "global"
+}
+```
+
+Valid values are `us`, `eu`, `apac`, and `global`. This setting requires a restart to take effect.
+
+::: {.callout-note}
+If no inference profile exists for your preferred region, Positron Assistant falls back to the first available inference profile for that model. If a model has no inference profile at all, it does not appear in the model list.
+:::
 
 ## Snowflake Cortex
 
