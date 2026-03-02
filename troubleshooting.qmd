@@ -45,6 +45,22 @@ Here's a list of some Positron-specific channels you may be interested in:
 
 Most of these output channels have a log level associated with them that you can change in the settings UI. For example, you can change the log level for how much information is passed from the R kernel itself to the "R Kernel" output channel using the [`positron.r.kernel.logLevel`](positron://settings/positron.r.kernel.logLevel) setting.
 
+## Runtime startup diagnostics
+
+If your R or Python environment is slow to start or failing to start, run the _Runtime Startup Diagnostics_ command from the [Command Palette](command-palette.qmd). This command collects diagnostic information about interpreter startup, including timing data and potential issues that may be causing problems.
+
+The diagnostics output can help identify:
+
+- Slow package loading or initialization
+- Environment configuration issues
+- Path or dependency problems
+
+Include this diagnostic output when filing issues related to interpreter startup problems.
+
+::: {.callout-note}
+The diagnostics output may include environment variables. Review the output and remove any sensitive information such as API keys or tokens before sharing.
+:::
+
 ## Developer tools
 
 Positron is built on Electron, which means it has a built-in developer tools panel similar to what you see in web browsers. When looking for the source of an error, the developer tools output can be helpful. 
