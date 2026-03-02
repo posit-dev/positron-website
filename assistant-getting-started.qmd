@@ -114,7 +114,8 @@ Note that the Accounts section manages your GitHub authentication for all extens
 ## Amazon Bedrock
 
 ::: {.callout-important}
-To use Amazon Bedrock in Positron Desktop, you must:
+To use Amazon Bedrock in Positron Desktop, you must:  
+
 1. Have an AWS account with Amazon Bedrock access
 2. Have access to foundation models through the AWS Bedrock console ([request access to the foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html))
 3. Sign in to your AWS account using the AWS CLI
@@ -135,27 +136,15 @@ To use Amazon Bedrock in Positron Desktop, you must:
 Amazon Bedrock provider support is currently in **preview**. To enable it, run the command _Preferences: Open User Settings (JSON)_ and add the following to your settings file:
 
 ```{.json filename="settings.json"}
-{
-    "positron.assistant.provider.amazonBedrock.enable": true
-}
+"positron.assistant.enabledProviders": [
+    "amazon-bedrock"
+]
 ```
 
-### Add Amazon Bedrock as a language model provider
-
-1. Run the command _Positron Assistant: Configure Language Model Providers_
-1. Select **Amazon Bedrock** as the model provider.
-
-    ![Amazon Bedrock selected in provider modal](images/assistant-provider-modal-amazon-bedrock.png){width=600}
-
-1. Select **Sign in** so Positron Assistant can verify your AWS CLI authentication.
-
-### (Optional) Configure AWS region and profile
-
-#### `AWS_REGION`
+<details>
+<summary>(Optional) Configure AWS region and profile</summary>
 
 Positron Assistant reads `AWS_REGION` from your environment automatically. You only need to set it here if your shell does not already have `AWS_REGION` configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier format (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the region identifier for each location. You must also ensure the models you want to use are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
-
-#### `AWS_PROFILE`
 
 Positron Assistant uses your `default` AWS CLI profile when no profile is specified. Set `AWS_PROFILE` if the profile you use for Bedrock is not named `default` — for example, when you have a dedicated Bedrock role separate from your general development credentials, or when your Bedrock access lives in a different AWS account. To see your available profiles, run `aws configure list-profiles` in a terminal. 
 
@@ -165,8 +154,10 @@ Do not set `AWS_PROFILE` if you use Posit Workbench managed credentials or envir
 
 To set either value, add them to the [`positron.assistant.providerVariables.bedrock`](positron://settings/positron.assistant.providerVariables.bedrock) setting. These override any matching environment variables already set on your system for Positron Assistant only; they do not affect your terminal or other tools. Changes require a restart to take effect.
 
+</details>
 
-### (Optional) Configure inference profile region
+<details>
+<summary>(Optional) Configure inference profile region</summary>
 
 Positron Assistant uses [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) to route requests across multiple AWS regions for higher availability and throughput. Positron derives the inference profile region automatically from `AWS_REGION` by taking its geographic prefix:
 
@@ -186,6 +177,18 @@ Valid values are `us`, `eu`, `apac`, and `global`. This setting requires a resta
 ::: {.callout-note}
 If no inference profile exists for your preferred region, Positron Assistant falls back to the first available inference profile for that model. If a model has no inference profile at all, it does not appear in the model list.
 :::
+
+</details>
+
+### Add Amazon Bedrock as a language model provider
+
+1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Select **Amazon Bedrock** as the model provider.
+
+    ![Amazon Bedrock selected in provider modal](images/assistant-provider-modal-amazon-bedrock.png){width=600}
+
+1. Select **Sign in** so Positron Assistant can verify your AWS CLI authentication.
+
 
 ## Snowflake Cortex
 
