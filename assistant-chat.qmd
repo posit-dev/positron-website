@@ -89,7 +89,7 @@ You can customize which models Assistant has access to and set default preferenc
 
 - [`positron.assistant.models.include`](positron://settings/positron.assistant.models.include): Restrict which models are available by specifying patterns. Supports wildcards and regular expressions. Does not affect GitHub Copilot models.
 
-- `positron.assistant.models.overrides.<provider>`: Manually configure models for a specific provider instead of retrieving listings automatically.
+- `positron.assistant.models.overrides.<provider>`: Manually configure models for a specific provider instead of retrieving the model listing automatically. Use this setting when the provider does not support the `/models` endpoint or if you want to replace the provider's model listing with your own custom set of models.
     - [`positron.assistant.models.overrides.anthropic`](positron://settings/positron.assistant.models.overrides.anthropic)
     - [`positron.assistant.models.overrides.amazonBedrock`](positron://settings/positron.assistant.models.overrides.amazonBedrock)
     - [`positron.assistant.models.overrides.snowflakeCortex`](positron://settings/positron.assistant.models.overrides.snowflakeCortex)
