@@ -48,7 +48,18 @@ website:
 
     left:
       - text: "Features"
-        href: features.qmd
+        menu:
+          - text: "Overview"
+            href: features.qmd
+          - text: "---"
+          - text: "Data Apps & AI Tools"
+            href: features.qmd#bridge-the-exploration-and-production-divide
+          - text: "Data Explorer & Visualization"
+            href: features.qmd#explore-and-analyze-with-speed
+          - text: "Connections & Publishing"
+            href: features.qmd#develop-with-confidence
+          - text: "Enterprise"
+            href: features.qmd#enterprise-ready-with-positron-pro
       - text: "Guides"
         href: welcome.qmd
       - text: "Help"

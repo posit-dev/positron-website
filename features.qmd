@@ -2,7 +2,7 @@
 title: "Features"
 description: "Discover the complete data science toolkit designed to keep you in the flow. Quickly move from data to insight to application in one code editor."
 anchor-links: false
-toc: false
+toc: true
 listing:
   - id: features-insights-1
     type: custom
@@ -109,7 +109,7 @@ listing:
 
 ## Bridge the exploration and production divide
 
-{{< video videos/positron-assistant-copytoeditor.mp4 
+{{< video videos/positron-assistant-copytoeditor.mp4
   aria-label="Video demonstration of Positron's AI assistance and environment inspection features"
 >}}
 
@@ -118,7 +118,7 @@ listing:
 
 ## Explore and analyze with speed
 
-{{< video videos/data-explorer.mp4 
+{{< video videos/data-explorer.mp4
   aria-label="Video demonstration of Positron's data exploration features"
 >}}
 
@@ -127,7 +127,7 @@ listing:
 
 ## Develop with confidence
 
-{{< video videos/connections.mp4 
+{{< video videos/connections.mp4
   aria-label="Video demonstration of Positron's database connection features"
 >}}
 
@@ -138,7 +138,6 @@ listing:
 ## Enterprise-ready with Positron Pro
 
 For teams that need enterprise-grade capabilities, [Positron Pro](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page) on [Posit Workbench](https://posit.co/products/enterprise/workbench/?utm_source=positron-docs&utm_medium=features-page) provides the scalability, data access, admin configuration, and security your organization requires.
-
 
 {{< video videos/positron-workbench.mp4 aria-label="Video demonstration of Positron Pro on Posit Workbench for enterprise teams" >}}
 
