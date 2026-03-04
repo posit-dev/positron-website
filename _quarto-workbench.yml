@@ -9,6 +9,7 @@ project:
     - "!remote-ssh.qmd"
     - "!dev-containers.qmd"
     - "!add-to-path.qmd"
+    - "!blog/**"
   resources:
     - _redirects
     - "!videos/**"
@@ -57,7 +58,7 @@ website:
         href: about.qmd
       - text: "Resources"
         menu:
-          - text: "Blog Posts"
+          - text: "Company Blog Posts"
             icon: box-arrow-up-right
             href: https://posit.co/blog/?post_tag=positron  
             target: _blank

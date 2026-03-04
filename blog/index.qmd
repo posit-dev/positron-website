@@ -1,0 +1,15 @@
+---
+title: Positron Blog
+subtitle: News, tips, and commentary about all things Positron
+listing:
+  sort: "date desc"
+  contents: "posts/*/index.qmd"
+  sort-ui: false
+  filter-ui: false
+  categories: true
+  feed: true
+page-layout: full
+title-block-banner: true
+search: false
+image: positron-blog-social.png
+---
