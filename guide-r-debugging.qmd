@@ -95,13 +95,7 @@ Breakpoints work inside Shiny apps. You can place a breakpoint inside a reactive
 Install the latest version of the `shiny` package for full debugging support.
 :::
 
-By default, the Call Stack view hides Shiny internal frames so you can focus on your own code. To show Shiny internals, set the global option:
-
-```r
-options(ark.debugger.show_hidden_frames = "fenced")
-```
-
-Set it to `TRUE` to show all kinds of hidden frames, not just Shiny ones.
+By default, the Call Stack view hides Shiny internal frames so you can focus on your own code. To show them, see the [`ark.debugger.show_hidden_frames`](#configuration) option.
 
 ## Differences from RStudio
 
@@ -127,3 +121,25 @@ If you are coming from debuggers in other languages, note these differences:
 
 - **Step Out** (`f`) finishes the current loop or function rather than returning to the caller.
 - **Editing a file invalidates all breakpoints** in that file immediately, even if the breakpoint line did not change. This prevents stepping through a stale view of the code.
+
+## Configuration {#configuration}
+
+`options(ark.debugger.show_hidden_frames = )`
+
+:   Controls which hidden frames the Call Stack view displays. The debugger hides two categories of frames by default:
+
+    - `"fenced"`: Frames fenced by `..stacktraceon..` and `..stacktraceoff..` markers. Packages like Shiny use these markers to hide their internals from the call stack.
+
+    - `"internal"`: Frames involved in condition emission and handling, such as `.handleSimpleError` or `doWithOneRestart`.
+
+    Set this option to a character vector of categories to show:
+
+    ```r
+    # Show fenced frames (e.g. Shiny internals)
+    options(ark.debugger.show_hidden_frames = "fenced")
+
+    # Show all hidden frames (equivalent to TRUE)
+    options(ark.debugger.show_hidden_frames = c("fenced", "internal"))
+    ```
+
+    Set to `TRUE` to show all hidden frames, or `FALSE` (the default) to hide them all.
