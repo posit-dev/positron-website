@@ -39,7 +39,7 @@ The Breakpoints pane provides checkboxes to break on errors, warnings, or interr
 
 - **Errors**: Pauses execution when an error occurs. This replaces the `options(error = browser)` or `options(error = recover)` pattern.
 
-- **Warnings**: Pauses execution when a warning is emitted. This replaces the `options(warn = 2, error = browser)` pattern.
+- **Warnings**: Pauses execution when R emits a warning. This replaces the `options(warn = 2, error = browser)` pattern.
 
 - **Interrupts**: Pauses execution when you interrupt R instead of cancelling the computation. This is useful to investigate why R is taking a long time or why it is stuck in an infinite loop.
 
@@ -47,7 +47,7 @@ The Breakpoints pane provides checkboxes to break on errors, warnings, or interr
 
 When the debugger pauses on an error or warning, the condition type and message appear in the editor and the debug UI. The initial pause location is typically inside internal error handling or emission code, which is not always useful on its own. Use the **Call Stack** view to navigate to the frame where the error or warning originated. Selecting **Continue** resumes execution and propagates the condition normally.
 
-:::{.callout-tip}
+:::{.callout-note}
 You can also pause R at any time by running the _Debug: Pause_ command from the Command Palette, without enabling the Interrupts checkbox first.
 :::
 
@@ -63,7 +63,7 @@ Selecting a frame in the Call Stack view switches the context for the rest of th
 
 - **Autocompletions** in the Console are sensitive to the selected frame.
 
-## Watch Pane
+## Watch pane
 
 The **Watch** section in the Debug pane lets you track expressions across debug steps. Add an expression, and its value updates each time the debugger pauses or you select a different frame in the Call Stack. Watch expressions return the same structured variables as the Debug Variables section, and you can expand complex objects such as lists and data frames.
 
@@ -85,7 +85,7 @@ The Watch pane is useful in two situations:
 
     When you step through the `renderPlot()` body, `input` does not appear in the Variables pane because it belongs to the `server` scope, one level above the renderer. Add `input$bins` to the Watch pane to track its value without switching frames.
 
-Prefix an expression with `/print` to display the full printed R output instead of a structured variable. For example, `/print summary(model)` shows the printed summary. The result is truncated to a single line in the Watch pane, but you can hover over it with the mouse to see the full output.
+Prefix an expression with `/print` to display the full printed R output instead of a structured variable. For example, `/print summary(model)` shows the printed summary. The Watch pane truncates the result to a single line, but you can hold the pointer over it to see the full output.
 
 ## Debugging Shiny apps
 
@@ -95,7 +95,7 @@ Breakpoints work inside Shiny apps. You can place a breakpoint inside a reactive
 Install the latest version of the `shiny` package for full debugging support.
 :::
 
-By default, Shiny internal frames are hidden from the Call Stack view so you can focus on your own code. To show Shiny internals, set the global option:
+By default, the Call Stack view hides Shiny internal frames so you can focus on your own code. To show Shiny internals, set the global option:
 
 ```r
 options(ark.debugger.show_hidden_frames = "fenced")
