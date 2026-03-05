@@ -435,6 +435,51 @@ a.footnote-back {
   margin-right: 5px;
 }
 
+// ============= BLOG POST CTA =============
+.blog-cta-container {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.blog-cta-card {
+  flex: 1;
+  min-width: 250px;
+  padding: 1.5rem;
+  border: 1px solid $posit-light-blue-1;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 20px rgba(87, 89, 89, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(87, 89, 89, 0.12);
+    border-color: $positron-blue;
+  }
+}
+
+.blog-cta-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: $posit-dark-gray-2;
+
+  i {
+    margin-right: 0.5rem;
+    color: $positron-blue;
+  }
+}
+
+.blog-cta-description {
+  font-size: 0.95rem;
+  color: $posit-light-gray-3;
+  line-height: 1.6;
+}
+
 // ============= INDEX PAGE =============
 .index-section {
   text-align: center !important;

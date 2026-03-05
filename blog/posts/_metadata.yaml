@@ -1,0 +1,6 @@
+toc-location: right
+format:
+  html:
+    include-after-body:
+      - _blog-post-cta.html
+      
