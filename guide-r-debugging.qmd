@@ -91,7 +91,7 @@ Prefix an expression with `/print` to display the full printed R output instead 
 
 Breakpoints work inside Shiny apps. You can place a breakpoint inside a reactive expression such as `renderPlot()`, then run the app with `shiny::runApp()`. The debugger pauses when R reaches the breakpoint.
 
-:::{.callout-note}
+:::{.callout-important}
 Install the latest version of the `shiny` package for full debugging support.
 :::
 
