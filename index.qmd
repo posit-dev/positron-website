@@ -28,14 +28,13 @@ format:
 
 From [Posit PBC](https://posit.co/), the creators of RStudio
 
-# The Data Science IDE
+# The Next-Generation Data Science IDE
 
-### Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.
+### One powerful, free environment for Python and R. Explore data, build models, create reports, and deploy—all with AI assistance built in.
 
 ::: {.content-visible unless-profile="workbench"}
-<a href="download.qmd" class="btn btn-outline-primary">Free Download</a>
-<a href="features.qmd" class="btn btn-outline-primary">Explore Features</a>
-<a href="https://posit.co/positron-updates-signup/" class="btn btn-outline-primary">Get Updates</a>
+<a href="download.qmd" class="btn btn-primary btn-lg">Download Free</a>
+<a href="features.qmd" class="btn btn-outline-primary btn-lg">See All Features</a>
 :::
 
 ::: {.content-visible when-profile="workbench"}
@@ -44,7 +43,7 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 <a href="welcome.qmd" class="btn btn-outline-primary">Guides</a>
 :::
 
-{{< video videos/positron-hero-fast-tour.mp4 
+{{< video videos/positron-hero-fast-tour.mp4
   aria-label="Video demonstration of Positron, the data science IDE for Python and R"
 >}}
 
@@ -52,8 +51,128 @@ From [Posit PBC](https://posit.co/), the creators of RStudio
 ![Execute code and explore data in Positron](images/astropy.png){fig-alt="Positron IDE showing Python code for astronomical data visualization with a galactic coordinate plot and Variables pane displaying data objects."}
 :::
 
+</div>
+
 ::: {.content-visible unless-profile="workbench"}
-Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
+
+<!-- Why Positron Section -->
+<div class="why-positron-section">
+
+## Why data scientists choose Positron
+
+```{=html}
+<div class="value-props-grid">
+  <div class="custom-card">
+    <div class="custom-card-icon-container">
+      <div class="custom-card-icon">
+        <i class="bi bi-code-slash"></i>
+      </div>
+    </div>
+    <h3 class="custom-card-title">Python & R, Unified</h3>
+    <p class="custom-card-description">Write Python and R in the same IDE—even in the same project. No more switching tools or losing context.</p>
+  </div>
+
+  <div class="custom-card">
+    <div class="custom-card-icon-container">
+      <div class="custom-card-icon">
+        <i class="bi bi-table"></i>
+      </div>
+    </div>
+    <h3 class="custom-card-title">Built for Data Exploration</h3>
+    <p class="custom-card-description">Inspect variables, explore dataframes at scale, and visualize results instantly with purpose-built panes.</p>
+  </div>
+
+  <div class="custom-card">
+    <div class="custom-card-icon-container">
+      <div class="custom-card-icon">
+        <i class="bi bi-robot"></i>
+      </div>
+    </div>
+    <h3 class="custom-card-title">AI-Powered Assistance</h3>
+    <p class="custom-card-description">Get contextual help from an AI assistant that understands data science workflows and your code.</p>
+  </div>
+
+  <div class="custom-card">
+    <div class="custom-card-icon-container">
+      <div class="custom-card-icon">
+        <i class="bi bi-rocket-takeoff"></i>
+      </div>
+    </div>
+    <h3 class="custom-card-title">From Exploration to Production</h3>
+    <p class="custom-card-description">Go from notebook to Quarto report to deployed Shiny app—all without leaving Positron.</p>
+  </div>
+</div>
+```
+
+</div>
+
+<!-- Feature Highlights with Videos -->
+<div class="feature-highlight-section">
+
+## See Positron in action
+
+::: {.feature-highlight}
+
+::: {.feature-highlight-content}
+### Explore data at any scale
+Instantly filter, sort, and summarize millions of rows. The Data Explorer handles big data without breaking a sweat.
+:::
+
+::: {.feature-highlight-video}
+{{< video videos/data-explorer.mp4
+  aria-label="Video demonstration of Positron's Data Explorer"
+>}}
+:::
+
+:::
+
+::: {.feature-highlight .feature-highlight-reverse}
+
+::: {.feature-highlight-content}
+### AI that accelerates your workflow
+Ask questions about your data, generate code, and get instant explanations—all contextualized to your project.
+:::
+
+::: {.feature-highlight-video}
+{{< video videos/positron-assistant-copytoeditor.mp4
+  aria-label="Video demonstration of Positron's AI Assistant"
+>}}
+:::
+
+:::
+
+::: {.feature-highlight}
+
+::: {.feature-highlight-content}
+### Build and preview apps instantly
+Develop Shiny, Dash, Streamlit, and other data applications with live preview right in your IDE.
+:::
+
+::: {.feature-highlight-video}
+{{< video videos/connections.mp4
+  aria-label="Video demonstration of Positron's app development features"
+>}}
+:::
+
 :::
 
 </div>
+
+<!-- CTA Section -->
+<div class="cta-section">
+
+## Ready to upgrade your data science workflow?
+
+Join thousands of data scientists who have already made the switch.
+
+<a href="download.qmd" class="btn btn-primary btn-lg">Download Positron Free</a>
+<a href="https://posit.co/positron-updates-signup/" class="btn btn-outline-primary btn-lg">Get Updates</a>
+
+</div>
+
+<!-- License Note -->
+<div class="license-note">
+Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
+</div>
+
+:::
