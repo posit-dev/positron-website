@@ -13,7 +13,7 @@ jobs:
         uses: urlstechie/urlchecker-action@master
         with:
           file_types: .qmd
-          exclude_patterns: https://cdn.posit.co/positron/prereleases/,https://positron.posit.co/images/,https://github.com/posit-dev/positron/issues
+          exclude_patterns: https://cdn.posit.co/positron/prereleases/,https://positron.posit.co/images/,https://github.com/posit-dev/positron/issues,https://www.snowflake.com/en/legal/
 
       - name: Check URLs in _redirects
         uses: urlstechie/urlchecker-action@master
