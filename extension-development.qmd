@@ -203,6 +203,12 @@ const disposable = vscode.commands.registerCommand('myExtension.runCode', () => 
 
 The third parameter (`true`) means the code appears in the console history.
 
+::: {.callout-important}
+The `executeCode` API should be used with caution because R and Python both have the ability to run arbitrary code with the user's full permissions.
+
+Avoid building code strings from untrusted inputs, including those under indirect control (e.g., filenames). If you must incorporate untrusted strings into the code string, ensure that they are escaped properly.
+:::
+
 ### Add a database connection
 
 Register a custom database type with a working mock example:
