@@ -1,21 +1,21 @@
 ---
 title: "Native Jupyter Notebook Support Has Arrived in Positron"
 description: |
-  Positron now includes a native Jupyter Notebook Editor, built from the ground up for data science workflows. Here's what's in the alpha, what's new in the March release, and how to get started.
+  Positron now includes a native Jupyter Notebook Editor in alpha, built from the ground up for data science workflows. Here's what's in the alpha, what's new in the March release, and how to get started.
 categories:
   - Jupyter
-  - Python
-  - R
   - Notebooks
 author:
   - Cindy Tong
-date: "2026-03-06"
+date: "2026-03-11"
 image: positron-notebook-editor.png
 ---
 
-Positron now ships with a native Jupyter Notebook Editor, and we want you to try it.
+Positron now ships with a native [Jupyter Notebook Editor](/positron-notebook-editor.qmd), and we want you to try it.
 
 This is an early alpha release. The core experience is working well, especially for Python, and R support is actively being refined. We're releasing now because we'd rather build this with the community than wait for perfection. Your feedback will shape where it goes next.
+
+{{< video https://rstudio.wistia.com/medias/tuwfndloue >}}
 
 ## Why we built our own notebook editor
 
@@ -23,25 +23,33 @@ Up to this point, Positron used the same Code OSS notebook editor that powers VS
 
 We wanted notebooks to feel like a first-class part of a data science IDE, so we built our own.
 
+![Positron Notebook Editor Layout](positron-notebook-layout.png)
+
 ## What's included out of the box
 
 The Positron Notebook Editor brings the core capabilities of Positron directly into your notebook workflow:
-
-**Environment management**: Switch between Python and R environments without leaving the notebook. Your environment state is visible and controllable.
 
 **Variables Pane**: Variables update in real time as you run cells. No need to print or inspect manually.
 
 **Data Explorer**: When a cell returns a Pandas or Polars DataFrame, you get an inline data viewer. Open the full Data Explorer to sort, filter, and profile your data. Any filtering or cleaning you do can be converted into code, so your analysis stays reproducible without writing repetitive `df.head()` or `df.describe()` calls.
 
+{{<video https://rstudio.wistia.com/medias/tuwfndloue>}}
+
 **AI Assistant**: The Assistant has access to your notebook's full context, including cell states, execution history, and outputs like images and tables. It can suggest edits, reorder cells, and run code with your permission. You can inspect exactly what context it's using and follow along as it works.
+
+{{<video https://rstudio.wistia.com/medias/lmn2gtwjff>}}
 
 **Help Pane**: Python and R documentation is available inline, with hyperlinks, without switching to a browser.
 
+{{<video https://rstudio.wistia.com/medias/9qa1qii1vw>}}
+
 **Publisher**: Deploy your `.ipynb` notebooks directly to Connect or Connect Cloud, where you can manage access, schedule runs, and view telemetry.
+
+{{<video https://rstudio.wistia.com/medias/mrkp6grwiy>}}
 
 ## What's new in the March release
 
-The March 2026 release focuses on smoothing the edit and execution loop as you move from exploration toward something shareable.
+The March 2026 release focuses on smoothing the edit and execution loop as you move from exploration to a shareable artifact.
 
 The biggest addition is Data Explorer integrated directly into cell outputs. When you run a cell that returns a DataFrame, the data viewer appears inline. This removes a common pattern in exploratory notebooks where scratch cells pile up just to look at intermediate data. You can explore without polluting your notebook, and when you find something worth keeping, generate the code for it.
 
@@ -53,15 +61,9 @@ A typical workflow in the Positron Notebook Editor now looks like this:
 4. When the analysis is ready to share, use an AI action to add markdown headers and notes.
 5. Publish the notebook to Connect or Connect Cloud.
 
-## A note on R support
-
-Positron supports both R and Python, and the Notebook Editor works with R today. That said, R notebook workflows are one of the areas we're actively refining in the alpha. If you work primarily in R, we especially want to hear from you. Your feedback on rough edges will help us prioritize what to fix next.
-
 ## What's coming next
 
-The roadmap includes a notebook console scratchpad, SQL support, improved version control, and a data-aware table of contents. You can view and vote on items in the [GitHub roadmap](https://github.com/posit-dev/positron).
-
-Quarto support is also on the horizon. The Notebook Editor is designed for cross-format growth, and future work includes editing `.qmd` files in a notebook editor and viewing outputs inline in both notebook and source modes.
+The roadmap includes SQL support, improved version control, R improvements and more. You can view and vote on items in the [GitHub roadmap](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22area%3A%20notebooks-jupyter%22).
 
 ## Join our upcoming workshop
 
