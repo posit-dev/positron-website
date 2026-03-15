@@ -7,25 +7,25 @@ categories:
   - Notebooks
 author:
   - Cindy Tong
-  - Wasim Lorgat
-  - Dhruvi Sompura
-date: "2026-03-12"
-image: positron-notebook-editor.png
+date: "2026-03-16"
+image: /images/positron-notebook.png
 ---
 
-Positron now ships with a native [Jupyter Notebook Editor](/positron-notebook-editor.qmd), and we want you to try it.
+Positron now ships with a native [Jupyter Notebook Editor](/positron-notebook-editor.qmd), a new unified experience we built from the ground up for working with Jupyter notebooks within Positron.
 
-This is an early alpha release. The core experience is working well, especially for Python, and R support is actively being refined. We're releasing now because we'd rather build this with the community than wait for perfection. Your feedback will shape where it goes next.
-
-{{< video videos/notebook-data-explorer-variables.mp4 aria-label="Explore, sort and filter your dataframes in an embedded data explorer" >}}
+{{< video /videos/notebook-data-explorer-variables.mp4 aria-label="Explore, sort and filter your dataframes in an embedded data explorer" >}}
 
 ## Why we built our own notebook editor
 
-Up to this point, Positron used the same Code OSS notebook editor that powers VS Code. That editor is solid for general-purpose development, but it wasn't designed with data science workflows in mind. The tradeoffs show up in small ways that compound over time: limited context for AI assistance, no deep integration with your variables or data, and a user experience that treats `.ipynb` files as just another file type.
+We built the Positron Notebook Editor to treat your .ipynb files as first-class citizens in an IDE tailored specifically for data science workflows.
 
-We wanted notebooks to feel like a first-class part of a data science IDE, so we built our own notebook editor.
+Up to this point, Positron used the [legacy Code OSS notebook editor](/legacy-notebook-editor.qmd) that powers VS Code. While functional, this editor was designed for general-purpose development and not specifically for data science workflows. The tradeoffs show up in small ways that compound over time: limited context for AI assistance, no deep integration with your variables or data, and a user experience that treats `.ipynb` files as just another file type.
 
-![Positron Notebook Editor](../images/positron-notebook-editor.png)
+We wanted notebooks to feel like a first-class part of a data science IDE, so we built our own native notebook editor.
+
+If you missed the [original February announcement](https://posit.co/blog/announcing-the-positron-notebook-editor-for-jupyter-notebooks/), that post covers our initial reasoning in more detail.
+
+![Positron Notebook Editor](/images/positron-notebook.png)
 
 ## What's included out of the box
 
@@ -37,21 +37,17 @@ The Positron Notebook Editor brings the core capabilities of Positron directly i
 
 **[AI Assistant](/assistant.qmd)**: The Assistant has access to your notebook's full context, including cell states, execution history, and outputs like images and tables. It can suggest edits, reorder cells, and run code with your permission. You can inspect exactly what context it's using and follow along as it works.
 
-{{< video videos/notebook-ai-quick-actions.mp4 aria-label="Using Positron Assistant to generate AI-powered suggestions and edits in a notebook" >}}
+{{< video /videos/notebook-ai-quick-actions.mp4 aria-label="Using Positron Assistant to generate AI-powered suggestions and edits in a notebook" >}}
 
 **[Help Pane](/help-pane.qmd)**: Python and R documentation is available inline, with hyperlinks, without switching to a browser.
 
-{{< video videos/notebook-help.mp4 aria-label="Access Python and R documentation inline in the Help pane without switching to a browser" >}}
+{{< video /videos/notebook-help.mp4 aria-label="Access Python and R documentation inline in the Help pane without switching to a browser" >}}
 
 **[Publisher](/publish-to-connect.qmd)**: Deploy your `.ipynb` notebooks directly to Connect or Connect Cloud, where you can manage access, schedule runs, and view telemetry.
 
-{{< video videos/notebook-publish-connect.mp4 aria-label="Publish and share your notebook" >}}
+{{< video /videos/notebook-publish-connect.mp4 aria-label="Publish and share your notebook" >}}
 
-## What's new in the March release
-
-The March 2026 release focuses on smoothing the edit and execution loop as you move from exploration to a shareable artifact.
-
-The biggest addition is Data Explorer integrated directly into cell outputs. When you run a cell that returns a DataFrame, the data viewer appears inline. This removes a common pattern in exploratory notebooks where scratch cells pile up just to look at intermediate data. You can explore without polluting your notebook, and when you find something worth keeping, generate the code for it.
+## In Practice: A typical notebook workflow in Positron
 
 A typical workflow in the Positron Notebook Editor now looks like this:
 
@@ -60,8 +56,6 @@ A typical workflow in the Positron Notebook Editor now looks like this:
 3. Use the Assistant to generate a visualization based on your filtered data.
 4. When the analysis is ready to share, use an AI action to add markdown headers and notes.
 5. Publish the notebook to Connect or Connect Cloud.
-
-{{< video videos/notebook-fix-error.mp4 aria-label="Assistant helps fix errors in your notebook" >}}
 
 ## What's coming next
 
@@ -75,7 +69,9 @@ On **Wednesday, March 25 at 11am EDT**, we're running a free workshop that walks
 
 ## Get started with the alpha
 
-1. [Download Positron](./download) and install a release from February 2026 or later.
+1. [Download Positron](/download) and install a release from February 2026 or later.
 2. Enable the alpha by setting `positron.notebook.enabled` to `true` in your settings.
 3. Try the [tutorial repository](https://github.com/posit-dev/positron-demos-notebooks) for examples that use the new features.
 4. Share feedback in [GitHub Discussions](https://github.com/posit-dev/positron/discussions) or [book time to talk with us directly](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience).
+
+We're excited to hear how you use the Positron Notebook Editor as we continuously improve the experience.
