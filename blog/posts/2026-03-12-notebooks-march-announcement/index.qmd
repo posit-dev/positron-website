@@ -47,15 +47,16 @@ The Positron Notebook Editor brings the core capabilities of Positron directly i
 
 {{< video /videos/notebook-publish-connect.mp4 aria-label="Publish and share your notebook" >}}
 
-## In Practice: A typical notebook workflow in Positron
+## A sample notebook workflow
 
-A typical workflow in the Positron Notebook Editor now looks like this:
+Now that you have all these capabilities in one place, your workflow might look something like this:
 
-1. Import your data using Pandas or Polars. Variables update in the pane as cells run.
-2. Explore your DataFrame in the inline Data Explorer. Sort and filter without writing any code.
-3. Use the Assistant to generate a visualization based on your filtered data.
-4. When the analysis is ready to share, use an AI action to add markdown headers and notes.
-5. Publish the notebook to Connect or Connect Cloud.
+1. Import your data using Pandas or Polars.
+2. Run your notebook and watch variables update in the pane as cells run.
+3. Explore your DataFrame in the inline Data Explorer. Sort and filter without writing any code.
+4. Use Assistant to generate a visualization based on your filtered data or AI quick actions to recommend next steps.
+5. When the analysis is ready to share, use an AI action to add markdown headers and notes.
+6. Publish the notebook to Connect or Connect Cloud to share with your colleagues.
 
 ## What's coming next
 
