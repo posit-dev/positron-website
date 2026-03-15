@@ -25,7 +25,7 @@ Up to this point, Positron used the same Code OSS notebook editor that powers VS
 
 We wanted notebooks to feel like a first-class part of a data science IDE, so we built our own notebook editor.
 
-![Positron Notebook Editor](./images/positron-notebook.png)
+![Positron Notebook Editor](../images/positron-notebook-editor.png)
 
 ## What's included out of the box
 
@@ -43,7 +43,7 @@ The Positron Notebook Editor brings the core capabilities of Positron directly i
 
 {{< video videos/notebook-help.mp4 aria-label="Access Python and R documentation inline in the Help pane without switching to a browser" >}}
 
-**[Publisher](/publish-to-connect.qmd)r**: Deploy your `.ipynb` notebooks directly to Connect or Connect Cloud, where you can manage access, schedule runs, and view telemetry.
+**[Publisher](/publish-to-connect.qmd)**: Deploy your `.ipynb` notebooks directly to Connect or Connect Cloud, where you can manage access, schedule runs, and view telemetry.
 
 {{< video videos/notebook-publish-connect.mp4 aria-label="Publish and share your notebook" >}}
 
@@ -60,6 +60,8 @@ A typical workflow in the Positron Notebook Editor now looks like this:
 3. Use the Assistant to generate a visualization based on your filtered data.
 4. When the analysis is ready to share, use an AI action to add markdown headers and notes.
 5. Publish the notebook to Connect or Connect Cloud.
+
+{{< video videos/notebook-fix-error.mp4 aria-label="Assistant helps fix errors in your notebook" >}}
 
 ## What's coming next
 
