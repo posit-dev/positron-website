@@ -52,7 +52,7 @@ The Positron Notebook Editor brings the core capabilities of Positron directly i
 Now that you have all these capabilities in one place, your workflow might look something like this:
 
 1. Import your data using Pandas or Polars.
-2. Run your notebook and watch variables update in the pane as cells run.
+2. Run your notebook cells and watch variables update in the pane as cells run.
 3. Explore your DataFrame in the inline Data Explorer. Sort and filter without writing any code.
 4. Use Assistant to generate a visualization based on your filtered data or AI quick actions to recommend next steps.
 5. When the analysis is ready to share, use an AI action to add markdown headers and notes.
@@ -60,7 +60,7 @@ Now that you have all these capabilities in one place, your workflow might look 
 
 ## What's coming next
 
-The roadmap includes SQL support, improved version control, R improvements and more. You can view and vote on items in the [GitHub roadmap](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22area%3A%20notebooks-jupyter%22).
+The roadmap includes SQL support, improved version control, R improvements, and more. You can view and vote on items in the [GitHub roadmap](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22area%3A%20notebooks-jupyter%22).
 
 ## Join our upcoming workshop
 
@@ -71,7 +71,7 @@ On **Wednesday, March 25 at 11am EDT**, we're running a free workshop that walks
 ## Get started with the alpha
 
 1. [Download Positron](/download) and install a release from February 2026 or later.
-2. Enable the alpha by setting `positron.notebook.enabled` to `true` in your settings.
+2. Enable the alpha by setting [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled) to `true` in your settings.
 3. Try the [tutorial repository](https://github.com/posit-dev/positron-demos-notebooks) for examples that use the new features.
 4. Share feedback in [GitHub Discussions](https://github.com/posit-dev/positron/discussions) or [book time to talk with us directly](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience).
 
