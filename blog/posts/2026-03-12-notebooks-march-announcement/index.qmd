@@ -64,9 +64,13 @@ The roadmap includes SQL support, improved version control, R improvements, and 
 
 ## Join our upcoming workshop
 
-On **Wednesday, March 25 at 11am EDT**, we're running a free workshop that walks through moving a dataset from exploration to production using the Positron Notebook Editor. It's a good way to see the full workflow end to end.
+::: {.callout-tip}
+## Posit Workflow Demo — Wednesday, March 25 at 11am EDT
 
-[Sign up here](https://events.zoom.us/ev/Ajss5j9VeRMe0zw-AtFKf7AUAsthzYhaYjYPeEIu1uYAQe1K0ud1~Agb_hSt1UGxd9fUyIDC32e6jAdEtbl7G_AaLZUYhRvyZR5cGpY5Kp_A0-w)
+During our monthly Posit Workflow Demo, we will walk through moving a dataset from exploration to production using the Positron Notebook Editor. It's a good way to see the full workflow end to end.
+
+[Sign up here](https://posit.co/workflow-demo/working-with-jupyter-notebooks-in-positron-from-exploration-to-production/)
+:::
 
 ## Get started with the alpha
 
