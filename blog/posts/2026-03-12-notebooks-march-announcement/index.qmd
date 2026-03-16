@@ -13,7 +13,14 @@ image: /images/positron-notebook.png
 
 Positron now ships with a native [Jupyter Notebook Editor](/positron-notebook-editor.qmd), a new unified experience we built from the ground up for working with Jupyter notebooks within Positron.
 
-{{< video /videos/notebook-data-explorer-variables.mp4 aria-label="Explore, sort and filter your dataframes in an embedded data explorer" >}}
+::: {.callout-tip}
+## Posit Workflow Demo — Wednesday, March 25 at 11am EDT
+
+During our monthly Posit Workflow Demo, we will walk through moving a dataset from exploration to production using the Positron Notebook Editor. It's a good way to see the full workflow end to end.
+
+[Sign up here](https://posit.co/workflow-demo/working-with-jupyter-notebooks-in-positron-from-exploration-to-production/)
+:::
+
 
 ## Why we built our own notebook editor
 
@@ -34,6 +41,8 @@ The Positron Notebook Editor brings the core capabilities of Positron directly i
 **[Variables Pane](/variables-pane.qmd)**: Variables update in real time as you run cells. No need to print or inspect manually.
 
 **[Data Explorer](/data-explorer.qmd)**: When a cell returns a Pandas or Polars DataFrame, you get an inline data viewer. Open the full Data Explorer to sort, filter, and profile your data. Any filtering or cleaning you do can be converted into code, so your analysis stays reproducible without writing repetitive `df.head()` or `df.describe()` calls.
+
+{{< video /videos/notebook-data-explorer-variables.mp4 aria-label="Explore, sort and filter your dataframes in an embedded data explorer" >}}
 
 **[AI Assistant](/assistant.qmd)**: The Assistant has access to your notebook's full context, including cell states, execution history, and outputs like images and tables. It can suggest edits, reorder cells, and run code with your permission. You can inspect exactly what context it's using and follow along as it works.
 
@@ -61,16 +70,6 @@ Now that you have all these capabilities in one place, your workflow might look 
 ## What's coming next
 
 The roadmap includes SQL support, improved version control, R improvements, and more. You can view and vote on items in the [GitHub roadmap](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22area%3A%20notebooks-jupyter%22).
-
-## Join our upcoming workshop
-
-::: {.callout-tip}
-## Posit Workflow Demo — Wednesday, March 25 at 11am EDT
-
-During our monthly Posit Workflow Demo, we will walk through moving a dataset from exploration to production using the Positron Notebook Editor. It's a good way to see the full workflow end to end.
-
-[Sign up here](https://posit.co/workflow-demo/working-with-jupyter-notebooks-in-positron-from-exploration-to-production/)
-:::
 
 ## Get started with the alpha
 
