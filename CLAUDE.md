@@ -63,7 +63,6 @@ Key formatting rules:
 - **Netlify**: Auto-deploys from main branch using `@quarto/netlify-plugin-quarto`
 - **GitHub Actions**:
   - `lint.yml`: URL checking on PRs
-  - `upload-index.yml`: Daily Algolia search index updates
   - `publish-release-notes.yml`: Manual workflow for S3/CloudFront deployment
 
 ## Issue Tracking
