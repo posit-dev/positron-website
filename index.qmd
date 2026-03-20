@@ -22,38 +22,222 @@ format:
           <meta property="og:site_name" content="Positron">
           <meta property="og:locale" content="en_US">
 ---
-<div class="index-section">
 
-<!--Hero banner section-->
+<!-- ============================== HERO ============================== -->
+<section class="hero-section">
 
-From [Posit PBC](https://posit.co/), the creators of RStudio
+<p class="hero-eyebrow">From <a href="https://posit.co/">Posit PBC</a>, the creators of RStudio</p>
 
-# The Data Science IDE
+<h1>The Data Science IDE</h1>
 
-### Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.
+<p class="hero-subheadline">Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.</p>
 
 ::: {.content-visible unless-profile="workbench"}
-<a href="download.qmd" class="btn btn-outline-primary">Free Download</a>
-<a href="features.qmd" class="btn btn-outline-primary">Explore Features</a>
-<a href="https://posit.co/positron-updates-signup/" class="btn btn-outline-primary">Get Updates</a>
+<div class="hero-ctas">
+<a href="download.qmd" class="btn btn-primary btn-lg">Download for Free</a>
+<a href="features.qmd" class="btn btn-outline-primary btn-lg">Explore Features</a>
+</div>
 :::
 
 ::: {.content-visible when-profile="workbench"}
-<a href="features.qmd" class="btn btn-outline-primary">Features</a>
-<a href="release-notes.qmd" class="btn btn-outline-primary">Release Notes</a>
-<a href="welcome.qmd" class="btn btn-outline-primary">Guides</a>
+<div class="hero-ctas">
+<a href="features.qmd" class="btn btn-outline-primary btn-lg">Features</a>
+<a href="release-notes.qmd" class="btn btn-outline-primary btn-lg">Release Notes</a>
+<a href="welcome.qmd" class="btn btn-outline-primary btn-lg">Guides</a>
+</div>
 :::
 
-{{< video videos/positron-hero-fast-tour.mp4 
-  aria-label="Video demonstration of Positron, the data science IDE for Python and R"
->}}
+<div class="hero-showcase">
+<div class="hero-tabs" role="tablist" aria-label="Feature screenshots">
+<button class="hero-tab active" role="tab" aria-selected="true" aria-controls="panel-data-explorer" id="tab-data-explorer" data-index="0">
+<i class="bi bi-table"></i> Data Explorer
+</button>
+<button class="hero-tab" role="tab" aria-selected="false" aria-controls="panel-notebooks" id="tab-notebooks" data-index="1">
+<i class="bi bi-journal-code"></i> Notebooks
+</button>
+<button class="hero-tab" role="tab" aria-selected="false" aria-controls="panel-ai-assistant" id="tab-ai-assistant" data-index="2">
+<i class="bi bi-robot"></i> AI Assistant
+</button>
+<button class="hero-tab" role="tab" aria-selected="false" aria-controls="panel-plots" id="tab-plots" data-index="3">
+<i class="bi bi-graph-up"></i> Plots
+</button>
+</div>
+<div class="hero-tab-panels">
+<div class="hero-tab-panel active" role="tabpanel" id="panel-data-explorer" aria-labelledby="tab-data-explorer">
+<img src="images/data-explorer.png" alt="Positron Data Explorer showing a tabular data view with filtering and sorting capabilities" loading="eager">
+</div>
+<div class="hero-tab-panel" role="tabpanel" id="panel-notebooks" aria-labelledby="tab-notebooks">
+<img src="images/positron-notebook.png" alt="Positron Notebook interface for interactive data science workflows" loading="lazy">
+</div>
+<div class="hero-tab-panel" role="tabpanel" id="panel-ai-assistant" aria-labelledby="tab-ai-assistant">
+<img src="images/positron-notebook-assistant-panel.png" alt="Positron AI Assistant panel providing contextual help for data science tasks" loading="lazy">
+</div>
+<div class="hero-tab-panel" role="tabpanel" id="panel-plots" aria-labelledby="tab-plots">
+<img src="images/astropy.png" alt="Positron Plots pane showing an astronomical data visualization" loading="lazy">
+</div>
+</div>
+</div>
 
-::: {.content-visible when-profile="workbench"}
-![Execute code and explore data in Positron](images/astropy.png){fig-alt="Positron IDE showing Python code for astronomical data visualization with a galactic coordinate plot and Variables pane displaying data objects."}
+</section>
+
+<!-- ========================= VALUE PROPS ========================== -->
+<section class="value-props-section">
+
+<h2>Why Positron?</h2>
+
+<div class="custom-card-grid homepage-card-grid">
+
+<div class="custom-card">
+<div class="custom-card-icon"><i class="bi bi-lightning-charge"></i></div>
+<div class="custom-card-title">
+
+### Move quickly from exploration to production
+
+</div>
+<div class="custom-card-description">
+Bridge the gap between interactive analysis and production-ready code. Positron's integrated environment lets you iterate quickly and ship confidently.
+</div>
+</div>
+
+<div class="custom-card">
+<div class="custom-card-icon"><i class="bi bi-code-slash"></i></div>
+<div class="custom-card-title">
+
+### Explore and analyze data with Python and R
+
+</div>
+<div class="custom-card-description">
+First-class support for both Python and R in a single IDE. Switch between languages seamlessly with a shared data explorer, variables pane, and plots viewer.
+</div>
+</div>
+
+<div class="custom-card">
+<div class="custom-card-icon"><i class="bi bi-robot"></i></div>
+<div class="custom-card-title">
+
+### Accelerate insights with AI assistance
+
+</div>
+<div class="custom-card-description">
+AI that understands data science workflows. Get contextual help with code generation, debugging, and analysis — right where you work.
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================== SUPADEMO ============================= -->
+::: {.content-visible unless-profile="workbench"}
+<section class="supademo-section">
+
+<h2>See it in action</h2>
+
+<p class="supademo-description">Take an interactive tour of Positron's key features and see how it streamlines your data science workflow.</p>
+
+<button class="btn btn-primary btn-lg" id="launch-supademo" onclick="launchSupademo()">Launch Interactive Tour</button>
+
+<script src="https://script.supademo.com/supademo.js"></script>
+<script>
+function launchSupademo() {
+  if (typeof Supademo !== 'undefined' && Supademo.open) {
+    Supademo.open('cmmv03fu40k72en0y2v94hkzu');
+  } else {
+    window.open('https://app.supademo.com/demo/cmmv03fu40k72en0y2v94hkzu', '_blank');
+  }
+}
+</script>
+
+</section>
 :::
+
+<!-- ============================== FAQ =============================== -->
+<section class="faq-section">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-accordion">
+
+<details class="faq-item">
+<summary>What is Positron?</summary>
+<div class="faq-answer">
+Positron is a next-generation data science IDE built by <a href="https://posit.co/">Posit PBC</a>, the creators of RStudio. It is built on the foundations of VS Code and designed from the ground up for data science workflows in Python and R, with a built-in data explorer, variables pane, plots viewer, and more.
+</div>
+</details>
+
+<details class="faq-item">
+<summary>Is Positron free?</summary>
+<div class="faq-answer">
+
+Yes! Positron is free to download and use. It is source-available under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme).
 
 ::: {.content-visible unless-profile="workbench"}
-Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
+Learn more about [what this license means](licensing.qmd) and our decision to use it.
 :::
 
 </div>
+</details>
+
+<details class="faq-item">
+<summary>What languages does Positron support?</summary>
+<div class="faq-answer">
+Positron provides first-class support for both Python and R, including language-specific features like the data explorer, variables pane, and integrated help. Since it is built on VS Code, you can also install extensions for other languages.
+</div>
+</details>
+
+<details class="faq-item">
+<summary>How is Positron different from RStudio or VS Code?</summary>
+<div class="faq-answer">
+Positron combines the best of both worlds: the data-science-first experience of RStudio — with a built-in data explorer, variables pane, and plots viewer — and the modern editor capabilities of VS Code, including extensions, AI assistance, and multi-language support.
+</div>
+</details>
+
+</div>
+
+<p class="faq-more"><a href="faqs.qmd">View all frequently asked questions →</a></p>
+
+</section>
+
+<!-- ========================= LICENSE NOTE =========================== -->
+::: {.content-visible unless-profile="workbench"}
+<p class="license-note">
+Positron™ is licensed under the <a href="https://github.com/posit-dev/positron?tab=License-1-ov-file#readme">Elastic License 2.0</a>, a source-available license. <a href="licensing.qmd">Read more</a> about what this license means and our decision to use it.
+</p>
+:::
+
+<!-- ========================= TAB SCRIPT ============================ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.hero-tab');
+  const panels = document.querySelectorAll('.hero-tab-panel');
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      panels.forEach(function(p) {
+        p.classList.remove('active');
+      });
+
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      var panelId = tab.getAttribute('aria-controls');
+      document.getElementById(panelId).classList.add('active');
+    });
+
+    tab.addEventListener('keydown', function(e) {
+      var index = parseInt(tab.getAttribute('data-index'));
+      var newIndex = -1;
+      if (e.key === 'ArrowRight') newIndex = (index + 1) % tabs.length;
+      if (e.key === 'ArrowLeft') newIndex = (index - 1 + tabs.length) % tabs.length;
+      if (newIndex >= 0) {
+        e.preventDefault();
+        tabs[newIndex].click();
+        tabs[newIndex].focus();
+      }
+    });
+  });
+});
+</script>
