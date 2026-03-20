@@ -30,7 +30,7 @@ format:
 
 <h1>The Data Science IDE</h1>
 
-<p class="hero-subheadline">Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.</p>
+<p class="hero-subheadline">A free IDE with built-in AI for the full spectrum of data science in Python and R.</p>
 
 ::: {.content-visible unless-profile="workbench"}
 <div class="hero-ctas">
@@ -85,44 +85,43 @@ format:
 
 <h2>Why Positron?</h2>
 
-<div class="custom-card-grid homepage-card-grid">
-
-<div class="custom-card">
-<div class="custom-card-icon"><i class="bi bi-lightning-charge"></i></div>
-<div class="custom-card-title">
+<div class="value-prop-row">
+<div class="value-prop-text">
+<p class="value-prop-eyebrow">INTEGRATED WORKFLOW</p>
 
 ### Move quickly from exploration to production
 
-</div>
-<div class="custom-card-description">
 Bridge the gap between interactive analysis and production-ready code. Positron's integrated environment lets you iterate quickly and ship confidently.
+</div>
+<div class="value-prop-image">
+<img src="images/data-explorer.png" alt="Positron Data Explorer showing tabular data with filtering and sorting" loading="lazy">
 </div>
 </div>
 
-<div class="custom-card">
-<div class="custom-card-icon"><i class="bi bi-code-slash"></i></div>
-<div class="custom-card-title">
+<div class="value-prop-row reverse">
+<div class="value-prop-text">
+<p class="value-prop-eyebrow">DUAL LANGUAGE SUPPORT</p>
 
 ### Explore and analyze data with Python and R
 
-</div>
-<div class="custom-card-description">
 First-class support for both Python and R in a single IDE. Switch between languages seamlessly with a shared data explorer, variables pane, and plots viewer.
+</div>
+<div class="value-prop-image">
+<img src="images/astropy.png" alt="Positron showing Python code with astronomical data visualization and variables pane" loading="lazy">
 </div>
 </div>
 
-<div class="custom-card">
-<div class="custom-card-icon"><i class="bi bi-robot"></i></div>
-<div class="custom-card-title">
+<div class="value-prop-row">
+<div class="value-prop-text">
+<p class="value-prop-eyebrow">AI ASSISTANCE</p>
 
 ### Accelerate insights with AI assistance
 
-</div>
-<div class="custom-card-description">
 AI that understands data science workflows. Get contextual help with code generation, debugging, and analysis — right where you work.
 </div>
+<div class="value-prop-image">
+<img src="images/positron-notebook-assistant-panel.png" alt="Positron AI Assistant panel providing contextual help for data science tasks" loading="lazy">
 </div>
-
 </div>
 
 </section>
@@ -135,17 +134,43 @@ AI that understands data science workflows. Get contextual help with code genera
 
 <p class="supademo-description">Take an interactive tour of Positron's key features and see how it streamlines your data science workflow.</p>
 
-<button class="btn btn-primary btn-lg" id="launch-supademo" onclick="launchSupademo()">Launch Interactive Tour</button>
+<div class="supademo-container" id="supademo-container">
+<div class="supademo-preview" id="supademo-preview" role="button" tabindex="0" aria-label="Launch interactive tour">
+<img src="images/data-explorer.png" alt="Click to launch interactive Positron tour" loading="lazy">
+<div class="supademo-play-overlay">
+<i class="bi bi-play-circle-fill"></i>
+<span>Launch Interactive Tour</span>
+</div>
+</div>
+</div>
 
-<script src="https://script.supademo.com/supademo.js"></script>
 <script>
-function launchSupademo() {
-  if (typeof Supademo !== 'undefined' && Supademo.open) {
-    Supademo.open('cmmv03fu40k72en0y2v94hkzu');
-  } else {
-    window.open('https://app.supademo.com/demo/cmmv03fu40k72en0y2v94hkzu', '_blank');
+(function() {
+  var preview = document.getElementById('supademo-preview');
+  var container = document.getElementById('supademo-container');
+  function launch() {
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://app.supademo.com/embed/cmmv03fu40k72en0y2v94hkzu?embed_v=2';
+    iframe.allow = 'clipboard-write';
+    iframe.frameBorder = '0';
+    iframe.allowFullscreen = true;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.position = 'absolute';
+    iframe.style.top = '0';
+    iframe.style.left = '0';
+    container.innerHTML = '';
+    container.style.position = 'relative';
+    container.style.paddingBottom = '62.5%';
+    container.appendChild(iframe);
   }
-}
+  if (preview) {
+    preview.addEventListener('click', launch);
+    preview.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); launch(); }
+    });
+  }
+})();
 </script>
 
 </section>
@@ -157,13 +182,6 @@ function launchSupademo() {
 <h2>Frequently Asked Questions</h2>
 
 <div class="faq-accordion">
-
-<details class="faq-item">
-<summary>What is Positron?</summary>
-<div class="faq-answer">
-Positron is a next-generation data science IDE built by <a href="https://posit.co/">Posit PBC</a>, the creators of RStudio. It is built on the foundations of VS Code and designed from the ground up for data science workflows in Python and R, with a built-in data explorer, variables pane, plots viewer, and more.
-</div>
-</details>
 
 <details class="faq-item">
 <summary>Is Positron free?</summary>
