@@ -9,6 +9,7 @@ hide-description: true
 image: images/positron-social.png
 format:
   html:
+    body-classes: positron-homepage
     include-in-header:
       - text: |
           <!-- Open Graph Meta Tags -->
@@ -37,6 +38,7 @@ format:
 <a href="download.qmd" class="btn btn-primary btn-lg">Download for Free</a>
 <a href="features.qmd" class="btn btn-outline-primary btn-lg">Explore Features</a>
 </div>
+<p class="hero-meta">Available for macOS, Windows, and Linux. No account required.</p>
 :::
 
 ::: {.content-visible when-profile="workbench"}
@@ -83,45 +85,136 @@ format:
 <!-- ========================= VALUE PROPS ========================== -->
 <section class="value-props-section">
 
-<h2>Why Positron?</h2>
+<h2>Stop context-switching between tools</h2>
 
-<div class="value-prop-row">
-<div class="value-prop-text">
-<p class="value-prop-eyebrow">INTEGRATED WORKFLOW</p>
-
-### Move quickly from exploration to production
-
-Bridge the gap between interactive analysis and production-ready code. Positron's integrated environment lets you iterate quickly and ship confidently.
+<div class="feature-showcase" data-showcase="workflow">
+<div class="feature-showcase-nav">
+<button class="feature-nav-item active" data-target="workflow-0">
+<div class="feature-nav-title">Integrated workflow</div>
+<div class="feature-nav-desc">Explore data, write code, and ship results, all without leaving your IDE. No more copying between notebooks and scripts or juggling separate tools for analysis and production.</div>
+</button>
+<button class="feature-nav-item" data-target="workflow-1">
+<div class="feature-nav-title">Built-in Data Explorer</div>
+</button>
+<button class="feature-nav-item" data-target="workflow-2">
+<div class="feature-nav-title">Interactive plots</div>
+</button>
 </div>
-<div class="value-prop-image">
-<img src="images/data-explorer.png" alt="Positron Data Explorer showing tabular data with filtering and sorting" loading="lazy">
+<div class="feature-showcase-image">
+<div class="feature-panel active" id="workflow-0">
+<img src="images/positron-notebook.png" alt="Positron editor with code and inline output" loading="lazy">
 </div>
+<div class="feature-panel" id="workflow-1">
+<img src="images/data-explorer.png" alt="Positron Data Explorer showing tabular data" loading="lazy">
 </div>
-
-<div class="value-prop-row reverse">
-<div class="value-prop-text">
-<p class="value-prop-eyebrow">DUAL LANGUAGE SUPPORT</p>
-
-### Explore and analyze data with Python and R
-
-First-class support for both Python and R in a single IDE. Switch between languages seamlessly with a shared data explorer, variables pane, and plots viewer.
+<div class="feature-panel" id="workflow-2">
+<img src="images/astropy.png" alt="Positron Plots pane with data visualization" loading="lazy">
 </div>
-<div class="value-prop-image">
-<img src="images/astropy.png" alt="Positron showing Python code with astronomical data visualization and variables pane" loading="lazy">
 </div>
 </div>
 
-<div class="value-prop-row">
-<div class="value-prop-text">
-<p class="value-prop-eyebrow">AI ASSISTANCE</p>
+<h2>One IDE for both Python and R</h2>
 
-### Accelerate insights with AI assistance
+<div class="feature-showcase" data-showcase="languages">
+<div class="feature-showcase-nav">
+<button class="feature-nav-item active" data-target="languages-0">
+<div class="feature-nav-title">Dual language support</div>
+<div class="feature-nav-desc">Stop juggling RStudio and VS Code. Positron gives both languages the same data explorer, variables pane, and plots viewer so you pick the best language for the job, not the one your IDE supports.</div>
+</button>
+<button class="feature-nav-item" data-target="languages-1">
+<div class="feature-nav-title">Shared variables and data explorer</div>
+</button>
+<button class="feature-nav-item" data-target="languages-2">
+<div class="feature-nav-title">Switch interpreters on the fly</div>
+</button>
+</div>
+<div class="feature-showcase-image">
+<div class="feature-panel active" id="languages-0">
+<img src="images/astropy.png" alt="Positron with a Python session and data visualization" loading="lazy">
+</div>
+<div class="feature-panel" id="languages-1">
+<!-- TODO: Replace with variables pane screenshot showing both languages -->
+<img src="images/variables-pane.png" alt="Positron variables pane with shared data" loading="lazy">
+</div>
+<div class="feature-panel" id="languages-2">
+<!-- TODO: Replace with interpreter switcher screenshot -->
+<img src="images/active-interpreter-session.png" alt="Positron interpreter selector" loading="lazy">
+</div>
+</div>
+</div>
 
-AI that understands data science workflows. Get contextual help with code generation, debugging, and analysis — right where you work.
+<h2>AI that actually understands your data</h2>
+
+<div class="feature-showcase" data-showcase="ai">
+<div class="feature-showcase-nav">
+<button class="feature-nav-item active" data-target="ai-0">
+<div class="feature-nav-title">Context awareness</div>
+<div class="feature-nav-desc">Generic AI assistants don't know your variables, your data, or your session. Positron's AI sees your active dataframes, console output, and plots so it has the full context when making suggestions.</div>
+</button>
+<button class="feature-nav-item" data-target="ai-1">
+<div class="feature-nav-title">Notebook assistant</div>
+</button>
+<button class="feature-nav-item" data-target="ai-2">
+<div class="feature-nav-title">Inline code generation</div>
+</button>
 </div>
-<div class="value-prop-image">
-<img src="images/positron-notebook-assistant-panel.png" alt="Positron AI Assistant panel providing contextual help for data science tasks" loading="lazy">
+<div class="feature-showcase-image">
+<div class="feature-panel active" id="ai-0">
+<img src="images/positron-notebook-assistant-panel.png" alt="Positron AI Assistant with data context" loading="lazy">
 </div>
+<div class="feature-panel" id="ai-1">
+<!-- TODO: Replace with notebook assistant in action -->
+<img src="images/positron-notebook-assistant-action-bar.png" alt="Positron notebook assistant action bar" loading="lazy">
+</div>
+<div class="feature-panel" id="ai-2">
+<!-- TODO: Replace with inline AI code generation screenshot -->
+<img src="images/positron-notebook.png" alt="Positron inline code generation" loading="lazy">
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- ======================== TESTIMONIALS ============================ -->
+<section class="testimonials-section">
+
+<h2>Hear from the community</h2>
+
+<div class="testimonials-grid">
+
+<div class="testimonial-card">
+<div class="testimonial-header">
+<div class="testimonial-avatar">SP</div>
+<div class="testimonial-author">
+<p class="testimonial-name">Sam Parmar</p>
+<p class="testimonial-role">Statistical Data Scientist, Pfizer</p>
+</div>
+</div>
+<blockquote>"Positron feels like the perfect balance between VS Code and RStudio."</blockquote>
+</div>
+
+<div class="testimonial-card">
+<div class="testimonial-header">
+<div class="testimonial-avatar">MH</div>
+<div class="testimonial-author">
+<p class="testimonial-name">Meghan S. Harris</p>
+<p class="testimonial-role">Data Scientist, Memorial Sloan Kettering Cancer Center</p>
+</div>
+</div>
+<blockquote>"Positron didn't just make Python accessible, it made it fun."</blockquote>
+</div>
+
+<div class="testimonial-card">
+<div class="testimonial-header">
+<div class="testimonial-avatar">YR</div>
+<div class="testimonial-author">
+<p class="testimonial-name">Yanan Ren</p>
+<p class="testimonial-role">Senior Statistician, Medtronic</p>
+</div>
+</div>
+<blockquote>"The combination of Positron and the AI Assistant makes switching between R &amp; Python incredibly smooth."</blockquote>
+</div>
+
 </div>
 
 </section>
@@ -197,9 +290,16 @@ Learn more about [what this license means](licensing.qmd) and our decision to us
 </details>
 
 <details class="faq-item">
-<summary>What languages does Positron support?</summary>
+<summary>Can I use my VS Code extensions?</summary>
 <div class="faq-answer">
-Positron provides first-class support for both Python and R, including language-specific features like the data explorer, variables pane, and integrated help. Since it is built on VS Code, you can also install extensions for other languages.
+Yes! Positron supports VS Code compatible extensions (.vsix files), giving you access to thousands of community extensions out of the box. By building on Code OSS, Positron gets rich text editor capabilities and broad extensibility beyond the core IDE. <a href="extensions.qmd">Read more about using extensions with Positron</a>.
+</div>
+</details>
+
+<details class="faq-item">
+<summary>Is RStudio going away?</summary>
+<div class="faq-answer">
+No. Posit is committed to maintaining and updating RStudio. RStudio is very mature, stable software, and will continue to receive security updates, stability improvements, and priority bug fixes. If you're new to R, we recommend starting with Positron — but if you're happy with RStudio, you can continue using it.
 </div>
 </details>
 
@@ -216,6 +316,30 @@ Positron combines the best of both worlds: the data-science-first experience of 
 
 </section>
 
+<!-- ========================== CLOSING CTA =========================== -->
+<section class="closing-cta-section">
+
+<h2>Ready to get started?</h2>
+
+<p class="closing-cta-description">Download Positron for free and start building with Python and R today.</p>
+
+::: {.content-visible unless-profile="workbench"}
+<div class="hero-ctas">
+<a href="download.qmd" class="btn btn-primary btn-lg">Download for Free</a>
+<a href="features.qmd" class="btn btn-outline-primary btn-lg">Explore Features</a>
+</div>
+:::
+
+::: {.content-visible when-profile="workbench"}
+<div class="hero-ctas">
+<a href="features.qmd" class="btn btn-outline-primary btn-lg">Features</a>
+<a href="release-notes.qmd" class="btn btn-outline-primary btn-lg">Release Notes</a>
+<a href="welcome.qmd" class="btn btn-outline-primary btn-lg">Guides</a>
+</div>
+:::
+
+</section>
+
 <!-- ========================= LICENSE NOTE =========================== -->
 ::: {.content-visible unless-profile="workbench"}
 <p class="license-note">
@@ -226,35 +350,43 @@ Positron™ is licensed under the <a href="https://github.com/posit-dev/positron
 <!-- ========================= TAB SCRIPT ============================ -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const tabs = document.querySelectorAll('.hero-tab');
-  const panels = document.querySelectorAll('.hero-tab-panel');
+  // Hero tabs
+  var heroTabs = document.querySelectorAll('.hero-tab');
+  var heroPanels = document.querySelectorAll('.hero-tab-panel');
 
-  tabs.forEach(function(tab) {
+  heroTabs.forEach(function(tab) {
     tab.addEventListener('click', function() {
-      tabs.forEach(function(t) {
+      heroTabs.forEach(function(t) {
         t.classList.remove('active');
         t.setAttribute('aria-selected', 'false');
       });
-      panels.forEach(function(p) {
-        p.classList.remove('active');
-      });
-
+      heroPanels.forEach(function(p) { p.classList.remove('active'); });
       tab.classList.add('active');
       tab.setAttribute('aria-selected', 'true');
-      var panelId = tab.getAttribute('aria-controls');
-      document.getElementById(panelId).classList.add('active');
+      document.getElementById(tab.getAttribute('aria-controls')).classList.add('active');
     });
 
     tab.addEventListener('keydown', function(e) {
       var index = parseInt(tab.getAttribute('data-index'));
       var newIndex = -1;
-      if (e.key === 'ArrowRight') newIndex = (index + 1) % tabs.length;
-      if (e.key === 'ArrowLeft') newIndex = (index - 1 + tabs.length) % tabs.length;
-      if (newIndex >= 0) {
-        e.preventDefault();
-        tabs[newIndex].click();
-        tabs[newIndex].focus();
-      }
+      if (e.key === 'ArrowRight') newIndex = (index + 1) % heroTabs.length;
+      if (e.key === 'ArrowLeft') newIndex = (index - 1 + heroTabs.length) % heroTabs.length;
+      if (newIndex >= 0) { e.preventDefault(); heroTabs[newIndex].click(); heroTabs[newIndex].focus(); }
+    });
+  });
+
+  // Feature showcase tabs
+  document.querySelectorAll('.feature-showcase').forEach(function(showcase) {
+    var navItems = showcase.querySelectorAll('.feature-nav-item');
+    var panels = showcase.querySelectorAll('.feature-panel');
+
+    navItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+        navItems.forEach(function(n) { n.classList.remove('active'); });
+        panels.forEach(function(p) { p.classList.remove('active'); });
+        item.classList.add('active');
+        document.getElementById(item.getAttribute('data-target')).classList.add('active');
+      });
     });
   });
 });
