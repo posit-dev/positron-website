@@ -7,6 +7,8 @@ description: |
   Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.
 hide-description: true
 image: images/positron-social.png
+resources:
+  - images/positron-intro-poster.png
 format:
   html:
     body-classes: positron-homepage
@@ -27,16 +29,17 @@ format:
 <!-- ============================== HERO ============================== -->
 <section class="hero-section">
 
-<p class="hero-eyebrow">From <a href="https://posit.co/">Posit PBC</a>, the creators of RStudio</p>
+<p class="hero-eyebrow">From <a href="https://posit.co/">Posit PBC</a>, the team behind RStudio, Shiny, and the tidyverse</p>
 
 <h1>The Data Science IDE</h1>
 
-<p class="hero-subheadline">A free IDE with built-in AI for the full spectrum of data science in Python and R.</p>
+<p class="hero-subheadline">Move from question to insight to application faster in Positron, a free IDE purpose-built for Python and R with transparent, inspectable AI.</p>
 
 ::: {.content-visible unless-profile="workbench"}
 <div class="hero-ctas">
 <a href="download.qmd" class="btn btn-primary btn-lg">Download for Free</a>
 <a href="features.qmd" class="btn btn-outline-primary btn-lg">Explore Features</a>
+<a href="https://posit.co/positron-updates-signup/" class="btn btn-outline-primary btn-lg">Get Updates</a>
 </div>
 <p class="hero-meta">Available for macOS, Windows, and Linux. No account required.</p>
 :::
@@ -54,121 +57,175 @@ format:
 <button class="hero-tab active" role="tab" aria-selected="true" aria-controls="panel-data-explorer" id="tab-data-explorer" data-index="0">
 <i class="bi bi-table"></i> Data Explorer
 </button>
-<button class="hero-tab" role="tab" aria-selected="false" aria-controls="panel-notebooks" id="tab-notebooks" data-index="1">
-<i class="bi bi-journal-code"></i> Notebooks
+<button class="hero-tab" role="tab" aria-selected="false" aria-controls="panel-ai-assistant" id="tab-ai-assistant" data-index="1">
+<i class="bi bi-robot"></i> Inspectable AI
 </button>
-<button class="hero-tab" role="tab" aria-selected="false" aria-controls="panel-ai-assistant" id="tab-ai-assistant" data-index="2">
-<i class="bi bi-robot"></i> AI Assistant
+<button class="hero-tab" role="tab" aria-selected="false" aria-controls="panel-data-apps" id="tab-data-apps" data-index="2">
+<i class="bi bi-window-stack"></i> Data Apps
 </button>
-<button class="hero-tab" role="tab" aria-selected="false" aria-controls="panel-plots" id="tab-plots" data-index="3">
-<i class="bi bi-graph-up"></i> Plots
+<button class="hero-tab" role="tab" aria-selected="false" aria-controls="panel-notebooks" id="tab-notebooks" data-index="3">
+<i class="bi bi-journal-code"></i> Notebook Editor
 </button>
 </div>
 <div class="hero-tab-panels">
 <div class="hero-tab-panel active" role="tabpanel" id="panel-data-explorer" aria-labelledby="tab-data-explorer">
-<img src="images/data-explorer.png" alt="Positron Data Explorer showing a tabular data view with filtering and sorting capabilities" loading="eager">
-</div>
-<div class="hero-tab-panel" role="tabpanel" id="panel-notebooks" aria-labelledby="tab-notebooks">
-<img src="images/positron-notebook.png" alt="Positron Notebook interface for interactive data science workflows" loading="lazy">
+<img src="images/index/data explorer.png" alt="Positron Data Explorer showing a tabular data view with filtering and sorting capabilities" loading="eager">
 </div>
 <div class="hero-tab-panel" role="tabpanel" id="panel-ai-assistant" aria-labelledby="tab-ai-assistant">
-<img src="images/positron-notebook-assistant-panel.png" alt="Positron AI Assistant panel providing contextual help for data science tasks" loading="lazy">
+<img src="images/index/python-positron-assistant.png" alt="Positron AI Assistant panel providing contextual help for data science tasks" loading="lazy">
 </div>
-<div class="hero-tab-panel" role="tabpanel" id="panel-plots" aria-labelledby="tab-plots">
-<img src="images/astropy.png" alt="Positron Plots pane showing an astronomical data visualization" loading="lazy">
+<div class="hero-tab-panel" role="tabpanel" id="panel-data-apps" aria-labelledby="tab-data-apps">
+<img src="images/index/app-viewer.png" alt="Building and previewing a data app in Positron" loading="lazy">
+</div>
+<div class="hero-tab-panel" role="tabpanel" id="panel-notebooks" aria-labelledby="tab-notebooks">
+<img src="images/index/jupyter-variables-pane.png" alt="Positron native notebook editor for interactive data science workflows" loading="lazy">
 </div>
 </div>
 </div>
 
 </section>
 
+<!-- ========================== VIDEO ================================ -->
+::: {.content-visible unless-profile="workbench"}
+<section class="video-demo-section">
+
+<h2>See it in action</h2>
+
+<p class="video-demo-description">Watch a quick overview of Positron's key features and see how it streamlines your data science workflow.</p>
+
+<div class="video-demo-container">
+<video controls preload="none" poster="images/positron-intro-poster.png" aria-label="Introducing Positron, the data science IDE" style="width:100%; border-radius:8px; box-shadow: 0 4px 24px rgba(0,0,0,0.10);">
+<source src="videos/positron-intro.mp4" type="video/mp4">
+</video>
+</div>
+
+</section>
+:::
+
 <!-- ========================= VALUE PROPS ========================== -->
 <section class="value-props-section">
 
 <h2>Stop context-switching between tools</h2>
 
+<p class="value-props-subtitle">Positron is built for data science workflows. Execute code interactively in a native console or notebook, explore data, view variables and dataframes, create visualizations, train models, build apps, and access everything else you need to stay in the flow.</p>
+
 <div class="feature-showcase" data-showcase="workflow">
 <div class="feature-showcase-nav">
 <button class="feature-nav-item active" data-target="workflow-0">
-<div class="feature-nav-title">Integrated workflow</div>
-<div class="feature-nav-desc">Explore data, write code, and ship results, all without leaving your IDE. No more copying between notebooks and scripts or juggling separate tools for analysis and production.</div>
+<div class="feature-nav-title">Python & R</div>
+<div class="feature-nav-desc">Code efficiently with first-class support for both R and Python.</div>
 </button>
 <button class="feature-nav-item" data-target="workflow-1">
-<div class="feature-nav-title">Built-in Data Explorer</div>
+<div class="feature-nav-title">Data Explorer</div>
+<div class="feature-nav-desc">Sort, filter, and profile large datasets with fast, interactive data frames.</div>
 </button>
 <button class="feature-nav-item" data-target="workflow-2">
-<div class="feature-nav-title">Interactive plots</div>
+<div class="feature-nav-title">Rapid visualizations</div>
+<div class="feature-nav-desc">Create high-quality visualizations quickly to uncover patterns and communicate findings effectively.</div>
+</button>
+<button class="feature-nav-item" data-target="workflow-3">
+<div class="feature-nav-title">Jupyter & Quarto Notebooks</div>
+<div class="feature-nav-desc">Iteratively explore data in a batteries-included native editor for Jupyter and Quarto notebooks. Create reproducible reports, presentations, and websites that combine code, results, and narrative.</div>
+</button>
+<button class="feature-nav-item" data-target="workflow-4">
+<div class="feature-nav-title">Production Apps</div>
+<div class="feature-nav-desc">Easily convert explorations into production scripts, data apps, and reports.</div>
 </button>
 </div>
 <div class="feature-showcase-image">
 <div class="feature-panel active" id="workflow-0">
-<img src="images/positron-notebook.png" alt="Positron editor with code and inline output" loading="lazy">
+<img src="images/index/python-r-console.png" alt="Positron with first-class Python and R support" loading="lazy">
 </div>
 <div class="feature-panel" id="workflow-1">
-<img src="images/data-explorer.png" alt="Positron Data Explorer showing tabular data" loading="lazy">
+<img src="images/index/data explorer.png" alt="Positron Data Explorer showing tabular data" loading="lazy">
 </div>
 <div class="feature-panel" id="workflow-2">
-<img src="images/astropy.png" alt="Positron Plots pane with data visualization" loading="lazy">
+<img src="images/index/plots-pane.png" alt="Positron Plots pane with data visualization" loading="lazy">
 </div>
+<div class="feature-panel" id="workflow-3">
+<img src="images/index/jupyter-variables-pane.png" alt="Positron notebook editor with variables pane" loading="lazy">
 </div>
-</div>
-
-<h2>One IDE for both Python and R</h2>
-
-<div class="feature-showcase" data-showcase="languages">
-<div class="feature-showcase-nav">
-<button class="feature-nav-item active" data-target="languages-0">
-<div class="feature-nav-title">Dual language support</div>
-<div class="feature-nav-desc">Stop juggling RStudio and VS Code. Positron gives both languages the same data explorer, variables pane, and plots viewer so you pick the best language for the job, not the one your IDE supports.</div>
-</button>
-<button class="feature-nav-item" data-target="languages-1">
-<div class="feature-nav-title">Shared variables and data explorer</div>
-</button>
-<button class="feature-nav-item" data-target="languages-2">
-<div class="feature-nav-title">Switch interpreters on the fly</div>
-</button>
-</div>
-<div class="feature-showcase-image">
-<div class="feature-panel active" id="languages-0">
-<img src="images/astropy.png" alt="Positron with a Python session and data visualization" loading="lazy">
-</div>
-<div class="feature-panel" id="languages-1">
-<!-- TODO: Replace with variables pane screenshot showing both languages -->
-<img src="images/variables-pane.png" alt="Positron variables pane with shared data" loading="lazy">
-</div>
-<div class="feature-panel" id="languages-2">
-<!-- TODO: Replace with interpreter switcher screenshot -->
-<img src="images/active-interpreter-session.png" alt="Positron interpreter selector" loading="lazy">
+<div class="feature-panel" id="workflow-4">
+<img src="images/index/app-viewer.png" alt="Building and previewing a data app in Positron" loading="lazy">
 </div>
 </div>
 </div>
 
 <h2>AI that actually understands your data</h2>
 
-<div class="feature-showcase" data-showcase="ai">
+<p class="value-props-subtitle">Positron Assistant sees your active dataframes, console output, and plots so every suggestion is grounded in your actual work. Transparent, inspectable, and always under your control.</p>
+
+<div class="feature-showcase feature-showcase-reversed" data-showcase="ai">
 <div class="feature-showcase-nav">
 <button class="feature-nav-item active" data-target="ai-0">
-<div class="feature-nav-title">Context awareness</div>
-<div class="feature-nav-desc">Generic AI assistants don't know your variables, your data, or your session. Positron's AI sees your active dataframes, console output, and plots so it has the full context when making suggestions.</div>
+<div class="feature-nav-title">Data-aware AI</div>
+<div class="feature-nav-desc">Positron Assistant has context about your loaded data, plots, and console history, enabling more relevant guidance for data science tasks.</div>
 </button>
 <button class="feature-nav-item" data-target="ai-1">
-<div class="feature-nav-title">Notebook assistant</div>
+<div class="feature-nav-title">Exploratory Agent</div>
+<div class="feature-nav-desc">Accelerate exploratory data analysis with Databot, an agent that collaborates with you to provide transparent insights.</div>
 </button>
 <button class="feature-nav-item" data-target="ai-2">
-<div class="feature-nav-title">Inline code generation</div>
+<div class="feature-nav-title">Bring your own model</div>
+<div class="feature-nav-desc">Connect your preferred AI provider with just an API key. All AI traffic goes directly from your machine to your chosen provider.</div>
 </button>
+<button class="feature-nav-item" data-target="ai-3">
+<div class="feature-nav-title">Notebook assistant</div>
+<div class="feature-nav-desc">Assistant understands the full context of your Jupyter notebook from code cells to outputs and execution history. Use AI quick actions to generate code and AI next steps to guide your analysis.</div>
+</button>
+
 </div>
 <div class="feature-showcase-image">
 <div class="feature-panel active" id="ai-0">
-<img src="images/positron-notebook-assistant-panel.png" alt="Positron AI Assistant with data context" loading="lazy">
+<img src="images/index/python-positron-assistant.png" alt="Positron AI Assistant with data context" loading="lazy">
 </div>
 <div class="feature-panel" id="ai-1">
-<!-- TODO: Replace with notebook assistant in action -->
-<img src="images/positron-notebook-assistant-action-bar.png" alt="Positron notebook assistant action bar" loading="lazy">
+<img src="images/index/databot.png" alt="Positron Databot agent for exploratory data analysis" loading="lazy">
 </div>
 <div class="feature-panel" id="ai-2">
-<!-- TODO: Replace with inline AI code generation screenshot -->
-<img src="images/positron-notebook.png" alt="Positron inline code generation" loading="lazy">
+<img src="images/index/configure-model-provider.png" alt="Positron AI model provider configuration showing Anthropic, OpenAI, and other providers" loading="lazy">
+</div>
+<div class="feature-panel" id="ai-3">
+<img src="images/index/jupyter-variables-pane.png" alt="Positron notebook assistant in action" loading="lazy">
+</div>
+</div>
+</div>
+
+<h2>Built on a platform you can grow with</h2>
+
+<p class="value-props-subtitle">Start with a free desktop IDE and expand as your needs evolve. Connect to your data, extend with thousands of plugins, and scale to Workbench for enterprise when you're ready.</p>
+
+<div class="feature-showcase" data-showcase="production">
+<div class="feature-showcase-nav">
+<button class="feature-nav-item active" data-target="production-0">
+<div class="feature-nav-title">Connect to your data</div>
+<div class="feature-nav-desc">Create connections to databases like Databricks, Snowflake, and Postgres directly from Positron. Browse schemas, preview tables, and start querying without leaving your editor.</div>
+</button>
+<button class="feature-nav-item" data-target="production-1">
+<div class="feature-nav-title">Leverage extensions</div>
+<div class="feature-nav-desc">Access the Open VSX marketplace for language support, themes, linters, formatters, and thousands of extensions.</div>
+</button>
+<button class="feature-nav-item" data-target="production-2">
+<div class="feature-nav-title">Publish and share</div>
+<div class="feature-nav-desc">Deploy reports, dashboards, and data apps to Posit Connect or Posit Connect Cloud with a single click.</div>
+</button>
+<button class="feature-nav-item" data-target="production-3">
+<div class="feature-nav-title">Scale beyond your laptop</div>
+<div class="feature-nav-desc">Connect to remote servers via SSH or run Positron in the browser through Posit Workbench when you need more CPU, RAM, or GPU than your local machine provides.</div>
+</button>
+</div>
+<div class="feature-showcase-image">
+<div class="feature-panel active" id="production-0">
+<img src="images/index/connect-data.png" alt="Positron Connections pane showing database connections" loading="lazy">
+</div>
+<div class="feature-panel" id="production-1">
+<img src="images/index/extensions.png" alt="Positron extensions marketplace showing available Python extensions" loading="lazy">
+</div>
+<div class="feature-panel" id="production-2">
+<img src="images/index/publish-notebook.png" alt="Publishing a notebook to Posit Connect from Positron" loading="lazy">
+</div>
+<div class="feature-panel" id="production-3">
+<img src="images/index/workbench.png" alt="Positron running in the browser through Posit Workbench" loading="lazy">
 </div>
 </div>
 </div>
@@ -183,6 +240,7 @@ format:
 <div class="testimonials-grid">
 
 <div class="testimonial-card">
+<blockquote>"Positron feels like the perfect balance between VS Code and RStudio."</blockquote>
 <div class="testimonial-header">
 <div class="testimonial-avatar">SP</div>
 <div class="testimonial-author">
@@ -190,10 +248,10 @@ format:
 <p class="testimonial-role">Statistical Data Scientist, Pfizer</p>
 </div>
 </div>
-<blockquote>"Positron feels like the perfect balance between VS Code and RStudio."</blockquote>
 </div>
 
 <div class="testimonial-card">
+<blockquote>"Positron didn't just make Python accessible, it made it fun."</blockquote>
 <div class="testimonial-header">
 <div class="testimonial-avatar">MH</div>
 <div class="testimonial-author">
@@ -201,10 +259,10 @@ format:
 <p class="testimonial-role">Data Scientist, Memorial Sloan Kettering Cancer Center</p>
 </div>
 </div>
-<blockquote>"Positron didn't just make Python accessible, it made it fun."</blockquote>
 </div>
 
 <div class="testimonial-card">
+<blockquote>"The combination of Positron and the AI Assistant makes switching between R &amp; Python incredibly smooth."</blockquote>
 <div class="testimonial-header">
 <div class="testimonial-avatar">YR</div>
 <div class="testimonial-author">
@@ -212,62 +270,11 @@ format:
 <p class="testimonial-role">Senior Statistician, Medtronic</p>
 </div>
 </div>
-<blockquote>"The combination of Positron and the AI Assistant makes switching between R &amp; Python incredibly smooth."</blockquote>
 </div>
 
 </div>
 
 </section>
-
-<!-- ========================== SUPADEMO ============================= -->
-::: {.content-visible unless-profile="workbench"}
-<section class="supademo-section">
-
-<h2>See it in action</h2>
-
-<p class="supademo-description">Take an interactive tour of Positron's key features and see how it streamlines your data science workflow.</p>
-
-<div class="supademo-container" id="supademo-container">
-<div class="supademo-preview" id="supademo-preview" role="button" tabindex="0" aria-label="Launch interactive tour">
-<img src="images/data-explorer.png" alt="Click to launch interactive Positron tour" loading="lazy">
-<div class="supademo-play-overlay">
-<i class="bi bi-play-circle-fill"></i>
-<span>Launch Interactive Tour</span>
-</div>
-</div>
-</div>
-
-<script>
-(function() {
-  var preview = document.getElementById('supademo-preview');
-  var container = document.getElementById('supademo-container');
-  function launch() {
-    var iframe = document.createElement('iframe');
-    iframe.src = 'https://app.supademo.com/embed/cmmv03fu40k72en0y2v94hkzu?embed_v=2';
-    iframe.allow = 'clipboard-write';
-    iframe.frameBorder = '0';
-    iframe.allowFullscreen = true;
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.position = 'absolute';
-    iframe.style.top = '0';
-    iframe.style.left = '0';
-    container.innerHTML = '';
-    container.style.position = 'relative';
-    container.style.paddingBottom = '62.5%';
-    container.appendChild(iframe);
-  }
-  if (preview) {
-    preview.addEventListener('click', launch);
-    preview.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); launch(); }
-    });
-  }
-})();
-</script>
-
-</section>
-:::
 
 <!-- ============================== FAQ =============================== -->
 <section class="faq-section">
@@ -279,34 +286,35 @@ format:
 <details class="faq-item">
 <summary>Is Positron free?</summary>
 <div class="faq-answer">
-
-Yes! Positron is free to download and use. It is source-available under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme).
-
-::: {.content-visible unless-profile="workbench"}
-Learn more about [what this license means](licensing.qmd) and our decision to use it.
-:::
-
+Yes! Positron is free to download and use. It is source-available under the <a href="https://github.com/posit-dev/positron?tab=License-1-ov-file#readme">Elastic License 2.0</a>. <a href="licensing.qmd">Learn more</a> about what this license means and our decision to use it.
 </div>
 </details>
 
 <details class="faq-item">
-<summary>Can I use my VS Code extensions?</summary>
+<summary>What about RStudio?</summary>
 <div class="faq-answer">
-Yes! Positron supports VS Code compatible extensions (.vsix files), giving you access to thousands of community extensions out of the box. By building on Code OSS, Positron gets rich text editor capabilities and broad extensibility beyond the core IDE. <a href="extensions.qmd">Read more about using extensions with Positron</a>.
+RStudio is not going away. Posit is committed to maintaining it with security updates, stability improvements, and priority bug fixes. Positron builds on the data-science-first experience of RStudio and adds modern editor capabilities like extensions, AI assistance, and first-class Python support. Positron includes RStudio keybindings to make the transition easier. If you are new to R, we recommend starting with Positron. If you're happy with RStudio, you can continue using it. <a href="faqs.html#is-rstudio-going-away">Learn more</a>.
 </div>
 </details>
 
 <details class="faq-item">
-<summary>Is RStudio going away?</summary>
+<summary>How is Positron different from VS Code?</summary>
 <div class="faq-answer">
-No. Posit is committed to maintaining and updating RStudio. RStudio is very mature, stable software, and will continue to receive security updates, stability improvements, and priority bug fixes. If you're new to R, we recommend starting with Positron — but if you're happy with RStudio, you can continue using it.
+Positron is purpose-built for data science with dedicated panes for data exploration, variables, plots, and a native console, all ready immediately with zero configuration. VS Code is a general purpose code editor that requires installing and configuring multiple extensions to approximate a data science workflow, and does not officially support R. Positron supports VS Code compatible extensions, so you can bring your existing tools with you. <a href="faqs.html#how-is-positron-different-from-rstudio-vs-code-or-jupyter-notebooks">Learn more</a>.
 </div>
 </details>
 
 <details class="faq-item">
-<summary>How is Positron different from RStudio or VS Code?</summary>
+<summary>How is Positron different from Jupyter Notebook editors?</summary>
 <div class="faq-answer">
-Positron combines the best of both worlds: the data-science-first experience of RStudio — with a built-in data explorer, variables pane, and plots viewer — and the modern editor capabilities of VS Code, including extensions, AI assistance, and multi-language support.
+Positron is a full IDE that goes beyond notebook editing. You get a batteries-included native notebook editor for Jupyter, plus a built-in data explorer, variables pane, plots viewer, database connections, AI assistance, debugging, version control and more, all without having to manage your own extensions. <a href="faqs.html#how-is-positron-different-from-rstudio-vs-code-or-jupyter-notebooks">Learn more</a>.
+</div>
+</details>
+
+<details class="faq-item">
+<summary>What languages and tools does Positron support?</summary>
+<div class="faq-answer">
+R and Python are first-class supported languages with a native console, data explorer, and variables pane. Additional languages like Rust, JavaScript, and C/C++ are supported through community extensions. SQL support is on the roadmap. Positron also supports Jupyter and Quarto notebooks, Shiny, Streamlit, and Dash apps, and thousands of extensions from the Open VSX marketplace. <a href="faqs.html#what-programming-languages-are-supported-in-positron">Learn more</a>.
 </div>
 </details>
 
@@ -327,6 +335,7 @@ Positron combines the best of both worlds: the data-science-first experience of 
 <div class="hero-ctas">
 <a href="download.qmd" class="btn btn-primary btn-lg">Download for Free</a>
 <a href="features.qmd" class="btn btn-outline-primary btn-lg">Explore Features</a>
+<a href="https://posit.co/positron-updates-signup/" class="btn btn-outline-primary btn-lg">Get Updates</a>
 </div>
 :::
 
