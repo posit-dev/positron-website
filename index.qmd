@@ -72,7 +72,7 @@ format:
 <img src="images/index/data explorer.png" alt="Positron Data Explorer showing a tabular data view with filtering and sorting capabilities" loading="eager">
 </div>
 <div class="hero-tab-panel" role="tabpanel" id="panel-ai-assistant" aria-labelledby="tab-ai-assistant">
-<img src="images/index/python-positron-assistant.png" alt="Positron AI Assistant panel providing contextual help for data science tasks" loading="lazy">
+<img src="images/index/python-positron-assistant.png" alt="Positron AI Assistant panel with data-aware suggestions for Python code" loading="lazy">
 </div>
 <div class="hero-tab-panel" role="tabpanel" id="panel-data-apps" aria-labelledby="tab-data-apps">
 <img src="images/index/app-viewer.png" alt="Building and previewing a data app in Positron" loading="lazy">
@@ -140,7 +140,7 @@ format:
 <img src="images/index/data explorer.png" alt="Positron Data Explorer showing tabular data" loading="lazy">
 </div>
 <div class="feature-panel" id="workflow-2">
-<img src="images/index/plots-pane.png" alt="Positron Plots pane with data visualization" loading="lazy">
+<img src="images/index/plots-pane.png" alt="Positron Plots pane displaying charts and visualizations with export options" loading="lazy">
 </div>
 <div class="feature-panel" id="workflow-3">
 <img src="images/index/jupyter-variables-pane.png" alt="Positron notebook editor with variables pane" loading="lazy">
@@ -177,7 +177,7 @@ format:
 </div>
 <div class="feature-showcase-image">
 <div class="feature-panel active" id="ai-0">
-<img src="images/index/python-positron-assistant.png" alt="Positron AI Assistant with data context" loading="lazy">
+<img src="images/index/python-positron-assistant.png" alt="Positron AI Assistant using dataframe and session context to generate relevant code" loading="lazy">
 </div>
 <div class="feature-panel" id="ai-1">
 <img src="images/index/databot.png" alt="Positron Databot agent for exploratory data analysis" loading="lazy">
@@ -186,7 +186,7 @@ format:
 <img src="images/index/configure-model-provider.png" alt="Positron AI model provider configuration showing Anthropic, OpenAI, and other providers" loading="lazy">
 </div>
 <div class="feature-panel" id="ai-3">
-<img src="images/index/jupyter-variables-pane.png" alt="Positron notebook assistant in action" loading="lazy">
+<img src="images/index/jupyter-variables-pane.png" alt="Positron AI assistant providing contextual help inside a Jupyter notebook" loading="lazy">
 </div>
 </div>
 </div>
@@ -219,7 +219,7 @@ format:
 <img src="images/index/connect-data.png" alt="Positron Connections pane showing database connections" loading="lazy">
 </div>
 <div class="feature-panel" id="production-1">
-<img src="images/index/extensions.png" alt="Positron extensions marketplace showing available Python extensions" loading="lazy">
+<img src="images/index/extensions.png" alt="Positron extensions marketplace with thousands of available extensions" loading="lazy">
 </div>
 <div class="feature-panel" id="production-2">
 <img src="images/index/publish-notebook.png" alt="Publishing a notebook to Posit Connect from Positron" loading="lazy">
