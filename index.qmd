@@ -33,7 +33,13 @@ format:
 
 <h1>The Data Science IDE</h1>
 
+::: {.content-visible unless-profile="workbench"}
 <p class="hero-subheadline">Move from question to insight to application faster in Positron, a free IDE purpose-built for Python and R with transparent, inspectable AI.</p>
+:::
+
+::: {.content-visible when-profile="workbench"}
+<p class="hero-subheadline">Move from question to insight to application faster in Positron, an IDE purpose-built for Python and R with transparent, inspectable AI.</p>
+:::
 
 ::: {.content-visible unless-profile="workbench"}
 <div class="hero-ctas">
@@ -193,7 +199,13 @@ format:
 
 <h2>Built on a platform you can grow with</h2>
 
+::: {.content-visible unless-profile="workbench"}
 <p class="value-props-subtitle">Start with a free desktop IDE and expand as your needs evolve. Connect to your data, extend with thousands of plugins, and scale to Workbench for enterprise when you're ready.</p>
+:::
+
+::: {.content-visible when-profile="workbench"}
+<p class="value-props-subtitle">Connect to your data, extend with thousands of plugins, and scale with enterprise-grade infrastructure.</p>
+:::
 
 <div class="feature-showcase" data-showcase="production">
 <div class="feature-showcase-nav">
@@ -283,12 +295,14 @@ format:
 
 <div class="faq-accordion">
 
+::: {.content-visible unless-profile="workbench"}
 <details class="faq-item">
 <summary>Is Positron free?</summary>
 <div class="faq-answer">
 Yes! Positron is free to download and use. It is source-available under the <a href="https://github.com/posit-dev/positron?tab=License-1-ov-file#readme">Elastic License 2.0</a>. <a href="licensing.qmd">Learn more</a> about what this license means and our decision to use it.
 </div>
 </details>
+:::
 
 <details class="faq-item">
 <summary>What about RStudio?</summary>
@@ -329,7 +343,13 @@ R and Python are first-class supported languages with a native console, data exp
 
 <h2>Ready to get started?</h2>
 
+::: {.content-visible unless-profile="workbench"}
 <p class="closing-cta-description">Download Positron for free and start building with Python and R today.</p>
+:::
+
+::: {.content-visible when-profile="workbench"}
+<p class="closing-cta-description">Start building with Python and R in Positron today.</p>
+:::
 
 ::: {.content-visible unless-profile="workbench"}
 <div class="hero-ctas">
