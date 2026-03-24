@@ -4,7 +4,7 @@ toc: false
 editor: source
 anchor-links: false
 description: |
-  Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.
+  Positron is the AI-native data science IDE, purpose-built for Python and R. Move from question to insight to application faster with transparent, inspectable AI.
 hide-description: true
 image: images/positron-social.png
 resources:
@@ -15,11 +15,11 @@ format:
     include-in-header:
       - text: |
           <!-- Open Graph Meta Tags -->
-          <meta property="og:title" content="Positron - The Data Science IDE">
-          <meta property="og:description" content="Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.">
+          <meta property="og:title" content="Positron - The AI-Native Data Science IDE">
+          <meta property="og:description" content="Positron is the AI-native data science IDE, purpose-built for Python and R. Move from question to insight to application faster with transparent, inspectable AI.">
           <meta property="og:type" content="website">
           <meta property="og:url" content="https://positron.posit.co/">
-          <meta property="og:image" content="https://positron.posit.co/images/index-positron-social-share.png">
+          <meta property="og:image" content="https://positron.posit.co/images/positron-social.png">
           <meta property="og:image:width" content="1200">
           <meta property="og:image:height" content="630">
           <meta property="og:site_name" content="Positron">
@@ -31,7 +31,7 @@ format:
 
 <p class="hero-eyebrow">From <a href="https://posit.co/">Posit PBC</a>, the team behind RStudio, Shiny, and the tidyverse</p>
 
-<h1>The Data Science IDE</h1>
+<h1>The AI-Native Data Science IDE</h1>
 
 ::: {.content-visible unless-profile="workbench"}
 <p class="hero-subheadline">Move from question to insight to application faster in Positron, a free IDE purpose-built for Python and R with transparent, inspectable AI.</p>
@@ -61,21 +61,21 @@ format:
 <div class="hero-showcase">
 <div class="hero-tabs" role="tablist" aria-label="Feature screenshots">
 <button class="hero-tab active" role="tab" aria-selected="true" aria-controls="panel-data-explorer" id="tab-data-explorer" data-index="0">
-<i class="bi bi-table"></i> Data Explorer
+<i class="bi bi-table" aria-hidden="true"></i> Data Explorer
 </button>
 <button class="hero-tab" role="tab" aria-selected="false" aria-controls="panel-ai-assistant" id="tab-ai-assistant" data-index="1">
-<i class="bi bi-robot"></i> Inspectable AI
+<i class="bi bi-robot" aria-hidden="true"></i> Inspectable AI
 </button>
 <button class="hero-tab" role="tab" aria-selected="false" aria-controls="panel-data-apps" id="tab-data-apps" data-index="2">
-<i class="bi bi-window-stack"></i> Data Apps
+<i class="bi bi-window-stack" aria-hidden="true"></i> Data Apps
 </button>
 <button class="hero-tab" role="tab" aria-selected="false" aria-controls="panel-notebooks" id="tab-notebooks" data-index="3">
-<i class="bi bi-journal-code"></i> Notebook Editor
+<i class="bi bi-journal-code" aria-hidden="true"></i> Notebook Editor
 </button>
 </div>
 <div class="hero-tab-panels">
 <div class="hero-tab-panel active" role="tabpanel" id="panel-data-explorer" aria-labelledby="tab-data-explorer">
-<img src="images/index/data explorer.png" alt="Positron Data Explorer showing a tabular data view with filtering and sorting capabilities" loading="eager">
+<img src="images/index/data-explorer.png" alt="Positron Data Explorer showing a tabular data view with filtering and sorting capabilities" loading="eager">
 </div>
 <div class="hero-tab-panel" role="tabpanel" id="panel-ai-assistant" aria-labelledby="tab-ai-assistant">
 <img src="images/index/python-positron-assistant.png" alt="Positron AI Assistant panel with data-aware suggestions for Python code" loading="lazy">
@@ -102,6 +102,7 @@ format:
 <div class="video-demo-container">
 <video controls preload="none" poster="images/positron-intro-poster.png" aria-label="Introducing Positron, the data science IDE" style="width:100%; border-radius:8px; box-shadow: 0 4px 24px rgba(0,0,0,0.10);">
 <source src="videos/positron-intro.mp4" type="video/mp4">
+Your browser does not support the video element. <a href="videos/positron-intro.mp4">Download the video</a>.
 </video>
 </div>
 
@@ -116,42 +117,42 @@ format:
 <p class="value-props-subtitle">Positron is built for data science workflows. Execute code interactively in a native console or notebook, explore data, view variables and dataframes, create visualizations, train models, build apps, and access everything else you need to stay in the flow.</p>
 
 <div class="feature-showcase" data-showcase="workflow">
-<div class="feature-showcase-nav">
-<button class="feature-nav-item active" data-target="workflow-0">
+<div class="feature-showcase-nav" role="tablist" aria-label="Workflow features">
+<button class="feature-nav-item active" role="tab" aria-selected="true" aria-controls="workflow-0" data-target="workflow-0">
 <div class="feature-nav-title">Python & R</div>
 <div class="feature-nav-desc">Code efficiently with first-class support for both R and Python.</div>
 </button>
-<button class="feature-nav-item" data-target="workflow-1">
+<button class="feature-nav-item" role="tab" aria-selected="false" aria-controls="workflow-1" data-target="workflow-1">
 <div class="feature-nav-title">Data Explorer</div>
 <div class="feature-nav-desc">Sort, filter, and profile large datasets with fast, interactive data frames.</div>
 </button>
-<button class="feature-nav-item" data-target="workflow-2">
+<button class="feature-nav-item" role="tab" aria-selected="false" aria-controls="workflow-2" data-target="workflow-2">
 <div class="feature-nav-title">Rapid visualizations</div>
 <div class="feature-nav-desc">Create high-quality visualizations quickly to uncover patterns and communicate findings effectively.</div>
 </button>
-<button class="feature-nav-item" data-target="workflow-3">
+<button class="feature-nav-item" role="tab" aria-selected="false" aria-controls="workflow-3" data-target="workflow-3">
 <div class="feature-nav-title">Jupyter & Quarto Notebooks</div>
 <div class="feature-nav-desc">Iteratively explore data in a batteries-included native editor for Jupyter and Quarto notebooks. Create reproducible reports, presentations, and websites that combine code, results, and narrative.</div>
 </button>
-<button class="feature-nav-item" data-target="workflow-4">
+<button class="feature-nav-item" role="tab" aria-selected="false" aria-controls="workflow-4" data-target="workflow-4">
 <div class="feature-nav-title">Production Apps</div>
 <div class="feature-nav-desc">Easily convert explorations into production scripts, data apps, and reports.</div>
 </button>
 </div>
 <div class="feature-showcase-image">
-<div class="feature-panel active" id="workflow-0">
+<div class="feature-panel active" role="tabpanel" id="workflow-0">
 <img src="images/index/python-r-console.png" alt="Positron with first-class Python and R support" loading="lazy">
 </div>
-<div class="feature-panel" id="workflow-1">
-<img src="images/index/data explorer.png" alt="Positron Data Explorer showing tabular data" loading="lazy">
+<div class="feature-panel" role="tabpanel" id="workflow-1">
+<img src="images/index/data-explorer.png" alt="Positron Data Explorer showing tabular data" loading="lazy">
 </div>
-<div class="feature-panel" id="workflow-2">
+<div class="feature-panel" role="tabpanel" id="workflow-2">
 <img src="images/index/plots-pane.png" alt="Positron Plots pane displaying charts and visualizations with export options" loading="lazy">
 </div>
-<div class="feature-panel" id="workflow-3">
+<div class="feature-panel" role="tabpanel" id="workflow-3">
 <img src="images/index/jupyter-variables-pane.png" alt="Positron notebook editor with variables pane" loading="lazy">
 </div>
-<div class="feature-panel" id="workflow-4">
+<div class="feature-panel" role="tabpanel" id="workflow-4">
 <img src="images/index/app-viewer.png" alt="Building and previewing a data app in Positron" loading="lazy">
 </div>
 </div>
@@ -159,39 +160,38 @@ format:
 
 <h2>AI that actually understands your data</h2>
 
-<p class="value-props-subtitle">Positron Assistant sees your active dataframes, console output, and plots so every suggestion is grounded in your actual work. Transparent, inspectable, and always under your control.</p>
+<p class="value-props-subtitle">Positron embeds a specialized AI agent directly in your IDE, one that sees your active dataframes, console output, and plots so every suggestion is grounded in your actual work. Transparent, inspectable, and always under your control.</p>
 
 <div class="feature-showcase feature-showcase-reversed" data-showcase="ai">
-<div class="feature-showcase-nav">
-<button class="feature-nav-item active" data-target="ai-0">
+<div class="feature-showcase-nav" role="tablist" aria-label="AI features">
+<button class="feature-nav-item active" role="tab" aria-selected="true" aria-controls="ai-0" data-target="ai-0">
 <div class="feature-nav-title">Data-aware AI</div>
 <div class="feature-nav-desc">Positron Assistant has context about your loaded data, plots, and console history, enabling more relevant guidance for data science tasks.</div>
 </button>
-<button class="feature-nav-item" data-target="ai-1">
+<button class="feature-nav-item" role="tab" aria-selected="false" aria-controls="ai-1" data-target="ai-1">
 <div class="feature-nav-title">Exploratory Agent</div>
 <div class="feature-nav-desc">Accelerate exploratory data analysis with Databot, an agent that collaborates with you to provide transparent insights.</div>
 </button>
-<button class="feature-nav-item" data-target="ai-2">
+<button class="feature-nav-item" role="tab" aria-selected="false" aria-controls="ai-2" data-target="ai-2">
 <div class="feature-nav-title">Bring your own model</div>
 <div class="feature-nav-desc">Connect your preferred AI provider with just an API key. All AI traffic goes directly from your machine to your chosen provider.</div>
 </button>
-<button class="feature-nav-item" data-target="ai-3">
+<button class="feature-nav-item" role="tab" aria-selected="false" aria-controls="ai-3" data-target="ai-3">
 <div class="feature-nav-title">Notebook assistant</div>
 <div class="feature-nav-desc">Assistant understands the full context of your Jupyter notebook from code cells to outputs and execution history. Use AI quick actions to generate code and AI next steps to guide your analysis.</div>
 </button>
-
 </div>
 <div class="feature-showcase-image">
-<div class="feature-panel active" id="ai-0">
+<div class="feature-panel active" role="tabpanel" id="ai-0">
 <img src="images/index/python-positron-assistant.png" alt="Positron AI Assistant using dataframe and session context to generate relevant code" loading="lazy">
 </div>
-<div class="feature-panel" id="ai-1">
+<div class="feature-panel" role="tabpanel" id="ai-1">
 <img src="images/index/databot.png" alt="Positron Databot agent for exploratory data analysis" loading="lazy">
 </div>
-<div class="feature-panel" id="ai-2">
+<div class="feature-panel" role="tabpanel" id="ai-2">
 <img src="images/index/configure-model-provider.png" alt="Positron AI model provider configuration showing Anthropic, OpenAI, and other providers" loading="lazy">
 </div>
-<div class="feature-panel" id="ai-3">
+<div class="feature-panel" role="tabpanel" id="ai-3">
 <img src="images/index/jupyter-variables-pane.png" alt="Positron AI assistant providing contextual help inside a Jupyter notebook" loading="lazy">
 </div>
 </div>
@@ -208,35 +208,35 @@ format:
 :::
 
 <div class="feature-showcase" data-showcase="production">
-<div class="feature-showcase-nav">
-<button class="feature-nav-item active" data-target="production-0">
+<div class="feature-showcase-nav" role="tablist" aria-label="Platform features">
+<button class="feature-nav-item active" role="tab" aria-selected="true" aria-controls="production-0" data-target="production-0">
 <div class="feature-nav-title">Connect to your data</div>
 <div class="feature-nav-desc">Create connections to databases like Databricks, Snowflake, and Postgres directly from Positron. Browse schemas, preview tables, and start querying without leaving your editor.</div>
 </button>
-<button class="feature-nav-item" data-target="production-1">
+<button class="feature-nav-item" role="tab" aria-selected="false" aria-controls="production-1" data-target="production-1">
 <div class="feature-nav-title">Leverage extensions</div>
 <div class="feature-nav-desc">Access the Open VSX marketplace for language support, themes, linters, formatters, and thousands of extensions.</div>
 </button>
-<button class="feature-nav-item" data-target="production-2">
+<button class="feature-nav-item" role="tab" aria-selected="false" aria-controls="production-2" data-target="production-2">
 <div class="feature-nav-title">Publish and share</div>
 <div class="feature-nav-desc">Deploy reports, dashboards, and data apps to Posit Connect or Posit Connect Cloud with a single click.</div>
 </button>
-<button class="feature-nav-item" data-target="production-3">
+<button class="feature-nav-item" role="tab" aria-selected="false" aria-controls="production-3" data-target="production-3">
 <div class="feature-nav-title">Scale beyond your laptop</div>
 <div class="feature-nav-desc">Connect to remote servers via SSH or run Positron in the browser through Posit Workbench when you need more CPU, RAM, or GPU than your local machine provides.</div>
 </button>
 </div>
 <div class="feature-showcase-image">
-<div class="feature-panel active" id="production-0">
+<div class="feature-panel active" role="tabpanel" id="production-0">
 <img src="images/index/connect-data.png" alt="Positron Connections pane showing database connections" loading="lazy">
 </div>
-<div class="feature-panel" id="production-1">
+<div class="feature-panel" role="tabpanel" id="production-1">
 <img src="images/index/extensions.png" alt="Positron extensions marketplace with thousands of available extensions" loading="lazy">
 </div>
-<div class="feature-panel" id="production-2">
+<div class="feature-panel" role="tabpanel" id="production-2">
 <img src="images/index/publish-notebook.png" alt="Publishing a notebook to Posit Connect from Positron" loading="lazy">
 </div>
-<div class="feature-panel" id="production-3">
+<div class="feature-panel" role="tabpanel" id="production-3">
 <img src="images/index/workbench.png" alt="Positron running in the browser through Posit Workbench" loading="lazy">
 </div>
 </div>
@@ -406,15 +406,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Feature showcase tabs
   document.querySelectorAll('.feature-showcase').forEach(function(showcase) {
-    var navItems = showcase.querySelectorAll('.feature-nav-item');
+    var navItems = Array.from(showcase.querySelectorAll('.feature-nav-item'));
     var panels = showcase.querySelectorAll('.feature-panel');
 
     navItems.forEach(function(item) {
       item.addEventListener('click', function() {
-        navItems.forEach(function(n) { n.classList.remove('active'); });
+        navItems.forEach(function(n) { n.classList.remove('active'); n.setAttribute('aria-selected', 'false'); });
         panels.forEach(function(p) { p.classList.remove('active'); });
         item.classList.add('active');
+        item.setAttribute('aria-selected', 'true');
         document.getElementById(item.getAttribute('data-target')).classList.add('active');
+      });
+
+      item.addEventListener('keydown', function(e) {
+        var idx = navItems.indexOf(item);
+        var newIdx = -1;
+        if (e.key === 'ArrowDown') newIdx = (idx + 1) % navItems.length;
+        if (e.key === 'ArrowUp') newIdx = (idx - 1 + navItems.length) % navItems.length;
+        if (newIdx >= 0) { e.preventDefault(); navItems[newIdx].click(); navItems[newIdx].focus(); }
       });
     });
   });
