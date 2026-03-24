@@ -31,7 +31,7 @@ format:
 
 <p class="hero-eyebrow">From <a href="https://posit.co/">Posit PBC</a>, the team behind RStudio, Shiny, and the tidyverse</p>
 
-<h1>The AI-Native Data Science IDE</h1>
+<h1>The AI-Native<br>Data Science IDE</h1>
 
 ::: {.content-visible unless-profile="workbench"}
 <p class="hero-subheadline">Move from question to insight to application faster in Positron, a free IDE purpose-built for Python and R with transparent, inspectable AI.</p>
@@ -228,10 +228,10 @@ Your browser does not support the video element. <a href="videos/positron-intro.
 </div>
 <div class="feature-showcase-image">
 <div class="feature-panel active" role="tabpanel" id="production-0">
-<img src="images/index/connect-data.png" alt="Positron Connections pane showing database connections" loading="lazy">
+<img src="images/index/database-connections-dialog.png" alt="Positron database connection dialog showing drivers for SQLite, PostgreSQL, DuckDB, Databricks, Snowflake, BigQuery, and Redshift" loading="lazy">
 </div>
 <div class="feature-panel" role="tabpanel" id="production-1">
-<img src="images/index/extensions.png" alt="Positron extensions marketplace with thousands of available extensions" loading="lazy">
+<img src="images/index/extensions-marketplace.png" alt="Positron extensions marketplace showing installed extensions including Python, R, Databot, and Jupyter" loading="lazy">
 </div>
 <div class="feature-panel" role="tabpanel" id="production-2">
 <img src="images/index/publish-notebook.png" alt="Publishing a notebook to Posit Connect from Positron" loading="lazy">
