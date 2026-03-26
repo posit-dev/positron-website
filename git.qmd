@@ -62,7 +62,7 @@ The Source Control view in Positron shows all your changed files and makes it ea
 
 **Learn more:** [Staging and committing code changes](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes)
 
-### Syncing with Remote Repositories
+### Syncing with remote repositories
 
 When working with a remote repository like GitHub, you can sync changes between your local and remote repositories:
 
@@ -97,7 +97,7 @@ Positron includes the [GitHub](https://open-vsx.org/extension/vscode/github) and
 
 Other platforms are not integrated by default, but similar features are available after installing extensions like [GitLab Workflow](https://open-vsx.org/extension/GitLab/gitlab-workflow) or [Atlassian: Jira & Bitbucket](https://open-vsx.org/extension/atlassian/atlascode). You can search in the [Extensions pane](extensions.qmd#accessing-extensions) to find other extensions for the Git platform you use.
 
-## Additional Resources
+## Additional resources
 
 - [Introduction to Git in VS Code ](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git): Comprehensive guide with screenshots and examples
 - [Git Documentation](https://git-scm.com/doc): Official Git documentation

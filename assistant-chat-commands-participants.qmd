@@ -43,7 +43,7 @@ To learn more about the format of custom prompt files, see the following VS Code
 - [Prompt file structure](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_prompt-file-structure)
 - [Tips for defining prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_tips-for-defining-prompt-files)
 
-*Note:* Positron Assistant does not support the `model` field at this time.
+*Note:* Positron Assistant does not support the `model` field.
 :::
 
 <details>

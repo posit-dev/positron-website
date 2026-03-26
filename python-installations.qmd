@@ -16,7 +16,7 @@ Positron supports the following Python environment managers:
 
 {{< include "_python-managers.qmd" >}}
 
-Other tools may also be compatible, although they are not officially supported at this time.
+Other tools may also be compatible, although they are not officially supported.
 
 ### Discovery locations
 

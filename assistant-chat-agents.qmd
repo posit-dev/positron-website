@@ -49,7 +49,7 @@ To learn more about the format of custom agents, see the following VS Code docum
 - [Custom agent file structure](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure)
 - [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
 
-*Note:* Positron Assistant does not support the `model` field at this time.
+*Note:* Positron Assistant does not support the `model` field.
 :::
 
 <details>
