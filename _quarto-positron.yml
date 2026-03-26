@@ -66,16 +66,16 @@ website:
             target: _blank
       
     right:
-      - text: '<span id="custom-ask-ai-button">Ask AI ✨</span>'
-        href: "javascript:void(0);"
       - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
         href: download.qmd
       - icon: github
         aria-label: 'Link to Positron Github Repository'
         href: https://github.com/posit-dev/positron
+      - text: '<span id="custom-ask-ai-button">Ask AI ✨</span>'
+        href: "javascript:void(0);"
       - icon: rss
         href: https://positron.posit.co/blog/index.xml
-        aria-label: Positron Blog RSS  
+        aria-label: Positron Blog RSS
     
   sidebar:
     - title: "Guides"
