@@ -22,7 +22,7 @@ end
 
 Dev containers are supported in Positron Desktop on macOS, Windows, and Linux. However, the container itself must be built from a supported version of Linux. You also need a Docker-compatible container runtime, such as [Docker Desktop](https://www.docker.com/products/docker-desktop/) or [Podman](https://podman.io/). 
 
-Note that you cannot currently use dev containers in environments that are *already* remote, such as Remote SSH, WSL, and Positron Pro sessions on Posit Workbench.
+Note that you cannot use dev containers in environments that are *already* remote, such as Remote SSH, WSL, and Positron Pro sessions on Posit Workbench.
 
 ## Enabling
 

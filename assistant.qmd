@@ -36,7 +36,7 @@ listing:
         link: "https://posit.co/blog/?post_tag=ai-newsletter"
 ---
 
-Positron Assistant is an AI coding assistant built specifically for data science workflows. It is currently available in **preview** starting from Positron 2025.07.0-204.
+Positron Assistant is an AI coding assistant built specifically for data science workflows. It is available in **preview** starting from Positron 2025.07.0-204.
 
 Beyond your active files, selected code, and project structure, Positron Assistant is provided with context about your interactive data science work, such as your loaded data, plots, and console history, enabling more relevant guidance for exploratory analysis and modeling.
 

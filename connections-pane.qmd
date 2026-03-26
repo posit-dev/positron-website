@@ -3,7 +3,7 @@ title: "Connections Pane"
 description: "Manage database connections and explore schemas in Python and R. Browse tables, columns, and preview data directly in Positron's Data Explorer."
 ---
 
-The **Connections** pane allows you to manage and explore database connections for use within your Python and/or R sessions. You can create connections to databases, explore their schemas, and interactively preview database tables.
+The **Connections** pane allows you to manage and explore database connections for use within your Python and R sessions. You can create connections to databases, explore their schemas, and interactively preview database tables.
 
 ![Connections pane](images/connections-pane.png){fig-alt="Connections pane in Positron showing a database connection with expandable schema tree view and Editor with Python database connection code."}
 
@@ -47,7 +47,7 @@ You can find more information about connecting to a specific database [from Posi
 
 ### Create a connection using Python
 
-Currently we support connections created using:
+Connections can be created using:
 
 - [sqlite3](https://docs.python.org/3/library/sqlite3.html)
 - [SQLAlchemy](https://www.sqlalchemy.org)

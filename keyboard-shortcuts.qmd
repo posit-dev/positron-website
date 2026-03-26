@@ -6,7 +6,7 @@ description: "Master Positron's keyboard shortcuts for running code, navigating 
 Positron's keyboard shortcuts, with a few exceptions, are a superset of the keyboard shortcuts used by Visual Studio Code. This table lists the shortcuts specifically added for Positron.
 
 ::: {.callout-note}
-Our documentation shows you keyboard shortcuts based on your operating system. For example, if you visit this page using Windows, you will see keyboard shortcuts for Windows. Hover your mouse over the keyboard shortcut to see the information for other platforms.
+Our documentation shows you keyboard shortcuts based on your operating system. For example, if you visit this page using Windows, you will see keyboard shortcuts for Windows. Hold the pointer over the keyboard shortcut to see the information for other platforms.
 :::
 
 | Shortcut | Description |

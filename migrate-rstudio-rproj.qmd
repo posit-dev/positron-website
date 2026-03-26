@@ -163,7 +163,6 @@ You should now be able to use this gesture to launch a Positron window in a spec
 * Enter just enough of your target folder name to disambiguate.
 * Accept, launch, and flourish!
 
-Positron is still in beta and is therefore evolving quite rapidly.
-If you are installing frequent updates to Positron, we've found that the Raycast "Search Project Manager" extension is prone to reverting back to launching VS Code.
+Positron evolves quite rapidly, and if you are installing frequent updates, the Raycast "Search Project Manager" extension is prone to reverting back to launching VS Code.
 This can generally be resolved by reconfiguring the extension to use Positron.
 :::

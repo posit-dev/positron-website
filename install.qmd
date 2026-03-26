@@ -25,10 +25,10 @@ We recommend [uv](https://docs.astral.sh/uv/guides/install-python/), or [pyenv](
 
 Positron requires the [IPython kernel](https://pypi.org/project/ipykernel/) (version 6.19.1 or higher) to communicate with Python. By default, the IPython kernel is bundled with Positron for the CPython implementation (the standard Python implementation) and added to the [Python search path](https://docs.python.org/3/library/sys_path_init.html).
 
-If you prefer finer control over your Python environment, set the [`python.useBundledIpykernel`](positron://settings/python.useBundledIpykernel) setting to false and install the IPython kernel manually
+If you prefer finer control over your Python environment, set the [`python.useBundledIpykernel`](positron://settings/python.useBundledIpykernel) setting to false and install the IPython kernel with `pip install ipykernel`.
 
 ::: callout-note
-If you're using an implementation other than CPython, you'll need to install the IPython kernel manually.
+If you're using an implementation other than CPython, you'll need to install the IPython kernel with `pip install ipykernel`.
 :::
 
 ### R setup
@@ -48,7 +48,7 @@ install.packages(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 ```
 
 ::: callout-note
-If you're a Windows user, note that Positron doesn't currently bundle [Rtools](https://cran.r-project.org/bin/windows/Rtools/). If you need Rtools for your package development or other work, you can either use the official guidance from CRAN on installing Rtools and putting it on the PATH, or alternatively, use [rig](https://github.com/r-lib/rig) to install and set up Rtools:
+If you're a Windows user, note that Positron doesn't bundle [Rtools](https://cran.r-project.org/bin/windows/Rtools/). If you need Rtools for your package development or other work, you can either use the official guidance from CRAN on installing Rtools and putting it on the PATH, or alternatively, use [rig](https://github.com/r-lib/rig) to install and set up Rtools:
 
 ```bash
 rig system rtools add
