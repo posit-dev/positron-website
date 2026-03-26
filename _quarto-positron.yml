@@ -1,6 +1,7 @@
 project:
   resources:
     - _redirects
+    - images/posit-icon-fullcolor.svg
 
 website:
   open-graph: true
@@ -12,7 +13,7 @@ website:
   search:
     copy-button: true
     show-item-context: true
-    keyboard-shortcut: ["?", "H"]
+    keyboard-shortcut: ["/"]
   site-url: https://positron.posit.co
   repo-url: https://github.com/posit-dev/positron-website
   issue-url: https://github.com/posit-dev/positron/issues/
@@ -65,6 +66,8 @@ website:
             target: _blank
       
     right:
+      - text: '<span id="custom-ask-ai-button">Ask AI ✨</span>'
+        href: "javascript:void(0);"
       - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
         href: download.qmd
       - icon: github
@@ -217,5 +220,6 @@ format:
     include-in-header:
       - text: |
           <script defer file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
+      - "assets/_kapa-ai.html"
 
 show-videos: true
