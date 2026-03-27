@@ -29,9 +29,9 @@ Here's what we set out to do:
 
 ---
 
-## Part 1: Building the Analysis
+## Part 1: Wasim, the Data Scientist — Building the Analysis
 
-Wasim, a former data scientist turned software engineer on the Positron team, built the initial notebook to analyze GitHub issues related to Posiron.
+Wasim, a former data scientist turned software engineer on the Positron team, built the initial notebook to analyze GitHub issues related to Positron.
 
 ### Step 1: Set Up the Project
 
@@ -43,6 +43,7 @@ uv add polars pyarrow pins plotnine python-dotenv requests
 ```
 
 ![Positron IDE showing a new Python project set up with UV and Python 3.13](images/new-python-project.png)
+
 ## Step 2: Build the Analysis with the AI Assistant
 
 Rather than writing boilerplate code to call the GitHub API, we used the built-in **AI Assistant**. It's notebook-aware because it can read your cells, edit them, execute them, and see the entire context of your notebook cells. We granted it session-level permissions so it could work autonomously, then prompted it to:
@@ -71,7 +72,8 @@ Before handing the notebook off, we ran Positron's **"Improve this notebook"** A
 
 ---
 
-## Part 2: From Notebook to App
+## Part 2: Cindy, the Product Manager — From Notebook to App
+
 Wasim shared the notebook with Cindy, a product manager on Positron, who wanted to turn it into an interactive dashboard. In the past, this would have required a handoff to a developer or learning a new framework. But with Positron's AI assistant, Cindy was able to do it herself.
 
 ### Step 5: Get Oriented in the Notebook
@@ -115,7 +117,7 @@ With the app working locally, Cindy opens the **Publisher extension** in the Pos
 Positron shows real-time deployment progress in a log view. When it completes, a link to the live app appears. From Connect, you control access permissions, environment variables for secrets like API keys, and scheduled refreshes.
 
 ![Posit Connect Publisher extension in Positron sidebar showing deployment configuration for a Shiny app](images/deploy-connect.png)
-> **Tip** Instead of having the dashboard hit the GitHub API on every load, consider a separate Quarto notebook scheduled to run daily on Connect that writes results to a **Connect Pin**. The Shiny app then reads from the Pin, avoiding rate limits and keeping load times fast.
+> **Tip:** Instead of having the dashboard hit the GitHub API on every load, consider a separate Quarto notebook scheduled to run daily on Connect that writes results to a **Connect Pin**. The Shiny app then reads from the Pin, avoiding rate limits and keeping load times fast.
 
 ---
 
