@@ -24,18 +24,18 @@ Positron's built-in language server uses your running Python session to provide 
 
 | Tool | Backing | Language | License | Stars[^1] |
 |------|---------|----------|---------|:-----:|
-| [Pyrefly](https://github.com/facebook/pyrefly) | Meta | Rust | MIT | 5.5K |
-| [ty](https://github.com/astral-sh/ty) | Astral (OpenAI) | Rust | MIT | 17.8K |
-| [Basedpyright](https://github.com/detachhead/basedpyright) | Community | TypeScript | MIT | 3.2K |
-| [Zuban](https://github.com/zubanls/zuban) | Indie | Rust | AGPL-3.0 | 1K |
+| [**Pyrefly**](https://github.com/facebook/pyrefly) | Meta | Rust | MIT | 5.5K |
+| [**ty**](https://github.com/astral-sh/ty) | Astral (OpenAI) | Rust | MIT | 17.8K |
+| [**Basedpyright**](https://github.com/detachhead/basedpyright) | Community | TypeScript | MIT | 3.2K |
+| [**Zuban**](https://github.com/zubanls/zuban) | Indie | Rust | AGPL-3.0 | 1K |
 
 [^1]: As of this post.
 
 **Pyrefly** is Meta's successor to Pyre. It takes a fast, aggressive approach to type inference, being able to catch issues even in code with no type annotations. It reached [beta status](https://github.com/facebook/pyrefly/releases/tag/0.42.0) in November 2025.
 
-**ty** is from Astral, the team behind uv and ruff. [OpenAI announced its acquisition of Astral](https://openai.com/index/openai-to-acquire-astral/) last week; Astral has stated that ty, ruff, and uv will remain open source and MIT-licensed. It's the newest project, with a focus on speed and tight integration with the Astral toolchain. It reached [beta status](https://github.com/astral-sh/ty/releases) in March 2026 and follows a "gradual guarantee" philosophy (more on that below).
+**ty** is from Astral, the team behind uv and ruff. [OpenAI announced its acquisition of Astral](https://openai.com/index/openai-to-acquire-astral/) recently; Astral has stated that ty, ruff, and uv will remain open source and MIT-licensed. It's the newest project, with a focus on speed and tight integration with the Astral toolchain. It reached [beta status](https://astral.sh/blog/ty) in December 2025 and follows a "gradual guarantee" philosophy (more on that below).
 
-**Basedpyright** is a community fork of Microsoft's **Pyright** type checker, with additional type-checking rules and Pylance features baked in to enable language server features in your IDE. It's the most mature of the four and has the largest contributor base.
+**Basedpyright** is a community fork of Microsoft's Pyright type checker, with additional type-checking rules and Pylance features baked in to enable language server features in your IDE. It's the most mature of the four and has the largest contributor base.
 
 **Zuban** is from David Halter, the author of Jedi (the longtime Python autocompletion library). It aims for mypy compatibility and ships as a pip-installable tool.
 
@@ -76,7 +76,7 @@ All four provide the core features you'd expect: completions, hover documentatio
 
 ### Pyrefly
 
-Strong feature set. The hover documentation is the best of the four; Pyrefly renders it cleanly and sometimes includes hyperlinks to class definitions.
+Strong feature set. The hover documentation is the best of the four; **Pyrefly** renders it cleanly and sometimes includes hyperlinks to class definitions.
 
 ### ty
 
@@ -118,7 +118,7 @@ my_list.append("foo")
 
 **Pyrefly** infers `my_list` as `list[int]` and flags the `append("foo")` call as a type error. **ty** sees no annotations and stays silent. The code is dynamically typed and that's fine.
 
-If you're doing exploratory data analysis and don't want to annotate everything, ty's restraint is more comfortable. But if you're writing a library and want to catch bugs early, Pyrefly's aggressiveness is helpful. For example:
+If you're doing exploratory data analysis and don't want to annotate everything, **ty**'s restraint is more comfortable. But if you're writing a library and want to catch bugs early, **Pyrefly**'s aggressiveness is helpful. For example:
 
 ```python
 def process(data):
@@ -132,9 +132,9 @@ process(42) + 1  # Raises a runtime AttributeError
 # Zuban: operator
 ```
 
-**Basedpyright** and **Zuban** land somewhere in between, with Basedpyright leaning toward stricter checking and Zuban aiming for mypy compatibility.
+**Basedpyright** and **Zuban** land somewhere in between, with **Basedpyright** leaning toward stricter checking and **Zuban** aiming for mypy compatibility.
 
-For a deeper dive on this topic, Edward Li's [comparison of Pyrefly and ty](https://blog.edward-li.com/tech/comparing-pyrefly-vs-ty/) and Rob Hand's [overview of future Python type checkers](https://sinon.github.io/future-python-type-checkers/) are both worth reading, though some bugs have been fixed since they were published.
+For a deeper dive on this topic, Edward Li's [comparison of **Pyrefly** and **ty**](https://blog.edward-li.com/tech/comparing-pyrefly-vs-ty/) and Rob Hand's [overview of future Python type checkers](https://sinon.github.io/future-python-type-checkers/) are both worth reading, though some bugs have been fixed since they were published.
 
 ## Performance
 
@@ -142,10 +142,10 @@ We measured startup time (how long until the language server responds to an `ini
 
 | LSP | Avg. startup (s) | Avg. first completion (ms) |
 |-----|:-:|:-:|
-| Pyrefly | 5.8 | 190 |
-| ty | 2.2 | 88 |
-| Basedpyright | 3.1 | 112 |
-| Zuban | N/A^[Zuban requires a multi-step manual startup, so we couldn't measure this automatically.] | 97 |
+| **Pyrefly** | 5.8 | 190 |
+| **ty** | 2.2 | 88 |
+| **Basedpyright** | 3.1 | 112 |
+| **Zuban** | N/A^[**Zuban** requires a multi-step manual startup, so we couldn't measure this automatically.] | 97 |
 
 **ty** was the fastest across the board (no surprise from Astral). But the practical differences are small: a 3-second difference in startup happens once per session, and a 100ms difference in completions is imperceptible. All four are fast enough that you won't notice in daily use.
 
@@ -153,7 +153,7 @@ We measured startup time (how long until the language server responds to an `ini
 
 We also looked at each project's development velocity and community health metrics. A language server you rely on daily needs to keep up with Python's evolution.
 
-| | Pyrefly | ty | Basedpyright | Zuban |
+| | **Pyrefly** | **ty** | **Basedpyright** | **Zuban** |
 |--|:-:|:-:|:-:|:-:|
 | GitHub stars | 5.5K | 17.8K | 3.2K | 1K |
 | Contributors | 165 | 40 | 188 | 5 |
@@ -163,9 +163,9 @@ We also looked at each project's development velocity and community health metri
 | Issues opened (90 days) | 484 | 861 | 42 | 118 |
 | Issues closed (90 days) | 497 | 743 | 20 | 114 |
 
-**ty and Pyrefly are shipping fast.** Both are on a weekly release cadence or higher with high issue throughput. ty's issue volume is notable: 861 issues opened in 90 days reflects both heavy adoption and active bug reporting. Pyrefly is closing more issues than it's opening, a good sign for a beta project.
+**ty** and **Pyrefly** are shipping fast. Both are on a weekly release cadence or higher with high issue throughput. **ty**'s issue volume is notable: 861 issues opened in 90 days reflects both heavy adoption and active bug reporting. **Pyrefly** is closing more issues than it's opening, a good sign for a beta project.
 
-**Response times are quick.** In a spot-check of recent issues, ty and Pyrefly both had first responses from core maintainers within minutes to hours. Basedpyright's maintainer responds quickly too, though at a lower volume. Zuban's maintainer often replies within an hour.
+Response times are quick. In a spot-check of recent issues, **ty** and **Pyrefly** both had first responses from core maintainers within minutes to hours. **Basedpyright**'s maintainer responds quickly too, though at a lower volume. **Zuban**'s maintainer often replies within an hour.
 
 ## What we chose
 
@@ -173,11 +173,11 @@ We bundled **Pyrefly** as Positron's default Python language server.
 
 The deciding factors:
 
-- **Best overall UX for data science.** Hover docs were the cleanest. The type inference catches real bugs without requiring you to annotate everything, and the strictest type checking is off by default unless you configure it on. Notebook support has worked for months.
-- **Active development with strong backing.** Meta has committed to making Pyrefly genuinely open-source and community-driven, with biweekly office hours and a public Discord. Development velocity is high.
-- **MIT license.** No licensing complications for bundling.
+- It's the best overall UX for data science. Hover docs were the cleanest. The type inference catches real bugs without requiring you to annotate everything, and the strictest type checking is off by default unless you configure it on. Notebook support has worked for months.
+- It has active development with strong backing. Meta has committed to making **Pyrefly** genuinely open-source and community-driven, with biweekly office hours and a public Discord. Development velocity is high.
+- No licensing complications for bundling.
 
-It wasn't a runaway winner. Basedpyright is more mature and feature-complete. ty has a lot of long-term potential, especially for ruff users and fans of the gradual guarantee, and is closing feature gaps fast. But for the specific use case of "Python data science in an IDE," Pyrefly had the best balance of features, UX, and readiness.
+It wasn't a runaway winner. **Basedpyright** is more mature and feature-complete. **ty** has a lot of long-term potential, especially for ruff users and fans of the gradual guarantee, and is closing feature gaps fast. But for the specific use case of "Python data science in an IDE," **Pyrefly** had the best balance of features, UX, and readiness.
 
 ## How to switch
 
@@ -185,10 +185,10 @@ This space is competitive and moving fast, and you shouldn't feel locked in. Pos
 
 1. Open the **Extensions** view ({{< kbd mac=Command-Shift-X win=Ctrl-Shift-X linux=Ctrl-Shift-X >}}).
 2. Search for and install the language server you want to try (e.g., `basedpyright`, `ty`, or `zuban`).
-3. Disable Pyrefly: search for `pyrefly` in Extensions, click **Disable**.
+3. Disable **Pyrefly**: search for `pyrefly` in Extensions, click **Disable**.
 4. Reload the window with the command _Developer: Reload Window_.
 
-Or, if you want to keep Pyrefly installed but prevent it from auto-activating, you can use the [`extensions.allowed`](positron://settings/extensions.allowed) setting:
+Or, if you want to keep **Pyrefly** installed but prevent it from auto-activating, you can use the [`extensions.allowed`](positron://settings/extensions.allowed) setting:
 
 ```{json}
 {
@@ -201,9 +201,9 @@ Or, if you want to keep Pyrefly installed but prevent it from auto-activating, y
 
 ## What's next
 
-**ty** is adding features at an aggressive pace and will likely close its remaining gaps. OpenAI's acquisition of Astral adds resources but also uncertainty; it's unclear how it will affect ty's priorities. **Pyrefly** continues to improve its type checking and performance (a recent release noted [20% faster PyTorch benchmarks](https://github.com/facebook/pyrefly/releases/tag/0.57.0)). **Basedpyright** tracks upstream pyright closely and keeps shipping.
+**ty** is adding features at an aggressive pace and will likely close its remaining gaps. OpenAI's acquisition of Astral adds resources but also uncertainty; it's unclear how it will affect **ty**'s priorities. **Pyrefly** continues to improve its type checking and performance (a recent release noted [20% faster PyTorch benchmarks](https://github.com/facebook/pyrefly/releases/tag/0.57.0)). **Basedpyright** tracks upstream Pyright closely and keeps shipping.
 
-Both ty and Pyrefly have been receptive to PRs that improve the experience for Positron users, which suggests they care about working well across editors, not just VS Code. For example, both contribute hover, completions, and semantic highlighting in the Positron Console.
+Both **ty** and **Pyrefly** have been receptive to PRs that improve the experience for Positron users, which suggests they care about working well across editors, not just VS Code. For example, both contribute hover, completions, and semantic highlighting in the Positron Console.
 
 We'll keep evaluating as these tools mature!
 
