@@ -113,6 +113,12 @@ div.sidebar-item-container .sidebar-link > code {
 .nav-link:focus {
   color: $primary !important;
   isolation: isolate;
+}
+
+// Remove borders on hover/focus for nav links outside of nav-tabs
+// (nav-tabs links need Bootstrap to manage their borders for proper tab rendering)
+.nav-link:hover:not(.nav-tabs .nav-link),
+.nav-link:focus:not(.nav-tabs .nav-link) {
   border: none !important;
 }
 
