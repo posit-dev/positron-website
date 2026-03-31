@@ -20,9 +20,9 @@ end
 
 ## System requirements
 
-Remote SSH sessions can be *initiated* from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux[^1]; native Windows and macOS remote hosts are not currently supported. 
+Remote SSH sessions can be *initiated* from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux[^1]; native Windows and macOS remote hosts are not supported.
 
-Note that Remote SSH is *only* supported on the desktop app. You cannot currently use Remote SSH from Positron Pro sessions on Posit Workbench.
+Note that Remote SSH is *only* supported on the desktop app. You cannot use Remote SSH from Positron Pro sessions on Posit Workbench.
 
 At least 2 GB RAM is required to run the remote Positron server, but for realistic data science work, expect to need at least 4 GB RAM or more on the remote host.
 
@@ -117,4 +117,4 @@ Occasionally, the installation on the remote server can be corrupted, for exampl
 
 If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it's not autodetected), you can edit the [`remoteSSH.serverDownloadUrlTemplate`](positron://settings/remoteSSH.serverDownloadUrlTemplate) setting:
 
-![Remote SSH: Server Download Url Template Setting](./images/remote-ssh-server-template.png){width=650}
+![Remote SSH: Server Download Url Template Setting](./images/remote-ssh-server-template.png){width=650 fig-alt="Positron settings panel showing the Remote SSH Server Download URL Template field with a text input for a custom URL."}

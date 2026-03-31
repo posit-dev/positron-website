@@ -51,7 +51,7 @@ In the chat pane, click the {{< fa eye >}} eye button on the interpreter session
 - {{< fa eye >}}: When the eye icon appears without a slash through it, the interpreter session is visible.
 - {{< fa eye-slash >}}: When the eye icon has a slash through it, the interpreter session is hidden.
 
-### Manually attach an interpreter session
+### Attach an interpreter session
 
 1. Click the {{< fa paperclip >}} paperclip button in the chat pane
 1. Choose "Interpreter Sessions..." to select an interpreter session to attach.
@@ -79,8 +79,8 @@ From the Source Control pane, you can use Positron Assistant to generate commit 
 ## Settings
 
 - [`chat.implicitSessionContext.enabled`](positron://settings/chat.implicitSessionContext.enabled): Configure whether Positron Assistant automatically attaches the active interpreter session in the chat pane.
-    - To disable the interpreter session context in the chat pane by default, change the configuration for `panel` to `never`. You will still be able to [Manually attach an interpreter session](#manually-attach-an-interpreter-session) if needed.
+    - To disable the interpreter session context in the chat pane by default, change the configuration for `panel` to `never`. You will still be able to [Attach an interpreter session](#attach-an-interpreter-session) if needed.
 - [`chat.implicitContext.enabled`](positron://settings/chat.implicitContext.enabled): Configure whether Positron Assistant automatically attaches the active editor in the chat pane.
-    - To disable the active editor context in the chat pane by default, change the configuration for `panel` to `never`. You will still be able to manually [Add context attachments](#add-context-attachments) for files if needed.
+    - To disable the active editor context in the chat pane by default, change the configuration for `panel` to `never`. You will still be able to [add context attachments](#add-context-attachments) for files if needed.
 - [`positron.assistant.gitIntegration.enable`](positron://settings/positron.assistant.gitIntegration.enable): Configure whether Positron Assistant can access Git source control context, such as commit history, and whether commit messages can be generated in the Source Control pane.
 - [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes): Files matching these patterns will not have their contents sent to AI providers for inline completions or chat context.

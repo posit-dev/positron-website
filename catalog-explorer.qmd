@@ -8,7 +8,7 @@ Catalog Explorer is an experimental feature. Opt in via the [`catalogExplorer.en
 :::
 
 The Catalog Explorer provides an interface for browsing data in data catalog systems.
-Currently, there is support for Snowflake Horizon Catalogs and Databricks Catalogs.
+Snowflake Horizon Catalogs and Databricks Catalogs are supported.
 You can explore catalogs, schemas, and tables in a tree view, and copy Python and R code snippets to preview data.
 
 ## Add a catalog provider

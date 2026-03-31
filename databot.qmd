@@ -5,7 +5,7 @@ description: "Experimental AI assistant for exploratory data analysis in Python 
 
 ::: {.callout-important}
 
-Databot is currently **experimental** and available in research preview; it is not ready for production use. 
+Databot is **experimental** and available in research preview; it is not ready for production use. 
 
 We also recommend reviewing the [Databot introduction blog post](https://posit.co/blog/introducing-databot/) and [Databot is not a flotation device blogpost](https://posit.co/blog/databot-is-not-a-flotation-device/) for additional context about this new project.
 
@@ -31,7 +31,7 @@ In Positron, choose the [Extensions view](extensions.qmd) from the Activity Bar 
 
 ### Enable Databot
 
-Databot is an experimental product currently in research preview and is not ready for production use. To enable Databot, you must first acknowledge this.
+Databot is an experimental product in research preview and is not ready for production use. To enable Databot, you must first acknowledge this.
 
 To acknowledge the research preview status, find [`databot.researchPreviewAcknowledgment`](positron://settings/databot.researchPreviewAcknowledgment) in Positron's settings. In the text box, enter "Acknowledged".
 
@@ -79,7 +79,7 @@ For more information about Databot, please review the [Databot introduction blog
 
 ### Who is Databot for?
 
-* Databot is currently intended for experienced R and Python users who are familiar with data analysis.
+* Databot is intended for experienced R and Python users who are familiar with data analysis.
 
 ### Are you sure it’s not for people who aren’t comfortable writing their own code? Why not?
 
@@ -101,9 +101,9 @@ For more information about Databot, please review the [Databot introduction blog
 
 ### What LLMs can Databot use?
 
-* Databot is currently calibrated to work with Claude Sonnet 4. It also works well with Claude 3.5 Sonnet v2. Claude Opus performs similarly to Sonnet 4 but is more expensive, so we recommend Sonnet 4 in most cases. We do not recommend Claude 3.7 Sonnet because it tends to do far too much work before returning control to the user.
+* Databot is calibrated to work with Claude Sonnet 4. It also works well with Claude 3.5 Sonnet v2. Claude Opus performs similarly to Sonnet 4 but is more expensive, so we recommend Sonnet 4 in most cases. We do not recommend Claude 3.7 Sonnet because it tends to do far too much work before returning control to the user.
 
 ### Are OpenAI, Gemini, and other models supported?
 
-* Not at this time, though we hope to add support in the future once they are exposed in Positron Assistant.
+* Those providers are not supported. We hope to add support once they are exposed in Positron Assistant.
 

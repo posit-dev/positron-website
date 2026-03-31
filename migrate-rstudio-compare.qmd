@@ -13,7 +13,7 @@ RStudio's development, on the other hand, is much more focused on bug fixes and 
 
 ## Features unique to RStudio
 
-Some features are present in RStudio, but not in Positron as of today.
+Some features are present in RStudio, but not in Positron.
 Some of these features may eventually come to Positron, but if any of these are dealbreakers for you, that is a reason for you to stick with RStudio.
 
 * Inline output in Quarto documents, i.e., a notebook-style interface for `.qmd` (or `.Rmd`) files. Follow along for updates on this feature request in <https://github.com/posit-dev/positron/issues/5640>.
