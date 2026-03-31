@@ -4,7 +4,7 @@ toc: false
 editor: source
 anchor-links: false
 description: |
-  Positron is the AI-native data science IDE, purpose-built for Python and R. Move from question to insight to application faster with transparent, inspectable AI.
+  Positron is the data science IDE purpose-built for Python and R, with powerful AI, interactive data exploration, and seamless publishing.
 hide-description: true
 image: images/positron-social.png
 resources:
@@ -15,8 +15,8 @@ format:
     include-in-header:
       - text: |
           <!-- Open Graph Meta Tags -->
-          <meta property="og:title" content="Positron - The AI-Native Data Science IDE">
-          <meta property="og:description" content="Positron is the AI-native data science IDE, purpose-built for Python and R. Move from question to insight to application faster with transparent, inspectable AI.">
+          <meta property="og:title" content="Positron - The Data Science IDE">
+          <meta property="og:description" content="Positron is the data science IDE purpose-built for Python and R, with powerful AI, interactive data exploration, and seamless publishing.">
           <meta property="og:type" content="website">
           <meta property="og:url" content="https://positron.posit.co/">
           <meta property="og:image" content="https://positron.posit.co/images/positron-social.png">
@@ -31,14 +31,14 @@ format:
 
 <p class="hero-eyebrow">From <a href="https://posit.co/">Posit PBC</a>, the team behind RStudio, Shiny, and the tidyverse</p>
 
-<h1>The AI-Native<br>Data Science IDE</h1>
+<h1>The Data Science IDE</h1>
 
 ::: {.content-visible unless-profile="workbench"}
-<p class="hero-subheadline">Move from question to insight to application faster in Positron, a free IDE purpose-built for Python and R with transparent, inspectable AI.</p>
+<p class="hero-subheadline">Positron is a free IDE purpose-built for Python and R, with powerful AI assistance, interactive data exploration, and everything you need to go from question to insight to application.</p>
 :::
 
 ::: {.content-visible when-profile="workbench"}
-<p class="hero-subheadline">Move from question to insight to application faster in Positron, an IDE purpose-built for Python and R with transparent, inspectable AI.</p>
+<p class="hero-subheadline">Positron is an IDE purpose-built for Python and R, with powerful AI assistance, interactive data exploration, and everything you need to go from question to insight to application.</p>
 :::
 
 ::: {.content-visible unless-profile="workbench"}

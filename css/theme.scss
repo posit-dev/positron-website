@@ -772,6 +772,10 @@ body.positron-homepage {
   .feature-showcase-image {
     flex: 1;
     min-width: 0;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f8f9fa;
   }
 
   .feature-panel {
@@ -783,6 +787,8 @@ body.positron-homepage {
 
     img {
       width: 100%;
+      height: 100%;
+      object-fit: contain;
       display: block;
       border-radius: 8px;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
