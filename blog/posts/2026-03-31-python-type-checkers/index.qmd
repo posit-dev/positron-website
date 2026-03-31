@@ -16,7 +16,7 @@ The open-source Python type checker and language server ecosystem has exploded. 
 
 ## Background
 
-The Language Server Protocol (LSP) is a cross-language, cross-IDE specification that allows different IDE extensions to contribute smart features like tab completions, hover info, and more. The four Python extensions in this post are powered by type checkers, which are Python-specific tools that catch bugs in your code before runtime by guessing and checking the types of your variables. They do this by *statically analyzing* your code before you run it.
+The Language Server Protocol (LSP) is a cross-language, cross-IDE specification that allows different IDE extensions to contribute smart features like tab completions, hover info, and more. The four^[Another LSP extension is Pylance, which may be familiar to VS Code users, but due to licensing restrictions, Code-OSS forks like Positron cannot use it.] Python extensions in this post are powered by type checkers, which are Python-specific tools that catch bugs in your code before runtime by guessing and checking the types of your variables. They do this by *statically analyzing* your code before you run it.
 
 ::: {.callout-tip}
 Positron's built-in language server uses your running Python session to provide runtime-aware completions and hover previews too! Beyond what's in code, it knows your DataFrame column names, your dictionary keys, your environment variables, and more. But the tools evaluated in this post handle the _static analysis_ side: type checking, go-to-definition, rename, and code actions. Both run concurrently, and Positron merges their results.
@@ -39,7 +39,7 @@ We did this evaluation in November 2025 but have refreshed the data in this post
 
 **ty** is from Astral, the team behind uv and ruff. [OpenAI announced its acquisition of Astral](https://openai.com/index/openai-to-acquire-astral/) recently; Astral has stated that ty, ruff, and uv will remain open source and MIT-licensed. It's the newest project, with a focus on speed and tight integration with the Astral toolchain. It reached [beta status](https://astral.sh/blog/ty) in December 2025 and follows a "gradual guarantee" philosophy (more on that below).
 
-**Basedpyright** is a community fork of Microsoft's Pyright type checker, with additional type-checking rules and Pylance features baked in to enable language server features in your IDE. It's the most mature of the four and has the largest contributor base.
+**Basedpyright** is a community fork of Microsoft's Pyright type checker, with additional type-checking rules and LSP features baked in. It's the most mature of the four and has the largest contributor base.
 
 **Zuban** is from David Halter, the author of Jedi (the longtime Python autocompletion library). It aims for mypy compatibility and ships as a pip-installable tool.
 
@@ -120,7 +120,7 @@ my_list.append("foo")
 
 **Pyrefly** infers `my_list` as `list[int]` and flags the `append("foo")` call as a type error. **ty** sees no annotations and stays silent. The code is dynamically typed and that's fine.
 
-If you're doing exploratory data analysis and don't want to annotate everything, **ty**'s restraint is more comfortable. But if you're writing a library and want to catch bugs early, **Pyrefly**'s aggressiveness is helpful. For example:
+If you're doing exploratory data analysis and don't want to annotate everything, **ty**'s restraint might be more comfortable. But if you're writing a library and want to catch bugs early, **Pyrefly**'s aggressiveness is helpful. For example:
 
 ```python
 def process(data):
@@ -134,7 +134,7 @@ process(42) + 1  # Raises a runtime AttributeError
 # Zuban: operator
 ```
 
-**Basedpyright** and **Zuban** land somewhere in between, with **Basedpyright** leaning toward stricter checking and **Zuban** aiming for mypy compatibility.
+**Basedpyright** and **Zuban** land somewhere in between, with **Basedpyright** leaning toward stricter checking and **Zuban** aiming for mypy compatibility. Each of these extensions has the ability to suppress certain diagnostics you actually see when typing if you wish.
 
 For a deeper dive on this topic, Edward Li's [comparison of **Pyrefly** and **ty**](https://blog.edward-li.com/tech/comparing-pyrefly-vs-ty/) and Rob Hand's [overview of future Python type checkers](https://sinon.github.io/future-python-type-checkers/) are both worth reading, though some bugs have been fixed since they were published.
 
@@ -175,7 +175,7 @@ We bundled **Pyrefly** as Positron's default Python language server.
 
 The deciding factors:
 
-- **Pyrefly**'s design decisions felt like the best fit for data science. The hover docs are rendered and hyperlinked, with sources for type inference. The type inference catches real bugs without requiring you to annotate everything. While it has the strictest type checking, this is configured to a moderate level by default.
+- **Pyrefly**'s clean design decisions felt like the best fit for Positron. The hover docs are rendered and hyperlinked, with sources for type inference. The type inference catches real bugs without requiring you to annotate everything. While it has the strictest type checking, this is configured to a moderate level by default.
 - It has active development with strong backing. Meta has committed to making **Pyrefly** genuinely open-source and community-driven, with biweekly office hours and a public Discord. Development velocity is high.
 - It is MIT licensed, which allows us to bundle it into Positron.
 
@@ -192,7 +192,7 @@ This space is competitive and moving fast, and you shouldn't feel locked in. Pos
 
 Or, if you want to keep **Pyrefly** installed but prevent it from auto-activating, you can use the [`extensions.allowed`](positron://settings/extensions.allowed) setting:
 
-```{json}
+```json
 {
     "extensions.allowed": {
         "meta.pyrefly": false,
@@ -207,8 +207,4 @@ Or, if you want to keep **Pyrefly** installed but prevent it from auto-activatin
 
 Both **ty** and **Pyrefly** have been receptive to PRs that improve the experience for Positron users, which suggests they care about working well across editors, not just VS Code. For example, both contribute hover, completions, and semantic highlighting in the Positron Console.
 
-We'll keep evaluating as these tools mature!
-
----
-
-Want to try Positron? [Download it here](/download.qmd).
+We'll keep evaluating as these tools mature! Want to try Positron? [Download it here](/download.qmd).
