@@ -116,6 +116,12 @@ div.sidebar-item-container .sidebar-link > code {
   border: none !important;
 }
 
+// Prevent layout shift: restore the transparent border that Bootstrap sets on nav-tabs links
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  border: 1px solid transparent !important;
+}
+
 // Tab-specific hover and focus styles
 .nav-tabs .nav-link:hover {
   color: $primary;
