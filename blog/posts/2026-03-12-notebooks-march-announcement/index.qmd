@@ -13,15 +13,6 @@ image: /images/positron-notebook.png
 
 Positron now ships with a native [Jupyter Notebook Editor](/positron-notebook-editor.qmd), a new unified experience we built from the ground up for working with Jupyter notebooks within Positron.
 
-::: {.callout-tip}
-## Posit Workflow Demo — Wednesday, March 25 at 11am EDT
-
-During our monthly Posit Workflow Demo, we will walk through moving a dataset from exploration to production using the Positron Notebook Editor. It's a good way to see the full workflow end to end.
-
-[Sign up here](https://posit.co/workflow-demo/working-with-jupyter-notebooks-in-positron-from-exploration-to-production/)
-:::
-
-
 ## Why we built our own notebook editor
 
 We built the Positron Notebook Editor to treat your .ipynb files as first-class citizens in an IDE tailored specifically for data science workflows.
