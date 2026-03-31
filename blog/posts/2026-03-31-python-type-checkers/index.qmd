@@ -203,6 +203,8 @@ Or, if you want to keep **Pyrefly** installed but prevent it from auto-activatin
 
 ## What's next
 
+We started bundling **Pyrefly** in November and have been quite pleased with the results. It solved some longstanding user-requested issues (like better semantic highlighting) and feels snappier to users than our previous internal solution.
+
 **ty** is adding features at an aggressive pace and will likely close its remaining gaps. OpenAI's acquisition of Astral adds resources but also uncertainty; it's unclear how it will affect **ty**'s priorities. **Pyrefly** continues to improve its type checking and performance (a recent release noted [20% faster PyTorch benchmarks](https://github.com/facebook/pyrefly/releases/tag/0.57.0)). **Basedpyright** tracks upstream Pyright closely and keeps shipping.
 
 Both **ty** and **Pyrefly** have been receptive to PRs that improve the experience for Positron users, which suggests they care about working well across editors, not just VS Code. For example, both contribute hover, completions, and semantic highlighting in the Positron Console.
