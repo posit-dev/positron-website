@@ -158,14 +158,14 @@ We also looked at each project's development velocity and community health metri
 | | **Pyrefly** | **ty** | **Basedpyright** | **Zuban** |
 |--|:-:|:-:|:-:|:-:|
 | GitHub stars | 5.5K | 17.8K | 3.2K | 1K |
-| Contributors | 165 | 40 | 188 | 5 |
+| Contributors | 162 | 186^[Edit (2026-04-01): A previous version of this post undercounted the number of contributors to **ty**. The updated script to fetch stats lives [here](https://github.com/posit-dev/positron-website/blob/main/blog/posts/2026-03-31-python-type-checkers/fetch_stats.py).] | 82 | 17 |
 | License | MIT | MIT | MIT | AGPL-3.0 |
 | Releases (since Nov 2025) | 17 | 29 | 10 | 9 |
 | Release cadence | ~weekly | ~twice weekly | ~biweekly | ~biweekly |
-| Issues opened (90 days) | 484 | 861 | 42 | 118 |
-| Issues closed (90 days) | 497 | 743 | 20 | 114 |
+| Issues opened (90 days) | 540 | 789 | 40 | 125 |
+| Issues closed (90 days) | 531 | 712 | 20 | 111 |
 
-**ty** and **Pyrefly** are shipping fast. Both are on a weekly release cadence or higher with high issue throughput. **ty**'s issue volume is notable: 861 issues opened in 90 days reflects both heavy adoption and active bug reporting. **Pyrefly** is closing more issues than it's opening, a good sign for a beta project.
+**ty** and **Pyrefly** are shipping fast. Both are on a weekly release cadence or higher with high issue throughput. **ty**'s issue volume is notable: 789 issues opened in 90 days reflects both heavy adoption and active bug reporting. **Pyrefly** is closing more issues than it's opening, a good sign for a beta project.
 
 Response times are quick. In a spot-check of recent issues, **ty** and **Pyrefly** both had first responses from core maintainers within minutes to hours. **Basedpyright**'s maintainer responds quickly too, though at a lower volume. **Zuban**'s maintainer often replies within an hour.
 
