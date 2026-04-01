@@ -48,6 +48,7 @@ description: "Get answers to common questions about Positron: supported language
 
 * Under [Positron's Elastic license](https://positron.posit.co/licensing.html), individual students are free to install and use the software for any purpose.  
 * Qualified academic institutions may host Positron as a service for their currently enrolled students solely for educational purposes in connection with their coursework via a free teaching license. Eligibility conditions are outlined in Positron's [Academic Licenser Rider](licensing.qmd#positron-education-license-rider)
+* Positron Server is available for JupyterHub environments. See the [`jupyter-positron-server` Python package documentation](https://posit-dev.github.io/jupyter-positron-server/) for more information about setup and usage.
 * Hosting of Positron for teaching purposes requires a free license key. Please reach out to [academic-licenses@posit.co](mailto:academic-licenses@posit.co) and indicate your interest in Positron if you have further questions.  
 * Lastly, Posit provides [free teaching licenses of Posit Workbench](https://posit.co/pricing/academic/), which includes Positron Pro for browser-based access by multiple users. 
 
