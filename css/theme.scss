@@ -487,19 +487,549 @@ a.footnote-back {
 }
 
 // ============= INDEX PAGE =============
-.index-section {
-  text-align: center !important;
-}
 
-.index-section h1 {
-  font-size: 3rem;
-  font-weight: 600;
-}
+body.positron-homepage {
+  // Section dividers
+  section + section {
+    border-top: 1px solid $posit-light-blue-1;
+  }
 
-.index-section .btn {
-  margin: 0.75rem;
-  padding: 1rem 2rem;
-}
+  // Collapse margins on Quarto's content-visible wrapper divs
+  .content-visible {
+    margin: 0;
+    padding: 0;
+  }
+
+  // Widen the content area
+  .page-columns {
+    display: block !important;
+  }
+
+  main.content {
+    max-width: 100% !important;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  // --- Hero Section ---
+  .hero-section {
+    text-align: center;
+    padding: 4rem 1rem 4rem;
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.95rem;
+    color: $posit-light-gray-3;
+    margin-bottom: 0.5rem;
+
+    a {
+      color: $posit-light-gray-3;
+      text-decoration: underline;
+    }
+  }
+
+  .hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700 !important;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, $posit-dark-gray-2 0%, $positron-blue 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @media (min-width: 768px) {
+      font-size: 3.75rem;
+    }
+  }
+
+  .hero-subheadline {
+    font-size: 1.15rem;
+    color: $posit-light-gray-3;
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.7;
+  }
+
+  .hero-meta {
+    font-size: 0.85rem;
+    color: $posit-light-gray-3;
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+
+  .hero-ctas {
+    margin-bottom: 0.5rem;
+
+    .btn {
+      margin: 0.5rem;
+      padding: 0.75rem 2rem;
+    }
+
+    .btn-primary {
+      box-shadow: 0 4px 14px rgba($positron-blue, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba($positron-blue, 0.5);
+      }
+    }
+  }
+
+  // --- Hero Showcase (Tabs) ---
+  .hero-showcase {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 0;
+    border-bottom: 2px solid $posit-light-blue-1;
+    flex-wrap: wrap;
+
+    @media (max-width: 479px) {
+      flex-direction: column;
+      border-bottom: none;
+    }
+  }
+
+  .hero-tab {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: $posit-light-gray-3;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: -2px;
+
+    @media (max-width: 479px) {
+      justify-content: center;
+      border-bottom: none;
+      border-left: 3px solid transparent;
+      margin-bottom: 0;
+    }
+
+    i {
+      font-size: 1.1rem;
+    }
+
+    &:hover {
+      color: $positron-blue;
+    }
+
+    &.active {
+      color: $positron-blue;
+      border-bottom-color: $positron-blue;
+
+      @media (max-width: 479px) {
+        border-bottom-color: transparent;
+        border-left-color: $positron-blue;
+      }
+    }
+  }
+
+  .hero-tab-panels {
+    aspect-ratio: 16 / 10;
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+    margin-top: 0;
+  }
+
+  .hero-tab-panel {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  // --- Value Props Section ---
+  .value-props-section {
+    padding: 4rem 1rem;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 1rem;
+      text-align: left;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .value-props-subtitle {
+    font-size: 1.05rem;
+    color: $posit-light-gray-3;
+    line-height: 1.7;
+    text-align: left;
+    max-width: 1100px;
+    margin: 0 auto 2rem;
+  }
+
+  // --- Feature Showcase (PyCharm-style) ---
+  .feature-showcase {
+    display: flex;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto 3.5rem;
+    text-align: left;
+    align-items: flex-start;
+
+    &.feature-showcase-reversed {
+      flex-direction: row-reverse;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .feature-showcase-nav {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    @media (max-width: 768px) {
+      flex: none;
+      width: 100%;
+    }
+  }
+
+  .feature-nav-item {
+    background: none;
+    border: none;
+    border-left: 3px solid $posit-light-blue-1;
+    padding: 1rem 1.25rem;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+
+    &:hover {
+      background: lighten($posit-light-blue-1, 12%);
+    }
+
+    &.active {
+      border-left-color: $positron-blue;
+      background: lighten($posit-light-blue-1, 10%);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .feature-nav-desc {
+      display: none;
+    }
+
+    &.active .feature-nav-desc {
+      display: block;
+    }
+  }
+
+  .feature-nav-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $posit-dark-gray-2;
+    line-height: 1.4;
+
+    .feature-nav-item.active & {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-nav-item:not(.active) & {
+      color: $posit-light-gray-3;
+    }
+  }
+
+  .feature-nav-desc {
+    font-size: 0.95rem;
+    color: $posit-light-gray-3;
+    line-height: 1.6;
+    margin-top: 0.25rem;
+  }
+
+  .feature-showcase-image {
+    flex: 1;
+    min-width: 0;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f8f9fa;
+  }
+
+  .feature-panel {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    }
+  }
+
+  // --- Testimonials Section ---
+  .testimonials-section {
+    padding: 4rem 1rem;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .testimonial-card {
+    text-align: left;
+    padding: 1.75rem;
+    background-color: white;
+    border: 1px solid $posit-light-blue-1;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    &::before {
+      content: "\201C";
+      font-size: 4rem;
+      line-height: 1;
+      color: rgba($positron-blue, 0.15);
+      position: absolute;
+      top: 0.75rem;
+      right: 1.25rem;
+      font-family: Georgia, serif;
+    }
+
+    blockquote {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: $posit-dark-gray-1;
+      margin: 0 0 1.25rem;
+      border: none;
+      padding: 0;
+      flex-grow: 1;
+    }
+  }
+
+  .testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0;
+    padding-top: 1rem;
+    border-top: 1px solid $posit-light-blue-1;
+  }
+
+  .testimonial-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: $positron-blue;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .testimonial-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.1rem;
+    color: $posit-dark-gray-2;
+  }
+
+  .testimonial-role {
+    font-size: 0.8rem;
+    color: $posit-light-gray-3;
+    margin: 0;
+  }
+
+  // --- Video Demo Section ---
+  .video-demo-section {
+    padding: 2rem 1rem;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .video-demo-description {
+    font-size: 1.05rem;
+    color: $posit-light-gray-3;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .video-demo-container {
+    max-width: 900px;
+    margin: 0 auto;
+
+    video {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    }
+  }
+
+  // --- FAQ Section ---
+  .faq-section {
+    padding: 4rem 1rem;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .faq-accordion {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .faq-item {
+    background: white;
+    border: 1px solid $posit-light-blue-1;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+
+    &:hover {
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    summary {
+      padding: 1.25rem 1.5rem;
+      font-weight: 600;
+      font-size: 1.05rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: "\F282"; // bi-chevron-down
+        font-family: "bootstrap-icons";
+        font-size: 1rem;
+        color: $posit-light-gray-3;
+        transition: transform 0.2s ease;
+        flex-shrink: 0;
+        margin-left: 1rem;
+      }
+    }
+
+    &[open] summary::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.25rem;
+    color: $posit-light-gray-3;
+    line-height: 1.7;
+
+    a {
+      color: $positron-blue;
+    }
+  }
+
+  .faq-more {
+    margin-top: 1.5rem;
+
+    a {
+      color: $positron-blue;
+      font-weight: 500;
+    }
+  }
+
+  // --- Closing CTA Section ---
+  .closing-cta-section {
+    text-align: center;
+    padding: 4rem 1rem;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .closing-cta-description {
+    font-size: 1.05rem;
+    color: $posit-light-gray-3;
+    margin-bottom: 1.5rem;
+  }
+
+  // --- License Note ---
+  .license-note {
+    text-align: center;
+    padding: 2rem 1rem 3rem;
+    font-size: 0.9rem;
+    color: $posit-light-gray-3;
+    max-width: 700px;
+    margin: 0 auto;
+
+    a {
+      color: $positron-blue;
+    }
+  }
+} // end body.positron-homepage
 
 // ============= ICONS =============
 /* Add gear icon before links with href starting with "positron://settings" */
