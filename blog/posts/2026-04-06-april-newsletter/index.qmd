@@ -12,7 +12,7 @@ image: images/addins-support.png
 image-alt: "Positron Newsletter 1: April Release Highlights"
 ---
 ::: {.callout-tip}
-If you're currently reading this on our blog, consider subscribing to our [subscription page](https://posit.co/positron-updates-signup/) to receive this newsletter directly in your inbox.
+[Subscribe](https://posit.co/positron-updates-signup/) to get this newsletter directly in your email inbox.
 :::
 
 Welcome to the first edition of our Positron newsletter! Here, we will share highlights from our latest release, tips on how to be more productive with Positron, and useful resources.
@@ -33,7 +33,7 @@ The April 2026 release of Positron brings significant improvements across:
 - [R improvements](#rstudio-addins-support): Addins, Debugging and more
 - [Data Explorer Performance Improvement](#data-explorer-faster-with-multiple-dataframes)
 - [Windows ARM in GA](#windows-arm-is-generally-available)
-- [What's Coming Next](#what's-coming-next): Inline Outputs, Packages Pane and Posit Assistant
+- [What's Coming Next](#whats-coming-next): Inline Outputs, Packages Pane and Posit Assistant
 
 Here's a look at the key features that shipped with the April 2026 release.
 
@@ -44,7 +44,7 @@ Here's a look at the key features that shipped with the April 2026 release.
 
 **What we built:** AI Next Steps uses the Positron Assistant to analyze your current cell output and suggest a logical next step in a "ghost cell" at the bottom of your notebook. If you just loaded a CSV, it might suggest data cleaning steps or a visualization, without you needing to open a chat pane or write a prompt. Suggestions stay aligned with the notebook's live kernel state, updating as your code and outputs change.
 
-**Why this matters:** We learned from interviewing data scientists that conventional AI patterns, a separate chat pane, inline autocomplete, can be disruptive mid-analysis. AI Next Steps acts as a pair programmer that follows your actual work instead of waiting to be asked. It meets you where you are in the notebook without interrupting the authoring flow.
+**Why this matters**: The design came out of interviews with data scientists who kept telling us the same thing: switching to a chat pane mid-analysis breaks their concentration. AI Next Steps sits at the bottom of your notebook and updates as your outputs change. You just run a cell, and if there's a logical next step, it surfaces, with no prompt required.
 
 **Get started:** Enable the feature by setting [`positron.assistant.notebook.ghostCellSuggestions.enabled`](positron://settings/positron.assistant.notebook.ghostCellSuggestions.enabled) to `true` in your settings. When you run a cell, look for the ghost cell suggestion at the bottom of the notebook, accept, reject, or hide it.
 
@@ -62,7 +62,7 @@ Here's a look at the key features that shipped with the April 2026 release.
 
 **What we built:** Positron Assistant now supports Microsoft Foundry as a model provider ([#8583](https://github.com/posit-dev/positron/issues/8583)) with API key-based access via a custom base URL.
 
-**Why this matters:** Microsoft Foundry support expands your options, allowing you to connect Positron Assistant to your preferred model.
+**Why this matters:** If your team runs on Azure and uses LLMs through Foundry, you can now use Positron Assistant with them.
 
 **Get Started:** In Positron Assistant's provider settings, set [`positron.assistant.provider.msFoundry.enable`](positron://settings/positron.assistant.provider.msFoundry.enable) to `true` to select Microsoft Foundry as a provider. You can authenticate with an API key and your Foundry endpoint URL.
 
