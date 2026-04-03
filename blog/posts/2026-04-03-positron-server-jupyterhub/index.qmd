@@ -5,10 +5,9 @@ date: "2026/04/03"
 image: images/social.png
 ---
 
-Positron Server is now available on JupyterHub.
-
 Academic institutions can now offer Positron directly within their existing JupyterHub environments.
 With a free teaching license, institutions can provide Positron Server to currently enrolled students for use in coursework.
+This makes it easy to deliver a consistent, fully featured data science environment to students without requiring local installation or setup.
 
 Students can launch Positron the same way they would open JupyterLab or a notebook.
 Just select it from the JupyterHub launcher and start working.
@@ -21,33 +20,27 @@ Once launched, Positron provides the full IDE experience, including:
 - Access to the OpenVSX extension marketplace  
 - A familiar, modern interface for data science workflows
 
-## Built for institutions
+## How it works
 
 Positron Server is designed to integrate directly with existing JupyterHub deployments.
+It's compatible with JupyterHub environments running JupyterLab 4 and Python 3.9+.
 
 It’s installed via the [`jupyter-positron-server` Python package](https://github.com/posit-dev/jupyter-positron-server), built on Jupyter Server Proxy. 
 If you’ve configured similar services before, setup will feel familiar.
-
 This is not a standalone desktop install.
 Rather, it lets you bring Positron into an existing JupyterHub setup.
-
-Positron Server is compatible with JupyterHub environments running JupyterLab 4 and Python 3.9+.
 
 ## Who can use it?
 
 This offering is available to academic institutions using Positron for teaching.
-
-Under a **free teaching license**, eligible institutions can provide access to:
-
-- Enrolled students  
-- Course participants  
-- Instructional staff  
+Under a free license, institutions can provide access to enrolled students, course participants, or staff involved in the delivery or receipt of educational programming.
 
 Full eligibility details are available in the [Positron Education License Rider](https://github.com/posit-dev/positron/blob/main/LICENSE.txt).
 
 ## Getting started
 
-Hosting Positron for teaching purposes requires a free license key. To get set up:
+Hosting Positron for teaching purposes requires a free license key.
+To get set up:
 
 1. Review the eligibility criteria in the [Positron Education License Rider](https://github.com/posit-dev/positron/blob/main/LICENSE.txt).
 2. Email [academic-licenses@posit.co](mailto:academic-licenses@posit.co) to request a teaching license.
