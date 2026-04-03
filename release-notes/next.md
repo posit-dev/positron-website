@@ -6,7 +6,7 @@ Academic institutions can now offer Positron Server to their students at no cost
 
 #### Positron Notebook Editor improvements 📓
 
-This release brings new quality-of-life improvements to the Positron Notebook Editor, currently available for alpha testing. You can now reorder cells by dragging them and a new output action bar makes it easy to expand, collapse, or clear outputs without hunting through menus. The find widget now supports replace, inline Data Explorers provide more functionality, and long text outputs can be individually truncated. We also fixed several bugs affecting side-by-side notebooks, real-time streaming output, and scrollbar rendering. If you are using Positron Assistant for AI chat, the Assistant can now analyze your current cell output and suggest a logical next step in a "ghost cell" at the bottom of your notebook. 
+This release brings new quality-of-life improvements to the Positron Notebook Editor, currently available for alpha testing. You can now reorder cells by dragging them and a new output action bar makes it easy to expand, collapse, or clear outputs without hunting through menus. The find widget now supports replace, inline Data Explorers provide more functionality, and long text outputs can be individually truncated. We also fixed several bugs affecting side-by-side notebooks, real-time streaming output, and scrollbar rendering. If you are using Positron Assistant for AI chat, the Assistant can now analyze your current cell output and suggest a logical next step in a "ghost cell" at the bottom of your notebook.
 
 #### New R commands and debugging features ✨
 
@@ -32,7 +32,7 @@ This release continues to deepen Positron R support across several areas. Shiny 
 - [[#12377](https://github.com/posit-dev/positron/issues/12377)] Assistant: Azure Foundry provider now accepts deployment-based Azure OpenAI URLs and automatically converts them to the supported v1 format.
 - [[#12214](https://github.com/posit-dev/positron/issues/12214)] Assistant: show warning in chat when output token limit reached.
 - [[#12341](https://github.com/posit-dev/positron/issues/12341)] Assistant: users can now open the Manage Accounts menu from Assistant's Copilot configuration dialog.
-- [[#12132](https://github.com/posit-dev/positron/issues/12132)] Assistant: added togglable option for `.vscode/positron/agents` directory in the `chat.agentFilesLocations` setting.
+- [[#12132](https://github.com/posit-dev/positron/issues/12132)] Assistant: added toggleable option for `.vscode/positron/agents` directory in the `chat.agentFilesLocations` setting.
 - [[#5640](https://github.com/posit-dev/positron/issues/5640)] Quarto: added experimental support for inline output for `.qmd` documents.
 - [[#12150](https://github.com/posit-dev/positron/issues/12150)] Quarto: inline output for R now respects `fig-width` and `fig-height` options.
 - [[#12148](https://github.com/posit-dev/positron/issues/12148)] Quarto: added inline data explorer for notebooks and Quarto documents.
@@ -43,7 +43,7 @@ This release continues to deepen Positron R support across several areas. Shiny 
 - [[#12556](https://github.com/posit-dev/positron/issues/12556)] R: Positron now runs Shiny applications in console sessions instead of the terminal. This makes it possible to debug them with the Positron R debugger.
 - [[#12360](https://github.com/posit-dev/positron/issues/12360)] R: debugger now provides support for the special types of breakpoints: conditional breakpoints, log breakpoints, and hit count breakpoints.
 - [[#9763](https://github.com/posit-dev/positron/issues/9763)] R: `positron.session_init` and `positron.session_reconnect` are new hooks that are executed in the R session, once R startup is complete and Positron is fully operational and able to handle requests that pertain to the UI, such as rstudioapi calls. This duo is intended to be analogous to RStudio's `rstudio.sessionInit`. A `positron.session_init` hook function should accept a `start_type` parameter, with possible values `"new"` or `"restart"`. A `positron.session_reconnect` hook takes no input.
-- [[#12300](https://github.com/posit-dev/positron/issues/12300)] Workbench: added support version-specific Workbench-hosted Positron documentation.
+- [[#12300](https://github.com/posit-dev/positron/issues/12300)] Workbench: added support for version-specific Workbench-hosted Positron documentation.
 - [[#11426](https://github.com/posit-dev/positron/issues/11426)] Workbench: added support for reading the Posit Workbench `r-versions` configuration file to discover R installations with extended metadata. This enables administrators to configure R installations with custom labels, startup scripts, repository settings, library paths, and environment module integration for users on Linux servers.
 - [[#7112](https://github.com/posit-dev/positron/issues/7112)] API: added new extension API method for evaluating code silently.
 - [[#11321](https://github.com/posit-dev/positron/issues/11321)] Extensions: added a new `engines.positron` compatibility check for extension updates.
@@ -83,7 +83,7 @@ This release continues to deepen Positron R support across several areas. Shiny 
 - [[#12277](https://github.com/posit-dev/positron/issues/12277)] Console: fixed execution indicator litter in the Console.
 - [[#12161](https://github.com/posit-dev/positron/issues/12161)] Python: fixed Pyrefly static analysis features (semantic highlighting, hover, completions) not working when first opening a `.ipynb` file.
 - [[#11787](https://github.com/posit-dev/positron/issues/11787), [#10758](https://github.com/posit-dev/positron/issues/10758)] Python: fixed how we install and display pre-release Python via uv.
-- [[#7915](https://github.com/posit-dev/positron/issues/7915)] Python: enable users to run `plt.close()` in a cell and still see plot.
+- [[#7915](https://github.com/posit-dev/positron/issues/7915)] Python: enabled users to run `plt.close()` in a cell and still see plot.
 - [[#12694](https://github.com/posit-dev/positron/issues/12694)] Python: fixed rare `'NoneType' object has no attribute 'is_alive'` bug in the Console.
 - [[#11918](https://github.com/posit-dev/positron/issues/11918)] Python: fixed handling of geopandas in Variables pane.
 - [[#12140](https://github.com/posit-dev/positron/issues/12140)] R: Variables pane now updates immediately when selecting a different stack frame in the debugger call stack.
@@ -97,7 +97,7 @@ This release continues to deepen Positron R support across several areas. Shiny 
 - [[#11654](https://github.com/posit-dev/positron/issues/11654)] Plots: fixed issue persisting selection in the Open in Editor menu in the Plots pane.
 - [[#6292](https://github.com/posit-dev/positron/issues/6292)] Plots: now cascade buttons into an overflow menu at narrower widths.
 - [[#7539](https://github.com/posit-dev/positron/issues/7539)] Variables: fixed Variables pane navigating away from the correct notebook session when opening the Data Explorer.
-- [[#2795](https://github.com/posit-dev/positron/issues/2795), [#4279](https://github.com/posit-dev/positron/issues/4279)] Data Explorer: No longer do background computation in some cases when the tab is inactive.
+- [[#2795](https://github.com/posit-dev/positron/issues/2795), [#4279](https://github.com/posit-dev/positron/issues/4279)] Data Explorer: background computation no longer runs in some cases when the tab is inactive.
 - [[#12541](https://github.com/posit-dev/positron/issues/12541)] Connections Pane: R PostgreSQL and SQLite connections can now be resumed after restarting Positron.
 - [[#12156](https://github.com/posit-dev/positron/issues/12156)] Fixed error starting kernels when using exotic shells.
 - [[#11585](https://github.com/posit-dev/positron/issues/11585)] Fixed issue where cloning the same repository to a different directory via "New Folder from Git" would open the first clone instead of creating a new one.
