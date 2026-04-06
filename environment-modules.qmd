@@ -15,14 +15,16 @@ Place the configuration in the user settings JSON file (`settings.json`); use th
 
  
 ```json
-"positron.environmentModules.environments": {
-    "R 4 Stable": {
-        "languages": ["r"],
-        "modules": ["R/4.4.2", "other/version"]
-    },
-    "Python 3.12": {
-        "languages": ["python"],
-        "modules": ["python/3.12.8"]
+{
+    "positron.environmentModules.environments": {
+        "R 4 Stable": {
+            "languages": ["r"],
+            "modules": ["R/4.4.2", "other/version"]
+        },
+        "Python 3.12": {
+            "languages": ["python"],
+            "modules": ["python/3.12.8"]
+        }
     }
 }
 ```

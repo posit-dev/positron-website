@@ -163,6 +163,7 @@ website:
                 - python-installations.qmd
                 - r-installations.qmd
                 - reticulate.qmd
+                - environment-modules.qmd
         - section: "Migration Guides"
           contents:
           - text: "Migrating from VS Code"
