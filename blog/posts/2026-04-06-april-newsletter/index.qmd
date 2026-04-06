@@ -22,7 +22,7 @@ We just returned from an in-person onsite in beautiful Monterey, California. Dur
 
 ![A view from Point Lobos State Natural Reserve](images/monterrey.png)
 
-Let's get into the updates
+Let's get into the updates.
 
 ### Key Product Updates
 
@@ -30,10 +30,10 @@ The April 2026 release of Positron brings significant improvements across:
 
 - [AI enhancements](#ai-next-steps-in-the-native-jupyter-notebook-editor): Next Steps in Jupyter Notebooks, Agent Skills, and Azure AI Foundry Support
 - [Telemetry updates](#telemetry-update-anonymous-session-identifiers)
-- [R improvements](#rstudio-addins-support): Addins, Debugging and more
+- [R improvements](#rstudio-addins-support): Addins, Debugging, and more
 - [Data Explorer Performance Improvement](#data-explorer-faster-with-multiple-dataframes)
 - [Windows ARM in GA](#windows-arm-is-generally-available)
-- [What's Coming Next](#whats-coming-next): Inline Outputs, Packages Pane and Posit Assistant
+- [What's Coming Next](#whats-coming-next): Inline Outputs, Packages Pane, and Posit Assistant
 
 Here's a look at the key features that shipped with the April 2026 release.
 
@@ -80,9 +80,9 @@ You can opt out by updating your settings outlined [here](/privacy.qmd), or you 
 
 **What we built:** Positron now supports running RStudio addins from R packages. If a package registers an addin (like styler, reprex, clipr, or shinyuieditor), you can run it directly from Positron ([#1313](https://github.com/posit-dev/positron/issues/1313)).
 
-**Why this matters:** This was one of our most upvoted issues this release (25 thumbs-up). Many R users rely on addins as part of their daily workflow for code formatting, generating reproducible examples, or launching Shiny tools.
+**Why this matters:** This was one of our most upvoted issues this release (25 👍). Many R users rely on addins as part of their daily workflow for code formatting, generating reproducible examples, or launching Shiny tools.
 
-**Get started:** Open the Command Palette ({{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}) and search for **"Run RStudio Addin"**. You'll see a quick pick with all available addins from your installed packages. Make sure your addin-providing packages are installed in your active R environment.
+**Get started:** Open the Command Palette ({{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}) and search for _Run RStudio Addin_. You'll see a quick pick with all available addins from your installed packages.
 
 ![RStudio Addins running in Positron](images/addins-support.png) 
 
@@ -114,19 +114,19 @@ You can opt out by updating your settings outlined [here](/privacy.qmd), or you 
 
 **What we built:** We started creating experimental builds for Windows ARM several months ago, and our early users have had good experiences with them. This release, we promoted the Windows ARM builds from experimental to stable and they are now available through all standard installation channels ([#12207](https://github.com/posit-dev/positron/issues/12207)).
 
-**Why this matters:** ARM-based devices are increasingly common for Windows users, whether you're a student or a professional. GA support means these users get the same Positron experience, including Quarto, R and Python, without needing workarounds or experimental builds. Do be aware that the Windows ARM build bundles the non-ARM version of Quarto, which runs under emulation.
+**Why this matters:** ARM-based devices are increasingly common for Windows users, whether you're a student or a professional. GA support means these users get the same Positron experience, including Quarto with R and Python support, without needing workarounds or experimental builds. Do be aware that the Windows ARM build bundles the non-ARM version of Quarto, which runs under emulation.
 
 **Get started:** Install Positron on your ARM-based Windows device through [standard installation channels](/download.qmd).
 
-View all issues in the [2026.04.0 Release milestone](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20milestone%3A%222026.04.0%20Release%22).
+View all issues in the [2026.04.0 Release milestone](https://github.com/posit-dev/positron/milestone/36).
 
 ## What's Coming Next
 
-We are currently building the following features and we'd love your feedback. Please share on [GitHub](https://github.com/posit-dev/positron/issues). These early alpha features with some rough edges are available for testing by enabling their respective settings.
+We are currently building the following features and we'd love your feedback. Please share on [GitHub](https://github.com/posit-dev/positron/discussions). These early alpha features with some rough edges are available for testing by enabling their respective settings.
 
-### Inline Outputs for Quarto and RMarkdown Files
+### Inline Outputs for Quarto and R Markdown Files
 
-This was the second most upvoted issue we have ever, ever had! We just completed an initial run to allow displaying inline outputs within Quarto and RMarkdown files ([#5640](https://github.com/posit-dev/positron/issues/5640)), and it is available for early testing. Note that this experimental version, while it does get the basics into Positron, does not have support for many popular RStudio features. You can opt in to the experimental feature using this setting: [`positron.quarto.inlineOutput.enabled`](positron://settings/positron.quarto.inlineOutput.enabled)
+This was the second most upvoted issue we have ever, ever had! We just completed an initial run to allow displaying inline outputs within Quarto and R Markdown files ([#5640](https://github.com/posit-dev/positron/issues/5640)), and it is available for early testing. Note that this experimental version, while it does get the basics into Positron, does not have support for many popular RStudio features. You can opt in to the experimental feature using the [`positron.quarto.inlineOutput.enabled`](positron://settings/positron.quarto.inlineOutput.enabled) setting.
 
 ![Inline outputs rendered in a Quarto file](images/inline-output.png)
 
