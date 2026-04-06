@@ -40,6 +40,8 @@ If you want to permanently keep Pyrefly from auto-activating, you can use the [`
 }
 ```
 
+To read more about Python language servers, check out our [blog post](blog/posts/2026-03-31-python-type-checkers/index.qmd).
+
 ## Magics
 
 Positron provides support for [IPython-style magics](https://ipython.readthedocs.io/en/stable/interactive/magics.html) in the Positron console (as well as Python scripts and Jupyter notebooks, where appropriate). Magics are special commands prefixed with the `%` symbol that provide convenient shortcuts for common tasks. You can see the supported magics by running the `%lsmagic` command in the Positron console.
