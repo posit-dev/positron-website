@@ -5,7 +5,7 @@ date: "2026/04/03"
 image: images/social.png
 ---
 
-Academic institutions can now offer Positron directly within their existing JupyterHub environments.
+Academic institutions can now offer Positron directly within their existing JupyterHub environments, giving students a robust data science IDE without needing a local install or new infrastructure.
 With a free teaching license, institutions can provide Positron Server to currently enrolled students for use in coursework.
 This makes it easy to deliver a consistent, fully featured data science environment to students without requiring local installation or setup.
 
