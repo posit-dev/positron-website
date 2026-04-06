@@ -50,3 +50,9 @@ Positron bundles the [Python Debugger](https://open-vsx.org/extension/ms-python/
 ::: {.callout-note}
 Positron provides basic support for debugging in the console via `import ipdb; ipdb.set_trace()` and `%debug`. [Follow along on GitHub for further improvements](https://github.com/posit-dev/positron/issues/8688) in this support.
 :::
+
+## Plots
+
+Positron automatically sets the [`matplotlib` backend](https://matplotlib.org/stable/users/explain/figure/backends.html#what-is-a-backend) to `module://positron.matplotlib_backend`.
+This configures your plots to be displayed inside the [Plots pane](plots-pane.qmd) by default.
+If you prefer to use your own backend, you can override this setting by running `matplotlib.use(backend_name)` in the active Console or by setting the environment variable `MPLBACKEND` to the desired backend name.
