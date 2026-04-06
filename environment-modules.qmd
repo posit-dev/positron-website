@@ -1,0 +1,62 @@
+---
+title: "Environment Modules"
+description: "Learn how to configure and use Positron with interpreters defined by environment modules."
+---
+
+[Environment modules](https://modules.readthedocs.io/en/latest/) are a tool for managing collections of environment variables and switching between environments in a shell. They are especially popular in high-performance computing (HPC) environments to manage multiple installations of a single interpreter alongside needed libraries and tools.
+
+Positron supports both traditional environment modules and the newer [Lmod](https://lmod.readthedocs.io/en/latest/) system. This guide covers the use of environment modules with Positron.
+
+## Configuration
+
+By default, Positron does not try to automatically discover modules, nor R or Python installations defined by modulefiles, to avoid polluting the UI with irrelevant or unwanted modules. Instead, it relies on configuration: you tell it which modules you want to use with Positron and how you'd like them to be used.
+
+Place the configuration in the user settings JSON file (`settings.json`); use the command _Open User Settings (JSON)_ to locate the file. Here's an example:
+
+ 
+```json
+{
+    "positron.environmentModules.environments": {
+        "R 4 Stable": {
+            "languages": ["r"],
+            "modules": ["R/4.4.2", "other/version"]
+        },
+        "Python 3.12": {
+            "languages": ["python"],
+            "modules": ["python/3.12.8"]
+        }
+    }
+}
+```
+
+::: {.callout-note}
+On Posit Workbench, you can use the [Positron Pro User Settings](https://docs.posit.co/ide/server-pro/admin/positron_sessions/user_settings.html) feature to make the configuration available to all your users.
+:::
+
+Each entry in the configuration beneath the [`positron.environmentModules.environments`](positron://settings/positron.environmentModules.environments) key consists of the following:
+
+- The **name** of the module environment -- `R 4 Stable` in this example. This is just a user-friendly label; it will be shown inside Positron alongside the interpreter version.
+- An array of **languages** to use with the module environment -- `["r"]` in this example. These are the languages, in the form of lowercase [language identifiers](https://code.visualstudio.com/docs/languages/identifiers), for which interpreters will be sought. Interpreters are discovered by loading the module and then using `which` to find the interpreter on the path. For example, for R, it is presumed that the module will put `R` on the path.
+- An array of **modules** to load before starting the interpreter -- `["R/4.4.2", "other/version"]` in this example. Each module will be loaded in turn before the interpreter is started. 
+
+## Usage
+
+You'll need to restart Positron once after updating the settings.
+
+Once configured, Positron will discover R and/or Python environments defined by modulefiles as specified in the configuration when it starts up. Positron lists the discovered environments under the **Module** category in the interpreter picker, with the label defined in `settings.json`.
+
+Each time Positron starts a session in the module environment it loads the specified modules; for example, following the configuration above, each time the R interpreter selected by the module is started, Positron will run `module load R/4.4.2` followed by `module load other/version` before starting R.
+
+::: {.callout-note}
+Positron loads modules in the **Console** tab when using interpreters discovered in module environments, but not in **Terminal** tabs, since those aren't specific to an R or Python interpreter. Use `module load` as usual in the terminal to configure the module environment in that specific terminal.
+:::
+
+## Troubleshooting
+
+If you're not seeing interpreters discovered in environments as you expect, or the interpreters don't have the values you expect, run the command _Environment Modules: Generate Diagnostics Report_. It will list:
+
+- the detected module system
+- a list of all the modules detected
+- a list of interpreters that were discovered in each module environment
+
+
