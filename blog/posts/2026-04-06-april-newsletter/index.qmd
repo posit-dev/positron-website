@@ -20,11 +20,11 @@ Welcome to the first edition of our Positron newsletter! Here, we will share hig
 We just returned from an in-person onsite in beautiful Monterey, California. During the trip, we got a chance to meet (some of us for the first time), touch grass and sand, and brainstorm ways we can improve to build better products for you.
 
 
-![A view from Point Lobos State Natural Reserve](images/monterrey.png)
+![A view from Point Lobos State Natural Reserve](images/monterey.png)
 
 Let's get into the updates.
 
-### Key Product Updates
+## Key Product Updates
 
 The April 2026 release of Positron brings significant improvements across:
 
@@ -38,7 +38,7 @@ The April 2026 release of Positron brings significant improvements across:
 Here's a look at the key features that shipped with the April 2026 release.
 
 
-## AI Next Steps in the Native Jupyter Notebook Editor
+### AI Next Steps in the Native Jupyter Notebook Editor
 
 {{< video images/notebook-next-step-suggestions.mov aria-label="Collaborate with Assistant on Suggested Next Steps in Notebooks" >}}
 
@@ -49,16 +49,16 @@ Here's a look at the key features that shipped with the April 2026 release.
 **Get started:** Enable the feature by setting [`positron.assistant.notebook.ghostCellSuggestions.enabled`](positron://settings/positron.assistant.notebook.ghostCellSuggestions.enabled) to `true` in your settings. When you run a cell, look for the ghost cell suggestion at the bottom of the notebook, accept, reject, or hide it.
 
 
-## Agent Skills in Positron Assistant
+### Agent Skills in Positron Assistant
 
-**What we built:** Agent skills, reusable, structured capabilities that extend what agents can do in agent.md files are now integrated into Positron ([#11753](https://github.com/posit-dev/positron/issues/11753)). Skills let agents execute multi-step workflows like "profile this dataset and suggest cleaning steps" or "run this test suite and summarize failures," so you define a task once and reuse it across sessions and projects.
+**What we built:** Agent skills — reusable, structured capabilities that extend what agents can do in agent.md files — are now integrated into Positron ([#11753](https://github.com/posit-dev/positron/issues/11753)). Skills let agents execute multi-step workflows like "profile this dataset and suggest cleaning steps" or "run this test suite and summarize failures," so you define a task once and reuse it across sessions and projects.
 
 **Why this matters:** Skills make agents composable building blocks rather than one-off chat interactions. Instead of re-explaining a complex workflow every time, you codify it as a skill that any team member can use.
 
 **Get started:** Open the chat gear icon and select **Skills**, or run _Chat: Configure Skills_ from the Command Palette.
 
 
-## Positron Assistant now supports Microsoft Foundry as a Provider
+### Positron Assistant Now Supports Microsoft Foundry as a Provider
 
 **What we built:** Positron Assistant now supports Microsoft Foundry as a model provider ([#8583](https://github.com/posit-dev/positron/issues/8583)) with API key-based access via a custom base URL.
 
@@ -68,7 +68,7 @@ Here's a look at the key features that shipped with the April 2026 release.
 
 ![Configuring Microsoft Foundry in Positron Assistant](images/microsoft-foundry.png)
 
-## Telemetry Update: Anonymous Session Identifiers
+### Telemetry Update: Anonymous Session Identifiers
 
 **What we changed:** Positron now generates an anonymous, random session identifier to help us understand usage patterns like session frequency and retention across releases. This identifier contains no personal information, account data, or workspace content; it's a cryptographically random UUID that cannot be linked to any other identifiers, including the identifier that VS Code uses for telemetry.
 
@@ -76,7 +76,7 @@ Here's a look at the key features that shipped with the April 2026 release.
 
 You can opt out by updating your settings outlined [here](/privacy.qmd), or you can reset the anonymous identifier with the command _Preferences: Reset Anonymous Telemetry ID_. If you've opted out of product updates, no session identifier is generated or sent.
 
-## RStudio Addins Support
+### RStudio Addins Support
 
 **What we built:** Positron now supports running RStudio addins from R packages. If a package registers an addin (like styler, reprex, clipr, or shinyuieditor), you can run it directly from Positron ([#1313](https://github.com/posit-dev/positron/issues/1313)).
 
@@ -86,7 +86,7 @@ You can opt out by updating your settings outlined [here](/privacy.qmd), or you 
 
 ![RStudio Addins running in Positron](images/addins-support.png) 
 
-## R Debugger & Workflow Improvements
+### R Debugger & Workflow Improvements
 
 **What we built:** The R debugger received a suite of improvements this release. In addition to conditional breakpoints, hit count breakpoints, and log breakpoints ([#12360](https://github.com/posit-dev/positron/issues/12360)), the debugger now supports error and warning breakpoints ([#11797](https://github.com/posit-dev/positron/issues/11797)), the ability to pause R at any time ([#11799](https://github.com/posit-dev/positron/issues/11799)), Watch Pane support ([#1765](https://github.com/posit-dev/positron/issues/1765)), and synchronization between the Console and Variables pane with the selected call stack frame ([#3078](https://github.com/posit-dev/positron/issues/3078) and [#12131](https://github.com/posit-dev/positron/issues/12131)).
 
@@ -102,15 +102,15 @@ You can opt out by updating your settings outlined [here](/privacy.qmd), or you 
 
 {{< video images/conditional-breakpoints.mov aria-label="Set condition breakpoints while debugging with R" >}}
 
-## Data Explorer: Faster with Multiple DataFrames
+### Data Explorer: Faster with Multiple DataFrames
 
-**What we built:** We fixed two long-standing performance issues in the Data Explorer. Background Data Explorer tabs no longer trigger backend recomputation, and the profile pane no longer recalculates summary statistics for large DataFrames on every cell execution ([#4279](https://github.com/posit-dev/positron/issues/4279) and [#2795](https://github.com/posit-dev/positron/issues/2795)).
+**What we built:** We fixed two long-standing performance issues in the Data Explorer. Background Data Explorer tabs no longer trigger backend recomputation, and the summary panel no longer recalculates summary statistics for large DataFrames on every cell execution ([#4279](https://github.com/posit-dev/positron/issues/4279) and [#2795](https://github.com/posit-dev/positron/issues/2795)).
 
 **Why this matters:** If you work with multiple DataFrames open, you may have noticed lag as Positron recomputed statistics for tabs you weren't even looking at. That's gone now.
 
 **Get started:** Nothing to configure. When you open multiple DataFrames in the Data Explorer and switch between them, you should notice snappier performance, especially with large datasets.
 
-## Windows ARM is Generally Available
+### Windows ARM Is Generally Available
 
 **What we built:** We started creating experimental builds for Windows ARM several months ago, and our early users have had good experiences with them. This release, we promoted the Windows ARM builds from experimental to stable and they are now available through all standard installation channels ([#12207](https://github.com/posit-dev/positron/issues/12207)).
 
@@ -134,21 +134,19 @@ This was the second most upvoted issue we have ever, ever had! We just completed
 
 We are currently building out a new Packages pane that will allow you to install, update, and uninstall packages without leaving your workspace or needing to use the terminal ([#11214](https://github.com/posit-dev/positron/issues/11214)). We'd love to hear your feedback on a [discussion thread](https://github.com/posit-dev/positron/discussions).
 
-
-
 ## Events and Resources
 
 ### Explore Positron's Video Walkthroughs on YouTube
 
-We hosted a walkthrough of exploring GitHub data in a Jupyter Notebook and converting this into an interactive Shiny app with AI. [Catch up on the recording](https://www.youtube.com/watch?v=qrVkG89ndi8) or explore more Positron videos.
+We hosted a walkthrough of exploring GitHub data in a Jupyter Notebook and converting this into an interactive Shiny app with AI. [Catch up on the recording](https://www.youtube.com/watch?v=qrVkG89ndi8) or [explore more Positron videos](https://www.youtube.com/@PositPBC).
 
-### Registration for posit::conf(2026) is now open!
+### Registration for posit::conf(2026) Is Now Open!
 
 Registration is officially open for posit::conf(2026)! Join the global data community in Houston or tune in online from September 14–16. [Register today!](https://posit.co/conference/)
 
-### How we Chose a Python Type Checker
+### How We Chose a Python Type Checker
 
-Ever wondered about the decision making process behind how we chose which Python type checker to bundle in Positron? Check out Austin Dickey's [blog post](../2026-03-31-python-type-checkers/index.html) walking through his research and decision making process.
+Ever wondered about the decision making process behind how we chose which Python type checker to bundle in Positron? Check out Austin Dickey's [blog post](../2026-03-31-python-type-checkers/) walking through his research and decision making process.
 
 ## Community Affirmations
 
