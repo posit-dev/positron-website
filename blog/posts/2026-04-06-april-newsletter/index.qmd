@@ -1,5 +1,5 @@
 ---
-title: "Newsletter 1: April Release Highlights"
+title: "April Release Highlights"
 description: |
   Welcome to the first Positron newsletter! This month: AI-powered notebook suggestions, Agent Skills, Azure Foundry support, R debugging upgrades, and more.
 categories:
@@ -9,7 +9,7 @@ author:
   - Cindy Tong
 date: "2026-04-06"
 image: images/addins-support.png
-image-alt: "Positron Newsletter 1: April Release Highlights"
+image-alt: "Positron April Release Highlights"
 ---
 ::: {.callout-tip}
 [Subscribe](https://posit.co/positron-updates-signup/) to get this newsletter directly in your email inbox.
