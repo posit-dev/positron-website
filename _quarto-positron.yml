@@ -21,7 +21,7 @@ website:
 
   page-footer:
     left:
-      - text: "<img class='posit-footer-logo' alt='Posit' src='images/posit-logo-black-TM.svg'>Copyright &copy; 2022-2026 Posit Software, PBC. All Rights Reserved."
+      - text: "<img class='posit-footer-logo' alt='Posit' src='/images/posit-logo-black-TM.svg'>Copyright &copy; 2022-2026 Posit Software, PBC. All Rights Reserved."
         href: "https://posit.co/"
     center: "Positron {{< env RELEASE_VERSION >}}"
     right:
@@ -178,6 +178,7 @@ website:
                 - python-installations.qmd
                 - r-installations.qmd
                 - reticulate.qmd
+                - environment-modules.qmd
         - section: "Migration Guides"
           contents:
           - text: "Migrating from VS Code"
