@@ -43,8 +43,10 @@ cdn_url <- "https://cdn.posit.co/positron/releases/" # Keep this in sync with cd
 # to ensure that we are constructing these URLs consistently in both places.
 #######################################################################################
 
-windows_system <- glue("Positron-{release_version}-Setup-x64.exe")
-windows_user <- glue("Positron-{release_version}-UserSetup-x64.exe")
+windows_system_x64 <- glue("Positron-{release_version}-Setup-x64.exe")
+windows_user_x64 <- glue("Positron-{release_version}-UserSetup-x64.exe")
+windows_system_arm64 <- glue("Positron-{release_version}-Setup-arm64.exe")
+windows_user_arm64 <- glue("Positron-{release_version}-UserSetup-arm64.exe")
 macos_arm64 <- glue("Positron-{release_version}-arm64.dmg")
 macos_x64 <- glue("Positron-{release_version}-x64.dmg")
 debian_x64 <- glue("Positron-{release_version}-x64.deb")
@@ -52,8 +54,10 @@ debian_arm <- glue("Positron-{release_version}-arm64.deb")
 redhat_x64 <- glue("Positron-{release_version}-x64.rpm")
 redhat_arm <- glue("Positron-{release_version}-arm64.rpm")
 urls <- list(
-  glue("{cdn_url}win/x86_64/{windows_system}"),
-  glue("{cdn_url}win/x86_64/{windows_user}"),
+  glue("{cdn_url}win/x86_64/{windows_system_x64}"),
+  glue("{cdn_url}win/x86_64/{windows_user_x64}"),
+  glue("{cdn_url}win/arm64/{windows_system_arm64}"),
+  glue("{cdn_url}win/arm64/{windows_user_arm64}"),
   glue("{cdn_url}mac/arm64/{macos_arm64}"),
   glue("{cdn_url}mac/x64/{macos_x64}"),
   glue("{cdn_url}deb/x86_64/{debian_x64}"),
@@ -69,8 +73,10 @@ checksum_data <- rlang::try_fetch(
   warning = function(cnd) list()
 )
 all_installers <- list(
-  windows_system,
-  windows_user,
+  windows_system_x64,
+  windows_user_x64,
+  windows_system_arm64,
+  windows_user_arm64,
   macos_arm64,
   macos_x64,
   debian_x64,
@@ -95,6 +101,8 @@ download_table <- data.frame(
   Platform = c(
     "Windows 10, 11 x64 (system level install)",
     "Windows 10, 11 x64 (user level install)",
+    "Windows 11 arm64 (system level install)",
+    "Windows 11 arm64 (user level install)",
     "MacOS 11.0+ (arm64/Apple Silicon)",
     "MacOS 11.0+ (x64/Intel)",
     "Debian-based Linux x64 (Ubuntu 20+)",
