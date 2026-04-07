@@ -19,7 +19,7 @@
         display: none !important;
     }
 
-    #macos-buttons {
+    #macos-buttons, #windows-buttons {
         display: flex;
         gap: 0.5rem;
         flex-wrap: wrap;
@@ -90,8 +90,26 @@
 
         // Detect operating system
         if (userAgent.indexOf('Win') !== -1) {
+            // Show two buttons for Windows: x64 and arm64
+            const winButtons = document.getElementById('windows-buttons');
+            const winX64Btn = document.getElementById('download-btn-win-x64');
+            const winArm64Btn = document.getElementById('download-btn-win-arm64');
+
+            if (winButtons && winX64Btn && winArm64Btn) {
+                // Hide the main download button, show the Windows buttons
+                downloadBtn.style.display = 'none';
+                winButtons.classList.remove('hidden');
+
+                // Set download URLs for both buttons
+                const x64Url = `${cdnUrl}win/x86_64/Positron-${version}-UserSetup-x64.exe`;
+                const arm64Url = `${cdnUrl}win/arm64/Positron-${version}-UserSetup-arm64.exe`;
+                winX64Btn.dataset.originalHref = x64Url;
+                winX64Btn.href = x64Url;
+                winArm64Btn.dataset.originalHref = arm64Url;
+                winArm64Btn.href = arm64Url;
+            }
+
             detectedOS = 'for Windows';
-            downloadUrl = `${cdnUrl}win/x86_64/Positron-${version}-UserSetup-x64.exe`;
             allDownloadsText = 'System Installer & Other Platforms';
         } else if (userAgent.indexOf('Mac') !== -1) {
             // Show two buttons for macOS: Apple Silicon and Intel
@@ -149,6 +167,8 @@
         const downloadBtn = window.document.getElementById("download-btn");
         const macArmBtn = window.document.getElementById("download-btn-mac-arm");
         const macIntelBtn = window.document.getElementById("download-btn-mac-intel");
+        const winX64Btn = window.document.getElementById("download-btn-win-x64");
+        const winArm64Btn = window.document.getElementById("download-btn-win-arm64");
 
         if (enable) {
             if (downloadTable) {
@@ -167,6 +187,14 @@
                 macIntelBtn.disabled = false;
                 macIntelBtn.classList.remove("disabled");
             }
+            if (winX64Btn) {
+                winX64Btn.disabled = false;
+                winX64Btn.classList.remove("disabled");
+            }
+            if (winArm64Btn) {
+                winArm64Btn.disabled = false;
+                winArm64Btn.classList.remove("disabled");
+            }
         }
         else {
             if (downloadTable) {
@@ -184,6 +212,14 @@
             if (macIntelBtn) {
                 macIntelBtn.disabled = true;
                 macIntelBtn.classList.add("disabled");
+            }
+            if (winX64Btn) {
+                winX64Btn.disabled = true;
+                winX64Btn.classList.add("disabled");
+            }
+            if (winArm64Btn) {
+                winArm64Btn.disabled = true;
+                winArm64Btn.classList.add("disabled");
             }
         }
 
