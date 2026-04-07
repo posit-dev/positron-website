@@ -28,6 +28,7 @@ Let's get into the updates.
 
 The April 2026 release of Positron brings significant improvements across:
 
+- [Positron Server for Academic Use](#positron-server-for-academic-use-via-jupyterhub) via JupyterHub
 - [AI enhancements](#ai-next-steps-in-the-native-jupyter-notebook-editor): Next Steps in Jupyter Notebooks, Agent Skills, and Azure AI Foundry Support
 - [Telemetry updates](#telemetry-update-anonymous-session-identifiers)
 - [R improvements](#rstudio-addins-support): Addins, Debugging, and more
@@ -36,6 +37,15 @@ The April 2026 release of Positron brings significant improvements across:
 - [What's Coming Next](#whats-coming-next): Inline Outputs, Packages Pane, and Posit Assistant
 
 Here's a look at the key features that shipped with the April 2026 release.
+
+
+### Positron Server for Academic Use via JupyterHub
+
+**What we built:** Academic institutions can now offer Positron Server to their students at no cost through JupyterHub ([blog post](../2026-04-03-positron-server-jupyterhub/)). If your institution already runs JupyterHub, you can add Positron as a launcher option alongside JupyterLab, with no additional infrastructure required. Students simply log in and select Positron from the launcher, getting the full Positron experience including rich Python and R support, the extension marketplace, and (optionally) Positron Assistant.
+
+**Why this matters:** This removes the barrier for students and educators who want to use Positron in a classroom setting. No local installs, no configuration headaches — just a familiar JupyterHub login with Positron ready to go.
+
+**Get started:** Review the eligibility criteria and send an email to [academic-licenses@posit.co](mailto:academic-licenses@posit.co) to request a free teaching license.
 
 
 ### AI Next Steps in the Native Jupyter Notebook Editor
