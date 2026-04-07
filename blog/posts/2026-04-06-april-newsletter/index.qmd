@@ -132,7 +132,7 @@ This was the second most upvoted issue we have ever, ever had! We just completed
 
 ### Packages Pane for Managing Environments
 
-We are currently building out a new Packages pane that will allow you to install, update, and uninstall packages without leaving your workspace or needing to use the terminal ([#11214](https://github.com/posit-dev/positron/issues/11214)). We'd love to hear your feedback on a [discussion thread](https://github.com/posit-dev/positron/discussions).
+We are currently building out a new Packages pane that will allow you to install, update, and uninstall packages without leaving your workspace or needing to use the terminal ([#11214](https://github.com/posit-dev/positron/issues/11214)). We'd love to hear your feedback on this [discussion thread](https://github.com/posit-dev/positron/discussions/12863).
 
 ## Events and Resources
 
