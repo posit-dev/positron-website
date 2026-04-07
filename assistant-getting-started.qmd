@@ -28,6 +28,7 @@ Positron Assistant supports the following language model providers:
 | GitHub Copilot (Preview) | {{< fa check >}} | {{< fa check >}} | GitHub OAuth |
 | Amazon Bedrock (Preview) | {{< fa check >}} | | AWS CLI or Posit Workbench Managed Credentials |
 | Snowflake Cortex (Preview) | {{< fa check >}} | | API Key or Posit Workbench Managed Credentials |
+| Microsoft Foundry (Preview) | {{< fa check >}} | | API Key or Posit Workbench Managed Credentials |
 | OpenAI (Preview) | {{< fa check >}} | | API Key |
 | Custom Provider (Experimental) | {{< fa check >}} | | API Key |
 
@@ -215,6 +216,51 @@ Snowflake Cortex provider support is in preview. Opt in to the [`positron.assist
     ![Snowflake Cortex selected in provider modal](images/assistant-provider-modal-snowflake-cortex.png){width=600}
 
 1. Paste your Snowflake Cortex PAT into the API key box, then select **Sign in**.
+
+## Microsoft Foundry
+
+::: {.callout-important}
+To use Microsoft Foundry in Positron Desktop, you must:
+
+1. Have an Azure subscription with a [Microsoft Foundry](https://ai.azure.com/) resource
+2. Have one or more models deployed in your Foundry resource
+3. Have the endpoint URL and API key for your Foundry resource
+
+Foundry does not support automatic model discovery. Positron Assistant defaults to the `model-router` identifier, but you can configure specific models. See [Configure custom model overrides](#configure-custom-model-overrides) below.
+:::
+
+### Enable Microsoft Foundry as a provider
+
+Microsoft Foundry provider support is in preview. Opt in to the [`positron.assistant.provider.msFoundry.enable`](positron://settings/positron.assistant.provider.msFoundry.enable) setting to enable it.
+
+### Add Microsoft Foundry as a language model provider
+
+1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Select **Microsoft Foundry** as the model provider.
+1. Enter your Foundry endpoint URL in the **Base URL** field and your API key in the **API Key** field, then select **Sign in**.
+
+::: {.callout-note}
+Positron Assistant accepts deployment-based Azure OpenAI URLs (for example, `https://<resource>.openai.azure.com/openai/deployments/<name>/chat/completions?api-version=...`) and automatically normalizes them to the supported v1 format. A message displays when this conversion occurs.
+:::
+
+### Configure custom model overrides {#configure-custom-model-overrides}
+
+Foundry does not support the `/models` endpoint, so Positron Assistant defaults to `model-router` as the model identifier. If your resource does not have a Model Router deployment, or if you want to target specific models, configure the [`positron.assistant.models.overrides.msFoundry`](positron://settings/positron.assistant.models.overrides.msFoundry) setting with your deployed model names:
+
+```json
+"positron.assistant.models.overrides.msFoundry": [
+  {
+    "name": "gpt-4.1",
+    "identifier": "gpt-4.1"
+  },
+  {
+    "name": "gpt-5.3-chat",
+    "identifier": "gpt-5.3-chat"
+  }
+]
+```
+
+Use the model name and deployment identifier from your Foundry resource for each entry.
 
 ## OpenAI
 
