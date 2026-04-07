@@ -7,7 +7,7 @@ categories:
   - Release
 author:
   - Cindy Tong
-date: "2026-04-06"
+date: "2026-04-07"
 image: images/addins-support.png
 image-alt: "Positron April Release Highlights"
 ---
