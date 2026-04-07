@@ -12,7 +12,7 @@ listing:
     - "release-notes/release-2025-*.qmd"
     - "release-notes/release-2026-*.qmd"
 aliases:
-  - release-notes/release-2026-03.html     
+  - release-notes/release-2026-04.html     
 ---
 
 ```{r}
