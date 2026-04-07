@@ -45,7 +45,7 @@ Here's a look at the key features that shipped with the April 2026 release.
 
 **Why this matters:** This removes the barrier for students and educators who want to use Positron in a classroom setting. No local installs, no configuration headaches — just a familiar JupyterHub login with Positron ready to go.
 
-**Get started:** Review the eligibility criteria and send an email to [academic-licenses@posit.co](mailto:academic-licenses@posit.co) to request a free teaching license.
+**Get started:** [Review the eligibility criteria](https://github.com/posit-dev/positron/blob/main/LICENSE.txt) and send an email to [academic-licenses@posit.co](mailto:academic-licenses@posit.co) to request a free teaching license.
 
 
 ### AI Next Steps in the Native Jupyter Notebook Editor
