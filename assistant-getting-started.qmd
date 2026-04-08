@@ -236,6 +236,9 @@ Microsoft Foundry provider support is in preview. Opt in to the [`positron.assis
 
 1. Run the command _Positron Assistant: Configure Language Model Providers_
 1. Select **Microsoft Foundry** as the model provider.
+
+    ![Microsoft Foundry selected in provider modal](images/assistant-provider-modal-microsoft-foundry.png){fig-alt="Configure Language Model Providers modal with Microsoft Foundry selected, showing API Key and Base URL fields." width=600}
+
 1. Enter your Foundry endpoint URL in the **Base URL** field and your API key in the **API Key** field, then select **Sign in**.
 
 ::: {.callout-note}
