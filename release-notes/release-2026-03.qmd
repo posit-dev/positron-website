@@ -1,3 +1,9 @@
+---
+title: "2026.03.0-212 Release Notes"
+date: 2026-03-02
+subtitle: <https://github.com/posit-dev/positron/releases/tag/2026.03.0-212>
+---
+
 ### Highlights
 
 #### Improved statement execution for R ✨
