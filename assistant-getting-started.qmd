@@ -225,7 +225,7 @@ To use Microsoft Foundry in Positron Desktop, you must:
 1. Have a [Microsoft Foundry](https://ai.azure.com/) resource with one or more models deployed
 2. Have the endpoint URL and API key for your Foundry resource
 
-Foundry does not support automatic model discovery. Positron Assistant defaults to the `model-router` identifier, but you can configure specific models. See [Configure custom model overrides](#configure-custom-model-overrides) below.
+Foundry does not support automatic model discovery. Positron Assistant defaults to the `model-router` identifier, but you can configure specific models. See [Configure custom model overrides](#configure-custom-model-overrides-msfoundry) below.
 :::
 
 ### Enable Microsoft Foundry as a provider
@@ -245,7 +245,7 @@ Microsoft Foundry provider support is in preview. Opt in to the [`positron.assis
 Positron Assistant accepts deployment-based Azure OpenAI URLs (for example, `https://<resource>.openai.azure.com/openai/deployments/<name>/chat/completions?api-version=...`) and automatically normalizes them to the supported v1 format. A message displays when this conversion occurs.
 :::
 
-### Configure custom model overrides {#configure-custom-model-overrides}
+### Configure custom model overrides {#configure-custom-model-overrides-msfoundry}
 
 To use specific models instead of `model-router`, configure the [`positron.assistant.models.overrides.msFoundry`](positron://settings/positron.assistant.models.overrides.msFoundry) setting:
 
