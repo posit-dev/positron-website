@@ -18,6 +18,30 @@ Positron provides setting defaults for working with Python for data science, but
 
 You can see _all_ the setting defaults that Positron provides with the command _Preferences: Open Default Settings (JSON)_.
 
+## Python Language Server
+
+Positron's unique built-in language server uses your running Python session to provide runtime-aware completions and hover previews. Beyond what's in code, it knows your DataFrame column names, your dictionary keys, your environment variables, and more. As discussed in the [Settings section above](#settings), it also bundles [Pyrefly](https://pyrefly.org/) to handle the _static analysis_ side: type checking, go-to-definition, rename, and code actions. Both run concurrently, and Positron merges their results.
+
+Positron also makes it straightforward to switch the static analysis language server:
+
+1. Open the **Extensions** view ({{< kbd mac=Command-Shift-X win=Ctrl-Shift-X linux=Ctrl-Shift-X >}}).
+2. Search for and install the language server you want to try (e.g., `basedpyright`, `ty`, or `zuban`).
+3. Disable Pyrefly: search for `pyrefly` in Extensions, and click **Disable**.
+4. Restart Positron.
+
+If you want to permanently keep Pyrefly from auto-activating, you can use the [`extensions.allowed`](positron://settings/extensions.allowed) setting:
+
+```json
+{
+    "extensions.allowed": {
+        "meta.pyrefly": false,
+        "*": true
+    }
+}
+```
+
+To read more about Python language servers, check out our [blog post](blog/posts/2026-03-31-python-type-checkers/index.qmd).
+
 ## Magics
 
 Positron provides support for [IPython-style magics](https://ipython.readthedocs.io/en/stable/interactive/magics.html) in the Positron console (as well as Python scripts and Jupyter notebooks, where appropriate). Magics are special commands prefixed with the `%` symbol that provide convenient shortcuts for common tasks. You can see the supported magics by running the `%lsmagic` command in the Positron console.
