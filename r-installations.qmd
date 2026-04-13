@@ -35,12 +35,14 @@ Positron consults various sources to build the list of available R interpreters:
 
 ## Customizing R discovery
 
-If you have an R installation that won't be discovered by the search strategy described above, two settings are available to instruct Positron to look in additional locations:
+If you have an R installation that won't be discovered by the search strategy described above, settings are available to instruct Positron to look in additional locations:
 
 * [`positron.r.customRootFolders`](positron://settings/positron.r.customRootFolders): Suitable for R root folders that contain 1 or more R installations.
   - Hypothetical example: `C:/nonstandardRLocation`
 * [`positron.r.customBinaries`](positron://settings/positron.r.customBinaries): Suitable for specific R executables.
   - Hypothetical example: `C:/nonstandardRLocation/R-4.4.1/bin/x64/R.exe`
+* [`positron.r.interpreters.condaDiscovery`](positron://settings/positron.r.interpreters.condaDiscovery): Enables discovery of R installations managed by conda (experimental).
+* [`positron.r.interpreters.pixiDiscovery`](positron://settings/positron.r.interpreters.pixiDiscovery): Enables discovery of R installations managed by pixi (experimental).
 
 You can navigate to these settings by running the _Preferences: Open Settings_ command from the Command Palette.
 Then select **Extensions** > **R** > **Advanced**.
