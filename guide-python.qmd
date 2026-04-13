@@ -54,7 +54,7 @@ Positron provides three new, custom magics created specifically for working in P
 
 ## Code formatting
 
-Positron can format Python code with [Ruff](https://docs.astral.sh/ruff/), a Python linter and formatter. Ruff is included in Positron as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions) that is installed for you, including the bundled Ruff command line tool. Most Positron users do not need to do anything intentional to install Ruff or to keep it up-to-date.
+Positron can format Python code with [Ruff](https://docs.astral.sh/ruff/), a Python linter and formatter. Positron includes Ruff as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions) and installs it for you, including the bundled Ruff command line tool. Most Positron users do not need to do anything intentional to install Ruff or to keep it up-to-date.
 
 You can format your Python code with various explicit and implicit gestures. You can use the commands *Format Selection* or *Format Document* to format specific bits of code. You can even configure Positron to run Ruff automatically whenever you save a Python file. In the Settings UI, search for `@lang:python editor.formatOnSave` and enable the setting, either at the workspace (recommended) or user level. This will add the following to the appropriate `settings.json`:
 
