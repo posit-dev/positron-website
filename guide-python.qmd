@@ -18,9 +18,9 @@ Positron provides setting defaults for working with Python for data science, but
 
 You can see _all_ the setting defaults that Positron provides with the command _Preferences: Open Default Settings (JSON)_.
 
-## Python Language Server
+## Python language server
 
-Positron's unique built-in language server uses your running Python session to provide runtime-aware completions and hover previews. Beyond what's in code, it knows your DataFrame column names, your dictionary keys, your environment variables, and more. As discussed in the [Settings section above](#settings), it also bundles [Pyrefly](https://pyrefly.org/) to handle the _static analysis_ side: type checking, go-to-definition, rename, and code actions. Both run concurrently, and Positron merges their results.
+The built-in language server in Positron uses your running Python session to provide runtime-aware completions and hover previews. Beyond what is in code, it knows your DataFrame column names, your dictionary keys, your environment variables, and more. As discussed in the [Settings section above](#settings), it also bundles [Pyrefly](https://pyrefly.org/) to handle the static analysis side: type checking, go-to-definition, rename, and code actions. Both run concurrently, and Positron merges their results.
 
 Positron also makes it straightforward to switch the static analysis language server:
 
@@ -40,7 +40,7 @@ If you want to permanently keep Pyrefly from auto-activating, you can use the [`
 }
 ```
 
-To read more about Python language servers, check out our [blog post](blog/posts/2026-03-31-python-type-checkers/index.qmd).
+To read more about Python language servers, see our [blog post on Python type checkers and language servers](blog/posts/2026-03-31-python-type-checkers/index.qmd).
 
 ## Magics
 
