@@ -12,6 +12,13 @@ on:
         required: true
         type: string
         default: releases
+    secrets:
+      AWS_S3_RW_ROLE:
+        required: true
+      AWS_CDN_RW_ROLE:
+        required: true
+      AWS_CDN_DISTRIBUTION_ID:
+        required: true
   workflow_dispatch:
     inputs:
       version:
