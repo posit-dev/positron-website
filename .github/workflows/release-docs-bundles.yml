@@ -1,4 +1,17 @@
 on:
+  workflow_call:
+    inputs:
+      version:
+        required: false
+        type: string
+      overwrite:
+        required: false
+        type: boolean
+        default: false
+      release_channel:
+        required: true
+        type: string
+        default: releases
   workflow_dispatch:
     inputs:
       version:
