@@ -1,4 +1,8 @@
-### Highlights
+### Patch notes
+
+The [2026.04.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.04.1-10) (2026-04-15) provides fixes for Positron Assistant and code completions in Quarto files.
+
+### Release highlights
 
 #### Positron Server for academic use via JupyterHub 🎓
 
