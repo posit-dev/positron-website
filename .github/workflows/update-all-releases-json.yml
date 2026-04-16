@@ -1,0 +1,103 @@
+name: Update all-releases.json
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Release tag, e.g. '2026.04.0-269'"
+        required: true
+        type: string
+      release_channel:
+        description: "Release channel"
+        required: true
+        type: string
+        default: releases
+  workflow_call:
+    inputs:
+      release_tag:
+        description: "Release tag, e.g. '2026.04.0-269'"
+        required: true
+        type: string
+      release_channel:
+        description: "Release channel"
+        required: false
+        type: string
+        default: releases
+
+jobs:
+  update-all-releases:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Fetch releases.json, validate, and build all-releases.json
+        env:
+          BASE_URL: https://cdn.posit.co/positron/${{ inputs.release_channel }}
+          DOCS_URL: https://cdn.posit.co/positron/${{ inputs.release_channel }}/docs/positron-workbench-docs-${{ inputs.release_tag }}.zip
+        run: |
+          for arch_dir in x86_64 arm64; do
+            releases_url="${BASE_URL}/pwb/${arch_dir}/releases.json"
+
+            echo "Fetching ${releases_url}"
+            releases_json=$(curl -sf "${releases_url}")
+
+            actual_version=$(echo "${releases_json}" | jq -r '.version')
+            if [ "${actual_version}" != "${{ inputs.release_tag }}" ]; then
+              echo "Error: version mismatch for ${arch_dir}." \
+                "Expected '${{ inputs.release_tag }}', got '${actual_version}'"
+              exit 1
+            fi
+
+            pub_date=$(echo "${releases_json}" | jq -r '.pub_date')
+            url=$(echo "${releases_json}" | jq -r '.url')
+            sha256hash=$(echo "${releases_json}" | jq -r '.sha256hash')
+
+            python scripts/workbench-metadata/update-all-releases.py \
+              --version "${{ inputs.release_tag }}" \
+              --pub-date "${pub_date}" \
+              --url "${url}" \
+              --sha256hash "${sha256hash}" \
+              --docs-url "${DOCS_URL}" \
+              --existing-url "${BASE_URL}/pwb/${arch_dir}/all-releases.json" \
+              --output "pwb-${arch_dir}-all-releases.json"
+          done
+
+      - name: Configure AWS Credentials for S3
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_S3_RW_ROLE }}
+          aws-region: us-east-1
+
+      - name: Upload all-releases.json files to S3
+        run: |
+          aws s3 cp pwb-x86_64-all-releases.json \
+            s3://posit-positron-downloads/positron/${{ inputs.release_channel }}/pwb/x86_64/all-releases.json \
+            --no-progress
+          aws s3 cp pwb-arm64-all-releases.json \
+            s3://posit-positron-downloads/positron/${{ inputs.release_channel }}/pwb/arm64/all-releases.json \
+            --no-progress
+
+      - name: Configure AWS Credentials for CloudFront
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_CDN_RW_ROLE }}
+          aws-region: us-east-1
+
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.AWS_CDN_DISTRIBUTION_ID }} \
+            --paths \
+              "/positron/${{ inputs.release_channel }}/pwb/x86_64/all-releases.json" \
+              "/positron/${{ inputs.release_channel }}/pwb/arm64/all-releases.json"
