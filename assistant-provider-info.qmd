@@ -25,6 +25,11 @@ Any Provider is considered "Third Party Materials" as defined in the [Posit End 
 * [Console Privacy Controls](https://platform.claude.com/settings/privacy)
 * [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms)
 
+### Microsoft Foundry
+
+* [Microsoft Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement)
+* [Azure AI Services Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure)
+
 ### GitHub Copilot
 
 * [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect)

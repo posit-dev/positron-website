@@ -26,9 +26,10 @@ Positron Assistant supports the following language model providers:
 |------|:--:|:---:|---------|
 | Anthropic | {{< fa check >}} | | API Key |
 | GitHub Copilot (Preview) | {{< fa check >}} | {{< fa check >}} | GitHub OAuth |
-| Amazon Bedrock (Preview) | {{< fa check >}} | | AWS CLI or Posit Workbench Managed Credentials |
-| Snowflake Cortex (Preview) | {{< fa check >}} | | API Key or Posit Workbench Managed Credentials |
-| OpenAI (Preview) | {{< fa check >}} | | API Key |
+| Amazon Bedrock | {{< fa check >}} | | AWS CLI or Posit Workbench Managed Credentials |
+| Snowflake Cortex | {{< fa check >}} | | API Key or Posit Workbench Managed Credentials |
+| Microsoft Foundry (Preview) | {{< fa check >}} | | API Key or Posit Workbench Managed Credentials |
+| OpenAI | {{< fa check >}} | | API Key |
 | Custom Provider (Experimental) | {{< fa check >}} | | API Key |
 
 We're actively expanding provider support and welcome your [feedback](https://github.com/posit-dev/positron/discussions) and [issue reports](https://github.com/posit-dev/positron/issues/new/choose)!
@@ -44,7 +45,7 @@ Please ensure you consult your provider's privacy policy for information on the 
 
 ## Step 2: Configure language model providers
 
-Anthropic and GitHub Copilot are enabled by default. Other providers are in preview or experimental status and must be enabled through settings.
+Anthropic, GitHub Copilot, Amazon Bedrock, Snowflake Cortex, and OpenAI are enabled by default. Other providers are in preview or experimental status and must be enabled through settings.
 
 ::: {.panel-tabset group="providers"}
 
@@ -143,7 +144,7 @@ To use Amazon Bedrock in Positron Desktop, you must:
 
 ### Enable Amazon Bedrock as a provider
 
-Amazon Bedrock provider support is in preview. Opt in to the [`positron.assistant.provider.amazonBedrock.enable`](positron://settings/positron.assistant.provider.amazonBedrock.enable) setting to enable it.
+Amazon Bedrock is enabled by default. Set [`positron.assistant.provider.amazonBedrock.enable`](positron://settings/positron.assistant.provider.amazonBedrock.enable) to `false` to disable it.
 
 <details>
 <summary>(Optional) Configure AWS region and profile</summary>
@@ -204,7 +205,7 @@ To use Snowflake Cortex in Positron Desktop, Positron Assistant requires a **Sno
 
 ### Enable Snowflake Cortex as a provider
 
-Snowflake Cortex provider support is in preview. Opt in to the [`positron.assistant.provider.snowflakeCortex.enable`](positron://settings/positron.assistant.provider.snowflakeCortex.enable) setting to enable it.
+Snowflake Cortex is enabled by default. Set [`positron.assistant.provider.snowflakeCortex.enable`](positron://settings/positron.assistant.provider.snowflakeCortex.enable) to `false` to disable it.
 
 ### Add Snowflake Cortex as a language model provider
 
@@ -216,11 +217,58 @@ Snowflake Cortex provider support is in preview. Opt in to the [`positron.assist
 
 1. Paste your Snowflake Cortex PAT into the API key box, then select **Sign in**.
 
+## Microsoft Foundry
+
+::: {.callout-important}
+To use Microsoft Foundry in Positron Desktop, you must:
+
+1. Have a [Microsoft Foundry](https://ai.azure.com/) resource with one or more models deployed
+2. Have the endpoint URL and API key for your Foundry resource
+
+Foundry does not support automatic model discovery. Positron Assistant defaults to the `model-router` identifier, but you can configure specific models. See [Configure custom model overrides](#configure-custom-model-overrides-msfoundry) below.
+:::
+
+### Enable Microsoft Foundry as a provider
+
+Microsoft Foundry provider support is in preview. Opt in to the [`positron.assistant.provider.msFoundry.enable`](positron://settings/positron.assistant.provider.msFoundry.enable) setting to enable it.
+
+### Add Microsoft Foundry as a language model provider
+
+1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Select **Microsoft Foundry** as the model provider.
+
+    ![Microsoft Foundry selected in provider modal](images/assistant-provider-modal-microsoft-foundry.png){fig-alt="Configure Language Model Providers modal with Microsoft Foundry selected, showing API Key and Base URL fields." width=600}
+
+1. Enter your Foundry endpoint URL in the **Base URL** field and your API key in the **API Key** field, then select **Sign in**.
+
+::: {.callout-note}
+Positron Assistant accepts deployment-based Azure OpenAI URLs (for example, `https://<resource>.openai.azure.com/openai/deployments/<name>/chat/completions?api-version=...`) and automatically normalizes them to the supported v1 format. A message displays when this conversion occurs.
+:::
+
+### Configure custom model overrides {#configure-custom-model-overrides-msfoundry}
+
+To use specific models instead of `model-router`, configure the [`positron.assistant.models.overrides.msFoundry`](positron://settings/positron.assistant.models.overrides.msFoundry) setting:
+
+```json
+"positron.assistant.models.overrides.msFoundry": [
+  {
+    "name": "gpt-4.1",
+    "identifier": "gpt-4.1"
+  },
+  {
+    "name": "gpt-5.3-chat",
+    "identifier": "gpt-5.3-chat"
+  }
+]
+```
+
+Use the model name and deployment identifier from your Foundry resource for each entry.
+
 ## OpenAI
 
 ### Enable OpenAI as a provider
 
-OpenAI provider support is in preview. Opt in to the [`positron.assistant.provider.openAI.enable`](positron://settings/positron.assistant.provider.openAI.enable) setting to enable it.
+OpenAI is enabled by default. Set [`positron.assistant.provider.openAI.enable`](positron://settings/positron.assistant.provider.openAI.enable) to `false` to disable it.
 
 ### Add OpenAI as a language model provider
 
