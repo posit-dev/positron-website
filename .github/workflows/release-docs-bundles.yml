@@ -12,7 +12,7 @@ on:
         required: true
         type: string
         default: releases
-      set_release_body:
+      create_release:
         required: false
         type: boolean
         default: true
@@ -111,7 +111,7 @@ jobs:
           gh release delete ${{ steps.get-version.outputs.release_version }} --yes --cleanup-tag || true
 
       - name: Create Release
-        if: ${{ inputs.set_release_body != false }}
+        if: ${{ inputs.create_release }}
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.get-version.outputs.release_version }}
@@ -122,13 +122,13 @@ jobs:
             positron-docs-${{ steps.get-version.outputs.release_version }}.zip
             positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip
 
-      - name: Upload Release Assets
-        if: ${{ inputs.set_release_body == false }}
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ steps.get-version.outputs.release_version }}
-          files: |
-            positron-docs-${{ steps.get-version.outputs.release_version }}.zip
+      - name: Upload assets to existing release
+        if: ${{ !inputs.create_release }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload ${{ steps.get-version.outputs.release_version }} \
+            positron-docs-${{ steps.get-version.outputs.release_version }}.zip \
             positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip
 
       - name: Configure AWS Credentials for S3
