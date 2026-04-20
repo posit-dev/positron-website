@@ -6,9 +6,10 @@ exclude = [
   "https://cdn.posit.co/positron/prereleases/",
   "https://positron.posit.co/images/",
   "https://github.com/posit-dev/positron/issues",
-  "positron://settings/"
+  "positron://settings/",
+  "https://forms.gle/DRCf8wgbaafz5fcG8" # testimonial Google Form (requires login)
 ]
 
-# 403 (Forbidden) and 429 (Too Many Requests) are returned by sites like
-# Microsoft and Snowflake that block automated requests, not broken links.
-accept = [200, 429, 403]
+# 403 (Forbidden) and 429 (Too Many Requests) are returned by sites that
+# block automated requests, not broken links.
+accept = [200, 403, 429]
