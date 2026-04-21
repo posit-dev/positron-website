@@ -129,7 +129,6 @@ jobs:
         run: |
           gh release upload ${{ steps.get-version.outputs.release_version }} \
             --repo ${{ github.repository }} \
-            --clobber \
             positron-docs-${{ steps.get-version.outputs.release_version }}.zip \
             positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip
 
