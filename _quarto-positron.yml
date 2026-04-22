@@ -71,6 +71,9 @@ website:
       - icon: github
         aria-label: 'Link to Positron Github Repository'
         href: https://github.com/posit-dev/positron
+      - icon: linkedin
+        aria-label: 'Link to Positron LinkedIn page'
+        href: https://www.linkedin.com/showcase/positron-ide/
       - icon: rss
         href: https://positron.posit.co/blog/index.xml
         aria-label: Positron Blog RSS
@@ -221,6 +224,22 @@ format:
     include-in-header:
       - text: |
           <script defer file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
+      - text: |
+          <script src="https://cdn.jsdelivr.net/gh/posit-dev/supported-by-posit/js/badge.min.js"></script>
+      - text: |
+          <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            var observer = new MutationObserver(function() {
+              var badge = document.getElementById('supported-by-posit');
+              if (badge) {
+                observer.disconnect();
+                var navCollapse = document.querySelector('.navbar-collapse');
+                if (navCollapse) navCollapse.appendChild(badge);
+              }
+            });
+            observer.observe(document.body, {childList: true, subtree: true});
+          });
+          </script>
       - "assets/_kapa-ai.html"
 
 show-videos: true
