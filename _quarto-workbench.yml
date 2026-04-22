@@ -9,6 +9,7 @@ project:
     - "!remote-ssh.qmd"
     - "!dev-containers.qmd"
     - "!add-to-path.qmd"
+    - "!education.qmd"
     - "!blog/**"
   resources:
     - _redirects
