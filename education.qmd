@@ -25,7 +25,7 @@ Explore the full list of [Positron features](features.qmd).
 ::: {.callout-tip}
 ## We're here to help
 
-[Book a call with us](https://scheduler.zoom.us/cindy-tong/positron-education){.btn .btn-primary}
+[Book a call with us](https://scheduler.zoom.us/cindy-tong/positron-education)
 
 Reach out via a discussion in our [Positron GitHub repository](https://github.com/posit-dev/positron/discussions)
 :::
@@ -65,10 +65,6 @@ No, the teaching license is only for instructional use. If you're interested in 
 #### Does the license expire at the end of the semester?
 
 The license lasts for 12 months from the desired start date you indicate when applying. Please note, we process licenses up to a maximum of two months prior to the start of a semester.
-
-#### Can students use Positron on their own machines?
-
-Yes, under the [Elastic License](licensing.qmd), any individual can download and use Positron for free, no institutional license required. Visit the [install page](install.qmd) to get started.
 
 #### Can I disable specific extensions for all students?
 
