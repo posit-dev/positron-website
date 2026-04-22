@@ -41,15 +41,13 @@ description: "Get answers to common questions about Positron: supported language
   * RStudio has deeper support for Sweave and R Markdown compared to our targeted focus on Quarto in Positron, although Positron does support rendering R Markdown documents as well.    
   * Positron does not have inline output for source `.qmd` or `.Rmd` documents, and Quarto or R Markdown documents will make use of the **Console** and **Plots** pane for execution/output. However, we are actively enhancing our Positron-native notebook UI that will provide inline outputs for Python or R sessions. Separately, we are also actively working on improving Quarto's Visual Editor to improve the authoring experience for Quarto. 
   * RStudio is extensible only via RStudio add-ins, and while Positron supports some of the same, existing RStudio add-ins, not all are supported. Rather than doubling down on the more limited RStudio add-in capabilities for novel integrations, we suggest exploring [extension development and our Positron API endpoints](extension-development.qmd).    
-  * We do _not_ plan to have a `.Rproj` equivalent for Positron (e.g., a `.positronproj`), but rather Positron can open and treat any folder as a "project" or workspace. We still suggest project-oriented workflows, and for more context, please see: [Migrating from RStudio: The Rproj File](migrate-rstudio-rproj.qmd).    
+  * We do _not_ plan to have a `.Rproj` equivalent for Positron (e.g., a `.positronproj`), but rather Positron can open and treat any folder as a "project" or workspace. We still suggest project-oriented workflows, and for more context, please see: [Migrating from RStudio: The Rproj File](migrate-rstudio-rproj.qmd).
 
 ::: {.content-visible unless-profile="workbench"}
 ### How can I use Positron in an educational setting?
 
-* Under [Positron's Elastic license](https://positron.posit.co/licensing.html), individual students are free to install and use the software for any purpose.  
-* Qualified academic institutions may host Positron as a service for their currently enrolled students solely for educational purposes in connection with their coursework via a free teaching license. Eligibility conditions are outlined in Positron's [Academic Licenser Rider](licensing.qmd#positron-education-license-rider)
-* Positron Server is available for JupyterHub environments. See the [`jupyter-positron-server` Python package documentation](https://posit-dev.github.io/jupyter-positron-server/) for more information about setup and usage.
-* Hosting of Positron for teaching purposes requires a free license key. Please reach out to [academic-licenses@posit.co](mailto:academic-licenses@posit.co) and indicate your interest in Positron if you have further questions.  
-* Lastly, Posit provides [free teaching licenses of Posit Workbench](https://posit.co/pricing/academic/), which includes Positron Pro for browser-based access by multiple users. 
+* Individual students can freely [download and use Positron](install.qmd) under the [Elastic License](licensing.qmd).
+* Academic institutions can host Positron for enrolled students via JupyterHub with a free teaching license.
+* Visit [Positron for Education](education.qmd) for full details on eligibility, setup, and how to request a license.
 
 :::

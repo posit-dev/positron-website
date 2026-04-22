@@ -1,0 +1,87 @@
+---
+title: "Positron for Education"
+description: "Bring Positron to your classroom with a free teaching license."
+---
+## Why Use Positron in the Classroom?
+
+With Positron, students get access to a robust data science IDE with features designed to support learning and productivity, including:
+
+- Rich Python and R support
+- A built-in data viewer and variables explorer
+- An integrated help pane, debugger, and version control
+- A professional IDE tailored for data science
+- Optional AI assistance for pair programming and debugging
+
+Explore the full list of [Positron features](features.qmd).
+
+## How can I use Positron in an educational setting?
+
+* Under [Positron’s Elastic license](licensing.qmd), individual students are free to install and use the software for any purpose.
+* Qualified academic institutions may host Positron as a service for their currently enrolled students solely for educational purposes in connection with their coursework via a free teaching license. Eligibility conditions are outlined in Positron’s [Academic License Rider](licensing.qmd#positron-education-license-rider).
+* Positron Server is available for JupyterHub environments. See the [jupyter-positron-server](https://posit-dev.github.io/jupyter-positron-server/) Python package documentation for more information about setup and usage.
+* Hosting of Positron for teaching purposes requires a free license key. Please reach out to [academic-licenses@posit.co](mailto:academic-licenses@posit.co) and indicate your interest in Positron if you have further questions.
+* Lastly, Posit provides free teaching licenses of Posit Workbench, which includes Positron Pro and RStudio for browser-based access by multiple users. Visit [Posit Workbench for Education](https://posit.co/pricing/academic#we-help-educators) to learn more.
+
+::: {.callout-tip}
+## We're here to help
+
+[Book a call with us](https://scheduler.zoom.us/cindy-tong/positron-education){.btn .btn-primary}
+
+Reach out via a discussion in our [Positron GitHub repository](https://github.com/posit-dev/positron/discussions)
+:::
+
+## Eligibility for Teaching Licenses
+
+Academic institutions can use Positron Server or Positron on Posit Workbench with a free teaching license. Full eligibility details are in Positron's [Academic License Rider](licensing.qmd#positron-education-license-rider).
+
+## Applying for a Teaching License
+
+1. **Check eligibility.** Review the [Positron Education License Rider](licensing.qmd#positron-education-license-rider) to confirm qualification for a teaching license.
+
+2. **Request a license.** Email [academic-licenses@posit.co](mailto:academic-licenses@posit.co) to get a free teaching license key.
+
+3. **Install instructions.** Based on the distribution method, follow the instructions below to get Positron up and running.
+
+## Installing Positron Server
+1. Follow the [`jupyter-positron-server` documentation](https://posit-dev.github.io/jupyter-positron-server/) to complete setup.
+
+2. Watch the [installation walkthrough](https://www.loom.com/share/9a8c760a4d4e45b2ac78d62ba3e1d0b3) for a step-by-step guide.
+
+
+## Frequently Asked Questions
+
+#### How much does a teaching license cost?
+
+Teaching licenses are free for qualified academic institutions.
+
+#### Does a teaching license cover both Positron Server and Positron on Posit Workbench?
+
+Yes, with a teaching license you can choose multiple distribution options, including Positron Server and Positron on Posit Workbench.
+
+#### Can I use a teaching license for research purposes?
+
+No, the teaching license is only for instructional use. If you're interested in using Positron for research, you can use Positron Desktop or purchase a discounted research license. [Learn more about research licenses](https://posit.co/pricing/academic#we-help-educators).
+
+#### Does the license expire at the end of the semester?
+
+The license lasts for 12 months from the desired start date you indicate when applying. Please note, we process licenses up to a maximum of two months prior to the start of a semester.
+
+#### Can students use Positron on their own machines?
+
+Yes, under the [Elastic License](licensing.qmd), any individual can download and use Positron for free, no institutional license required. Visit the [install page](install.qmd) to get started.
+
+#### Can I disable specific extensions for all students?
+
+Settings can be configured by an admin at the ``/home/jupyter-admin/.positron-server/data/Machine/settings.json`` file. You can use the extensions.allowed setting, read more [here](https://code.visualstudio.com/docs/enterprise/extensions#_configure-allowed-extensions)
+
+#### How do I upgrade Positron Server to the latest version?
+
+Install the latest version of Positron to the same location.
+
+#### Can I pre-configure a default environment (specific packages, files, settings) so all students start from the same place?
+
+Positron can locate conda environments as well as any files on a user’s JupyterHub instance, so packages and files in shared locations are automatically available. Settings can be configured by an admin at the ``/home/jupyter-admin/.positron-server/data/Machine/settings.json`` file.
+
+#### Can I use Positron Server alongside Jupyter Notebooks at the same time?
+
+Yes, Positron has a native Jupyter editor your students can work with. You can also have students open two tabs, one with Positron and another with JupyterLab.
