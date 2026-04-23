@@ -47,11 +47,7 @@ website:
       - text: "Help"
         href: troubleshooting.qmd
       - text: "About"
-        menu:
-          - text: "About Positron"
-            href: about.qmd
-          - text: "Education"
-            href: education.qmd
+        href: about.qmd
       - text: "Blog"
         href: blog/index.qmd
       - text: "Resources"
