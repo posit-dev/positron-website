@@ -7,8 +7,8 @@ description: "Bring Positron to your classroom with a free teaching license."
 With Positron, students get access to a robust data science IDE with features designed to support learning and productivity, including:
 
 - Rich Python and R support
-- A built-in Data Explorer and Variables pane
-- An integrated Help pane, debugger, and version control
+- A built-in **Data Explorer** and **Variables** pane
+- An integrated **Help** pane, debugger, and version control
 - A professional IDE tailored for data science
 - Optional AI assistance for pair programming and debugging
 
