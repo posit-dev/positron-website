@@ -1,6 +1,6 @@
 ---
 title: "Discovering Python Installations"
-description: "Understand how Positron discovers Python installations. Covers support for uv, pyenv, conda, venv, pipenv, poetry, and more environment managers."
+description: "Understand how Positron discovers and manages Python installations. Covers automatic uv installation and support for uv, pyenv, conda, venv, pipenv, poetry, and more environment managers."
 ---
 
 This guide explains how Python installations are discovered and managed in Positron.
@@ -39,6 +39,31 @@ For that reason, we recommend using virtual environments.
 **Custom locations**
 
 * Interpreters listed in the [`python.interpreters.[include,exclude,override]`](positron://settings/python.interpreters.include) settings (see [Related Settings](#related-settings) below for details)
+
+## Automatic uv installation
+
+If you do not have a valid Python available, Positron provides the option to install Python via [uv](https://docs.astral.sh/uv/) to provide an improved Python environment management experience. 
+When Positron starts, it searches for Python on your machine and gives the option install uv if you have no Python or only system Pythons available.
+
+You can control Positron's uv installation and usage through a variety of ways:
+
+- **Disable uv installation**: To never see this installation option, set [`python.allowUvPythonInstall`](positron://settings/python.allowUvPythonInstall) to `false`
+- **Use existing uv**: If you have uv already installed system-wide, Positron will use your existing installation
+- **Manual installation**: You can also [install uv manually](https://docs.astral.sh/uv/getting-started/installation/) if you prefer to manage it yourself
+
+uv is not needed to run Positron. 
+Positron will look for other environment managers like `venv` and `conda`, regardless of uv's availability.
+
+### What is uv?
+
+[uv](https://docs.astral.sh/uv/) is a modern Python package manager that provides:
+
+- Fast virtual environment creation
+- Efficient package installation
+- Python version management
+- Project dependency management
+
+Positron uses uv to enhance Python workflows, including creating environments, installing packages, and managing Python versions.
 
 ## Environment creation and discovery
 
@@ -79,11 +104,10 @@ Other versions may be discovered, but you may run into issues using them.
 
 Positron can use two different discovery mechanisms:
 
-* **JavaScript locator** (default): Pure TypeScript implementation for more comprehensive discovery
-* **Native locator** (experimental): Uses a native binary for faster discovery
+* **Native locator** (default): Uses a native binary for faster discovery
+* **JavaScript locator**: Pure TypeScript implementation
 
 You can control this with the [`python.locator`](positron://settings/python.locator) setting (`"js"` or `"native"`).
-Keep in mind that the `native` locator is experimental and may not work completely as intended.
 
 ## Troubleshooting
 
@@ -93,7 +117,17 @@ If the above settings are configured correctly, and the Python version is suppor
 
 For the `native` (default) locator, the discovery process is logged in the Python Locator channel.
 
-For the `js` (default) locator, it is instead logged in the Python Language Pack channel of the Output panel.
+For the `js` locator, it is instead logged in the Python Language Pack channel of the Output panel.
+
+### uv installation issues
+
+If you encounter issues with Positron's automatic uv installation:
+
+1. **Check network connectivity**: uv installation requires internet access to download the binary
+2. **Manual installation**: You can also [install uv manually](https://docs.astral.sh/uv/getting-started/installation/) if you prefer to manage it yourself
+3. **Disable automatic installation**: If you do not want Positron to show you uv installation, disable it by setting [`python.allowUvPythonInstall`](positron://settings/python.allowUvPythonInstall) to `false`.
+
+For detailed uv troubleshooting, refer to the [uv documentation](https://docs.astral.sh/uv/).
 
 ## Related settings
 
