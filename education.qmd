@@ -17,7 +17,7 @@ Explore the full list of [Positron features](features.qmd).
 ## How can I use Positron in an educational setting?
 
 * Under the [Positron Elastic license](licensing.qmd), individuals may install and use Positron Desktop for any purpose.
-* Qualified academic institutions can host Positron as a service in the following ways. All of them require an [Academic License Rider](licensing.qmd#positron-education-license-rider).
+* Qualified academic institutions can host Positron as a service in the following ways. All of them require a [license](licensing.qmd#positron-education-license-rider).
     * [Positron Server for Jupyter](https://posit-dev.github.io/jupyter-positron-server/)
     * [Posit Workbench for Education](https://posit.co/pricing/academic#we-help-educators)
 
