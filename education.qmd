@@ -24,9 +24,7 @@ Explore the full list of [Positron features](features.qmd).
 ::: {.callout-note}
 ## We are here to help
 
-[Book a call with us](https://scheduler.zoom.us/cindy-tong/positron-education).
-
-Reach out via a discussion in our [GitHub repository](https://github.com/posit-dev/positron/discussions).
+[Book a call with us](https://scheduler.zoom.us/cindy-tong/positron-education) or reach out via a discussion in our [GitHub repository](https://github.com/posit-dev/positron/discussions).
 :::
 
 ## Eligibility for teaching licenses
