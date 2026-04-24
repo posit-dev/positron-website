@@ -39,10 +39,6 @@ Academic institutions can use Positron Server or Positron on Workbench with a fr
 
 3. **Install instructions.** Based on the distribution method, follow the instructions below to get Positron up and running.
 
-## Installing Positron Server
-1. Follow the [`jupyter-positron-server` documentation](https://posit-dev.github.io/jupyter-positron-server/) to complete setup.
-
-2. Watch the [installation walkthrough](https://www.loom.com/share/9a8c760a4d4e45b2ac78d62ba3e1d0b3) for a step-by-step guide.
 
 
 ## Frequently asked questions
