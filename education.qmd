@@ -57,11 +57,11 @@ No, the teaching license is only for instructional use. If you are interested in
 
 #### Does the license expire at the end of the semester?
 
-The license lasts for 12 months from the desired start date you indicate when applying. Please note, we process licenses up to a maximum of two months prior to the start of a semester.
+The license lasts for 12 months from the desired start date you indicate when applying. Please note, we only process licenses within two months before the start of a semester.
 
-#### Can I disable specific extensions for all students?
+#### Can I disable specific extensions for all students on JupyterHub?
 
-An admin can configure settings in the machine-level settings file, available at a path like ``/home/jupyter-admin/.positron-server/data/Machine/settings.json``. You can use the [`extensions.allowed` setting](https://code.visualstudio.com/docs/enterprise/extensions#_configure-allowed-extensions) to approve or deny extensions for all users on your JupyterHub.
+An admin can configure settings in the machine-level settings file, available at a path like ``/home/jupyter-admin/.positron-server/data/Machine/settings.json``. You can use the [`extensions.allowed` setting](https://code.visualstudio.com/docs/enterprise/extensions#_configure-allowed-extensions) to approve or deny extensions for all users on your JupyterHub server.
 
 #### How do I upgrade Positron Server to the latest version?
 
@@ -69,7 +69,7 @@ Install the latest version of Positron to the same location.
 
 #### Can I pre-configure a default environment (specific packages, files, settings) so all students start from the same place?
 
-Positron can locate conda environments as well as any files on a user’s JupyterHub instance, so packages and files in shared locations are automatically available. An admin can configure settings in the machine-level settings file, available at a path like ``/home/jupyter-admin/.positron-server/data/Machine/settings.json``.
+Positron can locate Python environments as well as any files on a user’s JupyterHub instance, so packages and files in shared locations are automatically available. An admin can configure settings in the machine-level settings file, available at a path like ``/home/jupyter-admin/.positron-server/data/Machine/settings.json``.
 
 #### Can I use Positron Server alongside Jupyter Notebooks at the same time?
 
