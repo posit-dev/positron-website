@@ -5,13 +5,18 @@ description: "Experimental AI assistant for exploratory data analysis in Python 
 
 ::: {.callout-important}
 
-Databot is **experimental** and available in research preview; it is not ready for production use. 
-
-We also recommend reviewing the [Databot introduction blog post](https://posit.co/blog/introducing-databot/) and [Databot is not a flotation device blogpost](https://posit.co/blog/databot-is-not-a-flotation-device/) for additional context about this new project.
+Databot is being deprecated in favor of [Posit Assistant](https://pos.it/assistant), a new AI coding experience currently available as a preview feature that brings together the capabilities of Positron Assistant and Databot into a unified experience. To learn how to enable it and get set up, visit the [Posit Assistant documentation](https://pos.it/assistant-docs).
 
 :::
 
 Databot is an AI assistant designed to dramatically accelerate exploratory data analysis for data scientists fluent in Python or R, allowing them to do in minutes what might usually take hours. It’s a complement to the data scientist, not a replacement.
+
+For additional context, see the [Databot introduction blog post](https://posit.co/blog/introducing-databot/) and [Databot is not a flotation device blog post](https://posit.co/blog/databot-is-not-a-flotation-device/).
+
+
+::: {.callout-note}
+Databot is **experimental** and available in research preview; it is not ready for production use.
+:::
 
 ![Databot Welcome Page](images/databot-welcome.png){width=500 fig-alt="Welcome page of Databot and suggested first actions to take, like checking loaded data or loading new data"}
 
