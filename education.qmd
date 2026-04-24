@@ -2,7 +2,7 @@
 title: "Positron for Education"
 description: "Bring Positron to your classroom with a free teaching license."
 ---
-## Why use Positron in the classroom?
+## A true multi-language IDE for data science for all
 
 With Positron, students get access to a robust data science IDE with features designed to support learning and productivity, including:
 
@@ -16,11 +16,10 @@ Explore the full list of [Positron features](features.qmd).
 
 ## How can I use Positron in an educational setting?
 
-* Under the [Positron Elastic license](licensing.qmd), individuals may install and use Positron for any purpose.
-* Qualified academic institutions can host Positron as a service, via Positron Server, for their enrolled students solely for educational purposes in connection with their coursework via a free teaching license. Eligibility conditions are outlined in the Positron [Academic License Rider](licensing.qmd#positron-education-license-rider).
-* Positron Server is available for JupyterHub environments. See the [jupyter-positron-server](https://posit-dev.github.io/jupyter-positron-server/) Python package documentation for more information about setup and usage.
-* Hosting of Positron for teaching purposes requires a free license key. Please reach out to [academic-licenses@posit.co](mailto:academic-licenses@posit.co) and indicate your interest in Positron if you have further questions.
-* Lastly, Posit provides free teaching licenses of Posit Workbench, which includes Positron Pro and RStudio for browser-based access by multiple users. Visit [Workbench for Education](https://posit.co/pricing/academic#we-help-educators) to learn more.
+* Under the [Positron Elastic license](licensing.qmd), individuals may install and use Positron Desktop for any purpose.
+* Qualified academic institutions can host Positron as a service in the following ways. All of them require an [Academic License Rider](licensing.qmd#positron-education-license-rider).
+    * [Positron Server for Jupyter](https://posit-dev.github.io/jupyter-positron-server/)
+    * [Posit Workbench for Education](https://posit.co/pricing/academic#we-help-educators)
 
 ::: {.callout-note}
 ## We are here to help
@@ -68,7 +67,7 @@ The license lasts for 12 months from the desired start date you indicate when ap
 
 #### Can I disable specific extensions for all students?
 
-Settings can be configured by an admin by using the machine level settings file, available at a path like ``/home/jupyter-admin/.positron-server/data/Machine/settings.json``. You can use the [`extensions.allowed` setting](https://code.visualstudio.com/docs/enterprise/extensions#_configure-allowed-extensions) to approve or deny extensions for all users on your JupyterHub.
+An admin can configure settings in the machine-level settings file, available at a path like ``/home/jupyter-admin/.positron-server/data/Machine/settings.json``. You can use the [`extensions.allowed` setting](https://code.visualstudio.com/docs/enterprise/extensions#_configure-allowed-extensions) to approve or deny extensions for all users on your JupyterHub.
 
 #### How do I upgrade Positron Server to the latest version?
 
@@ -76,7 +75,7 @@ Install the latest version of Positron to the same location.
 
 #### Can I pre-configure a default environment (specific packages, files, settings) so all students start from the same place?
 
-Positron can locate conda environments as well as any files on a user’s JupyterHub instance, so packages and files in shared locations are automatically available. Settings can be configured by an admin at machine level settings file, available at a path like ``/home/jupyter-admin/.positron-server/data/Machine/settings.json``.
+Positron can locate conda environments as well as any files on a user’s JupyterHub instance, so packages and files in shared locations are automatically available. An admin can configure settings in the machine-level settings file, available at a path like ``/home/jupyter-admin/.positron-server/data/Machine/settings.json``.
 
 #### Can I use Positron Server alongside Jupyter Notebooks at the same time?
 
