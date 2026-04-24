@@ -38,8 +38,8 @@ Academic institutions can use Positron Server or Positron on Workbench with a fr
 2. **Request a license.** Send an email to [academic-licenses@posit.co](mailto:academic-licenses@posit.co) to get a free teaching license key.
 
 3. **Install instructions.** Follow the instructions for your installation method to get Positron up and running. For example, for installing Positron on JupyterHub:
-  - See the [`jupyter-positron-server` documentation](https://posit-dev.github.io/jupyter-positron-server/) to complete setup.
-  - Watch the [installation walkthrough](https://www.loom.com/share/9a8c760a4d4e45b2ac78d62ba3e1d0b3) for a step-by-step guide.
+    * See the [`jupyter-positron-server` documentation](https://posit-dev.github.io/jupyter-positron-server/) to complete setup.
+    * Watch the [installation walkthrough](https://www.loom.com/share/9a8c760a4d4e45b2ac78d62ba3e1d0b3) for a step-by-step guide.
 
 
 
