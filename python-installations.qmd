@@ -42,12 +42,12 @@ For that reason, we recommend using virtual environments.
 
 ## Automatic uv installation
 
-If you do not have a valid Python available, Positron provides option to install Python via [uv](https://docs.astral.sh/uv/) to provide an improved Python environment management experience. 
+If you do not have a valid Python available, Positron provides the option to install Python via [uv](https://docs.astral.sh/uv/) to provide an improved Python environment management experience. 
 When Positron starts, it searches for Python on your machine and gives the option install uv if you have no Python or only system Pythons available.
 
 You can control Positron's uv installation and usage through a variety of ways:
 
-- **Disable uv installation**: To never see this installation option, set [`python.allowUvPythonInstall`](positron://settings/python.allowUvPythonInstall) to `false`.
+- **Disable uv installation**: To never see this installation option, set [`python.allowUvPythonInstall`](positron://settings/python.allowUvPythonInstall) to `false`
 - **Use existing uv**: If you have uv already installed system-wide, Positron will use your existing installation
 - **Manual installation**: You can also [install uv manually](https://docs.astral.sh/uv/getting-started/installation/) if you prefer to manage it yourself
 
