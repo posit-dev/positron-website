@@ -5,9 +5,9 @@ description: "Experimental AI assistant for exploratory data analysis in Python 
 
 ::: {.callout-important}
 
-Databot was previously experimental and available in research preview, but is being deprecated in favor of [Posit Assistant](https://pos.it/assistant).
+Databot was previously experimental and available in research preview, but is being deprecated in favor of Posit Assistant.
 
-Posit Assistant is a new AI coding experience that brings together the capabilities of Positron Assistant and Databot into a unified experience. To learn how to enable it and get set up, visit the [Posit Assistant documentation](https://pos.it/assistant-docs).
+[Posit Assistant](https://pos.it/assistant) is a new AI coding experience currently available as a preview feature. Posit Assistant brings together the capabilities of Positron Assistant and Databot into a unified experience. To learn how to enable it and get set up, visit the [Posit Assistant documentation](https://pos.it/assistant-docs).
 
 :::
 
