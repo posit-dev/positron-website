@@ -24,8 +24,6 @@ Some of these features may eventually come to Positron, but if any of these are 
 
 * Data import widget. Follow along for updates on this feature request in <https://github.com/posit-dev/positron/issues/5515>.
 
-* RStudio add-ins. Follow along for updates on this feature request in <https://github.com/posit-dev/positron/issues/1313>.
-
 ## Features unique to Positron
 
 Some features are available in Positron, but not in RStudio.
