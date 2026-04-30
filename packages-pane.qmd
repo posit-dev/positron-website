@@ -1,0 +1,52 @@
+---
+title: "Packages Pane"
+description: "Install, update, and uninstall packages in your active R or Python session without leaving Positron. Browse installed packages and search package repositories."
+---
+
+::: {.callout-important}
+The **Packages** pane is a preview feature. It is enabled by default and can be disabled via the [`positron.packages.enable`](positron://settings/positron.packages.enable) setting.
+:::
+
+The **Packages** pane provides an interface for managing the packages installed in your active R or Python session.
+You can browse installed packages, search package repositories, and install, update, or uninstall packages without leaving Positron.
+
+## Open the Packages pane
+
+The **Packages** pane is shown in the Primary Side Bar.
+If it is not already displayed, select the **Packages** icon ({{< fa box >}}) in the Activity Bar, or run _View: Packages_ from the Command Palette ({{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}).
+
+## Browse installed packages
+
+The **Packages** pane lists packages installed in the active session's library.
+Each entry shows the package name, version, and an indicator of whether the package is currently attached.
+
+Use the filter input at the top of the pane to search by name.
+The filter menu also lets you limit the list to **Outdated** or **Attached** packages, and sort entries by name.
+
+For R sessions, "attached" mirrors membership in the R search path; a package can be loaded as a dependency without being attached.
+
+## Install a package
+
+1. Select **Install Package** in the **Packages** pane action bar, or run _Packages: Install Package_ from the Command Palette
+2. Enter a package name to search the configured repository
+3. Select a package and version from the results to install it into the active session
+
+## Update packages
+
+Packages with a newer version available in the configured repository are flagged as outdated.
+To update an outdated package, select it in the list, then select **Update Package** in the action bar.
+To update every outdated package at once, select **Update All Packages** in the action bar.
+
+You can also run _Packages: Update Package_ or _Packages: Update All Packages_ from the Command Palette.
+
+## Uninstall a package
+
+Select a package in the list, then select **Uninstall Package** in the action bar, or run _Packages: Uninstall Package_ from the Command Palette.
+
+After installing, updating, or uninstalling a package, Positron prompts you to restart the session so the changes take effect.
+
+## Settings
+
+| Setting | Description |
+|---------|-------------|
+| [`positron.packages.enable`](positron://settings/positron.packages.enable) | Show the **Packages** pane. |

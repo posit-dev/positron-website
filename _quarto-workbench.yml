@@ -159,6 +159,7 @@ website:
           contents:
             - managing-interpreters.qmd
             - interpreter-startup.qmd
+            - packages-pane.qmd
             - section: "Language-Specific Setup"
               contents:
                 - python-installations.qmd
