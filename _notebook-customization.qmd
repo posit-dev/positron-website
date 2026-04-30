@@ -1,3 +1,1 @@
-### Customization
-
-To set the default working directory for a notebook, use the [`notebook.workingDirectory`](positron://settings/notebook.workingDirectory) setting.
+- To set the default working directory for a notebook, use the [`notebook.workingDirectory`](positron://settings/notebook.workingDirectory) setting.
