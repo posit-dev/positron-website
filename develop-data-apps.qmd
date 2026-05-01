@@ -9,24 +9,29 @@ Positron provides a simplified method for running interactive data apps via the 
 
 ## Supported app frameworks
 
-Currently, Positron supports the following Python app frameworks:
+Positron supports the following app frameworks:
+
+**Python:**
 
 - [Dash](https://dash.plotly.com/)
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [Flask](https://flask.palletsprojects.com/en/stable/)
 - [Gradio](https://www.gradio.app/)
 - [Streamlit](https://streamlit.io/)
-- [Shiny](https://shiny.posit.co/py/) via the [Shiny extension](https://open-vsx.org/extension/posit/shiny) which is included as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions)
+
+**Python and R:**
+
+- [Shiny](https://shiny.posit.co/) via the [Shiny extension](https://open-vsx.org/extension/posit/shiny), included as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions)
 
 ## Running a data app
 
-1. Open the `.py` file of a supported app framework.
+1. Open the app file (`.py` or `.R`) of a supported app framework.
 2. In Editor Actions, select **Play**.
 
     ![Positron App Launcher Play button](images/run-app-play-button.png){fig-alt="Close-up of the Play button in the Editor action bar."}
 
-Then, Positron runs the app in a dedicated **Terminal** tab and opens the app URL in the **Viewer** pane.
-If your application does not automatically open in the Viewer, check that the settings [`python.terminal.shellIntegration.enabled`](positron://settings/python.terminal.shellIntegration.enabled) and [`terminal.integrated.shellIntegration.enabled`](positron://settings/terminal.integrated.shellIntegration.enabled) are enabled.
+Positron opens the app URL in the **Viewer** pane. Python apps all run in a dedicated **Terminal** tab, while R Shiny apps run in a **Console** session (for a better debugging experience).
+If your Python application does not automatically open in the Viewer, check that the settings [`python.terminal.shellIntegration.enabled`](positron://settings/python.terminal.shellIntegration.enabled) and [`terminal.integrated.shellIntegration.enabled`](positron://settings/terminal.integrated.shellIntegration.enabled) are enabled.
 
 ![A Streamlit app in the Positron Viewer](images/run-app-streamlit.png){fig-alt="Streamlit app running in the Positron Viewer pane showing a slider input and squared value output."}
 
@@ -35,13 +40,38 @@ To stop the app, you can either:
 - Select the interrupt button in the **Viewer** pane toolbar.
 - Select the **Terminal** tab running the application and use the trash can icon to delete the **Terminal** or press {{< kbd Ctrl-C >}} to stop the process.
 
+## Choosing where apps open
+
+By default, apps open in the **Viewer** pane. You can change this depending on how you launch the app.
+
+### Via the Play button {#play-button-preview}
+
+The [`positron.runApp.previewMode`](positron://settings/positron.runApp.previewMode) setting controls where the app opens:
+
+| Value | Behavior |
+|-------|----------|
+| `viewer` | Opens in the **Viewer** pane (default) |
+| `editor` | Opens in an editor tab |
+| `external` | Opens in the default external browser |
+| `none` | Does not open the app automatically |
+
+R Shiny apps use this setting by default. The [Shiny extension](https://open-vsx.org/extension/posit/shiny)'s [`shiny.previewType`](positron://settings/shiny.previewType) setting can override it, and is the primary control for Python Shiny apps.
+
+### From the Console {#console-preview}
+
+When you run an R Shiny app directly from the **Console** (e.g., with `shiny::runApp()`), the app opens in the **Viewer** pane by default. To change this behavior:
+
+- **To open in the external browser**: Set [`positron.viewer.openLocalhostUrls`](positron://settings/positron.viewer.openLocalhostUrls) to `false` in your Positron settings.
+
+- **To prevent the app from opening at all**: Set `options(shiny.launch.browser = FALSE)` or call `shiny::runApp(launch.browser = FALSE)`.
+
 ## Debugging a data app
 
 1. Open the `.py` file of a supported app framework.
 2. Set breakpoints in the `.py` file by selecting the editor margin.
 
     ![Editor margin area for adding breakpoints](images/run-app-debug-breakpoint.png){fig-alt="Editor showing a red breakpoint dot in the left margin next to a line of Python code."}
-3. Select the **Play** button dropdown context menu and choose **Debug [*{SUPPORTED_APP_TYPE}*] App in Terminal**.  
+3. Select the **Play** button dropdown context menu and choose **Debug [*{SUPPORTED_APP_TYPE}*] App in Terminal**.
     - For this example, we select **Debug Steamlit App in Terminal**.
 
     ![Play button dropdown context menu](images/run-app-debug-streamlit.png){fig-alt="Play button dropdown menu showing options including Run Streamlit App in Terminal and Debug Streamlit App in Terminal."}
