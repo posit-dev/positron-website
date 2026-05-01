@@ -79,3 +79,5 @@ When you run an R Shiny app directly from the **Console** (e.g., with `shiny::ru
 Then, Positron runs the app in a dedicated **Terminal** tab, opens the app URL in the **Viewer** pane, and starts the app in debug mode.
 
 ![A Streamlit app running in debug mode; paused at a breakpoint](images/run-app-debug-streamlit-paused-at-breakpoint.png){fig-alt="Positron IDE showing a Streamlit app paused at a breakpoint with the debug toolbar visible and Variables displayed in the Debug pane."}
+
+For debugging R Shiny apps, see [Debugging Shiny apps](guide-r-debugging.qmd#debugging-shiny-apps) in the R debugging guide.
