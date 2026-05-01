@@ -7,7 +7,7 @@
 /redirect/aws-bedrock-iam-permissions  https://docs.posit.co/ide/server-pro/admin/authenticating_users/aws_credentials.html#amazon-bedrock-permissions
 
 # Moving blog over to https://opensource.posit.co/blog/
-/blog  https://opensource.posit.co/tags/positron/
+/blog  https://opensource.posit.co/blog/q/positron/
 /blog/posts/2026-03-05-outgrow-your-laptop/  https://opensource.posit.co/blog/2026-03-05_outgrow-your-laptop/
 /blog/posts/2026-03-12-notebooks-march-announcement/  https://opensource.posit.co/blog/2026-03-16_notebooks-march-announcement/
 /blog/posts/2026-03-31-python-type-checkers/  https://opensource.posit.co/blog/2026-03-31_python-type-checkers/

@@ -56,7 +56,7 @@ website:
             icon: envelope
           - text: "Positron at Posit Open Source"
             icon: code-slash
-            href: https://opensource.posit.co/tags/positron/
+            href: https://opensource.posit.co/blog/q/positron/
             target: _blank  
           - text: "Company Blog Posts"
             icon: box-arrow-up-right
