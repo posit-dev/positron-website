@@ -96,7 +96,7 @@ Extensions can offer Positron powerful new capabilities. However, they can also 
 
 Positron has no control over the behavior of third-party extensions, including how they manage your personal data. You should only install third-party extensions if you trust the publisher. 
 
-OpenVSX has several mechanisms in place to help protect users, including requiring membership within a [namespace to publish](https://github.com/eclipse/openvsx/wiki/Namespace-Access) and displaying a Verified Publisher badge for specific, verified namespaces.
+Open VSX has several mechanisms in place to help protect users, including requiring membership within a [namespace to publish](https://github.com/eclipse/openvsx/wiki/Namespace-Access) and displaying a Verified Publisher badge for specific, verified namespaces.
 
 For example, Posit’s Air extension displays the “Posit Software, PBC” Verified Publisher badge, and “lionel-”, the developer from Posit who published the extension.
 
@@ -114,6 +114,6 @@ Additionally, when you first install an extension from a namespace you have not 
 
 ![Modal prompt to confirm trust in that specific extension publisher](images/extension-publisher-trust.png){width=500}
 
-OpenVSX removes known malicious extensions and also makes use of the extension blocklist from the VS Code marketplace. To report suspicious or questionable extensions, or to report abuse, please reach out to OpenVSX via their [security portal](https://github.com/eclipse/openvsx/security) or via the “Report Abuse” button on the specific extension’s page of OpenVSX.
+Open VSX removes known malicious extensions and also makes use of the extension blocklist from the VS Code marketplace. To report suspicious or questionable extensions, or to report abuse, please reach out to Open VSX via their [security portal](https://github.com/eclipse/openvsx/security) or via the “Report Abuse” button on the specific extension’s page of Open VSX.
 
 For more information about the full set of extension privileges and security that come from upstream Code OSS, please see the VS Code documentation on [Extension runtime security](https://code.visualstudio.com/docs/configure/extensions/extension-runtime-security).

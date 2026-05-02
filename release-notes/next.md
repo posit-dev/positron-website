@@ -74,7 +74,7 @@ This release introduces two new AI options: Posit Assistant and Posit AI.
 - [[#13195](https://github.com/posit-dev/positron/issues/13195)] Assistant: Console "Fix" and "Explain" buttons now route error context to the Posit Assistant extension's new chat API.
 - [[#13120](https://github.com/posit-dev/positron/issues/13120)] Assistant: Posit AI provider is out of preview.
 - [[#12875](https://github.com/posit-dev/positron/issues/12875)] Extensions: now use Posit Public Package Manager by default for Positron's extension gallery.
-- [[#12877](https://github.com/posit-dev/positron/issues/12877)] Extensions: the new [`positron.extensions.gallerySource`](positron://settings/positron.extensions.gallerySource) setting allows users to switch the extension gallery between OpenVSX or P3M.
+- [[#12877](https://github.com/posit-dev/positron/issues/12877)] Extensions: the new [`positron.extensions.gallerySource`](positron://settings/positron.extensions.gallerySource) setting allows users to switch the extension gallery between Open VSX or P3M.
 - [[#2136](https://github.com/posit-dev/positron/issues/2136)] Console: added find/search functionality to the Console (<kbd>Cmd/Ctrl+F</kbd>) with support for case-sensitive, whole-word, and regex modes.
 - [[#8359](https://github.com/posit-dev/positron/issues/8359)] Python: if no usable Pythons are found, provide installation of `uv` and a supported Python version.
 - [[#12624](https://github.com/posit-dev/positron/issues/12624)] R: package names preceding `::` and `:::` are now assigned the `entity.name.namespace` TextMate scope, allowing them to be styled independently from regular variables.
