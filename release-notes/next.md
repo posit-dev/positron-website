@@ -88,7 +88,7 @@ This release introduces two new AI options: Posit Assistant and Posit AI.
 
 - [[#11802](https://github.com/posit-dev/positron/issues/11802)] Notebooks: fixed how notebook rendering errors could produce a blank screen instead of showing the error recovery UI.
 - [[#12610](https://github.com/posit-dev/positron/issues/12610)] Notebooks: now clean up orphaned notebook consoles when notebook is closed.
-- [[#11802](https://github.com/posit-dev/positron/issues/11802)] Notebooks: non-iPywidget HTML-based outputs now render properly.
+- [[#11802](https://github.com/posit-dev/positron/issues/11802)] Notebooks: non-ipywidgets HTML-based outputs now render properly.
 - [[#12914](https://github.com/posit-dev/positron/issues/12914)] Notebooks: fixed a crash in the notebook kernel selector when a notebook replaces another notebook in a preview tab.
 - [[#12947](https://github.com/posit-dev/positron/issues/12947)] Notebooks: fixed cell outputs flashing briefly when re-running a cell.
 - [[#12065](https://github.com/posit-dev/positron/issues/12065)] Notebooks: fixed inline Data Explorer sort indicators disappearing after switching tabs.
@@ -118,7 +118,7 @@ This release introduces two new AI options: Posit Assistant and Posit AI.
 - [[#9852](https://github.com/posit-dev/positron/issues/9852)] Console: fixed performance problems in long-running sessions.
 - [[#11230](https://github.com/posit-dev/positron/issues/11230)] Console: fixed the Console hanging on first startup after upgrading Positron.
 - [[#13152](https://github.com/posit-dev/positron/issues/13152)] Console: fixed input field not pre-selecting text when renaming a Console session.
-- [[#12349](https://github.com/posit-dev/positron/issues/12349)] Python: fixed Python extension activation and interpreter discovery blocking startup, and speed it up.
+- [[#12349](https://github.com/posit-dev/positron/issues/12349)] Python: fixed Python extension activation and interpreter discovery blocking startup, and sped it up.
 - [[#12397](https://github.com/posit-dev/positron/issues/12397)] Python: Conda environments without Python will get Python installed upon selection, not discovery.
 - [[#12367](https://github.com/posit-dev/positron/issues/12367)] R: fixed loading `.RData`/`.rds` files from the Explorer on Windows.
 - [[#13229](https://github.com/posit-dev/positron/issues/13229)] R: fixed incorrect URL matching when starting a Shiny app.
