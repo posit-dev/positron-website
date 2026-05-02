@@ -8,6 +8,8 @@ Welcome to the 2026.05.0 release of Positron!
 - [Positron Notebook Editor is now in beta](#positron-notebook-editor-is-now-in-beta)
 - [Posit Assistant and Posit AI](#posit-assistant-and-posit-ai)
 
+<div id="checkbox"></div>
+
 #### Announcing the Packages pane
 
 Our Packages pane is available in this release as a preview feature. The new Packages pane brings streamlined package management directly into the IDE so you can see at a glance what's installed, what's attached, and what's out of date. Find it in the Primary Sidebar by clicking the package icon. Positron automatically detects and integrates with your current interpreter; today we have support for pip, venv, uv, and conda for Python, plus base R, pak, and renv for R. You can search, sort, install, update, remove, filter by category (including "Outdated Packages"), and even see which packages are attached in your current session. To hide the pane, disable [`positron.packages.enable`](positron://settings/positron.packages.enable). [Let us know](https://github.com/posit-dev/positron/discussions) how it fits into your workflow.
@@ -41,8 +43,6 @@ This release introduces two new AI options: Posit Assistant and Posit AI.
 - [Posit AI](https://posit.co/products/ai) is a new, optional model provider service available to use with Posit Assistant. Posit AI is a subscription priced at $20/month for individual users; both Positron and Posit Assistant remain free to use. [Learn how to sign up for an account](https://posit.co/products/ai).
 
 
-<div id="checkbox"></div>
-
 ### Changelog
 
 #### New features
@@ -59,7 +59,7 @@ This release introduces two new AI options: Posit Assistant and Posit AI.
 - [[#10246](https://github.com/posit-dev/positron/issues/10246)] Notebooks: surface "Restart Kernel" as a top-level toolbar button instead of nesting it in the kernel badge dropdown.
 - [[#12616](https://github.com/posit-dev/positron/issues/12616)] Quarto: automatically start a kernel when a Quarto document with inline output is opened, instead of waiting until code is run.
 - [[#12155](https://github.com/posit-dev/positron/issues/12155)] Quarto: inline output cells now have a new status line showing execution status and time.
-- [[#12789](https://github.com/posit-dev/positron/issues/12789)] Quarto: fix "Show Notebook Console" to work with Quarto inline output.
+- [[#12789](https://github.com/posit-dev/positron/issues/12789)] Quarto: updated "Show Notebook Console" to work with Quarto inline output.
 - [[#12684](https://github.com/posit-dev/positron/issues/12684)] Quarto: added tool to switch the interpreter used to run code with inline output.
 - [[#12985](https://github.com/posit-dev/positron/issues/12985)] Quarto: inline outputs are now collapsible.
 - [[#12928](https://github.com/posit-dev/positron/issues/12928)] Packages: added support for supplementing Packages pane with metadata from Posit Public Package Manager.
@@ -93,10 +93,10 @@ This release introduces two new AI options: Posit Assistant and Posit AI.
 - [[#12947](https://github.com/posit-dev/positron/issues/12947)] Notebooks: fixed cell outputs flashing briefly when re-running a cell.
 - [[#12065](https://github.com/posit-dev/positron/issues/12065)] Notebooks: fixed inline Data Explorer sort indicators disappearing after switching tabs.
 - [[#11777](https://github.com/posit-dev/positron/issues/11777)] Notebooks: fixed scroll position not being restored when switching tabs or reloading the window.
-- [[#12320](https://github.com/posit-dev/positron/issues/12320)] Notebooks: route relative markdown links in cells to the correct file.
+- [[#12320](https://github.com/posit-dev/positron/issues/12320)] Notebooks: now route relative markdown links in cells to the correct file.
 - [[#12317](https://github.com/posit-dev/positron/issues/12317)] Notebooks: fixed scrolling over Plotly charts and other webview-hosted outputs.
 - [[#12615](https://github.com/posit-dev/positron/issues/12615)] Notebooks: AI features now respect the [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes) setting.
-- [[#13244](https://github.com/posit-dev/positron/issues/13244)] Notebooks: strip ANSI escape codes when copying cell output text via the cell context menu.
+- [[#13244](https://github.com/posit-dev/positron/issues/13244)] Notebooks: now strip ANSI escape codes when copying cell output text via the cell context menu.
 - [[#12604](https://github.com/posit-dev/positron/issues/12604)] Notebooks: switching back to a tab with a large notebook no longer freezes the UI while Monaco editors are recreated.
 - [[#12662](https://github.com/posit-dev/positron/issues/12662)] Quarto: fixed stray execution indicators in editor gutter when executing cells in a Quarto document with inline output.
 - [[#12614](https://github.com/posit-dev/positron/issues/12614)] Quarto: fixed the Quarto kernel selector appearing on non-Quarto editor panes when a Quarto document is open alongside other editors.
