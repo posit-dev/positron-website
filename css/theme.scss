@@ -82,6 +82,14 @@ nav .nav-item:not(.compact) {
   margin-bottom: -6px !important;
 }
 
+// Supported by Posit badge - show in mobile collapsed menu
+@media (max-width: 991.98px) {
+  #supported-by-posit {
+    display: flex !important;
+    margin: 10px 0 !important;
+  }
+}
+
 // Sidebar
 div.sidebar-item-container .active,
 div.sidebar-item-container .show > .nav-link,
