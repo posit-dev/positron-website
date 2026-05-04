@@ -84,6 +84,16 @@ You can opt into formatting your R code every time you save a file, using Air (r
 
 Read more about [formatting R code with Air](guide-r-air.qmd).
 
+### Shiny app preview
+
+In RStudio, setting `options(shiny.launch.browser = TRUE)` in your `.Rprofile` opens Shiny apps in the external browser instead of the internal viewer. In Positron, where the app opens depends on how you launch it:
+
+- **Via the Play button**: The [`positron.runApp.previewMode`](positron://settings/positron.runApp.previewMode) setting controls where the app opens. The [Shiny extension](https://open-vsx.org/extension/posit/shiny)'s [`shiny.previewType`](positron://settings/shiny.previewType) setting can override this.
+
+- **From the Console** (e.g., `shiny::runApp()`): Apps open in the **Viewer** pane by default. To open in the external browser instead, set [`positron.viewer.openLocalhostUrls`](positron://settings/positron.viewer.openLocalhostUrls) to `false`. Unlike in RStudio, the `shiny.launch.browser` R option only controls whether the app is opened at all (set it to `FALSE` to prevent the app from opening).
+
+See [Develop Data Apps](develop-data-apps.qmd#choosing-where-apps-open) for more details.
+
 ## Extensions for RStudio users
 
 You can use extensions to customize your IDE theme. For example, install [Tomorrow Night Bright (R Classic)](https://open-vsx.org/extension/gvelasq/tomorrow-night-bright-r-classic) for an RStudio theme that has been ported to Positron.[^2]

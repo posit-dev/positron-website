@@ -35,13 +35,26 @@ To stop the app, you can either:
 - Select the interrupt button in the **Viewer** pane toolbar.
 - Select the **Terminal** tab running the application and use the trash can icon to delete the **Terminal** or press {{< kbd Ctrl-C >}} to stop the process.
 
+## Choosing where apps open
+
+By default, apps open in the **Viewer** pane. The [`positron.runApp.previewMode`](positron://settings/positron.runApp.previewMode) setting controls where the app opens:
+
+| Value | Behavior |
+|-------|----------|
+| `viewer` | Opens in the **Viewer** pane (default) |
+| `editor` | Opens in an editor tab |
+| `external` | Opens in the default external browser |
+| `none` | Does not open the app automatically |
+
+Python Shiny apps use the [Shiny extension](https://open-vsx.org/extension/posit/shiny)'s [`shiny.previewType`](positron://settings/shiny.previewType) setting instead.
+
 ## Debugging a data app
 
 1. Open the `.py` file of a supported app framework.
 2. Set breakpoints in the `.py` file by selecting the editor margin.
 
     ![Editor margin area for adding breakpoints](images/run-app-debug-breakpoint.png){fig-alt="Editor showing a red breakpoint dot in the left margin next to a line of Python code."}
-3. Select the **Play** button dropdown context menu and choose **Debug [*{SUPPORTED_APP_TYPE}*] App in Terminal**.  
+3. Select the **Play** button dropdown context menu and choose **Debug [*{SUPPORTED_APP_TYPE}*] App in Terminal**.
     - For this example, we select **Debug Steamlit App in Terminal**.
 
     ![Play button dropdown context menu](images/run-app-debug-streamlit.png){fig-alt="Play button dropdown menu showing options including Run Streamlit App in Terminal and Debug Streamlit App in Terminal."}
