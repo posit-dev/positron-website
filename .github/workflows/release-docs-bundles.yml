@@ -43,6 +43,11 @@ on:
         default: releases
         required: true
         type: choice
+      create_release:
+        description: 'Create a new GitHub release (uncheck to upload assets to an existing release)'
+        required: false
+        type: boolean
+        default: true
 
 name: Release Documentation Bundles
 
