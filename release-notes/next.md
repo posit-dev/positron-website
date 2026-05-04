@@ -12,7 +12,11 @@ Welcome to the 2026.05.0 release of Positron!
 
 #### Announcing the Packages pane
 
-Our Packages pane is available in this release as a preview feature. The new Packages pane brings streamlined package management directly into the IDE so you can see at a glance what's installed, what's attached, and what's out of date. Find it in the Primary Sidebar by clicking the package icon. Positron automatically detects and integrates with your current interpreter; today we have support for pip, venv, uv, and conda for Python, plus base R, pak, and renv for R. You can search, sort, install, update, remove, filter by category (including "Outdated Packages"), and even see which packages are attached in your current session. To hide the pane, disable [`positron.packages.enable`](positron://settings/positron.packages.enable). [Let us know](https://github.com/posit-dev/positron/discussions) how it fits into your workflow.
+Our Packages pane is available in this release as a preview feature. The new Packages pane brings streamlined package management directly into the IDE so you can see at a glance what's installed, what's attached, and what's out of date. 
+
+<img src="https://cdn.posit.co/positron/releases/release-notes/assets/2026-05-packages-pane.png" alt="The Packages pane showing installed Python packages">
+
+Find it in the Primary Sidebar by clicking the package icon. Positron automatically detects and integrates with your current interpreter; today we have support for pip, venv, uv, and conda for Python, plus base R, pak, and renv for R. You can search, sort, install, update, remove, filter by category (including "Outdated Packages"), and even see which packages are attached in your current session. To hide the pane, disable [`positron.packages.enable`](positron://settings/positron.packages.enable). [Let us know](https://github.com/posit-dev/positron/discussions) how it fits into your workflow.
 
 #### Inline output for Quarto
 
