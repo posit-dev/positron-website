@@ -30,7 +30,7 @@ Positron's [Command Palette](command-palette.qmd) does provide commands for work
 
 ## Using the Quarto extension
 
-The Quarto extension is included as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions) in Positron. This means that it will behave just like you installed it yourself; this extension will update automatically when a new version is available on Open VSX and it can be uninstalled if desired.
+The Quarto extension is included as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions) in Positron. This means that it will behave just like you installed it yourself; this extension will update automatically when a new version is available from the [extension gallery](extensions.qmd#extension-gallery) and it can be uninstalled if desired.
 
 ## Managing Quarto installations
 

@@ -109,7 +109,7 @@ Many internal devs and users are enjoying the [Project Manager extension](https:
 There are probably other extensions that offer similar functionality.
 We'll point out some specifics about Project Manager here, but the main goal is to raise awareness of how useful an extension like this can be.
 
-After installing Project Manager from the Open VSX Registry, it appears as a stack of folders in the Activity Bar.
+After installing Project Manager from the [extension gallery](extensions.qmd#extension-gallery), it appears as a stack of folders in the Activity Bar.
 When selected, you gain access to a selectable, organized listing of your projects.
 
 ::: {.float-end .mx-4}

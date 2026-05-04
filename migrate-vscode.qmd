@@ -37,7 +37,7 @@ If you skip this step, you can import settings at any time by running the _Prefe
 
 Positron supports many extensions that you use in VS Code. These extensions can be installed using the Extensions pane, found in the Positron sidebar.
 
-If an extension does not appear in your search, it may be unavailable on the extension marketplace that Positron uses, [Open VSX](https://open-vsx.org/). You can contact the developer of that extension to [request its publication to Open VSX](extensions.qmd#open-vsx) for installation in Positron.
+If an extension does not appear in your search, it may be unavailable from the [extension gallery](extensions.qmd#extension-gallery) that Positron uses. By default, Positron uses [Posit Public Package Manager](https://p3m.dev) (P3M), which serves the same catalog as [Open VSX](https://open-vsx.org/). You can contact the developer of that extension to [request its publication to Open VSX](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md) for installation in Positron.
 
 ::: callout-note
 Positron comes bundled with several useful extensions, including those for Quarto, Jupyter notebooks, and Pyright. It also includes built-in extensions to enable language features. More information about these default extensions can be found in the [Extensions documentation](extensions.qmd#included-extensions).
