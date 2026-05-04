@@ -16,9 +16,9 @@ The Positron Notebook Editor provides a familiar notebook experience for Jupyter
 - **Batteries-included experience**: No extensions required for core features
 - **Improved user experience**: Optimized for data science workflows
 - **Notebook-aware AI assistance**: AI understands your notebook context, execution history, and execution order
-- **Integrated data exploration**: **Variables** pane and Data Explorer work seamlessly
+- **Integrated data exploration**: Variables pane and Data Explorer work seamlessly
 - **Debugging**: Works out of the box without additional setup
-- **Improved version control**: Control what metadata is saved and easily convert Jupyter notebooks to Quarto notebooks for better diffing and version control
+- **Improved version control**: Control what metadata is saved for better diffing and version control
 
 ## Enable the Positron Notebook Editor
 
@@ -52,9 +52,7 @@ Alternatively, you can run the *Positron Notebook: Change Kernel...* command fro
 
 ## Version control
 
-The Positron Notebook Editor controls what metadata is saved to the notebook file. This makes notebooks more version-control-friendly. By default, cell outputs are saved but execution counts are not. You can adjust this behavior with the [`notebook.save.outputs`](positron://settings/notebook.save.outputs) and [`notebook.save.executionCounts`](positron://settings/notebook.save.executionCounts) settings.
-
-For cleaner diffs, you can convert a Jupyter notebook to a Quarto notebook (`.qmd`) by running the _Quarto: Convert to Quarto Document_ command from the Command Palette. Quarto notebooks store code and markdown as plain text, making them easier to review in pull requests. For more information on Quarto convert see [the Quarto documentation](https://quarto.org/docs/cli/convert.html).
+The Positron Notebook Editor controls what metadata is saved to the notebook file. This makes notebooks more version-control-friendly. By default, cell outputs are saved but execution counts are not. You can adjust this behavior with the [Saving settings](#saving) below.
 
 ## Positron Assistant integration
 
