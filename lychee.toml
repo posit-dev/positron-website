@@ -11,5 +11,6 @@ exclude = [
 ]
 
 # 403 (Forbidden) and 429 (Too Many Requests) are returned by sites that
-# block automated requests, not broken links.
-accept = [200, 403, 429]
+# block automated requests, not broken links. 502 (Bad Gateway) is a
+# transient upstream error (e.g. open-vsx.org), not a broken link.
+accept = [200, 403, 429, 502]
