@@ -10,7 +10,6 @@ project:
     - "!dev-containers.qmd"
     - "!add-to-path.qmd"
     - "!education.qmd"
-    - "!blog/**"
   resources:
     - _redirects
     - "!videos/**"
@@ -59,6 +58,14 @@ website:
         href: about.qmd
       - text: "Resources"
         menu:
+          - text: "Sign up for updates"
+            href: https://posit.co/positron-updates-signup/
+            target: _blank
+            icon: envelope
+          - text: "Positron at Posit Open Source"
+            icon: code-slash
+            href: https://opensource.posit.co/blog/q/positron/
+            target: _blank  
           - text: "Company Blog Posts"
             icon: box-arrow-up-right
             href: https://posit.co/blog/?post_tag=positron  

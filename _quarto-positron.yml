@@ -48,14 +48,16 @@ website:
         href: troubleshooting.qmd
       - text: "About"
         href: about.qmd
-      - text: "Blog"
-        href: blog/index.qmd
       - text: "Resources"
         menu:
           - text: "Sign up for updates"
             href: https://posit.co/positron-updates-signup/
             target: _blank
             icon: envelope
+          - text: "Positron at Posit Open Source"
+            icon: code-slash
+            href: https://opensource.posit.co/blog/q/positron/
+            target: _blank  
           - text: "Company Blog Posts"
             icon: box-arrow-up-right
             href: https://posit.co/blog/?post_tag=positron  
@@ -71,9 +73,6 @@ website:
       - icon: github
         aria-label: 'Link to Positron Github Repository'
         href: https://github.com/posit-dev/positron
-      - icon: rss
-        href: https://positron.posit.co/blog/index.xml
-        aria-label: Positron Blog RSS
       - text: '<span id="custom-ask-ai-button">Ask AI ✨</span>'
         href: "javascript:void(0);"
     
