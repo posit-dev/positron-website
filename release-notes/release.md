@@ -1,4 +1,8 @@
-### Highlights
+### Patch notes
+
+The [2026.05.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.05.1-2) (2026-05-06) provides corrected builds for x64/Intel macOS.
+
+### Release highlights
 
 Welcome to the 2026.05.0 release of Positron!
 
