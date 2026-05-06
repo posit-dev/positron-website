@@ -4,7 +4,7 @@ description: "Deploy reports, apps, and APIs directly from Positron to Posit Con
 
 ---
 
-Publish your data science work directly from Positron to [Posit Connect](https://posit.co/products/enterprise/connect/) and [Posit Connect Cloud](https://connect.posit.cloud/) with the built-in [Publisher extension](https://open-vsx.org/extension/posit/publisher).
+Publish your data science work directly from Positron to [Posit Connect](https://posit.co/products/enterprise/connect/) and [Posit Connect Cloud](https://connect.posit.cloud/) with the built-in [Publisher extension](https://posit-dev.github.io/publisher/).
 
 Whether you're sharing reports, applications, or APIs, the Publisher extension streamlines the deployment process and makes it easy to get your work in front of stakeholders quickly with a button click.
 
@@ -29,6 +29,6 @@ Once your project is ready for publication, you can publish directly from Positr
 
 ## Getting help
 
-- See the [troubleshooting guide](https://github.com/posit-dev/publisher/blob/main/docs/troubleshooting.md) for the Publisher extension.
+- See the [troubleshooting guide](https://posit-dev.github.io/publisher/troubleshooting.html) for the Publisher extension.
 - Review the [Publisher extension repository](https://github.com/posit-dev/publisher) for updates and issues.
 - Check out both the [Posit Connect documentation](https://docs.posit.co/connect/) and the [Posit Connect Cloud documentation](https://docs.posit.co/connect-cloud/).
