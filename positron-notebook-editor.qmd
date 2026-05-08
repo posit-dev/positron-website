@@ -76,7 +76,7 @@ To use the integrated notebook AI features, you will need to set up Positron Ass
 
 Once enabled, you will see assistant specific actions in the notebook editor action bar.
 
-![The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle.](images/positron-notebook-assistant-action-bar.png){fig-alt="Notebook action bar showing the Assistant icon button and Follow Assistant toggle option."}
+![The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle.](images/positron-notebook-assistant-action-bar.png){fig-alt="Notebook action bar showing the Assistant icon button."}
 
 ### Notebook Assistant panel
 
