@@ -1,6 +1,6 @@
 ### Selecting a notebook kernel
 
-When you first open a Jupyter Notebook, Positron starts a notebook session for it and automatically selects an interpreter based on the notebook's language, the current workspace, and your configuration. The interpreter used by the notebook is visible in the **Kernel Selector** in the notebook editor action bar.
+When you first open a Jupyter Notebook, Positron starts a notebook session and automatically selects an interpreter based on the notebook's language, the current workspace, and your configuration. The interpreter used by the notebook is visible in the **Kernel Selector** in the notebook editor action bar.
 
 Each notebook session belongs to one notebook editor. Closing the notebook editor shuts down the session.
 

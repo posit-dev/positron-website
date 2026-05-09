@@ -10,9 +10,9 @@ Positron has two types of interpreter sessions:
 * **Console sessions** drive the **Console** pane. Create and manage them from the Interpreter picker or the **Console** pane.
 * **Notebook sessions** are tied to a specific notebook. Create and manage them from the notebook editor's Kernel Selector.
 
-The Interpreter picker lists every running interpreter session so you can see and switch between them from one place.
+The Interpreter picker lists every running interpreter session so you can manage them all from one place.
 
-At any given time, one interpreter session is designated as the **active interpreter session**. This is the language environment currently in use for interactive and language-specific features within the IDE.
+At any given time, one interpreter session is designated as the _active_ interpreter session. This is the language environment currently in use for interactive and language-specific features within the IDE.
 
 ## Interpreter sessions
 
