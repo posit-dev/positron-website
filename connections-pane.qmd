@@ -71,6 +71,6 @@ You can then either use `%connection_show conn` to open the connection in the **
 
 You can open an existing connection that you created from Python or R from the [**Variables** pane](variables-pane.qmd):
 
-![Variables pane showing a connection object](images/connections-pane-variables-pane.png){fig-alt="Variables pane showing a conn variable with sqlite3.Connection type and a database icon button highlighted with a red square."}
+![Variables pane showing a connection object](images/connections-pane-variables-pane.png){width=500 fig-alt="Variables pane showing a conn variable with sqlite3.Connection type and a database icon button highlighted with a red square."}
 
 Select the database icon to bring up the **Connections** pane, allowing you to navigate the database.
