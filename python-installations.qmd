@@ -148,5 +148,5 @@ Key settings that control Python environment discovery:
 ## Related commands
 
 * _Interpreter: Discover All Interpreters_: Find new interpreters
-* _Interpreter: Select Interpreter Session_: Select an interpreter for a session
+* _Interpreter: Select Session_: Select a running interpreter session
 * _Python: Create Environment_: Create a new virtual environment

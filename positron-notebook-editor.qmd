@@ -48,7 +48,11 @@ If an environment installed on your computer is not available in Positron, you m
 
 You can select a different interpreter for the notebook by selecting the **Kernel Selector** in the notebook editor action bar. The **Change Kernel...** option will display a list of all the registered interpreters. Select an interpreter from the list.
 
-Alternatively, you can run the *Positron Notebook: Change Kernel...* command from the Command Palette.
+Alternatively, you can run the _Positron Notebook: Change Kernel..._ command from the Command Palette.
+
+When a notebook is the active editor, the Interpreter picker also offers a **Change Notebook Session...** action that opens the same kernel-selection list.
+
+You can restart the notebook session at any time by selecting the {{<fa rotate-right>}} icon in the notebook editor action bar.
 
 ## Version control
 
@@ -72,7 +76,7 @@ To use the integrated notebook AI features, you will need to set up Positron Ass
 
 Once enabled, you will see assistant specific actions in the notebook editor action bar.
 
-![The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle.](images/positron-notebook-assistant-action-bar.png){fig-alt="Notebook action bar showing the Assistant icon button and Follow Assistant toggle option."}
+![The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle.](images/positron-notebook-assistant-action-bar.png){fig-alt="Notebook action bar showing the Assistant icon button."}
 
 ### Notebook Assistant panel
 
