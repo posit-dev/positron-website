@@ -102,9 +102,9 @@ Positron has no control over the behavior of third-party extensions, including h
 
 Open VSX has several mechanisms in place to help protect users, including requiring membership within a [namespace to publish](https://github.com/eclipse/openvsx/wiki/Namespace-Access) and displaying a Verified Publisher badge for specific, verified namespaces.
 
-For example, Posit’s Air extension displays the “Posit Software, PBC” Verified Publisher badge, and “lionel-”, the developer from Posit who published the extension.
+For example, Posit’s Air extension displays the “Posit Software, PBC” Verified Publisher badge.
 
-![Air extension as displayed in the Extensions pane of Positron](images/extension-verified-publisher.png){width=600}
+![Air extension as displayed in Positron](images/extension-verified-publisher.png){width=600}
 
 You can vet an extension in a few different ways:
 
