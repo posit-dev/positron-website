@@ -19,7 +19,7 @@ The Data Explorer has three primary components:
 * **[Summary panel](data-explorer-summary-panel.qmd):** Summary statistics for each column in the dataset
 * **[Filter bar](data-explorer-filter-bar.qmd):** Ephemeral filters for specific columns
 
-![Data Explorer](images/data-explorer.png){fig-alt="Data explorer displaying filtered flight data. Left column shows column distribution and summary statistics. Main section lists data in a table sorted by month in ascending order. Top section shows filters such as dep_time is not missing, month > 1."}
+![Data Explorer](images/data-explorer.png){.drop-shadow fig-alt="Data explorer displaying filtered flight data. Left column shows column distribution and summary statistics. Main section lists data in a table sorted by month in ascending order. Top section shows filters such as dep_time is not missing, month > 1."}
 
 ## Opening the Data Explorer
 
