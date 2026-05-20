@@ -10,6 +10,7 @@ Positron can optionally display the output of Quarto cells in the source editor,
 When inline output is disabled, Positron's Quarto execution model is similar to RStudio's; running code from a Quarto cell sends it to the Console where you have Python or R running.
 
 ```{mermaid}
+%%| fig-align: center
 graph LR
 q1[Quarto Doc 1] --> rc[Console]
 q2[Quarto Doc 2] --> rc
@@ -19,6 +20,7 @@ q3[Quarto Doc 3] --> rc
 When inline output is enabled, the execution model changes, and the Quarto document behaves more like a Jupyter Notebook. Positron creates an isolated Python or R session for each `.qmd` file. This matches typical render-time behavior, improves reproducibility by using a clean environment for each document, and resolves ambiguities around working directories.
 
 ```{mermaid}
+%%| fig-align: center
 graph LR
 q1[Quarto Doc 1] --> rc1[Interpreter Session 1]
 q2[Quarto Doc 2] --> rc2[Interpreter Session 2]
