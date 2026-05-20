@@ -152,7 +152,12 @@ website:
             - catalog-explorer.qmd
         - section: "Dynamic Documents and Apps"
           contents:
-            - quarto.qmd
+            - section: "Quarto"
+              href: quarto.qmd
+              contents:
+                - text: "Overview"
+                  href: quarto.qmd
+                - quarto-inline-output.qmd
             - section: "Jupyter Notebooks"
               href: jupyter-notebooks.qmd
               contents:

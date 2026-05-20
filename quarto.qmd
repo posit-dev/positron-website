@@ -9,7 +9,8 @@ Positron enhances how you can use Quarto in several important ways:
 
 - Quarto works out of the box in Positron. The Quarto CLI is bundled in Positron, and the Quarto extension is included as a [bootstrapped extension](extensions.qmd#bootstrapped-extensions).
 - Features such as statement execution work seamlessly in Positron's Console, and Positron supports integrated rendering and preview of Quarto documents.
-- Positron provides rich UI via [custom action bars](action-bars.qmd) to preview your Quarto document, control rendering behavior, and switch between source and visual mode,
+- Positron provides rich UI via [custom action bars](action-bars.qmd) to preview your Quarto document, control rendering behavior, and switch between source and visual mode.
+- Positron can optionally display cell output directly in the source editor; see [Inline Output](quarto-inline-output.qmd) for details.
 
 ![A Quarto document in Positron, with narrative, executable code chunks, and the rendered preview in Positron's integrated Viewer pane.](images/quarto-hello-python.png){width=700}
 
