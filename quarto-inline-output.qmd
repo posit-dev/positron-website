@@ -29,7 +29,7 @@ q3[Quarto Doc 3] --> rc3[Interpreter Session 3]
 
 By default, a Quarto document with inline output enabled behaves like a Jupyter Notebook, and notebooks don't have consoles by default. To pair a console with your document, run the _Console: Show Notebook Console_ command. Notebook consoles let you execute code in the same session used by your Quarto document without changing the document itself, and they echo any code you run from the editor.
 
-To always show a console for your Quarto documents as well as your Jupyter Notebooks, enable the _Console: Show Notebook Consoles_ setting.
+To always show a console for your Quarto documents as well as your Jupyter Notebooks, turn on [`console.showNotebookConsoles`](positron://settings/console.showNotebookConsoles).
 
 ## Managing outputs
 
