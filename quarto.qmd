@@ -21,33 +21,33 @@ Quarto's [visual editor](https://quarto.org/docs/tools/positron/visual-editor.ht
 
 ## Inline output
 
-Positron can optionally display the output of Quarto cells in the source editor, similar to RStudio's [R Notebooks](https://posit.co/blog/r-notebooks) feature. To enable inline output, turn on [`positron.quarto.inlineOutput.enabled`](positron://settings/positron.quarto.inlineOutput.enabled).
+Positron can optionally display the output of Quarto cells in the source editor, similar to a [Jupyter Notebook](jupyter-notebooks.qmd) or RStudio's [R Notebooks](https://posit.co/blog/r-notebooks) feature. To enable inline output, turn on [`positron.quarto.inlineOutput.enabled`](positron://settings/positron.quarto.inlineOutput.enabled).
 
 ### Per-document kernels
 
-When inline output is disabled, Positron's Quarto execution model is similar to RStudio's; running code from a Quarto cell sends it to the R Console.
+When inline output is disabled, Positron's Quarto execution model is similar to RStudio's; running code from a Quarto cell sends it to the Console where you have Python or R running.
 
 ```{mermaid}
 graph LR
-q1[Quarto Doc 1] --> rc[R Console]
+q1[Quarto Doc 1] --> rc[Console]
 q2[Quarto Doc 2] --> rc
 q3[Quarto Doc 3] --> rc
 ```
 
-When inline output is enabled, the execution model changes, and the Quarto document behaves more like a notebook. Positron creates an isolated R or Python session for each `.qmd` file. This matches typical render-time behavior, improves reproducibility by using a clean environment for each document, and resolves ambiguities around working directories.
+When inline output is enabled, the execution model changes, and the Quarto document behaves more like a Jupyter Notebook. Positron creates an isolated Python or R session for each `.qmd` file. This matches typical render-time behavior, improves reproducibility by using a clean environment for each document, and resolves ambiguities around working directories.
 
 ```{mermaid}
 graph LR
-q1[Quarto Doc 1] --> rc1[R Session 1]
-q2[Quarto Doc 2] --> rc2[R Session 2]
-q3[Quarto Doc 3] --> rc3[R Session 3]
+q1[Quarto Doc 1] --> rc1[Kernel Session 1]
+q2[Quarto Doc 2] --> rc2[Kernel Session 2]
+q3[Quarto Doc 3] --> rc3[Kernel Session 3]
 ```
 
 ### Consoles
 
-By default, a Quarto document with inline output enabled behaves like a notebook, and notebooks don't have consoles by default. To pair a console with your document (like RStudio), run the _Console: Show Notebook Console_ command. Notebook consoles let you execute code in the same session used by your Quarto document without changing the document itself, and they echo any code you run from the editor.
+By default, a Quarto document with inline output enabled behaves like a Jupyter Notebook, and notebooks don't have consoles by default. To pair a console with your document, run the _Console: Show Notebook Console_ command. Notebook consoles let you execute code in the same session used by your Quarto document without changing the document itself, and they echo any code you run from the editor.
 
-To always show a console for your Quarto documents, enable the _Console: Show Notebook Consoles_ command.
+To always show a console for your Quarto documents as well as your Jupyter Notebooks, enable the _Console: Show Notebook Consoles_ command.
 
 ### Managing outputs
 
@@ -65,8 +65,8 @@ Inline output for Quarto documents is a new feature in Positron, and has some di
 - There is [no real-time preview for LaTeX equations](https://github.com/posit-dev/positron/issues/13288).
 - Documents containing a mix of R and Python [are not executed with Reticulate](https://github.com/posit-dev/positron/issues/13161).
 - Quarto documents in subfolders [don't run the parent .Rprofile or renv scripts](https://github.com/posit-dev/positron/issues/4695).
-- Positron reads execution options (such as width and height) only from Jupyter-style options (`#| width: foo`), not from Knitr-style chunk-header options (`{width=foo}`).
-- `readline()` and other [functions that read user input do not work](https://github.com/posit-dev/positron/issues/13050) in inline cells.
+- Positron reads execution options (such as width and height) only from Quarto-style options (`#| width: foo`), not from Knitr-style chunk-header options (`{width=foo}`).
+- `input()` in Python, `readline()` in R, and other [functions that read user input do not work](https://github.com/posit-dev/positron/issues/13050) in inline cells.
 
 
 ## Support for R Markdown
