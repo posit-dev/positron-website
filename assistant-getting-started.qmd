@@ -24,6 +24,7 @@ Positron Assistant supports the following language model providers:
 
 | Provider | Chat | Code Completions | Authentication |
 |------|:--:|:---:|---------|
+| Posit AI | {{< fa check >}} | {{< fa check >}} | OAuth |
 | Anthropic | {{< fa check >}} | | API Key |
 | GitHub Copilot (Preview) | {{< fa check >}} | {{< fa check >}} | GitHub OAuth |
 | Amazon Bedrock | {{< fa check >}} | | AWS CLI or Posit Workbench Managed Credentials |
@@ -45,9 +46,24 @@ Please ensure you consult your provider's privacy policy for information on the 
 
 ## Step 2: Configure language model providers
 
-Anthropic, GitHub Copilot, Amazon Bedrock, Snowflake Cortex, and OpenAI are enabled by default. Other providers are in preview or experimental status and must be enabled through settings.
+Posit AI, Anthropic, GitHub Copilot, Amazon Bedrock, Snowflake Cortex, and OpenAI are enabled by default. Other providers are in preview or experimental status and must be enabled through settings.
 
 ::: {.panel-tabset group="providers"}
+
+## Posit AI
+
+Posit AI is a hosted language model service from Posit. It provides both chat models and code completions in the form of [Next Edit Suggestions (NES)](assistant-completions.qmd#posit-ai-next-edit-suggestions).
+
+### Enable Posit AI as a provider
+
+Posit AI is enabled by default. Set [`positron.assistant.provider.positAI.enable`](positron://settings/positron.assistant.provider.positAI.enable) to `false` to disable it.
+
+### Add Posit AI as a language model provider
+
+1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Select **Posit AI** as the model provider.
+1. Select the **Sign in** button to initiate Posit AI's OAuth authentication flow.
+    - Complete the authentication flow in your browser, and return to Positron when finished.
 
 ## Anthropic
 
