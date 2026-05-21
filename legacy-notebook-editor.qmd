@@ -19,7 +19,7 @@ If an environment installed on your computer is not available in Positron, you m
 
 {{< include "_notebook-kernel-selection.qmd" >}}
 
-![The Legacy Notebook Editor action bar with the kernel selector highlighted, showing Python 3.13.10 as the selected interpreter.](images/jupyter-notebooks-kernel-selector.png){fig-alt="Notebook Editor action bar with the kernel selector button highlighted, displaying Python 3.13.10 as the current kernel."}
+![The Legacy Notebook Editor action bar with the kernel selector highlighted, showing a Python virtual environment as the selected interpreter.](images/jupyter-notebooks-kernel-selector.png){fig-alt="Notebook Editor action bar with the kernel selector button highlighted, displaying a Python virtual environment as the current kernel."}
 
 You can select a different interpreter for the notebook by selecting the **Kernel Selector** button in the notebook editor action bar or by running the *Notebook: Select Notebook Kernel* command from the Command Palette.
 
