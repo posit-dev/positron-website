@@ -44,7 +44,7 @@ If an environment installed on your computer is not available in Positron, you m
 
 {{< include "_notebook-kernel-selection.qmd" >}}
 
-![The Positron Notebook Editor action bar with the kernel selector highlighted, showing Python 3.10.20 as the selected interpreter.](images/positron-notebook-editor-kernel-selector.png){fig-alt="Notebook Editor action bar with the kernel selector dropdown highlighted in red, showing Python 3.10.20 (Venv: .venv) selected."}
+![The Positron Notebook Editor action bar with the kernel selector highlighted, showing a Python virtual environment as the selected interpreter.](images/positron-notebook-editor-kernel-selector.png){fig-alt="Notebook Editor action bar with the kernel selector dropdown highlighted in red, showing a Python virtual environment selected."}
 
 You can select a different interpreter for the notebook by selecting the **Kernel Selector** in the notebook editor action bar. The **Change Kernel...** option will display a list of all the registered interpreters. Select an interpreter from the list.
 
