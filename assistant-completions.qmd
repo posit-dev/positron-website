@@ -1,56 +1,105 @@
 ---
 title: "Completions"
-description: "Boost your productivity with AI code suggestions via Github Copilot completions. Inline suggestions support faster coding in Python, R, and more."
+description: "Boost your productivity with AI code suggestions via Posit AI Next Edit Suggestions or GitHub Copilot completions. Inline suggestions support faster coding in Python, R, and more."
 ---
 
 Code completions are text suggestions that appear inline as you type in an editor. These suggestions can be lines or blocks of code based on the context of what you're writing. Other names for code completions include inline suggestions, ghost text, or inline completions.
 
 ::: {.callout-important}
-Completions are powered by **GitHub Copilot**. Ensure you've [added GitHub Copilot as a language model provider](assistant-getting-started.qmd#add-github-copilot-as-a-language-model-provider).
+Completions are powered by Posit AI or GitHub Copilot. Ensure you've added one or both of these as a language model provider:
+
+- [Add Posit AI as a language model provider](assistant-getting-started.qmd#add-posit-ai-as-a-language-model-provider)
+- [Add GitHub Copilot as a language model provider](assistant-getting-started.qmd#add-github-copilot-as-a-language-model-provider)
 :::
 
 ## Using code completions
 
-When code completions are available, you'll see ghost text appear in your editor as you type. The ghost text represents the suggested completion.
+When code completions are available, ghost text appears in your editor as you type. The ghost text represents the suggested completion.
 
 Interact with suggestions by:
 
 - Pressing the {{< kbd Tab >}} key to accept the entire suggestion.
-- Pressing {{< kbd mac=Command-→ win=Ctrl-→ linux=Ctrl-→ >}} to accept the suggestion word-by-word for a single line suggestion, or line-by-line for multi-line suggestions.
+- Pressing {{< kbd mac=Command-→ win=Ctrl-→ linux=Ctrl-→ >}} to accept the suggestion word-by-word for a single-line suggestion, or line-by-line for multi-line suggestions.
 - Pressing {{< kbd Esc >}} or continuing to type to dismiss the suggestion.
 
-If you are not receiving suggestions:
+### Commands
 
-- Check if you've enabled inline completions in the settings (see [Settings](#settings) below).
-- Check that completions aren't snoozed (paused). If they are, you can either wait for the snooze period to end or cancel the snooze.
-- Make sure you are authenticated with GitHub Copilot in the [language model provider configuration](assistant-getting-started.qmd#add-github-copilot-as-a-language-model-provider).
-- Refer to the [Troubleshooting](assistant-troubleshooting.qmd) guide for more help.
-
-To learn more about GitHub Copilot code completions, visit the GitHub Copilot [inline suggestions](https://code.visualstudio.com/docs/copilot/ai-powered-suggestions#_getting-your-first-suggestions) documentation. Note that Positron Assistant does not support Next Edit Suggestions (NES).
-
-## Commands
+The following commands apply to both providers:
 
 | Command | Description |
 | --- | --- |
-| _Positron Assistant: Toggle (Enable/Disable) Completions_ | Enable or disable code completions from Positron Assistant altogether. |
-| _Snooze Inline Suggestions_ | Pause code completions temporarily for a specified duration. |
-| _Cancel Snooze Inline Suggestions_ | Resume code completions immediately if they have been snoozed. |
+| _Snooze Inline Suggestions_ | Pause inline suggestions temporarily for a specified duration. |
+| _Cancel Snooze Inline Suggestions_ | Resume inline suggestions immediately if they have been snoozed. |
 
-## Settings
+### Settings {#shared-settings}
 
-- [`positron.assistant.inlineCompletions.enable`](positron://settings/positron.assistant.inlineCompletions.enable): Enable or disable code completions altogether.
+The following settings apply to both providers:
 
-- [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes): Files matching these patterns will not have their contents sent to AI providers for inline completions or chat context.
-
+- [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes): Files matching these patterns will not have their contents sent to AI providers for code completions or chat context.
 - [`editor.inlineSuggest.minShowDelay`](positron://settings/editor.inlineSuggest.minShowDelay): Delay in milliseconds before showing inline suggestions. For example, setting this to `500` will show suggestions half a second after typing.
 
-## Status bar icon
+## Posit AI Next Edit Suggestions (NES)
 
-The Assistant status bar icon indicates the current state of code completions from Positron Assistant.
+When using Posit AI as your completions provider, code completions take the form of Posit AI Next Edit Suggestions (NES), a preview feature. Rather than only suggesting text at the cursor position, Posit AI NES proposes edits anywhere in the file based on the changes you've recently made, including insertions, deletions, and modifications to existing code.
+
+Posit AI NES suggestions appear inline in the editor. You can accept, navigate, or dismiss them using the same keybindings as other code completions.
+
+### Enable
+
+Posit AI NES is enabled by default once you've [signed in to the Posit AI provider](assistant-getting-started.qmd#add-posit-ai-as-a-language-model-provider). No additional setting changes are required.
+
+### Restrict to specific languages
+
+Posit AI NES skips `plaintext`, `markdown`, and `scminput` unless you configure otherwise. Use the [`nextEditSuggestions.enable`](positron://settings/nextEditSuggestions.enable) setting to change which languages Posit AI NES applies to.
+
+### Disable
+
+To disable Posit AI NES, do any of the following:
+
+- Sign out of Posit AI in Positron via the Accounts menu or the _Accounts: Manage Accounts_ command. This also affects chat and other features that rely on the account.
+- Set [`nextEditSuggestions.enable`](positron://settings/nextEditSuggestions.enable) to `{ "*": false }` to disable Posit AI NES everywhere. To disable only some languages, set those entries to `false`.
+
+To exclude specific files from Posit AI NES regardless of language, use the shared [`aiExcludes`](#shared-settings) setting.
+
+## GitHub Copilot
+
+When using GitHub Copilot as your completions provider, code completions appear as ghost text at the cursor position as you type. To learn more, visit the GitHub Copilot [inline suggestions](https://code.visualstudio.com/docs/copilot/ai-powered-suggestions#_getting-your-first-suggestions) documentation.
+
+### Enable
+
+GitHub Copilot completions are enabled by default once you've [signed in to the GitHub Copilot provider](assistant-getting-started.qmd#add-github-copilot-as-a-language-model-provider). No additional setting changes are required.
+
+### Restrict to specific languages
+
+GitHub Copilot completions skip `plaintext`, `markdown`, and `scminput` unless you configure otherwise. Use the [`positron.assistant.inlineCompletions.enable`](positron://settings/positron.assistant.inlineCompletions.enable) setting to change which languages Copilot completions apply to.
+
+### Disable
+
+To disable GitHub Copilot completions, do any of the following:
+
+- Sign out of GitHub in Positron via the Accounts menu or the _Accounts: Manage Accounts_ command. This also affects chat and other features that rely on the account.
+- Run the _Positron Assistant: Toggle (Enable/Disable) Completions_ command to toggle Copilot completions for the current language. This command updates [`positron.assistant.inlineCompletions.enable`](positron://settings/positron.assistant.inlineCompletions.enable) for the active language.
+- Set [`positron.assistant.inlineCompletions.enable`](positron://settings/positron.assistant.inlineCompletions.enable) to `{ "*": false }` to disable Copilot completions everywhere. To disable only some languages, set those entries to `false`.
+- Set [`github.copilot.enable`](positron://settings/github.copilot.enable) to disable completions at the upstream GitHub Copilot extension level.
+
+To exclude specific files from Copilot completions regardless of language, use the shared [`aiExcludes`](#shared-settings) setting.
+
+### Status bar icon
+
+The Assistant status bar icon indicates the current state of GitHub Copilot completions.
 
 ![Assistant status bar icon](images/assistant-status-bar-icon.png){width=750}
 
-To manage code completions using the status bar icon:
+To manage Copilot completions using the status bar icon:
 
-1. Select the status bar icon to open the popup.
-2. From the popup, you can enable or disable completions for the current file type, or for all files, or view the remaining time for snoozed completions.
+1. Select the status bar icon to open the menu.
+2. From the menu, enable or disable completions for the current file type or for all files, or view the remaining time for snoozed completions.
+
+## Troubleshooting
+
+If you are not receiving suggestions:
+
+- Confirm you are signed in to your completions provider in the [language model provider configuration](assistant-getting-started.qmd#step-2-configure-language-model-providers).
+- Check that your completions provider's per-language settings do not disable the current language (see [Posit AI Next Edit Suggestions](#posit-ai-next-edit-suggestions-nes) or [GitHub Copilot](#github-copilot)).
+- Check that [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes) does not match the current file.
+- Refer to the [Troubleshooting](assistant-troubleshooting.qmd) guide for more help.
