@@ -35,6 +35,12 @@ Any Provider is considered "Third Party Materials" as defined in the [Posit End 
 * [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect)
 * [Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 
+### Google Vertex AI
+
+* [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice)
+* [Google Cloud Platform Terms of Service](https://cloud.google.com/terms)
+* [Generative AI on Vertex AI Data Governance](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance)
+
 ### OpenAI
 * [Privacy Policy](https://openai.com/policies/row-privacy-policy/)
 * [Privacy Portal](https://privacy.openai.com/policies/en/?name=welcome-to-open-ai-privacy-portal)
