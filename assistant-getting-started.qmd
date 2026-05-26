@@ -52,7 +52,7 @@ Posit AI, Anthropic, GitHub Copilot, Amazon Bedrock, Snowflake Cortex, and OpenA
 
 ## Posit AI
 
-Posit AI is a hosted language model service from Posit. It provides both chat models and code completions in the form of [Next Edit Suggestions (NES)](assistant-completions.qmd#posit-ai-next-edit-suggestions).
+Posit AI is a hosted language model service from Posit. It provides both chat models and code completions in the form of [Next Edit Suggestions (NES)](assistant-completions.qmd#posit-ai-next-edit-suggestions-nes).
 
 ### Enable Posit AI as a provider
 
