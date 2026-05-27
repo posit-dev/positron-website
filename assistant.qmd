@@ -1,6 +1,23 @@
 ---
 title: "Posit Assistant"
 description: "Posit Assistant is the new AI coding experience in Positron, bringing together the capabilities of Positron Assistant and Databot in a unified experience built for data science."
+listing:
+  - id: learn-more
+    type: custom
+    template: templates/welcome-card.ejs
+    contents:
+      - title: "Get Started"
+        description: "Set up Posit Assistant and learn the essentials for your first conversation."
+        icon: "bi-rocket-takeoff"
+        link: "https://pos.it/assistant-docs"
+      - title: "Posit Assistant vs. Positron Assistant"
+        description: "Watch a walkthrough comparing Posit Assistant and Positron Assistant."
+        icon: "bi-play-circle"
+        link: "https://www.youtube.com/watch?v=Y9P2nlFXKnQ"
+      - title: "AI at Posit"
+        description: "Explore Posit's broader work on artificial intelligence for data science."
+        icon: "bi-journal-text"
+        link: "https://opensource.posit.co/topics/artificial-intelligence/"
 ---
 
 ::: {.callout-note}
@@ -29,6 +46,11 @@ Posit Assistant has a rich set of features with the highlights listed below.
 | [Chat Features](https://posit-dev.github.io/assistant/docs/features/chat-features/) | File attachments via drag-and-drop, clipboard paste, or the paperclip, with `@` mentions to reference workspace files. Also includes adjustable thinking effort (Off/Low/Medium/High) and optional web search. |
 | [Context Management](https://posit-dev.github.io/assistant/docs/features/context-management/) | Automatic inclusion of session info (language, version, variable names and types) when connected to R or Python. Provides a token counter with detailed breakdown and auto/manual/micro-compaction to keep long conversations within the model's context window. |
 | [Permissions & Trust](https://posit-dev.github.io/assistant/docs/features/permissions/) | Three approval modes (Normal, YOLO, Restricted) and per-tool permissions configurable in settings. Includes workspace trust prompts when opening projects with `AGENTS.md` and an optional sandbox mode for bash execution. |
+
+## Learn more
+
+::: {#learn-more}
+:::
 
 ## Support and terms of service
 
