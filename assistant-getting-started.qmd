@@ -323,7 +323,7 @@ Google Vertex AI provider support is experimental. Opt in to the [`assistant.pro
 1. Set your Google Cloud project ID and location, using either environment variables or settings:
     - **Environment variables**: Set `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` before launching Positron.
     - **Settings**: Add `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` entries to the [`authentication.googleVertex.credentials`](positron://settings/authentication.googleVertex.credentials) setting. Settings take precedence over environment variables.
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Google Vertex AI** as the model provider.
 1. Select **Sign in** to authenticate with Google Vertex AI.
 
