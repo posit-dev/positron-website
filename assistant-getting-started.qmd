@@ -76,7 +76,7 @@ Anthropic is enabled by default. Opt out of the [`positron.assistant.provider.an
 
 ### Add Anthropic as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Anthropic** as the model provider.
 
     ![Anthropic selected in provider modal](images/assistant-provider-modal-anthropic.png){width=600}
@@ -108,7 +108,7 @@ GitHub Copilot is enabled by default. Opt out of the [`positron.assistant.provid
 
 ### Add GitHub Copilot as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **GitHub Copilot** as the model provider.
 
     ![GitHub Copilot selected in provider modal](images/assistant-provider-modal-github-copilot.png){width=600}
@@ -187,7 +187,7 @@ If no inference profile exists for your preferred region, Positron Assistant fal
 
 ### Add Amazon Bedrock as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Amazon Bedrock** as the model provider.
 
     ![Amazon Bedrock selected in provider modal](images/assistant-provider-modal-amazon-bedrock.png){width=600}
@@ -210,7 +210,7 @@ Snowflake Cortex is enabled by default. Set [`positron.assistant.provider.snowfl
 ### Add Snowflake Cortex as a language model provider
 
 1. Add your `SNOWFLAKE_ACCOUNT` ID to the [`positron.assistant.providerVariables.snowflake`](positron://settings/positron.assistant.providerVariables.snowflake) setting
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Snowflake Cortex** as the model provider.
 
     ![Snowflake Cortex selected in provider modal](images/assistant-provider-modal-snowflake-cortex.png){width=600}
@@ -234,7 +234,7 @@ Microsoft Foundry provider support is in preview. Opt in to the [`positron.assis
 
 ### Add Microsoft Foundry as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Microsoft Foundry** as the model provider.
 
     ![Microsoft Foundry selected in provider modal](images/assistant-provider-modal-microsoft-foundry.png){fig-alt="Configure Language Model Providers modal with Microsoft Foundry selected, showing API Key and Base URL fields." width=600}
@@ -272,7 +272,7 @@ OpenAI is enabled by default. Set [`positron.assistant.provider.openAI.enable`](
 
 ### Add OpenAI as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **OpenAI** as the model provider.
 
     ![OpenAI selected in provider modal](images/assistant-provider-modal-openai.png){width=600}
@@ -301,7 +301,7 @@ Custom provider support is experimental. Opt in to the [`positron.assistant.prov
 
 ### Add Custom Provider as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Custom Provider** as the model provider.
 
     ![Custom Provider selected in provider modal](images/assistant-provider-modal-custom-provider.png){width=600}
