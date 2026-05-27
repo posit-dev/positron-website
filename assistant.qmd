@@ -32,7 +32,7 @@ Posit Assistant has a rich set of features with the highlights listed below.
 
 ## Support and terms of service
 
-Posit does not provide support or assistance for any code written or generated in Positron, with or without Positron Assistant via any model provider. Posit does not support the Anthropic or GitHub Copilot output, or test the logic used by either to generate code from prompts. Consult your AI model provider's [documentation](assistant-provider-info.qmd) for more information.
+Posit does not provide support or assistance for any code written or generated in Positron, with or without Posit Assistant, Positron Assistant, or Databot via any model provider. Posit does not support the Anthropic or GitHub Copilot output, or test the logic used by either to generate code from prompts. Consult your AI model provider's [documentation](assistant-provider-info.qmd) for more information.
 
 ### Positron AI agents
 
@@ -40,7 +40,7 @@ The Positron AI tools are "BYO-key," meaning that the tools can interact with a 
 
 ### Data collection and privacy
 
-Positron provides local software as a client to the user's selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when using AI features within Positron (i.e., Positron Assistant, Databot, etc.). These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client's software and nor does Posit ever access or store your data.
+Positron provides local software as a client to the user's selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when using AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client's software and nor does Posit ever access or store your data.
 
 If you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with [[Posit's privacy policy](privacy.qmd)]{.content-visible when-profile="positron"}[[Posit's privacy policy](https://posit.co/about/privacy-policy/)]{.content-visible when-profile="workbench"}.
 
