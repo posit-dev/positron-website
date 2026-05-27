@@ -50,6 +50,8 @@ website:
     left:
       - text: "Features"
         href: features.qmd
+      - text: "Tutorials"
+        href: tutorials.qmd
       - text: "Guides"
         href: welcome.qmd
       - text: "Help"
@@ -81,6 +83,12 @@ website:
         href: https://github.com/posit-dev/positron
     
   sidebar:
+    - title: "Tutorials"
+      style: "docked"
+      contents:
+        - tutorials.qmd
+        - first-python-analysis.qmd
+        - first-r-analysis.qmd
     - title: "Guides"
       style: "docked"
       contents:

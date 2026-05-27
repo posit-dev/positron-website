@@ -1,0 +1,11 @@
+---
+title: "Tutorials"
+format: html
+---
+
+Learn how to get the most out of Positron.
+
+- **[First data analysis with Python in a Jupyter notebook](first-python-analysis.qmd)** — Quickly set up a Python environment, open a Jupyter notebook and perform your first data analysis.
+- **[First data analysis with R in a Quarto document](first-r-analysis.qmd)** — Quickly set up an R environment, open a Quarto document and perform your first data analysis.
+
+Also see [Features](features.qmd) to learn how to a variety of tasks with Positron.
