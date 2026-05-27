@@ -316,7 +316,7 @@ Set the following environment variables before launching Positron:
 
 ### Enable Google Vertex AI as a provider
 
-Google Vertex AI provider support is experimental. Opt in to the [`assistant.provider.googleVertex.enable`](positron://settings/assistant.provider.googleVertex.enable) setting to enable it.
+Google Vertex AI provider support is experimental. Opt in to the [`assistant.provider.googleVertex.enabled`](positron://settings/assistant.provider.googleVertex.enabled) setting to enable it.
 
 ### Add Google Vertex AI as a language model provider
 
