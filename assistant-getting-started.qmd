@@ -60,7 +60,7 @@ Posit AI is enabled by default. Set [`positron.assistant.provider.positAI.enable
 
 ### Add Posit AI as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Posit AI** as the model provider.
 1. Select the **Sign in** button to initiate Posit AI's OAuth authentication flow.
     - Complete the authentication flow in your browser, and return to Positron when finished.
