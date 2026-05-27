@@ -1,64 +1,34 @@
 ---
-title: "Positron Assistant"
-description: "Positron Assistant is an AI coding assistant built for data science. Get chat support, inline assistance, and code completions with context from your data, plots, and console history."
-listing:
-  - id: chat-features
-    type: custom
-    template: templates/welcome-card.ejs
-    contents:
-      - title: "Chat pane"
-        description: "A dedicated AI chat pane for coding, troubleshooting, and planning."
-        icon: "bi-chat-text"
-        link: "assistant-chat.qmd#chat-pane"
-      - title: "Inline chat"
-        description: "In-context AI assistance within your code Editor, Notebook, or Terminal."
-        icon: "bi-chat-square-text"
-        link: "assistant-chat.qmd#inline-chat"
-      - title: "Code completions"
-        description: "Receive code suggestions directly in your Editor or Notebook."
-        icon: "bi-code"
-        link: "assistant-completions.qmd"
-  - id: learn-more
-    type: custom
-    template: templates/welcome-card.ejs
-    contents:
-      - title: "Tips & Glossary"
-        description: "Check out tips for using Positron Assistant effectively, along with a glossary of common terms."
-        icon: "bi-lightbulb"
-        link: "assistant-tips.qmd"
-      - title: "Troubleshooting & Feedback"
-        description: "Find solutions to common issues and share feedback to help improve Positron Assistant."
-        icon: "bi-tools"
-        link: "assistant-troubleshooting.qmd"
-      - title: "Posit AI Newsletter"
-        description: "Stay on top of important AI developments at Posit and beyond with curated updates."
-        icon: "bi-journal-text"
-        link: "https://posit.co/blog/?post_tag=ai-newsletter"
+title: "Posit Assistant"
+description: "Posit Assistant is the new AI coding experience in Positron, bringing together the capabilities of Positron Assistant and Databot in a unified experience built for data science."
 ---
 
 ::: {.callout-note}
-## Looking for Posit Assistant?
+## Looking for Positron Assistant?
 
-[Posit Assistant](https://pos.it/assistant) is a new AI coding experience currently available as a preview feature. Posit Assistant brings together the capabilities of Positron Assistant and Databot into a unified experience. To learn how to enable it and get set up, visit the [Posit Assistant documentation](https://pos.it/assistant-docs).
+Positron Assistant and Databot are being superseded by Posit Assistant and will be deprecated in a future release. Posit Assistant will move to general availability in Q3-2026.
 :::
 
-Positron Assistant is an AI coding assistant built specifically for data science workflows. It is available in **preview** starting from Positron 2025.07.0-204.
+[Posit Assistant](https://pos.it/assistant) is the new AI coding experience available as a preview feature in Positron 2026.04.0 and later. Posit Assistant brings together the capabilities of Positron Assistant and Databot into a unified experience.
 
-Beyond your active files, selected code, and project structure, Positron Assistant is provided with context about your interactive data science work, such as your loaded data, plots, and console history, enabling more relevant guidance for exploratory analysis and modeling.
+Beyond your active files, selected code, and project structure, Posit Assistant is provided with context about your interactive data science work, such as your loaded data, plots, and console history, enabling more relevant guidance for core data science workflows, including exploratory analysis, data cleaning, data app development, and modeling.
 
-::: {.callout-note}
-To get started with Positron Assistant, check out the [Getting Started](assistant-getting-started.qmd) guide.
-:::
+To learn how to enable it and get set up, visit the [Posit Assistant documentation](https://pos.it/assistant-docs).
 
 ## Features
 
-::: {#chat-features}
-:::
+Posit Assistant has a rich set of features with the highlights listed below.
 
-## Learn more
-
-::: {#learn-more}
-:::
+| Feature | Summary |
+| --- | --- |
+| [Commands](https://posit-dev.github.io/assistant/docs/features/commands/) | Slash commands typed at the start of a message that trigger special actions — for example, `/plan`, `/new`, and `/savememory`. |
+| [Skills](https://posit-dev.github.io/assistant/docs/features/skills/) | Specialized knowledge modules that load automatically when relevant to a request, with no manual activation needed. Includes built-ins like `quarto-authoring`, `shiny-bslib`, and `predictive-modeling-r`, plus user and project-level custom skills. |
+| [Memory](https://posit-dev.github.io/assistant/docs/features/memory/) | Persistent project context via an `AGENTS.md` file loaded automatically at the start of every conversation, capturing conventions, architecture, and preferences. Only loaded in trusted workspaces. |
+| [Conversations](https://posit-dev.github.io/assistant/docs/features/conversations/) | Full conversation history with switching, renaming, and deletion, plus tree-based branching when you edit a previous message and import/export in Markdown, HTML, or JSON. |
+| [Plan Mode](https://posit-dev.github.io/assistant/docs/features/plan-mode/) | A collaborative design phase where the assistant explores the codebase, asks questions, and writes a plan file before changing code. Best for multi-step features, refactors, and unfamiliar codebases. |
+| [Chat Features](https://posit-dev.github.io/assistant/docs/features/chat-features/) | File attachments (drag-and-drop, clipboard paste, or paperclip, with `@` mentions to reference workspace files), adjustable thinking effort (Off/Low/Medium/High), and optional web search. |
+| [Context Management](https://posit-dev.github.io/assistant/docs/features/context-management/) | Automatic inclusion of session info (language, version, variable names and types) when connected to R or Python, a token counter with detailed breakdown, and auto/manual/micro-compaction to keep long conversations within the model's context window. |
+| [Permissions & Trust](https://posit-dev.github.io/assistant/docs/features/permissions/) | Three approval modes (Normal, YOLO, Restricted), per-tool permissions configurable in settings, workspace trust prompts when opening projects with `AGENTS.md`, and an optional sandbox mode for bash execution. |
 
 ## Support and terms of service
 
@@ -70,7 +40,7 @@ The Positron AI tools are "BYO-key," meaning that the tools can interact with a 
 
 ### Data collection and privacy
 
-Positron provides local software as a client to the user's selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when using AI features within Positron (i.e., Positron Assistant, Databot, etc.). These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client's software and nor does Posit ever access or store your data. 
+Positron provides local software as a client to the user's selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when using AI features within Positron (i.e., Positron Assistant, Databot, etc.). These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client's software and nor does Posit ever access or store your data.
 
 If you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with [[Posit's privacy policy](privacy.qmd)]{.content-visible when-profile="positron"}[[Posit's privacy policy](https://posit.co/about/privacy-policy/)]{.content-visible when-profile="workbench"}.
 
