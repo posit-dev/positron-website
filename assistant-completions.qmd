@@ -59,7 +59,7 @@ To disable Posit AI NES, do any of the following:
 - Sign out of Posit AI in Positron via the Accounts menu or the _Accounts: Manage Accounts_ command. This also affects chat and other features that rely on the account.
 - Set [`nextEditSuggestions.enable`](positron://settings/nextEditSuggestions.enable) to `{ "*": false }` to disable Posit AI NES everywhere. To disable only some languages, set those entries to `false`.
 
-To exclude specific files from Posit AI NES regardless of language, use the shared [`aiExcludes`](#shared-settings) setting.
+To exclude specific files from Posit AI NES regardless of language, [use the shared `aiExcludes` setting](#shared-settings).
 
 ## GitHub Copilot
 
