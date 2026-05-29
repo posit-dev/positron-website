@@ -53,7 +53,7 @@ Posit AI, Anthropic, GitHub Copilot, Amazon Bedrock, Snowflake Cortex, and OpenA
 ## Posit AI
 
 ::: {.callout-important}
-Posit AI requires an account — visit [posit.ai](https://posit.ai/) to learn more and create one.
+Posit AI requires an account. Visit [posit.ai](https://posit.ai/) to learn more and create one.
 :::
 
 Posit AI is a hosted language model service from Posit. It provides both chat models and code completions in the form of [Next Edit Suggestions (NES)](assistant-completions.qmd#posit-ai-next-edit-suggestions-nes).
