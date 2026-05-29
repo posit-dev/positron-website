@@ -1,11 +1,26 @@
 ---
 title: "Tutorials"
-format: html
+description: "Step-by-step tutorials to help you get the most out of Positron, from setting up an environment to running your first data analysis."
+listing:
+  - id: tutorials
+    type: custom
+    template: templates/welcome-card.ejs
+    contents:
+      - title: "First data analysis with Python in a Jupyter notebook"
+        description: "Set up a Python environment, open a Jupyter notebook, and perform your first data analysis."
+        icon: "bi-journal-code"
+        link: "first-python-analysis.qmd"
+        columns: 2
+      - title: "First data analysis with R in a Quarto document"
+        description: "Set up an R environment, open a Quarto document, and perform your first data analysis."
+        icon: "bi-code-slash"
+        link: "first-r-analysis.qmd"
+        columns: 2
 ---
 
 Learn how to get the most out of Positron.
 
-- **[First data analysis with Python in a Jupyter notebook](first-python-analysis.qmd)** — Quickly set up a Python environment, open a Jupyter notebook and perform your first data analysis.
-- **[First data analysis with R in a Quarto document](first-r-analysis.qmd)** — Quickly set up an R environment, open a Quarto document and perform your first data analysis.
+::: {#tutorials}
+:::
 
-Also see [Features](features.qmd) to learn how to a variety of tasks with Positron.
+Also see [Features](features.qmd) to learn about how Positron can keep you productive for all your data science work.
