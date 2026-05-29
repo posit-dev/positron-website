@@ -10,6 +10,9 @@ project:
     - "!dev-containers.qmd"
     - "!add-to-path.qmd"
     - "!education.qmd"
+    - "!tutorials.qmd"
+    - "!first-python-analysis.qmd"
+    - "!first-r-analysis.qmd"
   resources:
     - _redirects
     - "!videos/**"
@@ -52,8 +55,6 @@ website:
         href: features.qmd
       - text: "Guides"
         href: welcome.qmd
-      - text: "Tutorials"
-        href: tutorials.qmd
       - text: "Help"
         href: troubleshooting.qmd
       - text: "About"
@@ -195,12 +196,6 @@ website:
         - section: "Extending Positron"  
           contents:
           - extension-development.qmd
-    - title: "Tutorials"
-      style: "docked"
-      contents:
-        - tutorials.qmd
-        - first-python-analysis.qmd
-        - first-r-analysis.qmd
     - title: "Help"
       style: "docked"
       contents:
