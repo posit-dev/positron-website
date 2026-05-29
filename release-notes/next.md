@@ -23,7 +23,7 @@ New in Posit Assistant this release, you can use the Posit AI model provider for
 
 We introduced the [Packages](https://positron.posit.co/packages-pane) pane last release, and this release makes it more informative and flexible. A **Show Help** button and context menu entry on every package take you straight to its documentation in the [Help pane](https://positron.posit.co/help-pane).
 
-<img src="https://cdn.posit.co/positron/releases/release-notes/assets/2026-06-packages-pane.gif" alt="Packages pane improvements in Positron">
+<p align="center"><img src="https://cdn.posit.co/positron/releases/release-notes/assets/2026-06-packages-pane.gif" alt="Packages pane improvements in Positron"></p>
 
  You can now combine category filters as an intersection, so you can narrow the list to, for example, packages that are both attached and outdated. A new **Item Size** toggle lets you switch between a compact row view and a richer card view that surfaces package descriptions and other metadata. For R users, the new [`packages.r.installer`](positron://settings/packages.r.installer) setting controls whether installs, updates, and removals use pak, base R, or an automatic choice. The setting that controls the pane has been renamed to [`packages.enabled`](positron://settings/packages.enabled); the previous `positron.packages.enable` setting is deprecated but still honored.
 
