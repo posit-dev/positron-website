@@ -15,7 +15,7 @@ This quick tutorial will show you how to use [Quarto documents](quarto.qmd) with
 
 Positron is a free and source available code editor for data scientists. To install Positron on your computer, visit our [download page](download.qmd) and click **Download**.
 
-![The Positron download page](images/download-button.png){width=700 fig-alt="The Positron download page with the Download button."}
+![The Positron download page](images/download-button.png){fig-alt="The Positron download page with the Download button."}
 
 Follow the instructions to install Positron.
 
@@ -28,7 +28,7 @@ Follow these steps:
 1. Open Positron
 2. Select **New > New Folder from Template**
 
-![New Folder from Template in the File menu](images/new-folder-from-template.png){width=700 fig-alt="New Folder from Template option in the File menu."}
+![New Folder from Template in the File menu](images/new-folder-from-template.png){fig-alt="New Folder from Template option in the File menu."}
 
 3. Select **R Project** from the template list
 
@@ -65,7 +65,7 @@ To create a new Quarto document in Positron:
 1. Select **New > New File**
 2. Select **Quarto Document** from the list of file types
 
-![New Quarto Document in the New File dialog](images/new-quarto-document.png){width=700 fig-alt="New Quarto Document option in the New File dialog."}
+![New Quarto Document in the New File dialog](images/new-quarto-document.png){fig-alt="New Quarto Document option in the New File dialog."}
 
 This opens a new `.qmd` file in your source editor. You can now start writing text and code.
 
@@ -101,7 +101,7 @@ starwars <- dplyr::starwars
 
 Notice that the Variables pane to the right of the editor shows the `starwars` dataset. You can use the Variables pane to explore the columns in the dataset. Or you can click the grid-like icon to open the dataset in the Positron Data Explorer.
 
-![The starwars dataset in the Variables pane](images/variables-pane-starwars.png){width=700 fig-alt="Variables pane showing the starwars dataset variable."}
+![The starwars dataset in the Variables pane](images/variables-pane-starwars.png){fig-alt="Variables pane showing the starwars dataset variable."}
 
 The Data Explorer allows you to sort and filter the data, as well as view summary statistics. If you would like to recreate a filter, click **Convert to Code** to copy the code for that filter to your clipboard. You can then paste that code into a cell in your Quarto document to run it.
 
@@ -114,7 +114,7 @@ starwars_humans <- starwars |>
 
 This video shows how to open a Quarto document and use the Data Explorer to generate the filtering code above.
 
-<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/slcoszmj6l.js" async type="module"></script><style>wistia-player[media-id='slcoszmj6l']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/slcoszmj6l/swatch'); display: block; filter: blur(5px); padding-top:62.71%; }</style> <wistia-player media-id="slcoszmj6l" aspect="1.5946843853820598"></wistia-player>
+{{< video videos/tutorial-load-r.mp4 aria-label="Opening a Quarto document in Positron and using the Data Explorer to generate code that filters the starwars dataset" >}}
 
 Next we will visualize the relationship between height and mass for human Star Wars characters using ggplot2:
 
@@ -146,7 +146,7 @@ We can also write text in markdown between our code cells. For example, we can e
 
 Watch as we run the code above.
 
-<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/4vv88ac02n.js" async type="module"></script><style>wistia-player[media-id='4vv88ac02n']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/4vv88ac02n/swatch'); display: block; filter: blur(5px); padding-top:62.71%; }</style> <wistia-player media-id="4vv88ac02n" aspect="1.5946843853820598"></wistia-player>
+{{< video videos/tutorial-explore-r.mp4 aria-label="Running ggplot2 visualization and summary table code in a Quarto document in Positron" >}}
 
 ## Save your document
 
@@ -168,7 +168,7 @@ The new HTML file is saved in the project folder beside your `.qmd` file. You ca
 
 See this process unfold in the video.
 
-<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/vpzc1n2uhp.js" async type="module"></script><style>wistia-player[media-id='vpzc1n2uhp']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/vpzc1n2uhp/swatch'); display: block; filter: blur(5px); padding-top:62.71%; }</style> <wistia-player media-id="vpzc1n2uhp" aspect="1.5946843853820598"></wistia-player>
+{{< video videos/tutorial-render-r.mp4 aria-label="Rendering and previewing a Quarto document as an HTML report in Positron" >}}
 
 Turn on **Render on Save** (in Settings, via the checkbox on the editor action bar, or by adding `editor: render-on-save: true` to the YAML header) and your report refreshes every time you save the file.
 

@@ -15,7 +15,7 @@ This quick tutorial will show you how to use [Jupyter Notebooks](jupyter-noteboo
 
 Positron is a free and source available code editor for data scientists. To install Positron on your computer, visit our [download page](download.qmd) and click **Download**.
 
-![The Positron download page](images/download-button.png){width=700 fig-alt="The Positron download page with the Download button."}
+![The Positron download page](images/download-button.png){fig-alt="The Positron download page with the Download button."}
 
 Follow the instructions to install Positron.
 
@@ -28,7 +28,7 @@ To create a project folder with its own virtual environment in Positron, follow 
 1. Open Positron
 2. Select **New > New Folder from Template**
 
-![New Folder from Template in the File menu](images/new-folder-from-template.png){width=700 fig-alt="New Folder from Template option in the File menu."}
+![New Folder from Template in the File menu](images/new-folder-from-template.png){fig-alt="New Folder from Template option in the File menu."}
 
 3. Select **Python Project** from the list of templates
 
@@ -74,7 +74,7 @@ uv add pandas plotnine
 
 This is what it looks like to set up a new Python project in Positron:
 
-<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/56anfwwqco.js" async type="module"></script><style>wistia-player[media-id='56anfwwqco']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/56anfwwqco/swatch'); display: block; filter: blur(5px); padding-top:62.71%; }</style> <wistia-player media-id="56anfwwqco" aspect="1.5946843853820598"></wistia-player>
+{{< video videos/tutorial-load-python.mp4 aria-label="Setting up a new Python project in Positron, including creating a virtual environment and installing packages" >}}
 
 ## Open a Jupyter Notebook
 
@@ -85,7 +85,7 @@ To open a Jupyter Notebook in Positron:
 1. Select **New > New File**
 2. Select **Jupyter Notebook** from the list of file types
 
-![New Jupyter Notebook file](images/jupyter-notebook-option.png){width=700 fig-alt="Jupyter Notebook option in the New File dialog."}
+![New Jupyter Notebook file](images/jupyter-notebook-option.png){fig-alt="Jupyter Notebook option in the New File dialog."}
 
 This creates a new Jupyter Notebook file in your project folder and opens it in the editor. You can now start writing code in the notebook and running it to see the results.
 
@@ -109,7 +109,7 @@ from plotnine.data import mpg
 
 This loads the `mpg` dataset into your notebook's kernel. Notice that the Variables pane to the right of the notebook shows a new variable called `mpg`. This variable contains the dataset we just loaded.
 
-![The mpg dataset in the Variables pane](images/variables-pane-mpg.png){width=700 fig-alt="Variables pane showing the mpg dataset variable."}
+![The mpg dataset in the Variables pane](images/variables-pane-mpg.png){fig-alt="Variables pane showing the mpg dataset variable."}
 
 You can use the Variables pane to explore the columns in the dataset. Or you can click the grid-like icon to open the dataset in the Positron Data Explorer.
 
@@ -122,7 +122,7 @@ mpg_2008 = mpg[mpg['year'] == 2008]
 ```
 The video below shows how to use the Data Explorer to filter the data and copy the code for that filter to a notebook cell.
 
-<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/cavosguj3g.js" async type="module"></script><style>wistia-player[media-id='cavosguj3g']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/cavosguj3g/swatch'); display: block; filter: blur(5px); padding-top:62.71%; }</style> <wistia-player media-id="cavosguj3g" aspect="1.5946843853820598"></wistia-player>
+{{< video videos/tutorial-filter-python.mp4 aria-label="Using the Positron Data Explorer to filter the mpg dataset and copy the generated filter code into a notebook cell" >}}
 
 Next we will visualize the relationship between the engine displacement (`displ`) and the miles per gallon (`mpg`) for cars from 2008 using plotnine:
 
@@ -150,19 +150,19 @@ Finally, we will place a markdown cell with a title at the top of the notebook. 
 
 Watch the video below to see these steps in action:
 
-<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/zkmmmdw026.js" async type="module"></script><style>wistia-player[media-id='zkmmmdw026']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/zkmmmdw026/swatch'); display: block; filter: blur(5px); padding-top:62.71%; }</style> <wistia-player media-id="zkmmmdw026" aspect="1.5946843853820598"></wistia-player>
+{{< video videos/tutorial-explore-python.mp4 aria-label="Building a plotnine chart and a summary table in a Jupyter Notebook, then adding a markdown title cell" >}}
 
 To test that the notebook runs correctly, click **Clear Outputs** in the toolbar to clear all of the outputs from the cells. Next, click **Restart Kernel** to create a fresh session. Then click **Run All** to run all of the cells in order. The plot and the table appear as outputs from the cells.
 
 The entire process looks like this:
 
-<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/541018pjrj.js" async type="module"></script><style>wistia-player[media-id='541018pjrj']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/541018pjrj/swatch'); display: block; filter: blur(5px); padding-top:62.71%; }</style> <wistia-player media-id="541018pjrj" aspect="1.5946843853820598"></wistia-player>
+{{< video videos/tutorial-test-python.mp4 aria-label="Clearing outputs, restarting the kernel, and running all cells in a Jupyter Notebook in Positron" >}}
 
 ## Save your notebook
 
 To save your notebook, use the keyboard shortcut {{< kbd mac=Command-S win=Ctrl-S linux=Ctrl-S >}}. This saves your notebook to your project folder, where it appears in the File Explorer in the left sidebar.
 
-![Saving a notebook in Positron](images/save-notebook.png){width=700 fig-alt="Save button in the Jupyter Notebook toolbar."}
+![Saving a notebook in Positron](images/save-notebook.png){fig-alt="Save button in the Jupyter Notebook toolbar."}
 
 If you have Git set up for your project, you can use the Git pane in Positron to commit and push your notebook to a remote repository like GitHub. This is a great way to share your notebook with others or to keep a backup of your work.
 
