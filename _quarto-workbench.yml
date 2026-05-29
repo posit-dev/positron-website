@@ -10,6 +10,9 @@ project:
     - "!dev-containers.qmd"
     - "!add-to-path.qmd"
     - "!education.qmd"
+    - "!tutorials.qmd"
+    - "!tutorial-get-started-ipynb.qmd"
+    - "!tutorial-get-started-quarto.qmd"
   resources:
     - _redirects
     - "!videos/**"

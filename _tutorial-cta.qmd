@@ -1,0 +1,5 @@
+::: {.callout-note}
+## Next steps
+
+To keep going, explore the [Guides](welcome.qmd) for in-depth documentation on everything Positron can do.
+:::

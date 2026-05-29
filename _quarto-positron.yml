@@ -44,6 +44,8 @@ website:
         href: features.qmd
       - text: "Guides"
         href: welcome.qmd
+      - text: "Tutorials"
+        href: tutorials.qmd
       - text: "Help"
         href: troubleshooting.qmd
       - text: "About"
@@ -199,6 +201,13 @@ website:
         - section: "Extending Positron"  
           contents:
           - extension-development.qmd
+    - title: "Tutorials"
+      style: "docked"
+      contents:
+        - text: "Overview"
+          href: tutorials.qmd
+        - tutorial-get-started-ipynb.qmd
+        - tutorial-get-started-quarto.qmd
     - title: "Help"
       style: "docked"
       contents:
