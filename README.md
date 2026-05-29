@@ -15,6 +15,8 @@ We currently use the issue tracker for [Positron](https://github.com/posit-dev/p
 
 This repository uses [Git LFS](https://git-lfs.com/) to store large files such as videos. Make sure you have Git LFS installed before cloning.
 
+If you see phantom diffs on video files you didn't change, it usually means those files were committed outside of LFS. Run `git add <file>` to re-add them through the LFS filter, then commit the result.
+
 If you have [Quarto installed locally](https://quarto.org/docs/get-started/) and Chrome or Edge, you can preview the site by running one of the Debug Configurations in VS Code or Positron.
 
 The configurations run `quarto preview` and then open the site in a new browser window.

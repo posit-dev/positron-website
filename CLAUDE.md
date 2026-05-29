@@ -65,6 +65,10 @@ Key formatting rules:
   - `lint.yml`: URL checking on PRs
   - `publish-release-notes.yml`: Manual workflow for S3/CloudFront deployment
 
+## Videos and Git LFS
+
+Video files (`.mp4`, `.mov`) are stored with Git LFS (see `.gitattributes`). When adding or replacing a video, make sure Git LFS is installed (`git lfs install`) so the file goes through the LFS filter. If a video shows up as changed in `git diff` but you didn't touch it, it was probably committed outside of LFS. Fix it by running `git add <file>` to re-add it through the filter.
+
 ## Issue Tracking
 
 Report issues at https://github.com/posit-dev/positron/issues (main Positron repo, not this website repo).
