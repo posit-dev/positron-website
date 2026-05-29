@@ -2,7 +2,7 @@
 title: "First data analysis with R in a Quarto document"
 ---
 
-This quick tutorial will show you how to use Quarto documents within Positron. We will:
+This quick tutorial will show you how to use [Quarto](quarto.qmd) documents within Positron. We will:
 
 - Install Positron
 - Create an R project

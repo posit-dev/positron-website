@@ -2,7 +2,7 @@
 title: "First data analysis with Python in a Jupyter Notebook"
 ---
 
-This quick tutorial will show you how to use Jupyter Notebooks within Positron. We will:
+This quick tutorial will show you how to use [Jupyter Notebooks](jupyter-notebooks.qmd) within Positron. We will:
 
 - Install Positron
 - Create a Python project with its own virtual environment
