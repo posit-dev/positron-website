@@ -14,9 +14,9 @@ Welcome to the 2026.06.0 release of Positron!
 
 Last release we introduced [Posit Assistant](https://pos.it/assistant), our unified, data-science-focused approach to AI assistance. This release continues that work, and we want to give you advance notice that the older Positron Assistant will be deprecated in the next release. If you are still using Positron Assistant, we encourage you to migrate to Posit Assistant now. As a first step, the `positron.assistant.enable` setting is deprecated in favor of [`assistant.enabled`](positron://settings/assistant.enabled), and the Positron Assistant welcome view now points you to Posit Assistant. 
 
-Posit Assistant supports the same broad set of providers as Positron Assistant, along with Posit AI and new experimental support for Google Vertex. [Learn more](https://youtu.be/Y9P2nlFXKnQ) about the differences between the new Posit Assistant and the older Positron Assistant.
+Posit Assistant supports the same broad set of providers as Positron Assistant, along with the Posit AI model provider and new experimental support for Google Vertex. [Learn more](https://youtu.be/Y9P2nlFXKnQ) about the differences between the new Posit Assistant and the older Positron Assistant.
 
-New in Posit Assistant this release, you can use the Posit AI model provider for Next Edit Suggestions, which propose your likely next change as you edit. You can access the **Configure Language Model Providers** item in the accounts menu, and Google Vertex AI as an experimental language model provider, behind [`assistant.provider.googleVertex.enabled`](positron://settings/assistant.provider.googleVertex.enabled).
+New in Posit Assistant this release, you can use the Posit AI model provider for Next Edit Suggestions, which propose your likely next change as you edit. You can also access the **Configure Language Model Providers** item in the accounts menu.
 
 
 #### Packages pane improvements
