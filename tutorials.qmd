@@ -6,8 +6,8 @@ listing:
     type: custom
     template: templates/welcome-card.ejs
     contents:
-      - title: "First data analysis with Python in a Jupyter notebook"
-        description: "Set up a Python environment, open a Jupyter notebook, and perform your first data analysis."
+      - title: "First data analysis with Python in a Jupyter Notebook"
+        description: "Set up a Python environment, open a Jupyter Notebook, and perform your first data analysis."
         icon: "bi-journal-code"
         link: "tutorial-get-started-ipynb.qmd"
         columns: 2
