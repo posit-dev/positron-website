@@ -46,7 +46,7 @@ Please ensure you consult your provider's privacy policy for information on the 
 
 ## Step 2: Configure language model providers
 
-Posit AI, Anthropic, GitHub Copilot, Amazon Bedrock, Snowflake Cortex, and OpenAI are enabled by default. Other providers are in preview or experimental status and must be enabled through settings.
+Posit AI, Anthropic, GitHub Copilot, Amazon Bedrock, Snowflake Cortex, and OpenAI are enabled by default but are not active until you sign in. Other providers are in preview or experimental status and must be enabled through settings.
 
 ::: {.panel-tabset group="providers"}
 
@@ -57,10 +57,6 @@ Posit AI requires an account — visit [posit.ai](https://posit.ai/) to learn mo
 :::
 
 Posit AI is a hosted language model service from Posit. It provides both chat models and code completions in the form of [Next Edit Suggestions (NES)](assistant-completions.qmd#posit-ai-next-edit-suggestions-nes).
-
-### Enable Posit AI as a provider
-
-Posit AI is enabled by default but is not active until you sign in. Set [`positron.assistant.provider.positAI.enable`](positron://settings/positron.assistant.provider.positAI.enable) to `false` to disable it.
 
 ### Add Posit AI as a language model provider
 
@@ -90,10 +86,6 @@ To use Anthropic's Claude models in Positron Assistant, you need to bring your o
 </details>
 :::
 
-### Enable Anthropic as a provider
-
-Anthropic is enabled by default but is not active until you sign in. Set [`positron.assistant.provider.anthropic.enable`](positron://settings/positron.assistant.provider.anthropic.enable) to `false` to disable it.
-
 ### Add Anthropic as a language model provider
 
 1. Run the command _Positron Assistant: Configure Language Model Providers_
@@ -118,10 +110,6 @@ Students and faculty can use GitHub Copilot for free as part of the GitHub Educa
 
 </details>
 :::
-
-### Enable GitHub Copilot as a provider
-
-GitHub Copilot is enabled by default but is not active until you sign in. Set [`positron.assistant.provider.githubCopilot.enable`](positron://settings/positron.assistant.provider.githubCopilot.enable) to `false` to disable it.
 
 ### Add GitHub Copilot as a language model provider
 
@@ -155,10 +143,6 @@ To use Amazon Bedrock in Positron Desktop, you must:
 </details>
 
 :::
-
-### Enable Amazon Bedrock as a provider
-
-Amazon Bedrock is enabled by default but is not active until you sign in. Set [`positron.assistant.provider.amazonBedrock.enable`](positron://settings/positron.assistant.provider.amazonBedrock.enable) to `false` to disable it.
 
 <details>
 <summary>(Optional) Configure AWS region and profile</summary>
@@ -214,10 +198,6 @@ To use Snowflake Cortex in Positron Desktop, Positron Assistant requires a **Sno
 
 :::
 
-### Enable Snowflake Cortex as a provider
-
-Snowflake Cortex is enabled by default but is not active until you sign in. Set [`positron.assistant.provider.snowflakeCortex.enable`](positron://settings/positron.assistant.provider.snowflakeCortex.enable) to `false` to disable it.
-
 ### Add Snowflake Cortex as a language model provider
 
 1. Add your `SNOWFLAKE_ACCOUNT` ID to the [`positron.assistant.providerVariables.snowflake`](positron://settings/positron.assistant.providerVariables.snowflake) setting
@@ -270,10 +250,6 @@ To use specific models instead of `model-router`, configure the [`positron.assis
 Use the model name and deployment identifier from your Foundry resource for each entry.
 
 ## OpenAI
-
-### Enable OpenAI as a provider
-
-OpenAI is enabled by default but is not active until you sign in. Set [`positron.assistant.provider.openAI.enable`](positron://settings/positron.assistant.provider.openAI.enable) to `false` to disable it.
 
 ### Add OpenAI as a language model provider
 
