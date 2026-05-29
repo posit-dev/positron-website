@@ -11,8 +11,8 @@ project:
     - "!add-to-path.qmd"
     - "!education.qmd"
     - "!tutorials.qmd"
-    - "!first-python-analysis.qmd"
-    - "!first-r-analysis.qmd"
+    - "!tutorial-get-started-ipynb.qmd"
+    - "!tutorial-get-started-quarto.qmd"
   resources:
     - _redirects
     - "!videos/**"

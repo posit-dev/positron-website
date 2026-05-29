@@ -9,12 +9,12 @@ listing:
       - title: "First data analysis with Python in a Jupyter notebook"
         description: "Set up a Python environment, open a Jupyter notebook, and perform your first data analysis."
         icon: "bi-journal-code"
-        link: "first-python-analysis.qmd"
+        link: "tutorial-get-started-ipynb.qmd"
         columns: 2
       - title: "First data analysis with R in a Quarto document"
         description: "Set up an R environment, open a Quarto document, and perform your first data analysis."
         icon: "bi-code-slash"
-        link: "first-r-analysis.qmd"
+        link: "tutorial-get-started-quarto.qmd"
         columns: 2
 ---
 

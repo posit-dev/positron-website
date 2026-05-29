@@ -204,9 +204,10 @@ website:
     - title: "Tutorials"
       style: "docked"
       contents:
-        - tutorials.qmd
-        - first-python-analysis.qmd
-        - first-r-analysis.qmd
+        - text: "Overview"
+          href: tutorials.qmd
+        - tutorial-get-started-ipynb.qmd
+        - tutorial-get-started-quarto.qmd
     - title: "Help"
       style: "docked"
       contents:
