@@ -13,7 +13,7 @@ This quick tutorial will show you how to use Quarto documents within Positron. W
 
 ## Install Positron
 
-Positron is a free and source available code editor for data scientists. To install Positron on your computer, visit [positron.posit.co](http://positron.posit.co) and click the "Download" button.
+Positron is a free and source available code editor for data scientists. To install Positron on your computer, visit our [download page](download.qmd) and click the "Download" button.
 
 ![](images/download-button.png)
 
@@ -163,7 +163,7 @@ To save your document, click the Save button in the toolbar or use the keyboard 
 ::: tip
 If your project is version-controlled with Git, you can commit and push straight from the Git pane in Positron. This is handy for sharing your analysis or keeping a backup on GitHub.
 
-Learn more about Git in Positron at <https://positron.posit.co/git.html>
+Learn more about [using Git in Positron](git.qmd).
 :::
 
 ## Render and preview your document
@@ -184,6 +184,6 @@ Turn on **Render on Save** (in Settings or by adding `editor: render-on-save: tr
 
 ## Conclusion
 
-That's it! You've set up an R project in Positron, installed packages, and built a small data analysis inside a Quarto document.
+That's it! You've set up an R project in Positron, installed packages, and built a small data analysis inside a Quarto document. To learn more about Quarto, see the [Quarto documentation](https://quarto.org).
 
-To keep going, explore the [Positron Guides](https://positron.posit.co/welcome.html) and the [Quarto documentation](https://quarto.org).
+{{< include "_tutorial-cta.qmd" >}}

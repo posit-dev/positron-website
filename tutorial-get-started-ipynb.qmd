@@ -13,7 +13,7 @@ This quick tutorial will show you how to use Jupyter Notebooks within Positron. 
 
 ## Install Positron
 
-Positron is a free and source available code editor for data scientists. To install Positron on your computer, visit [positron.posit.co](http://positron.posit.co) and click the "Download" button. 
+Positron is a free and source available code editor for data scientists. To install Positron on your computer, visit our [download page](download.qmd) and click the "Download" button.
 
 ![](images/download-button.png)
 
@@ -173,14 +173,14 @@ To save your notebook, use the keyboard shortcut Ctrl+S (Cmd+S on Mac). This wil
 ::: tip
 If you have Git set up for your project, you can use the Git pane in Positron to commit and push your notebook to a remote repository like GitHub. This is a great way to share your notebook with others or to keep a backup of your work.
 
-Learn more about using Git in Positron at <https://positron.posit.co/git.html>
+Learn more about [using Git in Positron](git.qmd).
 :::
 
 ## Conclusion
 
 Congratulations! You have successfully set up a Python environment in Positron, installed the packages you need, and explored some data in a Jupyter Notebook. 
 
-We invite you to learn more about Positron in the [Positron Guides](https://positron.posit.co/welcome.html).
+{{< include "_tutorial-cta.qmd" >}}
 
 
 
