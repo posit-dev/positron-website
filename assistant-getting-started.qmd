@@ -24,12 +24,14 @@ Positron Assistant supports the following language model providers:
 
 | Provider | Chat | Code Completions | Authentication |
 |------|:--:|:---:|---------|
+| Posit AI | {{< fa check >}} | {{< fa check >}} | OAuth |
 | Anthropic | {{< fa check >}} | | API Key |
 | GitHub Copilot (Preview) | {{< fa check >}} | {{< fa check >}} | GitHub OAuth |
 | Amazon Bedrock | {{< fa check >}} | | AWS CLI or Posit Workbench Managed Credentials |
 | Snowflake Cortex | {{< fa check >}} | | API Key or Posit Workbench Managed Credentials |
 | Microsoft Foundry (Preview) | {{< fa check >}} | | API Key or Posit Workbench Managed Credentials |
 | OpenAI | {{< fa check >}} | | API Key |
+| Google Vertex AI (Experimental) | {{< fa check >}} | | Google Cloud CLI or Service Account Credentials |
 | Custom Provider (Experimental) | {{< fa check >}} | | API Key |
 
 We're actively expanding provider support and welcome your [feedback](https://github.com/posit-dev/positron/discussions) and [issue reports](https://github.com/posit-dev/positron/issues/new/choose)!
@@ -45,9 +47,24 @@ Please ensure you consult your provider's privacy policy for information on the 
 
 ## Step 2: Configure language model providers
 
-Anthropic, GitHub Copilot, Amazon Bedrock, Snowflake Cortex, and OpenAI are enabled by default. Other providers are in preview or experimental status and must be enabled through settings.
+Posit AI, Anthropic, GitHub Copilot, Amazon Bedrock, Snowflake Cortex, and OpenAI are enabled by default but are not active until you sign in. Other providers are in preview or experimental status and must be enabled through settings.
 
 ::: {.panel-tabset group="providers"}
+
+## Posit AI
+
+::: {.callout-important}
+Posit AI requires an account. Visit [posit.ai](https://posit.ai/) to learn more and create one.
+:::
+
+Posit AI is a hosted language model service from Posit. It provides both chat models and code completions in the form of [Next Edit Suggestions (NES)](assistant-completions.qmd#posit-ai-next-edit-suggestions-nes).
+
+### Add Posit AI as a language model provider
+
+1. Run the command _Authentication: Configure Language Model Providers_
+1. Select **Posit AI** as the model provider.
+1. Select the **Sign in** button to initiate Posit AI's OAuth authentication flow.
+    - Complete the authentication flow in your browser, and return to Positron when finished.
 
 ## Anthropic
 
@@ -70,17 +87,10 @@ To use Anthropic's Claude models in Positron Assistant, you need to bring your o
 </details>
 :::
 
-### Enable Anthropic as a provider
-
-Anthropic is enabled by default. Opt out of the [`positron.assistant.provider.anthropic.enable`](positron://settings/positron.assistant.provider.anthropic.enable) setting to disable it.
-
 ### Add Anthropic as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Anthropic** as the model provider.
-
-    ![Anthropic selected in provider modal](images/assistant-provider-modal-anthropic.png){width=600}
-
 1. Paste your Claude Console API key into the input box and select **Sign in**.
 
 ::: {.callout-note}
@@ -102,17 +112,10 @@ Students and faculty can use GitHub Copilot for free as part of the GitHub Educa
 </details>
 :::
 
-### Enable GitHub Copilot as a provider
-
-GitHub Copilot is enabled by default. Opt out of the [`positron.assistant.provider.githubCopilot.enable`](positron://settings/positron.assistant.provider.githubCopilot.enable) setting to disable it.
-
 ### Add GitHub Copilot as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **GitHub Copilot** as the model provider.
-
-    ![GitHub Copilot selected in provider modal](images/assistant-provider-modal-github-copilot.png){width=600}
-
 1. Select the **Sign in** button to initiate GitHub's OAuth authentication flow.
     - Complete the authentication flow in your browser, and return to Positron when finished.
 
@@ -141,10 +144,6 @@ To use Amazon Bedrock in Positron Desktop, you must:
 </details>
 
 :::
-
-### Enable Amazon Bedrock as a provider
-
-Amazon Bedrock is enabled by default. Set [`positron.assistant.provider.amazonBedrock.enable`](positron://settings/positron.assistant.provider.amazonBedrock.enable) to `false` to disable it.
 
 <details>
 <summary>(Optional) Configure AWS region and profile</summary>
@@ -187,11 +186,8 @@ If no inference profile exists for your preferred region, Positron Assistant fal
 
 ### Add Amazon Bedrock as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Amazon Bedrock** as the model provider.
-
-    ![Amazon Bedrock selected in provider modal](images/assistant-provider-modal-amazon-bedrock.png){width=600}
-
 1. Select **Sign in** so Positron Assistant can verify your AWS CLI authentication.
 
 
@@ -203,18 +199,11 @@ To use Snowflake Cortex in Positron Desktop, Positron Assistant requires a **Sno
 
 :::
 
-### Enable Snowflake Cortex as a provider
-
-Snowflake Cortex is enabled by default. Set [`positron.assistant.provider.snowflakeCortex.enable`](positron://settings/positron.assistant.provider.snowflakeCortex.enable) to `false` to disable it.
-
 ### Add Snowflake Cortex as a language model provider
 
 1. Add your `SNOWFLAKE_ACCOUNT` ID to the [`positron.assistant.providerVariables.snowflake`](positron://settings/positron.assistant.providerVariables.snowflake) setting
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Snowflake Cortex** as the model provider.
-
-    ![Snowflake Cortex selected in provider modal](images/assistant-provider-modal-snowflake-cortex.png){width=600}
-
 1. Paste your Snowflake Cortex PAT into the API key box, then select **Sign in**.
 
 ## Microsoft Foundry
@@ -234,11 +223,8 @@ Microsoft Foundry provider support is in preview. Opt in to the [`positron.assis
 
 ### Add Microsoft Foundry as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Microsoft Foundry** as the model provider.
-
-    ![Microsoft Foundry selected in provider modal](images/assistant-provider-modal-microsoft-foundry.png){fig-alt="Configure Language Model Providers modal with Microsoft Foundry selected, showing API Key and Base URL fields." width=600}
-
 1. Enter your Foundry endpoint URL in the **Base URL** field and your API key in the **API Key** field, then select **Sign in**.
 
 ::: {.callout-note}
@@ -266,17 +252,10 @@ Use the model name and deployment identifier from your Foundry resource for each
 
 ## OpenAI
 
-### Enable OpenAI as a provider
-
-OpenAI is enabled by default. Set [`positron.assistant.provider.openAI.enable`](positron://settings/positron.assistant.provider.openAI.enable) to `false` to disable it.
-
 ### Add OpenAI as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **OpenAI** as the model provider.
-
-    ![OpenAI selected in provider modal](images/assistant-provider-modal-openai.png){width=600}
-
 1. Paste your OpenAI API key into the input box and select **Sign in**.
 
 ::: {.callout-note}
@@ -284,6 +263,47 @@ OpenAI is enabled by default. Set [`positron.assistant.provider.openAI.enable`](
 Use the OpenAI provider to connect to a provider that implements the [OpenAI Responses API](https://platform.openai.com/docs/api-reference/responses), by replacing the base URL with your compatible custom endpoint.
 
 :::
+
+## Google Vertex AI
+
+::: {.callout-important}
+To use Google Vertex AI in Positron Desktop, you must:
+
+1. Have a Google Cloud project with the [Vertex AI API enabled](https://cloud.google.com/vertex-ai/docs/start/cloud-environment)
+2. Have access to the foundation models you want to use through [Vertex AI Model Garden](https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/explore-models)
+3. Authenticate with Google Cloud using one of the supported credential flows below
+
+<details>
+<summary>Sign in with Application Default Credentials (ADC)</summary>
+
+1. [Install the Google Cloud CLI (`gcloud`)](https://cloud.google.com/sdk/docs/install)
+1. Run `gcloud auth application-default login` and complete the browser sign-in flow
+
+</details>
+
+<details>
+<summary>Sign in with a service account</summary>
+
+Set the following environment variables before launching Positron:
+
+- `GOOGLE_CLIENT_EMAIL`: the service account's client email
+- `GOOGLE_PRIVATE_KEY`: the service account's private key
+
+</details>
+:::
+
+### Enable Google Vertex AI as a provider
+
+Google Vertex AI provider support is experimental. Opt in to the [`assistant.provider.googleVertex.enabled`](positron://settings/assistant.provider.googleVertex.enabled) setting to enable it.
+
+### Add Google Vertex AI as a language model provider
+
+1. Set your Google Cloud project ID and location, using either environment variables or settings:
+    - **Environment variables**: Set `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` before launching Positron.
+    - **Settings**: Add `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` entries to the [`authentication.googleVertex.credentials`](positron://settings/authentication.googleVertex.credentials) setting. Settings take precedence over environment variables.
+1. Run the command _Authentication: Configure Language Model Providers_
+1. Select **Google Vertex AI** as the model provider.
+1. Select **Sign in** to authenticate with Google Vertex AI.
 
 ## Custom Provider
 
@@ -301,11 +321,8 @@ Custom provider support is experimental. Opt in to the [`positron.assistant.prov
 
 ### Add Custom Provider as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Custom Provider** as the model provider.
-
-    ![Custom Provider selected in provider modal](images/assistant-provider-modal-custom-provider.png){width=600}
-
 1. Enter your API key and base URL into the input boxes and select **Sign in**.
 
 ::: {.callout-note}

@@ -104,7 +104,7 @@ website:
             - help-pane.qmd
         - section: "AI Tools"
           contents:
-            - section: "Positron Assistant"
+            - section: "Assistant"
               href: assistant.qmd
               contents:
               - text: "Overview"
