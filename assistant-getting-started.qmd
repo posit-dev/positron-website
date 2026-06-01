@@ -89,7 +89,7 @@ To use Anthropic's Claude models in Positron Assistant, you need to bring your o
 
 ### Add Anthropic as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Anthropic** as the model provider.
 1. Paste your Claude Console API key into the input box and select **Sign in**.
 
@@ -114,7 +114,7 @@ Students and faculty can use GitHub Copilot for free as part of the GitHub Educa
 
 ### Add GitHub Copilot as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **GitHub Copilot** as the model provider.
 1. Select the **Sign in** button to initiate GitHub's OAuth authentication flow.
     - Complete the authentication flow in your browser, and return to Positron when finished.
@@ -186,7 +186,7 @@ If no inference profile exists for your preferred region, Positron Assistant fal
 
 ### Add Amazon Bedrock as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Amazon Bedrock** as the model provider.
 1. Select **Sign in** so Positron Assistant can verify your AWS CLI authentication.
 
@@ -202,7 +202,7 @@ To use Snowflake Cortex in Positron Desktop, Positron Assistant requires a **Sno
 ### Add Snowflake Cortex as a language model provider
 
 1. Add your `SNOWFLAKE_ACCOUNT` ID to the [`positron.assistant.providerVariables.snowflake`](positron://settings/positron.assistant.providerVariables.snowflake) setting
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Snowflake Cortex** as the model provider.
 1. Paste your Snowflake Cortex PAT into the API key box, then select **Sign in**.
 
@@ -223,7 +223,7 @@ Microsoft Foundry provider support is in preview. Opt in to the [`positron.assis
 
 ### Add Microsoft Foundry as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Microsoft Foundry** as the model provider.
 1. Enter your Foundry endpoint URL in the **Base URL** field and your API key in the **API Key** field, then select **Sign in**.
 
@@ -254,7 +254,7 @@ Use the model name and deployment identifier from your Foundry resource for each
 
 ### Add OpenAI as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **OpenAI** as the model provider.
 1. Paste your OpenAI API key into the input box and select **Sign in**.
 
@@ -321,7 +321,7 @@ Custom provider support is experimental. Opt in to the [`positron.assistant.prov
 
 ### Add Custom Provider as a language model provider
 
-1. Run the command _Positron Assistant: Configure Language Model Providers_
+1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Custom Provider** as the model provider.
 1. Enter your API key and base URL into the input boxes and select **Sign in**.
 
