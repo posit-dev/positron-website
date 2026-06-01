@@ -1,142 +1,133 @@
-### Patch notes
+### Highlights
 
-The [2026.05.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.05.1-2) (2026-05-06) provides corrected builds for x64/Intel macOS.
+Welcome to the 2026.06.0 release of Positron!
 
-The [2026.05.2 patch release](https://github.com/posit-dev/positron/releases/tag/2026.05.2-3) (2026-05-14) fixes the behavior when switching tabs in the Positron notebook editor.
-
-### Release highlights
-
-Welcome to the 2026.05.0 release of Positron!
-
-- [Announcing the Packages pane](#announcing-the-packages-pane)
+- [Posit Assistant](#posit-assistant)
+- [Packages pane improvements](#packages-pane-improvements)
 - [Inline output for Quarto](#inline-output-for-quarto)
-- [Extensions available from Posit Public Package Manager](#extensions-available-from-posit-public-package-manager)
-- [Positron Notebook Editor is now in beta](#positron-notebook-editor-is-now-in-beta)
-- [Posit Assistant and Posit AI](#posit-assistant-and-posit-ai)
+- [Faster startup](#faster-startup)
+- [R language intelligence](#r-language-intelligence)
 
 <div id="checkbox"></div>
 
-#### Announcing the Packages pane
+#### Posit Assistant
 
-Our Packages pane is available in this release as a preview feature. The new Packages pane brings streamlined package management directly into the IDE so you can see at a glance what's installed, what's attached, and what's out of date. 
+Last release we introduced [Posit Assistant](https://pos.it/assistant), our unified, data-science-focused approach to AI assistance. This release continues that work, and we want to give you advance notice that the older Positron Assistant will be deprecated in the next release. If you are still using Positron Assistant, we encourage you to migrate to Posit Assistant now. As a first step, the `positron.assistant.enable` setting is deprecated in favor of [`assistant.enabled`](positron://settings/assistant.enabled), and the Positron Assistant welcome view now points you to Posit Assistant. 
 
-<img src="https://cdn.posit.co/positron/releases/release-notes/assets/2026-05-packages-pane.png" alt="The Packages pane showing installed Python packages">
+Posit Assistant supports the same broad set of providers as Positron Assistant, along with the Posit AI model provider and new experimental support for Google Vertex. [Learn more](https://youtu.be/Y9P2nlFXKnQ) about the differences between the new Posit Assistant and the older Positron Assistant.
 
-Find it in the Primary Sidebar by clicking the package icon. Positron automatically detects and integrates with your current interpreter; today we have support for pip, venv, uv, and conda for Python, plus base R, pak, and renv for R. You can search, sort, install, update, remove, filter by category (including "Outdated Packages"), and even see which packages are attached in your current session. To hide the pane, disable [`positron.packages.enable`](positron://settings/positron.packages.enable). [Let us know](https://github.com/posit-dev/positron/discussions) how it fits into your workflow.
+<p align="center"><img src="https://cdn.posit.co/positron/releases/release-notes/assets/2026-06-posit-assistant.gif" alt="Using Posit Assistant in Positron"></p>
+
+New in Posit Assistant this release, you can use the Posit AI model provider for Next Edit Suggestions, which propose your likely next change as you edit. You can also access the **Configure Language Model Providers** item in the accounts menu.
+
+
+#### Packages pane improvements
+
+We introduced the [Packages](https://positron.posit.co/packages-pane) pane last release, and this release makes it more informative and flexible. A **Show Help** button and context menu entry on every package take you straight to its documentation in the [Help pane](https://positron.posit.co/help-pane). You can now combine category filters as an intersection, so you can narrow the list to, for example, packages that are both attached and outdated. A new **Item Size** toggle lets you switch between a compact row view and a richer card view that surfaces package descriptions and other metadata. For R users, the new [`packages.r.installer`](positron://settings/packages.r.installer) setting controls whether installs, updates, and removals use pak, base R, or an automatic choice. The setting that controls the pane has been renamed to [`packages.enabled`](positron://settings/packages.enabled); the previous `positron.packages.enable` setting is deprecated but still honored.
 
 #### Inline output for Quarto
 
-Inline output for `.qmd` documents was one of Positron's most-requested features ever, with many users telling us it was the one thing keeping them tied to RStudio or Jupyter notebooks. We are happy to share that Quarto inline output is available this release as a preview feature. Quarto kernels start automatically when you open a document with inline output, so you don't wait for a kernel on first execution. Each inline output cell shows a status line with execution status and elapsed time, and outputs are now collapsible when they get long. We've also added a tool to switch the interpreter used for inline output, support for _Show Notebook Console_ for Quarto documents, and fixed a handful of papercuts around execution indicators, autocompletion, and the kernel selector. Enable inline output via the [`positron.quarto.inlineOutput.enabled`](positron://settings/positron.quarto.inlineOutput.enabled) setting.
+[Inline output for `.qmd` documents](https://positron.posit.co/quarto-inline-output) was one of Positron's most-requested features ever, and it is now out of preview. A new toolbar button in Quarto documents gives you one-click access to running cells, managing inline output, and showing the console. Inserting code into a Quarto document from the History pane now automatically wraps it in cell markup when you drop it into a prose region. You can opt in to inline output with the [`positron.quarto.inlineOutput.enabled`](positron://settings/positron.quarto.inlineOutput.enabled) setting.
 
-#### Extensions available from Posit Public Package Manager
+#### Faster startup
 
-Positron's extension gallery now uses [Posit Public Package Manager](https://p3m.dev) (P3M) by default, replacing Open VSX as the source for browsing and installing extensions. The catalog is the same set of extensions you already use, served from Posit infrastructure for reliable distribution. If you prefer to stay on Open VSX, the new [`positron.extensions.gallerySource`](positron://settings/positron.extensions.gallerySource) setting lets you switch back at any time. For organizations on Posit Workbench, [Posit Package Manager also added support for mirroring and serving VS Code extensions](https://posit.co/blog/manage-vs-code-extensions-like-packages-with-posit-package-manager-2026-04-0/) from your own instance, bringing the same governance, security, and air-gapped distribution to extensions that you already have for R and Python packages.
+We continue to invest in performance improvements, and Positron starts up even faster in this release. Positron now caches previously discovered system interpreters, dramatically speeding up startup in new folders and projects; you can control this with the new [`interpreters.discoveryCache.enabled`](positron://settings/interpreters.discoveryCache.enabled) setting. On Windows, we fixed multi-minute startup delays by skipping slow `PATH` discovery by default, governed by the new [`positron.r.interpreters.pathDiscoveryMode`](positron://settings/positron.r.interpreters.pathDiscoveryMode) setting. We also fixed an occasional hang at "Preparing" when starting Positron after updating to a new version.
 
-#### Positron Notebook Editor is now in beta
+#### R language intelligence
 
-The Positron Notebook Editor for `.ipynb` files is officially moving from alpha to beta. This release brings a wave of polish and reliability we hope makes it ready for your daily workflow:
-
-- **Cleaner git diffs by default:** New [`notebook.save.outputs`](positron://settings/notebook.save.outputs) and [`notebook.save.executionCounts`](positron://settings/notebook.save.executionCounts) settings let you exclude outputs and execution counts from saved notebook files so reviewers see only the relevant code changes.
-
-- **Stronger R support:** R notebooks can now be debugged with breakpoints and the "Debug Cell" action, and R dataframe outputs in notebook cells now render in the inline Data Explorer for the same interactive exploration you get in the Console.
-
-- **Help on F1:** Pressing <kbd>F1</kbd> on a function in a notebook cell now opens the Help pane, just like in `.py` and `.R` files. Works for both Python and R Jupyter notebooks.
-
-- **UX polish:** Long cell outputs default to scrolling instead of overwhelming the page, the cell action bar stays visible as you scroll through tall cells, markdown cells render footnotes, and your scroll position is preserved when switching between notebook tabs.
-
-#### Posit Assistant and Posit AI
-
-This release introduces two new AI options: Posit Assistant and Posit AI.
-
-- You may have tried some of our previous experiments for AI code assistance available in Positron, Positron Assistant and/or Databot. We are now migrating to a more data-science-specific, holistic, unified approach to AI chat, built on the same Posit Assistant interface that [we recently brought to RStudio](https://posit.co/blog/introducing-ai-in-rstudio/). Instead of switching between tools, you get code generation, next edit suggestions, chat, and agentic tools all in one place. [Learn how to get started](https://posit-dev.github.io/assistant/docs/downloads/positron/).
-
-- [Posit AI](https://posit.co/products/ai) is a new, optional model provider service available to use with Posit Assistant. Posit AI is a subscription priced at $20/month for individual users; both Positron and Posit Assistant remain free to use. [Learn how to sign up for an account](https://posit.co/products/ai).
-
+Positron's R language support now understands symbols within a file. You can rename a local symbol and have every use of it updated at once, and Go to Definition and Find References now work for local symbols, so you can jump to where a variable is defined (such as via `<-` or a function parameter) or see everywhere it is used within a function. Renaming symbols across files is not yet supported, but it is coming soon.
 
 ### Changelog
 
 #### New features
 
-- [[#11896](https://github.com/posit-dev/positron/issues/11896)] Notebooks: now track notebook sessions in the top-right interpreter picker.
-- [[#11773](https://github.com/posit-dev/positron/issues/11773)] Notebooks: added <kbd>Shift+Enter</kbd> keyboard shortcut to run active cell and insert a new cell immediately beneath.
-- [[#11852](https://github.com/posit-dev/positron/issues/11852)] Notebooks: added "Copy Output Text" to the notebook cell output right-click menu, enabling copy of selected text or all text output.
-- [[#10117](https://github.com/posit-dev/positron/issues/10117)] Notebooks: cell action bars are now sticky and won't scroll out of view for tall cells.
-- [[#11775](https://github.com/posit-dev/positron/issues/11775)] Notebooks: cell execution footer now hides when the cell has not been run and smoothly animates in/out during execution.
-- [[#10597](https://github.com/posit-dev/positron/issues/10597)] Notebooks: footnotes in markdown cells now render with superscript links and a numbered footnote section.
-- [[#12600](https://github.com/posit-dev/positron/issues/12600)] Notebooks: long notebook outputs are resizable.
-- [[#12110](https://github.com/posit-dev/positron/issues/12110)] Notebooks: added [`notebook.save.outputs`](positron://settings/notebook.save.outputs) and [`notebook.save.executionCounts`](positron://settings/notebook.save.executionCounts) settings to optionally exclude outputs and execution counts from saved notebook files, improving version control workflows.
-- [[#12104](https://github.com/posit-dev/positron/issues/12104)] Notebooks: R notebooks can now be debugged with breakpoints and the "Debug Cell" action.
-- [[#10246](https://github.com/posit-dev/positron/issues/10246)] Notebooks: surface "Restart Kernel" as a top-level toolbar button instead of nesting it in the kernel badge dropdown.
-- [[#12616](https://github.com/posit-dev/positron/issues/12616)] Quarto: automatically start a kernel when a Quarto document with inline output is opened, instead of waiting until code is run.
-- [[#12155](https://github.com/posit-dev/positron/issues/12155)] Quarto: inline output cells now have a new status line showing execution status and time.
-- [[#12789](https://github.com/posit-dev/positron/issues/12789)] Quarto: updated "Show Notebook Console" to work with Quarto inline output.
-- [[#12684](https://github.com/posit-dev/positron/issues/12684)] Quarto: added tool to switch the interpreter used to run code with inline output.
-- [[#12985](https://github.com/posit-dev/positron/issues/12985)] Quarto: inline outputs are now collapsible.
-- [[#12928](https://github.com/posit-dev/positron/issues/12928)] Packages: added support for supplementing Packages pane with metadata from Posit Public Package Manager.
-- [[#12992](https://github.com/posit-dev/positron/issues/12992)] Packages: added simple text search to the Packages pane.
-- [[#12924](https://github.com/posit-dev/positron/issues/12924)] Packages: added sort action item to the Packages pane.
-- [[#12923](https://github.com/posit-dev/positron/issues/12923)] Packages: added category filters to the Packages pane.
-- [[#11899](https://github.com/posit-dev/positron/issues/11899)] Interpreter: now show runtime status icon in the interpreter picker to indicate session state.
-- [[#11905](https://github.com/posit-dev/positron/issues/11905)] Interpreter: now display notebook and Quarto sessions in the interpreter session quickpick.
-- [[#12741](https://github.com/posit-dev/positron/issues/12741)] Interpreter: changed icons shown for runtime sessions.
-- [[#8923](https://github.com/posit-dev/positron/issues/8923), [#11901](https://github.com/posit-dev/positron/issues/11901)] Interpreter: removed the independent, redundant session picker from the Variables pane. The Variables pane now always follows the foreground session.
-- [[#12753](https://github.com/posit-dev/positron/issues/12753)] Assistant: migrated authentication for all language model providers to the new Authentication extension.
-- [[#13195](https://github.com/posit-dev/positron/issues/13195)] Assistant: Console "Fix" and "Explain" buttons now route error context to the Posit Assistant extension's new chat API.
-- [[#13120](https://github.com/posit-dev/positron/issues/13120)] Assistant: Posit AI provider is out of preview.
-- [[#12875](https://github.com/posit-dev/positron/issues/12875)] Extensions: now use Posit Public Package Manager by default for Positron's extension gallery.
-- [[#12877](https://github.com/posit-dev/positron/issues/12877)] Extensions: the new [`positron.extensions.gallerySource`](positron://settings/positron.extensions.gallerySource) setting allows users to switch the extension gallery between Open VSX or P3M.
-- [[#2136](https://github.com/posit-dev/positron/issues/2136)] Console: added find/search functionality to the Console (<kbd>Cmd/Ctrl+F</kbd>) with support for case-sensitive, whole-word, and regex modes.
-- [[#8359](https://github.com/posit-dev/positron/issues/8359)] Python: if no usable Pythons are found, provide installation of `uv` and a supported Python version.
-- [[#12624](https://github.com/posit-dev/positron/issues/12624)] R: package names preceding `::` and `:::` are now assigned the `entity.name.namespace` TextMate scope, allowing them to be styled independently from regular variables.
-- [[#12582](https://github.com/posit-dev/positron/issues/12582)] R: support clearing the Console via `cat("\014")` / `cat("\f")`.
-- [[#2974](https://github.com/posit-dev/positron/issues/2974)] Data Explorer: added a _View Data Frame at Cursor_ command that opens the Data Explorer for the variable at the editor cursor, available from the command palette and the editor context menu. Works in R, Python, and Quarto files.
-- [[#13154](https://github.com/posit-dev/positron/issues/13154)] Workbench: static assets are now pre-compressed at build time, reducing load times in the browser.
-- [[#13217](https://github.com/posit-dev/positron/issues/13217)] Removed the already deprecated `update.systemArchitecture` setting and all remaining components of universal macOS builds. We now only provide architecture-specific builds for macOS.
-- [[#12857](https://github.com/posit-dev/positron/issues/12857)] A new [`positron.runApp.previewMode`](positron://settings/positron.runApp.previewMode) setting controls where application previews open by default. Choose between the Viewer pane, an editor tab, an external browser, or no preview at all. This applies to all apps launched through Positron's Run App framework, including Flask, Dash, FastAPI, Gradio, and Streamlit. Note that Shiny applications remain governed by the existing [`shiny.previewType`](positron://settings/shiny.previewType) setting.
+- [[#11708](https://github.com/posit-dev/positron/issues/11708)] Notebooks: unified the notebook and Quarto kernel selectors with the interpreter selector so they share ordering, grouping, and icons.
+- [[#11906](https://github.com/posit-dev/positron/issues/11906)] Notebooks: added a "Change Notebook Session..." entry to the interpreter picker, allowing users to change the runtime for the active notebook editor.
+- [[#10604](https://github.com/posit-dev/positron/issues/10604)] Notebooks: render `application/json` outputs as a collapsible tree view with syntax highlighting, plus a **Copy JSON** action to copy formatted JSON output to the clipboard.
+- [[#12680](https://github.com/posit-dev/positron/issues/12680)] Notebooks: render bare LaTeX environment blocks (such as `\begin{equation}` and `\begin{align}`) in markdown cells.
+- [[#12687](https://github.com/posit-dev/positron/issues/12687)] Notebooks: render `text/latex` outputs (such as from `IPython.display.Math` and `IPython.display.Latex`) using KaTeX.
+- [[#13174](https://github.com/posit-dev/positron/issues/13174)] Notebooks: defer kernel startup for notebooks and Quarto documents until you interact with or edit the document, instead of when it is previewed.
+- [[#10493](https://github.com/posit-dev/positron/issues/10493)] Notebooks: the **Run All** toolbar button toggles to a **Stop** button while cells are running, so you can interrupt execution from the toolbar.
+- [[#12434](https://github.com/posit-dev/positron/issues/12434)] Notebooks: cell outputs can now be focused via Tab or click, enabling <kbd>Cmd+C</kbd> to copy a plot image to the clipboard when the output area is active.
+- [[#12839](https://github.com/posit-dev/positron/issues/12839)] Notebooks: added a **Toggle Outline** button to the editor action bar, which opens and focuses the Outline view in the Explorer pane.
+- [[#13795](https://github.com/posit-dev/positron/issues/13795)] Notebooks: context keys now show descriptions in autocompletion when editing `when` clauses in `keybindings.json` and extension `package.json`.
+- [[#13321](https://github.com/posit-dev/positron/pull/13321)] Notebooks: added an experimental **Visualize...** flow (behind [`positron.notebook.experimental`](positron://settings/positron.notebook.experimental)) that turns an inline Data Explorer view into a plotting cell, with code generation for Plotly, Matplotlib, and Seaborn as well as a live chart preview.
+- [[#13334](https://github.com/posit-dev/positron/issues/13334)] Assistant: added Posit AI Next Edit Suggestions.
+- [[#13110](https://github.com/posit-dev/positron/issues/13110)] Assistant: added a "Configure Language Model Providers" item to the accounts menu.
+- [[#13664](https://github.com/posit-dev/positron/pull/13664)] Assistant: added `authentication.<configKey>.customHeaders` settings to attach extra HTTP headers to provider requests.
+- [[#12270](https://github.com/posit-dev/positron/issues/12270)] Assistant: added Google Vertex AI as an experimental language model provider (behind [`assistant.provider.googleVertex.enabled`](positron://settings/assistant.provider.googleVertex.enabled)), supporting service-account environment variables and Application Default Credentials.
+- [[#13543](https://github.com/posit-dev/positron/issues/13543)] Assistant: updated the Positron Assistant welcome view to direct users to Posit Assistant, and deprecated `positron.assistant.enable` in favor of [`assistant.enabled`](positron://settings/assistant.enabled).
+- [[#13499](https://github.com/posit-dev/positron/pull/13499), [#13757](https://github.com/posit-dev/positron/pull/13757)] Packages: added a **Show Help** button and context menu entry for every package in the Packages pane.
+- [[#13156](https://github.com/posit-dev/positron/pull/13156)] Packages: added an **Item Size** toggle to switch the Packages pane between row and card views, and added more package metadata including descriptions.
+- [[#13759](https://github.com/posit-dev/positron/pull/13759)] Packages: the Packages pane now supports combining multiple category filters (such as both outdated and attached) as an intersection.
+- [[#13755](https://github.com/posit-dev/positron/pull/13755)] Packages: added the [`packages.r.installer`](positron://settings/packages.r.installer) setting to control which installation method (auto, pak, or base R) the Packages pane uses for installing, updating, and removing R packages.
+- [[#13642](https://github.com/posit-dev/positron/pull/13642)] Packages: renamed the setting that controls the Packages pane to [`packages.enabled`](positron://settings/packages.enabled). The previous `positron.packages.enable` setting is deprecated but still honored.
+- [[#12825](https://github.com/posit-dev/positron/issues/12825)] R: plots created in a loop are now rendered on each iteration rather than all at once at the end.
+- [[#13749](https://github.com/posit-dev/positron/issues/13749)] R: you can now rename local symbols in R files. Renaming symbols across files is not yet supported, but is coming soon.
+- [[#8631](https://github.com/posit-dev/positron/issues/8631)] R: "Go to Definition" and "Find References" now support local symbols in R files, so you can jump to where a variable is defined (such as via `<-` or a function parameter) or see all references to a variable within a function.
+- [[#11875](https://github.com/posit-dev/positron/issues/11875)] R: the _R: Install R Package and Restart R_ command now defaults to `devtools::install(build = FALSE)` instead of `pak::local_install(upgrade = FALSE)`. The [`positron.r.localPackageInstallMethod`](positron://settings/positron.r.localPackageInstallMethod) setting now accepts `"devtools"` or `"base"`.
+- [[#12149](https://github.com/posit-dev/positron/issues/12149)] Quarto: added a toolbar button in Quarto documents for running cells, managing inline output, and showing the console.
+- [[#12737](https://github.com/posit-dev/positron/issues/12737)] Quarto: inserting code into a Quarto document from the History pane now automatically wraps it in cell markup when inserting into a prose region.
+- [[#6965](https://github.com/posit-dev/positron/issues/6965)] Python: guide users to create a virtual environment if requirements files are present in a Python workspace.
+- [[#13501](https://github.com/posit-dev/positron/pull/13501)] Python: show help pages (such as via `?cowsay`) for packages that have not been imported yet.
+- [[#13133](https://github.com/posit-dev/positron/issues/13133)] Interpreter: cache previously discovered system interpreters across windows to dramatically speed up startup in new folders and projects. Caching can be controlled with the new [`interpreters.discoveryCache.enabled`](positron://settings/interpreters.discoveryCache.enabled) setting.
+- [[#13224](https://github.com/posit-dev/positron/pull/13224)] Workbench: static files are now served from consistent, session-independent URLs, allowing them to be cached across sessions.
+- [[#13738](https://github.com/posit-dev/positron/pull/13738)] Extensions: now send distribution type, Positron version, and update-check trigger as query parameters on extension gallery requests to Posit Public Package Manager (P3M), for load sizing and traffic disambiguation. This can be turned off with the new [`extensions.gallery.sendUsageData`](positron://settings/extensions.gallery.sendUsageData) setting.
+- [[#13131](https://github.com/posit-dev/positron/issues/13131)] Moved the **Save File** icon from the global toolbar to the editor action bar.
 
 #### Bug fixes
 
-- [[#11802](https://github.com/posit-dev/positron/issues/11802)] Notebooks: fixed how notebook rendering errors could produce a blank screen instead of showing the error recovery UI.
-- [[#12610](https://github.com/posit-dev/positron/issues/12610)] Notebooks: now clean up orphaned notebook consoles when notebook is closed.
-- [[#11802](https://github.com/posit-dev/positron/issues/11802)] Notebooks: non-ipywidgets HTML-based outputs now render properly.
-- [[#12914](https://github.com/posit-dev/positron/issues/12914)] Notebooks: fixed a crash in the notebook kernel selector when a notebook replaces another notebook in a preview tab.
-- [[#12947](https://github.com/posit-dev/positron/issues/12947)] Notebooks: fixed cell outputs flashing briefly when re-running a cell.
-- [[#12065](https://github.com/posit-dev/positron/issues/12065)] Notebooks: fixed inline Data Explorer sort indicators disappearing after switching tabs.
-- [[#11777](https://github.com/posit-dev/positron/issues/11777)] Notebooks: fixed scroll position not being restored when switching tabs or reloading the window.
-- [[#12320](https://github.com/posit-dev/positron/issues/12320)] Notebooks: now route relative markdown links in cells to the correct file.
-- [[#12317](https://github.com/posit-dev/positron/issues/12317)] Notebooks: fixed scrolling over Plotly charts and other webview-hosted outputs.
-- [[#12615](https://github.com/posit-dev/positron/issues/12615)] Notebooks: AI features now respect the [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes) setting.
-- [[#13244](https://github.com/posit-dev/positron/issues/13244)] Notebooks: now strip ANSI escape codes when copying cell output text via the cell context menu.
-- [[#12604](https://github.com/posit-dev/positron/issues/12604)] Notebooks: switching back to a tab with a large notebook no longer freezes the UI while Monaco editors are recreated.
-- [[#12662](https://github.com/posit-dev/positron/issues/12662)] Quarto: fixed stray execution indicators in editor gutter when executing cells in a Quarto document with inline output.
-- [[#12614](https://github.com/posit-dev/positron/issues/12614)] Quarto: fixed the Quarto kernel selector appearing on non-Quarto editor panes when a Quarto document is open alongside other editors.
-- [[#12885](https://github.com/posit-dev/positron/issues/12885)] Quarto: fixed autocompletion in Quarto docs when inline output is disabled.
-- [[#12741](https://github.com/posit-dev/positron/issues/12741)] Quarto: show Quarto icon for Quarto sessions rather than generic notebook icon.
-- [[#13153](https://github.com/posit-dev/positron/issues/13153)] Quarto: disable "Interrupt Kernel" for inline output when kernel isn't running or busy.
-- [[#12202](https://github.com/posit-dev/positron/issues/12202)] Assistant: fixed an issue where links in Assistant error messages could have a white background in some themes, making them hard to read.
-- [[#12456](https://github.com/posit-dev/positron/issues/12456)] Assistant: fixed text encoding problems in responses for AWS Bedrock.
-- [[#12954](https://github.com/posit-dev/positron/issues/12954)] Assistant: updated provider settings tags and default enabled providers.
-- [[#12920](https://github.com/posit-dev/positron/issues/12920)] Assistant: fixed Snowflake Cortex model provider rejecting valid credentials.
-- [[#12142](https://github.com/posit-dev/positron/issues/12142)] Assistant: resolved Anthropic cache errors when using AWS Bedrock.
-- [[#12166](https://github.com/posit-dev/positron/issues/12166)] Assistant: fixed prompt caching and cached token count for AWS Bedrock.
-- [[#13018](https://github.com/posit-dev/positron/issues/13018)] Assistant: fixed Azure Foundry managed credentials not auto-configuring on Posit Workbench.
-- [[#12572](https://github.com/posit-dev/positron/issues/12572), [#13053](https://github.com/posit-dev/positron/issues/13053)] Assistant: fixed issues with GitHub Copilot models being missing from model picker.
-- [[#12974](https://github.com/posit-dev/positron/issues/12974)] Assistant: fixed Anthropic custom base URL being silently modified during API key validation.
-- [[#13121](https://github.com/posit-dev/positron/issues/13121)] Assistant: removed broken _Reset State_ command and fixed _Collect Diagnostics_ to show correct credential status after auth extension migration.
-- [[#12730](https://github.com/posit-dev/positron/issues/12730)] Assistant: fixed issue causing pending console input to be combined with commands run from Assistant.
-- [[#13195](https://github.com/posit-dev/positron/issues/13195)] Assistant: Console "Fix" and "Explain" buttons fall back to the built-in quick chat when the Posit Assistant sidebar is disabled, instead of always trying to launch Posit Assistant.
-- [[#9852](https://github.com/posit-dev/positron/issues/9852)] Console: fixed performance problems in long-running sessions.
-- [[#11230](https://github.com/posit-dev/positron/issues/11230)] Console: fixed the Console hanging on first startup after upgrading Positron.
-- [[#13152](https://github.com/posit-dev/positron/issues/13152)] Console: fixed input field not pre-selecting text when renaming a Console session.
-- [[#12349](https://github.com/posit-dev/positron/issues/12349)] Python: fixed Python extension activation and interpreter discovery blocking startup, and sped it up.
-- [[#12397](https://github.com/posit-dev/positron/issues/12397)] Python: Conda environments without Python will get Python installed upon selection, not discovery.
-- [[#12367](https://github.com/posit-dev/positron/issues/12367)] R: fixed loading `.RData`/`.rds` files from the Explorer on Windows.
-- [[#13229](https://github.com/posit-dev/positron/issues/13229)] R: fixed incorrect URL matching when starting a Shiny app.
-- [[#12478](https://github.com/posit-dev/positron/issues/12478)] Reticulate: now defer `positron-reticulate` activation until it is actually needed, reducing unnecessary work during startup.
-- [[#9364](https://github.com/posit-dev/positron/issues/9364)] Help: prevent the Help copy keybinding from hijacking <kbd>Cmd/Ctrl+C</kbd> elsewhere in the app when Help focus tracking misses a blur event.
-- [[#12380](https://github.com/posit-dev/positron/issues/12380)] Workbench: language-scoped enforced settings (e.g., `[r]`) now apply correctly.
-- [[#12492](https://github.com/posit-dev/positron/issues/12492)] Fixed PDF viewer print button and <kbd>Cmd/Ctrl+P</kbd> not opening a print dialog.
+- [[#13420](https://github.com/posit-dev/positron/issues/13420)] Notebooks: fixed an "InstantiationService has been disposed" error when editing cells after switching tabs.
+- [[#13393](https://github.com/posit-dev/positron/pull/13393)] Notebooks: fixed "Save as SVG/PNG" silently failing for Altair/Vega plots.
+- [[#13558](https://github.com/posit-dev/positron/pull/13558)] Notebooks: fixed scrolling when running in web mode (Workbench).
+- [[#12437](https://github.com/posit-dev/positron/issues/12437)] Notebooks: fixed rendered markdown cells not respecting the [`notebook.markup.fontSize`](positron://settings/notebook.markup.fontSize) setting.
+- [[#11649](https://github.com/posit-dev/positron/issues/11649)] Notebooks: fixed `execution_count` being null in saved `execute_result` outputs.
+- [[#11716](https://github.com/posit-dev/positron/issues/11716)] Notebooks: removed the **Run Dash App** button from the toolbar.
+- [[#13708](https://github.com/posit-dev/positron/issues/13708)] Notebooks: fixed `ipydatagrid` and other widget outputs failing to render.
+- [[#12726](https://github.com/posit-dev/positron/issues/12726)] Notebooks: fixed showing the focused-cell blue border on multiple cells at once in the Positron Dark theme.
+- [[#10452](https://github.com/posit-dev/positron/issues/10452)] Notebooks: fixed `IPython.display.Audio` playback.
+- [[#12740](https://github.com/posit-dev/positron/issues/12740)] Notebooks: fixed side-by-side notebooks not distinguishing the focused pane from the unfocused pane; the unfocused pane's selected cell now shows a muted border and its action bar no longer auto-appears.
+- [[#10385](https://github.com/posit-dev/positron/issues/10385)] Notebooks: fixed <kbd>Escape</kbd> not cancelling multiple selections.
+- [[#11555](https://github.com/posit-dev/positron/issues/11555)] Notebooks: fixed empty notebooks created via <kbd>Cmd+N</kbd> not auto-selecting the foreground session's kernel.
+- [[#13227](https://github.com/posit-dev/positron/issues/13227)] Assistant: disabled the initial terminal hint by default.
+- [[#11452](https://github.com/posit-dev/positron/issues/11452)] Assistant: fixed `vscode.lm.selectChatModels()` returning no models when another chat-model provider extension throws during activation.
+- [[#13412](https://github.com/posit-dev/positron/issues/13412)] Assistant: fixed OpenAI provider connection test errors appearing shortly after activation.
+- [[#13421](https://github.com/posit-dev/positron/issues/13421), [#13489](https://github.com/posit-dev/positron/issues/13489)] Assistant: fixed Custom Provider sign-in against OpenAI-compatible endpoints that reject empty model strings (such as Databricks).
+- [[#13544](https://github.com/posit-dev/positron/issues/13544)] Assistant: allowed reading project metadata files in dot-directories like `.github/` and `.vscode/` by default, while still excluding `.env`, SSH keys, and other secret-bearing files.
+- [[#13556](https://github.com/posit-dev/positron/pull/13556)] Packages: fixed scrolling issues in the Packages pane on web.
+- [[#13453](https://github.com/posit-dev/positron/issues/13453)] Packages: improved the accuracy of the "Outdated" indicator in the Packages pane, so development versions installed from sources like git are no longer incorrectly flagged as outdated.
+- [[#13395](https://github.com/posit-dev/positron/issues/13395)] Console: fixed jumpiness when resizing the Console height.
+- [[#12772](https://github.com/posit-dev/positron/issues/12772)] Console: fixed the working directory disappearing in the Console tab when it is long or the Console is narrow; it is now truncated and shown on hover.
+- [[#13456](https://github.com/posit-dev/positron/issues/13456)] Variables: fixed an unresponsive column resizer in the Variables pane that stopped tracking the pointer after the first move.
+- [[#12734](https://github.com/posit-dev/positron/issues/12734)] Variables: improved the layout of the Variables pane action bar at narrower widths.
+- [[#13179](https://github.com/posit-dev/positron/issues/13179)] Workbench: fixed an issue causing all links in the Help pane to open in new tabs instead of inside the Help pane.
+- [[#13359](https://github.com/posit-dev/positron/issues/13359)] Workbench: fixed the file picker overlapping other panes when advancing in the New Folder from Template flow on web.
+- [[#12882](https://github.com/posit-dev/positron/issues/12882)] Windows: fixed auto-update updating the wrong installation when multiple Positrons are installed.
+- [[#13431](https://github.com/posit-dev/positron/issues/13431)] Windows: fixed "Open" events initiated by a runtime, such as `usethis::use_r()` to open a file, failing with UNC paths.
+- [[#13234](https://github.com/posit-dev/positron/issues/13234)] macOS: fixed <kbd>Cmd+C</kbd> and <kbd>Cmd+A</kbd> not working when the PDF viewer has focus.
+- [[#13369](https://github.com/posit-dev/positron/issues/13369), [#13372](https://github.com/posit-dev/positron/issues/13372)] macOS: fixed architecture-specific builds selecting arm64 binaries on Intel Macs.
+- [[#12999](https://github.com/posit-dev/positron/issues/12999)] R: fixed multi-minute startup delays by skipping slow `PATH` discovery on Windows by default. The new [`positron.r.interpreters.pathDiscoveryMode`](positron://settings/positron.r.interpreters.pathDiscoveryMode) setting controls this behavior.
+- [[#9044](https://github.com/posit-dev/positron/issues/9044)] R: fixed `()` inserted as part of a function completion, such as in `.libPaths()`, not being treated as an auto-closing pair; backspace once again removes `()`, not just `(`.
+- [[#13242](https://github.com/posit-dev/positron/issues/13242)] Quarto: fixed inline output appearing in the Diff view.
+- [[#13518](https://github.com/posit-dev/positron/issues/13518)] Python: removed the _Python: Install Python Packages_ entry from the Command Palette, since it cannot be used that way.
+- [[#13068](https://github.com/posit-dev/positron/issues/13068)] Plots and Viewer: consolidated the **Open in...** actions in the Plots and Viewer panes into a single dropdown with consistent placement and iconography.
+- [[#13230](https://github.com/posit-dev/positron/issues/13230)] Themes: replaced upstream "Experimental" color themes with Positron-branded variants in the theme picker.
+- [[#13415](https://github.com/posit-dev/positron/issues/13415)] Extensions: fixed the `EXTENSIONS_GALLERY` environment variable not overriding the extension gallery URL.
+- [[#13134](https://github.com/posit-dev/positron/issues/13134)] Linux: fixed the Positron `.deb` uninstaller removing Visual Studio Code's APT sources and signing key.
+- [[#13113](https://github.com/posit-dev/positron/issues/13113)] Fixed the [`workbench.topActionBar.visible`](positron://settings/workbench.topActionBar.visible) setting not hiding and showing the top action bar at runtime.
+- [[#10149](https://github.com/posit-dev/positron/issues/10149)] Fixed the [`window.commandCenter`](positron://settings/window.commandCenter) setting being ignored; it can now be enabled to show the command center in the title bar.
+- [[#11629](https://github.com/posit-dev/positron/issues/11629)] Fixed the [`workbench.secondarySideBar.defaultVisibility`](positron://settings/workbench.secondarySideBar.defaultVisibility) setting not being honored when explicitly configured.
+- [[#7644](https://github.com/posit-dev/positron/issues/7644)] Fixed the [`workbench.secondarySideBar.showLabel`](positron://settings/workbench.secondarySideBar.showLabel) setting not being respected, so Secondary Side Bar items can now render as icons.
+- [[#12865](https://github.com/posit-dev/positron/issues/12865)] Fixed the command _Developer: Runtime Startup Diagnostics_ hanging when the extension host is unresponsive.
+- [[#13343](https://github.com/posit-dev/positron/pull/13343)] Fixed file icon size and alignment in the console tab list and session picker so icons render consistently across file icon themes.
+- [[#13040](https://github.com/posit-dev/positron/issues/13040)] Standardized clear and delete icons across pane action bars: filter inputs and notebook output-clearing use the clear-all icon, while destructive actions in the Variables, Plots, Console, and History panes use a trash icon.
+- [[#13303](https://github.com/posit-dev/positron/issues/13303)] Removed the "Editor Actions" toggle entry from the title bar context menu.
+- [[#13550](https://github.com/posit-dev/positron/issues/13550)] Clarified in the workspace trust editor and startup dialog that workspace trust gates Python and R sessions and Posit Assistant.
+- [[#13139](https://github.com/posit-dev/positron/issues/13139)] Fixed completions and diagnostics failing in IPv6-only environments.
+- [[#12864](https://github.com/posit-dev/positron/issues/12864)] Fixed an occasional hang at "Preparing" when starting Positron after updating to a new version.
+- [[#12204](https://github.com/posit-dev/positron/issues/12204)] Fixed right-click paste in "New Folder from Git" and other Positron text-input dialogs.
 
 #### Dependencies
 
-- Updated bundled Quarto to 1.9.37.
+- Updated `code-oss` upstream to v1.111.0.
+- Updated bundled Quarto to 1.9.38.
