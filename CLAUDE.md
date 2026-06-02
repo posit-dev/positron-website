@@ -67,7 +67,16 @@ Key formatting rules:
 
 ## Videos and Git LFS
 
-Video files (`.mp4`, `.mov`) are stored with Git LFS (see `.gitattributes`). When adding or replacing a video, make sure Git LFS is installed (`git lfs install`) so the file goes through the LFS filter. If a video shows up as changed in `git diff` but you didn't touch it, it was probably committed outside of LFS. Fix it by running `git add <file>` to re-add it through the filter.
+Video files (`.mp4`, `.mov`) are stored with Git LFS (see `.gitattributes`). When adding or replacing a video, make sure Git LFS is installed and initialized (`git lfs install`) so the file goes through the LFS filter.
+
+If a video shows up as changed in `git diff` or `git status` but you didn't touch it, that's a phantom diff: the file was committed as raw binary instead of an LFS pointer, so the clean filter now produces a pointer that differs from the stored blob. Do not stage or commit this as part of unrelated work. Running `git add` would rewrite the stored blob into a pointer, which is a real change to history. Instead, discard it with `git restore <file>`, and open a separate PR to re-add the file through LFS:
+
+```bash
+git lfs install          # ensure LFS is set up
+git rm --cached <file>   # remove the raw binary from the index
+git add <file>           # re-add it through the LFS filter
+git commit
+```
 
 ## Issue Tracking
 
