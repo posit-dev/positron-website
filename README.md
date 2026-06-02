@@ -11,9 +11,11 @@ This site is built with [Quarto](https://quarto.org/) and the [Posit product doc
 
 We currently use the issue tracker for [Positron](https://github.com/posit-dev/positron). Please report documentation bugs and feature requests at <https://github.com/posit-dev/positron/issues>.
 
-## Local development
+## Prerequisites
 
-This repository uses [Git LFS](https://git-lfs.com/) to store large files such as videos. Make sure you have Git LFS installed before cloning.
+This repo uses [Git LFS](https://git-lfs.com/) for video files. Run `git lfs install` before cloning so large files are pulled correctly.
+
+## Local development
 
 If you have [Quarto installed locally](https://quarto.org/docs/get-started/) and Chrome or Edge, you can preview the site by running one of the Debug Configurations in VS Code or Positron.
 
@@ -28,3 +30,16 @@ Alternatively, you can run the command `quarto preview` in the terminal.
 ## Managing execution and rendering
 
 Some `.qmd` files used for our site involve executable code, like the `.qmd` files that creates <https://positron.posit.co/download> and <https://positron.posit.co/install>. We currently use the ["Local Execution with CI Rendering" option described in the Quarto docs](https://quarto.org/docs/publishing/ci.html#rendering-for-ci), with the [freeze](https://quarto.org/docs/projects/code-execution.html#freeze) execution option to make it easier for us to collaborate together across the large number of pages. For now, if you need to update a page involving computations, be sure to render that page locally and check in the files created in the `_freeze` directory.
+
+## Videos and Git LFS
+
+When adding or replacing a video, make sure Git LFS is initialized (`git lfs install`) so the file goes through the LFS filter.
+
+If you see a "phantom diff" on a video file you didn't touch, it means that file was committed as raw binary instead of an LFS pointer. Don't commit the change into an unrelated PR: run `git restore <file>` to clear it locally, and open a separate PR to re-add the file through LFS:
+
+```bash
+git lfs install          # ensure LFS is set up
+git rm --cached <file>   # remove the raw binary from the index
+git add <file>           # re-add it through the LFS filter
+git commit
+```
