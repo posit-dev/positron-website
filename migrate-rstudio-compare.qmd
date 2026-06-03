@@ -29,8 +29,6 @@ If any of these features are very appealing to you, that is a reason to move som
 
 * Easy access to [multiple R versions](r-installations.qmd) and [multiple concurrent R sessions](managing-interpreters.qmd).
 
-* An [integrated AI assistant](assistant.qmd) that can "see" and, optionally, execute code in your active R (or Python) sessions, among many other capabilities.
-
 * Python as a first-class citizen, with support for data science workflows that is on par with R.
 
 * Support for other languages beyond R and Python, via built-in language intelligence or extensions.
