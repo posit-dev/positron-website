@@ -68,7 +68,7 @@ Please review [Positron's license agreement](licensing.qmd) and [privacy policy]
 
 <div id="privacy-policy-agreement">
   <input type="checkbox" id="privacy-checkbox" onclick="updatePrivacy(this)">
-  <label>I agree to the <a href="licensing.qmd">Positron license agreement</a> and <a href="https://posit.co/about/privacy-policy/">Posit Privacy Policy</a>.</label>
+  <label for="privacy-checkbox">I agree to the <a href="licensing.qmd">Positron license agreement</a> and <a href="https://posit.co/about/privacy-policy/">Posit Privacy Policy</a>.</label>
 </div>
 :::
 
