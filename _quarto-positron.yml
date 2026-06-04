@@ -110,18 +110,20 @@ website:
               - text: "Overview"
                 href: assistant.qmd
               - assistant-getting-started.qmd
-              - section: "Chat"
-                href: assistant-chat.qmd
+              - section: "Positron Assistant"
                 contents:
-                  - text: "Overview"
+                  - section: "Chat"
                     href: assistant-chat.qmd
-                  - href: assistant-chat-agents.qmd
-                  - href: assistant-chat-context.qmd
-                  - href: assistant-chat-commands-participants.qmd
-                  - href: assistant-chat-instructions.qmd
-              - assistant-completions.qmd
-              - assistant-troubleshooting.qmd
-              - assistant-tips.qmd
+                    contents:
+                      - text: "Overview"
+                        href: assistant-chat.qmd
+                      - href: assistant-chat-agents.qmd
+                      - href: assistant-chat-context.qmd
+                      - href: assistant-chat-commands-participants.qmd
+                      - href: assistant-chat-instructions.qmd
+                  - assistant-completions.qmd
+                  - assistant-troubleshooting.qmd
+                  - assistant-tips.qmd
               - assistant-provider-info.qmd
             - databot.qmd
         - section: "Language Guides"
