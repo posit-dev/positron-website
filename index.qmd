@@ -28,9 +28,19 @@ format:
 
 From [Posit PBC](https://posit.co/), the creators of RStudio
 
-# The Data Science IDE
+# The data science IDE. Human-driven, AI-assisted.
 
-### Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.
+::: {.content-visible unless-profile="workbench"}
+
+Move from question to insight to analysis, model, or application faster than ever before. Positron is the free IDE made specifically for data science and analysis with Python and R.
+
+:::
+
+::: {.content-visible when-profile="workbench"}
+
+Move from question to insight to analysis, model, or application faster than ever before. Positron is the IDE made specifically for data science and analysis with Python and R.
+
+:::
 
 ::: {.content-visible unless-profile="workbench"}
 <a href="download.qmd" class="btn btn-outline-primary">Download</a>
