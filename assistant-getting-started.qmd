@@ -20,12 +20,12 @@ listing:
         link: "assistant-completions.qmd"
 ---
 
-**[Posit Assistant](https://pos.it/assistant)** is the AI chat experience in Positron. Available as a preview feature in Positron 2026.04.0 and later, it's the recommended way to use AI in Positron. To get set up, see the [Posit Assistant documentation](https://pos.it/assistant-docs).
+[Posit Assistant](https://pos.it/assistant) is Positron's new AI chat experience, available as a preview feature in Positron 2026.04.0 and later. To get set up, see the [Posit Assistant documentation](https://pos.it/assistant-docs).
 
 ::: {.callout-warning}
-## Positron Assistant is deprecated
+## Positron Assistant is being deprecated
 
-**Positron Assistant**, the original AI extension in Positron, has been superseded by Posit Assistant and will be removed in a future release. We recommend using Posit Assistant instead. Positron Assistant is still available for now, and the rest of this guide covers it for anyone who still needs it.
+Positron Assistant is the old chat experience and is being superseded by Posit Assistant. It will be removed in a future release, so we recommend using Posit Assistant instead. Positron Assistant is still available for now, and the rest of this guide covers it for anyone who still needs it.
 :::
 
 Both assistants connect to the same language model providers, and you configure them the same way. The following providers are supported:
@@ -342,17 +342,19 @@ With a language model provider configured, open the assistant you want to use.
 
 ### Posit Assistant (recommended)
 
-Posit Assistant is pre-installed in recent versions of Positron. Once you've configured a provider above, open the chat panel to start a conversation.
-
-::: {.callout-note}
-To use **GitHub Copilot** with Posit Assistant, you must also enable Positron Assistant by turning on the [`positron.assistant.enable`](positron://settings/positron.assistant.enable) setting. Posit Assistant relies on Positron Assistant for GitHub Copilot authentication.
-:::
+Posit Assistant is pre-installed in recent versions of Positron. Run the _View: Show Posit Assistant_ command in the Command Palette to open the chat panel and start a conversation.
 
 For the full setup guide and feature documentation, see the [Posit Assistant documentation](https://pos.it/assistant-docs).
 
-### Positron Assistant (deprecated)
+::: {.callout-note}
+To use GitHub Copilot with Posit Assistant, you must also enable Positron Assistant by turning on the old [`positron.assistant.enable`](positron://settings/positron.assistant.enable) setting.
 
-Positron Assistant is deprecated, and we recommend Posit Assistant instead. If you still need Positron Assistant:
+At this time, Posit Assistant relies on Positron Assistant for GitHub Copilot authentication. Once Positron Assistant is deprecated, Posit Assistant will no longer require this extra step for GitHub Copilot support.
+:::
+
+### Positron Assistant (being deprecated)
+
+Positron Assistant is being deprecated, and we recommend Posit Assistant instead. If you still need Positron Assistant:
 
 1. Enable the setting [`positron.assistant.enable`](positron://settings/positron.assistant.enable).
 1. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
@@ -360,7 +362,7 @@ Positron Assistant is deprecated, and we recommend Posit Assistant instead. If y
 
     ![Assistant Sidebar Icon](images/assistant-sidebar-icon.png){height=450}
 
-1. Chat with Assistant by typing your question or request in the chat input box at the bottom of the chat pane, then pressing {{< kbd Enter >}} or the {{< fa paper-plane regular >}} send button.
+1. Chat with Assistant by typing your question or request in the chat input box at the bottom of the chat pane, then pressing {{< kbd Enter >}} or the send button.
 
 To learn more about Positron Assistant's features, check out the following guides:
 
