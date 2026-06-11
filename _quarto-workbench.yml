@@ -168,6 +168,7 @@ website:
                   href: jupyter-notebooks.qmd
                 - positron-notebook-editor.qmd
                 - legacy-notebook-editor.qmd
+            - code-cells.qmd
             - develop-data-apps.qmd
             - publish-to-connect.qmd
         - section: "Interpreters"
