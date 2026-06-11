@@ -25,7 +25,7 @@ listing:
 ::: {.callout-warning}
 ## Positron Assistant is being deprecated
 
-Positron Assistant is the old chat experience and is being superseded by Posit Assistant. It will be removed in a future release, so we recommend using Posit Assistant instead. Positron Assistant is still available for now, and the rest of this guide covers it for anyone who still needs it.
+Positron Assistant is the old chat experience and is being superseded by Posit Assistant. It will be removed in a future release, so we recommend using Posit Assistant instead. Positron Assistant is still available for now, and the rest of this guide covers it for anyone who still needs it in the meantime.
 :::
 
 Both assistants connect to the same language model providers, and you configure them the same way. The following providers are supported:

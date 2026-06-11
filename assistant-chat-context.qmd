@@ -3,6 +3,14 @@ title: "Context"
 description: "Give Positron Assistant context from your data, plots, Console activity, and files. Learn how to attach relevant context for smarter AI assistance."
 ---
 
+{{< include _positron-assistant-deprecated.qmd >}}
+
+::: {.callout-tip}
+## Migrating to Posit Assistant?
+
+Posit Assistant handles context in its own way. See [Context management](https://posit-dev.github.io/assistant/docs/features/context-management/) in the Posit Assistant documentation.
+:::
+
 Positron Assistant goes beyond reading your code files; it accesses your loaded data, plots, and Console activity by calling tools and executing code in your R or Python interpreter session or running commands in the Terminal.
 
 This access allows Assistant to provide more relevant coding guidance based on:

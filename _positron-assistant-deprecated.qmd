@@ -1,0 +1,5 @@
+::: {.callout-warning}
+## Positron Assistant is being deprecated
+
+This page covers Positron Assistant, the old chat experience being superseded by [Posit Assistant](https://pos.it/assistant). It will be removed in a future release, so we recommend using Posit Assistant instead. See the [Posit Assistant documentation](https://pos.it/assistant-docs) to get set up.
+:::
