@@ -88,13 +88,13 @@ The long-running sessions are associated with the workspace in which you use the
 
 Because the supervisor runs your R and Python sessions without any UI attached, it can't tell when you're done with them. In order to prevent sessions from running indefinitely and consuming resources on your remote host, the supervisor will shut them down after a certain period of inactivity. This period is controlled by the [`kernelSupervisor.shutdownTimeout`](positron://settings/kernelSupervisor.shutdownTimeout) setting.
 
-The shutdown timeout will never interrupt a kernel that's busy running code; it doesn't start counting down until the kernel is  idle _and_ it's not connected to any Positron windows. 
+The shutdown timeout will never interrupt a kernel that's busy running code; it doesn't start counting down until the kernel is  idle _and_ it's not connected to any Positron windows.
 
 If you just want to allow your kernels to finish any running computations when you exit Positron, use the _when idle_ setting.
 
 There's also an option to allow the kernels to run forever; if you use this option, your R and Python kernels will never exit unless you manually kill the processes or shut them down from Positron. We don't generally recommend using this option unless you are familiar with process management on your remote host, since it can lead to resource exhaustion.
 
-## How it works & troubleshooting
+## How it works
 
 When Positron connects to a new host for the first time, it does the following:
 
@@ -108,13 +108,27 @@ When Positron connects to a new host for the first time, it does the following:
 The client and server must be using **exactly** the same Positron version. We make Positron Server builds available for both regular monthly releases as well as [daily builds](updating.qmd#daily-builds), so you can use either for remote SSH sessions. If you connect to a remote host with a new client version of Positron (for example, because a new monthly release is available), the new matching version of Positron Server will be downloaded and unpacked.
 :::
 
+If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it's not autodetected), you can edit the [`remoteSSH.serverDownloadUrlTemplate`](positron://settings/remoteSSH.serverDownloadUrlTemplate) setting:
+
+![Remote SSH: Server Download Url Template Setting](./images/remote-ssh-server-template.png){width=650 fig-alt="Positron settings panel showing the Remote SSH Server Download URL Template field with a text input for a custom URL."}
+
+If you need to install the server data in a different location than `~/.positron-server`, edit the [`remoteSSH.serverInstallPath`](positron://settings/remoteSSH.serverInstallPath) setting.
+
+## Troubleshooting
+
 The two most common problems are:
 
 - Encountering a 404 when downloading the Positron Server binary. This happens when you attempt to use Remote SSH against a host type that's not supported, for example, connecting to a macOS host.
 - Encountering an error when starting the Positron Server binary. This happens when you attempt to use Remote SSH against a version of Linux that's not supported by Positron.
 
-Occasionally, the installation on the remote server can be corrupted, for example, if the download was interrupted. If you encounter errors installing Positron on the remote server, you can try deleting the `~/.positron-server` directory on the remote host and then connecting again.
+Occasionally, the installation on the remote server can be corrupted, for example, if the download was interrupted. If you encounter errors installing Positron on the remote server, you can try deleting the server directory on the remote host, killing any running server processes, and then connecting again.
 
-If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it's not autodetected), you can edit the [`remoteSSH.serverDownloadUrlTemplate`](positron://settings/remoteSSH.serverDownloadUrlTemplate) setting:
+```sh
+# On the remote host, kill any existing positron-server processes
+pkill -f positron-server
 
-![Remote SSH: Server Download Url Template Setting](./images/remote-ssh-server-template.png){width=650 fig-alt="Positron settings panel showing the Remote SSH Server Download URL Template field with a text input for a custom URL."}
+# On the remote host, remove all server state
+rm -rf ~/.positron-server
+
+# Reconnect from Positron Desktop!
+```
