@@ -3,11 +3,17 @@ title: "Custom Instructions"
 description: "Tailor Positron Assistant to your project with custom instructions. Set up workspace-specific AI behavior and coding preferences automatically."
 ---
 
-::: {.callout-note}
-Custom instructions do not apply to code completions.
+{{< include _positron-assistant-deprecated.qmd >}}
+
+::: {.callout-tip}
+## Migrating to Posit Assistant?
+
+Posit Assistant includes a built-in skill, `/import-instructions`, that migrates Positron, Copilot, Claude Code, and VS Code instruction files into Posit Assistant skills. Run it to bring the instructions described on this page over to Posit Assistant.
 :::
 
 Positron Assistant supports both **automatic workspace instructions** and **custom instructions files** to tailor AI behavior to your project's needs.
+
+Custom instructions do not apply to code completions.
 
 ## Automatic workspace instructions
 

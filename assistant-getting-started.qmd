@@ -1,6 +1,6 @@
 ---
 title: "Getting Started"
-description: "Configure and customize Positron Assistant by connecting it to your preferred AI model provider, such as Anthropic or GitHub Copilot. Choose the exact LLM provider that fits your workflow and security needs."
+description: "Set up AI assistance in Positron: configure a language model provider such as Posit AI, Anthropic, or GitHub Copilot, then open Posit Assistant."
 listing:
   - id: chat-features
     type: custom
@@ -20,7 +20,15 @@ listing:
         link: "assistant-completions.qmd"
 ---
 
-Positron Assistant supports the following language model providers:
+[Posit Assistant](https://pos.it/assistant) is Positron's new AI chat experience, available as a preview feature in Positron 2026.04.0 and later. To get set up, see the [Posit Assistant documentation](https://pos.it/assistant-docs).
+
+::: {.callout-warning}
+## Positron Assistant is being deprecated
+
+Positron Assistant is the old chat experience and is being superseded by Posit Assistant. It will be removed in a future release, so we recommend using Posit Assistant instead. Positron Assistant is still available for now, and the rest of this guide covers it for anyone who still needs it in the meantime.
+:::
+
+Both assistants connect to the same language model providers, and you configure them the same way. The following providers are supported:
 
 | Provider | Chat | Code Completions | Authentication |
 |------|:--:|:---:|---------|
@@ -36,16 +44,11 @@ Positron Assistant supports the following language model providers:
 
 We're actively expanding provider support and welcome your [feedback](https://github.com/posit-dev/positron/discussions) and [issue reports](https://github.com/posit-dev/positron/issues/new/choose)!
 
-Please ensure you consult your provider's privacy policy for information on the data they collect and how it is used. For reference links, see the [Positron Assistant Provider Information](assistant-provider-info.qmd) guide.
+Please ensure you consult your provider's privacy policy for information on the data they collect and how it is used. For reference links, see the [Provider Privacy Information](assistant-provider-info.qmd) guide.
 
 {{< include _privacy-link.qmd >}}
 
-## Step 1: Enable Positron Assistant
-
-1. Enable the setting [`positron.assistant.enable`](positron://settings/positron.assistant.enable).
-1. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
-
-## Step 2: Configure language model providers
+## Step 1: Configure a language model provider
 
 Posit AI, Anthropic, GitHub Copilot, Amazon Bedrock, Snowflake Cortex, and OpenAI are enabled by default but are not active until you sign in. Other providers are in preview or experimental status and must be enabled through settings.
 
@@ -69,14 +72,14 @@ Posit AI is a hosted language model service from Posit. It provides both chat mo
 ## Anthropic
 
 ::: {.callout-important}
-Positron Assistant requires a **Claude Console account with API access**. See Anthropic's [Claude API and Console](https://support.claude.com/en/collections/5370014-claude-api-and-console) documentation for more information.
+Authentication requires a **Claude Console account with API access**. See Anthropic's [Claude API and Console](https://support.claude.com/en/collections/5370014-claude-api-and-console) documentation for more information.
 
-Positron Assistant **does not** support logging into Anthropic with the Claude Pro Plan, Max Plan, or other Claude subscription plans.
+Authentication **does not** support logging into Anthropic with the Claude Pro Plan, Max Plan, or other Claude subscription plans.
 
 <details>
 <summary>How to get an Anthropic API key</summary>
 
-To use Anthropic's Claude models in Positron Assistant, you need to bring your own API key (BYOK). To obtain an API key from Anthropic:
+To use Anthropic's Claude models in Positron, you need to bring your own API key (BYOK). To obtain an API key from Anthropic:
 
 1. Log in to or create an account for Anthropic's [Claude Console](https://platform.claude.com).
 1. Navigate to the [API keys](https://platform.claude.com/settings/keys) management page.
@@ -94,13 +97,13 @@ To use Anthropic's Claude models in Positron Assistant, you need to bring your o
 1. Paste your Claude Console API key into the input box and select **Sign in**.
 
 ::: {.callout-note}
-Alternatively, set the `ANTHROPIC_API_KEY` environment variable to authenticate with Anthropic in Positron Assistant.
+Alternatively, set the `ANTHROPIC_API_KEY` environment variable to authenticate with Anthropic in Positron.
 :::
 
 ## GitHub Copilot
 
 ::: {.callout-important}
-Positron Assistant requires a **GitHub account with Copilot enabled**.
+GitHub Copilot requires a **GitHub account with Copilot enabled**.
 
 <details>
 <summary>How to get GitHub Copilot access</summary>
@@ -122,7 +125,7 @@ Students and faculty can use GitHub Copilot for free as part of the GitHub Educa
 ::: {.callout-note}
 You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon in the Activity Bar. To sign out, use the Accounts icon or run the _Accounts: Manage Accounts_ command.
 
-Note that the Accounts section manages your GitHub authentication for all extensions that use GitHub, not just Positron Assistant.
+Note that the Accounts section manages your GitHub authentication for all extensions that use GitHub, not just AI features.
 :::
 
 ## Amazon Bedrock
@@ -148,22 +151,22 @@ To use Amazon Bedrock in Positron Desktop, you must:
 <details>
 <summary>(Optional) Configure AWS region and profile</summary>
 
-Positron Assistant reads `AWS_REGION` from your environment automatically. You only need to set it here if your shell does not already have `AWS_REGION` configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier format (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the region identifier for each location. You must also ensure the models you want to use are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
+Positron reads `AWS_REGION` from your environment automatically. You only need to set it here if your shell does not already have `AWS_REGION` configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier format (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the region identifier for each location. You must also ensure the models you want to use are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
 
-Positron Assistant uses your `default` AWS CLI profile when no profile is specified. Set `AWS_PROFILE` if the profile you use for Bedrock is not named `default` — for example, when you have a dedicated Bedrock role separate from your general development credentials, or when your Bedrock access lives in a different AWS account. To see your available profiles, run `aws configure list-profiles` in a terminal. 
+Positron uses your `default` AWS CLI profile when no profile is specified. Set `AWS_PROFILE` if the profile you use for Bedrock is not named `default` — for example, when you have a dedicated Bedrock role separate from your general development credentials, or when your Bedrock access lives in a different AWS account. To see your available profiles, run `aws configure list-profiles` in a terminal. 
 
 ::: {.callout-note}
 Do not set `AWS_PROFILE` if you use Posit Workbench managed credentials or environment variable credentials (`AWS_ACCESS_KEY_ID`/`AWS_SECRET_ACCESS_KEY`). Both of those paths bypass named profile resolution, and setting a profile name in those cases causes credential resolution to fail.
 :::
 
-To set either value, add them to the [`positron.assistant.providerVariables.bedrock`](positron://settings/positron.assistant.providerVariables.bedrock) setting. These override any matching environment variables already set on your system for Positron Assistant only; they do not affect your terminal or other tools. Changes require a restart to take effect.
+To set either value, add them to the [`positron.assistant.providerVariables.bedrock`](positron://settings/positron.assistant.providerVariables.bedrock) setting. These override any matching environment variables already set on your system for Positron only; they do not affect your terminal or other tools. Changes require a restart to take effect.
 
 </details>
 
 <details>
 <summary>(Optional) Configure inference profile region</summary>
 
-Positron Assistant uses [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) to route requests across multiple AWS regions for higher availability and throughput. Positron derives the inference profile region automatically from `AWS_REGION` by taking its geographic prefix:
+Positron uses [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) to route requests across multiple AWS regions for higher availability and throughput. Positron derives the inference profile region automatically from `AWS_REGION` by taking its geographic prefix:
 
 | `AWS_REGION` | Derived inference profile region |
 |---|---|
@@ -179,7 +182,7 @@ Most users do not need to change this. Use the [`positron.assistant.bedrock.infe
 Valid values are `us`, `eu`, `apac`, and `global`. This setting requires a restart to take effect.
 
 ::: {.callout-note}
-If no inference profile exists for your preferred region, Positron Assistant falls back to the first available inference profile for that model. If a model has no inference profile at all, it does not appear in the model list.
+If no inference profile exists for your preferred region, Positron falls back to the first available inference profile for that model. If a model has no inference profile at all, it does not appear in the model list.
 :::
 
 </details>
@@ -188,14 +191,14 @@ If no inference profile exists for your preferred region, Positron Assistant fal
 
 1. Run the command _Authentication: Configure Language Model Providers_
 1. Select **Amazon Bedrock** as the model provider.
-1. Select **Sign in** so Positron Assistant can verify your AWS CLI authentication.
+1. Select **Sign in** so Positron can verify your AWS CLI authentication.
 
 
 ## Snowflake Cortex
 
 ::: {.callout-important}
 
-To use Snowflake Cortex in Positron Desktop, Positron Assistant requires a **Snowflake account with Cortex access**, as well as a Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier) and [programmatic access token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) (PAT).
+To use Snowflake Cortex in Positron Desktop, you need a **Snowflake account with Cortex access**, as well as a Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier) and [programmatic access token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) (PAT).
 
 :::
 
@@ -214,7 +217,7 @@ To use Microsoft Foundry in Positron Desktop, you must:
 1. Have a [Microsoft Foundry](https://ai.azure.com/) resource with one or more models deployed
 2. Have the endpoint URL and API key for your Foundry resource
 
-Foundry does not support automatic model discovery. Positron Assistant defaults to the `model-router` identifier, but you can configure specific models. See [Configure custom model overrides](#configure-custom-model-overrides-msfoundry) below.
+Foundry does not support automatic model discovery. Positron defaults to the `model-router` identifier, but you can configure specific models. See [Configure custom model overrides](#configure-custom-model-overrides-msfoundry) below.
 :::
 
 ### Enable Microsoft Foundry as a provider
@@ -228,7 +231,7 @@ Microsoft Foundry provider support is in preview. Opt in to the [`positron.assis
 1. Enter your Foundry endpoint URL in the **Base URL** field and your API key in the **API Key** field, then select **Sign in**.
 
 ::: {.callout-note}
-Positron Assistant accepts deployment-based Azure OpenAI URLs (for example, `https://<resource>.openai.azure.com/openai/deployments/<name>/chat/completions?api-version=...`) and automatically normalizes them to the supported v1 format. A message displays when this conversion occurs.
+Positron accepts deployment-based Azure OpenAI URLs (for example, `https://<resource>.openai.azure.com/openai/deployments/<name>/chat/completions?api-version=...`) and automatically normalizes them to the supported v1 format. A message displays when this conversion occurs.
 :::
 
 ### Configure custom model overrides {#configure-custom-model-overrides-msfoundry}
@@ -309,7 +312,7 @@ Google Vertex AI provider support is experimental. Opt in to the [`assistant.pro
 
 ::: {.callout-important}
 
-Positron Assistant's custom provider support is intended for use with any [OpenAI-compatible](https://ai-sdk.dev/providers/openai-compatible-providers) API endpoint that uses the `/v1/chat/completions` endpoint for chat.
+Positron's custom provider support is intended for use with any [OpenAI-compatible](https://ai-sdk.dev/providers/openai-compatible-providers) API endpoint that uses the `/v1/chat/completions` endpoint for chat.
 
 We don't recommend using a local model as a custom provider. Read more about why [local models are not there (yet)](https://posit.co/blog/local-models-are-not-there-yet/) on Posit's blog.
 
@@ -327,23 +330,41 @@ Custom provider support is experimental. Opt in to the [`positron.assistant.prov
 
 ::: {.callout-note}
 
-Some OpenAI-compatible providers may not implement the `/models` endpoint, which Positron Assistant uses to list available models. If this is the case for your provider, you can manually configure a model listing using the [`positron.assistant.models.overrides.customProvider`](positron://settings/positron.assistant.models.overrides.customProvider) setting.
+Some OpenAI-compatible providers may not implement the `/models` endpoint, which Positron uses to list available models. If this is the case for your provider, you can manually configure a model listing using the [`positron.assistant.models.overrides.customProvider`](positron://settings/positron.assistant.models.overrides.customProvider) setting.
 
 :::
 
 :::
 
-## Step 3: Use Positron Assistant!
+## Step 2: Open your assistant
 
-Once you've authenticated with at least one language model provider, you're all set to use Positron Assistant.
+With a language model provider configured, open the assistant you want to use.
 
+### Posit Assistant (recommended)
+
+Posit Assistant is pre-installed in recent versions of Positron. Run the _View: Show Posit Assistant_ command in the Command Palette to open the chat panel and start a conversation.
+
+For the full setup guide and feature documentation, see the [Posit Assistant documentation](https://pos.it/assistant-docs).
+
+::: {.callout-note}
+To use GitHub Copilot with Posit Assistant, you must also enable Positron Assistant by turning on the old [`positron.assistant.enable`](positron://settings/positron.assistant.enable) setting.
+
+At this time, Posit Assistant relies on Positron Assistant for GitHub Copilot authentication. Once Positron Assistant is deprecated, Posit Assistant will no longer require this extra step for GitHub Copilot support.
+:::
+
+### Positron Assistant (being deprecated)
+
+Positron Assistant is being deprecated, and we recommend Posit Assistant instead. If you still need Positron Assistant:
+
+1. Enable the setting [`positron.assistant.enable`](positron://settings/positron.assistant.enable).
+1. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
 1. Select the chat robot icon in the sidebar, or run the command _Chat: Open Chat_ in the Command Palette to open the chat:
 
     ![Assistant Sidebar Icon](images/assistant-sidebar-icon.png){height=450}
 
-1. Chat with Assistant by typing your question or request in the chat input box at the bottom of the chat pane, then pressing {{< kbd Enter >}} or the {{< fa paper-plane regular >}} send button.
+1. Chat with Assistant by typing your question or request in the chat input box at the bottom of the chat pane, then pressing {{< kbd Enter >}} or the send button.
 
-To learn more about Positron Assistant's core features, check out the following guides:
+To learn more about Positron Assistant's features, check out the following guides:
 
 ::: {#chat-features}
 :::
