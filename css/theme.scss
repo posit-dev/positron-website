@@ -460,6 +460,11 @@ a.footnote-back {
   font-weight: 600;
 }
 
+// Keep hyphenated compounds in the hero headline from breaking mid-word
+.index-section h1 .nowrap {
+  white-space: nowrap;
+}
+
 .index-section .btn {
   margin: 0.75rem;
   padding: 1rem 2rem;

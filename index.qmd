@@ -28,7 +28,7 @@ format:
 
 From [Posit PBC](https://posit.co/), the creators of RStudio
 
-# The data science IDE. Human-driven, AI-assisted.
+# The data science IDE.<br>[Human-driven,]{.nowrap} [AI-assisted.]{.nowrap}
 
 ::: {.content-visible unless-profile="workbench"}
 
