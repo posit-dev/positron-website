@@ -485,3 +485,28 @@ a[href^="positron://settings"]::before {
   font-family: 'Font Awesome 6 Free - Positron';
   font-weight: 900;
 }
+
+// ============= PROVIDER STATUS BADGES =============
+// Reused in the provider table and on the providers page to flag
+// preview and experimental providers.
+.provider-badge {
+  display: inline-block;
+  font-size: 0.7em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 0.1em 0.55em;
+  border-radius: 1rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.provider-badge.preview {
+  background-color: $posit-light-blue-1;
+  color: $posit-dark-blue-2;
+}
+
+.provider-badge.experimental {
+  background-color: $posit-light-orange-1;
+  color: $posit-dark-orange-2;
+}
