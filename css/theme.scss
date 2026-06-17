@@ -510,3 +510,11 @@ a[href^="positron://settings"]::before {
   background-color: $posit-light-orange-1;
   color: $posit-dark-orange-2;
 }
+
+// ============= FEATURES TABLE =============
+// Keep the feature-name column on one line so names like
+// "Context Management" don't wrap and squish the column.
+.features-table td:first-child,
+.features-table th:first-child {
+  white-space: nowrap;
+}
