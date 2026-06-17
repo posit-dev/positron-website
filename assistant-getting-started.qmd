@@ -1,38 +1,32 @@
 ---
 title: "Getting Started"
-description: "Set up AI assistance in Positron: configure a language model provider such as Posit AI, Anthropic, or GitHub Copilot, then open Posit Assistant."
+description: "Set up AI assistance in Positron: configure a language model provider such as Posit AI, Anthropic, or GitHub Copilot, then use AI features in Positron, such as Posit Assistant."
 listing:
-  - id: chat-features
+  - id: ai-features
     type: custom
     template: templates/welcome-card.ejs
     contents:
-      - title: "Chat pane"
-        description: "A dedicated AI chat pane for coding, troubleshooting, and planning."
+      - title: "Posit Assistant features"
+        description: "Commands, skills, memory, plan mode, and more."
         icon: "bi-chat-text"
-        link: "assistant-chat.qmd#chat-pane"
-      - title: "Inline chat"
-        description: "In-context AI assistance within your code Editor, Notebook, or Terminal."
-        icon: "bi-chat-square-text"
-        link: "assistant-chat.qmd#inline-chat"
+        link: "assistant.qmd#features"
+      - title: "Notebook AI assistance"
+        description: "Notebook-aware AI that understands your cells, outputs, and execution history."
+        icon: "bi-journal-code"
+        link: "positron-notebook-editor.qmd#positron-assistant-integration"
       - title: "Code completions"
         description: "Receive code suggestions directly in your Editor or Notebook."
         icon: "bi-cursor-text"
         link: "assistant-completions.qmd"
 ---
 
-[Posit Assistant](https://pos.it/assistant) is Positron's new AI chat experience, available as a preview feature in Positron 2026.04.0 and later. To get set up, see the [Posit Assistant documentation](https://pos.it/assistant-docs).
-
-::: {.callout-warning}
-## Positron Assistant is being deprecated
-
-Positron Assistant is the old chat experience and is being superseded by Posit Assistant. It will be removed in a future release, so we recommend using Posit Assistant instead. Positron Assistant is still available for now, and the rest of this guide covers it for anyone who still needs it in the meantime.
-:::
+To use AI in Positron, you first need to configure a language model provider, then start using AI features such as Posit Assistant. Follow the steps below to get set up.
 
 ## Step 1: Configure a language model provider {#configure-a-language-model-provider}
 
-All providers are enabled by default and appear in the provider list, but none are active unless you are authenticated with the provider. Providers with preview or experimental status are labelled accordingly.
+All providers are enabled by default and appear in the provider list, but none are active unless you are authenticated with the provider.
 
-Both Posit Assistant and Positron Assistant connect to the same providers. The following are available:
+To connect a provider, run the command _Authentication: Configure Language Model Providers_, select the provider, and authenticate. For account requirements, authentication details, and any settings to configure first, see the [Language Model Providers](assistant-providers.qmd) reference.
 
 | Provider | Chat | Code Completions | Authentication |
 |------|:--:|:---:|---------|
@@ -41,48 +35,22 @@ Both Posit Assistant and Positron Assistant connect to the same providers. The f
 | [Anthropic](assistant-providers.qmd#anthropic) | {{< fa check >}} | | API Key |
 | [OpenAI](assistant-providers.qmd#openai) | {{< fa check >}} | | API Key |
 | [Snowflake Cortex](assistant-providers.qmd#snowflake-cortex) | {{< fa check >}} | | API Key or Posit Workbench Managed Credentials |
-| [GitHub Copilot](assistant-providers.qmd#github-copilot) [Preview]{.provider-badge .preview} | {{< fa check >}} | {{< fa check >}} | GitHub OAuth |
+| [GitHub Copilot](assistant-providers.qmd#github-copilot) [Preview]{.provider-badge .preview} | {{< fa check >}} | {{< fa check >}} | OAuth |
 | [Microsoft Foundry](assistant-providers.qmd#microsoft-foundry) [Preview]{.provider-badge .preview} | {{< fa check >}} | | API Key or Posit Workbench Managed Credentials |
 | [Custom Provider](assistant-providers.qmd#custom-provider) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [DeepSeek](assistant-providers.qmd#deepseek) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [Gemini Code Assist](assistant-providers.qmd#gemini-code-assist) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [Google Vertex AI](assistant-providers.qmd#google-vertex-ai) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | Google Cloud CLI or Service Account Credentials |
 
-To connect a provider, run the command _Authentication: Configure Language Model Providers_, select the provider, and authenticate. Positron also walks you through what each provider needs as you go. For account requirements, authentication details, and any settings to configure first, see the [Language Model Providers](assistant-providers.qmd) reference.
-
 Please ensure you consult your provider's privacy policy for information on the data they collect and how it is used. For reference links, see the [Provider Privacy Information](assistant-provider-info.qmd) guide.
 
 {{< include _privacy-link.qmd >}}
 
-## Step 2: Open your assistant
+## Step 2: Use AI in Positron
 
-With a language model provider configured, open the assistant you want to use.
+With a language model provider configured, you can use AI throughout Positron. To start a chat, run the _View: Show Posit Assistant_ command in the Command Palette to open the chat panel.
 
-### Posit Assistant (recommended)
+For the full Posit Assistant configuration guide and feature documentation, see the [Posit Assistant documentation](https://pos.it/assistant-docs).
 
-Posit Assistant is pre-installed in recent versions of Positron. Run the _View: Show Posit Assistant_ command in the Command Palette to open the chat panel and start a conversation.
-
-For the full setup guide and feature documentation, see the [Posit Assistant documentation](https://pos.it/assistant-docs).
-
-::: {.callout-note}
-To use GitHub Copilot with Posit Assistant, you must also enable Positron Assistant by turning on the old [`positron.assistant.enable`](positron://settings/positron.assistant.enable) setting.
-
-At this time, Posit Assistant relies on Positron Assistant for GitHub Copilot authentication. Once Positron Assistant is deprecated, Posit Assistant will no longer require this extra step for GitHub Copilot support.
-:::
-
-### Positron Assistant (being deprecated)
-
-Positron Assistant is being deprecated, and we recommend Posit Assistant instead. If you still need Positron Assistant:
-
-1. Enable the setting [`positron.assistant.enable`](positron://settings/positron.assistant.enable).
-1. Restart Positron or run the _Developer: Reload Window_ command in the Command Palette.
-1. Select the chat robot icon in the sidebar, or run the command _Chat: Open Chat_ in the Command Palette to open the chat:
-
-    ![Assistant Sidebar Icon](images/assistant-sidebar-icon.png){height=450}
-
-1. Chat with Assistant by typing your question or request in the chat input box at the bottom of the chat pane, then pressing {{< kbd Enter >}} or the send button.
-
-To learn more about Positron Assistant's features, check out the following guides:
-
-::: {#chat-features}
+::: {#ai-features}
 :::
