@@ -20,7 +20,9 @@ Posit AI is a hosted language model service from Posit, offering both chat model
 
 - **Account:** an AWS account with Amazon Bedrock access, plus [access to the foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html) you want to use
 - **Authentication:** sign in to your AWS account with the AWS CLI; Positron checks that you're signed in
-- **Positron settings:** optional, for AWS region/profile and inference profile region (see below)
+- **Settings:**
+  - [`authentication.aws.credentials`](positron://settings/authentication.aws.credentials) (optional): override `AWS_REGION` or `AWS_PROFILE` for Positron only (see below)
+  - [`authentication.aws.inferenceProfileRegion`](positron://settings/authentication.aws.inferenceProfileRegion) (optional): override the derived cross-region inference profile (`us`, `eu`, `apac`, or `global`) (see below)
 
 ### Sign in with the AWS CLI
 
@@ -95,7 +97,8 @@ Support for OAuth sign-in depends on Anthropic offering API access to Posit Assi
 
 - **Account:** a Snowflake account with Cortex access
 - **Authentication:** your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier) and a [programmatic access token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) (PAT)
-- **Positron settings:** add your account ID to [`authentication.snowflake.credentials`](positron://settings/authentication.snowflake.credentials) (as an item with the key `SNOWFLAKE_ACCOUNT`) before you connect
+- **Settings:**
+  - [`authentication.snowflake.credentials`](positron://settings/authentication.snowflake.credentials) (required): add your account ID as an item with the key `SNOWFLAKE_ACCOUNT` before you connect
 
 ## GitHub Copilot
 
@@ -120,7 +123,8 @@ You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon 
 
 - **Account:** a [Microsoft Foundry](https://ai.azure.com/) resource with one or more models deployed
 - **Authentication:** the endpoint URL and API key for your Foundry resource
-- **Positron settings:** none required. Foundry has no automatic model discovery and defaults to `model-router`; to use specific models, configure a [custom model listing](#configure-custom-model-overrides-msfoundry).
+- **Settings:**
+  - [`positron.assistant.models.overrides.msFoundry`](positron://settings/positron.assistant.models.overrides.msFoundry) (optional): Foundry has no automatic model discovery and defaults to `model-router`; set this to use specific models (see below)
 
 Positron accepts deployment-based Azure OpenAI URLs (for example, `https://<resource>.openai.azure.com/openai/deployments/<name>/chat/completions?api-version=...`) and automatically normalizes them to the supported v1 format. A message displays when this conversion occurs.
 
@@ -141,7 +145,7 @@ To use specific models instead of `model-router`, configure the [`positron.assis
 ]
 ```
 
-Use the model name and deployment identifier from your Foundry resource for each entry.
+Use the model name and deployment identifier from your Foundry resource for each entry. For the full reference on model listings and other model settings, see the [Models](assistant-models.qmd) guide.
 
 ## Custom Provider
 
@@ -151,7 +155,8 @@ The custom provider works with any [OpenAI-compatible](https://ai-sdk.dev/provid
 
 - **Account:** an account with your chosen OpenAI-compatible provider
 - **Authentication:** an API key and the provider's base URL
-- **Positron settings:** none required; optionally configure a custom model listing (see below)
+- **Settings:**
+  - [`positron.assistant.models.overrides.customProvider`](positron://settings/positron.assistant.models.overrides.customProvider) (optional): list models if your provider doesn't implement the `/models` endpoint (see below)
 
 ### Configure a custom model listing
 
@@ -165,6 +170,8 @@ Some OpenAI-compatible providers may not implement the `/models` endpoint, which
   }
 ]
 ```
+
+For the full reference on model listings and other model settings, see the [Models](assistant-models.qmd) guide.
 
 ## DeepSeek
 
@@ -186,7 +193,8 @@ Some OpenAI-compatible providers may not implement the `/models` endpoint, which
 
 - **Account:** a Google Cloud project with the [Vertex AI API enabled](https://cloud.google.com/vertex-ai/docs/start/cloud-environment) and [access to the models](https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/explore-models) you want to use
 - **Authentication:** authenticate with Google Cloud using Application Default Credentials (`gcloud`) or a service account (see below)
-- **Positron settings:** your project ID and location, set as `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` environment variables, or via the [`authentication.googleVertex.credentials`](positron://settings/authentication.googleVertex.credentials) setting, which takes precedence
+- **Settings:**
+  - [`authentication.googleVertex.credentials`](positron://settings/authentication.googleVertex.credentials) (required, or env vars): set your project ID and location; takes precedence over the `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` environment variables
 
 ### Sign in with Application Default Credentials (ADC)
 
