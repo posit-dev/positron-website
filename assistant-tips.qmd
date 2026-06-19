@@ -9,11 +9,11 @@ This guide provides tips for using Positron Assistant effectively, as well as so
 
 ### Starting new chat conversations
 
-You may want to start a new conversation when:
+You might want to start a new conversation when:
 
 - Beginning a new topic or task
 - Your chat conversation has become lengthy and the context is less relevant
-- You want to reset Assistant's context to avoid confusion from previous messages
+- You want to reset the context of Assistant to avoid confusion from previous messages
 - You feel Assistant is "stuck" or not responding as expected
 
 Starting a new conversation helps ensure that Assistant focuses on the current context and provides more accurate and relevant responses.
@@ -39,7 +39,7 @@ Positron Assistant can display token usage for each chat message and response pa
 1. Open the Command Palette and run the command _Preferences: Open User Settings_ to open the settings.
 1. Search for the setting [`positron.assistant.showTokenUsage.enable`](positron://settings/positron.assistant.showTokenUsage.enable).
 1. Check the box to enable token usage display.
-    - Note that token usage may not be supported for all language model providers.
+    - Note that not all language model providers support token usage.
 1. Return to the chat pane. Token usage will now be displayed below each message and response pair.
 
 ### Visibility into tool calls
@@ -57,7 +57,7 @@ To enable tool call details:
 
 ### Bring your own key (BYOK)
 
-Bring Your Own (API) Key. This means you need to obtain and provide your own API key from the language model provider in order to use their models with Positron Assistant.
+Bring Your Own (API) Key. This means you need to obtain and provide your own API key from the language model provider to use their models with Positron Assistant.
 
 ### Context
 
@@ -65,7 +65,7 @@ The information available to the language model when generating responses. In Po
 
 ### Model
 
-A specific version or configuration of a language model provided by a language model provider, such as Anthropic Claude or GitHub Copilot. Different models may have different capabilities, performance characteristics, and pricing. Examples include "Claude Sonnet 4.5" or "GPT-5".
+A specific version or configuration of a language model provided by a language model provider, such as Anthropic Claude or GitHub Copilot. Different models can have different capabilities, performance characteristics, and pricing. Examples include "Claude Sonnet 4.5" or "GPT-5".
 
 ### Prompt
 

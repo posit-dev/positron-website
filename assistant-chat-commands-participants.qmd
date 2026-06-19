@@ -5,7 +5,7 @@ description: "Speed up your workflow with slash commands and chat participants i
 
 {{< include _positron-assistant-deprecated.qmd >}}
 
-::: {.callout-tip}
+::: {.callout-note}
 ## Migrating to Posit Assistant?
 
 Posit Assistant has its own set of slash commands. See [Commands](https://posit-dev.github.io/assistant/docs/features/commands/) in the Posit Assistant documentation.
@@ -17,7 +17,7 @@ Slash commands provide quick access to common tasks without writing long prompts
 
 ### Using slash commands
 
-To use a slash command in the chat pane or inline chat, type the `/` character to bring up the command popup. Then, select a command and optionally add any additional instructions before sending the message.
+To use a slash command in the chat pane or inline chat, type the `/` character to bring up the command menu. Then, select a command and optionally add any additional instructions before sending the message.
 
 ### Available slash commands
 
@@ -51,13 +51,13 @@ To learn more about the format of custom prompt files, see the following VS Code
 - [Prompt file structure](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_prompt-file-structure)
 - [Tips for defining prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_tips-for-defining-prompt-files)
 
-*Note:* Positron Assistant does not support the `model` field.
+Positron Assistant does not support the `model` field.
 :::
 
 <details>
 <summary>Example custom prompt file</summary>
 
-This shows a custom prompt tailored to code review which demonstrates key features of custom prompts in Positron Assistant. It includes header fields like `description`, `name`, `agent`, `tools`, and `argument-hint` to configure behavior and guide users. The prompt body uses an input variable (`${input:codeContext}`) to accept dynamic user input, making it reusable across different code snippets and files. By specifying the agent mode and restricting what tools are available, the prompt tailors Assistant's behavior to exactly what's at hand.
+This shows a custom prompt tailored to code review which demonstrates key features of custom prompts in Positron Assistant. It includes header fields like `description`, `name`, `agent`, `tools`, and `argument-hint` to configure behavior and guide users. The prompt body uses an input variable (`${input:codeContext}`) to accept dynamic user input, making it reusable across different code snippets and files. By specifying the agent mode and restricting what tools are available, the prompt tailors the behavior of Assistant to the task at hand.
 
 ```{.md .code-overflow-wrap filename="code-review.prompt.md"}
 ---
@@ -100,7 +100,7 @@ Chat participants provide specialized knowledge to Positron Assistant. If you wa
 
 ### Adding chat participants
 
-To add a chat participant, enter `@` to bring up the chat participant popup. Then, select a participant and optionally add any additional instructions before sending the message.
+To add a chat participant, enter `@` to bring up the chat participant menu. Then, select a participant and optionally add any additional instructions before sending the message.
 
 ### Available chat participants
 
@@ -113,7 +113,7 @@ Shiny Assistant is a chat participant available within Positron Assistant that p
 
 Shiny Assistant is available in the chat once you have installed the [Shiny extension](https://open-vsx.org/extension/posit/shiny). Like other chat participants, Shiny Assistant can be invoked by typing `@shiny` in the chat pane or inline chat, followed by your question or request related to Shiny development.
 
-Shiny Assistant enhances the default prompt with additional information about Shiny that we have found improves the quality of generated apps and Shiny components. It is also kept up to date with the latest Shiny features and best practices, in a way that is not practical with foundation models or fine-tuning.
+Shiny Assistant enhances the default prompt with additional information about Shiny that we have found improves the quality of generated apps and Shiny components. It is also kept up to date with Shiny features and best practices, in a way that is not practical with foundation models or fine-tuning.
 
 </details>
 

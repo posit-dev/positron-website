@@ -5,7 +5,7 @@ description: "Customize AI behavior with chat agents in Positron Assistant. Choo
 
 {{< include _positron-assistant-deprecated.qmd >}}
 
-::: {.callout-tip}
+::: {.callout-note}
 ## Migrating to Posit Assistant?
 
 Posit Assistant manages tool use and agent behavior through permissions. See [Permissions](https://posit-dev.github.io/assistant/docs/features/permissions/) in the Posit Assistant documentation.
@@ -13,7 +13,7 @@ Posit Assistant manages tool use and agent behavior through permissions. See [Pe
 
 Chat agents tailor Assistant's behavior for specific tasks by providing unique instructions and tools. Select the agent selector dropdown at the bottom of the chat pane to switch between agents.
 
-It's also possible to create [custom chat agents](#custom-chat-agents) to suit your specific workflows and requirements.
+You can also create [custom chat agents](#custom-chat-agents) to suit your specific workflows and requirements.
 
 ## Default chat agents
 
@@ -53,12 +53,12 @@ To learn more about the format of custom agents, see the following VS Code docum
 - [Custom agent file structure](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure)
 - [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
 
-*Note:* Positron Assistant does not support the `model` field.
+Positron Assistant does not support the `model` field.
 :::
 
 <details>
 <summary>Example custom chat agent</summary>
-Below is a custom chat agent that is tailored to debugging R and Python code. The definition contains rules, direction, and clarification that the agent will follow when invoked with Positron Assistant which guide its responses to be more relevant to troubleshooting and fixing code issues.
+Below is a custom chat agent tailored to debugging R and Python code. The definition contains rules, direction, and clarification that the agent follows when invoked. These guide its responses to be more relevant to troubleshooting and fixing code issues.
 
 ```{.md .code-overflow-wrap filename="debug-code.agent.md"}
 ---
@@ -104,8 +104,8 @@ You are a debugging expert for R and Python. Your role is to identify, diagnose,
 
 ```
 
-**`tools`**: The agent is restricted to tools relating to debugging functionality, limiting the number of "decisions" Positron Assistant must make while working. For example, you may grant a data analysis agent access to the `getPlot` tool to inspect Positron's plot output, whereas a debugging agent focuses on code inspection and execution tools.
+**`tools`**: The agent is restricted to tools relating to debugging functionality, limiting the number of "decisions" Positron Assistant must make while working. For example, you can grant a data analysis agent access to the `getPlot` tool to inspect the plot output in Positron, whereas a debugging agent focuses on code inspection and execution tools.
 
-**`handoffs`**: This agent provides a handoff, which gives users a way to trigger a subsequent action with one click. A user will naturally want to test code after it's fixed, so this handoff presents the user with a button titled "Test Code" which instructs Assistant to run the code and verify the fix. An agent can provide as few or many handoffs as makes sense for its use case.
+**`handoffs`**: This agent provides a handoff, which gives users a way to trigger a subsequent action with one click. A user will naturally want to test code after it is fixed, so this handoff presents the user with a button titled "Test Code" which instructs Assistant to run the code and verify the fix. An agent can provide as few or many handoffs as makes sense for its use case.
 
 </details>

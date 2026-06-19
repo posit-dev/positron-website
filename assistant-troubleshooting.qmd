@@ -5,15 +5,15 @@ description: "Solve common Positron Assistant issues with troubleshooting guides
 
 {{< include _positron-assistant-deprecated.qmd >}}
 
-::: {.callout-tip}
+::: {.callout-note}
 ## Having trouble with Posit Assistant?
 
 If your issue is with [Posit Assistant](https://pos.it/assistant) rather than Positron Assistant, reach out in the [assistant-feedback repository](https://github.com/posit-dev/assistant-feedback).
 :::
 
-If you're having trouble with Positron Assistant, here are some resources and tools to help diagnose the issue and get things working smoothly. Keep in mind that Positron Assistant is being deprecated, so [migrating to Posit Assistant](https://pos.it/assistant-docs) may be the best way to resolve your issue.
+If you are having trouble with Positron Assistant, here are some resources and tools to help diagnose the issue and get things working smoothly. Keep in mind that Positron Assistant is being deprecated, so [migrating to Posit Assistant](https://pos.it/assistant-docs) might be the best way to resolve your issue.
 
-Can't find what you're looking for? Reach out through our [feedback channels](#feedback-issues) and we'll help you out!
+Cannot find what you are looking for? Reach out through our [feedback channels](#feedback-issues) and we will help you out!
 
 ## I am getting unexpected or incorrect responses
 
@@ -33,15 +33,15 @@ If you encounter an error message while using Positron Assistant, try the follow
 - **Check provider status**: Check if your language model provider has any service outages or issues.
 - **Reach out for support**: If the error persists, consider reaching out for support to provide [feedback or report the problem](#feedback-issues).
 
-## Feedback & Issues
+## Feedback and issues {#feedback-issues}
 
 We welcome your feedback to help us improve Positron Assistant!
 
 Please provide as much detail as possible when reporting issues, including:
 
-- Steps to reproduce the problem,
-- Screenshots or screen recordings if possible,
-- Any relevant [logs](#logs), error messages and [diagnostics](#diagnostics).
+- Steps to reproduce the problem
+- Screenshots or screen recordings if possible
+- Any relevant [logs](#logs), error messages, and [diagnostics](#diagnostics)
 
 If you encounter any issues or have suggestions, please let us know by:
 
