@@ -1,5 +1,5 @@
 ---
-title: "2026.05.0 Release Notes"
+title: "2026.05.0-179 Release Notes"
 date: 2026-05-04
 subtitle: <https://github.com/posit-dev/positron/releases/tag/2026.05.0-179>
 ---
