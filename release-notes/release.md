@@ -1,4 +1,8 @@
-### Highlights
+### Patch notes
+
+The [2026.06.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.06.1-6) (2026-06-23) provides security vulnerability updates.
+
+### Release highlights
 
 Welcome to the 2026.06.0 release of Positron!
 
