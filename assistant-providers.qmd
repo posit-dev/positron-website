@@ -113,7 +113,7 @@ GitHub Copilot is a proprietary tool from GitHub. To use GitHub Copilot for AI c
 
 Students and faculty can use GitHub Copilot for free as part of the GitHub Education program. For more information, see the [GitHub Education page](https://education.github.com/).
 
-::: {.callout-tip}
+::: {.callout-note}
 You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon in the Activity Bar. To sign out, use the Accounts icon or run the _Accounts: Manage Accounts_ command. The Accounts section manages your GitHub authentication for all extensions that use GitHub, not just AI features.
 :::
 
