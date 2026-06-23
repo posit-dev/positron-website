@@ -19,7 +19,7 @@ Posit AI is a hosted language model service from Posit, offering both chat model
 ## Amazon Bedrock
 
 - **Account:** an AWS account with Amazon Bedrock access, plus [access to the foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html) you want to use
-- **Authentication:** sign in to your AWS account with the AWS CLI; Positron checks that you're signed in
+- **Authentication:** sign in to your AWS account with the AWS CLI. Positron checks that you are signed in
 - **Settings:**
   - [`authentication.aws.credentials`](positron://settings/authentication.aws.credentials) (optional): override `AWS_REGION` or `AWS_PROFILE` for Positron only (see below)
   - [`authentication.aws.inferenceProfileRegion`](positron://settings/authentication.aws.inferenceProfileRegion) (optional): override the derived cross-region inference profile (`us`, `eu`, `apac`, or `global`) (see below)
@@ -36,13 +36,13 @@ Positron reads `AWS_REGION` from your environment and uses your `default` AWS CL
 
 #### `AWS_REGION`
 
-Set this if your shell doesn't already have a region configured and your Bedrock-enabled account isn't in `us-east-1` (the default). Use the standard AWS region identifier (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`); the [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the identifier for each location. Make sure the models you want are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
+Set this if your shell does not already have a region configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the identifier for each location. Make sure the models you want are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
 
 #### `AWS_PROFILE`
 
-Set this if the profile you use for Bedrock isn't named `default`, for example when you have a dedicated Bedrock role separate from your development credentials, or your Bedrock access lives in a different AWS account. Run `aws configure list-profiles` in a terminal to see your profiles.
+Set this if the profile you use for Bedrock is not named `default`, for example when you have a dedicated Bedrock role separate from your development credentials, or your Bedrock access lives in a different AWS account. Run `aws configure list-profiles` in a terminal to see your profiles.
 
-To set either value, add it to the [`authentication.aws.credentials`](positron://settings/authentication.aws.credentials) setting as an item keyed by `AWS_REGION` or `AWS_PROFILE`. These override any matching environment variables for Positron only; they don't affect your terminal or other tools. Changes require a restart to take effect.
+To set either value, add it to the [`authentication.aws.credentials`](positron://settings/authentication.aws.credentials) setting as an item keyed by `AWS_REGION` or `AWS_PROFILE`. These override any matching environment variables for Positron only. They do not affect your terminal or other tools. Changes require a restart to take effect.
 
 ::: {.callout-note}
 Do not set `AWS_PROFILE` if you use Posit Workbench managed credentials or environment variable credentials (`AWS_ACCESS_KEY_ID`/`AWS_SECRET_ACCESS_KEY`). Both of those paths bypass named profile resolution, so setting a profile name causes credential resolution to fail.
@@ -61,7 +61,7 @@ Positron uses [cross-region inference profiles](https://docs.aws.amazon.com/bedr
 Most users do not need to change this. Use the [`authentication.aws.inferenceProfileRegion`](positron://settings/authentication.aws.inferenceProfileRegion) setting to override the derived value if:
 
 - Your AWS account has Bedrock model access in a different geographic pool than your `AWS_REGION` implies. For example, you connect through `us-east-1` but want to route inference through `eu` profiles.
-- You want a `global` inference profile, which Positron can't derive automatically from any region.
+- You want a `global` inference profile, which Positron cannot derive automatically from any region.
 
 Valid values are `us`, `eu`, `apac`, and `global`. This setting requires a restart to take effect.
 
@@ -69,12 +69,12 @@ If no inference profile exists for your preferred region, Positron falls back to
 
 ## Anthropic
 
-- **Account:** a [Claude Console](https://support.claude.com/en/collections/5370014-claude-api-and-console) account with API access. Claude Pro, Max, and other subscription plans won't work.
+- **Account:** a [Claude Console](https://support.claude.com/en/collections/5370014-claude-api-and-console) account with API access (Claude Pro, Max, and other subscription plans do not work)
 - **Authentication:** an Anthropic API key, or the `ANTHROPIC_API_KEY` environment variable
 
 ### Get an Anthropic API key
 
-To use Anthropic's Claude models in Positron, you need to bring your own API key (BYOK). To obtain an API key from Anthropic:
+To use the Claude models from Anthropic in Positron, you bring your own API key (BYOK). To obtain an API key from Anthropic:
 
 1. Log in to or create an account for Anthropic's [Claude Console](https://platform.claude.com).
 1. Navigate to the [API keys](https://platform.claude.com/settings/keys) management page.
@@ -82,16 +82,16 @@ To use Anthropic's Claude models in Positron, you need to bring your own API key
 1. Fill out any required information and select **Add** to generate your API key.
 1. Copy and save the API key to a password manager or another secure location.
 
-### Why a Claude Pro or Max subscription won't work
+### Why a Claude Pro or Max subscription does not work
 
-Anthropic doesn't include Claude API usage in its [Pro](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan) and Max subscription plans, so signing in to Claude with OAuth doesn't grant access to the API that Posit Assistant needs. To use Claude with Posit Assistant, you need [Claude Console access](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api) and an API key, billed separately from any subscription.
+Anthropic does not include Claude API usage in its [Pro](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan) and Max subscription plans, so signing in to Claude with OAuth does not grant access to the API that Posit Assistant needs. To use Claude with Posit Assistant, you need [Claude Console access](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api) and an API key, billed separately from any subscription.
 
 Support for OAuth sign-in depends on Anthropic offering API access to Posit Assistant through these plans. You can follow [this feature request](https://github.com/posit-dev/positron/issues/9481) for updates.
 
 ## OpenAI
 
 - **Account:** an OpenAI account, or any service that implements the [OpenAI Responses API](https://platform.openai.com/docs/api-reference/responses)
-- **Authentication:** an OpenAI API key, or the `OPENAI_API_KEY` environment variable; for a compatible service, also its base URL (or the `OPENAI_BASE_URL` environment variable)
+- **Authentication:** an OpenAI API key, or the `OPENAI_API_KEY` environment variable. For a compatible service, also provide its base URL (or the `OPENAI_BASE_URL` environment variable)
 
 ## Snowflake Cortex
 
@@ -109,7 +109,7 @@ Support for OAuth sign-in depends on Anthropic offering API access to Posit Assi
 
 ### Get GitHub Copilot access
 
-GitHub Copilot is a proprietary tool from GitHub. If you want to use GitHub Copilot for AI chat and code completions, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account or to be assigned a seat by an organization with a subscription for GitHub Copilot for Business.
+GitHub Copilot is a proprietary tool from GitHub. To use GitHub Copilot for AI chat and code completions, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account. You can also be assigned a seat by an organization with a GitHub Copilot for Business subscription.
 
 Students and faculty can use GitHub Copilot for free as part of the GitHub Education program. For more information, see the [GitHub Education page](https://education.github.com/).
 
@@ -124,7 +124,7 @@ You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon 
 - **Account:** a [Microsoft Foundry](https://ai.azure.com/) resource with one or more models deployed
 - **Authentication:** the endpoint URL and API key for your Foundry resource
 - **Settings:**
-  - [`positron.assistant.models.overrides.msFoundry`](positron://settings/positron.assistant.models.overrides.msFoundry) (optional): Foundry has no automatic model discovery and defaults to `model-router`; set this to use specific models (see below)
+  - [`positron.assistant.models.overrides.msFoundry`](positron://settings/positron.assistant.models.overrides.msFoundry) (optional): Foundry has no automatic model discovery and defaults to `model-router`, so set this to use specific models (see below)
 
 Positron accepts deployment-based Azure OpenAI URLs (for example, `https://<resource>.openai.azure.com/openai/deployments/<name>/chat/completions?api-version=...`) and automatically normalizes them to the supported v1 format. A message displays when this conversion occurs.
 
@@ -151,16 +151,16 @@ Use the model name and deployment identifier from your Foundry resource for each
 
 [Experimental]{.provider-badge .experimental}
 
-The custom provider works with any [OpenAI-compatible](https://ai-sdk.dev/providers/openai-compatible-providers) API endpoint that uses the `/v1/chat/completions` endpoint for chat. We don't recommend using a local model as a custom provider; read more about why [local models are not there (yet)](https://posit.co/blog/local-models-are-not-there-yet/) on Posit's blog.
+The custom provider works with any [OpenAI-compatible](https://ai-sdk.dev/providers/openai-compatible-providers) API endpoint that uses the `/v1/chat/completions` endpoint for chat. We do not recommend using a local model as a custom provider. Read more about why [local models are not there (yet)](https://posit.co/blog/local-models-are-not-there-yet/) on the Posit blog.
 
 - **Account:** an account with your chosen OpenAI-compatible provider
 - **Authentication:** an API key and the provider's base URL
 - **Settings:**
-  - [`positron.assistant.models.overrides.customProvider`](positron://settings/positron.assistant.models.overrides.customProvider) (optional): list models if your provider doesn't implement the `/models` endpoint (see below)
+  - [`positron.assistant.models.overrides.customProvider`](positron://settings/positron.assistant.models.overrides.customProvider) (optional): list models if your provider does not implement the `/models` endpoint (see below)
 
 ### Configure a custom model listing
 
-Some OpenAI-compatible providers may not implement the `/models` endpoint, which Positron uses to list available models. If this is the case for your provider, configure a custom model listing using the [`positron.assistant.models.overrides.customProvider`](positron://settings/positron.assistant.models.overrides.customProvider) setting:
+Some OpenAI-compatible providers might not implement the `/models` endpoint, which Positron uses to list available models. If this is the case for your provider, configure a custom model listing using the [`positron.assistant.models.overrides.customProvider`](positron://settings/positron.assistant.models.overrides.customProvider) setting:
 
 ```json
 "positron.assistant.models.overrides.customProvider": [
@@ -194,7 +194,7 @@ For the full reference on model listings and other model settings, see the [Mode
 - **Account:** a Google Cloud project with the [Vertex AI API enabled](https://cloud.google.com/vertex-ai/docs/start/cloud-environment) and [access to the models](https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/explore-models) you want to use
 - **Authentication:** authenticate with Google Cloud using Application Default Credentials (`gcloud`) or a service account (see below)
 - **Settings:**
-  - [`authentication.googleVertex.credentials`](positron://settings/authentication.googleVertex.credentials) (required, or env vars): set your project ID and location; takes precedence over the `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` environment variables
+  - [`authentication.googleVertex.credentials`](positron://settings/authentication.googleVertex.credentials) (required, or env vars): set your project ID and location, which take precedence over the `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` environment variables
 
 ### Sign in with Application Default Credentials (ADC)
 

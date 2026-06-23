@@ -20,7 +20,7 @@ listing:
         link: "assistant-completions.qmd"
 ---
 
-To use AI in Positron, you first need to configure a language model provider, then start using AI features such as Posit Assistant. Follow the steps below to get set up.
+To use AI in Positron, first configure a language model provider, then start using AI features such as Posit Assistant. Follow the steps below to get set up.
 
 ## Step 1: Configure a language model provider {#configure-a-language-model-provider}
 
@@ -46,7 +46,7 @@ Please ensure you consult your provider's privacy policy for information on the 
 
 {{< include _privacy-link.qmd >}}
 
-## Step 2: Use AI in Positron
+## Step 2: Use AI in Positron {#use-ai-in-positron}
 
 With a language model provider configured, you can use AI throughout Positron. To start a chat, run the _View: Show Posit Assistant_ command in the Command Palette to open the chat panel.
 
