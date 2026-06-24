@@ -8,8 +8,8 @@ Code completions are text suggestions that appear inline as you type in an edito
 ::: {.callout-important}
 Completions are powered by Posit AI or GitHub Copilot. Ensure you've added one or both of these as a language model provider:
 
-- [Add Posit AI as a language model provider](assistant-getting-started.qmd#add-posit-ai-as-a-language-model-provider)
-- [Add GitHub Copilot as a language model provider](assistant-getting-started.qmd#add-github-copilot-as-a-language-model-provider)
+- [Add Posit AI as a language model provider](assistant-providers.qmd#posit-ai)
+- [Add GitHub Copilot as a language model provider](assistant-providers.qmd#github-copilot)
 :::
 
 ## Using code completions
@@ -47,7 +47,7 @@ Posit AI NES suggestions appear inline in the editor. You can accept, navigate, 
 
 ### Enable
 
-Posit AI NES is enabled by default once you've [signed in to the Posit AI provider](assistant-getting-started.qmd#add-posit-ai-as-a-language-model-provider). No additional setting changes are required.
+Posit AI NES is enabled by default once you've [signed in to the Posit AI provider](assistant-providers.qmd#posit-ai). No additional setting changes are required.
 
 ### Restrict to specific languages
 
@@ -68,7 +68,7 @@ When using GitHub Copilot as your completions provider, code completions appear 
 
 ### Enable
 
-GitHub Copilot completions are enabled by default once you've [signed in to the GitHub Copilot provider](assistant-getting-started.qmd#add-github-copilot-as-a-language-model-provider). No additional setting changes are required.
+GitHub Copilot completions are enabled by default once you've [signed in to the GitHub Copilot provider](assistant-providers.qmd#github-copilot). No additional setting changes are required.
 
 ### Restrict to specific languages
 
@@ -100,7 +100,7 @@ To manage Copilot completions using the status bar icon:
 
 If you are not receiving suggestions:
 
-- Confirm you are signed in to your completions provider in the [language model provider configuration](assistant-getting-started.qmd#step-2-configure-language-model-providers).
+- Confirm you are signed in to your completions provider in the [language model provider configuration](assistant-getting-started.qmd#configure-a-language-model-provider).
 - Check that your completions provider's per-language settings do not disable the current language (see [Posit AI Next Edit Suggestions](#posit-ai-next-edit-suggestions-nes) or [GitHub Copilot](#github-copilot)).
 - Check that [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes) does not match the current file.
 - Refer to the [Troubleshooting](assistant-troubleshooting.qmd) guide for more help.
