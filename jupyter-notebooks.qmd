@@ -13,8 +13,6 @@ Positron enhances Jupyter Notebooks in several key ways:
 
 ![A Jupyter Notebook in Positron with a Python code cell, a monthly electricity usage chart as output, the Assistant panel open to the left, and the Variables pane open to the right.](images/positron-notebook.png){fig-alt="Positron IDE showing a Jupyter notebook with Python code, a bar chart of monthly electricity usage, the Positron Assistant chat panel on the left, and Variables pane on the right."}
 
-If you prefer to keep your code in a plain script while still working interactively, you can divide a `.py` or `.R` file into [code cells](code-cells.qmd) and run it section by section.
-
 ## Notebook editors
 
 Positron offers two editors for working with Jupyter Notebooks: the [Positron Notebook Editor](positron-notebook-editor.qmd) which is in beta, and the [Legacy Notebook Editor](legacy-notebook-editor.qmd) which is the default VS Code based notebook editor.
@@ -34,3 +32,8 @@ To enable the Positron Notebook Editor, see the [setup instructions](positron-no
 ### Legacy notebook editor
 
 The [Legacy Notebook Editor](legacy-notebook-editor.qmd) is the default Code OSS based notebook editor. If you are familiar with Jupyter Notebooks in VS Code, this editor will feel familiar.
+
+## Related features
+
+- If you prefer to work in a notebook-like plain text file that mixes narrative and code, Positron has first class support for [Quarto `.qmd` documents](quarto.qmd).
+- If you prefer to work in a plain `.py` or `.R` script with runnable cells, Positron has first class support for [code cells](code-cells.qmd).
