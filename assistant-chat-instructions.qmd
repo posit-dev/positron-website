@@ -5,7 +5,7 @@ description: "Tailor Positron Assistant to your project with custom instructions
 
 {{< include _positron-assistant-deprecated.qmd >}}
 
-::: {.callout-tip}
+::: {.callout-note}
 ## Migrating to Posit Assistant?
 
 Posit Assistant includes a built-in skill, `/import-instructions`, that migrates Positron, Copilot, Claude Code, and VS Code instruction files into Posit Assistant skills. Run it to bring the instructions described on this page over to Posit Assistant.
@@ -62,7 +62,7 @@ To learn more about the format of custom instructions files, see the following V
 <summary>Example custom instructions</summary>
 This example demonstrates how a `quarto.instructions.md` file shapes Positron Assistant behavior when working with Quarto documentation files. The filename was chosen to reflect the purpose of these instructions, but can be anything ending with `.instructions.md`.  
 
-By automatically applying these rules to all `.qmd` files, Assistant is instructed to write in a consistent style that prioritizes clarity, brevity, and accessibility. The instructions guide Assistant to use active voice, avoid technical jargon, maintain proper formatting conventions, and produce content suitable for screen readers and translation tools to ensure the content aligns with your project's standards without needing to specify these preferences in every chat request.
+By automatically applying these rules to all `.qmd` files, Assistant writes in a consistent style that prioritizes clarity, brevity, and accessibility. The instructions guide Assistant to use active voice, avoid technical jargon, maintain proper formatting conventions, and produce content suitable for screen readers and translation tools. This keeps content aligned with your project's standards without repeating these preferences in every chat request.
 
 ```{.md .code-overflow-wrap filename="quarto.instructions.md" shortcodes="false"}
 ---
