@@ -40,7 +40,7 @@ If you want to permanently keep Pyrefly from auto-activating, you can use the [`
 }
 ```
 
-To read more about Python language servers, see our [blog post on Python type checkers and language servers](blog/posts/2026-03-31-python-type-checkers/index.qmd).
+To read more about Python language servers, see our [blog post on Python type checkers and language servers](https://opensource.posit.co/blog/2026-03-31_python-type-checkers/).
 
 ## Magics
 

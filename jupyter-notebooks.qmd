@@ -32,3 +32,8 @@ To enable the Positron Notebook Editor, see the [setup instructions](positron-no
 ### Legacy notebook editor
 
 The [Legacy Notebook Editor](legacy-notebook-editor.qmd) is the default Code OSS based notebook editor. If you are familiar with Jupyter Notebooks in VS Code, this editor will feel familiar.
+
+## Related features
+
+- If you prefer to work in a notebook-like plain text file that mixes narrative and code, Positron has first class support for [Quarto `.qmd` documents](quarto.qmd).
+- If you prefer to work in a plain `.py` or `.R` script with runnable cells, Positron has first class support for [code cells](code-cells.qmd).
