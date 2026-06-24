@@ -3,7 +3,7 @@ title: "Code Cells"
 description: "Run Python and R scripts section by section with code cells in Positron. Use special comments like # %% to divide a script into runnable cells."
 ---
 
-Code cells let you divide a plain script into sections that you can run one at a time, using special comments like `# %%` as cell boundaries. You get a notebook-like, interactive workflow while your code stays in a regular `.py` or `.R` file that is easy to version, diff, and reuse.
+Code cells let you divide a plain `.py` or `.R` script into sections that you can run one at a time, using special comments like `# %%` as cell boundaries. You get a notebook-like, interactive workflow while your code stays in a regular file that is easy to version, diff, and reuse.
 
 Positron supports code cells in both Python and R files:
 
@@ -11,42 +11,11 @@ Positron supports code cells in both Python and R files:
 -   The cell containing your cursor is highlighted, and cells display **Run Cell**, **Run Above**, and **Run Next** links above their delimiters.
 -   Keyboard shortcuts let you run cells, insert new ones, and move between them without leaving the keyboard.
 
-<!-- TODO(screenshot): images/code-cells-python.png — hero screenshot for this page.
+![A Python script in Positron divided into code cells, with the active cell highlighted, Run Cell links above each cell, and output in the Console.](images/code-cells.png){fig-alt="Positron IDE showing a Python script with several code cells separated by cell delimiter comments. The cell containing the cursor is highlighted, Run Cell links appear above each cell, and the Console pane shows the output of the last cell."}
 
-Purpose: first visual a reader sees; must instantly communicate "a plain .py script,
-divided into cells, running interactively like a notebook".
-
-Composition:
-- Full Positron window, light theme, ~1680x1050 (match images/positron-notebook.png),
-  clean profile (no third-party extensions, no notification toasts, no Problems badge).
-- Editor: a Python script with 3 cells separated by `# %%` comments. Suggested content
-  (matches the code example on this page):
-    # %%
-    import matplotlib.pyplot as plt
-    import pandas as pd
-    penguins = pd.read_csv("penguins.csv")
-    penguins.head()
-    # %%
-    penguins.groupby("species")["body_mass_g"].mean()
-    # %%
-    penguins.plot.scatter(x="flipper_length_mm", y="body_mass_g")
-    plt.title("Penguin flipper length vs. body mass")
-    plt.show()
-  (imports in the first cell so Ruff does not flag E402 and the Problems bar stays clean)
-- Cursor placed in the SECOND cell so its background highlight is visible mid-file and it
-  shows the full CodeLens row: Run Cell | Run Above | Run Next.
-- Console: output of the first two cells visible (head() rows + groupby means), Python
-  session active; multi-session list (Python + R) visible is a nice bonus.
-- Plots pane: the scatter plot rendered.
-- Variables pane: penguins DataFrame listed.
-
-When the image is added, restore this embed:
-
-![A Python script in Positron divided into code cells, with the active cell highlighted, Run Cell links above each cell, and output in the Console.](images/code-cells-python.png){fig-alt="Positron IDE showing a Python script with several code cells separated by cell delimiter comments. The cell containing the cursor is highlighted, Run Cell links appear above each cell, and the Console pane shows the output of the last cell."}
--->
 
 ::: {.callout-note}
-Code cells are a feature for plain script files. To work with notebook files instead, see [Jupyter Notebooks](jupyter-notebooks.qmd).
+Code cells are a feature for plain script files. Positron also has first class support for [Quarto `.qmd` files](quarto.qmd) and [Jupyter Notebooks](jupyter-notebooks.qmd).
 :::
 
 ## Creating code cells
@@ -70,7 +39,7 @@ penguins.head()
 penguins.groupby("species")["body_mass_g"].mean()
 ```
 
-This is the same ["percent" format](https://jupytext.org/formats/scripts/#the-percent-format) used by Jupytext, Spyder, and VS Code, so scripts with code cells move between tools without changes. Markdown cells in this format, starting with `# %% [markdown]`, are also supported; running one renders its contents as formatted output in the Console.
+This is the same ["percent" format](https://jupytext.org/formats/scripts/#the-percent-format) used by Jupytext, Spyder, and VS Code, so scripts with code cells move between editing tools fluently. Markdown cells in this format, starting with `# %% [markdown]`, are also supported; running one renders its contents as formatted output in the Console.
 
 ### R
 
@@ -86,36 +55,6 @@ aggregate(body_mass_g ~ species, data = penguins, FUN = mean)
 ```
 
 A [section header comment](https://docs.posit.co/ide/user/ide/guide/code/code-sections.html) such as `# Load data ----` ends the current cell, so you can combine code sections and code cells in the same script.
-
-<!-- TODO(screenshot): images/code-cells-r.png — R companion screenshot.
-
-Purpose: show that code cells are not Python-only; placed right after the R example so
-the reader sees the same `# %%` workflow in an .R file, with output flowing to the R
-console and the Plots pane.
-
-Composition:
-- Full Positron window, light theme, ~1680x1050, clean profile (same setup as the
-  Python screenshot for visual consistency).
-- Editor: an R script with 3 cells separated by `# %%` comments. Suggested content
-  (matches the code example on this page):
-    # %%
-    penguins <- read.csv("penguins.csv")
-    head(penguins)
-    # %%
-    aggregate(body_mass_g ~ species, data = penguins, FUN = mean)
-    # %%
-    plot(penguins$flipper_length_mm, penguins$body_mass_g,
-         xlab = "Flipper length (mm)", ylab = "Body mass (g)",
-         main = "Penguin flipper length vs. body mass")
-- Cursor in one of the cells so the active-cell highlight and its CodeLens links
-  (Run Cell | Run Above | Run Next) are visible.
-- Console: R session active showing head() and aggregate() output.
-- Plots pane: the base-R scatter plot rendered.
-
-When the image is added, restore this embed:
-
-![An R script in Positron divided into code cells, with output from each cell in the Console and a plot in the Plots pane.](images/code-cells-r.png){fig-alt="Positron IDE showing an R script divided into code cells, with the active cell highlighted, Run Cell links above each cell, cell output in the Console pane, and a scatter plot in the Plots pane."}
--->
 
 :::
 
@@ -147,4 +86,4 @@ Move between cells without running them using {{< kbd mac=Command-PageDown win=C
 
 ## Customizing cell appearance
 
-The cell containing your cursor is highlighted with a background color by default. Use [`codeCells.cellStyle`](positron://settings/codeCells.cellStyle) to choose a `background`, `border`, or `both` style for the active cell. The colors come from your theme: customize them via the `notebook.selectedCellBackground` and `interactive.activeCodeBorder` [theme colors](https://code.visualstudio.com/api/references/theme-color).
+The cell containing your cursor is highlighted with a background color by default. Use [`codeCells.cellStyle`](positron://settings/codeCells.cellStyle) to choose a `background`, `border`, or `both` style for the active cell. The colors come from your theme. You can customize them via the `notebook.selectedCellBackground` and `interactive.activeCodeBorder` [theme colors](https://code.visualstudio.com/api/references/theme-color).
