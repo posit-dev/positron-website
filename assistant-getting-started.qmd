@@ -63,4 +63,4 @@ To turn off all Positron AI features, set [`ai.enabled`](positron://settings/ai.
 - Posit AI Next Edit Suggestions (NES)
 - Notebook AI features (Fix, Explain, ghost cells, ask assistant)
 - Console Fix & Explain
-- GitHub Copilot
+- GitHub Copilot (Chat, Completions)
