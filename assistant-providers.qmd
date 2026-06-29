@@ -100,9 +100,7 @@ Support for OAuth sign-in depends on Anthropic offering API access to Posit Assi
 - **Settings:**
   - [`authentication.snowflake.credentials`](positron://settings/authentication.snowflake.credentials) (required): add your account ID as an item with the key `SNOWFLAKE_ACCOUNT` before you connect
 
-## GitHub Copilot
-
-[Preview]{.provider-badge .preview}
+## GitHub Copilot [Preview]{.provider-badge .preview} {#github-copilot}
 
 - **Account:** a GitHub account with Copilot enabled
 - **Authentication:** sign in through your browser with OAuth
@@ -117,9 +115,7 @@ Students and faculty can use GitHub Copilot for free as part of the GitHub Educa
 You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon in the Activity Bar. To sign out, use the Accounts icon or run the _Accounts: Manage Accounts_ command. The Accounts section manages your GitHub authentication for all extensions that use GitHub, not just AI features.
 :::
 
-## Microsoft Foundry
-
-[Preview]{.provider-badge .preview}
+## Microsoft Foundry [Preview]{.provider-badge .preview} {#microsoft-foundry}
 
 - **Account:** a [Microsoft Foundry](https://ai.azure.com/) resource with one or more models deployed
 - **Authentication:** the endpoint URL and API key for your Foundry resource
@@ -145,11 +141,9 @@ To use specific models instead of `model-router`, configure the [`positron.assis
 ]
 ```
 
-Use the model name and deployment identifier from your Foundry resource for each entry. For the full reference on model listings and other model settings, see the [Models](assistant-models.qmd) guide.
+Use the model name and deployment identifier from your Foundry resource for each entry.
 
-## Custom Provider
-
-[Experimental]{.provider-badge .experimental}
+## Custom Provider [Experimental]{.provider-badge .experimental} {#custom-provider}
 
 The custom provider works with any [OpenAI-compatible](https://ai-sdk.dev/providers/openai-compatible-providers) API endpoint that uses the `/v1/chat/completions` endpoint for chat. We do not recommend using a local model as a custom provider. Read more about why [local models are not there (yet)](https://posit.co/blog/local-models-are-not-there-yet/) on the Posit blog.
 
@@ -171,25 +165,17 @@ Some OpenAI-compatible providers might not implement the `/models` endpoint, whi
 ]
 ```
 
-For the full reference on model listings and other model settings, see the [Models](assistant-models.qmd) guide.
-
-## DeepSeek
-
-[Experimental]{.provider-badge .experimental}
+## DeepSeek [Experimental]{.provider-badge .experimental} {#deepseek}
 
 - **Account:** a [DeepSeek](https://platform.deepseek.com/) account with API access
 - **Authentication:** a DeepSeek API key, or the `DEEPSEEK_API_KEY` environment variable
 
-## Gemini Code Assist
-
-[Experimental]{.provider-badge .experimental}
+## Gemini Code Assist [Experimental]{.provider-badge .experimental} {#gemini-code-assist}
 
 - **Account:** a Google account with access to the [Gemini API](https://ai.google.dev/), with an API key created in [Google AI Studio](https://aistudio.google.com/apikey)
 - **Authentication:** a Gemini API key, or the `GEMINI_API_KEY` or `GOOGLE_API_KEY` environment variable
 
-## Google Vertex AI
-
-[Experimental]{.provider-badge .experimental}
+## Google Vertex AI [Experimental]{.provider-badge .experimental} {#google-vertex-ai}
 
 - **Account:** a Google Cloud project with the [Vertex AI API enabled](https://cloud.google.com/vertex-ai/docs/start/cloud-environment) and [access to the models](https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/explore-models) you want to use
 - **Authentication:** authenticate with Google Cloud using Application Default Credentials (`gcloud`) or a service account (see below)
