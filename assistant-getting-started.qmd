@@ -24,7 +24,7 @@ To use AI in Positron, first configure a language model provider, then start usi
 
 ## Step 1: Configure a language model provider {#configure-a-language-model-provider}
 
-All providers are enabled by default and appear in the provider list, but none are active unless you are authenticated with the provider.
+Positron enables all providers by default and they appear in the provider list, but none are active unless you authenticate with the provider.
 
 To connect a provider, run the command _Authentication: Configure Language Model Providers_, select the provider, and authenticate. For account requirements, authentication details, and any settings to configure first, see the [Language Model Providers](assistant-providers.qmd) reference.
 
@@ -34,15 +34,15 @@ To connect a provider, run the command _Authentication: Configure Language Model
 | [Amazon Bedrock](assistant-providers.qmd#amazon-bedrock) | {{< fa check >}} | | AWS CLI or Posit Workbench Managed Credentials |
 | [Anthropic](assistant-providers.qmd#anthropic) | {{< fa check >}} | | API Key |
 | [OpenAI](assistant-providers.qmd#openai) | {{< fa check >}} | | API Key |
-| [Snowflake Cortex](assistant-providers.qmd#snowflake-cortex) | {{< fa check >}} | | API Key or Posit Workbench Managed Credentials |
+| [Snowflake Cortex](assistant-providers.qmd#snowflake-cortex) | {{< fa check >}} | | API Key or Workbench Managed Credentials |
 | [GitHub Copilot](assistant-providers.qmd#github-copilot) [Preview]{.provider-badge .preview} | {{< fa check >}} | {{< fa check >}} | OAuth |
-| [Microsoft Foundry](assistant-providers.qmd#microsoft-foundry) [Preview]{.provider-badge .preview} | {{< fa check >}} | | API Key or Posit Workbench Managed Credentials |
+| [Microsoft Foundry](assistant-providers.qmd#microsoft-foundry) [Preview]{.provider-badge .preview} | {{< fa check >}} | | API Key or Workbench Managed Credentials |
 | [Custom Provider](assistant-providers.qmd#custom-provider) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [DeepSeek](assistant-providers.qmd#deepseek) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [Gemini Code Assist](assistant-providers.qmd#gemini-code-assist) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [Google Vertex AI](assistant-providers.qmd#google-vertex-ai) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | Google Cloud CLI or Service Account Credentials |
 
-Please ensure you consult your provider's privacy policy for information on the data they collect and how it is used. For reference links, see the [Provider Privacy Information](assistant-provider-info.qmd) guide.
+Please ensure you consult your provider's privacy policy for information on the data they collect and how they use it. For reference links, see the [Provider Privacy Information](assistant-provider-info.qmd) guide.
 
 {{< include _privacy-link.qmd >}}
 
@@ -54,3 +54,22 @@ For the full Posit Assistant configuration guide and feature documentation, see 
 
 ::: {#ai-features}
 :::
+
+## Disable AI features {#disable-ai-features}
+
+To turn off all Positron AI features at once, set [`ai.enabled`](positron://settings/ai.enabled) to `false`. This overrides individual feature settings and disables:
+
+- Posit Assistant
+- Posit AI Next Edit Suggestions (NES)
+- Notebook AI features
+- Console Fix & Explain
+- GitHub Copilot (Chat, Completions)
+
+To disable a specific feature without affecting others:
+
+| Setting | Features Affected |
+|---------|------------------|
+| [`assistant.enabled`](positron://settings/assistant.enabled) | [Posit Assistant](https://assistant.posit.co) (set to `false` to disable) |
+| [`nextEditSuggestions.enabled`](positron://settings/nextEditSuggestions.enabled) | [Posit AI NES](assistant-completions.qmd#posit-ai-nes) (set to `{ "*": false }` to disable) |
+| [`github.copilot.enable`](positron://settings/github.copilot.enable) | [GitHub Copilot Code Completions](assistant-completions.qmd#github-copilot) (set to `{ "*": false }` to disable) |
+| [`console.assistantActions.enabled`](positron://settings/console.assistantActions.enabled) | [Console Fix & Explain](assistant-chat.qmd#managing-console-actions) (set to `false` to disable) |
