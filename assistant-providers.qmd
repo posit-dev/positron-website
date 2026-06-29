@@ -1,6 +1,7 @@
 ---
 title: "Providers"
 description: "Account requirements, authentication, and settings for each language model provider you can use with Posit Assistant."
+toc-depth: 2
 ---
 
 Positron connects to a range of language model providers. To connect one, run the command _Authentication: Configure Language Model Providers_, select the provider, and authenticate.
