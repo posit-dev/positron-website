@@ -61,13 +61,15 @@ To turn off all Positron AI features at once, set [`ai.enabled`](positron://sett
 
 - Posit Assistant
 - Posit AI Next Edit Suggestions (NES)
-- Notebook AI features (Fix, Explain, ghost cells, ask assistant)
+- Notebook AI features
 - Console Fix & Explain
 - GitHub Copilot (Chat, Completions)
 
 To disable a specific feature without affecting others:
 
-- **Posit Assistant:** set [`assistant.enabled`](positron://settings/assistant.enabled) to `false` to hide the sidebar icon and make its commands unavailable.
-- **Code completions:** see [Code completions](assistant-completions.qmd) (Posit AI NES and GitHub Copilot).
-- **Console Fix & Explain:** see [Console Fix & Explain](assistant-chat.qmd#managing-console-actions).
-- **Notebook AI features:** TBD pending [posit-dev/positron#13816](https://github.com/posit-dev/positron/issues/13816).
+| Setting | Features Affected |
+|---------|------------------|
+| [`assistant.enabled`](positron://settings/assistant.enabled) | [Posit Assistant](https://assistant.posit.co) (set to `false` to disable) |
+| [`nextEditSuggestions.enabled`](positron://settings/nextEditSuggestions.enabled) | [Posit AI NES](assistant-completions.qmd#posit-ai-nes) (set to `{ "*": false }` to disable) |
+| [`github.copilot.enable`](positron://settings/github.copilot.enable) | [GitHub Copilot Code Completions](assistant-completions.qmd#github-copilot) (set to `{ "*": false }` to disable) |
+| [`console.assistantActions.enabled`](positron://settings/console.assistantActions.enabled) | [Console Fix & Explain](assistant-chat.qmd#managing-console-actions) (set to `false` to disable) |
