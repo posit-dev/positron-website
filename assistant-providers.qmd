@@ -176,9 +176,11 @@ Some OpenAI-compatible providers might not implement the `/models` endpoint, whi
 - **Account:** a Google account with access to the [Gemini API](https://ai.google.dev/), with an API key created in [Google AI Studio](https://aistudio.google.com/apikey)
 - **Authentication:** a Gemini API key, or the `GEMINI_API_KEY` or `GOOGLE_API_KEY` environment variable
 
-## Google Vertex AI [Experimental]{.provider-badge .experimental} {#google-vertex-ai}
+## Gemini Enterprise Agent Platform [Experimental]{.provider-badge .experimental} {#gemini-enterprise-agent-platform}
 
-- **Account:** a Google Cloud project with the [Vertex AI API enabled](https://cloud.google.com/vertex-ai/docs/start/cloud-environment) and [access to the models](https://cloud.google.com/vertex-ai/generative-ai/docs/model-garden/explore-models) you want to use
+Formerly Google Vertex AI.
+
+- **Account:** a Google Cloud project with the [Agent Platform APIs enabled](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/cloud-environment) and [access to the models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) you want to use
 - **Authentication:** authenticate with Google Cloud using Application Default Credentials (`gcloud`) or a service account (see below)
 - **Settings:**
   - [`authentication.googleVertex.credentials`](positron://settings/authentication.googleVertex.credentials) (required, or env vars): set your project ID and location, which take precedence over the `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` environment variables

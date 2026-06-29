@@ -40,7 +40,7 @@ To connect a provider, run the command _Authentication: Configure Language Model
 | [Custom Provider](assistant-providers.qmd#custom-provider) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [DeepSeek](assistant-providers.qmd#deepseek) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [Gemini Code Assist](assistant-providers.qmd#gemini-code-assist) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
-| [Google Vertex AI](assistant-providers.qmd#google-vertex-ai) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | Google Cloud CLI or Service Account Credentials |
+| [Gemini Enterprise Agent Platform](assistant-providers.qmd#gemini-enterprise-agent-platform) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | Google Cloud CLI or Service Account Credentials |
 
 Please ensure you consult your provider's privacy policy for information on the data they collect and how they use it. For reference links, see the [Provider Privacy Information](assistant-provider-info.qmd) guide.
 
