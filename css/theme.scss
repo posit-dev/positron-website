@@ -511,6 +511,22 @@ a[href^="positron://settings"]::before {
   color: $posit-dark-orange-2;
 }
 
+// Badges are inlined into provider H2 headings. The default em-relative size
+// is tuned for body and table text, so pin a fixed size in headings to keep
+// the pill from ballooning against the large heading font.
+h1, h2, h3, h4, h5, h6 {
+  .provider-badge {
+    font-size: 0.75rem;
+    vertical-align: middle;
+  }
+}
+
+// Inlined heading badges also appear in the right-hand table of contents.
+// Hide them there to keep the TOC text clean.
+nav[role="doc-toc"] .provider-badge {
+  display: none;
+}
+
 // ============= FEATURES TABLE =============
 // Keep the feature-name column on one line so names like
 // "Context Management" don't wrap and squish the column.
