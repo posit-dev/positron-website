@@ -89,34 +89,7 @@ Anthropic does not include Claude API usage in its [Pro](https://support.claude.
 
 Support for OAuth sign-in depends on Anthropic offering API access to Posit Assistant through these plans. You can follow [this feature request](https://github.com/posit-dev/positron/issues/9481) for updates.
 
-## OpenAI
-
-- **Account:** an OpenAI account, or any service that implements the [OpenAI Responses API](https://platform.openai.com/docs/api-reference/responses)
-- **Authentication:** an OpenAI API key, or the `OPENAI_API_KEY` environment variable. For a compatible service, also provide its base URL (or the `OPENAI_BASE_URL` environment variable)
-
-## Snowflake Cortex
-
-- **Account:** a Snowflake account with Cortex access
-- **Authentication:** your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier) and a [programmatic access token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) (PAT)
-- **Settings:**
-  - [`authentication.snowflake.credentials`](positron://settings/authentication.snowflake.credentials) (required): add your account ID as an item with the key `SNOWFLAKE_ACCOUNT` before you connect
-
-## GitHub Copilot [Preview]{.provider-badge .preview} {#github-copilot}
-
-- **Account:** a GitHub account with Copilot enabled
-- **Authentication:** sign in through your browser with OAuth
-
-### Get GitHub Copilot access
-
-GitHub Copilot is a proprietary tool from GitHub. To use GitHub Copilot for AI chat and code completions, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account. You can also be assigned a seat by an organization with a GitHub Copilot for Business subscription.
-
-Students and faculty can use GitHub Copilot for free as part of the GitHub Education program. For more information, see the [GitHub Education page](https://education.github.com/).
-
-::: {.callout-note}
-You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon in the Activity Bar. To sign out, use the Accounts icon or run the _Accounts: Manage Accounts_ command. The Accounts section manages your GitHub authentication for all extensions that use GitHub, not just AI features.
-:::
-
-## Microsoft Foundry [Preview]{.provider-badge .preview} {#microsoft-foundry}
+## Microsoft Foundry {#microsoft-foundry}
 
 - **Account:** a [Microsoft Foundry](https://ai.azure.com/) resource with one or more models deployed
 - **Authentication:** the endpoint URL and API key for your Foundry resource
@@ -143,6 +116,33 @@ To use specific models instead of `model-router`, configure the [`positron.assis
 ```
 
 Use the model name and deployment identifier from your Foundry resource for each entry.
+
+## OpenAI
+
+- **Account:** an OpenAI account, or any service that implements the [OpenAI Responses API](https://platform.openai.com/docs/api-reference/responses)
+- **Authentication:** an OpenAI API key, or the `OPENAI_API_KEY` environment variable. For a compatible service, also provide its base URL (or the `OPENAI_BASE_URL` environment variable)
+
+## Snowflake Cortex
+
+- **Account:** a Snowflake account with Cortex access
+- **Authentication:** your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier) and a [programmatic access token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) (PAT)
+- **Settings:**
+  - [`authentication.snowflake.credentials`](positron://settings/authentication.snowflake.credentials) (required): add your account ID as an item with the key `SNOWFLAKE_ACCOUNT` before you connect
+
+## GitHub Copilot [Preview]{.provider-badge .preview} {#github-copilot}
+
+- **Account:** a GitHub account with Copilot enabled
+- **Authentication:** sign in through your browser with OAuth
+
+### Get GitHub Copilot access
+
+GitHub Copilot is a proprietary tool from GitHub. To use GitHub Copilot for AI chat and code completions, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account. You can also be assigned a seat by an organization with a GitHub Copilot for Business subscription.
+
+Students and faculty can use GitHub Copilot for free as part of the GitHub Education program. For more information, see the [GitHub Education page](https://education.github.com/).
+
+::: {.callout-note}
+You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon in the Activity Bar. To sign out, use the Accounts icon or run the _Accounts: Manage Accounts_ command. The Accounts section manages your GitHub authentication for all extensions that use GitHub, not just AI features.
+:::
 
 ## Custom Provider [Experimental]{.provider-badge .experimental} {#custom-provider}
 

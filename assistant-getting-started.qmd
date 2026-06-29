@@ -33,10 +33,10 @@ To connect a provider, run the command _Authentication: Configure Language Model
 | [Posit AI](assistant-providers.qmd#posit-ai) | {{< fa check >}} | {{< fa check >}} | OAuth |
 | [Amazon Bedrock](assistant-providers.qmd#amazon-bedrock) | {{< fa check >}} | | AWS CLI or Posit Workbench Managed Credentials |
 | [Anthropic](assistant-providers.qmd#anthropic) | {{< fa check >}} | | API Key |
+| [Microsoft Foundry](assistant-providers.qmd#microsoft-foundry) | {{< fa check >}} | | API Key or Workbench Managed Credentials |
 | [OpenAI](assistant-providers.qmd#openai) | {{< fa check >}} | | API Key |
 | [Snowflake Cortex](assistant-providers.qmd#snowflake-cortex) | {{< fa check >}} | | API Key or Workbench Managed Credentials |
 | [GitHub Copilot](assistant-providers.qmd#github-copilot) [Preview]{.provider-badge .preview} | {{< fa check >}} | {{< fa check >}} | OAuth |
-| [Microsoft Foundry](assistant-providers.qmd#microsoft-foundry) [Preview]{.provider-badge .preview} | {{< fa check >}} | | API Key or Workbench Managed Credentials |
 | [Custom Provider](assistant-providers.qmd#custom-provider) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [DeepSeek](assistant-providers.qmd#deepseek) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [Gemini Code Assist](assistant-providers.qmd#gemini-code-assist) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
