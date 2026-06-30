@@ -171,7 +171,7 @@ Some OpenAI-compatible providers might not implement the `/models` endpoint, whi
 - **Account:** a [DeepSeek](https://platform.deepseek.com/) account with API access
 - **Authentication:** a DeepSeek API key, or the `DEEPSEEK_API_KEY` environment variable
 
-## Gemini Code Assist [Experimental]{.provider-badge .experimental} {#gemini-code-assist}
+## Google Gemini [Experimental]{.provider-badge .experimental} {#gemini-code-assist}
 
 - **Account:** a Google account with access to the [Gemini API](https://ai.google.dev/), with an API key created in [Google AI Studio](https://aistudio.google.com/apikey)
 - **Authentication:** a Gemini API key, or the `GEMINI_API_KEY` or `GOOGLE_API_KEY` environment variable
