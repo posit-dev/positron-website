@@ -63,7 +63,8 @@ Key formatting rules:
 - **Netlify**: Auto-deploys from main branch using `@quarto/netlify-plugin-quarto`
 - **GitHub Actions**:
   - `lint.yml`: URL checking on PRs
-  - `publish-release-notes.yml`: Manual workflow for S3/CloudFront deployment
+  - `publish-release-notes.yml`: Manual workflow for S3/CloudFront deployment of the release notes markdown
+  - `publish-release-notes-assets.yml`: Syncs `release-notes/assets/` (images, GIFs) to S3/CloudFront. Runs automatically when assets change on `main`, plus manual dispatch. See `release-notes/assets/README.md`.
 
 ## Videos and Git LFS
 
