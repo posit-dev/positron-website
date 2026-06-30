@@ -81,7 +81,7 @@ Fix and Explain inherit these options from the chat pane:
 
 ### Managing Console actions
 
-- To disable Console actions, modify the [`positron.assistant.consoleActions.enable`](positron://settings/positron.assistant.consoleActions.enable) setting.
+- To disable Console actions, set [`console.assistantActions.enabled`](positron://settings/console.assistantActions.enabled) to `false`.
 - To review your Fix and Explain chat history for the current chat session, run the _Chat: Open Quick Chat_ command and your chat history will appear in the Quick Chat overlay.
 
 ## Managing models
