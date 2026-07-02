@@ -58,9 +58,9 @@ You can restart the notebook session at any time by selecting the {{<fa rotate-r
 
 The Positron Notebook Editor controls what metadata is saved to the notebook file. This makes notebooks more version-control-friendly. By default, cell outputs are saved but execution counts are not. You can adjust this behavior with the [Saving settings](#saving) below.
 
-## Positron Assistant integration
+## AI integration
 
-The Positron Notebook Editor integrates with [Positron Assistant](assistant.qmd) to provide notebook-aware AI assistance:
+The Positron Notebook Editor integrates with [Posit Assistant](assistant.qmd) to provide notebook-aware AI assistance:
 
 - **Context-aware**: Assistant has access to rich context about your notebook, including cell states, execution history, code and outputs including images and tables.
 - **Dynamic Suggestions**: Assistant follows your work and dynamically suggests actions to improve your notebook.
@@ -70,9 +70,9 @@ The Positron Notebook Editor integrates with [Positron Assistant](assistant.qmd)
 
 {{< video videos/notebook-ai-quick-actions.mp4 aria-label="Using Positron Assistant to generate AI-powered suggestions and edits in a notebook" >}}
 
-### Enable Positron Assistant
+### Enable Posit Assistant
 
-To use the integrated notebook AI features, you will need to set up Positron Assistant. See [Getting Started with Positron Assistant](assistant-getting-started.qmd) for setup instructions. We recommend using Anthropic as a model provider for the best experience.
+To use the integrated notebook AI features, you will need to set up Posit Assistant. See the [Assistant Getting Started](assistant-getting-started.qmd) guide for setup instructions. We recommend using Anthropic as a model provider for the best experience.
 
 Once enabled, you will see assistant specific actions in the notebook editor action bar.
 
@@ -121,7 +121,8 @@ When the Assistant is actively editing cells in your notebook, you may want to w
 
 #### Assistant
 
-- [`positron.assistant.notebookSuggestions.model`](positron://settings/positron.assistant.notebookSuggestions.model): Set the model used when generating AI suggestions in notebooks.
+- [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled): Enable or disable all AI features in the Notebook Editor, including ghost cell suggestions, the Notebook Assistant panel, Visualize, and cell Fix & Explain actions. Enabled by default. Note: notebook AI features are active only when both `notebook.ai.enabled` and [`ai.enabled`](positron://settings/ai.enabled) are `true`.
+- [`positron.assistant.notebook.suggestions.model`](positron://settings/positron.assistant.notebook.suggestions.model): Set the model used when generating AI suggestions in notebooks.
 - [`positron.assistant.notebook.deletionSentinel.show`](positron://settings/positron.assistant.notebook.deletionSentinel.show): Show deletion sentinels when cells are deleted. When disabled, cells are deleted immediately without undo placeholders. Enabled by default.
 - [`positron.assistant.notebook.deletionSentinel.timeout`](positron://settings/positron.assistant.notebook.deletionSentinel.timeout): Time in milliseconds before deletion sentinels auto-dismiss (0 to disable auto-dismiss).
 - [`positron.assistant.notebook.showDiff`](positron://settings/positron.assistant.notebook.showDiff): Show a diff view for AI assistant edits to notebook cells. When disabled, changes are applied directly without requiring approval. Enabled by default.

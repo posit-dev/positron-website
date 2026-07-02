@@ -72,4 +72,5 @@ To disable a specific feature without affecting others:
 | [`assistant.enabled`](positron://settings/assistant.enabled) | [Posit Assistant](https://assistant.posit.co) (set to `false` to disable) |
 | [`nextEditSuggestions.enabled`](positron://settings/nextEditSuggestions.enabled) | [Posit AI NES](assistant-completions.qmd#posit-ai-nes) (set to `{ "*": false }` to disable) |
 | [`github.copilot.enable`](positron://settings/github.copilot.enable) | [GitHub Copilot Code Completions](assistant-completions.qmd#github-copilot) (set to `{ "*": false }` to disable) |
+| [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled) | [Notebook AI features](positron-notebook-editor.qmd#ai-integration) (set to `false` to disable) |
 | [`console.assistantActions.enabled`](positron://settings/console.assistantActions.enabled) | [Console Fix & Explain](assistant-chat.qmd#managing-console-actions) (set to `false` to disable) |
