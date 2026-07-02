@@ -134,15 +134,37 @@ Use the model name and deployment identifier from your Foundry resource for each
 - **Account:** a GitHub account with Copilot enabled
 - **Authentication:** sign in through your browser with OAuth
 
+::: {.callout-note}
+You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon in the Activity Bar. To sign out, use the Accounts icon or run the _Accounts: Manage Accounts_ command. The Accounts section manages your GitHub authentication for all extensions that use GitHub, not just AI features.
+:::
+
 ### Get GitHub Copilot access
 
 GitHub Copilot is a proprietary tool from GitHub. To use GitHub Copilot for AI chat and code completions, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account. You can also be assigned a seat by an organization with a GitHub Copilot for Business subscription.
 
 Students and faculty can use GitHub Copilot for free as part of the GitHub Education program. For more information, see the [GitHub Education page](https://education.github.com/).
 
-::: {.callout-note}
-You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon in the Activity Bar. To sign out, use the Accounts icon or run the _Accounts: Manage Accounts_ command. The Accounts section manages your GitHub authentication for all extensions that use GitHub, not just AI features.
-:::
+### Sign in with GitHub Copilot Enterprise
+
+GitHub Copilot Enterprise runs on GHE.com (GitHub Enterprise Cloud), not github.com. Signing in requires two extra settings compared to a personal subscription.
+
+Before you start, make sure your organization administrator has enabled GitHub Copilot for your enterprise and assigned you a Copilot seat.
+
+1. Open the [`github-enterprise.uri`](positron://settings/github-enterprise.uri) setting and enter your enterprise URL, for example `https://octocorp.ghe.com`.
+
+1. Run the command _Preferences: Open User Settings (JSON)_ to open your `settings.json` directly. Add the `authProvider` key inside `github.copilot.advanced`:
+
+   ```json
+   "github.copilot.advanced": {
+     "authProvider": "github-enterprise"
+   }
+   ```
+
+   This setting will be indicated as an **Unknown Configuration Setting**. This is expected and you can ignore the warning.
+
+1. Save the file. A prompt will appear asking you to sign in to GitHub. Click it and complete the browser authorization flow. If no prompt appears, restart Positron.
+
+For more detail, see GitHub's guide on [authenticating to GitHub Copilot on GHE.com](https://docs.github.com/en/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
 
 ## Custom Provider [Experimental]{.provider-badge .experimental} {#custom-provider}
 
