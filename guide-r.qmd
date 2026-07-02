@@ -49,3 +49,7 @@ You can create [custom keyboard shortcuts](keyboard-shortcuts.qmd#custom-shortcu
 ## Debugging
 
 Positron supports a modern R debugging workflow with breakpoints, variables inspections, and more. See [Debugging R code](guide-r-debugging.qmd) for details on setting breakpoints and stepping through your code.
+
+## Session hooks
+
+Positron can run R code once the session is fully operational, via the `positron.session_init` and `positron.session_reconnect` hooks. See [R session hooks](guide-r-session-hooks.qmd) for details.
