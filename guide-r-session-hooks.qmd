@@ -12,7 +12,7 @@ These hooks are analogous to RStudio's [`rstudio.sessionInit`](https://rstudio.g
 
 ## Why session hooks?
 
-Code in your `.Rprofile` runs very early, before Positron is ready to respond to UI-related requests. That's fine for setting options, but it's too early to drive the UI or to query it for information. Session hooks solve this by deferring code execution until Positron is fully connected to the R session.
+Code in `.Rprofile` runs very early, before Positron is ready to respond to UI-related requests. That's fine for setting options, but it's too early to drive the UI or to query it for information. Session hooks solve this by deferring code execution until Positron is fully connected to the R session.
 
 Common uses include:
 
@@ -21,7 +21,7 @@ Common uses include:
 
 ## Registering a hook
 
-Register a hook with [`setHook()`](https://stat.ethz.ch/R-manual/R-patched/library/base/help/setHook.html), typically in your `.Rprofile`. You usually want to use `action = "append"`, so you don't clobber any hooks registered elsewhere:
+Register a hook with [`setHook()`](https://stat.ethz.ch/R-manual/R-patched/library/base/help/setHook.html), typically in your `.Rprofile`. You usually want to use `action = "append"`, so you don't clobber any hook logic that has been registered elsewhere:
 
 ```r
 setHook(
