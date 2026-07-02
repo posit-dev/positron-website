@@ -135,6 +135,7 @@ website:
               contents:
               - guide-r.qmd
               - guide-r-debugging.qmd
+              - guide-r-session-hooks.qmd
               - guide-r-air.qmd
         - section: "Data Analysis"
           contents:
