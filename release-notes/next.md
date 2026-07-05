@@ -6,7 +6,7 @@ Welcome to the 2026.07.0 release of Positron!
 - [Packages pane](#packages-pane)
 - [Posit Assistant](#posit-assistant)
 - [R language intelligence](#r-language-intelligence)
-- [Explore Excel files in the Data Explorer](#explore-excel-files-in-the-data-explorer)
+- [Open Excel files directly in the Data Explorer](#open-excel-files-directly-in-the-data-explorer)
 - [Try Data Connections (preview)](#try-data-connections-preview)
 
 <div id="checkbox"></div>
@@ -35,7 +35,7 @@ This release also gives you finer control over AI in Positron. The new [`ai.enab
 
 Last release, R language support in Positron gained the ability to understand symbols within a file, and this release takes that further. Go to Definition, Find References, and Rename Symbol now work across files, in both R packages and standalone scripts, where cross-file resolution follows `source()` calls. This more accurate resolution strategy is experimental and, for now, powers symbol navigation only. R language intelligence is also more responsive to your workspace. Features such as diagnostics and workspace symbols react to changes made outside open editors, like switching a git branch or having an agent write a file. What Positron knows about your code stays in sync with what is on disk.
 
-#### Explore Excel files in the Data Explorer
+#### Open Excel files directly in the Data Explorer
 
 Open an Excel workbook (`.xlsx`) and start exploring it right away in the [Data Explorer](https://positron.posit.co/data-explorer), without first needing to load it via Python or R. Sort, filter, and profile columns, switch between worksheets, and toggle whether the first row holds column names. An **Open in Excel** button opens the workbook in your native spreadsheet application.
 
