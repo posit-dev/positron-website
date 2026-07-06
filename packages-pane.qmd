@@ -15,6 +15,7 @@ If it is not already displayed, select the **Packages** icon in the Activity Bar
 
 The **Packages** pane lists packages installed in the active session's library.
 Each entry shows the package name, version, and an indicator of whether the package is currently attached.
+There are also buttons to open the package's help in the **Help** pane and, when the package has a homepage, its website in your browser.
 
 Use the filter input at the top of the pane to search by name. The filter menu also lets you limit the list to **Outdated** or **Attached** packages, and sort entries by name.
 
