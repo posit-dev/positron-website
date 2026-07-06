@@ -9,7 +9,7 @@ You can browse installed packages, search package repositories, and install, upd
 ## Open the Packages pane
 
 The **Packages** pane is shown in the Primary Side Bar.
-If it is not already displayed, select the **Packages** icon ({{< fa box >}}) in the Activity Bar, or run _View: Packages_ from the Command Palette ({{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}).
+If it is not already displayed, select the **Packages** icon in the Activity Bar, or run _View: Packages_ from the Command Palette ({{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}).
 
 ## Browse installed packages
 
