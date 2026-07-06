@@ -1,12 +1,12 @@
 ---
 title: "Positron Notebook Editor"
-description: "Use the Positron Notebook Editor, in public beta, for a native notebook experience with integrated AI assistance, data exploration, and improved data science workflows."
+description: "Use the Positron Notebook Editor for a native notebook experience with integrated AI assistance, data exploration, and improved data science workflows."
 aliases:
   - notebooks-alpha.html
 ---
 
 ::: {.callout-note}
-The Positron Notebook Editor is in public beta. Read [the launch blog post](https://posit.co/blog/announcing-the-positron-notebook-editor-for-jupyter-notebooks/) for more details. We are actively working on improving the Notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or [schedule a call](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) with our product and engineering team.
+The Positron Notebook Editor is the default editor for Jupyter (`.ipynb`) files. We are actively working on improving the notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or [schedule a call](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) with our product and engineering team.
 :::
 
 The Positron Notebook Editor provides a familiar notebook experience for Jupyter (`.ipynb`) files. IDE features work out of the box in notebooks, including AI assistance, data exploration, and debugging.
@@ -20,9 +20,9 @@ The Positron Notebook Editor provides a familiar notebook experience for Jupyter
 - **Debugging**: Works out of the box without additional setup
 - **Improved version control**: Control what metadata is saved for better diffing and version control
 
-## Enable the Positron Notebook Editor
+## Use the Positron Notebook Editor
 
-To make the Positron Notebook Editor the default Jupyter Notebook editor, enable the [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled) setting. Once enabled, all `.ipynb` files will open in the Positron Notebook Editor instead of the Legacy Notebook Editor.
+The Positron Notebook Editor is the default editor for Jupyter Notebooks, so your `.ipynb` files open in it automatically. If you prefer the [Legacy Notebook Editor](legacy-notebook-editor.qmd), disable the [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled) setting, and `.ipynb` files will open in the Legacy Notebook Editor instead.
 
 ## Getting started
 
@@ -105,7 +105,7 @@ When the Assistant is actively editing cells in your notebook, you may want to w
 ## Customization & settings
 #### General
 
-- [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled): Use the Positron Notebook Editor as the default editor for `.ipynb` files.
+- [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled): Use the Positron Notebook Editor as the default editor for `.ipynb` files. Enabled by default.
 - [`positron.notebook.experimental`](positron://settings/positron.notebook.experimental): Enable experimental Positron Notebook features. Experimental features might change or be removed in future releases.
 {{< include "_notebook-customization.qmd" >}}
 
