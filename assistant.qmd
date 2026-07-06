@@ -23,7 +23,7 @@ listing:
 ::: {.callout-note}
 ## Looking for Positron Assistant?
 
-Positron Assistant and Databot are being superseded by Posit Assistant and will be deprecated in a future release. Posit Assistant will move to general availability in Q3 2026.
+Positron Assistant has been removed and replaced by Posit Assistant.
 :::
 
 [Posit Assistant](https://pos.it/assistant) is the new AI coding experience available as a preview feature in Positron 2026.04.0 and later. Posit Assistant brings together the capabilities of Positron Assistant and Databot into a unified experience.
