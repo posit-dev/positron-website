@@ -43,10 +43,8 @@ Positron caches Quarto cell outputs separately from the document in its global s
 
 Inline output for Quarto documents is a new feature in Positron, and has some differences from the RStudio implementation you may be familiar with. The following limitations apply; links go to GitHub issues.
 
-- HTML widgets and other [interactive HTML content are not supported](https://github.com/posit-dev/positron/issues/4219).
 - You [cannot share a single R or Python session among multiple Quarto documents](https://github.com/posit-dev/positron/issues/12732).
 - Execution indicators in the gutter [do not track progress line by line](https://github.com/posit-dev/positron/issues/13505).
-- There is [no real-time preview for LaTeX equations](https://github.com/posit-dev/positron/issues/13288).
 - Documents containing a mix of R and Python [are not executed with Reticulate](https://github.com/posit-dev/positron/issues/13161).
 - Quarto documents in subfolders [don't run the parent .Rprofile or renv scripts](https://github.com/posit-dev/positron/issues/4695).
 - Positron reads execution options (such as width and height) only from Quarto-style options (`#| width: foo`), not from Knitr-style chunk-header options (`{width=foo}`).
