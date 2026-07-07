@@ -24,7 +24,7 @@ The active interpreter session is the language environment currently in use. It 
 
 The active interpreter session can always be identified in the Interpreter picker located in the top right. The Interpreter picker also shows the current status of the session.
 
-![Active interpreter session](images/active-interpreter-session.png){fig-alt="Positron IDE with a red square around the interpreter picker. R 4.5.2 is the active console session and is highlighted in the Console pane."}
+![Active interpreter session](images/active-interpreter-session.png){width=700 fig-alt="Positron IDE with a red square around the interpreter picker. R 4.5.2 is the active console session and is highlighted in the Console pane."}
 
 When working with multiple sessions for the same language, check which interpreter session is active before executing code. The active session name is always visible in the Interpreter picker.
 

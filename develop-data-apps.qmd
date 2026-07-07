@@ -5,7 +5,7 @@ description: "Build and preview Shiny, Streamlit, Dash, FastAPI, and Flask apps 
 
 Positron provides a simplified method for running interactive data apps via the **Play** button. Instead of running an app from a **Terminal**, you can run supported apps by selecting the **Play** button in Editor Actions. Additionally, you can start a supported app in debug mode through the **Play** button context menu.
 
-![Positron App Launcher button in Editor Actions](images/run-app-button.png){fig-alt="Editor action bar with the Play button highlighted in a red box, showing a Python Streamlit file open in the Editor."}
+![Positron App Launcher button in Editor Actions](images/run-app-button.png){width=800 fig-alt="Editor action bar with the Play button highlighted in a red box, showing a Python Streamlit file open in the Editor."}
 
 ## Supported app frameworks
 
