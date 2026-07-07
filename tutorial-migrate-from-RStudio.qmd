@@ -50,7 +50,7 @@ Your fingers already know {{< kbd mac=Command-Enter win=Ctrl-Enter linux=Ctrl-En
 Many RStudio shortcuts already work in Positron unchanged. You can turn on RStudio's full shortcut set with a single setting. **We recommend turning it on.** Enable [`workbench.keybindings.rstudioKeybindings`](positron://settings/workbench.keybindings.rstudioKeybindings), then restart Positron for it to take effect.
 
 ::: {.callout-tip title="Try it now"}
-Open the Command Palette, search for _Preferences: Open Settings (UI)_, and search the settings for `rstudioKeybindings`. Turn it on, then restart Positron.
+Open the Command Palette, search for _Preferences: Open Settings (UI)_, and search the settings for `rstudioKeybindings`. Turn it on, then restart Positron by running _Developer: Reload Window_ from the Command Palette.
 
 **You will know it worked when** {{< kbd Ctrl-1 >}} moves your cursor to the editor and {{< kbd Ctrl-2 >}} jumps to the Console after the restart.
 :::
@@ -108,7 +108,7 @@ Your existing `.Rproj` file is safe to leave in place, Positron ignores it harml
 ::: {.callout-tip title="Try it now"}
 Open the Command Palette and search for _File: Open Recent_. Reopen a project you already work in.
 
-**You will know it worked when** the project opens in its own window with your files in the Explorer — no `.Rproj` required.
+**You will know it worked when** the project opens in its own window with your files in the Explorer — no `.Rproj` required. Rerun _File: Open Recent_ to return to your previous project.
 :::
 
 ::: {.callout-note}
@@ -186,8 +186,6 @@ In RStudio you might reformat code by hand or run [styler](https://styler.r-lib.
 Open the Command Palette, search for _Preferences: Open Settings (UI)_, and turn on [`editor.formatOnSave`](positron://settings/editor.formatOnSave). Then open an R file, add some messy spacing, and save with {{< kbd mac=Command-S win=Ctrl-S linux=Ctrl-S >}}.
 
 **You will know it worked when** Air snaps the code into clean formatting the instant you save.
-
-<!-- {{< video videos/tutorial-migrate-format-on-save.mp4 aria-label="Enabling Format on Save in Positron settings and watching Air automatically format an R file on save" >}} -->
 :::
 
 ::: {.callout-note}
@@ -206,9 +204,7 @@ for (variable in vector) {
 
 Press {{< kbd Tab >}} to jump between the placeholders for `variable`, `vector`, and `# code to repeat`.
 
-This video shows how to trigger a snippet and tab through its placeholders.
-
-<!-- {{< video videos/tutorial-migrate-snippets.mp4 aria-label="Triggering the for-loop snippet in Positron and tabbing through its variable, vector, and body placeholders" >}} -->
+![Completion list after typing "for", showing the snippet that can be inserted](images/snippets-for-example.png){width=700}
 
 Positron provides snippets for R's reserved words (`if`, `while`, `for`, `function`) out of the box.
 
@@ -223,13 +219,13 @@ To add your own snippets, open the Command Palette and run _Snippets: Configure 
 
 ## Add features with extensions
 
-Extensions let you add features to Positron beyond its defaults. In this way, they are like RStudio addins, but the Extensions marketplace is far larger. Open the Extensions view from the Activity Bar, or run _Extensions: Open Extension Gallery_ from the Command Palette. Then search for extension by name or keyword.
+Extensions let you add features to Positron beyond its defaults. In this way, they are like RStudio addins, but the Extensions marketplace is far larger. Open the Extensions view from the Activity Bar, or run _Extensions: Focus on Extensions View_ from the Command Palette. Then search for extension by name or keyword.
 
 Some popular picks for R users:
 
 | Extension | Purpose |
 |---|---|
-| [Tomorrow Night Bright (R Classic)](https://open-vsx.org/extension/gvelasq/tomorrow-night-bright-r-classic) | RStudio theme ported to Positron |
+| [Tomorrow Night Bright (R Classic)](https://open-vsx.org/extension/gvelasq/tomorrow-night-bright-r-classic) | RStudio dark theme ported to Positron |
 | [Indent-Rainbow](https://open-vsx.org/extension/oderwat/indent-rainbow) | Colorized indentation |
 | [Rainbow CSV](https://open-vsx.org/extension/mechatroner/rainbow-csv) | Colorized CSV file editing |
 | [GitHub Actions](https://open-vsx.org/extension/GitHub/vscode-github-actions) | Interact with GitHub Actions from the IDE |
@@ -237,9 +233,9 @@ Some popular picks for R users:
 | [Project Manager](https://open-vsx.org/extension/alefragnani/project-manager) | Quickly switch between projects |
 
 ::: {.callout-tip title="Try it now"}
-Open the Command Palette, run _Extensions: Open Extension Gallery_, and search for `Tomorrow Night Bright (R Classic)`. Click **Install**.
+Open the Command Palette, run _Extensions: Focus on Extensions View_, and search for `Tomorrow Night Bright (R Classic)`. Click **Install**.
 
-**You will know it worked when** you can select it from _Preferences: Color Theme_ and your editor takes on RStudio's classic colors.
+**You will know it worked when** you can select it from _Preferences: Color Theme_ and your editor takes on RStudio's classic dark mode colors. Scroll to _Light_ to return to Posit's default colors.
 
 <!-- {{< video videos/tutorial-migrate-extensions.mp4 aria-label="Opening the Positron extension gallery, searching for an extension, and installing it" >}} -->
 :::
