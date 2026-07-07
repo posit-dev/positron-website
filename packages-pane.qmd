@@ -21,8 +21,6 @@ Use the filter input at the top of the pane to search by name. The filter menu a
 
 A package is "attached" when you have explicitly loaded it into the active session, with `library()` in R or `import` in Python. A package that is only present because another package pulled it in as a dependency is not attached.
 
-![The Packages pane in Positron, showing a list of installed packages and the package details for a single package.](images/packages-pane.png){fig-alt="The Packages pane in Positron, showing a list of installed packages and the package details for a single package."}
-
 ## Install a package
 
 1. Select **Install Package** in the **Packages** pane action bar, or run _Packages: Install Package_ from the Command Palette
