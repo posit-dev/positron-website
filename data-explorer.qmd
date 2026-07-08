@@ -25,6 +25,8 @@ The Data Explorer has three primary components:
 
 There are a few ways to open the Data Explorer. If you want to look at data you have loaded into memory already, you can navigate to the [**Variables** pane](variables-pane.qmd) and select the {{< fa table >}} icon for a specific dataframe object.
 
+You can also open the Data Explorer from your editor (`.py`, `.R`, `.ipynb`, or `.qmd` files). Use the _View Data Frame at Cursor_ command from the [Command Palette](command-palette.qmd) or the right-click context menu. This functionality is also available as a code action via the {{< fa lightbulb >}} icon in the editor gutter or via the {{< kbd mac=Command-. win=Ctrl-. linux=Ctrl-. >}} menu.
+
 Using code or the console, you can also run one of the following commands:
 
 * In Python: `%view dataframe label`
