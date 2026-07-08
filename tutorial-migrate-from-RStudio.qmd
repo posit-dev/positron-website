@@ -3,21 +3,21 @@ title: "Migrate from RStudio to Positron"
 description: "Set up Positron so it looks, feels, and responds like the RStudio you already know. A hands-on tutorial for RStudio users."
 ---
 
-You just finished your first analysis in Positron. If some of it felt unfamiliar compared to RStudio, that is completely normal, and it is exactly what this tutorial fixes.
-
-As an RStudio user, **you are fast in RStudio because of muscle memory, not because of RStudio itself.** Your speed comes from knowing where everything is. Over the next 20 minutes you will rebuild that home in Positron by configuring to to be similar to RStudio. Along the way you will meet a few things Positron can do that RStudio cannot.
-
-We will suggest specific settings that work well for most RStudio users. Wherever you already have a preference, we will show you where to change it. Think of this as your chance to configure the Positron you will work in from now on.
-
 ::: {.callout-note}
 **Should you take this tutorial first?** This tutorial assumes Positron is installed and you have a project open. If that is not the case, start with [First data analysis with R in a Quarto document](tutorial-get-started-quarto.qmd). It takes about 15 minutes and leaves you with a project you can configure here.
 :::
+
+You just finished your first analysis in Positron. If some of it felt unfamiliar compared to RStudio, that is completely normal, and it is exactly what this tutorial fixes.
+
+**You are fast in RStudio because of muscle memory, not because of RStudio itself.** In RStudio, you know where everything is. Over the next 20 minutes you will rebuild that familiarity by configuring Positron to be similar to RStudio. Along the way you will meet a few things Positron can do that RStudio cannot.
+
+We will suggest specific settings that work well for most RStudio users, but you can change these settings however you like. Think of this as your chance to make Positron your personalized IDE.
 
 ::: {.callout-note}
 **RStudio is not going away.** It is actively maintained with no deprecation timeline. Moving to Positron is not all-or-nothing — it is fine to use both IDEs side by side, and this tutorial will point out the few tasks where you might still prefer RStudio.
 :::
 
-# Your one new habit: the Command Palette
+# Start with a new habit: the Command Palette
 
 In RStudio, when you want to do something, you reach for a button, a menu, or a keyboard shortcut you have memorized. Positron has hundreds of commands too — but instead of memorizing where each one lives, you learn **one place to find them all**: the Command Palette.
 
@@ -37,7 +37,8 @@ Open the Command Palette, type _Toggle Primary Side Bar_, and press {{< kbd Ente
 
 This video shows how to open the Command Palette, type a keyword, and run a command.
 
-<!-- {{< video videos/tutorial-migrate-command-palette.mp4 aria-label="Opening the Command Palette in Positron, typing a keyword, and executing a command" >}} -->
+{{< video videos/tutorial-migrate-command-palette.mp4 aria-label="Opening the Command Palette in Positron, typing a keyword, and executing a command" >}}
+
 
 ::: {.callout-note}
 Positron also ships with an interactive **Migrating from RStudio to Positron** walkthrough. Open it anytime from the Command Palette by searching for _Welcome: Open Walkthrough_ and selecting it. Treat it as a quick-reference companion to this tutorial — and notice that you just used the Command Palette to find it.
@@ -82,13 +83,13 @@ Once enabled, these RStudio shortcuts are available in Positron:
 
 This video shows how to enable RStudio keybindings and confirm a familiar shortcut works.
 
-<!-- [TODO: Record a video showing the rstudioKeybindings setting being enabled, Positron restarting, and Ctrl-1 / Ctrl-2 switching focus between Source and Console.] -->
-<!-- {{< video videos/tutorial-migrate-rstudio-keybindings.mp4 aria-label="Enabling RStudio keybindings in Positron settings and confirming Ctrl-1 and Ctrl-2 move focus between the editor and console" >}} -->
+{{< video videos/tutorial-migrate-rstudio-keybindings.mp4 aria-label="Enabling RStudio keybindings in Positron settings and confirming Ctrl-1 and Ctrl-2 move focus between the editor and console" >}}
+
 
 ::: {.callout-note}
 **Prefer to learn Positron's native shortcuts?** Leave this setting off. See [Positron keyboard shortcuts](keyboard-shortcuts.qmd) and [R-specific shortcuts](guide-r.qmd#keyboard-shortcuts) for the full reference, and remember you can always look up and change any command's shortcut in the Command Palette.
 
-<!-- ![Keyboard shortcuts as they appear in the Command Palette](images/keyboard-shortcuts-command-palette.jpeg){fig-alt="A screenshot of the Command Palette with Configure Keybinding option."} -->
+![Keyboard shortcuts as they appear in the Command Palette](images/tutorial-keyboard-shortcuts-command-palette.png){fig-alt="A screenshot of the Command Palette with Configure Keybinding option."}
 :::
 
 # Make Positron feel familiar
@@ -137,8 +138,6 @@ Here is how the Activity Bar maps to tools you know from RStudio:
 
 ![Interface of the Positron IDE](images/user-interface-for-rstudio-migration.jpeg){fig-alt="A screenshot with labelled boxes around the Activity bar, Primary side bar, Editor, Panel, and Secondary sidebar."}
 
-<!-- [TODO: Add an annotated diagram mapping each RStudio pane to its Positron equivalent by name.] -->
-
 Positron's layout is more flexible than RStudio's. **We recommend starting from a built-in preset** and adjusting from there.
 
 ::: {.callout-tip title="Try it now"}
@@ -146,12 +145,14 @@ Open the Command Palette and type `layout`. Try the **Stacked**, **Side-by-Side*
 
 **You will know it worked when** the panes rearrange instantly. Keep the one that feels most like your RStudio setup. You can also drag any pane to a new spot.
 
-<!-- {{< video videos/tutorial-migrate-rstudio-drag-pane.mp4 aria-label="Drag any pane to a new spot." >}} -->
+{{< video videos/tutorial-migrate-rstudio-drag-pane.mp4 aria-label="Drag any pane to a new spot." >}}
+
+
 :::
 
 You can also adjust the layout with the icons at the top right of Positron.
 
-<!-- ![Layout buttons](images/layout-buttons.jpeg){fig-alt="A screenshot of Positron with the layout buttons at the top right of the IDE labelled."} -->
+![Layout buttons](images/tutorial-layout-buttons.png){fig-alt="A screenshot of Positron with the layout buttons at the top right of the IDE labelled."}
 
 ::: {.callout-note}
 See [Customize the Layout](layout.qmd) for the full set of options.
@@ -166,7 +167,9 @@ Open the Command Palette and search for _Preferences: Color Theme_. Use the arro
 
 **You will know it worked when** the whole editor recolors *live* as you move — a small taste of how much Positron previews before you commit. Press {{< kbd Enter >}} on the one you want.
 
-<!-- {{< video videos/preview-color-themes.mp4 aria-label="Use _Preferences: Color Theme_ to preview color themes." >}} -->
+{{< video videos/tutorial-migrate-color-themes.mp4 aria-label="Use _Preferences: Color Theme_ to preview color themes." >}}
+
+
 :::
 
 # Make Positron more powerful than RStudio
@@ -237,7 +240,9 @@ Open the Command Palette, run _Extensions: Focus on Extensions View_, and search
 
 **You will know it worked when** you can select it from _Preferences: Color Theme_ and your editor takes on RStudio's classic dark mode colors. Scroll to _Light_ to return to Posit's default colors.
 
-<!-- {{< video videos/tutorial-migrate-extensions.mp4 aria-label="Opening the Positron extension gallery, searching for an extension, and installing it" >}} -->
+{{< video videos/tutorial-migrate-extensions.mp4 aria-label="Opening the Positron extension gallery, searching for an extension, and installing it" >}}
+
+
 :::
 
 You can also [create your own extensions](extension-development.qmd) with TypeScript/JavaScript, going well beyond what RStudio addins could do.
@@ -277,8 +282,6 @@ And here is what you gain by making the move:
 ::: {.content-visible unless-profile="workbench"}
 - [Remote sessions](remote-ssh.qmd), where the UI is local but compute runs on a remote server.
 :::
-
-<!-- [TODO: Add a three-column reference table listing features available in RStudio only, Positron only, and both.] -->
 
 ::: {.callout-note}
 If you ever miss a button or pane from RStudio, check the Command Palette first — almost every action in Positron lives there, and your familiar keyboard shortcuts usually work too.
