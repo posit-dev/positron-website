@@ -11,7 +11,7 @@ The **Connections** pane allows you to manage and explore database connections f
 
 Once you [create a new connection](#create-a-new-connection), you can use the **Connections** pane to explore the database schema. 
 
-![Connections pane showing database schema, tables, and columns](images/connections-pane-schema-explorer.png){fig-alt="Connections pane schema explorer displaying database tables with expandable columns showing data types like VARCHAR, INTEGER, and DOUBLE."}
+![Connections pane showing database schema, tables, and columns](images/connections-pane-schema-explorer.png){width=750 fig-alt="Connections pane schema explorer displaying database tables with expandable columns showing data types like VARCHAR, INTEGER, and DOUBLE."}
 
 You can navigate through the database schema, viewing tables, columns, and their data types. You can also select the table icon to explore a preview of the database contents in the [Data Explorer](data-explorer.qmd).
 

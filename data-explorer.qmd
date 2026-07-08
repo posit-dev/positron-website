@@ -3,12 +3,12 @@ title: "Data Explorer"
 description: "Explore dataframes and data files in a spreadsheet-like grid with filtering, sorting, and summary statistics. View CSV, Parquet, and in-memory data interactively."
 ---
 
-The Data Explorer is designed to complement code-first exploration of data,
-allowing you to display data in a spreadsheet-like grid, temporarily filter and
-sort data, and provide useful summary statistics directly inside of Positron.
-The goal of the Data Explorer isn't to replace code-based workflows, but rather
-supplement with ephemeral views of the data or summary statistics as you further
-explore or modify the data via code.
+The Data Explorer complements code-first exploration of data. It displays data
+in a spreadsheet-like grid, temporarily filters and sorts data, and provides
+useful summary statistics directly inside Positron. The goal is not to replace
+code-based workflows. Instead, the Data Explorer supplements them with ephemeral
+views of the data or summary statistics as you explore or modify the data via
+code.
 
 The Data Explorer can be used to view raw data files (CSV, Parquet, etc.) in your
 Positron workspace as well as dataframes in your active Python or R sessions.
@@ -25,19 +25,21 @@ The Data Explorer has three primary components:
 
 There are a few ways to open the Data Explorer. If you want to look at data you have loaded into memory already, you can navigate to the [**Variables** pane](variables-pane.qmd) and select the {{< fa table >}} icon for a specific dataframe object.
 
+You can also open the Data Explorer from your editor (`.py`, `.R`, `.ipynb`, or `.qmd` files). Use the _View Data Frame at Cursor_ command from the [Command Palette](command-palette.qmd) or the right-click context menu. This functionality is also available as a code action via the {{< fa lightbulb >}} icon in the editor gutter or via the {{< kbd mac=Command-. win=Ctrl-. linux=Ctrl-. >}} menu.
+
 Using code or the console, you can also run one of the following commands:
 
 * In Python: `%view dataframe label`
 * In R: `View(dataframe, "label")`
 
-In Python, the `%view` magic can also be used with expressions, for example `%view df[df['column'] > 10]`. In R, the `View` function can be composed with expressions using pipe syntax:
+In Python, you can also use the `%view` magic with expressions, for example `%view df[df['column'] > 10]`. In R, you can compose the `View` function with expressions using pipe syntax:
 
 ```r
 df |> mutate(doubled_column = column * 2) |> View()
 ```
 
-Directly opening `.csv`, `.tsv`, and `.parquet` files (using DuckDB) is supported by selecting a file in the File Explorer or using the Command Palette.^[Use the **File Options** button in the action bar to configure how a `.csv` or `.tsv` file is parsed by DuckDB.] GZIP-compressed CSV files ending in `.gz` can also be opened. We may add support for more file types in the future.
+You can directly open `.csv`, `.tsv`, `.parquet`, and `.xlsx` files (using DuckDB) by selecting a file in the File Explorer or using the Command Palette.^[Use **File Options** in the action bar to configure how DuckDB parses a `.csv` or `.tsv` file.] You can also open compressed CSV, TSV, and Parquet files.
 
 ### Opening CSV files as plain text
 
-After opening a CSV file in the Data Explorer, if you need to view the file in the text editor, select the **Open as Plain Text File** option in the top action bar.
+After opening a CSV file in the Data Explorer, you can view it in the text editor. Select the **Open as Plain Text File** option in the top action bar.

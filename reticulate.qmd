@@ -18,7 +18,7 @@ reticulate::repl_python()
 
 The Reticulate Python interpreter can also be started by selecting "Python (reticulate)" when creating a new interpreter session. 
 
-![New interpreter session list](images/reticulate-interpreter-list.png){fig-alt="Start New Interpreter Session dialog showing Python (reticulate) as suggested option, along with R and various Python virtual environments."}
+![New interpreter session list](images/reticulate-interpreter-list.png){width=600 fig-alt="Start New Interpreter Session dialog showing Python (reticulate) as suggested option, along with R and various Python virtual environments."}
 
 Python interpreters managed by the reticulate package have some important differences compared to standard Python interpreters:
 

@@ -23,7 +23,7 @@ listing:
 ::: {.callout-note}
 ## Looking for Positron Assistant?
 
-Positron Assistant and Databot are being superseded by Posit Assistant and will be deprecated in a future release. Posit Assistant will move to general availability in Q3 2026.
+Positron Assistant has been removed and replaced by Posit Assistant.
 :::
 
 [Posit Assistant](https://pos.it/assistant) is the new AI coding experience available as a preview feature in Positron 2026.04.0 and later. Posit Assistant brings together the capabilities of Positron Assistant and Databot into a unified experience.
@@ -36,6 +36,7 @@ To learn how to enable it and get set up, visit the [Posit Assistant documentati
 
 Posit Assistant has a rich set of features with the highlights listed below.
 
+::: {.features-table}
 | Feature | Summary |
 | --- | --- |
 | [Commands](https://posit-dev.github.io/assistant/docs/features/commands/) | Slash commands typed at the start of a message that trigger special actions — for example, `/plan`, `/new`, and `/savememory`. |
@@ -46,6 +47,7 @@ Posit Assistant has a rich set of features with the highlights listed below.
 | [Chat Features](https://posit-dev.github.io/assistant/docs/features/chat-features/) | File attachments via drag-and-drop, clipboard paste, or the paperclip, with `@` mentions to reference workspace files. Also includes adjustable thinking effort (Off/Low/Medium/High) and optional web search. |
 | [Context Management](https://posit-dev.github.io/assistant/docs/features/context-management/) | Automatic inclusion of session info (language, version, variable names and types) when connected to R or Python. Provides a token counter with detailed breakdown and auto/manual/micro-compaction to keep long conversations within the model's context window. |
 | [Permissions & Trust](https://posit-dev.github.io/assistant/docs/features/permissions/) | Three approval modes (Normal, YOLO, Restricted) and per-tool permissions configurable in settings. Includes workspace trust prompts when opening projects with `AGENTS.md` and an optional sandbox mode for bash execution. |
+:::
 
 ## Learn more
 
