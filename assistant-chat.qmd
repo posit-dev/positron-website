@@ -8,7 +8,7 @@ description: "Use the Positron Assistant chat pane for AI-powered coding help, i
 ::: {.callout-note}
 ## Migrating to Posit Assistant?
 
-See [Chat features](https://posit-dev.github.io/assistant/docs/features/chat-features/) in the Posit Assistant documentation.
+See [Chat features](https://assistant.posit.co/docs/features/chat-features/) in the Posit Assistant documentation.
 :::
 
 Positron Assistant provides multiple ways to interact with AI assistance across your workspace. Whether you use the dedicated chat pane, inline chat within your Editor or Terminal, or quick Console actions for errors, Assistant works within your development environment.

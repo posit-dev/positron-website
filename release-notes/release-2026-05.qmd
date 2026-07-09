@@ -54,7 +54,7 @@ The Positron Notebook Editor for `.ipynb` files is officially moving from alpha 
 
 This release introduces two new AI options: Posit Assistant and Posit AI.
 
-- You may have tried some of our previous experiments for AI code assistance available in Positron, Positron Assistant and/or Databot. We are now migrating to a more data-science-specific, holistic, unified approach to AI chat, built on the same Posit Assistant interface that [we recently brought to RStudio](https://posit.co/blog/introducing-ai-in-rstudio/). Instead of switching between tools, you get code generation, next edit suggestions, chat, and agentic tools all in one place. [Learn how to get started](https://posit-dev.github.io/assistant/docs/downloads/positron/).
+- You may have tried some of our previous experiments for AI code assistance available in Positron, Positron Assistant and/or Databot. We are now migrating to a more data-science-specific, holistic, unified approach to AI chat, built on the same Posit Assistant interface that [we recently brought to RStudio](https://posit.co/blog/introducing-ai-in-rstudio/). Instead of switching between tools, you get code generation, next edit suggestions, chat, and agentic tools all in one place. [Learn how to get started](https://assistant.posit.co/docs/downloads/positron/).
 
 - [Posit AI](https://posit.co/products/ai) is a new, optional model provider service available to use with Posit Assistant. Posit AI is a subscription priced at $20/month for individual users; both Positron and Posit Assistant remain free to use. [Learn how to sign up for an account](https://posit.co/products/ai).
 
