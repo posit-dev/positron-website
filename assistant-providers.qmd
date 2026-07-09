@@ -12,7 +12,7 @@ Please ensure you consult your provider's privacy policy for information on the 
 
 ## Posit AI
 
-Posit AI is a hosted language model service from Posit, offering both chat models and code completions through [Next Edit Suggestions (NES)](assistant-completions.qmd#posit-ai-next-edit-suggestions-nes).
+Posit AI is a hosted language model service from Posit, offering both chat models and code completions through [Next Edit Suggestions (NES)](assistant-completions.qmd#posit-ai-nes).
 
 - **Account:** a Posit AI account, which you can create at [posit.ai](https://posit.ai/)
 - **Authentication:** sign in through your browser with OAuth

@@ -7,9 +7,9 @@ listing:
     template: templates/welcome-card.ejs
     contents:
       - title: "Get Started"
-        description: "Set up Posit Assistant and learn the essentials for your first conversation."
+        description: "Configure a language model provider and start using Posit Assistant in Positron."
         icon: "bi-rocket-takeoff"
-        link: "https://pos.it/assistant-docs"
+        link: "assistant-getting-started.qmd"
       - title: "Posit Assistant vs. Positron Assistant"
         description: "Watch a walkthrough comparing Posit Assistant and Positron Assistant."
         icon: "bi-play-circle"
@@ -26,11 +26,11 @@ listing:
 Posit Assistant replaces Positron Assistant as of Positron 2026.07.
 :::
 
-[Posit Assistant](https://pos.it/assistant) is the new AI coding experience available as a preview feature in Positron 2026.04.0 and later. Posit Assistant brings together the capabilities of Positron Assistant and Databot into a unified experience.
+[Posit Assistant](https://assistant.posit.co) is the new AI coding experience available as a preview feature in Positron 2026.04.0 and later. Posit Assistant brings together the capabilities of Positron Assistant and Databot into a unified experience.
 
 Beyond your active files, selected code, and project structure, Posit Assistant uses context from your interactive data science work, such as your loaded data, plots, and console history. This enables more relevant guidance for core data science workflows, including exploratory analysis, data cleaning, data app development, and modeling.
 
-To learn how to enable it and get set up, visit the [Posit Assistant documentation](https://pos.it/assistant-docs).
+To learn how to enable it and get set up, visit the [Posit Assistant documentation](https://assistant.posit.co/docs/getting-started/).
 
 ## Features
 
