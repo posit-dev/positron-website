@@ -7,11 +7,18 @@ description: "Information about data handling, privacy, and terms of service for
 {{< include _privacy-link.qmd >}}
 :::
 
-When you use AI features in Positron, Positron might share data including your prompts, responses, and usage with third-party AI model providers such as Anthropic and GitHub Copilot, depending on the providers you use. Each provider has its own data handling, privacy policies, and terms of service.
+When you use AI features in Positron, Positron might share data including your prompts, responses, and usage with third-party AI model providers, depending on the providers you use. Each provider has its own data handling, privacy policies, and terms of service.
 
 Please review your providers' websites directly for complete and updated details on their data practices and terms of service. This list might not be up to date.
 
 Any Provider is considered "Third Party Materials" as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
+
+### Posit AI
+
+Posit AI is Posit's own hosted service, so Posit's own policies apply rather than a third party's.
+
+* [Privacy Policy](https://posit.co/about/privacy-policy/)
+* [Posit AI Agreement](https://posit.co/about/posit-ai-agreement)
 
 ### Amazon Bedrock
 
@@ -30,22 +37,40 @@ Any Provider is considered "Third Party Materials" as defined in the [Posit End 
 * [Microsoft Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement)
 * [Azure AI Services Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure)
 
+### OpenAI
+
+* [Privacy Policy](https://openai.com/policies/row-privacy-policy/)
+* [Privacy Portal](https://privacy.openai.com/policies/en/?name=welcome-to-open-ai-privacy-portal)
+* [Terms of Use](https://openai.com/policies/row-terms-of-use/)
+
+### Snowflake Cortex
+
+* [Privacy Policy](https://www.snowflake.com/en/legal/privacy/privacy-policy/)
+* [Terms of Service](https://www.snowflake.com/en/legal/terms-of-service/)
+
 ### GitHub Copilot
 
 * [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect)
 * [Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
+
+### Custom Provider
+
+The custom provider connects to any OpenAI-compatible endpoint you configure, so its data handling and terms depend entirely on the provider you choose. Review that provider's own privacy policy and terms of service directly.
+
+### DeepSeek
+
+* [Privacy Policy](https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html)
+* [Terms of Use](https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html)
+* [Open Platform Terms of Service](https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html)
+
+### Google Gemini
+
+* [Privacy Policy](https://policies.google.com/privacy)
+* [Google APIs Terms of Service](https://developers.google.com/terms)
+* [Gemini API Additional Terms of Service](https://ai.google.dev/gemini-api/terms)
 
 ### Gemini Enterprise Agent Platform
 
 * [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice)
 * [Google Cloud Platform Terms of Service](https://cloud.google.com/terms)
 * [Gemini Enterprise Agent Platform and zero data retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention)
-
-### OpenAI
-* [Privacy Policy](https://openai.com/policies/row-privacy-policy/)
-* [Privacy Portal](https://privacy.openai.com/policies/en/?name=welcome-to-open-ai-privacy-portal)
-* [Terms of Use](https://openai.com/policies/row-terms-of-use/)
-
-### Snowflake Cortex
-* [Privacy Policy](https://www.snowflake.com/en/legal/privacy/privacy-policy/)
-* [Terms of Service](https://www.snowflake.com/en/legal/terms-of-service/)
