@@ -3,5 +3,5 @@
 
 This page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by [Posit Assistant](https://assistant.posit.co) as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.
 
-If you're on a current build, use Posit Assistant instead and see the [Posit Assistant documentation](https://assistant.posit.co) to get set up. For background on this change, see [The history of Posit's data science agents](https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents).
+If you are on Positron 2026.07 or later, see the [Posit Assistant documentation](https://assistant.posit.co) to get set up with Posit Assistant. For background on this change, see [The history of Posit's data science agents](https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents).
 :::

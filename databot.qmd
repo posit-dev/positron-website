@@ -1,14 +1,14 @@
 ---
 title: "Databot"
-description: "Databot is deprecated. The AI chat and coding experience in Positron is now Posit Assistant."
+description: "Databot is deprecated. The AI chat and coding experience in Positron is Posit Assistant."
 ---
 
 ::: {.callout-warning}
 ## Databot is deprecated
 
-Databot, the experimental exploratory data analysis assistant, has been deprecated as of Positron 2026.07. The AI chat and coding experience in Positron is now [Posit Assistant](https://assistant.posit.co). This page remains in place for folks still using Databot.
+Databot, the experimental exploratory data analysis assistant, is deprecated as of Positron 2026.07. The AI chat and coding experience in Positron is [Posit Assistant](https://assistant.posit.co). This page remains in place for folks still using Databot.
 
-If you're getting started, use Posit Assistant instead and see the [Posit Assistant documentation](https://assistant.posit.co) to get set up. For background on this change, see [The history of Posit's data science agents](https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents).
+If you are on Positron 2026.07 or later, see the [Posit Assistant documentation](https://assistant.posit.co) to get set up with Posit Assistant. For background on this change, see [The history of Posit's data science agents](https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents).
 :::
 
 Databot is an AI assistant designed to dramatically accelerate exploratory data analysis for data scientists fluent in Python or R, allowing them to do in minutes what might usually take hours. It’s a complement to the data scientist, not a replacement.
