@@ -22,7 +22,7 @@ Welcome to the 2026.06.0 release of Positron!
 
 #### Posit Assistant
 
-Last release we introduced [Posit Assistant](https://pos.it/assistant), our unified, data-science-focused approach to AI assistance. This release continues that work, and we want to give you advance notice that the older Positron Assistant will be deprecated in the next release. If you are still using Positron Assistant, we encourage you to migrate to Posit Assistant now. As a first step, the `positron.assistant.enable` setting is deprecated in favor of [`assistant.enabled`](positron://settings/assistant.enabled), and the Positron Assistant welcome view now points you to Posit Assistant. 
+Last release we introduced [Posit Assistant](https://assistant.posit.co), our unified, data-science-focused approach to AI assistance. This release continues that work, and we want to give you advance notice that the older Positron Assistant will be deprecated in the next release. If you are still using Positron Assistant, we encourage you to migrate to Posit Assistant now. As a first step, the `positron.assistant.enable` setting is deprecated in favor of [`assistant.enabled`](positron://settings/assistant.enabled), and the Positron Assistant welcome view now points you to Posit Assistant. 
 
 Posit Assistant supports the same broad set of providers as Positron Assistant, along with the Posit AI model provider and new experimental support for Google Vertex. [Learn more](https://youtu.be/Y9P2nlFXKnQ) about the differences between the new Posit Assistant and the older Positron Assistant.
 
