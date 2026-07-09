@@ -102,10 +102,10 @@ website:
             - command-palette.qmd
             - action-bars.qmd
             - help-pane.qmd
-        - section: "Assistant"
+        - section: "AI Features"
           href: assistant.qmd
           contents:
-          - text: "Overview"
+          - text: "Posit Assistant"
             href: assistant.qmd
           - assistant-getting-started.qmd
           - assistant-providers.qmd
