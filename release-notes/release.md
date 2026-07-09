@@ -1,4 +1,8 @@
-### Highlights
+### Patch notes
+
+The [2026.07.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.07.1-5) (2026-07-09) improves Python discovery behavior and when GitHub Copilot completions are offered.
+
+### Release highlights
 
 Welcome to the 2026.07.0 release of Positron!
 
