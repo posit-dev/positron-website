@@ -1,6 +1,6 @@
 ---
 title: "Posit Assistant"
-description: "Posit Assistant is the AI coding experience in Positron, bringing together the capabilities of Positron Assistant and Databot in a unified experience built for data science."
+description: "Posit Assistant is an AI coding assistant for data science in Positron, bringing together the capabilities of Positron Assistant and Databot in a unified experience."
 listing:
   - id: learn-more
     type: custom
@@ -20,7 +20,7 @@ listing:
         link: "https://opensource.posit.co/topics/artificial-intelligence/"
 ---
 
-[Posit Assistant](https://assistant.posit.co) is the AI coding experience in Positron. It first became available as a preview feature in Positron 2026.04.0, and as of Positron 2026.07 it is the built-in AI experience, replacing Positron Assistant and Databot. For more on how it came to be, see [The history of Posit's data science agents](https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents).
+[Posit Assistant](https://assistant.posit.co) is an AI coding assistant for data science in Positron. It first became available as a preview feature in Positron 2026.04.0, and as of Positron 2026.07 it ships with Positron as the default AI experience, replacing Positron Assistant and Databot. For more on how it came to be, see [The history of Posit's data science agents](https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents).
 
 Beyond your active files, selected code, and project structure, Posit Assistant uses context from your interactive data science work, such as your loaded data, plots, and console history. This enables more relevant guidance for core data science workflows, including exploratory analysis, data cleaning, data app development, and modeling.
 
@@ -33,13 +33,13 @@ Posit Assistant has a rich set of features with the highlights listed below.
 ::: {.features-table}
 | Feature | Summary |
 | --- | --- |
-| [Commands](https://assistant.posit.co/docs/features/commands/) | Slash commands typed at the start of a message that trigger special actions — for example, `/plan`, `/new`, and `/savememory`. |
+| [Commands](https://assistant.posit.co/docs/features/commands/) | Slash commands typed at the start of a message that trigger special actions, such as `/plan`, `/new`, and `/savememory`. |
 | [Skills](https://assistant.posit.co/docs/features/skills/) | Specialized knowledge modules that load automatically when relevant to a request, with no manual activation needed. Built-ins include `quarto-authoring`, `shiny-bslib`, and `predictive-modeling-r`, plus user and project-level custom skills. |
 | [Memory](https://assistant.posit.co/docs/features/memory/) | Persistent project context via an `AGENTS.md` file that captures conventions, architecture, and preferences. The file loads automatically at the start of every conversation in trusted workspaces. |
-| [Conversations](https://assistant.posit.co/docs/features/conversations/) | Full conversation history with switching, renaming, and deletion. Includes tree-based branching when you edit a previous message and import/export in Markdown, HTML, or JSON. |
+| [Conversations](https://assistant.posit.co/docs/features/conversations/) | Full conversation history with switching, renaming, and deletion. Includes tree-based branching when you edit a previous message and import and export in Markdown, HTML, or JSON. |
 | [Plan Mode](https://assistant.posit.co/docs/features/plan-mode/) | A collaborative design phase where the assistant explores the codebase, asks questions, and writes a plan file before changing code. Best for multi-step features, refactors, and unfamiliar codebases. |
-| [Chat Features](https://assistant.posit.co/docs/features/chat-features/) | File attachments via drag-and-drop, clipboard paste, or the paperclip, with `@` mentions to reference workspace files. Also includes adjustable thinking effort (Off/Low/Medium/High) and optional web search. |
-| [Context Management](https://assistant.posit.co/docs/features/context-management/) | Automatic inclusion of session info (language, version, variable names and types) when connected to R or Python. Provides a token counter with detailed breakdown and auto/manual/micro-compaction to keep long conversations within the model's context window. |
+| [Chat Features](https://assistant.posit.co/docs/features/chat-features/) | File attachments via drag-and-drop, clipboard paste, or the paperclip, with `@` mentions to reference workspace files. Also includes adjustable thinking effort (Off, Low, Medium, and High) and optional web search. |
+| [Context Management](https://assistant.posit.co/docs/features/context-management/) | Automatic inclusion of session info (language, version, variable names and types) when connected to R or Python. Provides a token counter with detailed breakdown and auto, manual, and micro-compaction to keep long conversations within the model's context window. |
 | [Permissions & Trust](https://assistant.posit.co/docs/features/permissions/) | Three approval modes (Normal, YOLO, Restricted) and per-tool permissions configurable in settings. Includes workspace trust prompts when opening projects with `AGENTS.md` and an optional sandbox mode for bash execution. |
 :::
 
