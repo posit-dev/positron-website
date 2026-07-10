@@ -32,6 +32,29 @@ Posit AI is Posit's own hosted service, so Posit's own policies apply rather tha
 * [Console Privacy Controls](https://platform.claude.com/settings/privacy)
 * [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms)
 
+### DeepSeek
+
+* [Privacy Policy](https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html)
+* [Terms of Use](https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html)
+* [Open Platform Terms of Service](https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html)
+
+### Gemini Enterprise Agent Platform
+
+* [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice)
+* [Google Cloud Platform Terms of Service](https://cloud.google.com/terms)
+* [Gemini Enterprise Agent Platform and zero data retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention)
+
+### GitHub Copilot
+
+* [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect)
+* [Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
+
+### Google Gemini
+
+* [Privacy Policy](https://policies.google.com/privacy)
+* [Google APIs Terms of Service](https://developers.google.com/terms)
+* [Gemini API Additional Terms of Service](https://ai.google.dev/gemini-api/terms)
+
 ### Microsoft Foundry
 
 * [Microsoft Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement)
@@ -48,29 +71,6 @@ Posit AI is Posit's own hosted service, so Posit's own policies apply rather tha
 * [Privacy Policy](https://www.snowflake.com/en/legal/privacy/privacy-policy/)
 * [Terms of Service](https://www.snowflake.com/en/legal/terms-of-service/)
 
-### GitHub Copilot
-
-* [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect)
-* [Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
-
 ### Custom Provider
 
 The custom provider connects to any OpenAI-compatible endpoint you configure, so its data handling and terms depend entirely on the provider you choose. Review that provider's own privacy policy and terms of service directly.
-
-### DeepSeek
-
-* [Privacy Policy](https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html)
-* [Terms of Use](https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html)
-* [Open Platform Terms of Service](https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html)
-
-### Google Gemini
-
-* [Privacy Policy](https://policies.google.com/privacy)
-* [Google APIs Terms of Service](https://developers.google.com/terms)
-* [Gemini API Additional Terms of Service](https://ai.google.dev/gemini-api/terms)
-
-### Gemini Enterprise Agent Platform
-
-* [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice)
-* [Google Cloud Platform Terms of Service](https://cloud.google.com/terms)
-* [Gemini Enterprise Agent Platform and zero data retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention)
