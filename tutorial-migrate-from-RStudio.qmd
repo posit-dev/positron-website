@@ -155,7 +155,7 @@ The video below shows how to preview color themes with _Preferences: Color Theme
 
 {{< video videos/tutorial-migrate-color-themes.mp4 aria-label="Use _Preferences: Color Theme_ to preview color themes." >}}
 
-# Make Positron more powerful than RStudio
+# Make Positron tailored to _your_ workflow
 
 Now that Positron feels familiar, let's set up a few things that go beyond what RStudio offers.
 
