@@ -1,14 +1,14 @@
 ---
 title: "Databot"
-description: "Experimental AI assistant for exploratory data analysis in Python and R. Accelerate insights by letting AI write and execute analysis code for you."
+description: "Databot is deprecated. The AI chat and coding experience in Positron is Posit Assistant."
 ---
 
-::: {.callout-important}
+::: {.callout-warning}
+## Databot is deprecated
 
-Databot was previously experimental and available in research preview, but is being deprecated in favor of Posit Assistant.
+Databot, the experimental exploratory data analysis assistant, is deprecated as of Positron 2026.07. The AI chat and coding experience in Positron is [Posit Assistant](https://assistant.posit.co). This page remains in place for folks still using Databot.
 
-[Posit Assistant](https://pos.it/assistant) is a new AI coding experience currently available as a preview feature. Posit Assistant brings together the capabilities of Positron Assistant and Databot into a unified experience. To learn how to enable it and get set up, visit the [Posit Assistant documentation](https://pos.it/assistant-docs).
-
+If you are on Positron 2026.07 or later, see the [Posit Assistant documentation](https://assistant.posit.co) to get set up with Posit Assistant. For background on this change, see [The history of Posit's data science agents](https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents).
 :::
 
 Databot is an AI assistant designed to dramatically accelerate exploratory data analysis for data scientists fluent in Python or R, allowing them to do in minutes what might usually take hours. It’s a complement to the data scientist, not a replacement.
@@ -39,7 +39,7 @@ To acknowledge the research preview status, find [`databot.researchPreviewAcknow
 
 OR
 
-* In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run _Open User Settings_.  
+* In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run _Open User Settings_.
 * In the search bar, enter "Databot".
 * You will see **Databot: Research Preview Acknowledgment**. In the text box, enter "Acknowledged".
 
@@ -47,7 +47,7 @@ OR
 
 In Positron, open the Command Palette {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run _Open Databot_.
 
-### Enable Positron Assistant 
+### Enable Positron Assistant
 
 If [Positron Assistant](assistant.qmd) is not yet enabled, you will see the following message in the Databot panel: “To use Databot, enable Positron Assistant and Anthropic provider."
 
@@ -65,7 +65,7 @@ For this step, you will need an Anthropic API key.
 
 In section 3 of the dialog box, **Add Anthropic provider**, select the button labeled **Click here**. This will open a dialog box to configure Language Model Providers.
 
-* Select **Anthropic** and enter your API key.  
+* Select **Anthropic** and enter your API key.
 
 Close the dialog boxes. Databot is now ready to use!
 
@@ -85,17 +85,17 @@ For more information about Databot, please review the [Databot introduction blog
 
 ### Are you sure it’s not for people who aren’t comfortable writing their own code? Why not?
 
-* As far as we can tell, today’s models cannot be trusted to do open-ended data exploration without at least occasionally making mistakes. That’s why Databot’s user experience is intentionally code-forward, and a Databot analysis is not truly complete until the user has carefully reviewed important subsets of the model-generated code. 
+* As far as we can tell, today’s models cannot be trusted to do open-ended data exploration without at least occasionally making mistakes. That’s why Databot’s user experience is intentionally code-forward, and a Databot analysis is not truly complete until the user has carefully reviewed important subsets of the model-generated code.
 * Learn more at [Databot is not a flotation device](https://posit.co/blog/databot-is-not-a-flotation-device).
 
 ### How is Databot different from Positron Assistant?
 
-* [Positron Assistant](assistant.qmd) is an _AI coding assistant_; it helps you write code or modify code on disk and can execute arbitrary code in Agent mode. 
+* [Positron Assistant](assistant.qmd) is an _AI coding assistant_; it helps you write code or modify code on disk and can execute arbitrary code in Agent mode.
 * Databot is a purpose-built _exploratory data analysis_ agent. It writes and executes its own code on the fly to help you understand your data. It doesn’t care very much about the code you’ve already written.
 
 ### Can I use Databot for machine learning, Shiny apps, ETL pipelines, or other tasks?
 
-* Databot will attempt other data-oriented tasks if prompted, but it was primarily designed for exploratory data analysis. The user experience is aimed at rapid iteration of short code snippets that execute quickly, and assumes that insights, not code, is the primary goal. 
+* Databot will attempt other data-oriented tasks if prompted, but it was primarily designed for exploratory data analysis. The user experience is aimed at rapid iteration of short code snippets that execute quickly, and assumes that insights, not code, is the primary goal.
 
 ### What data sources can Databot use? Will it work with databases? Parquet files on S3?
 
@@ -108,4 +108,3 @@ For more information about Databot, please review the [Databot introduction blog
 ### Are OpenAI, Gemini, and other models supported?
 
 * Those providers are not supported. We hope to add support once they are exposed in Positron Assistant.
-

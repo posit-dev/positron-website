@@ -8,7 +8,7 @@ description: "Give Positron Assistant context from your data, plots, Console act
 ::: {.callout-note}
 ## Migrating to Posit Assistant?
 
-Posit Assistant handles context in its own way. See [Context management](https://posit-dev.github.io/assistant/docs/features/context-management/) in the Posit Assistant documentation.
+Posit Assistant handles context in its own way. See [Context management](https://assistant.posit.co/docs/features/context-management/) in the Posit Assistant documentation.
 :::
 
 Positron Assistant goes beyond reading your code files. It also accesses your loaded data, plots, and Console activity by calling tools and executing code in your R or Python interpreter session or running commands in the Terminal.

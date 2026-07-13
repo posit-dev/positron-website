@@ -102,29 +102,30 @@ website:
             - command-palette.qmd
             - action-bars.qmd
             - help-pane.qmd
-        - section: "AI Tools"
+        - section: "AI Features"
+          href: assistant.qmd
           contents:
-            - section: "Assistant"
-              href: assistant.qmd
+          - text: "Posit Assistant"
+            href: assistant.qmd
+          - assistant-getting-started.qmd
+          - assistant-providers.qmd
+          - assistant-completions.qmd
+          - assistant-provider-info.qmd
+          - section: "Positron Assistant (deprecated)"
+            contents:
+            - section: "Chat"
+              href: assistant-chat.qmd
               contents:
-              - text: "Overview"
-                href: assistant.qmd
-              - assistant-getting-started.qmd
-              - assistant-providers.qmd
-              - section: "Chat"
-                href: assistant-chat.qmd
-                contents:
-                  - text: "Overview"
-                    href: assistant-chat.qmd
-                  - href: assistant-chat-agents.qmd
-                  - href: assistant-chat-context.qmd
-                  - href: assistant-chat-commands-participants.qmd
-                  - href: assistant-chat-instructions.qmd
-              - assistant-completions.qmd
-              - assistant-troubleshooting.qmd
-              - assistant-tips.qmd
-              - assistant-provider-info.qmd
-            - databot.qmd
+                - text: "Overview"
+                  href: assistant-chat.qmd
+                - href: assistant-chat-agents.qmd
+                - href: assistant-chat-context.qmd
+                - href: assistant-chat-commands-participants.qmd
+                - href: assistant-chat-instructions.qmd
+            - assistant-troubleshooting.qmd
+            - assistant-tips.qmd
+          - text: "Databot (deprecated)"
+            href: databot.qmd
         - section: "Language Guides"
           href: language-guides.qmd
           contents:

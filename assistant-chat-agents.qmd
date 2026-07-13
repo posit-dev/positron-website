@@ -8,7 +8,7 @@ description: "Customize AI behavior with chat agents in Positron Assistant. Choo
 ::: {.callout-note}
 ## Migrating to Posit Assistant?
 
-Posit Assistant manages tool use and agent behavior through permissions. See [Permissions](https://posit-dev.github.io/assistant/docs/features/permissions/) in the Posit Assistant documentation.
+Posit Assistant manages tool use and agent behavior through permissions. See [Permissions](https://assistant.posit.co/docs/features/permissions/) in the Posit Assistant documentation.
 :::
 
 Chat agents tailor Assistant's behavior for specific tasks by providing unique instructions and tools. Select the agent selector dropdown at the bottom of the chat pane to switch between agents.

@@ -1,5 +1,5 @@
 ---
-title: "Getting Started"
+title: "Get started"
 description: "Set up AI assistance in Positron: configure a language model provider such as Posit AI, Anthropic, or GitHub Copilot, then use AI features in Positron, such as Posit Assistant."
 listing:
   - id: ai-features
@@ -13,7 +13,7 @@ listing:
       - title: "Notebook AI assistance"
         description: "Notebook-aware AI that understands your cells, outputs, and execution history."
         icon: "bi-journal-code"
-        link: "positron-notebook-editor.qmd#positron-assistant-integration"
+        link: "positron-notebook-editor.qmd#ai-integration"
       - title: "Code completions"
         description: "Receive code suggestions directly in your Editor or Notebook."
         icon: "bi-cursor-text"
@@ -50,7 +50,7 @@ Please ensure you consult your provider's privacy policy for information on the 
 
 With a language model provider configured, you can use AI throughout Positron. To start a chat, run the _View: Show Posit Assistant_ command in the Command Palette to open the chat panel.
 
-For the full Posit Assistant configuration guide and feature documentation, see the [Posit Assistant documentation](https://pos.it/assistant-docs).
+For the full Posit Assistant configuration guide and feature documentation, see the [Posit Assistant documentation](https://assistant.posit.co/docs/getting-started/).
 
 ::: {#ai-features}
 :::

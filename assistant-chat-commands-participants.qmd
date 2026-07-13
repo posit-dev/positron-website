@@ -8,7 +8,7 @@ description: "Speed up your workflow with slash commands and chat participants i
 ::: {.callout-note}
 ## Migrating to Posit Assistant?
 
-Posit Assistant has its own set of slash commands. See [Commands](https://posit-dev.github.io/assistant/docs/features/commands/) in the Posit Assistant documentation.
+Posit Assistant has its own set of slash commands. See [Commands](https://assistant.posit.co/docs/features/commands/) in the Posit Assistant documentation.
 :::
 
 ## Slash commands

@@ -8,10 +8,10 @@ description: "Solve common Positron Assistant issues with troubleshooting guides
 ::: {.callout-note}
 ## Having trouble with Posit Assistant?
 
-If your issue is with [Posit Assistant](https://pos.it/assistant) rather than Positron Assistant, reach out in the [assistant-feedback repository](https://github.com/posit-dev/assistant-feedback).
+If your issue is with [Posit Assistant](https://assistant.posit.co) rather than Positron Assistant, reach out in the [assistant-feedback repository](https://github.com/posit-dev/assistant-feedback).
 :::
 
-If you are having trouble with Positron Assistant, here are some resources and tools to help diagnose the issue and get things working smoothly. Keep in mind that Positron Assistant is being deprecated, so [migrating to Posit Assistant](https://pos.it/assistant-docs) might be the best way to resolve your issue.
+If you are having trouble with Positron Assistant, here are some resources and tools to help diagnose the issue and get things working smoothly.
 
 Cannot find what you are looking for? Reach out through our [feedback channels](#feedback-issues) and we will help you out!
 
