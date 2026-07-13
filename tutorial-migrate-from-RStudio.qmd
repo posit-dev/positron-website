@@ -291,5 +291,6 @@ From here, dig deeper into the tools you may use every day:
 - [Working with R in Positron](guide-r.qmd)
 - [Quarto documents](quarto.qmd)
 - [The Data Explorer](data-explorer.qmd)
+- [Migrating from RStudio](https://positron.posit.co/migrate-rstudio.html)
 
 {{< include "_tutorial-cta.qmd" >}}
