@@ -3,7 +3,7 @@ title: "Migrate from RStudio to Positron"
 description: "Set up Positron so it looks, feels, and responds like the RStudio you already know. A hands-on tutorial for RStudio users."
 ---
 
-::: {.callout-note}
+::: {.callout-important}
 **Should you take this tutorial first?** This tutorial assumes Positron is installed and you have a project open. If that is not the case, start with [First data analysis with R in a Quarto document](tutorial-get-started-quarto.qmd). It takes about 15 minutes and leaves you with a project you can configure here.
 :::
 
@@ -38,7 +38,7 @@ This video shows how to open the Command Palette, type a keyword, and run a comm
 {{< video videos/tutorial-migrate-command-palette.mp4 aria-label="Opening the Command Palette in Positron, typing a keyword, and executing a command" >}}
 
 
-::: {.callout-note}
+::: {.callout-important}
 Positron also ships with an interactive **Migrating from RStudio to Positron** walkthrough. Open it anytime from the Command Palette by searching for _Welcome: Open Walkthrough_ and selecting it. Treat it as a quick-reference companion to this tutorial, and notice that you just used the Command Palette to find it.
 :::
 
@@ -84,7 +84,7 @@ This video shows how to enable RStudio keybindings and confirm a familiar shortc
 {{< video videos/tutorial-migrate-rstudio-keybindings.mp4 aria-label="Enabling RStudio keybindings in Positron settings and confirming Ctrl-1 and Ctrl-2 move focus between the editor and console" >}}
 
 
-::: {.callout-note}
+::: {.callout-important}
 **Prefer to learn Positron's native shortcuts?** Leave this setting off. See [Positron keyboard shortcuts](keyboard-shortcuts.qmd) and [R-specific shortcuts](guide-r.qmd#keyboard-shortcuts) for the full reference, and remember you can always look up and change any command's shortcut in the Command Palette.
 
 ![Keyboard shortcuts as they appear in the Command Palette](images/tutorial-keyboard-shortcuts-command-palette.png){fig-alt="A screenshot of the Command Palette with Configure Keybinding option."}
@@ -110,7 +110,7 @@ Open the Command Palette and search for _File: Open Recent_. Reopen a project yo
 **You will know it worked when** the project opens in its own window with your files in the Explorer, no `.Rproj` required. Rerun _File: Open Recent_ to return to your previous project.
 :::
 
-::: {.callout-note}
+::: {.callout-important}
 Positron stores project-specific settings in `.vscode/settings.json`, but only creates that file once you configure something project-specific. There is no Positron equivalent of the `.Rproj` file, and you do not need one.
 :::
 
@@ -152,7 +152,7 @@ You can also adjust the layout with the icons at the top right of Positron.
 
 ![Layout buttons](images/tutorial-layout-buttons.png){fig-alt="A screenshot of Positron with the layout buttons at the top right of the IDE labelled."}
 
-::: {.callout-note}
+::: {.callout-important}
 See [Customize the Layout](layout.qmd) for the full set of options.
 :::
 
@@ -189,7 +189,7 @@ Open the Command Palette, search for _Preferences: Open Settings (UI)_, and turn
 **You will know it worked when** Air snaps the code into clean formatting the instant you save.
 :::
 
-::: {.callout-note}
+::: {.callout-important}
 See the [Air documentation](https://posit-dev.github.io/air/) for details on choosing a user vs. workspace setting.
 :::
 
@@ -245,7 +245,7 @@ Open the Command Palette, run _Extensions: Focus on Extensions View_, and search
 
 You can also [create your own extensions](extension-development.qmd) with TypeScript/JavaScript, going well beyond what RStudio addins could do.
 
-::: {.callout-note}
+::: {.callout-important}
 Many software companies provide free extensions that let you run their software inside of Positron, such as SAS, Snowflake, Databricks, and DuckDb. If you use specific software in your workflow, check for it in the Extension Marketplace.
 :::
 
@@ -267,7 +267,7 @@ A few RStudio features are not yet in Positron. If any of these are essential to
 - **Dedicated panes and buttons for code profiling and package development.** The underlying tooling still works from the Console and Command Palette.
 - **A data import widget.** Follow progress on [GitHub](https://github.com/posit-dev/positron/issues/5515); in the meantime, use `readr` / `readxl` in code.
 
-## What Positron does that RStudio can't
+## What Positron does that RStudio cannot
 
 And here is what you gain by making the move:
 
@@ -276,12 +276,9 @@ And here is what you gain by making the move:
 - Python as a first-class citizen, with data science support on par with R and the ability to run R and Python in the same session.
 - An integrated [Data Explorer](data-explorer.qmd) for data frames and files (CSV, Parquet, etc.).
 - A large third-party extension marketplace, with tools from providers like SAS, Snowflake, and Databricks.
+- [Remote sessions](remote-ssh.qmd) in Posit Workbench, where the UI is local but compute runs on a remote server.
 
-::: {.content-visible unless-profile="workbench"}
-- [Remote sessions](remote-ssh.qmd), where the UI is local but compute runs on a remote server.
-:::
-
-::: {.callout-note}
+::: {.callout-important}
 If you ever miss a button or pane from RStudio, check the Command Palette first. Almost every action in Positron lives there, and your familiar keyboard shortcuts usually work too.
 :::
 
