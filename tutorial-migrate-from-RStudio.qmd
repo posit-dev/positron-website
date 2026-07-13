@@ -87,8 +87,9 @@ This video shows how to enable RStudio keybindings and confirm a familiar shortc
 ::: {.callout-important}
 **Prefer to learn Positron's native shortcuts?** Leave this setting off. See [Positron keyboard shortcuts](keyboard-shortcuts.qmd) and [R-specific shortcuts](guide-r.qmd#keyboard-shortcuts) for the full reference, and remember you can always look up and change any command's shortcut in the Command Palette.
 
-![Keyboard shortcuts as they appear in the Command Palette](images/tutorial-keyboard-shortcuts-command-palette.png){fig-alt="A screenshot of the Command Palette with Configure Keybinding option."}
 :::
+
+![Keyboard shortcuts as they appear in the Command Palette](images/tutorial-keyboard-shortcuts-command-palette.png){fig-alt="A screenshot of the Command Palette with Configure Keybinding option."}
 
 # Make Positron feel familiar
 
@@ -143,10 +144,11 @@ Open the Command Palette and type `layout`. Try the **Stacked**, **Side-by-Side*
 
 **You will know it worked when** the panes rearrange instantly. Keep the one that feels most like your RStudio setup. You can also drag any pane to a new spot.
 
-{{< video videos/tutorial-migrate-rstudio-drag-pane.mp4 aria-label="Drag any pane to a new spot." >}}
-
-
 :::
+
+The video below shows how to drag a pane to a new spot.
+
+{{< video videos/tutorial-migrate-rstudio-drag-pane.mp4 aria-label="Drag any pane to a new spot." >}}
 
 You can also adjust the layout with the icons at the top right of Positron.
 
@@ -165,10 +167,13 @@ Open the Command Palette and search for _Preferences: Color Theme_. Use the arro
 
 **You will know it worked when** the whole editor recolors *live* as you move, a small taste of how much Positron previews before you commit. Press {{< kbd Enter >}} on the one you want.
 
-{{< video videos/tutorial-migrate-color-themes.mp4 aria-label="Use _Preferences: Color Theme_ to preview color themes." >}}
 
 
 :::
+
+The video below shows how to preview color themes with _Preferences: Color Theme_.
+
+{{< video videos/tutorial-migrate-color-themes.mp4 aria-label="Use _Preferences: Color Theme_ to preview color themes." >}}
 
 # Make Positron more powerful than RStudio
 
@@ -238,10 +243,12 @@ Open the Command Palette, run _Extensions: Focus on Extensions View_, and search
 
 **You will know it worked when** you can select it from _Preferences: Color Theme_ and your editor takes on RStudio's classic dark mode colors. Scroll to _Light_ to return to Posit's default colors.
 
-{{< video videos/tutorial-migrate-extensions.mp4 aria-label="Opening the Positron extension gallery, searching for an extension, and installing it" >}}
-
 
 :::
+
+The video below demonstrates how to find and install an extension from the marketplace.
+
+{{< video videos/tutorial-migrate-extensions.mp4 aria-label="Opening the Positron extension gallery, searching for an extension, and installing it" >}}
 
 You can also [create your own extensions](extension-development.qmd) with TypeScript/JavaScript, going well beyond what RStudio addins could do.
 
