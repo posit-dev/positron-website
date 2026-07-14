@@ -25,6 +25,8 @@ The Command Palette is a searchable list of every IDE command you can run in Pos
 
 Start typing a keyword and the fuzzy finder shows matching commands. Use the arrow keys to move through them, then press {{< kbd Enter >}} to run one.
 
+![Open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and then search by name or keyword.](images/tutorial-migrate-command-palette.png){fig-alt="A screenshot of the Positron IDE with the Command Palette open."}
+
 This is the single most valuable habit to build for Positron. For the rest of this tutorial, almost every step starts the same way: open the Command Palette and type what you want. That one reflex replaces most of the buttons you used to hunt for in RStudio. By the end of this tutorial, you will be opening it without thinking.
 
 ::: {.callout-tip title="Try it now"}
@@ -32,11 +34,6 @@ Open the Command Palette, type _Toggle Primary Side Bar_, and press {{< kbd Ente
 
 **You will know it worked when** the side bar on the left disappears. Run the same command again to bring it back. You just did something without touching a single button.
 :::
-
-This video shows how to open the Command Palette, type a keyword, and run a command.
-
-{{< video videos/tutorial-migrate-command-palette.mp4 aria-label="Opening the Command Palette in Positron, typing a keyword, and executing a command" >}}
-
 
 ::: {.callout-note}
 Positron also ships with an interactive **Migrating from RStudio to Positron** walkthrough. Open it anytime from the Command Palette by searching for _Welcome: Open Walkthrough_ and selecting it. Treat it as a quick-reference companion to this tutorial, and notice that you just used the Command Palette to find it.
@@ -58,10 +55,9 @@ Once enabled, these RStudio shortcuts are available in Positron:
 
 {{< include "_rstudio-keyboard-shortcuts.qmd" >}}
 
+![Open the settings with _Preferences: Open Settings (UI)_.](images/tutorial-migrate-open-settings.png){fig-alt="The Command Palette displaying _Preferences: Open Settings (UI)_."}
 
-This video shows how to enable RStudio keybindings and confirm a familiar shortcut works.
-
-{{< video videos/tutorial-migrate-rstudio-keybindings.mp4 aria-label="Enabling RStudio keybindings in Positron settings and confirming Ctrl-1 and Ctrl-2 move focus between the editor and console" >}}
+![Search the settings for `rstudioKeybindings` and click the box to enable RStudio keyboard shortcuts.](images/tutorial-migrate-open-keybindings.png){fig-alt="The Positron Settings file."}
 
 
 ::: {.callout-note}
@@ -126,11 +122,7 @@ Open the Command Palette and type `layout`. Try the **Stacked**, **Side-by-Side*
 
 :::
 
-The video below shows how to drag a pane to a new spot.
-
-{{< video videos/tutorial-migrate-rstudio-drag-pane.mp4 aria-label="Drag any pane to a new spot." >}}
-
-You can also adjust the layout with the icons at the top right of Positron.
+You can also adjust the layout with the icons at the top right of Positron, drag tabs from one pane to another, or resize panes by dragging their borders.
 
 ![Layout buttons](images/tutorial-layout-buttons.png){fig-alt="A screenshot of Positron with the layout buttons at the top right of the IDE labelled."}
 
@@ -226,9 +218,7 @@ Open the Command Palette, run _Extensions: Focus on Extensions View_, and search
 
 :::
 
-The video below demonstrates how to find and install an extension from the marketplace.
-
-{{< video videos/tutorial-migrate-extensions.mp4 aria-label="Opening the Positron extension gallery, searching for an extension, and installing it" >}}
+![How to find and install an extension from the marketplace.](images/tutorial-migrate-extensions.png){fig-alt="A screenshot of Positron with the Extension Manager in focus."}
 
 You can also [create your own extensions](extension-development.qmd) with TypeScript and JavaScript, going well beyond what RStudio addins can do.
 
