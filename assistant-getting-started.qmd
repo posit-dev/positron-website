@@ -42,7 +42,7 @@ To connect a provider, run the command _Authentication: Configure Language Model
 | [Google Gemini](assistant-providers.qmd#gemini-code-assist) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [Gemini Enterprise Agent Platform](assistant-providers.qmd#gemini-enterprise-agent-platform) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | Google Cloud CLI or Service Account Credentials |
 
-Please ensure you consult your provider's privacy policy for information on the data they collect and how they use it. For reference links, see the [Provider Privacy Information](assistant-provider-info.qmd) guide.
+Please ensure you consult your provider's privacy policy for information on the data they collect and how they use it. For reference links, see the [Privacy & Terms](assistant-provider-info.qmd) guide.
 
 {{< include _privacy-link.qmd >}}
 
