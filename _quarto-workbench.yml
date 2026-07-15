@@ -103,12 +103,13 @@ website:
             - action-bars.qmd
             - help-pane.qmd
         - section: "AI Features"
-          href: assistant.qmd
+          href: ai-features.qmd
           contents:
-          - text: "Posit Assistant"
-            href: assistant.qmd
           - assistant-getting-started.qmd
           - assistant-providers.qmd
+          - ai-configuration.qmd
+          - text: "Posit Assistant"
+            href: assistant.qmd
           - assistant-completions.qmd
           - assistant-provider-info.qmd
           - section: "Positron Assistant (deprecated)"

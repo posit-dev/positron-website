@@ -43,6 +43,8 @@ Posit Assistant has a rich set of features with the highlights listed below.
 | [Permissions & Trust](https://assistant.posit.co/docs/features/permissions/) | Three approval modes (Normal, YOLO, Restricted) and per-tool permissions configurable in settings. Includes workspace trust prompts when opening projects with `AGENTS.md` and an optional sandbox mode for bash execution. |
 :::
 
+For the full Posit Assistant configuration guide and feature documentation, see the [Posit Assistant documentation](https://assistant.posit.co/docs/getting-started/).
+
 ## Learn more
 
 ::: {#learn-more}

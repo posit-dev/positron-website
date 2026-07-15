@@ -121,6 +121,17 @@ The dialog displays the following information about the active console session:
 The popup includes shortcuts to relevant output channels for the session. Select one to view the logs for that channel.
 :::
 
+### Fix and explain Console errors with AI {#console-fix-and-explain}
+
+To use these actions, first configure a language model provider. See the [Getting Started](assistant-getting-started.qmd) guide for more details.
+
+When a console session reports an error, you can send it to Posit Assistant for immediate help. Choose one of the following actions on the error:
+
+- **Fix:** The assistant diagnoses the error and suggests a corrected version of your code. Use Fix to resolve errors quickly or apply recommended changes.
+- **Explain:** The assistant describes what your code does, analyzes the error, and suggests possible solutions. Use Explain to learn more about your code or get advice on complex issues.
+
+To disable Console Fix and Explain, set [`console.assistantActions.enabled`](positron://settings/console.assistantActions.enabled) to `false`. See [Configure AI features](ai-configuration.qmd) for other ways to turn AI features on and off.
+
 ## Notebook sessions
 
 Notebook sessions run the code from a Jupyter Notebook's cells and are tied to the notebook file. To manage a notebook session, use the Kernel Selector and the restart icon in the notebook editor's action bar. Closing the notebook shuts down its session.
