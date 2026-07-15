@@ -1,9 +1,9 @@
 ---
 title: "Configure AI features"
-description: "Configure Positron's AI features, including turning individual features or all AI features on or off."
+description: "Configure the AI features in Positron, including turning individual features or all AI features on or off."
 ---
 
-Once you've [set up a language model provider](assistant-getting-started.qmd), you can configure how Positron's AI features behave.
+Once you have [set up a language model provider](assistant-getting-started.qmd), you can configure how AI features behave in Positron.
 
 ## Turn features on or off
 

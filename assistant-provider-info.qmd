@@ -1,5 +1,5 @@
 ---
-title: "Privacy & Terms"
+title: "Privacy & terms"
 description: "Data handling, privacy, and terms of service for AI model providers used for AI features in Positron."
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "AI Features"
+title: "AI features"
 description: "Overview of the AI features available in Positron."
 toc: false
 listing:
@@ -29,7 +29,7 @@ listing:
         link: "git.qmd#generate-commit-messages"
 ---
 
-Positron's AI features help you write, understand, and debug code. To start using them, follow the [Get started](assistant-getting-started.qmd) guide.
+AI features in Positron help you write, understand, and debug code. To start using them, follow the [Get started](assistant-getting-started.qmd) guide.
 
 ::: {#ai-features}
 :::

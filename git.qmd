@@ -68,9 +68,9 @@ If you are signed in to a [language model provider](assistant-getting-started.qm
 
 To disable AI commit message generation, set [`git.suggestions.enabled`](positron://settings/git.suggestions.enabled) to `false`. See [Configure AI features](ai-configuration.qmd) for other ways to turn AI features on and off.
 
-By default, Positron uses a fast, low-cost model to generate commit messages. To pick a different one, run _Git: Select Git Suggestions Model_ from the Command Palette, or set [`git.suggestions.model`](positron://settings/git.suggestions.model) to a list of patterns to try in order, e.g. `["haiku", "flash"]`.
+By default, Positron uses a fast, low-cost model to generate commit messages. To pick a different one, run _Git: Select Git Suggestions Model_ from the Command Palette, or set [`git.suggestions.model`](positron://settings/git.suggestions.model) to a list of patterns to try in order, e.g., `["haiku", "flash"]`.
 
-If both GitHub Copilot and Positron's AI features are enabled, each adds its own button to the commit message box; use the dropdown to choose which one to use.
+If both GitHub Copilot and Positron AI features are enabled, each adds its own button to the commit message box. Use the dropdown to choose which one to use.
 
 ### Syncing with remote repositories
 

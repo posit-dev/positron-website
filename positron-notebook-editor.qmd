@@ -74,7 +74,7 @@ The Positron Notebook Editor integrates with [Posit Assistant](assistant.qmd) to
 
 To use the integrated notebook AI features, first configure a language model provider. See the [Getting Started](assistant-getting-started.qmd) guide for more details. We recommend using Anthropic for the best experience.
 
-Once you're signed in, you will see assistant specific actions in the notebook editor action bar. To disable notebook AI features, set [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled) to `false`. See [Configure AI features](ai-configuration.qmd) for other ways to turn AI features on and off.
+Once you are signed in, you will see assistant specific actions in the notebook editor action bar. To disable notebook AI features, set [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled) to `false`. See [Configure AI features](ai-configuration.qmd) for other ways to turn AI features on and off.
 
 ![The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle.](images/positron-notebook-assistant-action-bar.png){fig-alt="Notebook action bar showing the Assistant icon button."}
 
