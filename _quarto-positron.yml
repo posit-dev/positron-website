@@ -212,6 +212,7 @@ website:
           href: tutorials.qmd
         - tutorial-get-started-ipynb.qmd
         - tutorial-get-started-quarto.qmd
+        - tutorial-migrate-from-RStudio.qmd
     - title: "Help"
       style: "docked"
       contents:

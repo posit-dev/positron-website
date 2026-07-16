@@ -16,6 +16,11 @@ listing:
         icon: "bi-code-slash"
         link: "tutorial-get-started-quarto.qmd"
         columns: 2
+      - title: "Migrate from RStudio to Positron"
+        description: "Set up Positron so it looks, feels, and responds like the RStudio you already know."
+        icon: "bi-luggage"
+        link: "tutorial-migrate-from-RStudio.qmd"
+        columns: 2
 ---
 
 Learn how to get the most out of Positron.
