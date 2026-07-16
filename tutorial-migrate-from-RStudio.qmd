@@ -101,10 +101,10 @@ Here is how the Activity Bar maps to tools you know from RStudio:
 | Activity Bar icon | RStudio equivalent |
 |---|---|
 | Explorer {{< fa copy >}} | Files pane and document Outline |
-| Search {{< fa magnifying-glass >}} | *Edit > Find in Files* ({{< kbd mac=Command-Shift-F win=Ctrl-Shift-F linux=Ctrl-Shift-F >}}) |
+| Search {{< fa magnifying-glass >}} | **Edit > Find in Files** or {{< kbd mac=Command-Shift-F win=Ctrl-Shift-F linux=Ctrl-Shift-F >}} |
 | Source Control {{< fa code-branch >}} | Git pane (see [using Git in Positron](git.qmd)) |
 | Debugger | Debugging pane when in debugger mode |
-| Test Explorer {{< fa flask >}} | (No RStudio equivalent) |
+| Test Explorer {{< fa flask >}} | No RStudio equivalent |
 | Posit Assistant | Posit Assistant Chat window  |
 | Publisher | Publishing Wizard |
 | Packages | Packages pane |
@@ -209,7 +209,7 @@ Here are some popular picks for R users:
 | [Project Manager](https://open-vsx.org/extension/alefragnani/project-manager) | Quickly switch between projects |
 
 ::: {.callout-tip title="Try it now"}
-Open the Command Palette, run _Extensions: Focus on Extensions View_, and search for `Tomorrow Night Bright (R Classic)`. Click **Install**.
+Open the Command Palette, run _Extensions: Focus on Extensions View_, and search for "Tomorrow Night Bright (R Classic)". Click **Install**.
 
 **You will know it worked when** you can select it from _Preferences: Color Theme_ and your editor takes on the classic RStudio dark mode colors. Scroll to **Light** to return to the default Posit colors.
 
@@ -227,8 +227,6 @@ Many software companies provide free extensions that let you run their software 
 ## Run your RStudio addins
 
 Positron supports most [RStudio addins](https://rstudio.github.io/rstudio-extensions/rstudio_addins.html) through shims for the [rstudioapi](https://rstudio.github.io/rstudioapi/) package. To run one, open the Command Palette and run _R: Run RStudio Addin_. For example, with the [reprex](https://reprex.tidyverse.org/) package installed, you can launch its addin to build a reproducible example.
-
-Not every rstudioapi function is implemented, so use `rstudioapi::hasFun()` to check whether a specific method is available before calling it. To detect programmatically whether your code is running in Positron, check `Sys.getenv("POSITRON")`.
 
 # Know the gaps
 
@@ -266,6 +264,7 @@ From here, dig deeper into the tools you might use every day:
 - [Working with R in Positron](guide-r.qmd)
 - [Quarto documents](quarto.qmd)
 - [The Data Explorer](data-explorer.qmd)
+- [The Command Palette](command-palette.qmd)
 - [Migrating from RStudio](migrate-rstudio.qmd)
 
 {{< include "_tutorial-cta.qmd" >}}
