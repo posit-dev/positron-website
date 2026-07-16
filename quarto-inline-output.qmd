@@ -39,6 +39,17 @@ Positron creates and saves output as you run code in the document. To clear the 
 
 Positron caches Quarto cell outputs separately from the document in its global state directory. In typical situations, you don't need to manage the cache, but if you are concerned about space usage or need to reset the cache, run the _Quarto: Clear Inline Output Cache_ command.
 
+## Fix and explain chunk errors {#quarto-fix-and-explain}
+
+When a chunk errors while running with inline output enabled, Positron shows **Fix** and **Explain** buttons next to the error. Choose one to send the error to Posit Assistant for immediate help:
+
+- **Fix:** Assistant diagnoses the error and suggests a corrected version of your code.
+- **Explain:** Assistant describes what your code does, analyzes the error, and suggests possible solutions, without editing your document.
+
+The main button starts a new chat with the error attached as context. Use the dropdown arrow next to it to send the error to your current chat instead. These buttons only appear for errors from a live run of the chunk, not ones restored from a previous session.
+
+To use Fix and Explain, first [set up a language model provider](assistant-getting-started.qmd). See [Configure AI features](ai-configuration.qmd) for ways to turn AI features on and off.
+
 ## Limitations
 
 Inline output for Quarto documents is a new feature in Positron, and has some differences from the RStudio implementation you may be familiar with. The following limitations apply; links go to GitHub issues.
