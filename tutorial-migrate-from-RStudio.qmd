@@ -51,9 +51,9 @@ Open the Command Palette, search for _Preferences: Open Settings (UI)_, and sear
 **You will know it worked when** {{< kbd Ctrl-1 >}} moves your cursor to the editor and {{< kbd Ctrl-2 >}} jumps to the Console after the restart.
 :::
 
-![Open the settings with _Preferences: Open Settings (UI)_.](images/tutorial-migrate-open-settings.png){fig-alt="The Command Palette displaying _Preferences: Open Settings (UI)_." width=500}
+![Open the settings with _Preferences: Open Settings (UI)_.](images/tutorial-migrate-open-settings.png){fig-alt="The Command Palette displaying _Preferences: Open Settings (UI)_." width=600}
 
-![Search the settings for `rstudioKeybindings` and click the box to enable RStudio keyboard shortcuts.](images/tutorial-migrate-open-keybindings.png){fig-alt="The Positron Settings file." width=500}
+![Search the settings for `rstudioKeybindings` and click the box to enable RStudio keyboard shortcuts.](images/tutorial-migrate-open-keybindings.png){fig-alt="The Positron Settings file." width=600}
 
 Once enabled, these RStudio shortcuts are available in Positron:
 
