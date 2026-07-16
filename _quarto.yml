@@ -7,6 +7,9 @@ project:
 execute:
   freeze: auto
 
+website:
+  llms-txt: true
+
 profile:
   group: 
     - [positron, workbench]

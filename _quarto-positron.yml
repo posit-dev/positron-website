@@ -7,7 +7,6 @@ website:
   open-graph: true
   bread-crumbs: true
   page-navigation: true
-  llms-txt: true
   favicon: "images/favicon.svg"
   image: "images/positron-social.png"
   search:
