@@ -21,6 +21,11 @@ listing:
         icon: "bi-luggage"
         link: "tutorial-migrate-from-RStudio.qmd"
         columns: 2
+      - title: "Migrate from VS Code to Positron"
+        description: "You already know the VS Code interface. Learn what is different in Positron and how it makes a better editor for data science."
+        icon: "bi-microsoft"
+        link: "tutorial-migrate-from-vscode.qmd"
+        columns: 2
 ---
 
 Learn how to get the most out of Positron.

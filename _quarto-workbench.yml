@@ -14,6 +14,7 @@ project:
     - "!tutorial-get-started-ipynb.qmd"
     - "!tutorial-get-started-quarto.qmd"
     - "!tutorial-migrate-from-RStudio.qmd"
+    - "!tutorial-migrate-from-vscode.qmd"
   resources:
     - _redirects
     - "!videos/**"
