@@ -1,0 +1,118 @@
+# Troubleshooting
+
+Solve common Positron issues with troubleshooting guides for startup problems, extension errors, interpreter issues, and more.
+
+If you’re having trouble with Positron, here are some resources and tools to help troubleshoot and resolve your problems.
+
+## Reloading
+
+Positron is an Electron app. If you’re seeing what looks like a temporary glitch, you can try reloading the window.
+
+A window reload shouldn’t cause you to lose any session state, but it does cause the Positron front end, extensions, and all language packs to restart. Note that undo/redo history will also be cleared when you reload.
+
+To reload the window, open the Command Palette and run the *Developer: Reload Window* command.
+
+## Python and R logs
+
+### Output panel
+
+Python and R logs are emitted in the Output panel. Each interpreter starts several output channels that can be used to help diagnose problems with a respective part of the system.
+
+Run the *Output: Show Output Channels* command to show a list of output channels. You can then select one to view its output by name, like “R Language Pack”.
+
+Here’s a list of some Positron-specific channels you may be interested in:
+
+| Channel | Description |
+|----|----|
+| Kernel | Communication from the Python or R kernel itself: requests to execute code, output to be shown in the Console, data used to build plots/environment/help panes, etc. This channel will have a name like “R Kernel.” |
+| Supervisor | Communication from the kernel supervisor: messages the Console or Notebook sends and receives, changes in their state, etc. This channel will have a name like “Python Supervisor.” |
+| Language Server | Debug logs from the server side of the language server Positron uses for any given interpreter. This channel will have a name like “R Language Server.” |
+| Language Pack | Debug logs from the extension that Positron uses to discover, start, and manage interpreters. This channel will have a name like “Python Language Pack.” |
+| Assistant | Debug logs from Positron Assistant, which powers the AI chat and code completions interfaces in Positron. |
+
+### Log level
+
+Most of these output channels have a log level associated with them that you can change in the settings UI. For example, you can change the log level for how much information is passed from the R kernel itself to the “R Kernel” output channel using the [`positron.r.kernel.logLevel`](positron://settings/positron.r.kernel.logLevel) setting.
+
+## Runtime startup diagnostics
+
+If your R or Python environment is slow to start or failing to start, run the *Runtime Startup Diagnostics* command from the [Command Palette](command-palette.llms.md). This command collects diagnostic information about interpreter startup, including timing data and potential issues that may be causing problems.
+
+The diagnostics output can help identify:
+
+- Slow package loading or initialization
+- Environment configuration issues
+- Path or dependency problems
+
+Include this diagnostic output when filing issues related to interpreter startup problems.
+
+> **NOTE:**
+>
+> The diagnostics output may include environment variables. Review the output and remove any sensitive information such as API keys or tokens before sharing.
+
+## Developer tools
+
+Positron is built on Electron, which means it has a built-in developer tools panel similar to what you see in web browsers. When looking for the source of an error, the developer tools output can be helpful.
+
+Use these instructions to open the developer tools and check for errors or relevant log messages:
+
+1.  From the Command Palette, run the *Developer: Toggle Developer Tools* command.
+2.  From the Developer Tools panel that appears, select the *Console* tab.
+3.  When filing an issue on Github, include errors or log messages from the *Console* tab that are related to the issue you’re seeing.
+
+## Resetting Positron
+
+If you seem to have gotten things in a bad state, you can reset Positron to factory-fresh as follows.
+
+1.  Back up any configuration you want to keep, like your personalized keyboard shortcuts (use the command *Preferences: Open Keyboard Shortcuts (JSON)*) or your user settings (use the command *Preferences: Open User Settings (JSON)*). You’ll want to keep these JSON files in a new location away from where Positron stores them.
+2.  Close all Positron instances completely.
+3.  Clear out Positron state according to your operating system.
+
+## Windows
+
+Delete Positron state:
+
+``` ps1
+Remove-Item -Path $env:APPDATA\Positron -Recurse -Force
+```
+
+Delete extensions:
+
+``` ps1
+Remove-Item -Path $env:USERPROFILE\.positron -Recurse -Force
+```
+
+## Mac
+
+Delete Positron state:
+
+``` bash
+rm -rf ~/Library/Application\ Support/Positron
+```
+
+Delete extensions:
+
+``` bash
+rm -rf ~/.positron
+```
+
+## Linux
+
+Delete Positron state:
+
+``` bash
+rm -rf ~/.config/Positron
+```
+
+Delete extensions:
+
+``` bash
+rm -rf ~/.positron
+```
+
+4.  [Download the latest release](download.llms.md) of Positron and install it.
+5.  Apply any configuration you backed up, like your keyboard shortcuts or settings.
+
+## Ask for help
+
+Finally, ask for help early and often. If you’re having trouble, we’d like to hear about it, perhaps even before you blow away any state that might tell us what the issue was. Join us on [GitHub Discussions](https://github.com/posit-dev/positron/discussions)!

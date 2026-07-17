@@ -1,0 +1,53 @@
+# Discovering R Installations
+
+Learn how Positron finds R installations on your system. Covers automatic discovery across macOS, Windows, Linux, and rig-managed installations.
+
+This guide pertains to how R installations are discovered and show up in the Interpreter picker.
+
+## R installation discovery
+
+Positron consults various sources to build the list of available R interpreters:
+
+- Well-known R root folders for the specific operating system:
+  - macOS: `/Library/Frameworks/R.framework/Versions`
+  - Linux: `/opt/R`
+  - Windows: `%ProgramW6432%/R` (typically resolves to `C:/Program Files/R`) and `%LOCALAPPDATA%/Programs/R` (typically resolves to `C:/Users/username/AppData/Local/Programs/R`)
+
+  These locations are treated as so-called root folders, meaning we expect them to contain one or more versions of R, not to actually be an R installation.
+- The `PATH`, in the sense of the R executable returned by `which R`
+- Well-known paths to an R executable or to a symlink that resolves to an R executable, e.g.:
+  - `/usr/bin/R`
+  - `/usr/local/bin/R`
+  - `/opt/local/bin/R`
+  - `/opt/homebrew/bin/R`
+- R installations recorded in the Windows registry, in keys such as:
+  - `HKEY_CURRENT_USER\SOFTWARE\R-core\R64\X.Y.Z`
+  - `HKEY_LOCAL_MACHINE\SOFTWARE\R-core\R64\X.Y.Z` where `X.Y.Z` is a concrete R version, such as 4.4.2.
+  - It’s often possible to discover which of those R versions is considered the current version of R from the registry keys `HKEY_CURRENT_USER\SOFTWARE\R-core\R64\InstallPath` or `HKEY_LOCAL_MACHINE\SOFTWARE\R-core\R64\InstallPath`.
+
+## Customizing R discovery
+
+If you have an R installation that won’t be discovered by the search strategy described above, settings are available to instruct Positron to look in additional locations:
+
+- [`positron.r.customRootFolders`](positron://settings/positron.r.customRootFolders): Suitable for R root folders that contain 1 or more R installations.
+  - Hypothetical example: `C:/nonstandardRLocation`
+- [`positron.r.customBinaries`](positron://settings/positron.r.customBinaries): Suitable for specific R executables.
+  - Hypothetical example: `C:/nonstandardRLocation/R-4.4.1/bin/x64/R.exe`
+- [`positron.r.interpreters.condaDiscovery`](positron://settings/positron.r.interpreters.condaDiscovery): Enables discovery of R installations managed by conda. This support is experimental and not all Positron features may work as expected.
+- [`positron.r.interpreters.pixiDiscovery`](positron://settings/positron.r.interpreters.pixiDiscovery): Enables discovery of R installations managed by pixi. This support is also experimental.
+
+You can navigate to these settings by running the *Preferences: Open Settings* command from the Command Palette. Then select **Extensions \> R \> Advanced**. It’s important to use absolute paths in these settings and not rely on shell features, such as parameter expansion (e.g., `${HOME}`).
+
+## Unsupported R installations
+
+Positron only supports R 4.2 and higher. Older R versions might be discovered in the search described above, but they will be discarded.
+
+On macOS, Positron only supports the system’s current R version and other R installations that are orthogonal.
+
+What does orthogonal mean here? The `R` executable on macOS (and Linux) is actually a shell script that’s responsible for launching R. In an orthogonal R installation, this script targets the home of a specific, concrete version of R, such as `/Library/Frameworks/R.framework/Versions/4.4-arm64`. In a non-orthogonal R installation, this script targets the home of the current R version (literally, `/Library/Frameworks/R.framework/Resources`, which is a symlink). The CRAN installer leaves a non-orthogonal R installation behind and, by default, removes the previous version of R.
+
+The notion of orthogonality comes from a tool called [rig: The R Installation Manager](https://github.com/r-lib/rig). We highly recommend rig for managing R installation, especially for macOS users who want to have more than one functioning R installation.
+
+## Troubleshooting
+
+The discovery process is logged in the R Language Pack channel. You can learn more in the [troubleshooting guide](troubleshooting.llms.md).

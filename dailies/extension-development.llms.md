@@ -1,0 +1,384 @@
+# Extension Development
+
+Build VS Code-compatible extensions for Positron. Create custom tools using TypeScript, Node.js, and the @posit-dev/positron npm package.
+
+Positron is compatible with VS Code extensions so you can create extensions [as you would for VS Code](https://code.visualstudio.com/api/get-started/your-first-extension). You can use Positron to develop your extension and run it in a new **Extension Development Host** window.
+
+## Prerequisites
+
+To follow these docs and run the examples, you’ll need:
+
+- Basic familiarity with TypeScript/JavaScript and npm
+- An up-to-date version of Positron installed
+- Node.js (version 18 or greater)
+
+These docs use the [@posit-dev/positron](https://www.npmjs.com/package/@posit-dev/positron) npm package for type safety and IntelliSense.
+
+The easiest way to follow along is to download the [Positron extension template](https://github.com/posit-dev/positron-extension-template) and add the examples to it as needed.
+
+For more comprehensive setup instructions see the [VS Code documentation on developing an extension.](https://code.visualstudio.com/api/get-started/your-first-extension)
+
+## What can you build?
+
+The Positron API provides access to Positron-specific features like running code in active Python or R sessions, utilizing Positron’s preview pane, or contributing new database connections.
+
+The following are the different sections of the API and how they’re used.
+
+| Namespace | Typical use case |
+|----|----|
+| `positron.window` | Preview URLs and HTML, monitor console layout |
+| `positron.runtime` | Execute Python or R code in the active console, enumerate sessions, inspect variables |
+| `positron.connections` | Add database / service drivers with custom credential UI |
+| `positron.languages` | Provide statement range & help topic providers for new languages |
+| `positron.methods` | Call low-level RPCs or show purpose-built dialogs |
+| `positron.environment` | Inspect environment variable contributions from all installed extensions |
+
+## Setting up your extension
+
+The easiest way to start an extension is to use the [Positron extension template](https://github.com/posit-dev/positron-extension-template).
+
+Alternatively, you can use VS Code’s [extension template system](https://code.visualstudio.com/api/get-started/your-first-extension) to scaffold out a plain VS Code extension and then add Positron functionality to that by installing the Positron npm package.
+
+``` bash
+npm install @posit-dev/positron
+```
+
+### Key files
+
+There are two files that are critical when setting up your extension.
+
+#### Extension script (`extension.ts`)
+
+``` typescript
+import * as vscode from 'vscode';
+import { tryAcquirePositronApi } from '@posit-dev/positron';
+
+export function activate(context: vscode.ExtensionContext) {
+    // Register a command
+    const disposable = vscode.commands.registerCommand('myExtension.helloWorld', () => {
+        const positron = tryAcquirePositronApi();
+        
+        if (positron) {
+            vscode.window.showInformationMessage('Hello from Positron!');
+            // Use Positron features here
+        } else {
+            vscode.window.showInformationMessage('Hello from VS Code!');
+        }
+    });
+    
+    context.subscriptions.push(disposable);
+}
+
+export function deactivate() {}
+```
+
+The `activate()` function is run when your extension is [activated.](https://code.visualstudio.com/api/references/activation-events) It’s where you setup the code behind commands and other extension contributions.
+
+#### Extension manifest (`package.json`)
+
+``` json
+{
+    "name": "my-extension",
+    "displayName": "My Extension",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.74.0"
+    },
+    "activationEvents": [],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "myExtension.helloWorld",
+                "title": "Hello World"
+            }
+        ]
+    },
+    "dependencies": {
+        "@posit-dev/positron": "^0.1.0"
+    }
+}
+```
+
+Your extension’s `package.json` file uses custom extension fields to declare what your extension contributes. It’s important to note that you need to add the contribution (in this case the command `myExtension.helloWorld`) to *both* the Typescript/Javascript code and the `package.json`.
+
+Now users can run your command from the Command Palette via .
+
+### Detecting Positron
+
+You have two ways to detect if your extension is running in Positron:
+
+#### Option 1: Context keys
+
+Use the `isPositron` context key in your extension manifest for simple detection:
+
+``` json
+"commands": [
+    {
+        "category": "My Extension",
+        "command": "myExtension.myCommand",
+        "title": "My Extension Command",
+        "enablement": "isPositron"
+    }
+]
+```
+
+This enables commands, keybindings, and menu items to be visible *only* in Positron.
+
+#### Option 2: Positron API
+
+Detect Positron in your code:
+
+``` typescript
+import { tryAcquirePositronApi } from '@posit-dev/positron';
+
+const positron = tryAcquirePositronApi();
+if (positron) {
+    // Positron features are available with full type safety
+}
+```
+
+Alternatively, if you just need to check but don’t need the API you can use `inPositron()`:
+
+``` typescript
+import { inPositron } from '@posit-dev/positron';
+
+if (inPositron()) {
+    // Behavior specific for Positron
+}
+```
+
+## Examples
+
+Each example shows how to use a Positron feature inside a command.
+
+> **NOTE:**
+>
+> Prefer to look at examples in a full extension context? Check out the [Positron API showcase extension.](https://github.com/posit-dev/positron-api-showcase)
+
+### Display a web page
+
+``` typescript
+const disposable = vscode.commands.registerCommand('myExtension.showWebPage', () => {
+    const positron = tryAcquirePositronApi();
+    if (positron) {
+        const url = vscode.Uri.parse('https://example.com');
+        positron.window.previewUrl(url);
+    }
+});
+```
+
+Add this command to your package.json:
+
+``` json
+{
+    "command": "myExtension.showWebPage",
+    "title": "Show Web Page"
+}
+```
+
+### Run code in the Console
+
+Execute code in the active Python or R session:
+
+``` typescript
+const disposable = vscode.commands.registerCommand('myExtension.runCode', () => {
+    const positron = tryAcquirePositronApi();
+    if (positron) {
+        // Run Python code
+        positron.runtime.executeCode('python', 'print("Hello from extension!")', true);
+        
+        // Or run R code
+        // positron.runtime.executeCode('r', 'print("Hello from R")', true);
+    }
+});
+```
+
+The third parameter (`true`) means the code appears in the console history.
+
+> **IMPORTANT:**
+>
+> The `executeCode` API should be used with caution because R and Python both have the ability to run arbitrary code with the user’s full permissions.
+>
+> Avoid building code strings from untrusted inputs, including those under indirect control (e.g., filenames). If you must incorporate untrusted strings into the code string, ensure that they are escaped properly.
+
+### Add a database connection
+
+Register a custom database type with a working mock example:
+
+``` typescript
+// In your activate function
+export function activate(context: vscode.ExtensionContext) {
+    const positron = tryAcquirePositronApi();
+    if (positron) {
+        const disposable = positron.connections.registerConnectionDriver({
+        driverId: 'mockdb',
+        metadata: {
+            languageId: 'python',
+            name: 'Mock Database',
+            inputs: [
+                {
+                    id: 'database',
+                    label: 'Database Name',
+                    type: 'string',
+                    value: 'test_db'
+                }
+            ]
+        },
+        generateCode: (inputs) => {
+            // If any of the inputs are an ID, use that as the name
+            const dbName = inputs.find(i => i.id === 'database')?.value || 'test_db';
+            return mockDatabaseCode(dbName);
+        },
+        connect: async (code) => {
+            await positron.runtime.executeCode('python', code, true);
+        }
+    });
+        context.subscriptions.push(disposable);
+    }
+}
+```
+
+Mock database code
+
+In this example we simulate a database connection with a basic Python class. Swap this logic out for your use case!
+
+``` typescript
+// Mock database code generator. 
+const mockDatabaseCode = (dbName: string) => `
+# Mock database connection
+class MockDatabase:
+    def __init__(self, name):
+        self.name = name
+        self.tables = ['users', 'products', 'orders']
+        print(f"Connected to mock database: {name}")
+        print(f"Available tables: {', '.join(self.tables)}")
+    
+    def query(self, sql):
+        return f"Mock result for: {sql}"
+
+# Create connection
+mock_db = MockDatabase("${dbName}")
+print("\\nConnection successful! Try: mock_db.query('SELECT * FROM users')")
+`;
+```
+
+The `mockDatabaseCode` function generates Python code that creates a simple mock database class. This lets you test the connection without installing a real database.
+
+### Advanced examples
+
+These examples demonstrate more advanced integrations with Positron’s data science features:
+
+#### Stream output with observers
+
+Capture and process output from long-running computations as they execute:
+
+``` typescript
+import * as vscode from "vscode";
+
+export async function runLongTask(code: string) {
+  const positron = tryAcquirePositronApi();
+  if (!positron) return;
+
+  // Create an observer to handle output events
+  const observer = {
+    onStarted: () => vscode.window.showInformationMessage("Analysis started"),
+    onOutput: (message) => {
+      // Process output chunks as they arrive
+      console.log("Output:", message.text || message);
+    },
+    onError: (error) => {
+      console.error("Runtime error:", error);
+      vscode.window.showErrorMessage(`Error: ${error.message}`);
+    },
+    onFinished: () => vscode.window.showInformationMessage("Analysis complete"),
+  };
+
+  // Execute code with streaming output
+  await positron.runtime.executeCode(
+    "python",
+    code,
+    true,    // show in console
+    false,   // not an evaluation
+    undefined,
+    undefined,
+    observer
+  );
+}
+```
+
+Use observers to process output progressively without blocking the UI. This approach works especially well for monitoring long-running analyses or streaming results.
+
+## Best practices
+
+### Performance
+
+- Batch API calls when possible; use `getSessionVariables()` instead of multiple individual lookups.
+- All API methods are asynchronous; always use `await` or handle promises appropriately.
+
+### Testing
+
+- The [Positron extension template](https://github.com/posit-dev/positron-extension-template) has simple testing infrastructure setup for you that can be extended to fit your extension’s needs.
+- The [Positron showcase extension](https://github.com/posit-dev/positron-api-showcase) has a more fleshed out testing implementation.
+- Refer to the [VS Code testing docs](https://code.visualstudio.com/api/working-with-extensions/testing-extension) for more information.
+
+### Resource management
+
+- Clean up event listeners in your extension’s `deactivate()` function.
+- Add disposables to `context.subscriptions` for automatic cleanup.
+
+### Security
+
+- Set `localResourceRoots` when creating webviews.
+- Use content security policies for webviews that load external content.
+- Never expose sensitive data in webview messages.
+
+## Version compatibility
+
+You can ensure your extension only activates in versions of Positron that you explicitly support by declaring a suitable version range in your `package.json`.
+
+### Positron versioning
+
+Positron follows a calendar versioning scheme, while VS Code uses semantic versioning. Because of this, common range operators such as the caret (`^`) behave differently on each platform:
+
+- **VS Code**: `major.minor.patch`
+  - A caret range stays within the current major version; `^1.74.0` expands to `>=1.74.0` and `<2.0.0`.
+  - Stepping up to `2.0.0` can therefore introduce breaking changes.
+- **Positron**: `YYYY.M.P` (year · month · patch)
+  - Under calendar versioning, the caret simply means “this version or anything newer”; `^2025.6.0` translates to `>=2025.6.0` with no upper bound.
+  - Entering a new year (`2026.x.x`) is *not* automatically breaking—always consult the release notes.
+
+### Specifying Positron version requirements
+
+Add a `positron` entry under the `engines` section of your `package.json` to declare the minimum build that your extension supports.
+
+``` json
+{
+    "engines": {
+        "vscode": "^1.74.0",    // VS Code 1.74.0 or later
+        "positron": "^2025.6.0" // Positron 2025.6.0 or later
+    }
+}
+```
+
+### `@posit-dev/positron` versioning
+
+You can check the [version compatibility table](https://github.com/posit-dev/positron-api-pkg?tab=readme-ov-file#version-compatibility) in the `@posit-dev/positron` package to check for any breaking changes you may need to be aware of.
+
+## Next steps
+
+### Resources
+
+- Start quickly with the [Positron extension template](https://github.com/posit-dev/positron-extension-template).
+- See more examples of the available API in the [showcase extension](https://github.com/posit-dev/positron-api-showcase).
+- Complete type documentation is available on [npm](https://www.npmjs.com/package/@posit-dev/positron).
+- Browse the source code of the [API package repository](https://github.com/posit-dev/positron-api-pkg).
+
+### Get help
+
+- Ask questions in [GitHub discussions](https://github.com/posit-dev/positron/discussions).
+- File bugs in the [API repository](https://github.com/posit-dev/positron-api-pkg/issues).
+
+> **NOTE:**
+>
+> Start with the extension template to get a working setup quickly. Then add features one at a time as you learn the API.

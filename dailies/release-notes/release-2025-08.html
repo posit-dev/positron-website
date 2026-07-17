@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-08-04">
+
+<title>2025.08.0-130 Release Notes – Positron</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f3c135505f33e53fe344bb8386717ef.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5d08e809a488c539821a6a0813bfd996.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "/"
+  ],
+  "show-item-context": true,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="25dee41d-4924-4490-9c7f-65853d503cd8" data-project-name="Positron" data-modal-title="Positron Docs AI ✨" data-modal-disclaimer="This is a custom LLM for answering questions about using Positron IDE. Answers are based on the contents of our documentation." data-modal-ask-ai-input-placeholder="How do I..." data-modal-example-questions="How do I install Positron?,How do I switch between Python and R interpreters?,How do I use AI in Positron?" data-user-analytics-cookie-enabled="false" data-bot-protection-mechanism="hcaptcha" data-modal-example-questions-col-span="12" data-project-color="#ffffff" data-project-logo="/images/posit-icon-fullcolor.svg" data-font-family="Open Sans, sans-serif" data-hyperlink-color="#447099" data-button-hide="true" data-button-position-bottom="80px" data-button-position-right="25px" data-button-border="solid 1px #ffffff" data-button-text-color="#447099" data-submit-query-button-bg-color="#447099" data-deep-thinking-button-active-bg-color="#eaeaee" data-deep-thinking-button-active-hover-text-color="#447099" data-deep-thinking-button-active-hover-bg-color="#eaeaee" data-deep-thinking-button-active-text-color="#000000" data-modal-override-open-id="custom-ask-ai-button" data-modal-x-offset="0" data-modal-y-offset="0" data-modal-z-index="1031" data-modal-with-overlay="false" data-modal-inner-flex-direction="column" data-modal-inner-justify-content="end" data-modal-inner-max-width="500px" data-modal-inner-position-left="auto" data-modal-inner-position-right="0" data-modal-inner-position-bottom="0" data-modal-inner-position-top="0" data-modal-size="100vh" data-modal-lock-scroll="false"></script>
+<script defer="" file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
+<meta name="robots" content="noindex">
+
+
+<meta property="og:title" content="2025.08.0-130 Release Notes – Positron">
+<meta property="og:description" content="https://github.com/posit-dev/positron/releases/tag/2025.08.0-130">
+<meta property="og:image" content="https://positron.posit.co/dailies/release-notes/images/positron-social.png">
+<meta property="og:site_name" content="Positron">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/images/positron-logo_fullcolor-TM.png" alt="Positron Documentation" class="navbar-logo light-content">
+    <img src="../assets/images/positron-logo_fullcolor-TM.png" alt="Positron Documentation" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../features.html"> 
+<span class="menu-text">Features</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../welcome.html"> 
+<span class="menu-text">Guides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../tutorials.html"> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../troubleshooting.html"> 
+<span class="menu-text">Help</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://posit.co/positron-updates-signup/" target="_blank"><i class="bi bi-envelope" role="img">
+</i> 
+ <span class="dropdown-text">Sign up for updates</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://opensource.posit.co/blog/q/positron/" target="_blank"><i class="bi bi-code-slash" role="img">
+</i> 
+ <span class="dropdown-text">Positron at Posit Open Source</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/blog/?post_tag=positron" target="_blank"><i class="bi bi-box-arrow-up-right" role="img">
+</i> 
+ <span class="dropdown-text">Company Blog Posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/events/?search=positron&amp;poststatus=all" target="_blank"><i class="bi bi-calendar-event" role="img">
+</i> 
+ <span class="dropdown-text">Events</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../download.html"> 
+<span class="menu-text"><span id="top-bar-download-btn" class="btn btn-primary">Download</span></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/posit-dev/positron"> <i class="bi bi-github" role="img" aria-label="Link to Positron Github Repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="javascript:void(0);"> 
+<span class="menu-text"><span id="custom-ask-ai-button">Ask AI ✨</span></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <div id="quarto-announcement" data-announcement-id="687d7ef531e974cef1bf7d0f11614fac" class="alert alert-danger hidden"><i class="bi bi-cone-striped quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p>You are viewing the development version of Positron documentation for the dailies (2026.08.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
+</div></div>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#highlights" id="toc-highlights" class="nav-link active" data-scroll-target="#highlights">Highlights</a></li>
+  <li><a href="#changelog" id="toc-changelog" class="nav-link" data-scroll-target="#changelog">Changelog</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/release-notes/release-2025-08.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/release-notes/release-2025-08.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">2025.08.0-130 Release Notes</h1>
+<p class="subtitle lead"><a href="https://github.com/posit-dev/positron/releases/tag/2025.08.0-130" class="uri">https://github.com/posit-dev/positron/releases/tag/2025.08.0-130</a></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 4, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="highlights" class="level3">
+<h3 class="anchored" data-anchor-id="highlights">Highlights</h3>
+<section id="positron-assistant" class="level4">
+<h4 class="anchored" data-anchor-id="positron-assistant">Positron Assistant 🤖</h4>
+<p><a href="https://positron.posit.co/assistant.html">Positron Assistant</a>, our AI client currently in preview, has received several updates in this release. We have made changes to reduce token usage, added an experimental git integration, and added new tools that the Assistant can use (for example, to create documents, view documentation, or to get info on your rectangular data). You can also now control Assistant’s access to data in your Python and R sessions. If you have a problem with the Assistant that you want to report, use the commands that begin <em>Positron Assistant: Export the current chat</em> to export your logs.</p>
+</section>
+<section id="new-keybinding" class="level4">
+<h4 class="anchored" data-anchor-id="new-keybinding">New keybinding ⌨️</h4>
+<p>The most upvoted feature request in this release is a new keybinding to execute the current statement in your Python or R Console <em>without</em> advancing to the next one. You can now use <kbd>Alt/Opt+Enter</kbd> to execute your current statement without moving the cursor. (The existing keybinding <kbd>Ctrl/Cmd+Enter</kbd> executes the current statement and <em>does</em> advance your cursor.)</p>
+</section>
+<section id="diagnostics-and-outlines-for-r" class="level4">
+<h4 class="anchored" data-anchor-id="diagnostics-and-outlines-for-r">Diagnostics and outlines for R 😌</h4>
+<p>Our engine for providing R diagnostics has undergone a major upgrade! You’ll notice that you no longer get overwhelmed with squiggles in your R code when you open a fresh session. Outlines in <code>.R</code> files have also been improved, especially for R6 methods and <code>targets</code> pipelines.</p>
+<div id="checkbox">
+
+</div>
+</section>
+</section>
+<section id="changelog" class="level3">
+<h3 class="anchored" data-anchor-id="changelog">Changelog</h3>
+<section id="new-features" class="level4">
+<h4 class="anchored" data-anchor-id="new-features">New features</h4>
+<ul>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8072">#8072</a>, <a href="https://github.com/posit-dev/positron/issues/8207">#8207</a>] Assistant now has a new experimental git integration. You can try it out by enabling the <a href="positron://settings/positron.assistant.gitIntegration.enable"><code>positron.assistant.gitIntegration.enable</code></a> setting.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8325">#8325</a>] Assistant now uses Anthropic prompt caching to reduce token usage.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8327">#8327</a>] Improved keyboard navigation in the Plots pane; arrow keys now navigate the plot history.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8041">#8041</a>] It is now possible to interrupt R and Python sessions in order to reconnect to them.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/5800">#5800</a>] Improved performance and security for connections to R and Python sessions.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8016">#8016</a>] Assistant can now reference R help pages and package vignettes via a tool call.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/4411">#4411</a>] The console font can now be configured independently of the editor font; see settings like <code>console.fontFamily</code>, <code>console.fontSize</code>, and related.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8465">#8465</a>] Assistant: the <code>documentCreate</code> tool is now available in Edit mode.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/7817">#7817</a>, <a href="https://github.com/posit-dev/positron/issues/8233">#8233</a>, <a href="https://github.com/posit-dev/positron/issues/8472">#8472</a>] Added token usage to Assistant for chat. You can try it out by enabling the <a href="positron://settings/positron.assistant.showTokenUsage.enable"><code>positron.assistant.showTokenUsage.enable</code></a> setting.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8033">#8033</a>, <a href="https://github.com/posit-dev/positron/issues/8429">#8429</a>] Assistant: chat log can now be exported and contains prompt and Positron context info. Use the commands that begin <em>Positron Assistant: Export the current chat</em> to export logs when you want to report a problem with the Assistant.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/7595">#7595</a>] You can now control Assistant’s access to data in your Python and R sessions. Opt out via the <a href="positron://settings/chat.implicitSessionContext.enabled"><code>chat.implicitSessionContext.enabled</code></a> setting.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8539">#8539</a>] The default log level has been returned to info (this was previously debug) to reduce log noise. Please consider using the <em>Set Log Level</em> command to restore debug logging when reporting bugs.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/5486">#5486</a>] R: <code>browseURL()</code> in R now delegates to the operating system’s default opener for inputs that are not recognized as a web URL or an HTML file.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8078">#8078</a>] Assistant: tools are now disabled if the context doesn’t include the info needed for the tool.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/7114">#7114</a>] Assistant: added a new <code>getTableSummary</code> tool for Python that allows the Assistant to access a structured summary of in-memory Python dataframes.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8677">#8677</a>] Updated button labels for session actions in the Console for increased clarity. The restart button now reads “Restart Python” or “Restart R” as appropriate.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/1428">#1428</a>] R: <code>test_that()</code> blocks now appear in the outline and breadcrumbs, and also support sticky scroll functionality.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/6546">#6546</a>] R: all functions passed as named arguments also gain outline, breadcrumbs, and sticky scroll support. This improves the UX for R6 methods in particular.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8402">#8402</a>] R: added support for comment sections (like <code># Title ----</code>) in function calls. This is especially useful for users of the <code>targets</code> package where it is common to have very large targets calls that can now be sectioned in the outline, with breadcrumbs and sticky scroll support.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/6549">#6549</a>] R: R6 methods are now exported as workspace symbols. You now search for them with <kbd>Ctrl/Cmd + T</kbd>.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8330">#8330</a>] R: Added new <a href="positron://settings/positron.r.symbols.includeAssignmentsInBlocks"><code>positron.r.symbols.includeAssignmentsInBlocks</code></a> setting to control whether local variables in functions and nested <code>{}</code> blocks (e.g.&nbsp;in <code>test_that()</code> calls) appear in the outline. It’s turned off by default to keep the outline focused on the overall structure of the file.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/4886">#4886</a>] R: Added new <a href="positron://settings/positron.r.workspaceSymbols.includeCommentSections"><code>positron.r.workspaceSymbols.includeCommentSections</code></a> setting to control whether comment sections (like <code># Title ----</code>) are exported as workspace symbols. When enabled, you can search for the sections with <kbd>Ctrl/Cmd + T</kbd>. This is disabled by default to keep symbol search focused on actual symbols.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/5486">#5486</a>] R: <code>browseURL()</code> now delegates to the operating system’s default opener for inputs that are not recognized as a web URL or an HTML file.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/1325">#1325</a>, <a href="https://github.com/posit-dev/positron/issues/8708">#8708</a>, <a href="https://github.com/posit-dev/positron/issues/2252">#2252</a>] R: the diagnostics engine is vastly improved in fresh sessions. You no longer have to attach packages in the console session to silence “unknown symbol” diagnostics in scripts. The issue has also been resolved in packages where a <code>load_all()</code> is no longer necessary to silence symbol diagnostics.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/2778">#2778</a>] Added new keybinding <kbd>Alt+Enter</kbd> to execute the current statement <em>without</em> advancing.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/6477">#6477</a>] Positron (and Positron Assistant) can now automatically install packages into <code>uv</code> environments without <code>pip</code>.</li>
+</ul>
+</section>
+<section id="bug-fixes" class="level4">
+<h4 class="anchored" data-anchor-id="bug-fixes">Bug fixes</h4>
+<ul>
+<li>[<a href="https://github.com/posit-dev/positron/issues/7692">#7692</a>] Now persist session renames in the console UI after reloads for web builds.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8318">#8318</a>] Fixed “zoom to fit” in the Plots pane.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/4547">#4547</a>] “View” actions are now disabled in the Variables pane while one is already in progress.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/1360">#1360</a>] R: <code>@examples</code> documentation highlighting no longer highlights further than expected.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8203">#8203</a>] Now inform users to install <code>numpy</code> if they want histograms in the Data Explorer for <code>polars</code> data frames.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8371">#8371</a>] Improve theme support for action bars.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/7638">#7638</a>] Assistant: removed the run/debug play button from editor actions when a chat session is open in an editor.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8433">#8433</a>] Assistant: renamed the chat command to summarize the current chat in a Quarto document from <code>/quarto</code> to <code>/exportQuarto</code>.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8522">#8522</a>, <a href="https://github.com/posit-dev/positron/issues/8556">#8556</a>] Assistant: reduced token usage when calling tools or Assistant is invoked via inline notebook editor.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8538">#8538</a>] Removed superfluous <code>RUST_LOG</code> environment variable from R and Python sessions.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8245">#8245</a>] Improved the performance of Python Variable pane updates.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8095">#8095</a>] In the Data Explorer in Python, if a column contains constant values, the histogram will show a single bin with the lower and upper edge equal, matching the DuckDB behavior when opening a file from the file explorer pane.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8641">#8641</a>, <a href="https://github.com/posit-dev/positron/issues/8642">#8642</a>] Assistant: now ensure Variables are included in context and tool calls.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/7038">#7038</a>] Assistant: code block toolbar is now appropriately visible on long code blocks.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/6137">#6137</a>] R: the breadcrumbs and sticky scroll features now behave properly in the presence of comment sections like <code># Title ----</code>.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/6107">#6107</a>] R: section comments nested in <code>{ }</code> blocks now appear in the outline.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/4886">#4886</a>] When a comment section (like <code># Title ----</code>) is emitted as workspace symbol, and it clashes with another top-level definition (such as <code>Title &lt;- function() {}</code>), the “Go to definition” feature now always prioritizes the definition of regular functions and variables.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8549">#8549</a>] R: fixed a race condition between the workspace indexer and diagnostics that caused spurious diagnotics on startup.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8550">#8550</a>] R: fixed a diagnostics issue where objects defined in other files were not properly detected.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8668">#8668</a>] R: workspace symbols no longer get duplicates when a file is renamed.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8630">#8630</a>] R: “Go to Definition” now gives priority to definitions in the current file.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8645">#8645</a>] Assistant: fixed file path bug when using file contents tool.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8760">#8760</a>] Fixed Data Explorer filtering for <code>YYYY-MM-DD</code> values for pandas data frames.</li>
+</ul>
+</section>
+<section id="dependencies" class="level4">
+<h4 class="anchored" data-anchor-id="dependencies">Dependencies</h4>
+<ul>
+<li>Updated <code>vscode-python</code> upstream to v2025.8.1.</li>
+<li>Updated <code>code-oss</code> upstream to v1.102.0.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/positron\.posit\.co\/dailies");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://posit.co/">
+<p><img class="posit-footer-logo" alt="Posit" src="../images/posit-logo-black-TM.svg">Copyright © 2022-2026 Posit Software, PBC. All Rights Reserved.</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+<p>Positron 2026.08.0 (development version)</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/release-notes/release-2025-08.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/release-notes/release-2025-08.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://support.posit.co/">
+<p>Support</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../licensing.html">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://posit.co/about/privacy-policy/">
+<p>Privacy Policy</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

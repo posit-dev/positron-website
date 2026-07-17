@@ -1,0 +1,17 @@
+# About Positron
+
+Positron is a free, powerful IDE for data science built on open standards. Supporting Python, R, notebooks, and Quarto, it’s designed to make high-quality tools accessible to everyone.
+
+The goal of Positron is to create an IDE for data science that supports the full scope of modern scientific and data-driven work, across languages, tools, and workflows. We aim to do this by:
+
+- Providing a cohesive and thoughtful experience for writing code, performing analyses, and exploring data. Whether you’re working in Python, R, or both, Positron combines notebooks, scripts, and consoles with native support for plotting and data output.
+
+- Supporting the kinds of workflows that are central to data science. This includes iterative development, rich interactive output, and publication-quality documents. Positron provides built-in support for notebooks, Quarto, web applications, and more, enabling a range of common authoring and analysis tasks.
+
+- Offering a modern, extensible editor built on open standards. Positron is built on Code OSS, the same foundation as Visual Studio Code, with custom features and UI elements designed specifically for data science. This includes support for a wide array of VSIX extensions and customization, while also enabling deeper integration of language-specific tools.
+
+We believe that powerful, user-friendly, and open tools are essential for scientific computing. Positron is freely available, aligning with our goal to make high-quality data science tools accessible to everyone.
+
+> **NOTE:**
+>
+> Interested in Positron for your team? [Learn about enterprise solutions.](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page)

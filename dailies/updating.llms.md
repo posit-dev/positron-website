@@ -1,0 +1,56 @@
+# Updating Positron
+
+Keep Positron up to date with automatic monthly releases or opt into daily builds. Learn about update settings and Windows package manager options.
+
+By default, Positron automatically checks for updates from our channel of monthly releases.
+
+- For Mac and our Windows user installation, if an update is available, Positron will download it and install the new version in the background.
+- For our Windows system installation, if an update is available, Positron will download it and notify you in the icon at the bottom left that the new version is available.
+- On Linux, Positron will show a notification when an update is available.
+
+You can opt out of this automatic checking by changing the [`update.mode`](positron://settings/update.mode) setting to `"none"`; see [our page on privacy and data collection](privacy.llms.md) for more details.
+
+## Daily builds
+
+For users who are interested in trying out new features at a faster cadence, we also provide a channel of daily builds; you can opt in to these builds by changing the [`update.positron.channel`](positron://settings/update.positron.channel) setting to `"dailies"`.
+
+If you change the setting to `"dailies"`, what can you expect?
+
+- You will have an updated version of Positron available most days (instead of once a month). You’ll see a notification in the bottom left prompting you to restart.
+- These daily builds only go through automated testing before being made available, not our full QA process. If you consider yourself an adventurous early adopter, this may be a good fit for you!
+- If some daily build happens to be entirely broken for you, the best step for you to take is to close Positron and [install the latest monthly release](download.llms.md).
+
+### Retention policy
+
+Daily builds of Positron are retained for 60 days, and regular monthly releases are never deleted.
+
+## Windows package managers
+
+We don’t yet officially maintain Positron on Windows package managers, but you can install the latest version of Positron via [scoop](https://scoop.sh/) or [winget](https://learn.microsoft.com/en-us/windows/package-manager/) thanks to the efforts of community maintainers.
+
+### Scoop Package Manager
+
+``` powershell
+# Add the bucket that has Positron (only need to do this once)
+scoop bucket add r-bucket https://github.com/cderv/r-bucket.git
+
+# install 
+scoop install positron
+
+# update
+scoop update positron
+```
+
+This bucket is managed by [Christophe Dervieux](https://github.com/cderv/r-bucket#positron).
+
+### Winget Package Manager
+
+``` powershell
+# install
+winget install --id Posit.Positron
+
+# upgrade 
+winget upgrade --id Posit.Positron
+```
+
+This is community maintained, via [automated PR to the central manifest repository](https://github.com/microsoft/winget-pkgs/tree/master/manifests/p/Posit/Positron).

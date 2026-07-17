@@ -1,0 +1,80 @@
+# Troubleshooting
+
+Solve common Positron Assistant issues with troubleshooting guides for unexpected responses, connection problems, and authentication errors.
+
+> **WARNING:**
+>
+> This page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by [Posit Assistant](https://assistant.posit.co) as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.
+>
+> If you are on Positron 2026.07 or later, see the [Posit Assistant documentation](https://assistant.posit.co) to get set up with Posit Assistant. For background on this change, see [The history of Posit’s data science agents](https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents).
+
+> **NOTE:**
+>
+> If your issue is with [Posit Assistant](https://assistant.posit.co) rather than Positron Assistant, reach out in the [assistant-feedback repository](https://github.com/posit-dev/assistant-feedback).
+
+If you are having trouble with Positron Assistant, here are some resources and tools to help diagnose the issue and get things working smoothly.
+
+Cannot find what you are looking for? Reach out through our [feedback channels](#feedback-issues) and we will help you out!
+
+## I am getting unexpected or incorrect responses
+
+If you receive unexpected or incorrect responses from Assistant, consider the following steps:
+
+- **Provide more context**: Ensure that your messages include sufficient context about your code, data, or the task at hand.
+- **Rephrase your query**: Try rewording your question or request to be more specific or clear.
+- **Start a new conversation**: If the current conversation has become lengthy or confusing, [starting a new chat conversation](#starting-new-chat-conversations) may help reset the context.
+- **Reach out for support**: If you continue to experience issues, consider reaching out for support to provide [feedback or report the problem](#feedback-issues).
+
+## I am getting an error message
+
+If you encounter an error message while using Positron Assistant, try the following:
+
+- **Try again**: Sometimes, transient issues can cause errors. Retry your request to see if the issue persists.
+- **Start a new conversation**: If the error is related to the current chat context, [starting a new chat conversation](#starting-new-chat-conversations) may resolve it.
+- **Check provider status**: Check if your language model provider has any service outages or issues.
+- **Reach out for support**: If the error persists, consider reaching out for support to provide [feedback or report the problem](#feedback-issues).
+
+## Feedback and issues
+
+We welcome your feedback to help us improve Positron Assistant!
+
+Please provide as much detail as possible when reporting issues, including:
+
+- Steps to reproduce the problem
+- Screenshots or screen recordings if possible
+- Any relevant [logs](#logs), error messages, and [diagnostics](#diagnostics)
+
+If you encounter any issues or have suggestions, please let us know by:
+
+- Visiting the [Positron Discussions forum](https://github.com/posit-dev/positron/discussions) to share your thoughts and ideas, or start a discussion with other users and the Positron team.
+- Reporting bugs or issues on the [Positron GitHub Issues page](https://github.com/posit-dev/positron/issues). Please include [logs](#logs) and [diagnostics](#diagnostics) if applicable.
+
+## Logs
+
+### View output logs
+
+1.  Run the command *Output: Show Output Channels…*
+2.  Enter “Assistant” in the input box to filter the output channels
+3.  Press EnterEnter to open the Assistant output logs
+
+To include additional detail in the logs:
+
+1.  Run the command *Developer: Set Log Level…*
+2.  Select **Debug** for debug-level logging, or **Trace** to enable the most detailed logging
+3.  Reproduce the issue you are experiencing
+4.  Return to the Assistant output logs to view the detailed logs
+
+### Export chat log
+
+To export the log of a chat conversation:
+
+1.  Focus your cursor in the chat interface of the conversation you want to export, either in the chat pane or inline chat
+2.  Run one of the commands that start with *Positron Assistant: Export the current chat*
+3.  Select the button in the notification that appears to open the exported chat log
+
+## Diagnostics
+
+For detailed diagnostics about Positron Assistant, including information about your language model providers, version information, Positron Assistant settings, and more:
+
+1.  Run the command *Positron Assistant: Collect Diagnostics*
+2.  A diagnostic report will be generated and opened in a new editor tab

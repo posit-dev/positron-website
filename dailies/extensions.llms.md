@@ -1,0 +1,124 @@
+# Extensions
+
+Customize Positron with extensions. Learn about included extensions, security best practices, and manual installation options.
+
+Since Positron is built on [Code OSS](https://github.com/microsoft/vscode) (the open-source core of VS Code), you can use VS Code extensions in Positron. Extensions installed for Positron are *separate* from the extensions you have installed for VS Code, and they won’t interfere with each other.
+
+## Extension gallery
+
+Positron has an Extensions view, just like VS Code. The primary difference is that when you browse extensions in Positron, the extensions don’t come from VS Code’s Marketplace. This is necessary for licensing reasons; Microsoft doesn’t permit access to the Marketplace outside of their Visual Studio Code (VS Code) builds.
+
+By default, Positron browses and installs extensions from [Posit Public Package Manager](https://p3m.dev) (P3M), served from Posit infrastructure for reliable distribution. The catalog is the same set of extensions available from [Open VSX](https://open-vsx.org/), an Eclipse open-source project and vendor-neutral alternative to the Visual Studio Marketplace. If you prefer to use Open VSX directly, you can switch via the [`positron.extensions.gallerySource`](positron://settings/positron.extensions.gallerySource) setting.
+
+Open VSX includes most popular VS Code extensions, but not all; some authors don’t publish their extensions to Open VSX (it’s an extra step) and others don’t keep the Open VSX version of the extension up to date. Open VSX has a suggested [template](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md) to request that the authors of an extension cross-publish their extension on the Open VSX Registry.
+
+> **NOTE:**
+>
+> Posit is a major sponsor of Open VSX.
+>
+> Organizations using [Posit Workbench](https://posit.co/products/enterprise/workbench/) can [mirror and serve VS Code extensions](https://posit.co/blog/manage-vs-code-extensions-like-packages-with-posit-package-manager-2026-04-0/) from their own [Posit Package Manager](https://posit.co/products/enterprise/package-manager/) instance, bringing the same governance, security, and air-gapped distribution they already have for R and Python packages.
+
+## Accessing extensions
+
+To manage your extensions in Positron, choose the Extensions view from the Activity Bar on the left or use the keyboard shortcut . From here you can manage extensions you already have installed or search the gallery for new ones.
+
+## Included extensions
+
+While you can install many extensions from the gallery, Positron comes with core support for data science and several extensions already installed to help you get started quickly.
+
+Positron includes two types of pre-installed extensions:
+
+### Built-in extensions
+
+These extensions manage core functionality such as the R and Python backends for Positron’s frontend features. They are not in the Open VSX registry and are integral to the functioning of Positron. These extensions get updated when Positron itself is updated, and most of the time you won’t need to think about these.
+
+To see these extensions, search for `@builtin` under the Extensions tab. To further filter the list, you can add a search term, such as `@builtin positron`.
+
+### Bootstrapped extensions
+
+In addition to built-in extensions, Positron includes a set of automatically installed (or “bootstrapped”) extensions curated to enhance your data science workflow. These are traditional extensions you can find on Open VSX. They act just like extensions you install yourself; they update automatically when a new version of the extension is on Open VSX and they can be uninstalled.
+
+Some examples of the bootstrapped extensions include:
+
+- [charliermarsh.ruff](https://open-vsx.org/extension/charliermarsh/ruff): A Python linter and code formatter built in Rust. It provides fast and comprehensive Python code quality checking with support for hundreds of lint rules.
+
+- [meta.pyrefly](https://open-vsx.org/extension/meta/pyrefly): A fast Python language server that provides syntax highlighting, type checking, code completion, and other language features to enhance your Python editing experience.
+
+- [posit.shiny](https://open-vsx.org/extension/posit/shiny): Support for developing Shiny applications in Python and R within Positron.
+
+- [posit.publisher](https://open-vsx.org/extension/posit/publisher): A publishing tool for deploying content to Posit Connect and Posit Connect Cloud. It streamlines the process of sharing data science applications, reports, and APIs with stakeholders. Explore the [Publisher guide](publish-to-connect.llms.md).
+
+- [quarto.quarto](https://open-vsx.org/extension/quarto/quarto): Support for the Quarto publishing system. It enables creation of dynamic documents that combine code, visualizations, and narrative text for reproducible research and reporting.
+
+- [posit.air-vscode](https://open-vsx.org/extension/posit/air-vscode): Comprehensive R language support including syntax highlighting, code completion, debugging, and environment management. It provides tools needed for professional R development.
+
+If you do not want to use one or more of these extensions, you can use the [`extensions.allowed`](positron://settings/extensions.allowed) setting to control how these get installed (or activated, if they happen to be already installed). For example, if you only use Python and never use R, you might set up your `settings.json` like this:
+
+``` json
+{
+    "extensions.allowed": {
+        "posit.air-vscode": false,
+        "*": true
+    }
+}
+```
+
+Learn more about how this setting works at the [VS Code documentation on allowed extensions](https://code.visualstudio.com/docs/enterprise/extensions).
+
+### Non-compatible extensions
+
+Almost all extensions for Visual Studio Code are fully compatible with Positron, and in fact Positron is built with this kind of extensibility in mind. There are two known exceptions:
+
+- [R extension](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r): The R language support in Positron is a direct replacement for the features in this extension, and we don’t plan for them to work well together. If there are features in this extension you miss, please [let us know](https://github.com/posit-dev/positron/issues). If you use this extension and have code in your `.Rprofile` for better behavior in the terminal, you will need to update it so that section of your `.Rprofile` isn’t run in Positron:
+
+``` r
+if (interactive() && Sys.getenv("RSTUDIO") == "" && Sys.getenv("POSITRON") == "") {
+    ## code you use for better terminal behavior for R in VS Code
+}
+```
+
+- [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python): Positron bundles a fork of this extension that’s built to work with Positron and offers support for the console, help, and other features. If there is anything from the original Python extension that doesn’t work for you, please [let us know](https://github.com/posit-dev/positron/issues).
+
+There may be extensions that aren’t available for Positron for licensing rather than technical reasons. These extensions would typically contain proprietary Microsoft code and are only licensed for use with Microsoft’s proprietary VS Code product.
+
+> **NOTE:**
+>
+> See [Extension Development](extension-development.llms.md) for information on creating extensions specifically for Positron.
+
+### Installing extensions manually
+
+In offline or restricted environments, users may need to manually install extensions rather than relying on the search and install capabilities from the Positron extensions tab. Users can install extensions saved as [`.vsix` files](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions). See the *Extensions: Install from VSIX* command via the Command Palette or via the `...` in the top right of the Extensions tab.
+
+## Extension trust and security
+
+Extensions can offer Positron powerful new capabilities. However, they can also present risks; the risks are similar to installing and using Python or R packages, and can include risk of malicious code execution or inappropriate data access. Third-party extensions can read or modify files, make network requests, and take other actions that could accidentally or maliciously result in a security issue.
+
+### Extension trust
+
+Positron has no control over the behavior of third-party extensions, including how they manage your personal data. You should only install third-party extensions if you trust the publisher.
+
+Open VSX has several mechanisms in place to help protect users, including requiring membership within a [namespace to publish](https://github.com/eclipse/openvsx/wiki/Namespace-Access) and displaying a Verified Publisher badge for specific, verified namespaces.
+
+For example, Posit’s Air extension displays the “Posit Software, PBC” Verified Publisher badge.
+
+[![Air extension as displayed in Positron](images/extension-verified-publisher.png)](images/extension-verified-publisher.png "Air extension as displayed in Positron")
+
+Air extension as displayed in Positron
+
+You can vet an extension in a few different ways:
+
+- **Verified Publisher**: The badge indicates a Verified Publisher and access to that namespace.
+- **Downloads**: Total downloads can be an indicator of adoption.
+- **Repository**: Most extensions are open source and you can inspect or scan the source code, learn more about the project and developers, and look for open issues.
+- **Ratings**: The community is able to rate extensions with a traditional star-based system.
+- **Published date**: Is the extension kept up to date?
+
+Additionally, when you first install an extension from a namespace you have not installed from before, Positron will prompt you to confirm your trust in that publisher.
+
+[![Modal prompt to confirm trust in that specific extension publisher](images/extension-publisher-trust.png)](images/extension-publisher-trust.png "Modal prompt to confirm trust in that specific extension publisher")
+
+Modal prompt to confirm trust in that specific extension publisher
+
+Open VSX removes known malicious extensions and also makes use of the extension blocklist from the VS Code marketplace. To report suspicious or questionable extensions, or to report abuse, please reach out to Open VSX via their [security portal](https://github.com/eclipse/openvsx/security) or via the “Report Abuse” button on the specific extension’s page of Open VSX.
+
+For more information about the full set of extension privileges and security that come from upstream Code OSS, please see the VS Code documentation on [Extension runtime security](https://code.visualstudio.com/docs/configure/extensions/extension-runtime-security).

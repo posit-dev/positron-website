@@ -1,0 +1,15 @@
+# Netlify redirects
+# https://docs.netlify.com/manage/routing/redirects/overview/
+
+# Redirect links
+# Prefix redirect links with /redirect/ to avoid conflicts with actual content paths.
+# /redirect/<redirect-name> <destination-url>
+/redirect/aws-bedrock-iam-permissions  https://docs.posit.co/ide/server-pro/admin/authenticating_users/aws_credentials.html#amazon-bedrock-permissions
+
+# Moving blog over to https://opensource.posit.co/blog/
+/blog  https://opensource.posit.co/blog/q/positron/
+/blog/posts/2026-03-05-outgrow-your-laptop/  https://opensource.posit.co/blog/2026-03-05_outgrow-your-laptop/
+/blog/posts/2026-03-12-notebooks-march-announcement/  https://opensource.posit.co/blog/2026-03-16_notebooks-march-announcement/
+/blog/posts/2026-03-31-python-type-checkers/  https://opensource.posit.co/blog/2026-03-31_python-type-checkers/
+/blog/posts/2026-04-03-positron-server-jupyterhub/  https://opensource.posit.co/blog/2026-04-06_positron-server-jupyterhub/
+/blog/posts/2026-04-06-april-newsletter/  https://opensource.posit.co/blog/2026-04-07_april-newsletter/

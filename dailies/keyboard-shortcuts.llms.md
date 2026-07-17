@@ -1,0 +1,61 @@
+# Keyboard Shortcuts
+
+Master Positron’s keyboard shortcuts for running code, navigating panes, and accessing help. Includes custom keybinding options and troubleshooting tips.
+
+Positron’s keyboard shortcuts, with a few exceptions, are a superset of the keyboard shortcuts used by Visual Studio Code. This table lists the shortcuts specifically added for Positron.
+
+> **NOTE:**
+>
+> Our documentation shows you keyboard shortcuts based on your operating system. For example, if you visit this page using Windows, you will see keyboard shortcuts for Windows. Hold the pointer over the keyboard shortcut to see the information for other platforms.
+
+| Shortcut | Description |
+|----|----|
+|  | Run the selected code in the editor; if no code is selected, run the current statement |
+|  | Run code from document beginning to current line |
+|  | Run code from current line to document end |
+|  | Restart the interpreter currently open in the Console |
+|  | Run the current file or [code cell](code-cells.llms.md) in the Console (using e.g., `source()` for `.R` or `%run` for `.py`) |
+| F1F1 | Show contextual help for the topic under the cursor |
+| , | Show contextual help for the topic under the cursor (alternate binding) |
+| , FF | Focus the Console |
+| , VV | Focus the Variables pane |
+| Ctrl-LCtrl-L | Clear the Console |
+
+## Custom shortcuts
+
+Because Positron is built on top of VS Code, you can use [its infrastructure for defining custom keybindings](https://code.visualstudio.com/docs/getstarted/keybindings). You can use this infrastructure with any Positron-specific commands, such as `workbench.action.executeCode.console` or `workbench.action.executeCode.silently`.
+
+As a specific example, you could add the following to your user `keybindings.json` (access this file from the Command Palette with *Open Keyboard Shortcuts (JSON)*) to make a keyboard shortcut to create a reprex from your current selection:
+
+``` json
+{
+    "key": "Cmd+Shift+R",
+    "command": "workbench.action.executeCode.console",
+    "when": "editorTextFocus",
+    "args": {
+        "langId": "r",
+        "code": "reprex::reprex_selection()",
+        "focus": true
+    }
+}
+```
+
+## Troubleshooting
+
+If you are puzzled by the behaviour of a keyboard shortcut, here are two issues to consider:
+
+- **Context:** Many keyboard shortcuts are only enabled in certain contexts, such as when editing code or when working in an R package. Consider if you might be invoking the shortcut in an unexpected and unsupported context.
+- **Conflicts:** A keyboard shortcut can have multiple associations across different situations or extensions. When a shortcut is associated with more than one command, a priority system determines which command wins and the result might not be what you expect.
+
+The command *Preferences: Open Keyboard Shortcuts* opens [an interface](https://code.visualstudio.com/docs/configure/keybindings) that is a great way to investigate keyboard shortcut mysteries.
+
+Be aware that Positron’s integrated terminal can [intercept some keyboard shortcuts](https://code.visualstudio.com/docs/terminal/advanced#_keyboard-shortcuts-and-the-shell). You can set up a keybinding to skip the shell by specifying its command in the [`terminal.integrated.commandsToSkipShell`](positron://settings/terminal.integrated.commandsToSkipShell) setting, either via the settings UI or by editing `settings.json`:
+
+``` json
+{
+    "terminal.integrated.commandsToSkipShell": [
+        // Ensure the keyboard shortcut for focusing the console skips the shell
+        "workbench.action.positronConsole.focusConsole"
+    ]
+}
+```

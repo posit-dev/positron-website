@@ -1,0 +1,110 @@
+# Migrating to Positron from VS Code
+
+Learn how to migrate from VS Code to Positron, including importing settings and extensions. Discover enhanced data science features like the Console, Variables pane, Data Explorer, and native Python and R support.
+
+This document outlines how to migrate from VS Code to Positron, a data science-focused editor built on Code OSS. It covers importing VS Code settings and extensions, and explains Positron’s enhanced data science features like the Console, Variables pane, Data Explorer, and Plots pane. The guide also details Positron’s native support for Python and R workflows, including prerequisites and key differences from VS Code extensions.
+
+> **NOTE:**
+>
+> Try out our in-product migration guide for VS Code users by running the command *Welcome: Open Walkthrough…* in Positron and choosing “Migrating from VS Code to Positron” from the list.
+
+## Overview
+
+Positron will feel natural to you if you use VS Code. Positron is built on [Code OSS](https://github.com/microsoft/vscode), the open source core of VS Code. You will find many familiar features like the text editor interface, Command Palette, Terminal, and extensions.
+
+Where Positron differs is in its language integration and data science capabilities:
+
+- the Console for interactive Python and R sessions
+- the Variables pane and [Data Explorer](data-explorer.llms.md), for inspecting live data
+- the Plots pane for visualizing plots and other generated graphics
+- the [Connections pane](connections-pane.llms.md) for managing database connections and exploring data
+- the [Help pane](help-pane.llms.md) for quick access to language and library documentation
+
+This blend of familiarity and data science focus will supercharge your work with a low barrier to transition.
+
+## First steps
+
+When you launch Positron for the first time, you likely want to import your existing VS Code settings and install the extensions you are used to.
+
+### Importing settings
+
+Positron supports importing settings from VS Code. It will prompt you to do so with a notification on the first launch, allowing you to import user settings from your existing VS Code installation. It will open a preview before saving these imported settings, so you can review and modify them as needed.
+
+If you skip this step, you can import settings at any time by running the *Preferences: Import Settings…* command from the Command Palette.
+
+### Installing extensions
+
+Positron supports many extensions that you use in VS Code. These extensions can be installed using the Extensions pane, found in the Positron sidebar.
+
+If an extension does not appear in your search, it may be unavailable from the [extension gallery](extensions.llms.md#extension-gallery) that Positron uses. By default, Positron uses [Posit Public Package Manager](https://p3m.dev) (P3M), which serves the same catalog as [Open VSX](https://open-vsx.org/). You can contact the developer of that extension to [request its publication to Open VSX](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md) for installation in Positron.
+
+> **NOTE:**
+>
+> Positron comes bundled with several useful extensions, including those for Quarto, Jupyter notebooks, and Pyright. It also includes built-in extensions to enable language features. More information about these default extensions can be found in the [Extensions documentation](extensions.llms.md#included-extensions).
+
+## Language support
+
+Positron provides native language integration for Python and R. Unlike VS Code, which relies on extensions for language support, Positron has built-in interpreters and language servers for both languages. This native integration enables deeper features like the Console, Variables pane, and Data Explorer to work seamlessly with your code and data.
+
+The language support includes intelligent code completion, syntax highlighting, error detection, and debugging capabilities. You can switch between Python and R environments within the same workspace, making it easy to work on multilingual data science projects.
+
+## Python
+
+Positron has first-class support for Python, including a built-in Python Console for interactive sessions, a [Data Explorer](data-explorer.llms.md) to inspect data frames, a Plots pane to visualize plots and other generated graphics, and a fully interactive Viewer pane to see locally running content. Positron also supports Python packages and libraries, allowing you to work with popular data science tools like NumPy, Pandas, Matplotlib, and more. The [Help pane](help-pane.llms.md) provides quick access to Python and package documentation while you code.
+
+### Prerequisites
+
+To use Python in Positron, you need to have Python installed on your system. Positron supports several Python installation and environment managers, including:
+
+- **venv**: Standard library virtual environments created with `python -m venv`
+- **uv**: Virtual environments and Python installations managed by `uv`
+- **pyenv**: Python installations managed by `pyenv`, including virtual environments
+- **conda**: Conda environments created with `conda create` or `mamba create`, as well as pixi environments created with `pixi init`
+
+Positron automatically detects Python installations and environments created with these tools. This enables deep integration with Python features in the IDE.
+
+### Coming from the Python extension
+
+VS Code users who rely on the `ms-python.python` extension will find that Positron provides all of its functionality and more by default. These include:
+
+- Code completion and IntelliSense, based on [Jedi](https://jedi.readthedocs.io/en/latest/)
+- Type checking, using [Pyright](https://microsoft.github.io/pyright/#/)
+- Formatting, using [Ruff](https://docs.astral.sh/ruff/)
+- Debugging
+- Jupyter notebook support
+- Variables pane, for inspecting variables and data frames
+- [Help pane](help-pane.llms.md), for quick access to documentation
+
+### Python in the Console
+
+The Positron Console pane provides an interactive IPython session. You can type Python code directly into the Console or run files open in the editor. You can also choose to run a portion of a file open in the editor, similar to a Jupyter Notebook but with any standard Python file.
+
+While you can launch IPython from the Terminal as you would in VS Code, the Console provides code completion, syntax highlighting, integration with the Variables and Plots panes, and other features that enhance the interactive experience.
+
+Positron bundles IPython, allowing you to use the console without installing it separately. If you wish to use an external version of IPython, you can toggle the use of the bundled one with the [`python.useBundledIpykernel`](positron://settings/python.useBundledIpykernel) setting.
+
+By default, the Console enables the IPython [`autoreload` extension](https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.llms.md) for imports. You can change this with the [`python.enableAutoReload`](positron://settings/python.enableAutoReload) setting.
+
+## R
+
+Positron has a deeper and more cohesive integration for R workflows than VS Code. Its approach works seamlessly with R and does not require any extensions for this integration. You can use the Console for interactive R sessions, the Variables pane and [Data Explorer](data-explorer.llms.md) for inspecting data frames, the Plots pane for visualizing plots and other graphics, and the [Help pane](help-pane.llms.md) for quick access to documentation.
+
+### Prerequisites
+
+To use R in Positron, you need to have R installed on your system. Positron automatically detects your R installation and provides full language support.
+
+> **NOTE:**
+>
+> If you have been accustomed to using the `vscode-r` extension in VS Code, be aware that [this extension is not compatible with Positron](extensions.llms.md#non-compatible-extensions). Positron’s native integration means you do not need the `vscode-r` extension; instead, Positron’s built-in features allow you to work with your R code and data.
+
+## Command Palette
+
+If you are familiar with the Command Palette in Visual Studio Code, you will find the experience in Positron very similar. All Positron-specific commands are included, alongside the familiar VS Code commands.
+
+For a detailed overview of the Command Palette, see the [Command palette guide](command-palette.llms.md).
+
+## Help & feedback
+
+You can learn more about Positron features in other guides within this section. If you encounter issues during migration or while using Positron, see the [troubleshooting guide](troubleshooting.llms.md) for common solutions. The [FAQ](faqs.llms.md) provides answers to frequent questions from users who are transitioning from other editors.
+
+Your experience and feedback help to improve Positron. Share your thoughts, report bugs, or suggest features through Positron’s [feedback channels](feedback.llms.md). Your input is valuable in making sure Positron development better serves the data science community.

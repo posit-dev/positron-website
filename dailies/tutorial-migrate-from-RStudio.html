@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Set up Positron so it looks, feels, and responds like the RStudio you already know. A hands-on tutorial for RStudio users.">
+
+<title>Migrate from RStudio to Positron – Positron</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./tutorial-get-started-quarto.html" rel="prev">
+<link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f3c135505f33e53fe344bb8386717ef.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5d08e809a488c539821a6a0813bfd996.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "/"
+  ],
+  "show-item-context": true,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="25dee41d-4924-4490-9c7f-65853d503cd8" data-project-name="Positron" data-modal-title="Positron Docs AI ✨" data-modal-disclaimer="This is a custom LLM for answering questions about using Positron IDE. Answers are based on the contents of our documentation." data-modal-ask-ai-input-placeholder="How do I..." data-modal-example-questions="How do I install Positron?,How do I switch between Python and R interpreters?,How do I use AI in Positron?" data-user-analytics-cookie-enabled="false" data-bot-protection-mechanism="hcaptcha" data-modal-example-questions-col-span="12" data-project-color="#ffffff" data-project-logo="/images/posit-icon-fullcolor.svg" data-font-family="Open Sans, sans-serif" data-hyperlink-color="#447099" data-button-hide="true" data-button-position-bottom="80px" data-button-position-right="25px" data-button-border="solid 1px #ffffff" data-button-text-color="#447099" data-submit-query-button-bg-color="#447099" data-deep-thinking-button-active-bg-color="#eaeaee" data-deep-thinking-button-active-hover-text-color="#447099" data-deep-thinking-button-active-hover-bg-color="#eaeaee" data-deep-thinking-button-active-text-color="#000000" data-modal-override-open-id="custom-ask-ai-button" data-modal-x-offset="0" data-modal-y-offset="0" data-modal-z-index="1031" data-modal-with-overlay="false" data-modal-inner-flex-direction="column" data-modal-inner-justify-content="end" data-modal-inner-max-width="500px" data-modal-inner-position-left="auto" data-modal-inner-position-right="0" data-modal-inner-position-bottom="0" data-modal-inner-position-top="0" data-modal-size="100vh" data-modal-lock-scroll="false"></script>
+<script defer="" file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
+<meta name="robots" content="noindex">
+
+
+<meta property="og:title" content="Migrate from RStudio to Positron – Positron">
+<meta property="og:description" content="Set up Positron so it looks, feels, and responds like the RStudio you already know. A hands-on tutorial for RStudio users.">
+<meta property="og:image" content="https://positron.posit.co/dailies/images/tutorial-migrate-command-palette.png">
+<meta property="og:site_name" content="Positron">
+<meta property="og:image:alt" content="A screenshot of the Positron IDE with the Command Palette open.">
+<meta property="og:image:height" content="1746">
+<meta property="og:image:width" content="2736">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/images/positron-logo_fullcolor-TM.png" alt="Positron Documentation" class="navbar-logo light-content">
+    <img src="./assets/images/positron-logo_fullcolor-TM.png" alt="Positron Documentation" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./features.html"> 
+<span class="menu-text">Features</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./welcome.html"> 
+<span class="menu-text">Guides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./tutorials.html" aria-current="page"> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./troubleshooting.html"> 
+<span class="menu-text">Help</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://posit.co/positron-updates-signup/" target="_blank"><i class="bi bi-envelope" role="img">
+</i> 
+ <span class="dropdown-text">Sign up for updates</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://opensource.posit.co/blog/q/positron/" target="_blank"><i class="bi bi-code-slash" role="img">
+</i> 
+ <span class="dropdown-text">Positron at Posit Open Source</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/blog/?post_tag=positron" target="_blank"><i class="bi bi-box-arrow-up-right" role="img">
+</i> 
+ <span class="dropdown-text">Company Blog Posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/events/?search=positron&amp;poststatus=all" target="_blank"><i class="bi bi-calendar-event" role="img">
+</i> 
+ <span class="dropdown-text">Events</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./download.html"> 
+<span class="menu-text"><span id="top-bar-download-btn" class="btn btn-primary">Download</span></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/posit-dev/positron"> <i class="bi bi-github" role="img" aria-label="Link to Positron Github Repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="javascript:void(0);"> 
+<span class="menu-text"><span id="custom-ask-ai-button">Ask AI ✨</span></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial-migrate-from-RStudio.html">Migrate from RStudio to Positron</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+  <div id="quarto-announcement" data-announcement-id="687d7ef531e974cef1bf7d0f11614fac" class="alert alert-danger hidden"><i class="bi bi-cone-striped quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p>You are viewing the development version of Positron documentation for the dailies (2026.08.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
+</div></div>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial-get-started-ipynb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First data analysis with Python in a Jupyter Notebook</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial-get-started-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First data analysis with R in a Quarto document</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial-migrate-from-RStudio.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Migrate from RStudio to Positron</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#start-with-a-new-habit-the-command-palette" id="toc-start-with-a-new-habit-the-command-palette" class="nav-link active" data-scroll-target="#start-with-a-new-habit-the-command-palette">Start with a new habit: the Command Palette</a></li>
+  <li><a href="#bring-your-keyboard-shortcuts-with-you" id="toc-bring-your-keyboard-shortcuts-with-you" class="nav-link" data-scroll-target="#bring-your-keyboard-shortcuts-with-you">Bring your keyboard shortcuts with you</a></li>
+  <li><a href="#make-positron-feel-familiar" id="toc-make-positron-feel-familiar" class="nav-link" data-scroll-target="#make-positron-feel-familiar">Make Positron feel familiar</a>
+  <ul class="collapse">
+  <li><a href="#open-your-existing-rstudio-projects" id="toc-open-your-existing-rstudio-projects" class="nav-link" data-scroll-target="#open-your-existing-rstudio-projects">Open your existing RStudio projects</a></li>
+  <li><a href="#match-your-layout" id="toc-match-your-layout" class="nav-link" data-scroll-target="#match-your-layout">Match your layout</a></li>
+  <li><a href="#bring-over-your-theme" id="toc-bring-over-your-theme" class="nav-link" data-scroll-target="#bring-over-your-theme">Bring over your theme</a></li>
+  </ul></li>
+  <li><a href="#make-positron-tailored-to-your-workflow" id="toc-make-positron-tailored-to-your-workflow" class="nav-link" data-scroll-target="#make-positron-tailored-to-your-workflow">Make Positron tailored to your workflow</a>
+  <ul class="collapse">
+  <li><a href="#format-your-code-automatically-with-air" id="toc-format-your-code-automatically-with-air" class="nav-link" data-scroll-target="#format-your-code-automatically-with-air">Format your code automatically with Air</a></li>
+  <li><a href="#reuse-code-with-snippets" id="toc-reuse-code-with-snippets" class="nav-link" data-scroll-target="#reuse-code-with-snippets">Reuse code with snippets</a></li>
+  <li><a href="#add-features-with-extensions" id="toc-add-features-with-extensions" class="nav-link" data-scroll-target="#add-features-with-extensions">Add features with extensions</a></li>
+  <li><a href="#run-your-rstudio-addins" id="toc-run-your-rstudio-addins" class="nav-link" data-scroll-target="#run-your-rstudio-addins">Run your RStudio addins</a></li>
+  </ul></li>
+  <li><a href="#know-the-gaps" id="toc-know-the-gaps" class="nav-link" data-scroll-target="#know-the-gaps">Know the gaps</a>
+  <ul class="collapse">
+  <li><a href="#what-is-not-in-positron-and-what-to-do-instead" id="toc-what-is-not-in-positron-and-what-to-do-instead" class="nav-link" data-scroll-target="#what-is-not-in-positron-and-what-to-do-instead">What is not in Positron (and what to do instead)</a></li>
+  <li><a href="#what-positron-does-that-rstudio-cannot" id="toc-what-positron-does-that-rstudio-cannot" class="nav-link" data-scroll-target="#what-positron-does-that-rstudio-cannot">What Positron does that RStudio cannot</a></li>
+  </ul></li>
+  <li><a href="#your-forever-positron-is-ready" id="toc-your-forever-positron-is-ready" class="nav-link" data-scroll-target="#your-forever-positron-is-ready">Your forever Positron is ready</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/tutorial-migrate-from-RStudio.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/tutorial-migrate-from-RStudio.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Migrate from RStudio to Positron</h1>
+</div>
+
+<div>
+  <div class="description">
+    Set up Positron so it looks, feels, and responds like the RStudio you already know. A hands-on tutorial for RStudio users.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Should you take this tutorial first? This tutorial assumes Positron is installed and you have a project open. If that is not the case, start with <a href="./tutorial-get-started-quarto.html">First data analysis with R in a Quarto document</a>. It takes about 15 minutes and leaves you with a project you can configure here.</p>
+</div>
+</div>
+<p>You just finished your first analysis in Positron. If some of it felt unfamiliar compared to RStudio, that is completely normal, and it is exactly what this tutorial fixes.</p>
+<p>You are fast in RStudio because of muscle memory, not because of RStudio itself. In RStudio, you know where everything is. Over the next 20 minutes you will rebuild that familiarity by configuring Positron to be similar to RStudio. Along the way you will meet a few things Positron can do that RStudio cannot.</p>
+<p>We will suggest specific settings that work well for most RStudio users, but you can change these settings however you like. Think of this as your chance to make Positron your personalized IDE.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>RStudio is not going away. It is actively maintained with no deprecation timeline. Moving to Positron is not all-or-nothing. It is fine to use both IDEs side by side, and this tutorial will point out the few tasks where you might still prefer RStudio.</p>
+</div>
+</div>
+<section id="start-with-a-new-habit-the-command-palette" class="level1">
+<h1>Start with a new habit: the Command Palette</h1>
+<p>In RStudio, when you want to do something, you reach for a button, a menu, or a keyboard shortcut you have memorized. Positron has hundreds of commands too, but instead of memorizing where each one lives, you learn one place to find them all: the Command Palette.</p>
+<p>The Command Palette is a searchable list of every IDE command you can run in Positron. Open it with the keyboard shortcut <kbd title="linux: Ctrl-Shift-P, mac: Command-Shift-P, windows: Ctrl-Shift-P" aria-hidden="true" data-linux="Ctrl-Shift-P" data-mac="Command-Shift-P" data-windows="Ctrl-Shift-P"></kbd><span class="visually-hidden"></span>.</p>
+<p>Start typing a keyword and the fuzzy finder shows matching commands. Use the arrow keys to move through them, then press <kbd title="Enter" aria-hidden="true">Enter</kbd><span class="visually-hidden">Enter</span> to run one.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-migrate-command-palette.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Open the Command Palette with  and then search by name or keyword."><img src="images/tutorial-migrate-command-palette.png" class="img-fluid figure-img" alt="A screenshot of the Positron IDE with the Command Palette open."></a></p>
+<figcaption>Open the Command Palette with <kbd title="linux: Ctrl-Shift-P, mac: Command-Shift-P, windows: Ctrl-Shift-P" aria-hidden="true" data-linux="Ctrl-Shift-P" data-mac="Command-Shift-P" data-windows="Ctrl-Shift-P"></kbd><span class="visually-hidden"></span> and then search by name or keyword.</figcaption>
+</figure>
+</div>
+<p>This is the single most valuable habit to build for Positron. For the rest of this tutorial, almost every step starts the same way: open the Command Palette and type what you want. That one reflex replaces most of the buttons you used to hunt for in RStudio. By the end of this tutorial, you will be opening it without thinking.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open the Command Palette, type <em>Toggle Primary Side Bar</em>, and press <kbd title="Enter" aria-hidden="true">Enter</kbd><span class="visually-hidden">Enter</span>.</p>
+<p><strong>You will know it worked when</strong> the side bar on the left disappears. Run the same command again to bring it back. You just did something without touching a single button.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Positron also ships with an interactive <strong>Migrating from RStudio to Positron</strong> walkthrough. Open it anytime from the Command Palette by searching for <em>Welcome: Open Walkthrough</em> and selecting it. Treat it as a quick-reference companion to this tutorial, and notice that you just used the Command Palette to find it.</p>
+</div>
+</div>
+</section>
+<section id="bring-your-keyboard-shortcuts-with-you" class="level1">
+<h1>Bring your keyboard shortcuts with you</h1>
+<p>Your fingers already know <kbd title="linux: Ctrl-Enter, mac: Command-Enter, windows: Ctrl-Enter" aria-hidden="true" data-linux="Ctrl-Enter" data-mac="Command-Enter" data-windows="Ctrl-Enter"></kbd><span class="visually-hidden"></span> to run a line and <kbd title="linux: Ctrl-Shift-M, mac: Command-Shift-M, windows: Ctrl-Shift-M" aria-hidden="true" data-linux="Ctrl-Shift-M" data-mac="Command-Shift-M" data-windows="Ctrl-Shift-M"></kbd><span class="visually-hidden"></span> to insert a pipe. Losing that muscle memory is the productivity fear most RStudio users have, so let us settle it first.</p>
+<p>Many RStudio shortcuts already work in Positron unchanged. You can turn on the full RStudio shortcut set with a single setting. We recommend turning it on if you are mainly familiar with RStudio as your IDE of choice. Enable <a href="positron://settings/workbench.keybindings.rstudioKeybindings"><code>workbench.keybindings.rstudioKeybindings</code></a>, then restart Positron for it to take effect.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open the Command Palette, search for <em>Preferences: Open Settings (UI)</em>, and search the settings for <code>rstudioKeybindings</code>. Turn it on, then restart Positron by running <em>Developer: Reload Window</em> from the Command Palette.</p>
+<p><strong>You will know it worked when</strong> <kbd title="Ctrl-1" aria-hidden="true">Ctrl-1</kbd><span class="visually-hidden">Ctrl-1</span> moves your cursor to the editor and <kbd title="Ctrl-2" aria-hidden="true">Ctrl-2</kbd><span class="visually-hidden">Ctrl-2</span> jumps to the Console after the restart.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-migrate-open-settings.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Open the settings with Preferences: Open Settings (UI)."><img src="images/tutorial-migrate-open-settings.png" class="img-fluid figure-img" alt="The Command Palette displaying _Preferences: Open Settings (UI)_." width="600"></a></p>
+<figcaption>Open the settings with <em>Preferences: Open Settings (UI)</em>.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-migrate-open-keybindings.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Search the settings for rstudioKeybindings and click the box to enable RStudio keyboard shortcuts."><img src="images/tutorial-migrate-open-keybindings.png" class="img-fluid figure-img" alt="The Positron Settings file." width="600"></a></p>
+<figcaption>Search the settings for <code>rstudioKeybindings</code> and click the box to enable RStudio keyboard shortcuts.</figcaption>
+</figure>
+</div>
+<p>Once enabled, these RStudio shortcuts are available in Positron:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><kbd title="Ctrl-1" aria-hidden="true">Ctrl-1</kbd><span class="visually-hidden">Ctrl-1</span></p></td>
+<td>Focus Source</td>
+</tr>
+<tr class="even">
+<td><p><kbd title="Ctrl-2" aria-hidden="true">Ctrl-2</kbd><span class="visually-hidden">Ctrl-2</span></p></td>
+<td>Focus Console</td>
+</tr>
+<tr class="odd">
+<td><p><kbd title="linux: Ctrl-., mac: Command-., windows: Ctrl-." aria-hidden="true" data-linux="Ctrl-." data-mac="Command-." data-windows="Ctrl-."></kbd><span class="visually-hidden"></span></p></td>
+<td>Go to Function/Symbol</td>
+</tr>
+<tr class="even">
+<td><p><kbd title="linux: Ctrl-Shift-C, mac: Command-Shift-C, windows: Ctrl-Shift-C" aria-hidden="true" data-linux="Ctrl-Shift-C" data-mac="Command-Shift-C" data-windows="Ctrl-Shift-C"></kbd><span class="visually-hidden"></span></p></td>
+<td>Comment/Uncomment a line</td>
+</tr>
+<tr class="odd">
+<td><p><kbd title="linux: Ctrl-Shift-N, mac: Command-Shift-N, windows: Ctrl-Shift-N" aria-hidden="true" data-linux="Ctrl-Shift-N" data-mac="Command-Shift-N" data-windows="Ctrl-Shift-N"></kbd><span class="visually-hidden"></span></p></td>
+<td>Create a new R file</td>
+</tr>
+<tr class="even">
+<td><p><kbd title="F2" aria-hidden="true">F2</kbd><span class="visually-hidden">F2</span></p></td>
+<td>Go to definition</td>
+</tr>
+<tr class="odd">
+<td><p><kbd title="linux: Ctrl-I, mac: Command-I, windows: Ctrl-I" aria-hidden="true" data-linux="Ctrl-I" data-mac="Command-I" data-windows="Ctrl-I"></kbd><span class="visually-hidden"></span></p></td>
+<td>Reindent selection</td>
+</tr>
+<tr class="even">
+<td><p><kbd title="linux: Ctrl-Shift-A, mac: Command-Shift-A, windows: Ctrl-Shift-A" aria-hidden="true" data-linux="Ctrl-Shift-A" data-mac="Command-Shift-A" data-windows="Ctrl-Shift-A"></kbd><span class="visually-hidden"></span></p></td>
+<td>Reformat selection</td>
+</tr>
+<tr class="odd">
+<td><p><kbd title="linux: Ctrl-Shift-S, mac: Command-Shift-S, windows: Ctrl-Shift-S" aria-hidden="true" data-linux="Ctrl-Shift-S" data-mac="Command-Shift-S" data-windows="Ctrl-Shift-S"></kbd><span class="visually-hidden"></span></p></td>
+<td>Source the current R script</td>
+</tr>
+<tr class="even">
+<td><p><kbd title="linux: Ctrl-Alt-Shift-M, mac: Command-Option-Shift-M, windows: Ctrl-Alt-Shift-M" aria-hidden="true" data-linux="Ctrl-Alt-Shift-M" data-mac="Command-Option-Shift-M" data-windows="Ctrl-Alt-Shift-M"></kbd><span class="visually-hidden"></span></p></td>
+<td>Rename symbol</td>
+</tr>
+<tr class="odd">
+<td><p><kbd title="linux: Ctrl-Alt-I, mac: Command-Option-I, windows: Ctrl-Alt-I" aria-hidden="true" data-linux="Ctrl-Alt-I" data-mac="Command-Option-I" data-windows="Ctrl-Alt-I"></kbd><span class="visually-hidden"></span></p></td>
+<td>Insert code cell (Quarto)</td>
+</tr>
+<tr class="even">
+<td><p><kbd title="linux: Ctrl-Enter, mac: Command-Enter, windows: Ctrl-Enter" aria-hidden="true" data-linux="Ctrl-Enter" data-mac="Command-Enter" data-windows="Ctrl-Enter"></kbd><span class="visually-hidden"></span></p></td>
+<td>Run current statement (Quarto)</td>
+</tr>
+<tr class="odd">
+<td><p><kbd title="linux: Ctrl-Shift-Enter, mac: Command-Shift-Enter, windows: Ctrl-Shift-Enter" aria-hidden="true" data-linux="Ctrl-Shift-Enter" data-mac="Command-Shift-Enter" data-windows="Ctrl-Shift-Enter"></kbd><span class="visually-hidden"></span></p></td>
+<td>Run current cell (Quarto)</td>
+</tr>
+<tr class="even">
+<td><p><kbd title="linux: Ctrl-Alt-M, mac: Command-Option-M, windows: Ctrl-Alt-M" aria-hidden="true" data-linux="Ctrl-Alt-M" data-mac="Command-Option-M" data-windows="Ctrl-Alt-M"></kbd><span class="visually-hidden"></span></p></td>
+<td>Open version control pane</td>
+</tr>
+<tr class="odd">
+<td><p><kbd title="linux: Ctrl-Alt-←, mac: Command-Option-←, windows: Ctrl-Alt-←" aria-hidden="true" data-linux="Ctrl-Alt-←" data-mac="Command-Option-←" data-windows="Ctrl-Alt-←"></kbd><span class="visually-hidden"></span></p></td>
+<td>Go to previous tab</td>
+</tr>
+<tr class="even">
+<td><p><kbd title="linux: Ctrl-Alt-→, mac: Command-Option-→, windows: Ctrl-Alt-→" aria-hidden="true" data-linux="Ctrl-Alt-→" data-mac="Command-Option-→" data-windows="Ctrl-Alt-→"></kbd><span class="visually-hidden"></span></p></td>
+<td>Go to next tab</td>
+</tr>
+<tr class="odd">
+<td><p><kbd title="linux: Ctrl-D, mac: Command-D, windows: Ctrl-D" aria-hidden="true" data-linux="Ctrl-D" data-mac="Command-D" data-windows="Ctrl-D"></kbd><span class="visually-hidden"></span></p></td>
+<td>Delete the current line</td>
+</tr>
+<tr class="even">
+<td><p><kbd title="linux: Ctrl-Shift-H, mac: Command-Shift-H, windows: Ctrl-Shift-H" aria-hidden="true" data-linux="Ctrl-Shift-H" data-mac="Command-Shift-H" data-windows="Ctrl-Shift-H"></kbd><span class="visually-hidden"></span></p></td>
+<td>Set working directory</td>
+</tr>
+<tr class="odd">
+<td><p><kbd title="linux: Ctrl-Shift-R, mac: Command-Shift-R, windows: Ctrl-Shift-R" aria-hidden="true" data-linux="Ctrl-Shift-R" data-mac="Command-Shift-R" data-windows="Ctrl-Shift-R"></kbd><span class="visually-hidden"></span></p></td>
+<td>Insert section</td>
+</tr>
+<tr class="even">
+<td><p><kbd title="linux: Alt-Shift-K, mac: Option-Shift-K, windows: Alt-Shift-K" aria-hidden="true" data-linux="Alt-Shift-K" data-mac="Option-Shift-K" data-windows="Alt-Shift-K"></kbd><span class="visually-hidden"></span></p></td>
+<td>Open global keybindings list</td>
+</tr>
+</tbody>
+</table>
+<p>Prefer to learn the native Positron shortcuts? Leave this setting off. See <a href="./keyboard-shortcuts.html">Positron keyboard shortcuts</a> and <a href="./guide-r.html#keyboard-shortcuts">R-specific shortcuts</a> for the full reference.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If a command has a keyboard shortcut, the shortcut will be displayed next to the command in the Command Palette. You can edit a command’s keyboard shortcut by clicking the gear icon that appears when you hover over the command in the Command Palette.</p>
+</div>
+</div>
+</section>
+<section id="make-positron-feel-familiar" class="level1">
+<h1>Make Positron feel familiar</h1>
+<p>With the Command Palette and your shortcuts in place, let us make Positron look like home.</p>
+<section id="open-your-existing-rstudio-projects" class="level2">
+<h2 class="anchored" data-anchor-id="open-your-existing-rstudio-projects">Open your existing RStudio projects</h2>
+<p>In RStudio, you open a project by double-clicking its <code>.Rproj</code> file. In Positron, a <strong>workspace</strong> is simply a folder opened in its own window: the same idea, without the special file.</p>
+<p>To open one of your existing projects, use <em>File: Open Folder</em> in the Command Palette (or <strong>File &gt; Open Folder</strong>) and choose the project folder. You can also run <code>positron .</code> from a terminal inside the folder.</p>
+<p>Your existing <code>.Rproj</code> file is safe to leave in place. Positron ignores it. If you use Git, your <code>.git/</code> folder continues to mark the project root for tools like the <a href="https://here.r-lib.org/">here</a> package, so paths keep working exactly as before.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/open-folder.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Various ways to open a folder in Positron, highlighted in orange."><img src="images/open-folder.png" class="img-fluid figure-img" alt="Positron Welcome screen with Open button and folder dropdown highlighted in orange, showing options like New Folder, Open Folder, and recent folders list."></a></p>
+<figcaption>Various ways to open a folder in Positron, highlighted in orange.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open the Command Palette and search for <em>File: Open Recent</em>. Reopen a project you already work in.</p>
+<p><strong>You will know it worked when</strong> the project opens in its own window with your files in the Explorer, no <code>.Rproj</code> required. Rerun <em>File: Open Recent</em> to return to your previous project.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Positron stores project-specific settings in <code>.vscode/settings.json</code>, but only creates that file once you configure something project-specific. There is no Positron equivalent of the <code>.Rproj</code> file, and you do not need one.</p>
+</div>
+</div>
+</section>
+<section id="match-your-layout" class="level2">
+<h2 class="anchored" data-anchor-id="match-your-layout">Match your layout</h2>
+<p>RStudio arranges everything into four fixed panes. Positron uses the same building blocks, an Editor, a Console, and panes for Variables, Plots, and more, but gives you two controls for arranging them:</p>
+<ul>
+<li>The <strong>Activity Bar</strong> (the icon strip on the far left) chooses what the Primary Side Bar shows.</li>
+<li>The <strong>Primary Side Bar</strong> displays context-specific content (files, search, Git, extensions) depending on the active Activity Bar icon.</li>
+</ul>
+<p>Here is how the Activity Bar maps to tools you know from RStudio:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Activity Bar icon</th>
+<th>RStudio equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Explorer <i class="fa-solid fa-copy" aria-label="copy"></i></td>
+<td>Files pane and document Outline</td>
+</tr>
+<tr class="even">
+<td>Search <i class="fa-solid fa-magnifying-glass" aria-label="magnifying-glass"></i></td>
+<td><strong>Edit &gt; Find in Files</strong> or <kbd title="linux: Ctrl-Shift-F, mac: Command-Shift-F, windows: Ctrl-Shift-F" aria-hidden="true" data-linux="Ctrl-Shift-F" data-mac="Command-Shift-F" data-windows="Ctrl-Shift-F"></kbd><span class="visually-hidden"></span></td>
+</tr>
+<tr class="odd">
+<td>Source Control <i class="fa-solid fa-code-branch" aria-label="code-branch"></i></td>
+<td>Git pane (see <a href="./git.html">using Git in Positron</a>)</td>
+</tr>
+<tr class="even">
+<td>Debugger</td>
+<td>Debugging pane when in debugger mode</td>
+</tr>
+<tr class="odd">
+<td>Test Explorer <i class="fa-solid fa-flask" aria-label="flask"></i></td>
+<td>No RStudio equivalent</td>
+</tr>
+<tr class="even">
+<td>Posit Assistant</td>
+<td>Posit Assistant Chat window</td>
+</tr>
+<tr class="odd">
+<td>Publisher</td>
+<td>Publishing Wizard</td>
+</tr>
+<tr class="even">
+<td>Packages</td>
+<td>Packages pane</td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/user-interface-for-rstudio-migration.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Interface of the Positron IDE"><img src="images/user-interface-for-rstudio-migration.jpeg" class="img-fluid figure-img" alt="A screenshot with labelled boxes around the Activity bar, Primary side bar, Editor, Panel, and Secondary sidebar."></a></p>
+<figcaption>Interface of the Positron IDE</figcaption>
+</figure>
+</div>
+<p>The Positron layout is more flexible than the RStudio layout. We recommend starting from a built-in preset and adjusting from there.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open the Command Palette and type <code>layout</code>. Try the <strong>Stacked</strong>, <strong>Side-by-Side</strong>, and <strong>Notebook</strong> presets.</p>
+<p><strong>You will know it worked when</strong> the panes rearrange instantly. Keep the one that feels most like your RStudio setup. You can also drag any pane to a new spot.</p>
+</div>
+</div>
+<p>You can also adjust the layout with the icons at the top right of Positron, drag tabs from one pane to another, or resize panes by dragging their borders.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-layout-buttons.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Layout buttons"><img src="images/tutorial-layout-buttons.png" class="img-fluid figure-img" alt="A screenshot of Positron with the layout buttons at the top right of the IDE labelled."></a></p>
+<figcaption>Layout buttons</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>See <a href="./layout.html">Customize the Layout</a> for the full set of options.</p>
+</div>
+</div>
+</section>
+<section id="bring-over-your-theme" class="level2">
+<h2 class="anchored" data-anchor-id="bring-over-your-theme">Bring over your theme</h2>
+<p>A familiar color scheme goes a long way. If you like the default RStudio editor colors, install the <a href="https://open-vsx.org/extension/gvelasq/tomorrow-night-bright-r-classic">Tomorrow Night Bright (R Classic)</a> theme (see <a href="#add-features-with-extensions">Add features with extensions</a> below). Otherwise, Positron ships with dozens of built-in themes.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open the Command Palette and search for <em>Preferences: Color Theme</em>. Use the arrow keys to move through the list.</p>
+<p><strong>You will know it worked when</strong> the whole editor recolors live as you move, a small taste of how much Positron previews before you commit. Press <kbd title="Enter" aria-hidden="true">Enter</kbd><span class="visually-hidden">Enter</span> on the one you want.</p>
+</div>
+</div>
+<p>The video below shows how to preview color themes with <em>Preferences: Color Theme</em>.</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="Use _Preferences: Color Theme_ to preview color themes."><source src="videos/tutorial-migrate-color-themes.mp4"></video></div>
+</section>
+</section>
+<section id="make-positron-tailored-to-your-workflow" class="level1">
+<h1>Make Positron tailored to your workflow</h1>
+<p>Now that Positron feels familiar, let us set up a few things that go beyond what RStudio offers.</p>
+<section id="format-your-code-automatically-with-air" class="level2">
+<h2 class="anchored" data-anchor-id="format-your-code-automatically-with-air">Format your code automatically with Air</h2>
+<p>In RStudio you might reformat code by hand or run <a href="https://styler.r-lib.org/">styler</a>. Positron bundles <a href="https://posit-dev.github.io/air/">Air</a>, an R formatter, for <code>.R</code>, <code>.qmd</code>, and <code>.Rmd</code> files.</p>
+<ul>
+<li>To format a file, open the Command Palette and run <em>Format Document</em>.</li>
+<li>To format a selection, run <em>Format Selection</em>.</li>
+</ul>
+<p>We recommend enabling Format on Save so your code is tidied automatically every time you save, with no shortcut to remember.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open the Command Palette, search for <em>Preferences: Open Settings (UI)</em>, and turn on <a href="positron://settings/editor.formatOnSave"><code>editor.formatOnSave</code></a>. Then open an R file, add some messy spacing, and save with <kbd title="linux: Ctrl-S, mac: Command-S, windows: Ctrl-S" aria-hidden="true" data-linux="Ctrl-S" data-mac="Command-S" data-windows="Ctrl-S"></kbd><span class="visually-hidden"></span>.</p>
+<p><strong>You will know it worked when</strong> Air snaps the code into clean formatting the instant you save.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>See the <a href="https://posit-dev.github.io/air/">Air documentation</a> for details on choosing a user vs.&nbsp;workspace setting.</p>
+</div>
+</div>
+</section>
+<section id="reuse-code-with-snippets" class="level2">
+<h2 class="anchored" data-anchor-id="reuse-code-with-snippets">Reuse code with snippets</h2>
+<p>Code snippets insert ready-made templates for common code patterns. For example, typing <code>for</code> and selecting the snippet inserts this skeleton:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (variable <span class="cf">in</span> vector) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># code to repeat</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Press <kbd title="Tab" aria-hidden="true">Tab</kbd><span class="visually-hidden">Tab</span> to jump between the placeholders for <code>variable</code>, <code>vector</code>, and <code># code to repeat</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/snippets-for-example.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Completion list after typing “for”, showing the snippet that can be inserted"><img src="images/snippets-for-example.png" class="img-fluid figure-img" alt="Positron completion list after typing 'for', showing the for-loop snippet available to insert." width="700"></a></p>
+<figcaption>Completion list after typing “for”, showing the snippet that can be inserted</figcaption>
+</figure>
+</div>
+<p>Positron provides snippets for R’s reserved words (<code>if</code>, <code>while</code>, <code>for</code>, <code>function</code>) out of the box.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In an R file, type <code>for</code> and select the snippet from the completion list. Press <kbd title="Tab" aria-hidden="true">Tab</kbd><span class="visually-hidden">Tab</span> to move through each placeholder.</p>
+<p><strong>You will know it worked when</strong> the cursor jumps cleanly from <code>variable</code> to <code>vector</code> to the body.</p>
+</div>
+</div>
+<p>To add your own snippets, open the Command Palette and run <em>Snippets: Configure Snippets</em>. Positron uses the <a href="https://code.visualstudio.com/docs/editing/userdefinedsnippets">TextMate snippet syntax</a>, which differs from the RStudio format. You can find the default RStudio snippets already translated to the Positron syntax in <a href="https://github.com/posit-dev/ark/blob/19337a1b41e8c5a3a77ac61db93b7c6bf6cdc8a3/crates/ark/resources/snippets/r.code-snippets"><code>r.code-snippets</code></a> on GitHub.</p>
+</section>
+<section id="add-features-with-extensions" class="level2">
+<h2 class="anchored" data-anchor-id="add-features-with-extensions">Add features with extensions</h2>
+<p>Extensions let you add features to Positron beyond its defaults. In this way, they are like RStudio addins, but the Extensions marketplace is far larger. Open the Extensions view from the Activity Bar, or run <em>Extensions: Focus on Extensions View</em> from the Command Palette. Then search for an extension by name or keyword.</p>
+<p>Here are some popular picks for R users:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Extension</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://open-vsx.org/extension/gvelasq/tomorrow-night-bright-r-classic">Tomorrow Night Bright (R Classic)</a></td>
+<td>RStudio dark theme ported to Positron</td>
+</tr>
+<tr class="even">
+<td><a href="https://open-vsx.org/extension/oderwat/indent-rainbow">Indent-Rainbow</a></td>
+<td>Colorized indentation</td>
+</tr>
+<tr class="odd">
+<td><a href="https://open-vsx.org/extension/mechatroner/rainbow-csv">Rainbow CSV</a></td>
+<td>Colorized CSV file editing</td>
+</tr>
+<tr class="even">
+<td><a href="https://open-vsx.org/extension/GitHub/vscode-github-actions">GitHub Actions</a></td>
+<td>Interact with GitHub Actions from the IDE</td>
+</tr>
+<tr class="odd">
+<td><a href="https://open-vsx.org/extension/GitLab/gitlab-workflow">GitLab Workflow</a></td>
+<td>GitLab support</td>
+</tr>
+<tr class="even">
+<td><a href="https://open-vsx.org/extension/alefragnani/project-manager">Project Manager</a></td>
+<td>Quickly switch between projects</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open the Command Palette, run <em>Extensions: Focus on Extensions View</em>, and search for “Tomorrow Night Bright (R Classic)”. Click <strong>Install</strong>.</p>
+<p><strong>You will know it worked when</strong> you can select it from <em>Preferences: Color Theme</em> and your editor takes on the classic RStudio dark mode colors. Scroll to <strong>Light</strong> to return to the default Posit colors.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-migrate-extensions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="How to find and install an extension from the marketplace."><img src="images/tutorial-migrate-extensions.png" class="img-fluid figure-img" alt="A screenshot of Positron with the Extension Manager in focus."></a></p>
+<figcaption>How to find and install an extension from the marketplace.</figcaption>
+</figure>
+</div>
+<p>You can also <a href="./extension-development.html">create your own extensions</a> with TypeScript and JavaScript, going well beyond what RStudio addins can do.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Many software companies provide free extensions that let you run their software inside Positron, such as SAS, Snowflake, Databricks, and DuckDB. If you use specific software in your workflow, check for it in the Extension Marketplace.</p>
+</div>
+</div>
+</section>
+<section id="run-your-rstudio-addins" class="level2">
+<h2 class="anchored" data-anchor-id="run-your-rstudio-addins">Run your RStudio addins</h2>
+<p>Positron supports most <a href="https://rstudio.github.io/rstudio-extensions/rstudio_addins.html">RStudio addins</a> through shims for the <a href="https://rstudio.github.io/rstudioapi/">rstudioapi</a> package. To run one, open the Command Palette and run <em>R: Run RStudio Addin</em>. For example, with the <a href="https://reprex.tidyverse.org/">reprex</a> package installed, you can launch its addin to build a reproducible example.</p>
+</section>
+</section>
+<section id="know-the-gaps" class="level1">
+<h1>Know the gaps</h1>
+<p>Part of migrating confidently is knowing exactly where the edges are, so nothing surprises you later.</p>
+<section id="what-is-not-in-positron-and-what-to-do-instead" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-not-in-positron-and-what-to-do-instead">What is not in Positron (and what to do instead)</h2>
+<p>A few RStudio features are not yet in Positron. If any of these are essential to your workflow, it is perfectly reasonable to keep using RStudio for that task:</p>
+<ul>
+<li><strong>Saving and reloading workspace state on R restart.</strong> Positron starts each session clean. Rely on your scripts to rebuild state.</li>
+<li><strong>Dedicated panes and buttons for code profiling and package development.</strong> The underlying tooling still works from the Console and Command Palette.</li>
+<li><strong>A data import widget.</strong> Follow progress on <a href="https://github.com/posit-dev/positron/issues/5515">GitHub</a>. In the meantime, use <code>readr</code> or <code>readxl</code> in code.</li>
+</ul>
+</section>
+<section id="what-positron-does-that-rstudio-cannot" class="level2">
+<h2 class="anchored" data-anchor-id="what-positron-does-that-rstudio-cannot">What Positron does that RStudio cannot</h2>
+<p>And here is what you gain by making the move:</p>
+<ul>
+<li>Positron gives you easy access to <a href="./r-installations.html">multiple R versions</a> and <a href="./managing-interpreters.html">multiple concurrent R sessions</a> in one window.</li>
+<li>If a session crashes, you can open a new one without restarting the IDE.</li>
+<li>Python is a first-class citizen, with data science support on par with R and the ability to run R and Python in the same session.</li>
+<li>An integrated <a href="./data-explorer.html">Data Explorer</a> works with data frames and files such as CSV and Parquet.</li>
+<li>A large third-party extension marketplace provides tools from providers like SAS, Snowflake, and Databricks.</li>
+<li><a href="./remote-ssh.html">Remote sessions</a> in Posit Workbench keep the UI local while compute runs on a remote server.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you ever miss a button or pane from RStudio, check the Command Palette first. Almost every action in Positron lives there, and your familiar keyboard shortcuts usually work too.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="your-forever-positron-is-ready" class="level1">
+<h1>Your forever Positron is ready</h1>
+<p>You have rebuilt your home. The Command Palette is your one-stop shortcut, your keyboard muscle memory carries over, and your layout and theme feel familiar. Your code even formats itself on save. You did it all in the project you already work in. This is your setup now.</p>
+<p>From here, dig deeper into the tools you might use every day:</p>
+<ul>
+<li><a href="./guide-r.html">Working with R in Positron</a></li>
+<li><a href="./quarto.html">Quarto documents</a></li>
+<li><a href="./data-explorer.html">The Data Explorer</a></li>
+<li><a href="./command-palette.html">The Command Palette</a></li>
+<li><a href="./migrate-rstudio.html">Migrating from RStudio</a></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Next steps
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To keep going, explore the <a href="./welcome.html">Guides</a> for in-depth documentation on everything Positron can do.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/positron\.posit\.co\/dailies");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./tutorial-get-started-quarto.html" class="pagination-link" aria-label="First data analysis with R in a Quarto document">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">First data analysis with R in a Quarto document</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://posit.co/">
+<p><img class="posit-footer-logo" alt="Posit" src="./images/posit-logo-black-TM.svg">Copyright © 2022-2026 Posit Software, PBC. All Rights Reserved.</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+<p>Positron 2026.08.0 (development version)</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/tutorial-migrate-from-RStudio.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/tutorial-migrate-from-RStudio.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://support.posit.co/">
+<p>Support</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./licensing.html">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://posit.co/about/privacy-policy/">
+<p>Privacy Policy</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>videojs(video_shortcode_videojs_video1);</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

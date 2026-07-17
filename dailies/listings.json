@@ -1,0 +1,47 @@
+[
+  {
+    "listing": "/welcome.html",
+    "items": []
+  },
+  {
+    "listing": "/release-notes.html",
+    "items": [
+      "/release-notes/release-2026-06.html",
+      "/release-notes/release-2026-05.html",
+      "/release-notes/release-2026-04.html",
+      "/release-notes/release-2026-03.html",
+      "/release-notes/release-2026-02.html",
+      "/release-notes/release-2026-01.html",
+      "/release-notes/release-2025-12.html",
+      "/release-notes/release-2025-11.html",
+      "/release-notes/release-2025-10.html",
+      "/release-notes/release-2025-09.html",
+      "/release-notes/release-2025-08.html",
+      "/release-notes/release-2025-07.html"
+    ]
+  },
+  {
+    "listing": "/features.html",
+    "items": []
+  },
+  {
+    "listing": "/assistant-getting-started.html",
+    "items": []
+  },
+  {
+    "listing": "/ai-features.html",
+    "items": []
+  },
+  {
+    "listing": "/assistant.html",
+    "items": []
+  },
+  {
+    "listing": "/language-guides.html",
+    "items": []
+  },
+  {
+    "listing": "/tutorials.html",
+    "items": []
+  }
+]

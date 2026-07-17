@@ -1,0 +1,95 @@
+# Context
+
+Give Positron Assistant context from your data, plots, Console activity, and files. Learn how to attach relevant context for smarter AI assistance.
+
+> **WARNING:**
+>
+> This page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by [Posit Assistant](https://assistant.posit.co) as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.
+>
+> If you are on Positron 2026.07 or later, see the [Posit Assistant documentation](https://assistant.posit.co) to get set up with Posit Assistant. For background on this change, see [The history of Posit’s data science agents](https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents).
+
+> **NOTE:**
+>
+> Posit Assistant handles context in its own way. See [Context management](https://assistant.posit.co/docs/features/context-management/) in the Posit Assistant documentation.
+
+Positron Assistant goes beyond reading your code files. It also accesses your loaded data, plots, and Console activity by calling tools and executing code in your R or Python interpreter session or running commands in the Terminal.
+
+This access allows Assistant to provide more relevant coding guidance based on:
+
+- **In-memory data**: Names, dimensions, and column names of dataframes, plus metadata for arrays, lists, and other objects in memory
+- **Current plot**: The most recent plot in the Plots pane
+- **Console history**: Code inputs and outputs, with the ability to execute new code and see results
+- **Workspace information**: Project structure, files, and version control history
+
+## Attach context
+
+Providing useful context to Positron Assistant is crucial for getting accurate and relevant responses.
+
+By default, the active editor file and the active interpreter session (if any) are attached as context for your chat messages in the chat pane.
+
+To include additional attachments as context for your prompts:
+
+- Click the paperclip button in the chat pane
+- Choose from options such as:
+  - **Files & Folders**: specific files or folders in your workspace.
+  - **Source Control**: commits from your version control history.
+  - **Tools**: specific tools you would like Assistant to use.
+
+For more information on attaching context to your chat message, refer to the [Add context to your prompt](https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features#_add-context-to-your-prompt) VS Code documentation.
+
+## Interpreter session context
+
+By default, Positron Assistant can see the active R or Python interpreter session in the chat pane. The Chat input box displays the active Console session as an attachment.
+
+When an interpreter session is attached, Positron Assistant can access:
+
+- Code inputs and outputs in that session
+- In-memory objects and dataframes in the Variables pane
+- The active plot in the Plots pane
+- Tool calls that require the interpreter session
+
+### Switch the attached interpreter session
+
+1.  Click the interpreter session in the Console pane to make it active.
+2.  Positron Assistant automatically updates to use the newly active interpreter session.
+
+### Toggle the visibility of the active interpreter session
+
+In the chat pane, click the eye button on the interpreter session attachment to toggle whether Assistant can access the session data.
+
+- : When the eye icon appears without a slash through it, the interpreter session is visible.
+- : When the eye icon has a slash through it, the interpreter session is hidden.
+
+### Attach an interpreter session
+
+1.  Click the paperclip button in the chat pane
+2.  Choose “Interpreter Sessions…” to select an interpreter session to attach.
+
+## Source control context
+
+If your workspace uses Git source control, Positron Assistant can access your commit history and generate commit messages in the Source Control pane.
+
+### Commit history context
+
+Include commit history in your chat session in the following ways:
+
+- [Add context attachments](#add-context-attachments) and select “Source Control…” to attach a commit.
+- Include the text `#changes` as part of your prompt, to include recent changes on the current branch.
+
+### Generate commit messages
+
+From the Source Control pane, you can use Positron Assistant to generate commit messages for your staged changes.
+
+1.  Open the Source Control pane (*Source Control: Focus on Changes View* in the Command Palette).
+2.  Ensure you have staged changes to commit.
+3.  Click the sparkles icon in the commit message input box.
+4.  Positron Assistant will analyze your staged changes and generate a commit message.
+
+## Settings
+
+- [`chat.implicitSessionContext.enabled`](positron://settings/chat.implicitSessionContext.enabled): Configure whether Positron Assistant automatically attaches the active interpreter session in the chat pane.
+  - To disable the interpreter session context in the chat pane by default, change the configuration for `panel` to `never`. You will still be able to [Attach an interpreter session](#attach-an-interpreter-session) if needed.
+- [`chat.implicitContext.enabled`](positron://settings/chat.implicitContext.enabled): Configure whether Positron Assistant automatically attaches the active editor in the chat pane.
+  - To disable the active editor context in the chat pane by default, change the configuration for `panel` to `never`. You will still be able to [add context attachments](#add-context-attachments) for files if needed.
+- [`positron.assistant.gitIntegration.enable`](positron://settings/positron.assistant.gitIntegration.enable): Configure whether Positron Assistant can access Git source control context, such as commit history, and whether commit messages can be generated in the Source Control pane.
+- [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes): Files matching these patterns will not have their contents sent to AI providers for inline completions or chat context.

@@ -1,0 +1,40 @@
+# Frequently Asked Questions
+
+Get answers to common questions about Positron: supported languages, RStudio differences, enterprise options, and more.
+
+### What programming languages are supported in Positron?
+
+- R and Python are first-class supported languages via efforts here at Posit.
+- Additional languages typically used in package development are supported via existing third party extensions. These don’t make use of the full Positron data science experience including an interactive console, plots, and similar. Some examples include Rust, Javascript/Typescript, C/C++, or Lua.
+- Positron provides public APIs for additional data science languages to be supported in the future.
+- Native SQL support is on our roadmap, initially targeting syntax highlighting, autocomplete, and code execution.
+
+### How is Positron different from RStudio, VS Code, or Jupyter notebooks?
+
+- Positron has first-class, built-in support for R and/or Python via an integrated **Console**, with extensibility options for other languages in the future. This native support includes specialized views and panes throughout Positron such as a [Data Explorer](data-explorer.llms.md), [**Connections** pane](connections-pane.llms.md), [**Variables** pane](variables-pane.llms.md), and more.
+- Positron runs the interpreter separately from the IDE, so unlike in RStudio a crash in R/Python won’t always crash the IDE. It also means that you can swap between versions of your preferred language on the fly without a full reload of the IDE, just the integrated console.
+- Positron supports VS Code compatible extensions (`.vsix` files), providing extensibility of capabilities beyond the core IDE itself. By building on Code OSS, Positron gets rich text editor capabilities and access to 1,000s of community extensions out of the box. [Read more about using extensions with Positron](extensions.llms.md).
+- Positron is deeply focused on native data science workflows; it provides a batteries-included and cohesive experience beyond that of a general-purpose IDE or text editor such as VS Code.
+- Positron Assistant is our native GenAI client and offers novel data science and Positron-specific context compared to other IDE AI tooling. We provide a data-science-centric IDE and allow the LLM to interact with the most important parts of Positron to get better context for better results! This includes providing optional information such as the active R/Python session state, defined dataframe or other objects, viewing plots from the **Plots** pane, and the **Console** inputs and outputs.
+
+### How can I use Positron with a server?
+
+- Positron is available as a free desktop app for Windows, MacOS, and Linux. This desktop app includes [support for remote SSH sessions](remote-ssh.llms.md), allowing you to connect to remote Linux servers for scaling or data access purposes.  
+- The native browser or server-based version of Positron is only available via [Posit Workbench](https://posit.co/products/enterprise/workbench/). Posit Workbench provides enterprise-grade features such as access to highly scalable compute, single-sign on security, native authorization to data governance tools such as Databricks or Snowflake, container-backed sessions, multi-session capabilities, and more.
+- Remote SSH and Posit Workbench features are supported on RHEL 8, 9, and 10 and Ubuntu 22/24. However, we plan to expand this set of Linux distributions. Full Posit Team platform support is available on the [Posit Platform Support page](https://docs.posit.co/platform-support.llms.md#positron-pro-sessions-in-workbench).
+
+### Why build a new IDE rather than VS Code extensions?
+
+- Our aspirations for Positron go far beyond what is possible via only extensions. Ultimately, VS Code’s Extension API doesn’t provide enough leverage to modify the main “workbench” surface.
+- To deliver a truly excellent data science experience, we need to change and augment core components and UI elements that are outside the scope of VS Code’s extension API.  
+- We have developed some components as extensions for use in both Positron and VS Code, such as Quarto and Shiny for R/Python. However, given the additional API surface in Positron, we plan to progressively enhance these and future extensions when installed in Positron.
+
+### Is RStudio going away?
+
+- No, we are committed to maintaining and updating RStudio. RStudio is very mature, stable software, and we intend to prioritize security, stability, priority bug fixes, and targeted improvements over an emphasis on sweeping novel feature development. Given our opportunity to make progress in parallel on a new platform, the bulk of large-scale, new features will go into Positron.  
+- We are developing Positron as part of our mission to support open-source data science in multiple languages, including R and Python.  
+- If you are new to R or RStudio, we recommend starting with Positron. However, if you’re currently using RStudio and are happy with the experience, you can continue to enjoy RStudio. RStudio includes 10+ years of applied optimizations for R data analysis and package development.  
+- While Positron and RStudio have some features in common, some R-focused features will remain exclusive to RStudio. For example:
+  - RStudio has deeper support for Sweave and R Markdown compared to our targeted focus on Quarto in Positron, although Positron does support rendering R Markdown documents as well.  
+  - RStudio is extensible only via RStudio add-ins, and while Positron supports some of the same, existing RStudio add-ins, not all are supported. Rather than doubling down on the more limited RStudio add-in capabilities for novel integrations, we suggest exploring [extension development and our Positron API endpoints](extension-development.llms.md).  
+  - We do *not* plan to have a `.Rproj` equivalent for Positron (e.g., a `.positronproj`), but rather Positron can open and treat any folder as a “project” or workspace. We still suggest project-oriented workflows, and for more context, please see: [Migrating from RStudio: The Rproj File](migrate-rstudio-rproj.llms.md).

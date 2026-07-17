@@ -1,0 +1,48 @@
+# Feedback and Issues
+
+Share feedback, report bugs, and contribute to Positron development. Connect with the team through GitHub Discussions and issue tracking.
+
+## Giving feedback
+
+Most feedback should start in [GitHub Discussions](https://github.com/posit-dev/positron/discussions). This is a great place to share ideas, ask questions, and get feedback from the team.
+
+We’re particularly interested in feedback on the following:
+
+- Questions about functionality
+- Reports for issues, warts, and roadblocks
+- Things you find interesting, pleasant, or irritating
+- Troubleshooting
+- Ideas for features
+- What’s missing
+- What works for you
+- What doesn’t
+
+## Reporting issues
+
+If you find a bug, please [open an issue](https://github.com/posit-dev/positron/issues/new/choose).
+
+### Before filing an issue
+
+- If you’re not sure if it’s a bug or not, ask via [GitHub Discussions](https://github.com/posit-dev/positron/discussions).
+- Search the issue tracker for related issues; your issue may already have been reported. If it has, don’t move on; add a note describing your experience to the existing issue.
+- We lock older issues. If you believe you have found a problem related to a locked issue, please open a new issue, linking to the original one.
+- Try to prepare a mininally reproducible test case.
+
+### Filing an issue
+
+When filing an issue, please include the following:
+
+- The exact version of Positron you’re using (from *Positron \> About Positron* or *Help \> About*).
+- Steps to reproduce the issue.
+- What you saw happen, and what you *expected* to see happen.
+- Any relevant error logs from the Developer Tools console.
+
+### After filing an issue
+
+We’re a small team, so it may take some time for us to follow up! Watch your issue for questions or clarifications from the team.
+
+If your issue is fixed by the Positron team, don’t close it yourself; someone from the team will close the issue once we’ve verified the fix internally.
+
+## Share your success story
+
+We’d love to hear how you’re using Positron! Whether you’ve streamlined your workflow, completed an exciting project, or discovered a feature you love, [share your testimonial](https://forms.gle/DRCf8wgbaafz5fcG8) to help others learn about the possibilities with Positron.

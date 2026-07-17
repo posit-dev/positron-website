@@ -1,0 +1,41 @@
+# Privacy
+
+Learn about Positron’s privacy practices and data collection. Understand what information is collected, why, and how to opt out of telemetry.
+
+## Positron data collection
+
+Posit Software, PBC is committed to protecting your privacy. Our [Privacy Policy](https://posit.co/about/privacy-policy/) applies to the information that we obtain through your use of our products and/or services and our websites, including <https://positron.posit.co>.
+
+### Why do we collect data?
+
+Posit uses this information anonymously and in aggregate to determine how often our products are used and which data science features are important to our users. This helps us prioritize feature improvements or novel features in future versions of our product.
+
+### What information do we collect?
+
+#### Website and download data
+
+When you visit our website or download our software, Posit logs network access information. Positron also includes in-product features that periodically check for new versions of the product or its extensions. These access logs include common information about the client, including the operating system, browser type, randomly generated UUID, IP address, referral sources, timestamp, and URI accessed.
+
+- To stop Positron checking for product updates, choose `none` for the [`update.mode`](positron://settings/update.mode) setting.
+- To stop Positron collecting a randomly generated UUID during update checks, disable the [`update.anonymousUsageReporting`](positron://settings/update.anonymousUsageReporting) setting.
+- To stop Positron checking for extension updates, disable the [`extensions.autoCheckUpdates`](positron://settings/extensions.autoCheckUpdates) setting.
+
+#### Primary language reporting
+
+Positron also includes an option to share the primary data science languages in use, such as Python and/or R.
+
+- To stop Positron sharing the primary data science languages in use, disable the [`update.primaryLanguageReporting`](positron://settings/update.primaryLanguageReporting) setting.
+
+### What information do we NOT collect?
+
+#### AI usage
+
+Posit does not track, collect, or store your prompts, code or conversations when using AI features within Positron (i.e. Assistant, Databot, etc) with external model providers. However, your AI model provider (such as [Anthropic](assistant-provider-info.llms.md#anthropic) or [GitHub Copilot](assistant-provider-info.llms.md#github-copilot)) may collect data according to their own privacy policies and terms of service. Please review your provider’s data practices for details on what information they collect and how it’s used.
+
+#### Your work
+
+Posit does not collect, store, or transmit the contents of your code files or data unless you explicitly share them with us (such as when submitting diagnostic logs for support).
+
+#### Voluntary information sharing
+
+If you choose to share diagnostic logs or other information with Posit for troubleshooting purposes, that information will be handled in accordance with [Posit’s Privacy Policy](https://posit.co/about/privacy-policy/).
