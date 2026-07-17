@@ -1,0 +1,119 @@
+name: Build and deploy
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # Only cancel superseded runs for PRs; let main-branch publishes finish.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    name: Render docs
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Get Quarto version
+        id: get-quarto-version
+        run: |
+          QUARTO_VERSION=$(grep 'version = ' netlify.toml | sed 's/.*version = "v\?\([^"]*\)".*/\1/')
+          echo "quarto_version=${QUARTO_VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: ${{ steps.get-quarto-version.outputs.quarto_version }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # No R or Python needed: computed pages are served from committed _freeze.
+      - name: Render public Positron docs
+        uses: quarto-dev/quarto-actions/render@v2
+        env:
+          QUARTO_PROFILE: positron
+
+      - name: Upload _site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site
+
+      # Dailies (dev docs) are only published from main, so only build them there.
+      - name: Render dailies docs
+        if: github.event_name == 'push'
+        uses: quarto-dev/quarto-actions/render@v2
+        env:
+          QUARTO_PROFILE: dailies,positron
+
+      - name: Upload _site-dailies artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-dailies
+          path: _site-dailies
+
+  preview:
+    name: Deploy PR preview to Netlify
+    needs: build
+    # PRs only, and skip fork PRs since they can't access secrets.
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      deployments: write
+    steps:
+      - name: Download _site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: _site
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: _site
+          production-deploy: false
+          deploy-message: "Preview for PR #${{ github.event.number }}"
+          alias: pr-${{ github.event.number }}
+          enable-pull-request-comment: true
+          enable-commit-comment: false
+          github-deployment-environment: preview
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        timeout-minutes: 5
+
+  publish-dailies:
+    name: Publish dailies to gh-pages
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download _site-dailies artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-dailies
+          path: _site-dailies
+
+      # keep_files preserves the released site at the root (and CNAME); this job
+      # only ever touches the dailies/ subdirectory.
+      - name: Publish to gh-pages under /dailies
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site-dailies
+          destination_dir: dailies
+          keep_files: true
