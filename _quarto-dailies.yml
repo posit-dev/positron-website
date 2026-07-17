@@ -1,0 +1,28 @@
+# Overlay profile for the dev docs served at positron.posit.co/dailies
+# Not a standalone profile: activate together with positron, with dailies
+# listed first so its values take priority for scalar options:
+#   QUARTO_PROFILE=dailies,positron quarto render
+
+project:
+  output-dir: _site-dailies
+
+website:
+  site-url: https://positron.posit.co/dailies
+  announcement:
+    icon: cone-striped
+    dismissable: false
+    type: danger
+    position: below-navbar
+    content: |
+      You are viewing the development version of Positron documentation for the dailies ({{< env NEXT_RELEASE >}}).
+      Some features described here are not yet available in the latest regular release.
+      [Go to the released documentation](https://positron.posit.co/).
+
+  page-footer:
+    center: "Positron {{< env NEXT_RELEASE >}} (development version)"
+
+format:
+  html:
+    include-in-header:
+      - text: |
+          <meta name="robots" content="noindex">

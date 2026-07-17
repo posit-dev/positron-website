@@ -20,7 +20,9 @@ The site has two Quarto profiles defined in `_quarto.yml`:
 - **positron** (`_quarto-positron.yml`): Full public documentation site, outputs to `_site/`
 - **workbench** (`_quarto-workbench.yml`): Subset for Workbench bundled docs, excludes download/install pages, outputs to `_site-workbench/`
 
-New pages will likely need to be added to both profile config files.
+There is also a **dailies** overlay (`_quarto-dailies.yml`) for the dev docs served at positron.posit.co/dailies, built from `main` on every merge. It is not a standalone profile: activate it together with positron, listed first so its values win for scalar options (`QUARTO_PROFILE=dailies,positron quarto render`). It only contains deltas from the positron profile (output to `_site-dailies/`, `/dailies` site URL, an announcement banner, a `NEXT_RELEASE` footer version, and a noindex meta tag), so it has no navbar/sidebar config of its own.
+
+New pages will likely need to be added to both the positron and workbench profile config files (not the dailies overlay).
 
 **Videos are excluded from the workbench profile.** A Lua filter (`_extensions/video-filter/`) automatically removes video elements when building for workbench. Use the standard `{{< video >}}` shortcode; videos will appear in the public site but not in the workbench bundle.
 
