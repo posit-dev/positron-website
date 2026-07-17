@@ -15,3 +15,6 @@
 
 **/*.quarto_ipynb
 __pycache__/
+
+# Local Netlify folder
+.netlify
