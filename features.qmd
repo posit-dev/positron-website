@@ -26,8 +26,8 @@ listing:
       - title: "Accelerate insights with AI-powered assistance"
         description: "Enhance code quality and accelerate insights with integrated AI assistance contextualized for data science."
         icon: "bi-robot"
-        link: "assistant.qmd"
-        anchor-text: "Assistant & Databot"
+        link: "ai-features.qmd"
+        anchor-text: "AI features"
   - id: features-speed-2
     type: custom
     template: templates/feature-card.ejs

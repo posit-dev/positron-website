@@ -62,6 +62,16 @@ The Source Control view in Positron shows all your changed files and makes it ea
 
 **Learn more:** [Staging and committing code changes](https://code.visualstudio.com/docs/sourcecontrol/intro-to-git#_staging-and-committing-code-changes)
 
+### Generate commit messages with AI {#generate-commit-messages}
+
+If you are signed in to a [language model provider](assistant-getting-started.qmd), Positron can draft a commit message from your changes. Stage the changes you want included (Positron uses all changes if nothing is staged), then select the sparkle icon {{< fa sparkles >}} in the commit message box in the Source Control view.
+
+To disable AI commit message generation, set [`git.suggestions.enabled`](positron://settings/git.suggestions.enabled) to `false`. See [Configure AI features](ai-configuration.qmd) for other ways to turn AI features on and off.
+
+By default, Positron uses a fast, low-cost model to generate commit messages. To pick a different one, run _Git: Select Git Suggestions Model_ from the Command Palette, or set [`git.suggestions.model`](positron://settings/git.suggestions.model) to a list of patterns to try in order, e.g., `["haiku", "flash"]`.
+
+If both GitHub Copilot and Positron AI features are enabled, each adds its own button to the commit message box. Use the dropdown to choose which one to use.
+
 ### Syncing with remote repositories
 
 When working with a remote repository like GitHub, you can sync changes between your local and remote repositories:

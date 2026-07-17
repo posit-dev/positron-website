@@ -8,7 +8,7 @@ Positron connects to a range of language model providers. To connect one, run th
 
 This page covers what each provider needs: the account to have ready, how you authenticate, and any Positron settings to configure first.
 
-Please ensure you consult your provider's privacy policy and terms of service for information on the data they collect and how it is used. For reference links, see the [Provider Privacy Information](assistant-provider-info.qmd) guide.
+Please ensure you consult your provider's privacy policy and terms of service for information on the data they collect and how it is used. For reference links, see the [Privacy & Terms](assistant-provider-info.qmd) guide.
 
 ## Posit AI
 

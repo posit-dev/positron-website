@@ -72,9 +72,9 @@ The Positron Notebook Editor integrates with [Posit Assistant](assistant.qmd) to
 
 ### Enable Posit Assistant
 
-To use the integrated notebook AI features, set up Posit Assistant. See the [Assistant Getting Started](assistant-getting-started.qmd) guide for setup instructions. We recommend using Anthropic as a model provider for the best experience.
+To use the integrated notebook AI features, first configure a language model provider. See the [Getting Started](assistant-getting-started.qmd) guide for more details. We recommend using Anthropic for the best experience.
 
-Once enabled, you will see assistant specific actions in the notebook editor action bar.
+Once you are signed in, you will see assistant specific actions in the notebook editor action bar. To disable notebook AI features, set [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled) to `false`. See [Configure AI features](ai-configuration.qmd) for other ways to turn AI features on and off.
 
 ![The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle.](images/positron-notebook-assistant-action-bar.png){fig-alt="Notebook action bar showing the Assistant icon button."}
 
@@ -91,6 +91,17 @@ From the panel, you can:
 - **Generate suggestions**: View dynamically generated suggestions based on the current state of the notebook
 
 Selecting an option from the panel will open a new [**Chat** pane](assistant-chat.qmd) with the notebook context already attached.
+
+### Fix and explain cell errors {#notebook-fix-and-explain}
+
+When a cell fails to run, Positron shows **Fix** and **Explain** buttons right on the error output. Choose one to send the error to Assistant for immediate help:
+
+- **Fix:** Assistant diagnoses the error and suggests a corrected version of your code.
+- **Explain:** Assistant describes what your code does, analyzes the error, and suggests possible solutions, without editing your notebook.
+
+{{< video videos/notebook-fix-error.mp4 aria-label="Using Fix and Explain on a notebook cell error" >}}
+
+The main button starts a new chat with the error attached as context. Use the dropdown arrow next to it to send the error to your current chat instead.
 
 ### Ghost cell suggestions (experimental)
 
@@ -121,7 +132,7 @@ When the Assistant is actively editing cells in your notebook, you may want to w
 
 #### Assistant
 
-- [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled): Enable or disable all AI features in the Notebook Editor, including ghost cell suggestions, the Notebook Assistant panel, Visualize, and cell Fix & Explain actions. Enabled by default. Note: notebook AI features are active only when both `notebook.ai.enabled` and [`ai.enabled`](positron://settings/ai.enabled) are `true`.
+- [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled): Enable or disable all AI features in the Notebook Editor, including ghost cell suggestions, the Notebook Assistant panel, Visualize, and [cell Fix & Explain actions](#notebook-fix-and-explain). Enabled by default. Note: notebook AI features are active only when both `notebook.ai.enabled` and [`ai.enabled`](positron://settings/ai.enabled) are `true`.
 - [`positron.assistant.notebook.suggestions.model`](positron://settings/positron.assistant.notebook.suggestions.model): Set the model used when generating AI suggestions in notebooks.
 - [`positron.assistant.notebook.deletionSentinel.show`](positron://settings/positron.assistant.notebook.deletionSentinel.show): Show deletion sentinels when cells are deleted. When disabled, cells are deleted immediately without undo placeholders. Enabled by default.
 - [`positron.assistant.notebook.deletionSentinel.timeout`](positron://settings/positron.assistant.notebook.deletionSentinel.timeout): Time in milliseconds before deletion sentinels auto-dismiss (0 to disable auto-dismiss).

@@ -1,6 +1,6 @@
 ---
-title: "AI Model Provider Privacy Information"
-description: "Information about data handling, privacy, and terms of service for AI model providers used for AI features in Positron."
+title: "Privacy & terms"
+description: "Data handling, privacy, and terms of service for AI model providers used for AI features in Positron."
 ---
 
 ::: {.callout-note}
@@ -11,7 +11,7 @@ When you use AI features in Positron, Positron might share data including your p
 
 Please review your providers' websites directly for complete and updated details on their data practices and terms of service. This list might not be up to date.
 
-Any Provider is considered "Third Party Materials" as defined in the [Posit End User License Agreement](https://posit.co/about/eula/) and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.
+## Providers
 
 ### Posit AI
 
@@ -74,3 +74,5 @@ Posit AI is Posit's own hosted service, so Posit's own policies apply rather tha
 ### Custom Provider
 
 The custom provider connects to any OpenAI-compatible endpoint you configure, so its data handling and terms depend entirely on the provider you choose. Review that provider's own privacy policy and terms of service directly.
+
+{{< include _assistant-privacy-terms.qmd >}}

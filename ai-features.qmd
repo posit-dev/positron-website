@@ -1,0 +1,39 @@
+---
+title: "AI features"
+description: "Overview of the AI features available in Positron."
+toc: false
+listing:
+  - id: ai-features
+    type: custom
+    template: templates/welcome-card.ejs
+    contents:
+      - title: "Posit Assistant"
+        description: "Chat about your code, Console sessions, and in-memory objects."
+        icon: "bi-chat-text"
+        link: "assistant.qmd"
+      - title: "Completions"
+        description: "Inline code suggestions as you type, powered by Posit AI NES or GitHub Copilot."
+        icon: "bi-cursor-text"
+        link: "assistant-completions.qmd"
+      - title: "Notebook AI features"
+        description: "Notebook-aware AI that understands your cells, outputs, and execution history."
+        icon: "bi-journal-code"
+        link: "positron-notebook-editor.qmd#ai-integration"
+      - title: "Console fix and explain"
+        description: "Fix and explain errors from your R and Python Console sessions."
+        icon: "bi-terminal"
+        link: "managing-interpreters.qmd#console-fix-and-explain"
+      - title: "Quarto fix and explain"
+        description: "Fix and explain errors from Quarto chunks running with inline output."
+        icon: "bi-file-earmark-code"
+        link: "quarto-inline-output.qmd#quarto-fix-and-explain"
+      - title: "Git commit messages"
+        description: "Generate a commit message for your staged changes from the Source Control pane."
+        icon: "bi-git"
+        link: "git.qmd#generate-commit-messages"
+---
+
+AI features in Positron help you write, understand, and debug code. To start using them, follow the [Get started](assistant-getting-started.qmd) guide.
+
+::: {#ai-features}
+:::

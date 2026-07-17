@@ -6,18 +6,18 @@ listing:
     type: custom
     template: templates/welcome-card.ejs
     contents:
-      - title: "Posit Assistant features"
-        description: "Commands, skills, memory, plan mode, and more."
+      - title: "Posit Assistant"
+        description: "Chat about your code, Console sessions, and in-memory objects."
         icon: "bi-chat-text"
-        link: "assistant.qmd#features"
-      - title: "Notebook AI assistance"
-        description: "Notebook-aware AI that understands your cells, outputs, and execution history."
-        icon: "bi-journal-code"
-        link: "positron-notebook-editor.qmd#ai-integration"
+        link: "assistant.qmd"
       - title: "Code completions"
-        description: "Receive code suggestions directly in your Editor or Notebook."
+        description: "Get inline code suggestions as you type in the editor or a notebook."
         icon: "bi-cursor-text"
         link: "assistant-completions.qmd"
+      - title: "All AI features"
+        description: "Learn more about AI features in Positron."
+        icon: "bi-robot"
+        link: "ai-features.qmd"
 ---
 
 To use AI in Positron, first configure a language model provider, then start using AI features such as Posit Assistant. Follow the steps below to get set up.
@@ -42,7 +42,7 @@ To connect a provider, run the command _Authentication: Configure Language Model
 | [Google Gemini](assistant-providers.qmd#gemini-code-assist) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [Gemini Enterprise Agent Platform](assistant-providers.qmd#gemini-enterprise-agent-platform) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | Google Cloud CLI or Service Account Credentials |
 
-Please ensure you consult your provider's privacy policy for information on the data they collect and how they use it. For reference links, see the [Provider Privacy Information](assistant-provider-info.qmd) guide.
+Please ensure you consult your provider's privacy policy for information on the data they collect and how they use it. For reference links, see the [Privacy & Terms](assistant-provider-info.qmd) guide.
 
 {{< include _privacy-link.qmd >}}
 
@@ -50,27 +50,7 @@ Please ensure you consult your provider's privacy policy for information on the 
 
 With a language model provider configured, you can use AI throughout Positron. To start a chat, run the _View: Show Posit Assistant_ command in the Command Palette to open the chat panel.
 
-For the full Posit Assistant configuration guide and feature documentation, see the [Posit Assistant documentation](https://assistant.posit.co/docs/getting-started/).
-
 ::: {#ai-features}
 :::
 
-## Disable AI features {#disable-ai-features}
-
-To turn off all Positron AI features at once, set [`ai.enabled`](positron://settings/ai.enabled) to `false`. This overrides individual feature settings and disables:
-
-- Posit Assistant
-- Posit AI Next Edit Suggestions (NES)
-- Notebook AI features
-- Console Fix & Explain
-- GitHub Copilot (Chat, Completions)
-
-To disable a specific feature without affecting others:
-
-| Setting | Features Affected |
-|---------|------------------|
-| [`assistant.enabled`](positron://settings/assistant.enabled) | [Posit Assistant](https://assistant.posit.co) (set to `false` to disable) |
-| [`nextEditSuggestions.enabled`](positron://settings/nextEditSuggestions.enabled) | [Posit AI NES](assistant-completions.qmd#posit-ai-nes) (set to `{ "*": false }` to disable) |
-| [`github.copilot.enable`](positron://settings/github.copilot.enable) | [GitHub Copilot Code Completions](assistant-completions.qmd#github-copilot) (set to `{ "*": false }` to disable) |
-| [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled) | [Notebook AI features](positron-notebook-editor.qmd#ai-integration) (set to `false` to disable) |
-| [`console.assistantActions.enabled`](positron://settings/console.assistantActions.enabled) | [Console Fix & Explain](assistant-chat.qmd#managing-console-actions) (set to `false` to disable) |
+To control which AI features are active, or to turn them off, see [Configure AI features](ai-configuration.qmd).
