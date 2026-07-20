@@ -29,7 +29,7 @@ To disable a specific feature without affecting others:
 |---------|------------------|
 | [`assistant.enabled`](positron://settings/assistant.enabled) | [Posit Assistant](https://assistant.posit.co) (set to `false` to disable) |
 | [`nextEditSuggestions.enabled`](positron://settings/nextEditSuggestions.enabled) | [Posit AI NES](assistant-completions.qmd#posit-ai-nes) (set to `{ "*": false }` to disable) |
-| [`github.copilot.enable`](positron://settings/github.copilot.enable) | [GitHub Copilot Ghost-text Completions and Next Edit Suggestions](assistant-completions.qmd#github-copilot) (set to `{ "*": false }` to disable both ) |
+| [`github.copilot.enable`](positron://settings/github.copilot.enable) | [GitHub Copilot ghost-text completions and Next Edit Suggestions](assistant-completions.qmd#github-copilot) (set to `{ "*": false }` to disable both) |
 | [`github.copilot.nextEditSuggestions.enabled`](positron://settings/github.copilot.nextEditSuggestions.enabled) | Built-in [GitHub Copilot Next Edit Suggestions](assistant-completions.qmd#github-copilot) (set to `false` to disable) |
 | [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled) | [Notebook AI features](positron-notebook-editor.qmd#ai-integration) (set to `false` to disable) |
 | [`console.assistantActions.enabled`](positron://settings/console.assistantActions.enabled) | [Console Fix & Explain](managing-interpreters.qmd#console-fix-and-explain) (set to `false` to disable) |
@@ -37,6 +37,6 @@ To disable a specific feature without affecting others:
 
 ## GitHub Copilot chat {#github-copilot-chat}
 
-Positron hides the built-in GitHub Copilot chat interface by default, since Posit Assistant is the default chat experience in Positron. This does not affect GitHub Copilot [ghost-text completions or next edit suggestions (NES)](assistant-completions.qmd#github-copilot). Both stay available whenever you [sign in to GitHub Copilot as a provider](assistant-providers.qmd#github-copilot).
+Positron hides the built-in GitHub Copilot chat interface by default, since Posit Assistant is the default chat experience in Positron. This does not affect GitHub Copilot [ghost-text completions or Next Edit Suggestions (NES)](assistant-completions.qmd#github-copilot). Both stay available whenever you [sign in to GitHub Copilot as a provider](assistant-providers.qmd#github-copilot).
 
 To bring back the built-in GitHub Copilot chat UI, set [`chat.disableAIFeatures`](positron://settings/chat.disableAIFeatures) to `false`.
