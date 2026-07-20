@@ -134,8 +134,12 @@ Use the model name and deployment identifier from your Foundry resource for each
 - **Account:** a GitHub account with Copilot enabled
 - **Authentication:** sign in through your browser with OAuth
 
+To sign in, use the _Authentication: Configure Language Model Providers_ command, select GitHub Copilot, and sign in. If you already have a GitHub session from another extension, this asks you to confirm reusing it for Assistant; otherwise it starts a new browser sign-in flow.
+
+To sign out, use the {{< fa circle-user >}} **Accounts** icon or run the _Accounts: Manage Accounts_ command. Unlike signing in, this signs you out for all features in Positron that use your GitHub account, such as the Git or GitHub Pull Requests extensions.
+
 ::: {.callout-note}
-You can also sign in to GitHub via the {{< fa circle-user >}} **Accounts** icon in the Activity Bar. To sign out, use the Accounts icon or run the _Accounts: Manage Accounts_ command. The Accounts section manages your GitHub authentication for all extensions that use GitHub, not just AI features.
+Signing in to GitHub through the {{< fa circle-user >}} **Accounts** icon in the Activity Bar, for example for Git or GitHub Pull Requests, does not sign you in to GitHub Copilot for AI features.
 :::
 
 ### Get GitHub Copilot access
