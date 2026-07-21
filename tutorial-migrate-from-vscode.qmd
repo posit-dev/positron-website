@@ -77,7 +77,7 @@ Open the Extensions view and search for an extension you like, such as `Rainbow 
 :::
 
 ::: {.callout-note}
-If an extension you rely on is missing, it might not be published to Open VSX. You can ask its author to [publish it to Open VSX](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md). See [Add features with extensions](extensions.qmd) for the full picture.
+If an extension you rely on is missing, it might not be published to Open VSX. You can ask its author to [publish it to Open VSX](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md). See [Extensions](extensions.qmd) for the full picture.
 :::
 
 # Meet the Console
@@ -106,7 +106,7 @@ mpg.shape
 
 Positron lets you run several Console sessions at once, each on a different Python version or environment. That makes it simple to answer a common question: will the code in my cell also run somewhere else?
 
-Say you want to confirm your analysis works on a different Python version, or in a coworker's environment. Open a second Console session on that interpreter and run the same code. Both sessions stay open, and the **Interpreter picker** in the top right shows which one is active.
+Say you want to confirm your analysis works on a different Python version, or in a coworker's environment. Open a second Console session for that additional interpreter and run the same code. Both sessions stay open, and the **Interpreter picker** in the top right shows which one is active.
 
 ::: {.callout-tip title="Try it now"}
 If you have more than one Python interpreter available, open the Interpreter picker in the top right (or run _Interpreter: Start New Console Session_) and start a session on a different interpreter. Run `from plotnine.data import mpg` again there.
@@ -180,7 +180,7 @@ GitHub Copilot is a preview provider. For account requirements and other provide
 
 # Let Positron manage your Python environments
 
-In VS Code you often install a Python version yourself and then point the editor at it. Positron does more of this for you.
+In VS Code you often install a Python version yourself and then point the editor at it. Positron can do more of this for you.
 
 Positron discovers the interpreters and virtual environments already on your system automatically, including those created with venv, uv, pyenv, conda, and others. Run _Interpreter: Start New Console Session_ to see the interpreters available in your session. If you create a new environment that it does not pick up, run _Interpreter: Discover All Interpreters_ to refresh the list.
 
