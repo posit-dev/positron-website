@@ -16,15 +16,15 @@ listing:
         icon: "bi-code-slash"
         link: "tutorial-get-started-quarto.qmd"
         columns: 2
+      - title: "Migrate from VS Code to Positron"
+        description: "You already know the VS Code interface. Learn what is different in Positron and how it makes a better editor for data science."
+        icon: "bi-signpost-2"
+        link: "tutorial-migrate-from-vscode.qmd"
+        columns: 2
       - title: "Migrate from RStudio to Positron"
         description: "Set up Positron so it looks, feels, and responds like the RStudio you already know."
         icon: "bi-luggage"
         link: "tutorial-migrate-from-RStudio.qmd"
-        columns: 2
-      - title: "Migrate from VS Code to Positron"
-        description: "You already know the VS Code interface. Learn what is different in Positron and how it makes a better editor for data science."
-        icon: "bi-microsoft"
-        link: "tutorial-migrate-from-vscode.qmd"
         columns: 2
 ---
 
