@@ -27,7 +27,7 @@ What is different is everything Positron adds for data science:
 
 Over the next 20 minutes you will bring your VS Code setup to Positron, then meet the tools that make Positron more than a general-purpose editor.
 
-::: {.callout-note}
+::: {.callout-important}
 You do not have to give up VS Code. Positron keeps the extensions and settings you install separate from your VS Code installation, and they will not interfere with it. You can use both editors side by side.
 :::
 
