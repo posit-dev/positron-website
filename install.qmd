@@ -21,7 +21,8 @@ If you're using Windows, make sure you have the [latest Visual C++ Redistributab
 ### Python setup
 Positron works with [actively supported versions](https://devguide.python.org/versions/#versions) of Python.
 
-If you don't have a valid Python version available, Positron [can install one for you](python-installations.qmd#automatic-uv-installation). If you'd rather use an existing environment, Positron will make it easily available to use, provided it meets the [qualifications](python-installations.qmd).
+If you do not have a valid Python version available, Positron [can install one for you](python-installations.qmd#automatic-uv-installation).
+If you prefer to use an existing environment, Positron makes it easily available to use, provided it meets the [qualifications](python-installations.qmd).
 
 ### R setup
 
