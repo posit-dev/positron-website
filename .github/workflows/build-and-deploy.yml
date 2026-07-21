@@ -88,10 +88,11 @@ jobs:
           enable-pull-request-comment: true
           enable-commit-comment: false
           github-deployment-environment: preview
+          # The action reads the token from this input, not from env.
+          github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         timeout-minutes: 5
 
   publish-dailies:
