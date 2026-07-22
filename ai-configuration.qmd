@@ -5,6 +5,10 @@ description: "Configure the AI features in Positron, including turning individua
 
 Once you have [set up a language model provider](assistant-getting-started.qmd), you can configure how AI features behave in Positron.
 
+::: {.callout-note}
+[`ai.enabled`](positron://settings/ai.enabled) is `true` by default, but AI functionality is only active once you have authenticated with a language model provider.
+:::
+
 ## Turn features on or off
 
 You can turn off individual features or disable all AI features at once.
