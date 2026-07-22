@@ -194,9 +194,7 @@ When Positron detects a `pyproject.toml` or `requirements.txt` in a project with
 
 # Know the gaps
 
-Migrating confidently means knowing where the edges are. For VS Code users, the main one is the marketplace:
-
-- Extensions that contain proprietary Microsoft code are not available, because Microsoft licenses them only for its own VS Code product. Open source extensions, which cover the great majority of data science tooling, work in Positron. If a specific extension matters to your workflow, check whether it is published to [Open VSX](https://open-vsx.org/) before you rely on it.
+Migrating confidently means knowing where the edges are. For VS Code users, the main one is the marketplace. Extensions that contain proprietary Microsoft code are not available, because Microsoft licenses them only for its own VS Code product. Open source extensions, which cover the great majority of data science tooling, work in Positron. If a specific extension matters to your workflow, check whether it is published to [Open VSX](https://open-vsx.org/) before you rely on it.
 
 Beyond that, most of what you know transfers directly, and much of what you set up by hand in VS Code, Positron provides out of the box.
 
