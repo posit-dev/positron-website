@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Understand how Positron discovers and manages Python installations. Covers automatic uv installation and support for uv, pyenv, conda, venv, pipenv, poetry, and more environment managers.">
+<meta name="description" content="Understand how Positron discovers and manages Python installations. Covers automatic uv installation and support for uv, pyenv, conda, venv, and more environment managers.">
 
 <title>Discovering Python Installations – Positron</title>
 <style>
@@ -46,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7f3c135505f33e53fe344bb8386717ef.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5d08e809a488c539821a6a0813bfd996.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d9b94bce6a9f9753cbd3274b88b79024.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Discovering Python Installations – Positron">
-<meta property="og:description" content="Understand how Positron discovers and manages Python installations. Covers automatic uv installation and support for uv, pyenv, conda, venv, pipenv, poetry, and more environment managers.">
+<meta property="og:description" content="Understand how Positron discovers and manages Python installations. Covers automatic uv installation and support for uv, pyenv, conda, venv, and more environment managers.">
 <meta property="og:image" content="https://positron.posit.co/dailies/images/positron-social.png">
 <meta property="og:site_name" content="Positron">
 <meta property="og:image:height" content="1080">
@@ -839,15 +839,15 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#what-is-uv" id="toc-what-is-uv" class="nav-link" data-scroll-target="#what-is-uv">What is uv?</a></li>
   </ul></li>
-  <li><a href="#environment-creation-and-discovery" id="toc-environment-creation-and-discovery" class="nav-link" data-scroll-target="#environment-creation-and-discovery">Environment creation and discovery</a>
+  <li><a href="#environment-creation-and-discovery-timing" id="toc-environment-creation-and-discovery-timing" class="nav-link" data-scroll-target="#environment-creation-and-discovery-timing">Environment creation and discovery timing</a>
   <ul class="collapse">
   <li><a href="#creating-new-environments" id="toc-creating-new-environments" class="nav-link" data-scroll-target="#creating-new-environments">Creating new environments</a></li>
   <li><a href="#discovering-existing-environments" id="toc-discovering-existing-environments" class="nav-link" data-scroll-target="#discovering-existing-environments">Discovering existing environments</a></li>
   </ul></li>
-  <li><a href="#discovery-process-details" id="toc-discovery-process-details" class="nav-link" data-scroll-target="#discovery-process-details">Discovery process details</a>
+  <li><a href="#other-details" id="toc-other-details" class="nav-link" data-scroll-target="#other-details">Other details</a>
   <ul class="collapse">
+  <li><a href="#ipython-kernel" id="toc-ipython-kernel" class="nav-link" data-scroll-target="#ipython-kernel">IPython kernel</a></li>
   <li><a href="#unsupported-python-versions" id="toc-unsupported-python-versions" class="nav-link" data-scroll-target="#unsupported-python-versions">Unsupported Python versions</a></li>
-  <li><a href="#locator-type" id="toc-locator-type" class="nav-link" data-scroll-target="#locator-type">Locator type</a></li>
   </ul></li>
   <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a>
   <ul class="collapse">
@@ -874,7 +874,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Understand how Positron discovers and manages Python installations. Covers automatic uv installation and support for uv, pyenv, conda, venv, pipenv, poetry, and more environment managers.
+    Understand how Positron discovers and manages Python installations. Covers automatic uv installation and support for uv, pyenv, conda, venv, and more environment managers.
   </div>
 </div>
 
@@ -891,7 +891,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This guide explains how Python installations are discovered and managed in Positron.</p>
+<p>This guide explains how Positron discovers and manages Python installations. For using Python in Positron, see our <a href="./guide-python.html">Python language guide</a>.</p>
 <section id="python-installation-discovery" class="level2">
 <h2 class="anchored" data-anchor-id="python-installation-discovery">Python installation discovery</h2>
 <p>Positron uses multiple strategies to discover Python interpreters and virtual environments across your system. The discovery process includes both global Python installations and various virtual environment managers.</p>
@@ -904,39 +904,79 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>pyenv</strong>: Python installations managed by <code>pyenv</code>, including virtual environments</li>
 <li><strong>conda</strong>: Conda environments created with <code>conda create</code> or <code>mamba create</code>, as well as pixi environments created with <code>pixi init</code></li>
 </ul>
-<p>Other tools may also be compatible, although they are not officially supported.</p>
+<p>Other tools might also be compatible, although Positron does not officially support them.</p>
 </section>
 <section id="discovery-locations" class="level3">
 <h3 class="anchored" data-anchor-id="discovery-locations">Discovery locations</h3>
-<p>Positron searches for Python interpreters in the following locations:</p>
-<p><strong>Virtual environments</strong></p>
+<p>Positron searches for Python installations in the following locations. In general, it is best to use an environment that is highest in this list. Read more about <a href="https://realpython.com/python-virtual-environments-a-primer/#why-do-you-need-virtual-environments">why virtual environments matter</a>.</p>
+<section id="project-environments" class="level4">
+<h4 class="anchored" data-anchor-id="project-environments">1. Project environments</h4>
+<p>Environments associated with the open project, if you have a project folder open. In particular, Positron finds any environment at the root of the open project (for example, <code>.venv/</code> or <code>.conda/</code> folders).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you do not have a project open, Positron does not find any project environments, like project <code>.venv/</code> folders. In general, Positron does not look across your whole system for all project-level virtual environments. Open a project folder to use that project’s environment.</p>
+</div>
+</div>
+</section>
+<section id="global-environments" class="level4">
+<h4 class="anchored" data-anchor-id="global-environments">2. Global environments</h4>
+<p>Positron also discovers other named environments on your system, including:</p>
 <ul>
-<li><code>.venv/</code> and <code>.conda/</code> folders in your <a href="https://code.visualstudio.com/docs/editing/workspaces/workspaces#_singlefolder-workspaces">workspace</a> directory</li>
-<li>Tool-managed project-specific installations in locations like <code>~/.local/share/virtualenvs</code> or where <code>conda</code> stores envs</li>
+<li>Custom configured environments (see the <a href="#discovery-location-settings">discovery settings</a>)</li>
+<li>Environments in <code>/opt/python</code></li>
+<li>Environments in well-known venv homes, including <code>$WORKON_HOME</code>, <code>~/.venvs</code>, <code>~/.virtualenvs</code>, and <code>~/.local/share/virtualenvs</code></li>
+<li>Conda-managed named environments</li>
 </ul>
-<p><strong>Global Python installations</strong></p>
+</section>
+<section id="base-interpreters" class="level4">
+<h4 class="anchored" data-anchor-id="base-interpreters">3. Base interpreters</h4>
+<p>Standalone, pip-writable installs. Use these installations as seeds for new virtual environments rather than modifying them:</p>
 <ul>
-<li>System Python installations in standard locations like the user’s <code>PATH</code></li>
-<li><code>/opt/python</code></li>
-<li>Tool-managed installation locations like <code>~/.pyenv</code> or <code>~/.local/share/uv/python/</code></li>
+<li>Installations from pyenv, python.org, or the Windows registry or store</li>
+<li>Environment-module interpreters</li>
 </ul>
-<p>Note that using a system Python installation in a new session can lead to problems (see the official <a href="https://packaging.python.org/en/latest/specifications/externally-managed-environments/">guidance</a> about this). For that reason, we recommend using virtual environments.</p>
-<p><strong>Custom locations</strong></p>
+</section>
+<section id="system-or-externally-managed-interpreters" class="level4">
+<h4 class="anchored" data-anchor-id="system-or-externally-managed-interpreters">4. System or externally managed interpreters</h4>
+<p>Base interpreters that you can only use for seeding virtual environments:</p>
 <ul>
-<li>Interpreters listed in the <a href="positron://settings/python.interpreters.include"><code>python.interpreters.[include,exclude,override]</code></a> settings (see <a href="#related-settings">Related Settings</a> below for details)</li>
+<li>System interpreters like <code>/usr/bin</code> or Homebrew-installed</li>
+<li>Tool-managed base interpreters, like the uv or conda base interpreters</li>
 </ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using a system Python installation in a new session can lead to problems (see the official <a href="https://packaging.python.org/en/latest/specifications/externally-managed-environments/">guidance</a> about this). For that reason, we recommend using virtual environments.</p>
+</div>
+</div>
+</section>
 </section>
 </section>
 <section id="automatic-uv-installation" class="level2">
 <h2 class="anchored" data-anchor-id="automatic-uv-installation">Automatic uv installation</h2>
-<p>If you do not have a valid Python available, Positron provides the option to install Python via <a href="https://docs.astral.sh/uv/">uv</a> to provide an improved Python environment management experience. When Positron starts, it searches for Python on your machine and gives the option install uv if you have no Python or only system Pythons available.</p>
-<p>You can control Positron’s uv installation and usage through a variety of ways:</p>
+<p>Positron provides the option to install Python via <a href="https://docs.astral.sh/uv/">uv</a> to provide an improved Python environment management experience. If you have no Python or only system Pythons, Positron offers to install uv from the <strong>Start New Console Session</strong> dropdown.</p>
+<p>You can control uv installation and usage in Positron in a variety of ways:</p>
 <ul>
-<li><strong>Disable uv installation</strong>: To never see this installation option, set <a href="positron://settings/python.allowUvPythonInstall"><code>python.allowUvPythonInstall</code></a> to <code>false</code></li>
-<li><strong>Use existing uv</strong>: If you have uv already installed system-wide, Positron will use your existing installation</li>
-<li><strong>Manual installation</strong>: You can also <a href="https://docs.astral.sh/uv/getting-started/installation/">install uv manually</a> if you prefer to manage it yourself</li>
+<li><strong>Disable uv installation</strong>: To never see this installation option, set <a href="positron://settings/python.allowUvPythonInstall"><code>python.allowUvPythonInstall</code></a> to <code>false</code>.</li>
+<li><strong>Use existing uv</strong>: If you have uv already installed system-wide, Positron uses your existing installation.</li>
+<li><strong>Manual installation</strong>: You can also <a href="https://docs.astral.sh/uv/getting-started/installation/">install uv yourself</a> if you prefer to manage it directly.</li>
 </ul>
-<p>uv is not needed to run Positron. Positron will look for other environment managers like <code>venv</code> and <code>conda</code>, regardless of uv’s availability.</p>
+<p>You do not need uv to run Positron. Positron looks for other environment managers like <code>venv</code> and <code>conda</code>, regardless of whether uv is available.</p>
 <section id="what-is-uv" class="level3">
 <h3 class="anchored" data-anchor-id="what-is-uv">What is uv?</h3>
 <p><a href="https://docs.astral.sh/uv/">uv</a> is a modern Python package manager that provides:</p>
@@ -949,8 +989,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Positron uses uv to enhance Python workflows, including creating environments, installing packages, and managing Python versions.</p>
 </section>
 </section>
-<section id="environment-creation-and-discovery" class="level2">
-<h2 class="anchored" data-anchor-id="environment-creation-and-discovery">Environment creation and discovery</h2>
+<section id="environment-creation-and-discovery-timing" class="level2">
+<h2 class="anchored" data-anchor-id="environment-creation-and-discovery-timing">Environment creation and discovery timing</h2>
 <section id="creating-new-environments" class="level3">
 <h3 class="anchored" data-anchor-id="creating-new-environments">Creating new environments</h3>
 <p>You can create new Python environments directly from Positron using the <em>Python: Create Environment</em> command:</p>
@@ -964,7 +1004,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>conda</strong>: Creates a conda environment (if conda is available)</li>
 </ul></li>
 </ol>
-<p>The environment will be created in your workspace and automatically discovered.</p>
+<p>Positron creates the environment in your workspace and automatically discovers it.</p>
 <p>You can also use the <a href="./folder-templates.html#new-folder-from-template">New Folder From Template feature</a> to create a new Python project, and set up an environment as part of the project.</p>
 </section>
 <section id="discovering-existing-environments" class="level3">
@@ -973,42 +1013,36 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>You open Positron</li>
 <li>You open a new workspace folder</li>
-<li>Certain file system changes are detected in watched directories</li>
-<li>You manually refresh using the <em>Interpreter: Discover All Interpreters</em> command</li>
+<li>Positron detects certain file system changes in watched directories</li>
+<li>You refresh using the <em>Interpreter: Discover All Interpreters</em> command</li>
 </ul>
-<p>The discovery process runs in the background and updates the interpreter list as new environments are found.</p>
+<p>The discovery process runs in the background and updates the interpreter list as Positron finds new environments.</p>
 </section>
 </section>
-<section id="discovery-process-details" class="level2">
-<h2 class="anchored" data-anchor-id="discovery-process-details">Discovery process details</h2>
+<section id="other-details" class="level2">
+<h2 class="anchored" data-anchor-id="other-details">Other details</h2>
+<section id="ipython-kernel" class="level3">
+<h3 class="anchored" data-anchor-id="ipython-kernel">IPython kernel</h3>
+<p>Positron requires the <a href="https://pypi.org/project/ipykernel/">IPython kernel</a> (version 6.19.1 or higher) to communicate with Python. By default, Positron bundles the IPython kernel for the CPython implementation (the standard Python implementation) and adds it to the <a href="https://docs.python.org/3/library/sys_path_init.html">Python search path</a>. This means you can use new environments immediately after Positron creates them, without installing extra dependencies.</p>
+<p>If you prefer finer control over your Python environment, set the <a href="positron://settings/python.useBundledIpykernel"><code>python.useBundledIpykernel</code></a> setting to false. If you do that or are using an implementation other than CPython, install the IPython kernel yourself with <code>pip install ipykernel</code>.</p>
+</section>
 <section id="unsupported-python-versions" class="level3">
 <h3 class="anchored" data-anchor-id="unsupported-python-versions">Unsupported Python versions</h3>
-<p>Positron only supports Python minor versions 3.9 through 3.14, which are the <a href="https://devguide.python.org/versions/">currently supported versions</a>. Other versions may be discovered, but you may run into issues using them.</p>
-</section>
-<section id="locator-type" class="level3">
-<h3 class="anchored" data-anchor-id="locator-type">Locator type</h3>
-<p>Positron can use two different discovery mechanisms:</p>
-<ul>
-<li><strong>Native locator</strong> (default): Uses a native binary for faster discovery</li>
-<li><strong>JavaScript locator</strong>: Pure TypeScript implementation</li>
-</ul>
-<p>You can control this with the <a href="positron://settings/python.locator"><code>python.locator</code></a> setting (<code>"js"</code> or <code>"native"</code>).</p>
+<p>Positron supports the <a href="https://devguide.python.org/versions/">supported versions</a> of Python, and might continue to support end-of-life versions for a time after. Positron can discover other versions, but you might run into issues using them.</p>
 </section>
 </section>
 <section id="troubleshooting" class="level2">
 <h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
 <section id="environment-not-appearing" class="level3">
 <h3 class="anchored" data-anchor-id="environment-not-appearing">Environment not appearing</h3>
-<p>If the above settings are configured correctly, and the Python version is supported, and <em>Interpreter: Discover All Interpreters</em> or a restart of Positron is not helping, you can check logs. See more in the <a href="./troubleshooting.html">troubleshooting guide</a>.</p>
-<p>For the <code>native</code> (default) locator, the discovery process is logged in the Python Locator channel.</p>
-<p>For the <code>js</code> locator, it is instead logged in the Python Language Pack channel of the Output panel.</p>
+<p>If you configure the above settings correctly, Positron supports your Python version, and <em>Interpreter: Discover All Interpreters</em> or a restart of Positron does not help, check the logs. See more in the <a href="./troubleshooting.html">troubleshooting guide</a>. Positron logs the discovery process in the Python Locator and Python Language Pack channels.</p>
 </section>
 <section id="uv-installation-issues" class="level3">
 <h3 class="anchored" data-anchor-id="uv-installation-issues">uv installation issues</h3>
-<p>If you encounter issues with Positron’s automatic uv installation:</p>
+<p>If you encounter issues with the automatic uv installation in Positron:</p>
 <ol type="1">
-<li><strong>Check network connectivity</strong>: uv installation requires internet access to download the binary</li>
-<li><strong>Manual installation</strong>: You can also <a href="https://docs.astral.sh/uv/getting-started/installation/">install uv manually</a> if you prefer to manage it yourself</li>
+<li><strong>Check network connectivity</strong>: uv installation requires internet access to download the binary.</li>
+<li><strong>Manual installation</strong>: You can also <a href="https://docs.astral.sh/uv/getting-started/installation/">install uv yourself</a> if you prefer to manage it directly.</li>
 <li><strong>Disable automatic installation</strong>: If you do not want Positron to show you uv installation, disable it by setting <a href="positron://settings/python.allowUvPythonInstall"><code>python.allowUvPythonInstall</code></a> to <code>false</code>.</li>
 </ol>
 <p>For detailed uv troubleshooting, refer to the <a href="https://docs.astral.sh/uv/">uv documentation</a>.</p>
@@ -1022,20 +1056,20 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><a href="positron://settings/python.interpreters.include"><code>python.interpreters.include</code></a>: Specific interpreter paths to include</li>
 <li><a href="positron://settings/python.interpreters.exclude"><code>python.interpreters.exclude</code></a>: Interpreter paths to exclude from discovery</li>
-<li><a href="positron://settings/python.interpreters.override"><code>python.interpreters.override</code></a>: Override the above two settings so only these are shown</li>
+<li><a href="positron://settings/python.interpreters.override"><code>python.interpreters.override</code></a>: Override discovery so Positron shows only these</li>
 </ul>
 </section>
 <section id="environment-providers" class="level3">
 <h3 class="anchored" data-anchor-id="environment-providers">Environment providers</h3>
 <ul>
-<li><a href="positron://settings/python.environmentProviders.enable"><code>python.environmentProviders.enable</code></a>: Enable/disable specific environment providers for environment creation (<code>Venv</code>, <code>Conda</code>, <code>uv</code>)</li>
+<li><a href="positron://settings/python.environmentProviders.enable"><code>python.environmentProviders.enable</code></a>: Turn specific environment providers on or off for environment creation (<code>Venv</code>, <code>Conda</code>, <code>uv</code>)</li>
 </ul>
 </section>
 <section id="discovery-behavior" class="level3">
 <h3 class="anchored" data-anchor-id="discovery-behavior">Discovery behavior</h3>
 <ul>
-<li><a href="positron://settings/python.locator"><code>python.locator</code></a>: Choose between “native” or “js” discovery methods</li>
 <li><a href="positron://settings/python.defaultInterpreterPath"><code>python.defaultInterpreterPath</code></a>: Default Python interpreter path (used only the first time when no other interpreter takes precedence)</li>
+<li><a href="positron://settings/python.useBundledIpykernel"><code>python.useBundledIpykernel</code></a>: Turn the built-in IPython kernel on or off</li>
 </ul>
 </section>
 </section>
