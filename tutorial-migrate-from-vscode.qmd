@@ -9,7 +9,7 @@ Is this the right tutorial to start with? This tutorial picks up where [First da
 
 You just finished your first analysis in Positron. If a few things felt slightly unfamiliar compared to VS Code, this tutorial explains them, and shows you why they work the way they do.
 
-Good news: as a VS Code user, you already know most of Positron. Positron builds on [Code OSS](https://github.com/microsoft/vscode), the open source core of VS Code. These parts of Positron all work the way you expect, so you do not need to relearn them: 
+The good news is as a VS Code user, you already know most of Positron. Positron builds on [Code OSS](https://github.com/microsoft/vscode), the open source core of VS Code. These parts of Positron all work the way you expect, so you do not need to relearn them: 
 
 - Editor
 - Command Palette
