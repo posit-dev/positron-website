@@ -80,9 +80,9 @@ GitHub Copilot completions skip `plaintext`, `markdown`, and `scminput` unless y
 
 If you have enabled GitHub Copilot as a model provider, you can disable completions by doing any of the following:
 
-- Sign out of GitHub in Positron via the Accounts menu or the _Accounts: Manage Accounts_ command. This also affects other features and extensions that rely on the GitHub account. Without a signed-in GitHub account, GitHub Copilot Chat cannot be used, and GitHub Copilot cannot provide completions, Next Edit Suggestions, or be used as a provider for Posit Assistant. 
 - Set [`github.copilot.enable`](positron://settings/github.copilot.enable) to `{ "*": false }` to disable both ghost-text completions and Next Edit Suggestions, without having to sign out. To disable only some languages, set those entries to `false` instead of `*`.
 - Set [`github.copilot.nextEditSuggestions.enabled`](positron://settings/github.copilot.nextEditSuggestions.enabled) to `false` to disable Next Edit Suggestions on their own, while keeping ghost-text completions on.
+- Sign out of GitHub in Positron via the Accounts menu or the _Accounts: Manage Accounts_ command. This also affects other features and extensions that rely on the GitHub account. Without a signed-in GitHub account, GitHub Copilot Chat cannot be used, and GitHub Copilot cannot provide completions, Next Edit Suggestions, or be used as a provider for Posit Assistant.
 
 To exclude specific files from Copilot completions regardless of language, use the shared [`aiExcludes`](#shared-settings) setting.
 
