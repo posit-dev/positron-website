@@ -19,6 +19,9 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          # Fetch LFS content so videos render as real files, not pointer stubs.
+          lfs: true
 
       - name: Get Quarto version
         id: get-quarto-version
