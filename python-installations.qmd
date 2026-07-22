@@ -1,9 +1,10 @@
 ---
 title: "Discovering Python Installations"
-description: "Understand how Positron discovers and manages Python installations. Covers automatic uv installation and support for uv, pyenv, conda, venv, pipenv, poetry, and more environment managers."
+description: "Understand how Positron discovers and manages Python installations. Covers automatic uv installation and support for uv, pyenv, conda, venv, and more environment managers."
 ---
 
-This guide explains how Python installations are discovered and managed in Positron.
+This guide explains how Positron discovers and manages Python installations.
+For using Python in Positron, see our [Python language guide](guide-python.qmd).
 
 ## Python installation discovery
 
@@ -16,43 +17,67 @@ Positron supports the following Python environment managers:
 
 {{< include "_python-managers.qmd" >}}
 
-Other tools may also be compatible, although they are not officially supported.
+Other tools might also be compatible, although Positron does not officially support them.
 
 ### Discovery locations
 
-Positron searches for Python interpreters in the following locations:
+Positron searches for Python installations in the following locations.
+In general, it is best to use an environment that is highest in this list.
+Read more about [why virtual environments matter](https://realpython.com/python-virtual-environments-a-primer/#why-do-you-need-virtual-environments).
 
-**Virtual environments**
+#### 1. Project environments
 
-* `.venv/` and `.conda/` folders in your [workspace](https://code.visualstudio.com/docs/editing/workspaces/workspaces#_singlefolder-workspaces) directory
-* Tool-managed project-specific installations in locations like `~/.local/share/virtualenvs` or where `conda` stores envs
+Environments associated with the open project, if you have a project folder open.
+In particular, Positron finds any environment at the root of the open project (for example, `.venv/` or `.conda/` folders).
 
-**Global Python installations**
+::: callout-note
+If you do not have a project open, Positron does not find any project environments, like project `.venv/` folders.
+In general, Positron does not look across your whole system for all project-level virtual environments.
+Open a project folder to use that project's environment.
+:::
 
-* System Python installations in standard locations like the user's `PATH`
-* `/opt/python`
-* Tool-managed installation locations like `~/.pyenv` or ` ~/.local/share/uv/python/`
+#### 2. Global environments
 
-Note that using a system Python installation in a new session can lead to problems (see the official [guidance](https://packaging.python.org/en/latest/specifications/externally-managed-environments/) about this).
+Positron also discovers other named environments on your system, including:
+
+* Custom configured environments (see the [discovery settings](#discovery-location-settings))
+* Environments in `/opt/python`
+* Environments in well-known venv homes, including `$WORKON_HOME`, `~/.venvs`, `~/.virtualenvs`, and `~/.local/share/virtualenvs`
+* Conda-managed named environments
+
+#### 3. Base interpreters
+
+Standalone, pip-writable installs.
+Use these installations as seeds for new virtual environments rather than modifying them:
+
+* Installations from pyenv, python.org, or the Windows registry or store
+* Environment-module interpreters
+
+#### 4. System or externally managed interpreters
+
+Base interpreters that you can only use for seeding virtual environments:
+
+* System interpreters like `/usr/bin` or Homebrew-installed
+* Tool-managed base interpreters, like the uv or conda base interpreters
+
+::: callout-important
+Using a system Python installation in a new session can lead to problems (see the official [guidance](https://packaging.python.org/en/latest/specifications/externally-managed-environments/) about this).
 For that reason, we recommend using virtual environments.
-
-**Custom locations**
-
-* Interpreters listed in the [`python.interpreters.[include,exclude,override]`](positron://settings/python.interpreters.include) settings (see [Related Settings](#related-settings) below for details)
+:::
 
 ## Automatic uv installation
 
-If you do not have a valid Python available, Positron provides the option to install Python via [uv](https://docs.astral.sh/uv/) to provide an improved Python environment management experience. 
-When Positron starts, it searches for Python on your machine and gives the option install uv if you have no Python or only system Pythons available.
+Positron provides the option to install Python via [uv](https://docs.astral.sh/uv/) to provide an improved Python environment management experience.
+If you have no Python or only system Pythons, Positron offers to install uv from the **Start New Console Session** dropdown.
 
-You can control Positron's uv installation and usage through a variety of ways:
+You can control uv installation and usage in Positron in a variety of ways:
 
-- **Disable uv installation**: To never see this installation option, set [`python.allowUvPythonInstall`](positron://settings/python.allowUvPythonInstall) to `false`
-- **Use existing uv**: If you have uv already installed system-wide, Positron will use your existing installation
-- **Manual installation**: You can also [install uv manually](https://docs.astral.sh/uv/getting-started/installation/) if you prefer to manage it yourself
+- **Disable uv installation**: To never see this installation option, set [`python.allowUvPythonInstall`](positron://settings/python.allowUvPythonInstall) to `false`.
+- **Use existing uv**: If you have uv already installed system-wide, Positron uses your existing installation.
+- **Manual installation**: You can also [install uv yourself](https://docs.astral.sh/uv/getting-started/installation/) if you prefer to manage it directly.
 
-uv is not needed to run Positron. 
-Positron will look for other environment managers like `venv` and `conda`, regardless of uv's availability.
+You do not need uv to run Positron.
+Positron looks for other environment managers like `venv` and `conda`, regardless of whether uv is available.
 
 ### What is uv?
 
@@ -65,7 +90,7 @@ Positron will look for other environment managers like `venv` and `conda`, regar
 
 Positron uses uv to enhance Python workflows, including creating environments, installing packages, and managing Python versions.
 
-## Environment creation and discovery
+## Environment creation and discovery timing
 
 ### Creating new environments
 
@@ -78,7 +103,7 @@ You can create new Python environments directly from Positron using the _Python:
    - **venv**: Creates a standard virtual environment using `python -m venv`
    - **conda**: Creates a conda environment (if conda is available)
 
-The environment will be created in your workspace and automatically discovered.
+Positron creates the environment in your workspace and automatically discovers it.
 
 You can also use the [New Folder From Template feature](folder-templates.qmd#new-folder-from-template) to create a new Python project, and set up an environment as part of the project.
 
@@ -88,43 +113,41 @@ Positron automatically discovers environments when:
 
 - You open Positron
 - You open a new workspace folder
-- Certain file system changes are detected in watched directories
-- You manually refresh using the _Interpreter: Discover All Interpreters_ command
+- Positron detects certain file system changes in watched directories
+- You refresh using the _Interpreter: Discover All Interpreters_ command
 
-The discovery process runs in the background and updates the interpreter list as new environments are found.
+The discovery process runs in the background and updates the interpreter list as Positron finds new environments.
 
-## Discovery process details
+## Other details
+
+### IPython kernel
+
+Positron requires the [IPython kernel](https://pypi.org/project/ipykernel/) (version 6.19.1 or higher) to communicate with Python.
+By default, Positron bundles the IPython kernel for the CPython implementation (the standard Python implementation) and adds it to the [Python search path](https://docs.python.org/3/library/sys_path_init.html).
+This means you can use new environments immediately after Positron creates them, without installing extra dependencies.
+
+If you prefer finer control over your Python environment, set the [`python.useBundledIpykernel`](positron://settings/python.useBundledIpykernel) setting to false.
+If you do that or are using an implementation other than CPython, install the IPython kernel yourself with `pip install ipykernel`.
 
 ### Unsupported Python versions
 
-Positron only supports Python minor versions 3.9 through 3.14, which are the [currently supported versions](https://devguide.python.org/versions/).
-Other versions may be discovered, but you may run into issues using them.
-
-### Locator type
-
-Positron can use two different discovery mechanisms:
-
-* **Native locator** (default): Uses a native binary for faster discovery
-* **JavaScript locator**: Pure TypeScript implementation
-
-You can control this with the [`python.locator`](positron://settings/python.locator) setting (`"js"` or `"native"`).
+Positron supports the [supported versions](https://devguide.python.org/versions/) of Python, and might continue to support end-of-life versions for a time after.
+Positron can discover other versions, but you might run into issues using them.
 
 ## Troubleshooting
 
 ### Environment not appearing
 
-If the above settings are configured correctly, and the Python version is supported, and _Interpreter: Discover All Interpreters_ or a restart of Positron is not helping, you can check logs. See more in the [troubleshooting guide](troubleshooting.qmd).
-
-For the `native` (default) locator, the discovery process is logged in the Python Locator channel.
-
-For the `js` locator, it is instead logged in the Python Language Pack channel of the Output panel.
+If you configure the above settings correctly, Positron supports your Python version, and _Interpreter: Discover All Interpreters_ or a restart of Positron does not help, check the logs.
+See more in the [troubleshooting guide](troubleshooting.qmd).
+Positron logs the discovery process in the Python Locator and Python Language Pack channels.
 
 ### uv installation issues
 
-If you encounter issues with Positron's automatic uv installation:
+If you encounter issues with the automatic uv installation in Positron:
 
-1. **Check network connectivity**: uv installation requires internet access to download the binary
-2. **Manual installation**: You can also [install uv manually](https://docs.astral.sh/uv/getting-started/installation/) if you prefer to manage it yourself
+1. **Check network connectivity**: uv installation requires internet access to download the binary.
+2. **Manual installation**: You can also [install uv yourself](https://docs.astral.sh/uv/getting-started/installation/) if you prefer to manage it directly.
 3. **Disable automatic installation**: If you do not want Positron to show you uv installation, disable it by setting [`python.allowUvPythonInstall`](positron://settings/python.allowUvPythonInstall) to `false`.
 
 For detailed uv troubleshooting, refer to the [uv documentation](https://docs.astral.sh/uv/).
@@ -136,14 +159,14 @@ Key settings that control Python environment discovery:
 ### Discovery location settings
 * [`python.interpreters.include`](positron://settings/python.interpreters.include): Specific interpreter paths to include
 * [`python.interpreters.exclude`](positron://settings/python.interpreters.exclude): Interpreter paths to exclude from discovery
-* [`python.interpreters.override`](positron://settings/python.interpreters.override): Override the above two settings so only these are shown
+* [`python.interpreters.override`](positron://settings/python.interpreters.override): Override discovery so Positron shows only these
 
 ### Environment providers
-* [`python.environmentProviders.enable`](positron://settings/python.environmentProviders.enable): Enable/disable specific environment providers for environment creation (`Venv`, `Conda`, `uv`)
+* [`python.environmentProviders.enable`](positron://settings/python.environmentProviders.enable): Turn specific environment providers on or off for environment creation (`Venv`, `Conda`, `uv`)
 
 ### Discovery behavior
-* [`python.locator`](positron://settings/python.locator): Choose between "native" or "js" discovery methods
 * [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath): Default Python interpreter path (used only the first time when no other interpreter takes precedence)
+* [`python.useBundledIpykernel`](positron://settings/python.useBundledIpykernel): Turn the built-in IPython kernel on or off
 
 ## Related commands
 
