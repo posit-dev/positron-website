@@ -4,7 +4,7 @@ description: "Understand how Positron discovers and manages Python installations
 ---
 
 This guide explains how Positron discovers and manages Python installations.
-For using Python in Positron, see our [guide to development](guide-python.qmd).
+For using Python in Positron, see our [Python language guide](guide-python.qmd).
 
 ## Python installation discovery
 
@@ -23,6 +23,7 @@ Other tools might also be compatible, although Positron does not officially supp
 
 Positron searches for Python installations in the following locations.
 In general, it is best to use an environment that is highest in this list.
+Read more about [why virtual environments matter](https://realpython.com/python-virtual-environments-a-primer/#why-do-you-need-virtual-environments).
 
 #### 1. Project environments
 
