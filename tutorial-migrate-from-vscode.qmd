@@ -86,7 +86,7 @@ In the last tutorial you did everything inside notebook cells. That works well f
 
 In VS Code you can open a Python read-eval-print loop (REPL) in the Terminal or spin up an interactive window for this. Positron gives you the **Console**, a persistent, interactive Python session that is a first-class part of the IDE.
 
-The Console is more than a terminal REPL. Because Positron runs the interpreter as a live session, the Console offers code completion, syntax highlighting, and, most importantly, it drives the Variables and Plots panes you will meet next. It also knows your data at runtime: it can complete your data frame's column names, not just your variable names.
+The Console is more than a terminal REPL. Because Positron runs the interpreter as a live session, the Console offers code completion, syntax highlighting, and, most importantly, it drives the Variables and Plots panes you will meet next. It also knows your data at runtime; it can complete your data frame's column names, not just your variable names.
 
 ::: {.callout-tip title="Try it now"}
 Focus the Console (run _Focus Console_ from the Command Palette, or click the Console pane). Type:
