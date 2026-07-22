@@ -74,7 +74,7 @@ GitHub Copilot completions are enabled after you [sign in to the GitHub Copilot 
 
 ### Restrict to specific languages
 
-GitHub Copilot completions skip `plaintext`, `markdown`, and `scminput` unless you configure otherwise. Use the [`positron.assistant.inlineCompletions.enable`](positron://settings/positron.assistant.inlineCompletions.enable) setting to change which languages Copilot completions apply to.
+GitHub Copilot completions skip `plaintext`, `markdown`, and `scminput` unless you configure otherwise. Use the [`github.copilot.enable`](positron://settings/github.copilot.enable) setting to change which languages Copilot completions apply to.
 
 ### Disable
 
