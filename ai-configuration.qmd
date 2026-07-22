@@ -41,6 +41,6 @@ To disable a specific feature without affecting others:
 
 ## GitHub Copilot chat {#github-copilot-chat}
 
-Positron hides the built-in GitHub Copilot chat interface by default, since Posit Assistant is the default chat experience in Positron. However, GitHub Copilot [ghost-text completions or Next Edit Suggestions (NES)](assistant-completions.qmd#github-copilot) both stay available whenever you [sign in to GitHub Copilot as a provider](assistant-providers.qmd#github-copilot).
+Positron hides the GitHub Copilot chat interface by default, since Posit Assistant is the default chat experience in Positron. To show the GitHub Copilot chat UI again, set [`chat.disableAIFeatures`](positron://settings/chat.disableAIFeatures) to `false`.
 
-To bring back the built-in GitHub Copilot chat UI, set [`chat.disableAIFeatures`](positron://settings/chat.disableAIFeatures) to `false`.
+Regardless of that setting, GitHub Copilot [ghost-text completions and NES](assistant-completions.qmd#github-copilot) are available once you [sign in to GitHub Copilot as a provider](assistant-providers.qmd#github-copilot).
