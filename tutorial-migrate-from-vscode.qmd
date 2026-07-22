@@ -138,7 +138,7 @@ In the Console, open your data frame in the Data Explorer by running:
 
 :::
 
-![Run `view` to view a table in the Data Explorer.](images/tutorial-vscode-data-explorer.png){fig-alt="A screenshot displaying the mpg data set in the Data Explorer and the line `view mpg` in the Console pane."}
+![Run `%view` to view a table in the Data Explorer.](images/tutorial-vscode-data-explorer.png){fig-alt="A screenshot displaying the mpg data set in the Data Explorer and the line `view mpg` in the Console pane."}
 
 You can also open the Data Explorer by clicking the {{< fa table-cells >}} next to `mpg` in the Variables pane.
 
