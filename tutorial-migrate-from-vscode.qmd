@@ -104,7 +104,7 @@ mpg.shape
 
 ## Check your code against another environment
 
-Positron lets you run several Console sessions at once, each on a different Python version or environment. That makes it simple to answer a common question: will the code in my cell also run somewhere else?
+Positron lets you run several Console sessions at once, each on a different Python version or environment. That makes it simple to answer a common question, such as whether the code in my cell can also run somewhere else?
 
 Say you want to confirm your analysis works on a different Python version, or in a coworker's environment. Open a second Console session for that additional interpreter and run the same code. Both sessions stay open, and the **Interpreter picker** in the top right shows which one is active.
 
