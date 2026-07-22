@@ -9,11 +9,11 @@ aliases:
   - start.html
 ---
 
-Positron is a modern, extensible IDE for data science built on [Code OSS](https://github.com/microsoft/vscode). Before you install Positron, please review the prerequisites below to ensure your system is ready.
+Positron is a modern, extensible IDE for data science built on [Code OSS](https://github.com/microsoft/vscode). Before you install Positron, please review the prerequisites to ensure your system is ready.
 
 ## Prerequisites
 
-In most cases Positron is ready to go as soon as it's installed. Check the sections below to see whether your platform or language setup needs anything more.
+In most cases, Positron is ready to go as soon as it is installed. Check the section for your platform or language to see if you need anything more.
 
 ### Windows setup
 
@@ -21,7 +21,7 @@ If you're using Windows, make sure you have the [latest Visual C++ Redistributab
 
 ### Optional language setup
 
-Positron runs without any programming language installed. If you plan to use R or Python, the steps below will get your environment working smoothly.
+Positron runs without any programming language installed. If you plan to use R or Python, these steps get your environment working.
 
 ::: {.panel-tabset}
 ### Python
@@ -36,7 +36,7 @@ Other tools might also be compatible, even if Positron does not officially suppo
 
 ### R
 
-Ensure you have R 4.2 or higher installed. To install R, follow the instructions for your operating system at <https://cloud.r-project.org/>.
+Ensure you have R 4.2 or higher installed. To install R, follow the [instructions for your operating system](https://cloud.r-project.org/).
 
 Alternatively, if you'd like to have multiple R installations, [rig](https://github.com/r-lib/rig) is a great tool to manage this which works well with Positron.
 
