@@ -4,6 +4,10 @@ Configure the AI features in Positron, including turning individual features or 
 
 Once you have [set up a language model provider](assistant-getting-started.llms.md), you can configure how AI features behave in Positron.
 
+> **NOTE:**
+>
+> [`ai.enabled`](positron://settings/ai.enabled) is `true` by default, but AI functionality is only active once you have authenticated with a language model provider.
+
 ## Turn features on or off
 
 You can turn off individual features or disable all AI features at once.
@@ -28,7 +32,14 @@ To disable a specific feature without affecting others:
 |----|----|
 | [`assistant.enabled`](positron://settings/assistant.enabled) | [Posit Assistant](https://assistant.posit.co) (set to `false` to disable) |
 | [`nextEditSuggestions.enabled`](positron://settings/nextEditSuggestions.enabled) | [Posit AI NES](assistant-completions.llms.md#posit-ai-nes) (set to `{ "*": false }` to disable) |
-| [`github.copilot.enable`](positron://settings/github.copilot.enable) | [GitHub Copilot Code Completions](assistant-completions.llms.md#github-copilot) (set to `{ "*": false }` to disable) |
+| [`github.copilot.enable`](positron://settings/github.copilot.enable) | [GitHub Copilot ghost-text completions and Next Edit Suggestions](assistant-completions.llms.md#github-copilot) (set to `{ "*": false }` to disable both) |
+| [`github.copilot.nextEditSuggestions.enabled`](positron://settings/github.copilot.nextEditSuggestions.enabled) | [GitHub Copilot Next Edit Suggestions](assistant-completions.llms.md#github-copilot) (set to `false` to disable) |
 | [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled) | [Notebook AI features](positron-notebook-editor.llms.md#ai-integration) (set to `false` to disable) |
 | [`console.assistantActions.enabled`](positron://settings/console.assistantActions.enabled) | [Console Fix & Explain](managing-interpreters.llms.md#console-fix-and-explain) (set to `false` to disable) |
 | [`git.suggestions.enabled`](positron://settings/git.suggestions.enabled) | [Git commit messages](git.llms.md#generate-commit-messages) (set to `false` to disable) |
+
+## GitHub Copilot chat
+
+Positron hides the GitHub Copilot chat interface by default, since Posit Assistant is the default chat experience in Positron. To show the GitHub Copilot chat UI again, set [`chat.disableAIFeatures`](positron://settings/chat.disableAIFeatures) to `false`.
+
+Regardless of that setting, GitHub Copilot [ghost-text completions and NES](assistant-completions.llms.md#github-copilot) are available once you [sign in to GitHub Copilot as a provider](assistant-providers.llms.md#github-copilot).

@@ -833,6 +833,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#turn-off-all-ai-features" id="toc-turn-off-all-ai-features" class="nav-link" data-scroll-target="#turn-off-all-ai-features">Turn off all AI features</a></li>
   <li><a href="#turn-off-a-specific-feature" id="toc-turn-off-a-specific-feature" class="nav-link" data-scroll-target="#turn-off-a-specific-feature">Turn off a specific feature</a></li>
   </ul></li>
+  <li><a href="#github-copilot-chat" id="toc-github-copilot-chat" class="nav-link" data-scroll-target="#github-copilot-chat">GitHub Copilot chat</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/ai-configuration.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/ai-configuration.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -864,6 +865,19 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Once you have <a href="./assistant-getting-started.html">set up a language model provider</a>, you can configure how AI features behave in Positron.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="positron://settings/ai.enabled"><code>ai.enabled</code></a> is <code>true</code> by default, but AI functionality is only active once you have authenticated with a language model provider.</p>
+</div>
+</div>
 <section id="turn-features-on-or-off" class="level2">
 <h2 class="anchored" data-anchor-id="turn-features-on-or-off">Turn features on or off</h2>
 <p>You can turn off individual features or disable all AI features at once.</p>
@@ -901,25 +915,34 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td><a href="positron://settings/github.copilot.enable"><code>github.copilot.enable</code></a></td>
-<td><a href="./assistant-completions.html#github-copilot">GitHub Copilot Code Completions</a> (set to <code>{ "*": false }</code> to disable)</td>
+<td><a href="./assistant-completions.html#github-copilot">GitHub Copilot ghost-text completions and Next Edit Suggestions</a> (set to <code>{ "*": false }</code> to disable both)</td>
 </tr>
 <tr class="even">
+<td><a href="positron://settings/github.copilot.nextEditSuggestions.enabled"><code>github.copilot.nextEditSuggestions.enabled</code></a></td>
+<td><a href="./assistant-completions.html#github-copilot">GitHub Copilot Next Edit Suggestions</a> (set to <code>false</code> to disable)</td>
+</tr>
+<tr class="odd">
 <td><a href="positron://settings/notebook.ai.enabled"><code>notebook.ai.enabled</code></a></td>
 <td><a href="./positron-notebook-editor.html#ai-integration">Notebook AI features</a> (set to <code>false</code> to disable)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="positron://settings/console.assistantActions.enabled"><code>console.assistantActions.enabled</code></a></td>
 <td><a href="./managing-interpreters.html#console-fix-and-explain">Console Fix &amp; Explain</a> (set to <code>false</code> to disable)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="positron://settings/git.suggestions.enabled"><code>git.suggestions.enabled</code></a></td>
 <td><a href="./git.html#generate-commit-messages">Git commit messages</a> (set to <code>false</code> to disable)</td>
 </tr>
 </tbody>
 </table>
-
-
 </section>
+</section>
+<section id="github-copilot-chat" class="level2">
+<h2 class="anchored" data-anchor-id="github-copilot-chat">GitHub Copilot chat</h2>
+<p>Positron hides the GitHub Copilot chat interface by default, since Posit Assistant is the default chat experience in Positron. To show the GitHub Copilot chat UI again, set <a href="positron://settings/chat.disableAIFeatures"><code>chat.disableAIFeatures</code></a> to <code>false</code>.</p>
+<p>Regardless of that setting, GitHub Copilot <a href="./assistant-completions.html#github-copilot">ghost-text completions and NES</a> are available once you <a href="./assistant-providers.html#github-copilot">sign in to GitHub Copilot as a provider</a>.</p>
+
+
 </section>
 
 </main> <!-- /main -->

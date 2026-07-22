@@ -971,22 +971,22 @@ Important
 <section id="github-copilot" class="level2">
 <h2 class="anchored" data-anchor-id="github-copilot">GitHub Copilot</h2>
 <p>When using GitHub Copilot as your completions provider, code completions appear as ghost text at the cursor position as you type. To learn more, visit the GitHub Copilot <a href="https://code.visualstudio.com/docs/copilot/ai-powered-suggestions#_getting-your-first-suggestions">inline suggestions</a> documentation.</p>
+<p>GitHub Copilot also has its own Next Edit Suggestions, separate from the ghost-text completions described here and from <a href="#posit-ai-nes">Posit AI NES</a>. It is available whenever you sign in to GitHub Copilot as a provider.</p>
 <section id="enable-1" class="level3">
 <h3 class="anchored" data-anchor-id="enable-1">Enable</h3>
-<p>GitHub Copilot completions are enabled by default once you have <a href="./assistant-providers.html#github-copilot">signed in to the GitHub Copilot provider</a>. No additional setting changes are required.</p>
+<p>GitHub Copilot completions are enabled after you <a href="./assistant-providers.html#github-copilot">sign in to the GitHub Copilot provider</a>. No additional setting changes are required.</p>
 </section>
 <section id="restrict-to-specific-languages-1" class="level3">
 <h3 class="anchored" data-anchor-id="restrict-to-specific-languages-1">Restrict to specific languages</h3>
-<p>GitHub Copilot completions skip <code>plaintext</code>, <code>markdown</code>, and <code>scminput</code> unless you configure otherwise. Use the <a href="positron://settings/positron.assistant.inlineCompletions.enable"><code>positron.assistant.inlineCompletions.enable</code></a> setting to change which languages Copilot completions apply to.</p>
+<p>GitHub Copilot completions skip <code>plaintext</code>, <code>markdown</code>, and <code>scminput</code> unless you configure otherwise. Use the <a href="positron://settings/github.copilot.enable"><code>github.copilot.enable</code></a> setting to change which languages Copilot completions apply to.</p>
 </section>
 <section id="disable-1" class="level3">
 <h3 class="anchored" data-anchor-id="disable-1">Disable</h3>
-<p>To disable GitHub Copilot completions, do any of the following:</p>
+<p>If you have enabled GitHub Copilot as a model provider, you can disable completions by doing any of the following:</p>
 <ul>
-<li>Sign out of GitHub in Positron via the Accounts menu or the <em>Accounts: Manage Accounts</em> command. This also affects chat and other features that rely on the account.</li>
-<li>Run the <em>Positron Assistant: Toggle (Enable/Disable) Completions</em> command to toggle Copilot completions for the current language. This command updates <a href="positron://settings/positron.assistant.inlineCompletions.enable"><code>positron.assistant.inlineCompletions.enable</code></a> for the active language.</li>
-<li>Set <a href="positron://settings/positron.assistant.inlineCompletions.enable"><code>positron.assistant.inlineCompletions.enable</code></a> to <code>{ "*": false }</code> to disable Copilot completions everywhere. To disable only some languages, set those entries to <code>false</code>.</li>
-<li>Set <a href="positron://settings/github.copilot.enable"><code>github.copilot.enable</code></a> to disable completions at the upstream GitHub Copilot extension level.</li>
+<li>Set <a href="positron://settings/github.copilot.enable"><code>github.copilot.enable</code></a> to <code>{ "*": false }</code> to disable both ghost-text completions and Next Edit Suggestions, without having to sign out. To disable only some languages, set those entries to <code>false</code> instead of <code>*</code>.</li>
+<li>Set <a href="positron://settings/github.copilot.nextEditSuggestions.enabled"><code>github.copilot.nextEditSuggestions.enabled</code></a> to <code>false</code> to disable Next Edit Suggestions on their own, while keeping ghost-text completions on.</li>
+<li>Sign out of GitHub in Positron via the Accounts menu or the <em>Accounts: Manage Accounts</em> command. This also affects other features and extensions that rely on the GitHub account. Without a signed-in GitHub account, GitHub Copilot Chat cannot be used, and GitHub Copilot cannot provide completions, Next Edit Suggestions, or be used as a provider for Posit Assistant.</li>
 </ul>
 <p>To exclude specific files from Copilot completions regardless of language, use the shared <a href="#shared-settings"><code>aiExcludes</code></a> setting.</p>
 </section>
