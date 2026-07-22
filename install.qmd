@@ -12,21 +12,31 @@ aliases:
 Positron is a modern, extensible IDE for data science built on [Code OSS](https://github.com/microsoft/vscode). Before you install Positron, please review the prerequisites below to ensure your system is ready.
 
 ## Prerequisites
-::: {.panel-tabset}
 
-### Windows
+In most cases Positron is ready to go as soon as it's installed. Check the sections below to see whether your platform or language setup needs anything more.
+
+### Windows setup
 
 If you're using Windows, make sure you have the [latest Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version) installed.
 
-### Python setup
+### Optional language setup
+
+Positron runs without any programming language installed. If you plan to use R or Python, the steps below will get your environment working smoothly.
+
+::: {.panel-tabset}
+### Python
 Positron works with [actively supported versions](https://devguide.python.org/versions/#versions) of Python.
 
 If you do not have a valid Python version available, Positron [can install one for you](python-installations.qmd#automatic-uv-installation).
-If you prefer to use an existing environment, Positron makes it easily available to use, provided it meets the [qualifications](python-installations.qmd).
+If you prefer to use an existing environment, Positron supports the following Python environment managers:
 
-### R setup
+{{< include "_python-managers.qmd" >}}
 
-If you plan to use R with Positron, ensure you have R 4.2 or higher installed. To install R, follow the instructions for your operating system at <https://cloud.r-project.org/>.
+Other tools might also be compatible, even if Positron does not officially support them. For the full list of requirements, see [Python environment qualifications](python-installations.qmd).
+
+### R
+
+Ensure you have R 4.2 or higher installed. To install R, follow the instructions for your operating system at <https://cloud.r-project.org/>.
 
 Alternatively, if you'd like to have multiple R installations, [rig](https://github.com/r-lib/rig) is a great tool to manage this which works well with Positron.
 
