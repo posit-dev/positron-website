@@ -131,7 +131,7 @@ The Console feeds a set of data science panes that VS Code does not provide nati
 In the Console, open your data frame in the Data Explorer by running:
 
 ```python
-view mpg
+%view mpg
 ```
 
 **You will know it worked when** `mpg` opens in a grid. Sort a column by clicking its header, then open the summary panel to see its distribution.
