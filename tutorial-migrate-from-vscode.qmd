@@ -84,7 +84,7 @@ If an extension you rely on is missing, it might not be published to Open VSX. Y
 
 In the last tutorial you did everything inside notebook cells. That works well for the analysis you want to keep. But often you just want to poke at your data, check the shape of a data frame, test whether a line of code runs, or try an idea you will throw away.
 
-In VS Code you can open a Python read-eval-print loop (REPL) in the Terminal or spin up an interactive window for this. Positron gives you the **Console**: a persistent, interactive Python session that is a first-class part of the IDE.
+In VS Code you can open a Python read-eval-print loop (REPL) in the Terminal or spin up an interactive window for this. Positron gives you the **Console**, a persistent, interactive Python session that is a first-class part of the IDE.
 
 The Console is more than a terminal REPL. Because Positron runs the interpreter as a live session, the Console offers code completion, syntax highlighting, and, most importantly, it drives the Variables and Plots panes you will meet next. It also knows your data at runtime: it can complete your data frame's column names, not just your variable names.
 
