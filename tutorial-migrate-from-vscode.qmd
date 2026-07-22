@@ -37,7 +37,7 @@ Positron also ships with an interactive **Migrating from VS Code to Positron** w
 
 # Bring your settings and keybindings across
 
-You have spent time tuning VS Code: your theme, your font size, your keybindings, your formatter. You do not have to redo any of that.
+You have spent time tuning VS Code, including your theme, your font size, your keybindings, your formatter. You do not have to redo any of that.
 
 Positron can import your user settings directly from VS Code. On its first launch, it offers to do this with a notification, and it shows you a preview before saving so you can review and adjust what comes across. Your keybindings come with your settings, so your muscle memory carries over.
 
