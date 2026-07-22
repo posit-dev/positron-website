@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Import your VS Code settings and extensions into Positron and see what makes Positron different.">
 
-<title>First data analysis with Python in a Jupyter Notebook – Positron</title>
+<title>Migrate from VS Code to Positron – Positron</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -67,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./tutorial-get-started-quarto.html" rel="next">
-<link href="./tutorials.html" rel="prev">
+<link href="./tutorial-migrate-from-RStudio.html" rel="next">
+<link href="./tutorial-get-started-quarto.html" rel="prev">
 <link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -85,6 +86,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -118,13 +121,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="robots" content="noindex">
 
 
-<meta property="og:title" content="First data analysis with Python in a Jupyter Notebook – Positron">
-<meta property="og:description" content="">
-<meta property="og:image" content="https://positron.posit.co/dailies/images/download-button.png">
+<meta property="og:title" content="Migrate from VS Code to Positron – Positron">
+<meta property="og:description" content="Import your VS Code settings and extensions into Positron and see what makes Positron different.">
+<meta property="og:image" content="https://positron.posit.co/dailies/images/tutorial-vscode-import-settings.png">
 <meta property="og:site_name" content="Positron">
-<meta property="og:image:alt" content="The Positron download page with the Download button.">
-<meta property="og:image:height" content="1832">
-<meta property="og:image:width" content="3116">
+<meta property="og:image:alt" content="A screenshot displaying the Command Palette with Preferences: Import Settings selected and a pop up window asking the user if they would like to save imported VS Code settings.">
+<meta property="og:image:height" content="1448">
+<meta property="og:image:width" content="2348">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -218,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial-get-started-ipynb.html">First data analysis with Python in a Jupyter Notebook</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial-migrate-from-vscode.html">Migrate from VS Code to Positron</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -241,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorial-get-started-ipynb.html" class="sidebar-item-text sidebar-link active">
+  <a href="./tutorial-get-started-ipynb.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First data analysis with Python in a Jupyter Notebook</span></a>
   </div>
 </li>
@@ -253,7 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tutorial-migrate-from-vscode.html" class="sidebar-item-text sidebar-link">
+  <a href="./tutorial-migrate-from-vscode.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Migrate from VS Code to Positron</span></a>
   </div>
 </li>
@@ -273,24 +276,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install-positron" id="toc-install-positron" class="nav-link active" data-scroll-target="#install-positron">Install Positron</a></li>
-  <li><a href="#make-a-python-environment" id="toc-make-a-python-environment" class="nav-link" data-scroll-target="#make-a-python-environment">Make a Python environment</a></li>
-  <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages">Install packages</a></li>
-  <li><a href="#open-a-jupyter-notebook" id="toc-open-a-jupyter-notebook" class="nav-link" data-scroll-target="#open-a-jupyter-notebook">Open a Jupyter Notebook</a></li>
-  <li><a href="#explore-some-data" id="toc-explore-some-data" class="nav-link" data-scroll-target="#explore-some-data">Explore some data</a></li>
-  <li><a href="#save-your-notebook" id="toc-save-your-notebook" class="nav-link" data-scroll-target="#save-your-notebook">Save your notebook</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#bring-your-settings-and-keybindings-across" id="toc-bring-your-settings-and-keybindings-across" class="nav-link active" data-scroll-target="#bring-your-settings-and-keybindings-across">Bring your settings and keybindings across</a></li>
+  <li><a href="#install-your-extensions-from-a-different-marketplace" id="toc-install-your-extensions-from-a-different-marketplace" class="nav-link" data-scroll-target="#install-your-extensions-from-a-different-marketplace">Install your extensions from a different marketplace</a></li>
+  <li><a href="#meet-the-console" id="toc-meet-the-console" class="nav-link" data-scroll-target="#meet-the-console">Meet the Console</a>
+  <ul class="collapse">
+  <li><a href="#check-your-code-against-another-environment" id="toc-check-your-code-against-another-environment" class="nav-link" data-scroll-target="#check-your-code-against-another-environment">Check your code against another environment</a></li>
+  </ul></li>
+  <li><a href="#explore-data-without-writing-throwaway-code" id="toc-explore-data-without-writing-throwaway-code" class="nav-link" data-scroll-target="#explore-data-without-writing-throwaway-code">Explore data without writing throwaway code</a></li>
+  <li><a href="#your-notebook-upgraded" id="toc-your-notebook-upgraded" class="nav-link" data-scroll-target="#your-notebook-upgraded">Your notebook, upgraded</a></li>
+  <li><a href="#set-up-ai-with-your-copilot-account" id="toc-set-up-ai-with-your-copilot-account" class="nav-link" data-scroll-target="#set-up-ai-with-your-copilot-account">Set up AI with your Copilot account</a></li>
+  <li><a href="#let-positron-manage-your-python-environments" id="toc-let-positron-manage-your-python-environments" class="nav-link" data-scroll-target="#let-positron-manage-your-python-environments">Let Positron manage your Python environments</a></li>
+  <li><a href="#know-the-gaps" id="toc-know-the-gaps" class="nav-link" data-scroll-target="#know-the-gaps">Know the gaps</a></li>
+  <li><a href="#your-data-science-editor-is-ready" id="toc-your-data-science-editor-is-ready" class="nav-link" data-scroll-target="#your-data-science-editor-is-ready">Your data science editor is ready</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/tutorial-get-started-ipynb.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/tutorial-get-started-ipynb.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/tutorial-migrate-from-vscode.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/tutorial-migrate-from-vscode.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">First data analysis with Python in a Jupyter Notebook</h1>
+<h1 class="title">Migrate from VS Code to Positron</h1>
 </div>
 
+<div>
+  <div class="description">
+    Import your VS Code settings and extensions into Positron and see what makes Positron different.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -305,77 +318,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This quick tutorial will show you how to use <a href="./jupyter-notebooks.html">Jupyter Notebooks</a> within Positron. We will:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Is this the right tutorial to start with? This tutorial picks up where <a href="./tutorial-get-started-ipynb.html">First data analysis with Python in a Jupyter Notebook</a> leaves off, using the same project. If you have not done that tutorial yet, start there. It takes about 15 minutes and leaves you with a project you can configure here.</p>
+</div>
+</div>
+<p>You just finished your first analysis in Positron. If a few things felt slightly unfamiliar compared to VS Code, this tutorial explains them, and shows you why they work the way they do.</p>
+<p>The good news is as a VS Code user, you already know most of Positron. Positron builds on <a href="https://github.com/microsoft/vscode">Code OSS</a>, the open source core of VS Code. These parts of Positron all work the way you expect, so you do not need to relearn them:</p>
 <ul>
-<li>Install Positron</li>
-<li>Create a Python project with its own virtual environment</li>
-<li>Install the packages we need for our analysis</li>
-<li>Open a Jupyter Notebook</li>
-<li>Explore some data</li>
+<li>Editor</li>
+<li>Command Palette</li>
+<li>Terminal</li>
+<li>Git client</li>
+<li>Extensions system</li>
 </ul>
-<section id="install-positron" class="level2">
-<h2 class="anchored" data-anchor-id="install-positron">Install Positron</h2>
-<p>Positron is a free and source available code editor for data scientists. To install Positron on your computer, visit our <a href="./download.html">download page</a> and click <strong>Download</strong>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/download-button.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The Positron download page"><img src="images/download-button.png" class="img-fluid figure-img" alt="The Positron download page with the Download button."></a></p>
-<figcaption>The Positron download page</figcaption>
-</figure>
-</div>
-<p>Follow the instructions to install Positron.</p>
-</section>
-<section id="make-a-python-environment" class="level2">
-<h2 class="anchored" data-anchor-id="make-a-python-environment">Make a Python environment</h2>
-<p>Python users typically create a project folder for each analysis they do. This keeps all the files for that project organized in one place. Each project also has its own virtual environment, which is a self-contained Python environment that has its own set of packages installed. This allows you to have different versions of packages for different projects without conflicts.</p>
-<p>To create a project folder with its own virtual environment in Positron, follow these steps:</p>
-<ol type="1">
-<li>Open Positron</li>
-<li>Select <strong>New &gt; New Folder from Template</strong></li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/new-folder-from-template.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="New Folder from Template in the File menu"><img src="images/new-folder-from-template.png" class="img-fluid figure-img" alt="New Folder from Template option in the File menu."></a></p>
-<figcaption>New Folder from Template in the File menu</figcaption>
-</figure>
-</div>
-<ol start="3" type="1">
-<li>Select <strong>Python Project</strong> from the list of templates</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/python-project-template.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Python Project template"><img src="images/python-project-template.png" class="drop-shadow img-fluid figure-img" alt="Python Project template option in the New Folder from Template dialog." width="450"></a></p>
-<figcaption>Python Project template</figcaption>
-</figure>
-</div>
-<ol start="4" type="1">
-<li>Select a location for your project folder and give it a name. Then select <strong>Create a pyproject.toml file</strong>. This file keeps track of the packages you install in your virtual environment. Then click <strong>Next</strong>.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/create-python-project.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Create Python Project dialog"><img src="images/create-python-project.png" class="drop-shadow img-fluid figure-img" alt="Create Python Project dialog." width="450"></a></p>
-<figcaption>Create Python Project dialog</figcaption>
-</figure>
-</div>
-<p>The next screen will help you set up your Python environment.</p>
-<ol type="1">
-<li><p>Choose whether to create a new virtual environment or to use an existing environment. For this tutorial, we will create a new virtual environment.</p></li>
-<li><p>Select a tool to build your environment. We recommend uv, but you can also use pip or conda.</p></li>
-<li><p>Give your environment a name. Python users typically choose .venv as the name for their virtual environments, but you can choose any name you like.</p></li>
-<li><p>Select a Python version to use for your environment. We recommend using the latest stable version of Python.</p></li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/create-python-environment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Create Python Environment dialog"><img src="images/create-python-environment.png" class="drop-shadow img-fluid figure-img" alt="Create Python Environment dialog." width="450"></a></p>
-<figcaption>Create Python Environment dialog</figcaption>
-</figure>
-</div>
-<p>Once you have made your selections, click <strong>Create</strong>. Positron creates the project folder and sets up the virtual environment for you.</p>
-</section>
-<section id="install-packages" class="level2">
-<h2 class="anchored" data-anchor-id="install-packages">Install packages</h2>
-<p>Now that we have an environment set up, we need to install the packages we will use for our analysis. For this tutorial, we will use the pandas and plotnine packages.</p>
-<p>plotnine is a Python package for creating complex and informative visualizations. It is based on the grammar of graphics, which is a powerful and flexible way to create visualizations.</p>
-<p>To install pandas and plotnine, navigate to the Terminal in Positron (<strong>View &gt; Terminal</strong>). When Positron opened our project, it navigated the Terminal to our project folder and activated the virtual environment we created.</p>
+<p>What is different is everything Positron adds for data science:</p>
+<ul>
+<li>a first-class Console</li>
+<li>a live Variables tracker</li>
+<li>a Plots pane</li>
+<li>a Data Explorer</li>
+<li>native Python and R support with no setup</li>
+</ul>
+<p>Over the next 20 minutes you will bring your VS Code setup to Positron, then meet the tools that make Positron more than a general-purpose editor.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -386,89 +359,315 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The name of your environment appears in parentheses at the beginning of the terminal prompt. If you do not see it, activate the environment with the command <code>source .venv/bin/activate</code> (replace <code>.venv</code> with the name of your environment if you chose a different name).</p>
+<p>You do not have to give up VS Code. Positron keeps the extensions and settings you install separate from your VS Code installation, and they will not interfere with it. You can use both editors side by side.</p>
 </div>
 </div>
-<p>We recommend running the following command to install the packages:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add pandas plotnine</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>uv add</code> installs the package and adds it to your <code>pyproject.toml</code> file so that you can keep track of the packages you have installed in your environment.</p>
-<p>This is what it looks like to set up a new Python project in Positron:</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="Setting up a new Python project in Positron, including creating a virtual environment and installing packages"><source src="videos/tutorial-load-python.mp4"></video></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Positron also ships with an interactive <strong>Migrating from VS Code to Positron</strong> walkthrough. Open it anytime from the Command Palette by searching for <em>Welcome: Open Walkthrough</em> and selecting it. Treat it as a quick-reference companion to this tutorial.</p>
+</div>
+</div>
+<section id="bring-your-settings-and-keybindings-across" class="level1">
+<h1>Bring your settings and keybindings across</h1>
+<p>You have spent time tuning VS Code, including your theme, your font size, your keybindings, your formatter. You do not have to redo any of that.</p>
+<p>Positron can import your user settings directly from VS Code. On its first launch, it offers to do this with a notification, and it shows you a preview before saving so you can review and adjust what comes across. Your keybindings come with your settings, so your muscle memory carries over.</p>
+<p>We recommend importing your settings so Positron starts out feeling like the editor you already configured.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open the Command Palette with <kbd title="linux: Ctrl-Shift-P, mac: Command-Shift-P, windows: Ctrl-Shift-P" aria-hidden="true" data-linux="Ctrl-Shift-P" data-mac="Command-Shift-P" data-windows="Ctrl-Shift-P"></kbd><span class="visually-hidden"></span>, search for <em>Preferences: Import Settings</em>, and run it. Review the preview, then confirm.</p>
+<p><strong>You will know it worked when</strong> your familiar theme and settings appear in Positron.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-vscode-import-settings.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="To import VS Code settings to Positron, run Preferences: Import Settings then click Accept."><img src="images/tutorial-vscode-import-settings.png" class="img-fluid figure-img" alt="A screenshot displaying the Command Palette with Preferences: Import Settings selected and a pop up window asking the user if they would like to save imported VS Code settings."></a></p>
+<figcaption>To import VS Code settings to Positron, run <em>Preferences: Import Settings</em> then click Accept.</figcaption>
+</figure>
+</div>
 </section>
-<section id="open-a-jupyter-notebook" class="level2">
-<h2 class="anchored" data-anchor-id="open-a-jupyter-notebook">Open a Jupyter Notebook</h2>
-<p>Now that we have our environment set up and the packages we need installed, we can open a Jupyter Notebook to start our analysis.</p>
-<p>To open a Jupyter Notebook in Positron:</p>
+<section id="install-your-extensions-from-a-different-marketplace" class="level1">
+<h1>Install your extensions from a different marketplace</h1>
+<p>Extensions work in Positron much as they do in VS Code: open the Extensions view from the <strong>Activity Bar</strong>, or run <em>Extensions: Focus on Extensions View</em> from the Command Palette, then search for Extensions by name or keyword.</p>
+<p>The one real difference is where the extensions come from. Positron does not use the Microsoft Visual Studio Marketplace. Microsoft reserves that marketplace for their proprietary VS Code builds. Instead, Positron installs extensions from <a href="https://p3m.dev">Posit Public Package Manager</a>, which serves the same catalog as <a href="https://open-vsx.org/">Open VSX</a>, the vendor-neutral, open source marketplace for VS Code compatible extensions. Here, you will find over 10,000 extensions, including those published by data science software companies such as SAS, Snowflake, and Databricks. The extensions you will not find are the ones built with proprietary Microsoft code and licensed only for use inside the VS Code product from Microsoft.</p>
+<p>Some more good news is that you do not need the Microsoft Python and Jupyter extensions you rely on in VS Code. Positron provides their functionality natively, with no setup. Out of the box you already have:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>In Positron</th>
+<th>In VS Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Native Python support: code completion, type checking, debugging, and more, built in</td>
+<td>Requires Microsoft Python extension (<code>ms-python.python</code>)</td>
+</tr>
+<tr class="even">
+<td>Bundled Jupyter notebook support</td>
+<td>Requires Jupyter extension</td>
+</tr>
+<tr class="odd">
+<td>Bundled <a href="https://docs.astral.sh/ruff/">Ruff</a> for linting and formatting</td>
+<td>Requires you to install and configure a formatter and linter, like Black Formatter and Pylint</td>
+</tr>
+<tr class="even">
+<td>Bundled <a href="https://quarto.org/">Quarto</a> support</td>
+<td>Requires a separate publishing workflow</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Are you an R user? You no longer need the <code>vscode-r</code> extension. Positron provides deeper, native R support, the same way it does for Python.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open the Extensions view and search for an extension you like, such as <code>Rainbow CSV</code>. Click <strong>Install</strong>.</p>
+<p><strong>You will know it worked when</strong> the extension installs from Posit Public Package Manager, exactly as it does from the marketplace in VS Code.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If an extension you rely on is missing, it might not be published to Open VSX. You can ask its author to <a href="https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md">publish it to Open VSX</a>. See <a href="./extensions.html">Extensions</a> for the full picture.</p>
+</div>
+</div>
+</section>
+<section id="meet-the-console" class="level1">
+<h1>Meet the Console</h1>
+<p>In the last tutorial you did everything inside notebook cells. That works well for the analysis you want to keep. But often you just want to poke at your data, check the shape of a data frame, test whether a line of code runs, or try an idea you will throw away.</p>
+<p>In VS Code you can open a Python read-eval-print loop (REPL) in the Terminal or spin up an interactive window for this. Positron gives you the <strong>Console</strong>, a persistent, interactive Python session that is a first-class part of the IDE.</p>
+<p>The Console is more than a terminal REPL. Because Positron runs the interpreter as a live session, the Console offers code completion, syntax highlighting, and, most importantly, it drives the Variables and Plots panes you will meet next. It also knows your data at runtime; it can complete your data frame’s column names, not just your variable names.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Focus the Console (run <em>Focus Console</em> from the Command Palette, or click the Console pane). Type:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine.data <span class="im">import</span> mpg</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mpg.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>You will know it worked when</strong> the Console prints the shape of the data frame, and <code>mpg</code> appears in the Variables pane, without you adding a cell to your notebook.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-vscode-console.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Running commands in the Console."><img src="images/tutorial-vscode-console.png" class="img-fluid figure-img" alt="A screenshot that shows code typed into the Console pane."></a></p>
+<figcaption>Running commands in the Console.</figcaption>
+</figure>
+</div>
+<section id="check-your-code-against-another-environment" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-code-against-another-environment">Check your code against another environment</h2>
+<p>Positron lets you run several Console sessions at once, each on a different Python version or environment. That makes it simple to answer a common question, such as whether the code in my cell can also run somewhere else?</p>
+<p>Say you want to confirm your analysis works on a different Python version, or in a coworker’s environment. Open a second Console session for that additional interpreter and run the same code. Both sessions stay open, and the <strong>Interpreter picker</strong> in the top right shows which one is active.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have more than one Python interpreter available, open the Interpreter picker in the top right (or run <em>Interpreter: Start New Console Session</em>) and start a session on a different interpreter. Run <code>from plotnine.data import mpg</code> again there.</p>
+<p><strong>You will know it worked when</strong> you can switch between the two Console sessions from the Interpreter picker, each running independently. If <code>plotnine</code> is not installed in the second environment, the import fails, which is exactly the compatibility check you wanted.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Because the interpreter runs separately from the IDE, a crash in Python does not take down your Positron window, and you can switch interpreters without reloading the editor. See <a href="./managing-interpreters.html">Managing interpreter sessions</a> for more.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="explore-data-without-writing-throwaway-code" class="level1">
+<h1>Explore data without writing throwaway code</h1>
+<p>The Console feeds a set of data science panes that VS Code does not provide natively. You met two of them in the last tutorial. Here they are together:</p>
+<ul>
+<li>The <strong>Variables pane</strong> lists every object in your active session, with its type and value. You saw <code>mpg</code> appear there a moment ago.</li>
+<li>The <strong>Data Explorer</strong> opens any data frame in a sortable, filterable grid with per-column summary statistics. Its filters are ephemeral, so you can explore without changing your code, then click <strong>Convert to Code</strong> when you want to keep a step.</li>
+<li>The <strong>Plots pane</strong> collects the plots your code creates and keeps a history you can page through. You can export a plot or jump back to the code that produced it. You can drive the Plots pane with the Console, which means you no longer need a notebook just to see a plot.</li>
+<li>The <strong>Help pane</strong> shows documentation for Python objects and packages as you work.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the Console, open your data frame in the Data Explorer by running:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>view mpg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>You will know it worked when</strong> <code>mpg</code> opens in a grid. Sort a column by clicking its header, then open the summary panel to see its distribution.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-vscode-data-explorer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Run %view to view a table in the Data Explorer."><img src="images/tutorial-vscode-data-explorer.png" class="img-fluid figure-img" alt="A screenshot displaying the mpg data set in the Data Explorer and the line `view mpg` in the Console pane."></a></p>
+<figcaption>Run <code>%view</code> to view a table in the Data Explorer.</figcaption>
+</figure>
+</div>
+<p>You can also open the Data Explorer by clicking the <i class="fa-solid fa-table-cells" aria-label="table-cells"></i> next to <code>mpg</code> in the Variables pane.</p>
+</section>
+<section id="your-notebook-upgraded" class="level1">
+<h1>Your notebook, upgraded</h1>
+<p>You might have noticed the notebook in the last tutorial looked a little different from the one in VS Code. That is because Positron uses an enhanced notebook editor built for data science. It comes with notebook-aware AI assistance and is synchronized with the Variables, Plots, Help, History, and Data Explorer panes you just used.</p>
+<p>If you prefer the editor you know from VS Code, Positron still includes it as the <a href="./legacy-notebook-editor.html">Legacy Notebook Editor</a>, and you can switch between the two.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you did not try the Positron Notebook editor in the last tutorial, try it now:</p>
 <ol type="1">
-<li>Select <strong>New &gt; New File</strong></li>
-<li>Select <strong>Jupyter Notebook</strong> from the list of file types</li>
+<li>Run <em>Create: New Jupyter Notebook</em></li>
+<li>Experiment with adding cells and running code, like <code>from plotnine.data import mpg</code></li>
+<li>Watch the Variables, Plots, Help, History, and Data Explorer panes interact with the notebook</li>
 </ol>
+</div>
+</div>
+<p>The video below demonstrates how the Positron IDE responds to your notebook edits, which enhances your authoring experience.</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="The entire IDE tracks and responds to the Notebook Editor."><source src="videos/tutorial-vscode-notebooks.mp4"></video></div>
+</section>
+<section id="set-up-ai-with-your-copilot-account" class="level1">
+<h1>Set up AI with your Copilot account</h1>
+<p>If you use GitHub Copilot in VS Code, you do not have to leave it behind. Positron includes Posit Assistant, an AI assistant designed for data science, and it can use your existing GitHub Copilot account as its model provider.</p>
+<p>We recommend adopting Posit Assistant and pointing it at the Copilot subscription you already pay for.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Run <em>Authentication: Configure Language Model Providers</em> from the Command Palette, select <strong>GitHub Copilot</strong>, and sign in through your browser.</p>
+<p><strong>You will know it worked when</strong> Posit Assistant is connected and you can start a chat.</p>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/jupyter-notebook-option.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="New Jupyter Notebook file"><img src="images/jupyter-notebook-option.png" class="img-fluid figure-img" alt="Jupyter Notebook option in the New File dialog."></a></p>
-<figcaption>New Jupyter Notebook file</figcaption>
+<p><a href="images/tutorial-vscode-copilot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="You can configure Posit Assistant to work with many model providers, including Github Copilot."><img src="images/tutorial-vscode-copilot.png" class="img-fluid figure-img" alt="The Configure Language Model Providers window." width="600"></a></p>
+<figcaption>You can configure Posit Assistant to work with many model providers, including Github Copilot.</figcaption>
 </figure>
 </div>
-<p>This creates a new Jupyter Notebook file in your project folder and opens it in the editor. You can now start writing code in the notebook and running it to see the results.</p>
-<p>You can also open an existing Jupyter Notebook by selecting it in the File Explorer. Positron recognizes that it is a Jupyter Notebook and opens it in the editor.</p>
-<p>Above the notebook, Positron adds a toolbar with buttons to run your code, add new cells, select a different kernel, and more. You can use these buttons to interact with your notebook.</p>
-<p>When you first open your notebook, it uses your active environment as its kernel. The Positron toolbar also updates to show your Jupyter Notebook as the active session. This means that the rest of the IDE reflects the state of your notebook. For example, the Variables pane shows the variables in your notebook’s kernel.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>GitHub Copilot is a preview provider. For account requirements and other providers, see <a href="./assistant.html">Posit Assistant</a> and <a href="./assistant-providers.html">Language Model Providers</a>.</p>
+</div>
+</div>
 </section>
-<section id="explore-some-data" class="level2">
-<h2 class="anchored" data-anchor-id="explore-some-data">Explore some data</h2>
-<p>Now that we have our Jupyter Notebook open, we can start exploring some data. For this tutorial, we will use the <code>mpg</code> dataset, which is a built-in dataset in the plotnine package. To load the dataset:</p>
-<p>Point to the area where you would like to insert a new cell and click <strong>+ Code</strong>.</p>
-<p>Then paste the following code into the cell and click <strong>Run</strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine.data <span class="im">import</span> mpg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This loads the <code>mpg</code> dataset into your notebook’s kernel. Notice that the Variables pane to the right of the notebook shows a new variable called <code>mpg</code>. This variable contains the dataset we just loaded.</p>
+<section id="let-positron-manage-your-python-environments" class="level1">
+<h1>Let Positron manage your Python environments</h1>
+<p>In VS Code you often install a Python version yourself and then point the editor at it. Positron can do more of this for you.</p>
+<p>Positron discovers the interpreters and virtual environments already on your system automatically, including those created with venv, uv, pyenv, conda, and others. Run <em>Interpreter: Start New Console Session</em> to see the interpreters available in your session. If you create a new environment that it does not pick up, run <em>Interpreter: Discover All Interpreters</em> to refresh the list.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/variables-pane-mpg.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="The mpg dataset in the Variables pane"><img src="images/variables-pane-mpg.png" class="img-fluid figure-img" alt="Variables pane showing the mpg dataset variable."></a></p>
-<figcaption>The mpg dataset in the Variables pane</figcaption>
+<p><a href="images/tutorial-vscode-available-interpreters.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Interpreter: Start New Console Session"><img src="images/tutorial-vscode-available-interpreters.png" class="img-fluid figure-img" alt="A screenshot displaying the list of local Python and R interpreters discovered by the Interpreter: Start New Console Session command."></a></p>
+<figcaption>Interpreter: Start New Console Session</figcaption>
 </figure>
 </div>
-<p>You can use the Variables pane to explore the columns in the dataset. Or you can click the grid-like icon to open the dataset in the Positron Data Explorer.</p>
-<p>The Data Explorer allows you to sort and filter the data, as well as view summary statistics. If you would like to recreate a filter, click <strong>Convert to Code</strong> to copy the code for that filter to your clipboard. You can then paste that code into a cell in your notebook to run it.</p>
-<p>We will use the following code to filter <code>mpg</code> to only rows where year is 2008:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mpg_2008 <span class="op">=</span> mpg[mpg[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">2008</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The video below shows how to use the Data Explorer to filter the data and copy the code for that filter to a notebook cell.</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="Using the Positron Data Explorer to filter the mpg dataset and copy the generated filter code into a notebook cell"><source src="videos/tutorial-filter-python.mp4"></video></div>
-<p>Next we will visualize the relationship between the engine displacement (<code>displ</code>) and the miles per gallon (<code>mpg</code>) for cars from 2008 using plotnine:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>(ggplot(mpg_2008, aes(x<span class="op">=</span><span class="st">'displ'</span>, y<span class="op">=</span><span class="st">'hwy'</span>))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> geom_jitter(aes(color<span class="op">=</span><span class="st">'class'</span>))</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> geom_smooth(method<span class="op">=</span><span class="st">'lm'</span>, se<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> labs(title<span class="op">=</span><span class="st">'MPG: Displacement vs Highway Mileage'</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span><span class="st">'Displacement (liters)'</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span><span class="st">'Highway Mileage (mpg)'</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>We will also add a code cell that returns a formatted table of the average highway mileage for each class of car:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(mpg_2008.groupby(<span class="st">'class'</span>)[<span class="st">'hwy'</span>]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> .mean()</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> .reset_index()</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> .sort_values(by<span class="op">=</span><span class="st">'hwy'</span>, ascending<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Finally, we will place a markdown cell with a title at the top of the notebook. To do this, point to the area where you would like to insert the new cell and click <strong>+ Markdown</strong>.</p>
-<p>Watch the video below to see these steps in action:</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="Building a plotnine chart and a summary table in a Jupyter Notebook, then adding a markdown title cell"><source src="videos/tutorial-explore-python.mp4"></video></div>
-<p>To test that the notebook runs correctly, click <strong>Clear Outputs</strong> in the toolbar to clear all of the outputs from the cells. Next, click <strong>Restart Kernel</strong> to create a fresh session. Then click <strong>Run All</strong> to run all of the cells in order. The plot and the table appear as outputs from the cells.</p>
-<p>The entire process looks like this:</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="Clearing outputs, restarting the kernel, and running all cells in a Jupyter Notebook in Positron"><source src="videos/tutorial-test-python.mp4"></video></div>
-</section>
-<section id="save-your-notebook" class="level2">
-<h2 class="anchored" data-anchor-id="save-your-notebook">Save your notebook</h2>
-<p>To save your notebook, use the keyboard shortcut <kbd title="linux: Ctrl-S, mac: Command-S, windows: Ctrl-S" aria-hidden="true" data-linux="Ctrl-S" data-mac="Command-S" data-windows="Ctrl-S"></kbd><span class="visually-hidden"></span>. This saves your notebook to your project folder, where it appears in the File Explorer in the left sidebar.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/save-notebook.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Saving a notebook in Positron"><img src="images/save-notebook.png" class="img-fluid figure-img" alt="Save button in the Jupyter Notebook toolbar."></a></p>
-<figcaption>Saving a notebook in Positron</figcaption>
-</figure>
+<p>If you do not have Python on your computer, Positron can install Python for you with <a href="https://docs.astral.sh/uv/">uv</a>. When you start a session without a valid Python available, Positron offers to install Python via uv and build an environment for you. You can also do this anytime with the <em>Python: Install Python via uv</em> command.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>If you have Git set up for your project, you can use the Git pane in Positron to commit and push your notebook to a remote repository like GitHub. This is a great way to share your notebook with others or to keep a backup of your work.</p>
-<p>Learn more about <a href="./git.html">using Git in Positron</a>.</p>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When Positron detects a <code>pyproject.toml</code> or <code>requirements.txt</code> in a project with no environment yet, it offers to create a <code>.venv</code> and install the dependencies with uv. See <a href="./python-installations.html">Python installations and environments</a> for the full set of options and settings, such as <a href="positron://settings/python.interpreters.include"><code>python.interpreters.include</code></a>.</p>
+</div>
+</div>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Congratulations! You have successfully set up a Python environment in Positron, installed the packages you need, and explored some data in a Jupyter Notebook.</p>
+<section id="know-the-gaps" class="level1">
+<h1>Know the gaps</h1>
+<p>Migrating confidently means knowing where the edges are. For VS Code users, the main one is the marketplace. Extensions that contain proprietary Microsoft code are not available, because Microsoft licenses them only for its own VS Code product. Open source extensions, which cover the great majority of data science tooling, work in Positron. If a specific extension matters to your workflow, check whether it is published to <a href="https://open-vsx.org/">Open VSX</a> before you rely on it.</p>
+<p>Beyond that, most of what you know transfers directly, and much of what you set up by hand in VS Code, Positron provides out of the box.</p>
+<p>For a fuller reference on any of the topics above, see <a href="./migrate-vscode.html">Migrating to Positron from VS Code</a>.</p>
+</section>
+<section id="your-data-science-editor-is-ready" class="level1">
+<h1>Your data science editor is ready</h1>
+<p>You brought your settings and keybindings across, installed extensions from the Positron marketplace, and met the tools that VS Code leaves to extensions or does without. Those tools include a live Console, the Variables, Plots, and Data Explorer panes, a native notebook editor, and Posit Assistant running on your own Copilot account. The familiar editor is still there underneath, built for data science.</p>
+<p>From here, dig deeper into the tools you might use every day:</p>
+<ul>
+<li><a href="./guide-python.html">Working with Python in Positron</a></li>
+<li><a href="./data-explorer.html">The Data Explorer</a></li>
+<li><a href="./jupyter-notebooks.html">Jupyter Notebooks</a></li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -889,13 +1088,13 @@ Important
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./tutorials.html" class="pagination-link" aria-label="Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Overview</span>
+      <a href="./tutorial-get-started-quarto.html" class="pagination-link" aria-label="First data analysis with R in a Quarto document">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">First data analysis with R in a Quarto document</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./tutorial-get-started-quarto.html" class="pagination-link" aria-label="First data analysis with R in a Quarto document">
-        <span class="nav-page-text">First data analysis with R in a Quarto document</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tutorial-migrate-from-RStudio.html" class="pagination-link" aria-label="Migrate from RStudio to Positron">
+        <span class="nav-page-text">Migrate from RStudio to Positron</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -913,7 +1112,7 @@ Important
     </div>   
     <div class="nav-footer-center">
 <p>Positron 2026.08.0 (development version)</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/tutorial-get-started-ipynb.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/tutorial-get-started-ipynb.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/tutorial-migrate-from-vscode.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/tutorial-migrate-from-vscode.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
@@ -936,9 +1135,6 @@ Important
   </div>
 </footer>
 <script>videojs(video_shortcode_videojs_video1);</script>
-<script>videojs(video_shortcode_videojs_video2);</script>
-<script>videojs(video_shortcode_videojs_video3);</script>
-<script>videojs(video_shortcode_videojs_video4);</script>
 <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;

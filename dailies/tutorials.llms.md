@@ -12,6 +12,10 @@ Set up a Python environment, open a Jupyter Notebook, and perform your first dat
 
 Set up an R environment, open a Quarto document, and perform your first data analysis.
 
+### Migrate from VS Code to Positron
+
+You already know the VS Code interface. Learn what is different in Positron and how it makes a better editor for data science.
+
 ### Migrate from RStudio to Positron
 
 Set up Positron so it looks, feels, and responds like the RStudio you already know.

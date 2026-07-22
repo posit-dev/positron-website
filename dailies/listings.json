@@ -4,6 +4,26 @@
     "items": []
   },
   {
+    "listing": "/language-guides.html",
+    "items": []
+  },
+  {
+    "listing": "/assistant.html",
+    "items": []
+  },
+  {
+    "listing": "/ai-features.html",
+    "items": []
+  },
+  {
+    "listing": "/assistant-getting-started.html",
+    "items": []
+  },
+  {
+    "listing": "/features.html",
+    "items": []
+  },
+  {
     "listing": "/release-notes.html",
     "items": [
       "/release-notes/release-2026-06.html",
@@ -19,26 +39,6 @@
       "/release-notes/release-2025-08.html",
       "/release-notes/release-2025-07.html"
     ]
-  },
-  {
-    "listing": "/features.html",
-    "items": []
-  },
-  {
-    "listing": "/assistant-getting-started.html",
-    "items": []
-  },
-  {
-    "listing": "/ai-features.html",
-    "items": []
-  },
-  {
-    "listing": "/assistant.html",
-    "items": []
-  },
-  {
-    "listing": "/language-guides.html",
-    "items": []
   },
   {
     "listing": "/tutorials.html",
