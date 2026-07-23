@@ -43,6 +43,8 @@ Release notes live in `release-notes/` with a template at `release-notes/release
 ## Writing Style Guide
 
 **Before creating a PR, run `/doc-reviewer` to check documentation for style compliance.**
+This must be installed separately.
+You can find this skill at https://github.com/posit-dev/doc-reviewer
 
 Key formatting rules:
 - **Bold UI elements**: `**Publish**`, `**File** menu`
