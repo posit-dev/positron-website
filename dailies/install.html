@@ -1146,7 +1146,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites">Prerequisites</a>
+  <ul class="collapse">
+  <li><a href="#windows-setup" id="toc-windows-setup" class="nav-link" data-scroll-target="#windows-setup">Windows setup</a></li>
+  <li><a href="#optional-language-setup" id="toc-optional-language-setup" class="nav-link" data-scroll-target="#optional-language-setup">Optional language setup</a></li>
+  </ul></li>
   <li><a href="#install-positron" id="toc-install-positron" class="nav-link" data-scroll-target="#install-positron">Install Positron</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/install.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/install.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -1178,21 +1182,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Positron is a modern, extensible IDE for data science built on <a href="https://github.com/microsoft/vscode">Code OSS</a>. Before you install Positron, please review the prerequisites below to ensure your system is ready.</p>
+<p>Positron is a modern, extensible IDE for data science built on <a href="https://github.com/microsoft/vscode">Code OSS</a>. Before you install Positron, please review the prerequisites to ensure your system is ready.</p>
 <section id="prerequisites" class="level2">
 <h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>In most cases, Positron is ready to go as soon as it is installed. Check the section for your platform or language to see if you need anything more.</p>
+<section id="windows-setup" class="level3">
+<h3 class="anchored" data-anchor-id="windows-setup">Windows setup</h3>
+<p>If you’re using Windows, make sure you have the <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version">latest Visual C++ Redistributable</a> installed.</p>
+</section>
+<section id="optional-language-setup" class="level3">
+<h3 class="anchored" data-anchor-id="optional-language-setup">Optional language setup</h3>
+<p>Positron runs without any programming language installed. If you plan to use R or Python, follow these steps to get your environment working.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python setup</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">R setup</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>If you’re using Windows, make sure you have the <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version">latest Visual C++ Redistributable</a> installed.</p>
+<p>Positron works with <a href="https://devguide.python.org/versions/#versions">actively supported versions</a> of Python.</p>
+<p>If you do not have a valid Python version available, Positron <a href="./python-installations.html#automatic-uv-installation">can install one for you</a>. If you prefer to use an existing environment, Positron supports the following Python environment managers:</p>
+<ul>
+<li><strong>venv</strong>: Standard library virtual environments created with <code>python -m venv</code></li>
+<li><strong>uv</strong>: Virtual environments and Python installations managed by <code>uv</code></li>
+<li><strong>pyenv</strong>: Python installations managed by <code>pyenv</code>, including virtual environments</li>
+<li><strong>conda</strong>: Conda environments created with <code>conda create</code> or <code>mamba create</code>, as well as pixi environments created with <code>pixi init</code></li>
+</ul>
+<p>Other tools might also be compatible, even if Positron does not officially support them. For the full list of requirements, see <a href="./python-installations.html">Python environment qualifications</a>.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>Positron works with <a href="https://devguide.python.org/versions/#versions">actively supported versions</a> of Python.</p>
-<p>If you do not have a valid Python version available, Positron <a href="./python-installations.html#automatic-uv-installation">can install one for you</a>. If you prefer to use an existing environment, Positron makes it easily available to use, provided it meets the <a href="./python-installations.html">qualifications</a>.</p>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>If you plan to use R with Positron, ensure you have R 4.2 or higher installed. To install R, follow the instructions for your operating system at <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a>.</p>
+<p>Ensure you have R 4.2 or higher installed. To install R, follow the <a href="https://cloud.r-project.org/">instructions for your operating system</a>.</p>
 <p>Alternatively, if you’d like to have multiple R installations, <a href="https://github.com/r-lib/rig">rig</a> is a great tool to manage this which works well with Positron.</p>
 <p>If you’re an R package developer, you will also want to make sure that you have the current versions of certain R packages, all of which had recent updates to make them work more smoothly in Positron. Run one of the code snippets below to ensure that you are up-to-date:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if you're a pak person (we are!)</span></span>
@@ -1217,6 +1233,7 @@ Note
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="install-positron" class="level2">
 <h2 class="anchored" data-anchor-id="install-positron">Install Positron</h2>
