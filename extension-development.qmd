@@ -333,9 +333,11 @@ Use observers to process output progressively without blocking the UI. This appr
 
 #### Testing against the Positron API in CI
 
-To run extension-host integration tests against the live `positron.*` API—without building Positron from source—use the [`@posit-dev/positron-test-electron`](https://github.com/posit-dev/positron-test-electron) package. It downloads and launches a real Positron build (daily or stable) and runs your test suite against it, the same way [`@vscode/test-electron`](https://code.visualstudio.com/api/working-with-extensions/testing-extension) does for VS Code.
+You can run extension-host integration tests against the live `positron.*` API in continuous integration (CI) without building Positron from source. The [`@posit-dev/positron-test-electron`](https://github.com/posit-dev/positron-test-electron) package downloads a real Positron build (daily or stable) and runs your test suite against it, the same way [`@vscode/test-electron`](https://code.visualstudio.com/api/working-with-extensions/testing-extension) works for VS Code.
 
-Install it as a development dependency:
+Start with the sample [GitHub Actions workflow](https://github.com/posit-dev/positron-extension-template/blob/main/.github/workflows/positron-api-tests.yaml) in the [Positron extension template](https://github.com/posit-dev/positron-extension-template). It runs your Positron API tests on every push and pull request. The workflow checks out your extension, sets up Node.js, installs dependencies with `npm ci`, and uses the [`posit-dev/setup-positron`](https://github.com/posit-dev/setup-positron) action to run your tests against a Positron build. Copy this workflow into your extension to get CI coverage with minimal setup.
+
+The test script in the template builds on `@posit-dev/positron-test-electron`, which you can also call directly for more control. Install it as a development dependency:
 
 ```bash
 npm install --save-dev @posit-dev/positron-test-electron
@@ -359,7 +361,7 @@ async function main() {
 main();
 ```
 
-Or from the command line:
+Or run it from the command line:
 
 ```bash
 npx positron-test-electron \
@@ -368,7 +370,7 @@ npx positron-test-electron \
     --extension-tests-path ./out/test/index.js
 ```
 
-Use `channel: 'daily'` to test against upcoming changes, or `channel: 'stable'` (or pin a specific `version`, such as `2026.08.0-365`) to test against released builds. This makes it straightforward to run your Positron API tests in CI across macOS, Windows, and Linux.
+Set `channel` to `daily` to test against upcoming changes, or `stable` to test against released builds. You can also pin a specific `version`, such as `2026.08.0-365`. The package supports macOS, Windows, and Linux.
 
 ### Resource management
 * Clean up event listeners in your extension's `deactivate()` function.
