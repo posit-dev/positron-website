@@ -108,11 +108,6 @@ jobs:
           cd ../_site-workbench
           zip -r ../positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip .
 
-      - name: Create slim LLM docs bundles
-        run: |
-          scripts/build-llms-bundle.sh _site positron "${{ steps.get-version.outputs.release_version }}"
-          scripts/build-llms-bundle.sh _site-workbench workbench "${{ steps.get-version.outputs.release_version }}"
-
       - name: Delete existing release
         if: ${{ inputs.overwrite }}
         env:
@@ -153,6 +148,11 @@ jobs:
           S3_PREFIX="s3://posit-positron-downloads/positron/${{ inputs.release_channel }}/docs"
           aws s3 cp "positron-docs-${{ steps.get-version.outputs.release_version }}.zip" "${S3_PREFIX}/positron-docs-${{ steps.get-version.outputs.release_version }}.zip" --no-progress
           aws s3 cp "positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip" "${S3_PREFIX}/positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip" --no-progress
+
+      - name: Create slim LLM docs bundles
+        run: |
+          scripts/build-llms-bundle.sh _site positron "${{ steps.get-version.outputs.release_version }}"
+          scripts/build-llms-bundle.sh _site-workbench workbench "${{ steps.get-version.outputs.release_version }}"
 
       - name: Upload slim LLM bundles to S3
         env:
@@ -214,6 +214,8 @@ jobs:
           # Bucket-relative key prefix, not an s3:// URL: head-object takes
           # --bucket and --key separately.
           KEY_PREFIX="positron/${CHANNEL}/docs"
+          # Must match the value the upload step sets, character for character.
+          IMMUTABLE_CC="public, max-age=31536000, immutable"
 
           # head-object rather than `aws s3 ls`: `ls` on an exact key is a prefix
           # listing, and whether an empty listing exits non-zero depends on the
@@ -228,14 +230,19 @@ jobs:
             fi
           }
 
-          check_no_cache() {
+          # Assert both kinds, not just the aliases: `immutable` on a versioned
+          # object is the value that cannot be corrected later without an
+          # invalidation, so it is the more expensive one to get wrong.
+          check_cache_control() {
             local key="$1"
+            local expected="$2"
             local cc
             cc="$(aws s3api head-object --bucket "$S3_BUCKET" --key "$key" \
                     --query 'CacheControl' --output text)"
-            if [ "$cc" != "no-cache" ]; then
-              echo "error: $key has Cache-Control '$cc', expected 'no-cache'." >&2
-              echo "A cached alias makes every conditional GET answer 304 forever." >&2
+            if [ "$cc" != "$expected" ]; then
+              echo "error: $key has Cache-Control '$cc', expected '$expected'." >&2
+              echo "A cached alias makes every conditional GET answer 304 forever;" >&2
+              echo "a non-immutable versioned object wastes a revalidation on every read." >&2
               exit 1
             fi
           }
@@ -247,6 +254,8 @@ jobs:
             # bundle that no install will ever use.
             assert_exists "${KEY_PREFIX}/${ZIP}"
             assert_exists "${KEY_PREFIX}/${ZIP}.sha256sum"
+            check_cache_control "${KEY_PREFIX}/${ZIP}" "$IMMUTABLE_CC"
+            check_cache_control "${KEY_PREFIX}/${ZIP}.sha256sum" "$IMMUTABLE_CC"
           done
 
           if [ "$CHANNEL" = "releases" ]; then
@@ -254,8 +263,8 @@ jobs:
               ALIAS="${BASENAME}-latest.zip"
               assert_exists "${KEY_PREFIX}/${ALIAS}"
               assert_exists "${KEY_PREFIX}/${ALIAS}.sha256sum"
-              check_no_cache "${KEY_PREFIX}/${ALIAS}"
-              check_no_cache "${KEY_PREFIX}/${ALIAS}.sha256sum"
+              check_cache_control "${KEY_PREFIX}/${ALIAS}" "no-cache"
+              check_cache_control "${KEY_PREFIX}/${ALIAS}.sha256sum" "no-cache"
             done
           fi
 

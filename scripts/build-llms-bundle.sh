@@ -61,22 +61,53 @@ fi
 sed "s|${DOCS_BASE_URL}||g" "$STAGE/llms.txt" > "$STAGE/llms.txt.rewritten"
 mv "$STAGE/llms.txt.rewritten" "$STAGE/llms.txt"
 
-# 3. Guard: no bundled file may still reference the site.
-if grep -rl 'positron\.posit\.co' "$STAGE" ; then
+# 3. Guard: no bundled file may still reference the site. Paths are reported
+# relative to $SITE_DIR, since a mktemp path is not actionable for an operator.
+if grep -rl 'positron\.posit\.co' "$STAGE" | sed "s|^$STAGE/|$SITE_DIR/|" | grep . ; then
 	echo "error: bundled files still reference positron.posit.co (listed above)." >&2
 	echo "The rewrite assumes only llms.txt carries site links. That assumption broke." >&2
 	exit 1
 fi
 
-# 4. Guard: every link in llms.txt must now be bundle-relative.
-if grep -oE '\]\([^)]+\)' "$STAGE/llms.txt" | grep -E '\((https?:)?//' ; then
-	echo "error: llms.txt still contains absolute links (listed above)." >&2
+# 4. Guard: every link in llms.txt must now be bundle-relative. Matches any
+# scheme case-insensitively, scheme-relative `//host`, and root-relative `/path`
+# - none of which resolve inside an extracted bundle.
+if grep -oE '\]\([^)]+\)' "$STAGE/llms.txt" | grep -Ei '\(([a-z][a-z0-9+.-]*:)?//|\(/' ; then
+	echo "error: llms.txt contains links that are not bundle-relative (listed above)." >&2
+	exit 1
+fi
+
+# 5. Guard: every link target must exist in the bundle. llms.txt is the
+# consumer's only index, and Quarto builds it from the page list rather than from
+# what it actually wrote, so a partial render yields an index pointing at files
+# that are not there. Nothing else in this script can catch that: the file count
+# is measured from $STAGE and compared against a zip built from $STAGE, so it is
+# self-consistent whatever is missing.
+MISSING_LINKS=0
+while IFS= read -r target; do
+	target="${target%%#*}"
+	[ -n "$target" ] || continue
+	if [ ! -f "$STAGE/$target" ]; then
+		echo "error: llms.txt links '$target', which is not in the bundle." >&2
+		MISSING_LINKS=$((MISSING_LINKS + 1))
+	fi
+done < <(grep -oE '\]\([^)]+\)' "$STAGE/llms.txt" | sed 's/^](//; s/)$//')
+if [ "$MISSING_LINKS" -ne 0 ]; then
+	echo "error: $MISSING_LINKS llms.txt link(s) do not resolve inside the bundle." >&2
+	echo "The Quarto render is probably incomplete." >&2
 	exit 1
 fi
 
 FILE_COUNT="$(find "$STAGE" -type f | wc -l | tr -d ' ')"
 
-# 5. Generate bundle.json, then include it in the count it reports.
+# llms.txt plus the docs counted at step 1. A mismatch means the tar pipe
+# dropped or duplicated something between the site dir and the stage.
+if [ "$FILE_COUNT" -ne "$((DOC_COUNT + 1))" ]; then
+	echo "error: staged $FILE_COUNT files, expected $((DOC_COUNT + 1))." >&2
+	exit 1
+fi
+
+# 6. Generate bundle.json, then include it in the count it reports.
 cat > "$STAGE/bundle.json" <<JSON
 {
   "schema": ${SCHEMA},
@@ -88,7 +119,7 @@ cat > "$STAGE/bundle.json" <<JSON
 }
 JSON
 
-# 6. Zip, then verify the archive round-trips the guards.
+# 7. Zip, then verify its entry list and count match what was staged.
 rm -f "$ZIP_NAME"
 ( cd "$STAGE" && zip -q -r -X "$OUT_DIR/$ZIP_NAME" . )
 
@@ -110,7 +141,7 @@ if [ "$ZIPPED_COUNT" -ne "$DECLARED_COUNT" ]; then
 	exit 1
 fi
 
-# 7. Digest sidecar. Positron refuses to extract without a matching one.
+# 8. Digest sidecar. Positron refuses to extract without a matching one.
 shasum -a 256 "$ZIP_NAME" > "${ZIP_NAME}.sha256sum"
 shasum -a 256 -c "${ZIP_NAME}.sha256sum"
 
