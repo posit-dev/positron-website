@@ -248,7 +248,7 @@ full_checksums <- c(
 checksums_display <- substr(full_checksums, 1, 7)
 
 checksum_table$`SHA-256` <- glue(
-  '<span class="checksum-cell"><code class="checksum-value">{checksums_display}</code><button class="checksum-copy" onclick="copyChecksum(\'{full_checksums}\', this)" title="Copy full checksum"><i class="bi bi-clipboard"></i></button></span>'
+  '<span class="checksum-cell"><code>{full_checksums}</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></span>'
 )
 
 knitr::kable(checksum_table, format = "html", escape = FALSE, row.names = FALSE)
