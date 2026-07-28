@@ -214,23 +214,28 @@ System install
 
 checksum_table <- data.frame(
   Platform = c(
-    "macOS (Apple Silicon)", "macOS (Intel)",
-    "Windows x64 (user install)", "Windows ARM64 (user install)",
-    "Windows x64 (system install)", "Windows ARM64 (system install)",
-    "Linux .deb x64", "Linux .deb ARM64",
-    "Linux .rpm x64", "Linux .rpm ARM64"
+    "Windows 10, 11 x64 (system level install)",
+    "Windows 10, 11 x64 (user level install)",
+    "Windows 11 arm64 (system level install)",
+    "Windows 11 arm64 (user level install)",
+    "MacOS 11.0+ (arm64/Apple Silicon)",
+    "MacOS 11.0+ (x64/Intel)",
+    "Debian-based Linux x64 (Ubuntu 20+)",
+    "Debian-based Linux arm64 (Ubuntu 20+)",
+    "Red Hat-based Linux x64 (RHEL9)",
+    "Red Hat-based Linux arm64 (RHEL9)"
   ),
   Installer = c(
+    windows_system_x64, windows_user_x64,
+    windows_system_arm64, windows_user_arm64,
     macos_arm64, macos_x64,
-    windows_user_x64, windows_user_arm64,
-    windows_system_x64, windows_system_arm64,
     debian_x64, debian_arm,
     redhat_x64, redhat_arm
   ),
   Size = c(
+    file_sizes[1], file_sizes[2],
+    file_sizes[3], file_sizes[4],
     file_sizes[5], file_sizes[6],
-    file_sizes[2], file_sizes[4],
-    file_sizes[1], file_sizes[3],
     file_sizes[7], file_sizes[8],
     file_sizes[9], file_sizes[10]
   ),
@@ -238,9 +243,9 @@ checksum_table <- data.frame(
 )
 
 full_checksums <- c(
+  checksums[1], checksums[2],
+  checksums[3], checksums[4],
   checksums[5], checksums[6],
-  checksums[2], checksums[4],
-  checksums[1], checksums[3],
   checksums[7], checksums[8],
   checksums[9], checksums[10]
 )
