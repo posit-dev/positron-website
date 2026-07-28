@@ -58,7 +58,7 @@ fi
 # 2. Rewrite llms.txt to bundle-relative paths. This is what schema 1 promises.
 # Write-and-move rather than `sed -i`: in-place editing needs no suffix on GNU
 # sed and a mandatory one on BSD, so no single `-i` spelling is portable.
-sed "s|${DOCS_BASE_URL}||g" "$STAGE/llms.txt" > "$STAGE/llms.txt.rewritten"
+sed "s|https://positron\\.posit\\.co/||g" "$STAGE/llms.txt" > "$STAGE/llms.txt.rewritten"
 mv "$STAGE/llms.txt.rewritten" "$STAGE/llms.txt"
 
 # 3. Guard: no bundled file may still reference the site. Paths are reported
@@ -129,8 +129,8 @@ rm -f "$ZIP_NAME"
 # (141) fails the pipeline even though the archive is fine.
 ENTRIES="$(unzip -Z1 "$ZIP_NAME")"
 
-grep -qx 'llms.txt' <<<"$ENTRIES"    || { echo "error: zip missing llms.txt" >&2; exit 1; }
-grep -qx 'bundle.json' <<<"$ENTRIES" || { echo "error: zip missing bundle.json" >&2; exit 1; }
+grep -q 'llms\.txt$' <<<"$ENTRIES"    || { echo "error: zip missing llms.txt" >&2; exit 1; }
+grep -q 'bundle\.json$' <<<"$ENTRIES" || { echo "error: zip missing bundle.json" >&2; exit 1; }
 
 # `grep -c` exits 1 on a zero count, which `set -e` would treat as fatal, so
 # tolerate it and let the comparison below report the real mismatch.
