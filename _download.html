@@ -50,11 +50,8 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    @media (hover: hover) {
-        .download-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(87, 89, 89, 0.12);
-        }
+    .download-card:hover {
+        box-shadow: 0 4px 24px rgba(87, 89, 89, 0.12);
     }
 
     .download-card h4 {
@@ -70,16 +67,32 @@
         font-size: 1.3rem;
     }
 
+    .download-card .download-group {
+        margin-bottom: 1rem;
+    }
+
+    .download-card .download-group:last-child {
+        margin-bottom: 0;
+    }
+
+    .download-card .download-group > p {
+        font-size: 0.85rem;
+        color: #707073;
+        margin-bottom: 0.25rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .download-card .download-group:first-child > p {
+        border-top: none;
+        padding-top: 0;
+    }
+
     .download-card .download-option {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0.6rem 0;
-        border-bottom: 1px solid #f0f0f0;
-    }
-
-    .download-card .download-option:last-child {
-        border-bottom: none;
+        padding: 0.4rem 0;
     }
 
     .download-card .download-option p {
@@ -194,19 +207,22 @@
 
     .checksums-section table {
         font-size: 0.85rem;
-    }
-
-    .checksums-section td,
-    .checksums-section th {
-        word-break: break-all;
+        table-layout: fixed;
+        width: 100%;
     }
 
     .checksum {
         cursor: pointer;
-        color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
-        text-decoration: underline;
         position: relative;
         display: inline-block;
+        font-family: "Source Code Pro", monospace;
+        font-size: 0.75rem;
+        word-break: break-all;
+        user-select: all;
+    }
+
+    .checksum:hover {
+        background: #f0f6fb;
     }
 
     .copy-feedback {
