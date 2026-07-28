@@ -57,6 +57,8 @@
     .download-card h4 {
         margin-top: 0;
         margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #f0f0f0;
         font-size: 1.1rem;
         display: flex;
         align-items: center;
@@ -243,10 +245,27 @@
     @media (max-width: 768px) {
         .download-cards {
             grid-template-columns: 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .download-card {
+            padding: 1.25rem;
+        }
+
+        .download-card .download-option {
+            padding: 0.5rem 0;
+            gap: 0.75rem;
+        }
+
+        .download-card .download-option a.download-link {
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .download-hero {
             padding: 1.5rem 1rem;
+            margin-bottom: 1.5rem;
         }
     }
 
