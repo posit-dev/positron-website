@@ -108,6 +108,11 @@ jobs:
           cd ../_site-workbench
           zip -r ../positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip .
 
+      - name: Create slim LLM docs bundles
+        run: |
+          scripts/build-llms-bundle.sh _site positron "${{ steps.get-version.outputs.release_version }}"
+          scripts/build-llms-bundle.sh _site-workbench workbench "${{ steps.get-version.outputs.release_version }}"
+
       - name: Delete existing release
         if: ${{ inputs.overwrite }}
         env:
@@ -148,6 +153,96 @@ jobs:
           S3_PREFIX="s3://posit-positron-downloads/positron/${{ inputs.release_channel }}/docs"
           aws s3 cp "positron-docs-${{ steps.get-version.outputs.release_version }}.zip" "${S3_PREFIX}/positron-docs-${{ steps.get-version.outputs.release_version }}.zip" --no-progress
           aws s3 cp "positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip" "${S3_PREFIX}/positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip" --no-progress
+
+      - name: Upload slim LLM bundles to S3
+        env:
+          VERSION: ${{ steps.get-version.outputs.release_version }}
+          CHANNEL: ${{ inputs.release_channel }}
+        run: |
+          set -euo pipefail
+          S3_PREFIX="s3://posit-positron-downloads/positron/${CHANNEL}/docs"
+
+          for BASENAME in positron-llms positron-workbench-llms; do
+            ZIP="${BASENAME}-${VERSION}.zip"
+
+            # Sidecar before zip: a zip reachable without its digest is a window
+            # in which a cold-cache Positron install gets no local docs.
+            aws s3 cp "${ZIP}.sha256sum" "${S3_PREFIX}/${ZIP}.sha256sum" \
+              --no-progress --cache-control "public, max-age=31536000, immutable"
+            aws s3 cp "${ZIP}" "${S3_PREFIX}/${ZIP}" \
+              --no-progress --cache-control "public, max-age=31536000, immutable"
+          done
+
+      - name: Move latest aliases
+        # Only the releases channel owns the mutable alias every install reads.
+        # A staging or dailies run must not repoint it.
+        if: ${{ inputs.release_channel == 'releases' }}
+        env:
+          VERSION: ${{ steps.get-version.outputs.release_version }}
+        run: |
+          set -euo pipefail
+          S3_PREFIX="s3://posit-positron-downloads/positron/releases/docs"
+
+          for BASENAME in positron-llms positron-workbench-llms; do
+            ZIP="${BASENAME}-${VERSION}.zip"
+            ALIAS="${BASENAME}-latest.zip"
+
+            # Rewrite the sidecar to name the alias, so `shasum -c` against the
+            # downloaded alias still matches. Positron only reads the hex digest,
+            # but a self-consistent sidecar keeps manual verification honest.
+            DIGEST="$(cut -d' ' -f1 < "${ZIP}.sha256sum")"
+            printf '%s  %s\n' "$DIGEST" "$ALIAS" > "${ALIAS}.sha256sum"
+
+            # no-cache is what makes Positron's conditional GET meaningful:
+            # CloudFront revalidates with the origin, so a 304 genuinely means
+            # unchanged rather than "stale edge copy".
+            aws s3 cp "${ALIAS}.sha256sum" "${S3_PREFIX}/${ALIAS}.sha256sum" \
+              --no-progress --cache-control "no-cache"
+
+            # Source is the versioned zip: there is no local file named ${ALIAS}.
+            aws s3 cp "${ZIP}" "${S3_PREFIX}/${ALIAS}" \
+              --no-progress --cache-control "no-cache"
+          done
+
+      - name: Assert published LLM bundle objects
+        env:
+          VERSION: ${{ steps.get-version.outputs.release_version }}
+          CHANNEL: ${{ inputs.release_channel }}
+        run: |
+          set -euo pipefail
+          S3_PREFIX="s3://posit-positron-downloads/positron/${CHANNEL}/docs"
+          S3_BUCKET="posit-positron-downloads"
+
+          check_no_cache() {
+            local key="$1"
+            local cc
+            cc="$(aws s3api head-object --bucket "$S3_BUCKET" --key "$key" \
+                    --query 'CacheControl' --output text)"
+            if [ "$cc" != "no-cache" ]; then
+              echo "error: $key has Cache-Control '$cc', expected 'no-cache'." >&2
+              echo "A cached alias makes every conditional GET answer 304 forever." >&2
+              exit 1
+            fi
+          }
+
+          for BASENAME in positron-llms positron-workbench-llms; do
+            ZIP="${BASENAME}-${VERSION}.zip"
+            # Every uploaded zip must have a reachable sidecar. Positron refuses
+            # to extract a zip it cannot verify, so a dropped sidecar ships a
+            # bundle that no install will ever use.
+            aws s3 ls "${S3_PREFIX}/${ZIP}" > /dev/null
+            aws s3 ls "${S3_PREFIX}/${ZIP}.sha256sum" > /dev/null
+          done
+
+          if [ "$CHANNEL" = "releases" ]; then
+            for BASENAME in positron-llms positron-workbench-llms; do
+              ALIAS="${BASENAME}-latest.zip"
+              aws s3 ls "${S3_PREFIX}/${ALIAS}" > /dev/null
+              aws s3 ls "${S3_PREFIX}/${ALIAS}.sha256sum" > /dev/null
+              check_no_cache "positron/${CHANNEL}/docs/${ALIAS}"
+              check_no_cache "positron/${CHANNEL}/docs/${ALIAS}.sha256sum"
+            done
+          fi
 
       - name: Configure AWS Credentials for CloudFront
         uses: aws-actions/configure-aws-credentials@v4
