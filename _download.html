@@ -39,6 +39,8 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
         margin-bottom: 2rem;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .download-card {
@@ -82,12 +84,10 @@
         color: #707073;
         margin-bottom: 0.25rem;
         padding-top: 0.5rem;
-        border-top: 1px solid #f0f0f0;
     }
 
-    .download-card .download-group:first-child > p {
-        border-top: none;
-        padding-top: 0;
+    .download-card .download-group + .download-group > p {
+        border-top: 1px solid #f0f0f0;
     }
 
     .download-card .download-option {
@@ -269,15 +269,9 @@
         }
     }
 
-    @media (min-width: 769px) and (max-width: 1100px) {
+    @media (min-width: 769px) {
         .download-cards {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (min-width: 1101px) {
-        .download-cards {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
     }
 
