@@ -211,33 +211,31 @@
         width: 100%;
     }
 
-    .checksum-cell {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
+    .checksum {
+        cursor: pointer;
+        color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+        text-decoration: underline;
         position: relative;
-    }
-
-    .checksum-cell code {
-        font-size: 0.8rem;
-        max-width: 5.5em;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
         display: inline-block;
-        vertical-align: middle;
-        background: none;
-        padding: 0;
     }
 
-    .checksum-cell .code-copy-button {
-        position: static;
-        margin: 0;
-        padding: 0.15rem 0.3rem;
-        opacity: 0.7;
+    .copy-feedback {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
     }
 
-    .checksum-cell .code-copy-button:hover {
+    .copy-feedback.visible {
         opacity: 1;
     }
 
@@ -492,4 +490,33 @@
         bindDownloadTriggers();
     }
 
+    function copyChecksum(text, element) {
+        const existingFeedback = element.querySelector('.copy-feedback');
+        if (existingFeedback) {
+            existingFeedback.remove();
+        }
+
+        const feedback = document.createElement('div');
+        feedback.className = 'copy-feedback';
+        feedback.textContent = 'Copied!';
+        element.appendChild(feedback);
+
+        navigator.clipboard.writeText(text).then(() => {
+            requestAnimationFrame(() => {
+                feedback.classList.add('visible');
+                setTimeout(() => {
+                    feedback.classList.remove('visible');
+                    setTimeout(() => { feedback.remove(); }, 200);
+                }, 1000);
+            });
+        }).catch((err) => {
+            console.error('Failed to copy text: ', err);
+            feedback.textContent = 'Failed to copy';
+            feedback.classList.add('visible');
+            setTimeout(() => {
+                feedback.classList.remove('visible');
+                setTimeout(() => { feedback.remove(); }, 200);
+            }, 1000);
+        });
+    }
 </script>
