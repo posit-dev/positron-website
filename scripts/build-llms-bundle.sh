@@ -41,6 +41,17 @@ fi
 # A tar pipe rather than `cp --parents`: that flag is GNU-only, and this script
 # must run on a contributor's macOS checkout as well as the Linux runner.
 cp "$SITE_DIR/llms.txt" "$STAGE/llms.txt"
+
+# Guard the empty case before taring: GNU tar refuses to create an empty archive
+# and exits non-zero while BSD tar exits 0, so without this the same broken
+# render fails cryptically on CI and silently on a Mac. A bundle of llms.txt
+# plus bundle.json and no docs is useless either way.
+DOC_COUNT="$(cd "$SITE_DIR" && find . -name '*.llms.md' -type f | wc -l | tr -d ' ')"
+if [ "$DOC_COUNT" -eq 0 ]; then
+	echo "error: no *.llms.md files under $SITE_DIR; the Quarto render produced no LLM docs." >&2
+	exit 1
+fi
+
 ( cd "$SITE_DIR" && find . -name '*.llms.md' -type f -print0 | tar -cf - --null -T - ) \
 	| ( cd "$STAGE" && tar -xf - )
 
