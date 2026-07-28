@@ -211,18 +211,37 @@
         width: 100%;
     }
 
-    .checksum {
-        cursor: pointer;
+    .checksum-cell {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
         position: relative;
-        display: inline-block;
-        font-family: "Source Code Pro", monospace;
-        font-size: 0.75rem;
-        word-break: break-all;
-        user-select: all;
     }
 
-    .checksum:hover {
-        background: #f0f6fb;
+    .checksum-value {
+        font-family: "Source Code Pro", monospace;
+        font-size: 0.85rem;
+        color: #242426;
+        background: none;
+    }
+
+    .checksum-copy {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #d1dbe5;
+        background: white;
+        border-radius: 4px;
+        padding: 0.2rem 0.35rem;
+        cursor: pointer;
+        color: #707073;
+        font-size: 0.75rem;
+        transition: border-color 0.15s, color 0.15s;
+    }
+
+    .checksum-copy:hover {
+        border-color: #3a78b1;
+        color: #3a78b1;
     }
 
     .copy-feedback {
@@ -365,8 +384,6 @@
     function highlightCard(cardId) {
         const card = document.getElementById(cardId);
         if (card) {
-            card.style.borderColor = '#3a78b1';
-            card.style.borderWidth = '2px';
             const heading = card.querySelector('h4');
             if (heading) {
                 const badge = document.createElement('span');
@@ -498,7 +515,8 @@
     }
 
     function copyChecksum(text, element) {
-        const existingFeedback = element.querySelector('.copy-feedback');
+        const cell = element.closest('.checksum-cell') || element;
+        const existingFeedback = cell.querySelector('.copy-feedback');
         if (existingFeedback) {
             existingFeedback.remove();
         }
@@ -506,7 +524,7 @@
         const feedback = document.createElement('div');
         feedback.className = 'copy-feedback';
         feedback.textContent = 'Copied!';
-        element.appendChild(feedback);
+        cell.appendChild(feedback);
 
         navigator.clipboard.writeText(text).then(() => {
             requestAnimationFrame(() => {

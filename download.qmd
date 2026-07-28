@@ -105,7 +105,7 @@ Find out what you need to know before you [install](install.qmd) Positron, then 
 
 ::: {.download-option}
 ::: {.option-label}
-Apple Silicon (M-series)
+Apple Silicon<br><span class="option-meta">(M-series)</span>
 :::
 <a href="`{r} urls$mac_arm64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[5]`</a>
 :::
@@ -170,14 +170,14 @@ System install
 
 ::: {.download-option}
 ::: {.option-label}
-.deb (Ubuntu, Debian)
+<span title="Ubuntu, Debian">.deb</span>
 :::
 <a href="`{r} urls$deb_x64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[7]`</a>
 :::
 
 ::: {.download-option}
 ::: {.option-label}
-.rpm (RHEL, Fedora)
+<span title="RHEL, Fedora">.rpm</span>
 :::
 <a href="`{r} urls$rpm_x64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[9]`</a>
 :::
@@ -188,14 +188,14 @@ System install
 
 ::: {.download-option}
 ::: {.option-label}
-.deb (Ubuntu, Debian)
+<span title="Ubuntu, Debian">.deb</span>
 :::
 <a href="`{r} urls$deb_arm64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[8]`</a>
 :::
 
 ::: {.download-option}
 ::: {.option-label}
-.rpm (RHEL, Fedora)
+<span title="RHEL, Fedora">.rpm</span>
 :::
 <a href="`{r} urls$rpm_arm64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[10]`</a>
 :::
@@ -245,8 +245,10 @@ full_checksums <- c(
   checksums[9], checksums[10]
 )
 
+checksums_display <- substr(full_checksums, 1, 7)
+
 checksum_table$`SHA-256` <- glue(
-  '<code class="checksum" onclick="copyChecksum(\'{full_checksums}\', this)" title="Click to copy">{full_checksums}</code>'
+  '<span class="checksum-cell"><code class="checksum-value">{checksums_display}</code><button class="checksum-copy" onclick="copyChecksum(\'{full_checksums}\', this)" title="Copy full checksum"><i class="bi bi-clipboard"></i></button></span>'
 )
 
 knitr::kable(checksum_table, format = "html", escape = FALSE, row.names = FALSE)
