@@ -124,7 +124,7 @@ Intel
 #### {{< fa brands windows >}} Windows
 
 ::: {.download-group}
-**x64** (most PCs)
+**x64**
 
 ::: {.download-option}
 ::: {.option-label}
