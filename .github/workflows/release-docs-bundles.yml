@@ -180,6 +180,10 @@ jobs:
         with:
           tag_name: ${{ steps.get-version.outputs.release_version }}
           name: ${{ steps.get-version.outputs.release_version }}
+          # Only a `releases` run may claim the repo's "Latest" badge. A staging or
+          # dailies run creates a real release too, and without this a throwaway
+          # test version would display as Latest until someone deleted it.
+          prerelease: ${{ inputs.release_channel != 'releases' }}
           body: |
             Documentation for https://github.com/posit-dev/positron/releases/tag/${{ steps.get-version.outputs.release_version }}
           files: |
