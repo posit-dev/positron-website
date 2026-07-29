@@ -19,6 +19,21 @@ VERSION="${3:?usage: build-llms-bundle.sh <site-dir> <profile> <version>}"
 SCHEMA=1
 DOCS_BASE_URL="https://positron.posit.co/"
 
+# Escape ERE metacharacters so DOCS_BASE_URL can be spliced into the patterns at
+# steps 2 and 3. `|` is in the set because step 2 uses it as the sed delimiter.
+escape_ere() {
+	printf '%s' "$1" | sed 's/[][^$.*+?(){}|\\]/\\&/g'
+}
+
+# Derived from DOCS_BASE_URL rather than spelled out again: changing the domain
+# must not leave step 2 stripping one host while step 3 hunts for another.
+# Step 3 matches the bare host, not the full origin, so it still catches the
+# `http://` and `//host` forms that step 2's scheme-qualified rewrite leaves be.
+DOCS_BASE_ORIGIN="${DOCS_BASE_URL%/}"
+DOCS_BASE_HOST="${DOCS_BASE_ORIGIN#*://}"
+DOCS_BASE_ORIGIN_RE="$(escape_ere "$DOCS_BASE_ORIGIN")"
+DOCS_BASE_HOST_RE="$(escape_ere "$DOCS_BASE_HOST")"
+
 case "$PROFILE" in
 	positron)  BASENAME="positron-llms" ;;
 	workbench) BASENAME="positron-workbench-llms" ;;
@@ -63,7 +78,7 @@ fi
 # sed and a mandatory one on BSD, so no single `-i` spelling is portable.
 # `-E` with an optional trailing slash so the bare origin is stripped too:
 # site-url carries no trailing slash, so both forms appear in practice.
-sed -E "s|https://positron\\.posit\\.co/?||g" "$STAGE/llms.txt" > "$STAGE/llms.txt.rewritten"
+sed -E "s|${DOCS_BASE_ORIGIN_RE}/?||g" "$STAGE/llms.txt" > "$STAGE/llms.txt.rewritten"
 mv "$STAGE/llms.txt.rewritten" "$STAGE/llms.txt"
 
 # 3. Guard: llms.txt must no longer reference the site. Scoped to llms.txt
@@ -71,8 +86,8 @@ mv "$STAGE/llms.txt.rewritten" "$STAGE/llms.txt"
 # carry absolute site links in prose -- release notes link to doc pages -- and
 # those stay valid URLs for a reader who has a browser, so failing on them would
 # turn ordinary docs authoring into a broken release.
-if grep -n 'positron\.posit\.co' "$STAGE/llms.txt" ; then
-	echo "error: llms.txt still references positron.posit.co (listed above)." >&2
+if grep -nE "$DOCS_BASE_HOST_RE" "$STAGE/llms.txt" ; then
+	echo "error: llms.txt still references $DOCS_BASE_HOST (listed above)." >&2
 	echo "The rewrite in step 2 did not cover every form of the site URL." >&2
 	exit 1
 fi
