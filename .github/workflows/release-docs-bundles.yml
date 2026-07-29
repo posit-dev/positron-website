@@ -101,6 +101,65 @@ jobs:
           QUARTO_PROFILE: workbench
           RELEASE_VERSION: ${{ steps.get-version.outputs.release_version }}
 
+      - name: Create slim LLM docs bundles
+        # Built before anything is published. Every guard in this script is
+        # release-blocking, and running it after the GitHub release is cut and the
+        # full docs bundles are in S3 would turn a guard trip into a tagged,
+        # half-published release with no CloudFront invalidation.
+        run: |
+          scripts/build-llms-bundle.sh _site positron "${{ steps.get-version.outputs.release_version }}"
+          scripts/build-llms-bundle.sh _site-workbench workbench "${{ steps.get-version.outputs.release_version }}"
+
+      # Credentials are configured here rather than just before the first upload so
+      # the pre-flight check below can reach S3. Everything between here and the
+      # uploads only uses GH_TOKEN, so holding the S3 role across those steps is
+      # inert; the CloudFront step re-configures with its own role later.
+      - name: Configure AWS Credentials for S3
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_S3_RW_ROLE }}
+          aws-region: us-east-1
+
+      - name: Pre-flight - refuse to silently replace published bundles
+        env:
+          VERSION: ${{ steps.get-version.outputs.release_version }}
+          CHANNEL: ${{ inputs.release_channel }}
+          OVERWRITE: ${{ inputs.overwrite }}
+        run: |
+          set -euo pipefail
+          S3_BUCKET="posit-positron-downloads"
+          KEY_PREFIX="positron/${CHANNEL}/docs"
+
+          # Versioned objects ship as `immutable, max-age=1y`, so any client that
+          # already fetched one will not revalidate it for a year. Republishing a
+          # version with different bytes strands those installs on the old bundle,
+          # and a CloudFront invalidation only purges edges, not clients.
+          #
+          # Keyed on `overwrite` rather than on a content comparison: the zip is
+          # not byte-reproducible (bundle.json carries a build timestamp), so
+          # "same content" is indistinguishable from "different content" and a
+          # digest check would reject every legitimate re-run. `overwrite` is
+          # already what the release runbook tells operators to set when
+          # re-publishing a docs release after edits.
+          #
+          # This runs before the release is cut and before any upload, so
+          # forgetting the flag costs a fast failure rather than a partially
+          # republished release.
+          if [ "$OVERWRITE" = "true" ]; then
+            echo "overwrite requested; existing objects under ${KEY_PREFIX} may be replaced."
+            exit 0
+          fi
+
+          for BASENAME in positron-llms positron-workbench-llms; do
+            KEY="${KEY_PREFIX}/${BASENAME}-${VERSION}.zip"
+            if aws s3api head-object --bucket "$S3_BUCKET" --key "$KEY" > /dev/null 2>&1; then
+              echo "error: $KEY is already published." >&2
+              echo "Versioned bundles are immutable. Bump the version, or re-run with 'overwrite'." >&2
+              exit 1
+            fi
+          done
+          echo "no published bundles for ${VERSION} on ${CHANNEL}; safe to proceed."
+
       - name: Create docs bundles
         run: |
           cd _site
@@ -137,22 +196,11 @@ jobs:
             positron-docs-${{ steps.get-version.outputs.release_version }}.zip \
             positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip
 
-      - name: Configure AWS Credentials for S3
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: ${{ secrets.AWS_S3_RW_ROLE }}
-          aws-region: us-east-1
-
       - name: Upload docs bundles to S3
         run: |
           S3_PREFIX="s3://posit-positron-downloads/positron/${{ inputs.release_channel }}/docs"
           aws s3 cp "positron-docs-${{ steps.get-version.outputs.release_version }}.zip" "${S3_PREFIX}/positron-docs-${{ steps.get-version.outputs.release_version }}.zip" --no-progress
           aws s3 cp "positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip" "${S3_PREFIX}/positron-workbench-docs-${{ steps.get-version.outputs.release_version }}.zip" --no-progress
-
-      - name: Create slim LLM docs bundles
-        run: |
-          scripts/build-llms-bundle.sh _site positron "${{ steps.get-version.outputs.release_version }}"
-          scripts/build-llms-bundle.sh _site-workbench workbench "${{ steps.get-version.outputs.release_version }}"
 
       - name: Upload slim LLM bundles to S3
         env:
@@ -160,6 +208,8 @@ jobs:
           CHANNEL: ${{ inputs.release_channel }}
         run: |
           set -euo pipefail
+          # Replacing an already-published version is gated by the pre-flight step
+          # above, so this step just uploads.
           S3_PREFIX="s3://posit-positron-downloads/positron/${CHANNEL}/docs"
 
           for BASENAME in positron-llms positron-workbench-llms; do
@@ -261,10 +311,36 @@ jobs:
           if [ "$CHANNEL" = "releases" ]; then
             for BASENAME in positron-llms positron-workbench-llms; do
               ALIAS="${BASENAME}-latest.zip"
+              ZIP="${BASENAME}-${VERSION}.zip"
               assert_exists "${KEY_PREFIX}/${ALIAS}"
               assert_exists "${KEY_PREFIX}/${ALIAS}.sha256sum"
               check_cache_control "${KEY_PREFIX}/${ALIAS}" "no-cache"
               check_cache_control "${KEY_PREFIX}/${ALIAS}.sha256sum" "no-cache"
+
+              # The alias move updates two bundles in a loop and is not atomic, so
+              # a mid-loop failure can leave positron-llms-latest.zip on this
+              # release and the workbench alias on the previous one. Verify the
+              # published bytes rather than trusting the copy succeeded: fetch the
+              # alias back and compare against this run's versioned sidecar.
+              EXPECTED="$(cut -d' ' -f1 < "${ZIP}.sha256sum")"
+
+              aws s3 cp "s3://${S3_BUCKET}/${KEY_PREFIX}/${ALIAS}" "verify-${ALIAS}" --no-progress
+              PUBLISHED="$(shasum -a 256 "verify-${ALIAS}" | cut -d' ' -f1)"
+              if [ "$PUBLISHED" != "$EXPECTED" ]; then
+                echo "error: ${ALIAS} does not hold this release's bundle." >&2
+                echo "It has $PUBLISHED, expected $EXPECTED (from ${ZIP})." >&2
+                exit 1
+              fi
+
+              # The sidecar the consumer verifies against must name that same
+              # digest, or every install rejects the bundle it just downloaded.
+              aws s3 cp "s3://${S3_BUCKET}/${KEY_PREFIX}/${ALIAS}.sha256sum" \
+                "verify-${ALIAS}.sha256sum" --no-progress
+              SIDECAR="$(cut -d' ' -f1 < "verify-${ALIAS}.sha256sum")"
+              if [ "$SIDECAR" != "$EXPECTED" ]; then
+                echo "error: ${ALIAS}.sha256sum names $SIDECAR but the alias holds $EXPECTED." >&2
+                exit 1
+              fi
             done
           fi
 

@@ -46,7 +46,10 @@ cp "$SITE_DIR/llms.txt" "$STAGE/llms.txt"
 # and exits non-zero while BSD tar exits 0, so without this the same broken
 # render fails cryptically on CI and silently on a Mac. A bundle of llms.txt
 # plus bundle.json and no docs is useless either way.
-DOC_COUNT="$(cd "$SITE_DIR" && find . -name '*.llms.md' -type f | wc -l | tr -d ' ')"
+# Counting NUL bytes from -print0 rather than lines from `wc -l`: a filename
+# containing a newline would otherwise inflate the count and trip the staged-count
+# comparison at step 5 with a mismatch that points at the wrong cause.
+DOC_COUNT="$(cd "$SITE_DIR" && find . -name '*.llms.md' -type f -print0 | tr -dc '\0' | wc -c | tr -d ' ')"
 if [ "$DOC_COUNT" -eq 0 ]; then
 	echo "error: no *.llms.md files under $SITE_DIR; the Quarto render produced no LLM docs." >&2
 	exit 1
@@ -58,21 +61,28 @@ fi
 # 2. Rewrite llms.txt to bundle-relative paths. This is what schema 1 promises.
 # Write-and-move rather than `sed -i`: in-place editing needs no suffix on GNU
 # sed and a mandatory one on BSD, so no single `-i` spelling is portable.
-sed "s|https://positron\\.posit\\.co/||g" "$STAGE/llms.txt" > "$STAGE/llms.txt.rewritten"
+# `-E` with an optional trailing slash so the bare origin is stripped too:
+# site-url carries no trailing slash, so both forms appear in practice.
+sed -E "s|https://positron\\.posit\\.co/?||g" "$STAGE/llms.txt" > "$STAGE/llms.txt.rewritten"
 mv "$STAGE/llms.txt.rewritten" "$STAGE/llms.txt"
 
-# 3. Guard: no bundled file may still reference the site. Paths are reported
-# relative to $SITE_DIR, since a mktemp path is not actionable for an operator.
-if grep -rl 'positron\.posit\.co' "$STAGE" | sed "s|^$STAGE/|$SITE_DIR/|" | grep . ; then
-	echo "error: bundled files still reference positron.posit.co (listed above)." >&2
-	echo "The rewrite assumes only llms.txt carries site links. That assumption broke." >&2
+# 3. Guard: llms.txt must no longer reference the site. Scoped to llms.txt
+# because that is the only file step 2 rewrites. The .llms.md docs legitimately
+# carry absolute site links in prose -- release notes link to doc pages -- and
+# those stay valid URLs for a reader who has a browser, so failing on them would
+# turn ordinary docs authoring into a broken release.
+if grep -n 'positron\.posit\.co' "$STAGE/llms.txt" ; then
+	echo "error: llms.txt still references positron.posit.co (listed above)." >&2
+	echo "The rewrite in step 2 did not cover every form of the site URL." >&2
 	exit 1
 fi
 
-# 4. Guard: every link in llms.txt must now be bundle-relative. Matches any
-# scheme case-insensitively, scheme-relative `//host`, and root-relative `/path`
-# - none of which resolve inside an extracted bundle.
-if grep -oE '\]\([^)]+\)' "$STAGE/llms.txt" | grep -Ei '\(([a-z][a-z0-9+.-]*:)?//|\(/' ; then
+# 4. Guard: every link in llms.txt must now be bundle-relative. Rejects any
+# scheme case-insensitively (`https:`, and also non-slash ones like `mailto:`,
+# which would otherwise reach step 5 and be reported as a missing file),
+# scheme-relative `//host`, and root-relative `/path` - none of which resolve
+# inside an extracted bundle.
+if grep -oE '\]\([^)]+\)' "$STAGE/llms.txt" | grep -Ei '\((([a-z][a-z0-9+.-]*:)|//|/)' ; then
 	echo "error: llms.txt contains links that are not bundle-relative (listed above)." >&2
 	exit 1
 fi
@@ -85,7 +95,10 @@ fi
 # self-consistent whatever is missing.
 MISSING_LINKS=0
 while IFS= read -r target; do
+	# Fragment first, then query: a link is path?query#fragment, and neither
+	# suffix is part of the filename on disk.
 	target="${target%%#*}"
+	target="${target%%\?*}"
 	[ -n "$target" ] || continue
 	if [ ! -f "$STAGE/$target" ]; then
 		echo "error: llms.txt links '$target', which is not in the bundle." >&2
@@ -98,7 +111,7 @@ if [ "$MISSING_LINKS" -ne 0 ]; then
 	exit 1
 fi
 
-FILE_COUNT="$(find "$STAGE" -type f | wc -l | tr -d ' ')"
+FILE_COUNT="$(find "$STAGE" -type f -print0 | tr -dc '\0' | wc -c | tr -d ' ')"
 
 # llms.txt plus the docs counted at step 1. A mismatch means the tar pipe
 # dropped or duplicated something between the site dir and the stage.
