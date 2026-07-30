@@ -115,113 +115,78 @@ Find out what you need to know before you [install](install.qmd) Positron, then 
 
 <p class="hero-legal">By downloading and using Positron, you agree to Positron's <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.</p>
 
-::: {.download-cards}
+```{r}
+#| echo: false
+#| results: asis
 
-:::: {#card-macos .download-card}
+cat('<div class="download-cards">
 
-#### {{< fa brands apple >}} macOS <span class="option-meta">11.0+</span>
+<div id="card-macos" class="download-card">
+<h4><i class="fa-brands fa-apple" aria-hidden="true"></i> macOS <span class="option-meta">11.0+</span></h4>
+<div class="download-option">
+<div class="option-label">Apple Silicon<br><span class="option-meta">(M-series)</span></div>
+', dl$mac_arm64, '
+</div>
+<div class="download-option">
+<div class="option-label">Intel</div>
+', dl$mac_x64, '
+</div>
+</div>
 
-::: {.download-option}
-::: {.option-label}
-Apple Silicon<br><span class="option-meta">(M-series)</span>
-:::
-`{r} dl$mac_arm64`
-:::
+<div id="card-windows" class="download-card">
+<h4><i class="fa-brands fa-windows" aria-hidden="true"></i> Windows</h4>
+<div class="download-group">
+<p><strong>x64</strong> <span class="option-meta">(Windows 10+)</span></p>
+<div class="download-option">
+<div class="option-label">User install</div>
+', dl$win_user_x64, '
+</div>
+<div class="download-option">
+<div class="option-label">System install</div>
+', dl$win_sys_x64, '
+</div>
+</div>
+<div class="download-group">
+<p><strong>ARM64</strong> <span class="option-meta">(Windows 11)</span></p>
+<div class="download-option">
+<div class="option-label">User install</div>
+', dl$win_user_arm64, '
+</div>
+<div class="download-option">
+<div class="option-label">System install</div>
+', dl$win_sys_arm64, '
+</div>
+</div>
+</div>
 
-::: {.download-option}
-::: {.option-label}
-Intel
-:::
-`{r} dl$mac_x64`
-:::
+<div id="card-linux" class="download-card">
+<h4><i class="fa-brands fa-linux" aria-hidden="true"></i> Linux</h4>
+<div class="download-group">
+<p><strong>x64</strong></p>
+<div class="download-option">
+<div class="option-label">.deb <span class="option-meta">(Ubuntu, Debian)</span></div>
+', dl$deb_x64, '
+</div>
+<div class="download-option">
+<div class="option-label">.rpm <span class="option-meta">(Red Hat, Fedora)</span></div>
+', dl$rpm_x64, '
+</div>
+</div>
+<div class="download-group">
+<p><strong>ARM64</strong></p>
+<div class="download-option">
+<div class="option-label">.deb <span class="option-meta">(Ubuntu, Debian)</span></div>
+', dl$deb_arm64, '
+</div>
+<div class="download-option">
+<div class="option-label">.rpm <span class="option-meta">(Red Hat, Fedora)</span></div>
+', dl$rpm_arm64, '
+</div>
+</div>
+</div>
 
-::::
-
-:::: {#card-windows .download-card}
-
-#### {{< fa brands windows >}} Windows
-
-::: {.download-group}
-**x64** <span class="option-meta">(Windows 10+)</span>
-
-::: {.download-option}
-::: {.option-label}
-User install
-:::
-`{r} dl$win_user_x64`
-:::
-
-::: {.download-option}
-::: {.option-label}
-System install
-:::
-`{r} dl$win_sys_x64`
-:::
-:::
-
-::: {.download-group}
-**ARM64** <span class="option-meta">(Windows 11)</span>
-
-::: {.download-option}
-::: {.option-label}
-User install
-:::
-`{r} dl$win_user_arm64`
-:::
-
-::: {.download-option}
-::: {.option-label}
-System install
-:::
-`{r} dl$win_sys_arm64`
-:::
-:::
-
-::::
-
-:::: {#card-linux .download-card}
-
-#### {{< fa brands linux >}} Linux
-
-::: {.download-group}
-**x64** <span class="option-meta">(Ubuntu 20+)</span>
-
-::: {.download-option}
-::: {.option-label}
-.deb
-:::
-`{r} dl$deb_x64`
-:::
-
-::: {.download-option}
-::: {.option-label}
-.rpm
-:::
-`{r} dl$rpm_x64`
-:::
-:::
-
-::: {.download-group}
-**ARM64** <span class="option-meta">(RHEL9)</span>
-
-::: {.download-option}
-::: {.option-label}
-.deb
-:::
-`{r} dl$deb_arm64`
-:::
-
-::: {.download-option}
-::: {.option-label}
-.rpm
-:::
-`{r} dl$rpm_arm64`
-:::
-:::
-
-::::
-
-:::
+</div>')
+```
 
 <details class="checksums-section">
 <summary>SHA-256 checksums</summary>
