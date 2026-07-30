@@ -957,7 +957,7 @@
     "href": "managing-interpreters.html",
     "title": "Managing Interpreters",
     "section": "",
-    "text": "Positron is designed to support multiple R and Python interpreter sessions. This enables workflows that span multiple environments, and allows you to switch between them easily within a single workspace.\nPositron has two types of interpreter sessions:\nThe Interpreter picker lists every running interpreter session so you can manage them all from one place.\nAt any given time, one interpreter session is designated as the active interpreter session. This is the language environment currently in use for interactive and language-specific features within the IDE.",
+    "text": "Positron is designed to support multiple interpreter sessions. This enables workflows that span multiple environments, and allows you to switch between them easily within a single workspace.\nPositron comes with full support for Python and R interpreters out of the box. You can extend Positron to support other types of interpreters by installing extensions that provide such functionality, such as the extensions for Julia or ggsql. Read more about extensions in Positron.\nPositron has two types of interpreter sessions:\nThe Interpreter picker lists every running interpreter session so you can manage them all from one place.\nAt any given time, one interpreter session is designated as the active interpreter session. This is the language environment currently in use for interactive and language-specific features within the IDE.",
     "crumbs": [
       "Guides",
       "Interpreters",

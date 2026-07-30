@@ -2,7 +2,9 @@
 
 Manage multiple Python and R interpreter sessions in Positron. Switch between environments, configure startup options, and run multiple sessions simultaneously.
 
-Positron is designed to support multiple R and Python interpreter sessions. This enables workflows that span multiple environments, and allows you to switch between them easily within a single workspace.
+Positron is designed to support multiple interpreter sessions. This enables workflows that span multiple environments, and allows you to switch between them easily within a single workspace.
+
+Positron comes with full support for Python and R interpreters out of the box. You can extend Positron to support other types of interpreters by installing extensions that provide such functionality, such as the extensions for [Julia](https://github.com/TidierOrg/positron-julia) or [ggsql](https://ggsql.org/). Read more about [extensions in Positron](extensions.llms.md).
 
 Positron has two types of interpreter sessions:
 
