@@ -78,6 +78,20 @@ cloudfront_headers <- map(urls, HEAD) |> map(headers)
 file_sizes <- map(cloudfront_headers, "content-length") |>
   map(fs::fs_bytes) |>
   map_chr(as.character)
+
+# Build download link HTML (avoids markdown escaping of URLs)
+dl <- list(
+  mac_arm64 = glue('<a href="{urls$mac_arm64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[5]}</a>'),
+  mac_x64 = glue('<a href="{urls$mac_x64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[6]}</a>'),
+  win_user_x64 = glue('<a href="{urls$win_user_x64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[2]}</a>'),
+  win_sys_x64 = glue('<a href="{urls$win_sys_x64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[1]}</a>'),
+  win_user_arm64 = glue('<a href="{urls$win_user_arm64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[4]}</a>'),
+  win_sys_arm64 = glue('<a href="{urls$win_sys_arm64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[3]}</a>'),
+  deb_x64 = glue('<a href="{urls$deb_x64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[7]}</a>'),
+  deb_arm64 = glue('<a href="{urls$deb_arm64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[8]}</a>'),
+  rpm_x64 = glue('<a href="{urls$rpm_x64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[9]}</a>'),
+  rpm_arm64 = glue('<a href="{urls$rpm_arm64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[10]}</a>')
+)
 ```
 
 ## Positron on desktop
@@ -105,20 +119,20 @@ Find out what you need to know before you [install](install.qmd) Positron, then 
 
 :::: {#card-macos .download-card}
 
-#### {{< fa brands apple >}} macOS
+#### {{< fa brands apple >}} macOS <span class="option-meta">11.0+</span>
 
 ::: {.download-option}
 ::: {.option-label}
 Apple Silicon<br><span class="option-meta">(M-series)</span>
 :::
-<a href="`{r} urls$mac_arm64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[5]`</a>
+`{r} dl$mac_arm64`
 :::
 
 ::: {.download-option}
 ::: {.option-label}
 Intel
 :::
-<a href="`{r} urls$mac_x64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[6]`</a>
+`{r} dl$mac_x64`
 :::
 
 ::::
@@ -128,38 +142,38 @@ Intel
 #### {{< fa brands windows >}} Windows
 
 ::: {.download-group}
-**x64**
+**x64** <span class="option-meta">(Windows 10+)</span>
 
 ::: {.download-option}
 ::: {.option-label}
 User install
 :::
-<a href="`{r} urls$win_user_x64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[2]`</a>
+`{r} dl$win_user_x64`
 :::
 
 ::: {.download-option}
 ::: {.option-label}
 System install
 :::
-<a href="`{r} urls$win_sys_x64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[1]`</a>
+`{r} dl$win_sys_x64`
 :::
 :::
 
 ::: {.download-group}
-**ARM64**
+**ARM64** <span class="option-meta">(Windows 11)</span>
 
 ::: {.download-option}
 ::: {.option-label}
 User install
 :::
-<a href="`{r} urls$win_user_arm64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[4]`</a>
+`{r} dl$win_user_arm64`
 :::
 
 ::: {.download-option}
 ::: {.option-label}
 System install
 :::
-<a href="`{r} urls$win_sys_arm64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[3]`</a>
+`{r} dl$win_sys_arm64`
 :::
 :::
 
@@ -170,38 +184,38 @@ System install
 #### {{< fa brands linux >}} Linux
 
 ::: {.download-group}
-**x64**
+**x64** <span class="option-meta">(Ubuntu 20+)</span>
 
 ::: {.download-option}
 ::: {.option-label}
-<span title="Ubuntu, Debian">.deb</span>
+.deb
 :::
-<a href="`{r} urls$deb_x64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[7]`</a>
+`{r} dl$deb_x64`
 :::
 
 ::: {.download-option}
 ::: {.option-label}
-<span title="RHEL, Fedora">.rpm</span>
+.rpm
 :::
-<a href="`{r} urls$rpm_x64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[9]`</a>
+`{r} dl$rpm_x64`
 :::
 :::
 
 ::: {.download-group}
-**ARM64**
+**ARM64** <span class="option-meta">(RHEL9)</span>
 
 ::: {.download-option}
 ::: {.option-label}
-<span title="Ubuntu, Debian">.deb</span>
+.deb
 :::
-<a href="`{r} urls$deb_arm64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[8]`</a>
+`{r} dl$deb_arm64`
 :::
 
 ::: {.download-option}
 ::: {.option-label}
-<span title="RHEL, Fedora">.rpm</span>
+.rpm
 :::
-<a href="`{r} urls$rpm_arm64`" class="download-link download-trigger">{{< fa download >}} `{r} file_sizes[10]`</a>
+`{r} dl$rpm_arm64`
 :::
 :::
 
