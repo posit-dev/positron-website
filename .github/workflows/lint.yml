@@ -17,3 +17,17 @@ jobs:
         with:
           args: "--no-progress --verbose './**/*.qmd' './_redirects'"
           fail: true
+
+  scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Shellcheck
+        run: shellcheck scripts/*.sh
+
+      # The bundle script otherwise only runs during a release, where a guard bug
+      # surfaces as a failed release rather than a failed PR.
+      - name: Test the LLM docs bundle build
+        run: scripts/test-build-llms-bundle.sh
