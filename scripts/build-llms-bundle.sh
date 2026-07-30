@@ -47,12 +47,18 @@ OUT_DIR="$PWD"
 STAGE="$(mktemp -d)"
 trap 'rm -rf "$STAGE"' EXIT
 
+# Step 0 -- Precondition
+# Scope:  $SITE_DIR
+# Action: Fail if the Quarto render produced no llms.txt
 if [ ! -f "$SITE_DIR/llms.txt" ]; then
 	echo "error: $SITE_DIR/llms.txt not found; did the Quarto render run?" >&2
 	exit 1
 fi
 
-# 1. Copy llms.txt and every *.llms.md, preserving directory structure.
+# Step 1 -- Stage
+# Scope:  llms.txt + every *.llms.md
+# Action: Copy the bundle contents, preserving directory structure
+#
 # A tar pipe rather than `cp --parents`: that flag is GNU-only, and this script
 # must run on a contributor's macOS checkout as well as the Linux runner.
 cp "$SITE_DIR/llms.txt" "$STAGE/llms.txt"
@@ -73,7 +79,11 @@ fi
 ( cd "$SITE_DIR" && find . -name '*.llms.md' -type f -print0 | tar -cf - --null -T - ) \
 	| ( cd "$STAGE" && tar -xf - )
 
-# 2. Rewrite llms.txt to bundle-relative paths. This is what schema 1 promises.
+# Step 2 -- Rewrite
+# Scope:  llms.txt
+# Action: Turn absolute site URLs into bundle-relative paths
+#
+# This is what schema 1 promises.
 # Write-and-move rather than `sed -i`: in-place editing needs no suffix on GNU
 # sed and a mandatory one on BSD, so no single `-i` spelling is portable.
 # `-E` with an optional trailing slash so the bare origin is stripped too:
@@ -81,8 +91,12 @@ fi
 sed -E "s|${DOCS_BASE_ORIGIN_RE}/?||g" "$STAGE/llms.txt" > "$STAGE/llms.txt.rewritten"
 mv "$STAGE/llms.txt.rewritten" "$STAGE/llms.txt"
 
-# 3. Guard: llms.txt must no longer reference the site. Scoped to llms.txt
-# because that is the only file step 2 rewrites. The .llms.md docs legitimately
+# Step 3 -- Guard
+# Scope:  llms.txt
+# Action: Fail if any site URL survived step 2
+#
+# Scoped to llms.txt because that is the only file step 2 rewrites. The .llms.md
+# docs legitimately
 # carry absolute site links in prose -- release notes link to doc pages -- and
 # those stay valid URLs for a reader who has a browser, so failing on them would
 # turn ordinary docs authoring into a broken release.
@@ -92,8 +106,11 @@ if grep -nE "$DOCS_BASE_HOST_RE" "$STAGE/llms.txt" ; then
 	exit 1
 fi
 
-# 4. Guard: every link in llms.txt must now be bundle-relative. Rejects any
-# scheme case-insensitively (`https:`, and also non-slash ones like `mailto:`,
+# Step 4 -- Guard
+# Scope:  llms.txt
+# Action: Fail if any link is not a plain relative path
+#
+# Rejects any scheme case-insensitively (`https:`, and also non-slash ones like `mailto:`,
 # which would otherwise reach step 5 and be reported as a missing file),
 # scheme-relative `//host`, and root-relative `/path` - none of which resolve
 # inside an extracted bundle.
@@ -102,8 +119,11 @@ if grep -oE '\]\([^)]+\)' "$STAGE/llms.txt" | grep -Ei '\((([a-z][a-z0-9+.-]*:)|
 	exit 1
 fi
 
-# 5. Guard: every link target must exist in the bundle. llms.txt is the
-# consumer's only index, and Quarto builds it from the page list rather than from
+# Step 5 -- Guard
+# Scope:  llms.txt links, staged files
+# Action: Fail if a link target is missing, or the staged file count is wrong
+#
+# llms.txt is the consumer's only index, and Quarto builds it from the page list rather than from
 # what it actually wrote, so a partial render yields an index pointing at files
 # that are not there. Nothing else in this script can catch that: the file count
 # is measured from $STAGE and compared against a zip built from $STAGE, so it is
@@ -135,7 +155,11 @@ if [ "$FILE_COUNT" -ne "$((DOC_COUNT + 1))" ]; then
 	exit 1
 fi
 
-# 6. Generate bundle.json, then include it in the count it reports.
+# Step 6 -- Manifest
+# Scope:  bundle.json
+# Action: Write schema, profile, version, timestamp, file count
+#
+# The count includes bundle.json itself.
 cat > "$STAGE/bundle.json" <<JSON
 {
   "schema": ${SCHEMA},
@@ -147,7 +171,9 @@ cat > "$STAGE/bundle.json" <<JSON
 }
 JSON
 
-# 7. Zip, then verify its entry list and count match what was staged.
+# Step 7 -- Package
+# Scope:  the zip
+# Action: Zip the stage, then fail if its entry list or count disagree
 rm -f "$ZIP_NAME"
 ( cd "$STAGE" && zip -q -r -X "$OUT_DIR/$ZIP_NAME" . )
 
@@ -169,7 +195,9 @@ if [ "$ZIPPED_COUNT" -ne "$DECLARED_COUNT" ]; then
 	exit 1
 fi
 
-# 8. Guard: the zip must stay inside the size budget.
+# Step 8 -- Guard
+# Scope:  the zip
+# Action: Fail if the zip is over the size budget
 #
 # Positron caps the download it will accept (DOCS_MAX_DOWNLOAD_BYTES, 25MB) and
 # a client that trips that cap silently falls back to web docs. Since the cap is
@@ -189,7 +217,11 @@ if [ "$ZIP_BYTES" -gt "$MAX_BYTES" ]; then
 	exit 1
 fi
 
-# 9. Checksum file. Positron refuses to extract without a matching one.
+# Step 9 -- Checksum
+# Scope:  the zip
+# Action: Write the .sha256sum and verify it
+#
+# Positron refuses to extract without a matching one.
 shasum -a 256 "$ZIP_NAME" > "${ZIP_NAME}.sha256sum"
 shasum -a 256 -c "${ZIP_NAME}.sha256sum"
 
