@@ -99,6 +99,8 @@ Find out what you need to know before you [install](install.qmd) Positron, then 
 
 ## All platforms
 
+<p class="hero-legal">By downloading and using Positron, you agree to Positron's <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.</p>
+
 ::: {.download-cards}
 
 :::: {#card-macos .download-card}
@@ -207,8 +209,6 @@ System install
 
 :::
 
-<p class="hero-legal">By downloading and using Positron, you agree to Positron's <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.</p>
-
 <details class="checksums-section">
 <summary>SHA-256 checksums</summary>
 
@@ -230,11 +230,16 @@ checksum_table <- data.frame(
     "Red Hat-based Linux arm64 (RHEL9)"
   ),
   Installer = c(
-    windows_system_x64, windows_user_x64,
-    windows_system_arm64, windows_user_arm64,
-    macos_arm64, macos_x64,
-    debian_x64, debian_arm,
-    redhat_x64, redhat_arm
+    glue('<a href="{urls$win_sys_x64}">{windows_system_x64}</a>'),
+    glue('<a href="{urls$win_user_x64}">{windows_user_x64}</a>'),
+    glue('<a href="{urls$win_sys_arm64}">{windows_system_arm64}</a>'),
+    glue('<a href="{urls$win_user_arm64}">{windows_user_arm64}</a>'),
+    glue('<a href="{urls$mac_arm64}">{macos_arm64}</a>'),
+    glue('<a href="{urls$mac_x64}">{macos_x64}</a>'),
+    glue('<a href="{urls$deb_x64}">{debian_x64}</a>'),
+    glue('<a href="{urls$deb_arm64}">{debian_arm}</a>'),
+    glue('<a href="{urls$rpm_x64}">{redhat_x64}</a>'),
+    glue('<a href="{urls$rpm_arm64}">{redhat_arm}</a>')
   ),
   Size = c(
     file_sizes[1], file_sizes[2],
