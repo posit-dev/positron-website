@@ -183,6 +183,15 @@ expect_fail "site URL the rewrite missed" "still references positron.posit.co" \
 new_site
 expect_fail "unknown profile" "profile must be" _site dailies 0.0.0-test
 
+# The size budget, exercised by shrinking the budget rather than by padding a
+# fixture past 1MB. Exported and unset around the call: an assignment prefixing a
+# function call stays in effect afterwards in bash, which would silently cap
+# every later case.
+new_site
+export LLMS_BUNDLE_MAX_BYTES=100
+expect_fail "zip over the size budget" "over the 100 byte budget" _site positron 0.0.0-test
+unset LLMS_BUNDLE_MAX_BYTES
+
 echo
 printf '%d passed, %d failed\n' "$PASS" "$FAIL"
 [ "$FAIL" -eq 0 ]

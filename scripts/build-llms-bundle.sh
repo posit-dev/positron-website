@@ -169,7 +169,27 @@ if [ "$ZIPPED_COUNT" -ne "$DECLARED_COUNT" ]; then
 	exit 1
 fi
 
-# 8. Digest sidecar. Positron refuses to extract without a matching one.
+# 8. Guard: the zip must stay inside the size budget.
+#
+# Positron caps the download it will accept (DOCS_MAX_DOWNLOAD_BYTES, 25MB) and
+# a client that trips that cap silently falls back to web docs. Since the cap is
+# baked into a shipped build while this bundle publishes on the website's own
+# cadence, an oversize bundle would break clients that can no longer be fixed.
+# So the real budget is enforced here, far below the client cap, where exceeding
+# it fails a build someone can react to.
+#
+# If this fires on legitimate growth, raise MAX_BYTES - and check it against
+# DOCS_MAX_DOWNLOAD_BYTES in Positron's positronDocsBundle.ts, since the oldest
+# supported client's cap is the one that actually binds.
+MAX_BYTES="${LLMS_BUNDLE_MAX_BYTES:-1048576}"   # 1MB; the real bundle is ~150KB
+ZIP_BYTES="$(wc -c < "$ZIP_NAME" | tr -d ' ')"
+if [ "$ZIP_BYTES" -gt "$MAX_BYTES" ]; then
+	echo "error: $ZIP_NAME is $ZIP_BYTES bytes, over the $MAX_BYTES byte budget." >&2
+	echo "See the size-budget note in this script before raising it." >&2
+	exit 1
+fi
+
+# 9. Digest sidecar. Positron refuses to extract without a matching one.
 shasum -a 256 "$ZIP_NAME" > "${ZIP_NAME}.sha256sum"
 shasum -a 256 -c "${ZIP_NAME}.sha256sum"
 
