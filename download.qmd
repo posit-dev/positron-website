@@ -93,6 +93,8 @@ Find out what you need to know before you [install](install.qmd) Positron, then 
 ::: {#hero-buttons}
 :::
 
+<p class="hero-legal">By downloading and using Positron, you agree to Positron's <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.</p>
+
 :::
 
 ## All platforms
