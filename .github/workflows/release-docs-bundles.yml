@@ -219,7 +219,7 @@ jobs:
           for BASENAME in positron-llms positron-workbench-llms; do
             ZIP="${BASENAME}-${VERSION}.zip"
 
-            # Sidecar before zip: a zip reachable without its digest is a window
+            # Checksum before zip: a zip reachable without its digest is a window
             # in which a cold-cache Positron install gets no local docs.
             aws s3 cp "${ZIP}.sha256sum" "${S3_PREFIX}/${ZIP}.sha256sum" \
               --no-progress --cache-control "public, max-age=31536000, immutable"
@@ -241,9 +241,9 @@ jobs:
             ZIP="${BASENAME}-${VERSION}.zip"
             ALIAS="${BASENAME}-latest.zip"
 
-            # Rewrite the sidecar to name the alias, so `shasum -c` against the
+            # Rewrite the checksum file to name the alias, so `shasum -c` against the
             # downloaded alias still matches. Positron only reads the hex digest,
-            # but a self-consistent sidecar keeps manual verification honest.
+            # but a self-consistent checksum file keeps manual verification honest.
             DIGEST="$(cut -d' ' -f1 < "${ZIP}.sha256sum")"
             printf '%s  %s\n' "$DIGEST" "$ALIAS" > "${ALIAS}.sha256sum"
 
@@ -303,8 +303,8 @@ jobs:
 
           for BASENAME in positron-llms positron-workbench-llms; do
             ZIP="${BASENAME}-${VERSION}.zip"
-            # Every uploaded zip must have a reachable sidecar. Positron refuses
-            # to extract a zip it cannot verify, so a dropped sidecar ships a
+            # Every uploaded zip must have a reachable checksum file. Positron refuses
+            # to extract a zip it cannot verify, so a dropped checksum file ships a
             # bundle that no install will ever use.
             assert_exists "${KEY_PREFIX}/${ZIP}"
             assert_exists "${KEY_PREFIX}/${ZIP}.sha256sum"
@@ -325,7 +325,7 @@ jobs:
               # a mid-loop failure can leave positron-llms-latest.zip on this
               # release and the workbench alias on the previous one. Verify the
               # published bytes rather than trusting the copy succeeded: fetch the
-              # alias back and compare against this run's versioned sidecar.
+              # alias back and compare against this run's versioned checksum file.
               EXPECTED="$(cut -d' ' -f1 < "${ZIP}.sha256sum")"
 
               aws s3 cp "s3://${S3_BUCKET}/${KEY_PREFIX}/${ALIAS}" "verify-${ALIAS}" --no-progress
@@ -336,13 +336,13 @@ jobs:
                 exit 1
               fi
 
-              # The sidecar the consumer verifies against must name that same
+              # The checksum file the consumer verifies against must name that same
               # digest, or every install rejects the bundle it just downloaded.
               aws s3 cp "s3://${S3_BUCKET}/${KEY_PREFIX}/${ALIAS}.sha256sum" \
                 "verify-${ALIAS}.sha256sum" --no-progress
-              SIDECAR="$(cut -d' ' -f1 < "verify-${ALIAS}.sha256sum")"
-              if [ "$SIDECAR" != "$EXPECTED" ]; then
-                echo "error: ${ALIAS}.sha256sum names $SIDECAR but the alias holds $EXPECTED." >&2
+              PUBLISHED_DIGEST="$(cut -d' ' -f1 < "verify-${ALIAS}.sha256sum")"
+              if [ "$PUBLISHED_DIGEST" != "$EXPECTED" ]; then
+                echo "error: ${ALIAS}.sha256sum names $PUBLISHED_DIGEST but the alias holds $EXPECTED." >&2
                 exit 1
               fi
             done

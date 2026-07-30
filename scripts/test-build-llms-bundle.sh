@@ -122,9 +122,9 @@ else
 fi
 
 if shasum -a 256 -c positron-llms-0.0.0-test.zip.sha256sum > /dev/null 2>&1; then
-	report "sidecar digest verifies" yes
+	report "checksum file verifies" yes
 else
-	report "sidecar digest verifies" no ""
+	report "checksum file verifies" no ""
 fi
 
 new_site

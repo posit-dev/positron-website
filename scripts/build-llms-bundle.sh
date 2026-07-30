@@ -189,8 +189,8 @@ if [ "$ZIP_BYTES" -gt "$MAX_BYTES" ]; then
 	exit 1
 fi
 
-# 9. Digest sidecar. Positron refuses to extract without a matching one.
+# 9. Checksum file. Positron refuses to extract without a matching one.
 shasum -a 256 "$ZIP_NAME" > "${ZIP_NAME}.sha256sum"
 shasum -a 256 -c "${ZIP_NAME}.sha256sum"
 
-echo "built $ZIP_NAME ($(wc -c < "$ZIP_NAME") bytes, $DECLARED_COUNT files) + sidecar"
+echo "built $ZIP_NAME ($(wc -c < "$ZIP_NAME") bytes, $DECLARED_COUNT files) + checksum"
