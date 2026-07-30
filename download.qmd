@@ -71,7 +71,6 @@ all_installers <- list(
   redhat_arm
 )
 checksums <- map_chr(all_installers, ~ pluck(checksum_data, .))
-checksums_short <- substr(checksums, 1, 7)
 
 # Get file sizes
 cloudfront_headers <- map(urls, HEAD) |> map(headers)
@@ -81,16 +80,16 @@ file_sizes <- map(cloudfront_headers, "content-length") |>
 
 # Build download link HTML (avoids markdown escaping of URLs)
 dl <- list(
-  mac_arm64 = glue('<a href="{urls$mac_arm64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[5]}</a>'),
-  mac_x64 = glue('<a href="{urls$mac_x64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[6]}</a>'),
-  win_user_x64 = glue('<a href="{urls$win_user_x64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[2]}</a>'),
-  win_sys_x64 = glue('<a href="{urls$win_sys_x64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[1]}</a>'),
-  win_user_arm64 = glue('<a href="{urls$win_user_arm64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[4]}</a>'),
-  win_sys_arm64 = glue('<a href="{urls$win_sys_arm64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[3]}</a>'),
-  deb_x64 = glue('<a href="{urls$deb_x64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[7]}</a>'),
-  deb_arm64 = glue('<a href="{urls$deb_arm64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[8]}</a>'),
-  rpm_x64 = glue('<a href="{urls$rpm_x64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[9]}</a>'),
-  rpm_arm64 = glue('<a href="{urls$rpm_arm64}" class="download-link download-trigger"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[10]}</a>')
+  mac_arm64 = glue('<a href="{urls$mac_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[5]}</a>'),
+  mac_x64 = glue('<a href="{urls$mac_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[6]}</a>'),
+  win_user_x64 = glue('<a href="{urls$win_user_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[2]}</a>'),
+  win_sys_x64 = glue('<a href="{urls$win_sys_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[1]}</a>'),
+  win_user_arm64 = glue('<a href="{urls$win_user_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[4]}</a>'),
+  win_sys_arm64 = glue('<a href="{urls$win_sys_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[3]}</a>'),
+  deb_x64 = glue('<a href="{urls$deb_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[7]}</a>'),
+  deb_arm64 = glue('<a href="{urls$deb_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[8]}</a>'),
+  rpm_x64 = glue('<a href="{urls$rpm_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[9]}</a>'),
+  rpm_arm64 = glue('<a href="{urls$rpm_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[10]}</a>')
 )
 ```
 
@@ -220,28 +219,15 @@ checksum_table <- data.frame(
     glue('<a href="{urls$rpm_x64}">{redhat_x64}</a>'),
     glue('<a href="{urls$rpm_arm64}">{redhat_arm}</a>')
   ),
-  Size = c(
-    file_sizes[1], file_sizes[2],
-    file_sizes[3], file_sizes[4],
-    file_sizes[5], file_sizes[6],
-    file_sizes[7], file_sizes[8],
-    file_sizes[9], file_sizes[10]
-  ),
+  Size = unname(file_sizes),
   check.names = FALSE
 )
 
-full_checksums <- c(
-  checksums[1], checksums[2],
-  checksums[3], checksums[4],
-  checksums[5], checksums[6],
-  checksums[7], checksums[8],
-  checksums[9], checksums[10]
-)
-
-checksums_display <- substr(full_checksums, 1, 7)
+# `checksums` and `file_sizes` follow the same order as the rows above.
+checksums_display <- substr(checksums, 1, 7)
 
 checksum_table$`SHA-256` <- glue(
-  '<span class="checksum" onclick="copyChecksum(\'{full_checksums}\', this)" title="Click to copy full checksum">{checksums_display}</span>'
+  '<span class="checksum" onclick="copyChecksum(\'{checksums}\', this)" title="Click to copy full checksum">{checksums_display}</span>'
 )
 
 knitr::kable(checksum_table, format = "html", escape = FALSE, row.names = FALSE)
