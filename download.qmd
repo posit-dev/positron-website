@@ -235,8 +235,6 @@ knitr::kable(checksum_table, format = "html", escape = FALSE, row.names = FALSE)
 
 </details>
 
-<br>
-
 Once you install Positron, it will [automatically check for updates moving forward](updating.qmd).
 
 ::: {.callout-note}
