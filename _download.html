@@ -153,61 +153,6 @@
         letter-spacing: 0.03em;
     }
 
-    /* ============= LICENSE MODAL ============= */
-    .license-modal-backdrop {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 9998;
-        opacity: 0;
-        transition: opacity 0.2s;
-    }
-
-    .license-modal-backdrop.visible {
-        opacity: 1;
-    }
-
-    .license-modal {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.95);
-        background: white;
-        border-radius: 12px;
-        padding: 2rem;
-        max-width: 480px;
-        width: 90%;
-        z-index: 9999;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        opacity: 0;
-        transition: opacity 0.2s, transform 0.2s;
-    }
-
-    .license-modal.visible {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    .license-modal h3 {
-        margin-top: 0;
-        font-size: 1.2rem;
-        color: #242426;
-    }
-
-    .license-modal p {
-        color: #404041;
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-
-    .license-modal .modal-actions {
-        display: flex;
-        gap: 0.75rem;
-        margin-top: 1.5rem;
-        justify-content: flex-end;
-    }
 
     /* ============= CHECKSUMS SECTION ============= */
     .checksums-section summary {
@@ -346,24 +291,9 @@
 </style>
 </noscript>
 
-<!-- License confirmation modal -->
-<div class="license-modal-backdrop" id="license-backdrop" onclick="closeLicenseModal()"></div>
-<div class="license-modal" id="license-modal" role="dialog" aria-modal="true" aria-labelledby="license-modal-title">
-    <h3 id="license-modal-title">Accept license agreement</h3>
-    <p>Please review <a href="licensing.html">Positron's license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>. Your acceptance of this license agreement and privacy policy is required as a condition to proceeding with your download or use of the software.</p>
-    <div class="modal-actions">
-        <button class="btn btn-outline-secondary" onclick="closeLicenseModal()">Cancel</button>
-        <button class="btn btn-primary" onclick="acceptAndDownload()">I Agree &amp; Download</button>
-    </div>
-</div>
-
 <script type="application/javascript">
-    let pendingDownloadUrl = null;
-    let licenseAccepted = false;
-
     window.document.addEventListener("DOMContentLoaded", () => {
         detectOS();
-        bindDownloadTriggers();
         setupOSDetection();
     });
 
@@ -419,7 +349,6 @@
             heroSection.style.display = 'none';
         }
 
-        bindDownloadTriggers();
     }
 
     function highlightCard(cardId) {
@@ -432,60 +361,6 @@
                 badge.textContent = 'Your OS';
                 heading.appendChild(badge);
             }
-        }
-    }
-
-    function bindDownloadTriggers() {
-        document.querySelectorAll('.download-trigger').forEach(link => {
-            link.removeEventListener('click', handleDownloadClick);
-            link.addEventListener('click', handleDownloadClick);
-        });
-    }
-
-    function handleDownloadClick(e) {
-        if (licenseAccepted) return;
-        e.preventDefault();
-        pendingDownloadUrl = e.currentTarget.href;
-        openLicenseModal();
-    }
-
-    function openLicenseModal() {
-        const backdrop = document.getElementById('license-backdrop');
-        const modal = document.getElementById('license-modal');
-        backdrop.style.display = 'block';
-        modal.style.display = 'block';
-        requestAnimationFrame(() => {
-            backdrop.classList.add('visible');
-            modal.classList.add('visible');
-        });
-        modal.querySelector('.btn-primary').focus();
-        document.addEventListener('keydown', handleModalKeydown);
-    }
-
-    function closeLicenseModal() {
-        const backdrop = document.getElementById('license-backdrop');
-        const modal = document.getElementById('license-modal');
-        backdrop.classList.remove('visible');
-        modal.classList.remove('visible');
-        setTimeout(() => {
-            backdrop.style.display = 'none';
-            modal.style.display = 'none';
-        }, 200);
-        document.removeEventListener('keydown', handleModalKeydown);
-        pendingDownloadUrl = null;
-    }
-
-    function handleModalKeydown(e) {
-        if (e.key === 'Escape') {
-            closeLicenseModal();
-        }
-    }
-
-    function acceptAndDownload() {
-        licenseAccepted = true;
-        closeLicenseModal();
-        if (pendingDownloadUrl) {
-            window.location.href = pendingDownloadUrl;
         }
     }
 
@@ -551,8 +426,6 @@
         } else if (allDownloads) {
             allDownloads.hidden = true;
         }
-
-        bindDownloadTriggers();
     }
 
     function copyChecksum(text, element) {
