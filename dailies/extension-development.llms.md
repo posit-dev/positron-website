@@ -95,7 +95,7 @@ The `activate()` function is run when your extension is [activated.](https://cod
         ]
     },
     "dependencies": {
-        "@posit-dev/positron": "^0.1.0"
+        "@posit-dev/positron": "^0.2.5"
     }
 }
 ```
@@ -322,6 +322,47 @@ Use observers to process output progressively without blocking the UI. This appr
 - The [Positron showcase extension](https://github.com/posit-dev/positron-api-showcase) has a more fleshed out testing implementation.
 - Refer to the [VS Code testing docs](https://code.visualstudio.com/api/working-with-extensions/testing-extension) for more information.
 
+#### Testing against the Positron API in CI
+
+You can run extension-host integration tests against the live `positron.*` API in continuous integration (CI) without building Positron from source. The [`@posit-dev/positron-test-electron`](https://github.com/posit-dev/positron-test-electron) package downloads a real Positron build (daily or stable) and runs your test suite against it, the same way [`@vscode/test-electron`](https://code.visualstudio.com/api/working-with-extensions/testing-extension) works for VS Code.
+
+Start with the sample [GitHub Actions workflow](https://github.com/posit-dev/positron-extension-template/blob/main/.github/workflows/positron-api-tests.yaml) in the [Positron extension template](https://github.com/posit-dev/positron-extension-template). It runs your Positron API tests on every push and pull request. The workflow checks out your extension, sets up Node.js, installs dependencies with `npm ci`, and uses the [`posit-dev/setup-positron`](https://github.com/posit-dev/setup-positron) action to run your tests against a Positron build. Copy this workflow into your extension to get CI coverage with minimal setup.
+
+The test script in the template builds on `@posit-dev/positron-test-electron`, which you can also call directly for more control. Install it as a development dependency:
+
+``` bash
+npm install --save-dev @posit-dev/positron-test-electron
+```
+
+Run your test suite programmatically:
+
+``` typescript
+import * as path from 'path';
+import { runTests } from '@posit-dev/positron-test-electron';
+
+async function main() {
+    const code = await runTests({
+        channel: 'daily',
+        extensionDevelopmentPath: path.resolve(__dirname, '../../'),
+        extensionTestsPath: path.resolve(__dirname, './suite/index.js'),
+    });
+    process.exit(code);
+}
+
+main();
+```
+
+Or run it from the command line:
+
+``` bash
+npx positron-test-electron \
+    --channel daily \
+    --extension-development-path . \
+    --extension-tests-path ./out/test/index.js
+```
+
+Set `channel` to `daily` to test against upcoming changes, or `stable` to test against released builds. You can also pin a specific `version`, such as `2026.08.0-365`. The package supports macOS, Windows, and Linux.
+
 ### Resource management
 
 - Clean up event listeners in your extension’s `deactivate()` function.
@@ -373,6 +414,7 @@ You can check the [version compatibility table](https://github.com/posit-dev/pos
 - See more examples of the available API in the [showcase extension](https://github.com/posit-dev/positron-api-showcase).
 - Complete type documentation is available on [npm](https://www.npmjs.com/package/@posit-dev/positron).
 - Browse the source code of the [API package repository](https://github.com/posit-dev/positron-api-pkg).
+- For inspiration, browse real-world extensions built with the Positron API, like [Julia for Positron](https://github.com/TidierOrg/positron-julia) and [Shiny](https://github.com/posit-dev/shiny-vscode).
 
 ### Get help
 
