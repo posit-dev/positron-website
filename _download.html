@@ -1,28 +1,193 @@
 <style>
-    .disabled {
-        pointer-events: none;
-        cursor: none;
+    /* ============= DOWNLOAD PAGE CARDS ============= */
+    .download-hero {
+        background: white;
+        border: 1px solid #3a78b1;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(87, 89, 89, 0.08);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
     }
 
-    .disabled-overlay {
-        background-color: var(--bs-secondary-bg);
-        border-radius: 5px;
-        opacity: 0.5;
-        transition-duration: 1s;
+    .download-hero h3 {
+        margin-top: 0;
+        color: #242426;
+        font-size: 1.25rem;
     }
 
-    .visible {
-        transition-duration: 1s;
+    .download-hero .hero-subtitle {
+        color: #707073;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
     }
 
-    .hidden {
-        display: none !important;
-    }
-
-    #macos-buttons, #windows-buttons {
+    #hero-buttons {
         display: flex;
-        gap: 0.5rem;
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .download-hero .btn {
+        padding: 1rem 2rem;
+        min-width: 220px;
+    }
+
+    .hero-legal {
+        font-size: 0.95rem;
+        color: #707073;
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+
+    .download-cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 1.5rem 0;
+        max-width: 100%;
+    }
+
+    .download-card {
+        background: white;
+        padding: 1.25rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(87, 89, 89, 0.08);
+        border: 1px solid #3a78b1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .download-card:hover {
+        box-shadow: 0 8px 30px rgba(87, 89, 89, 0.12);
+    }
+
+    .download-card h4 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .download-card .download-group {
+        margin-bottom: 1rem;
+    }
+
+    .download-card .download-group:last-child {
+        margin-bottom: 0;
+    }
+
+    .download-card .download-group > p {
+        font-size: 0.9rem;
+        color: #707073;
+        margin-bottom: 0.25rem;
+        padding-top: 0.5rem;
+    }
+
+    .download-card .download-group + .download-group > p {
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .download-card .download-option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.4rem 0;
+    }
+
+    /* Pandoc wraps each interpolated download link in a <p>; drop its margin
+       so the link stays vertically centered in the flex row. */
+    .download-card .download-option p {
+        margin-bottom: 0;
+    }
+
+    .download-card .download-option .option-label {
+        font-size: 0.95rem;
+        color: #242426;
+    }
+
+    .download-card .download-option .option-meta {
+        font-size: 0.75rem;
+        color: #949494;
+    }
+
+
+    .download-card .download-option a.download-link {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        text-decoration: none;
+        color: #3a78b1;
+        font-size: 0.9rem;
+        padding: 0.4rem 0.75rem;
+        border-radius: 6px;
+        border: 1px solid #d1dbe5;
+        transition: background 0.2s, border-color 0.2s;
+    }
+
+    .download-card .download-option a.download-link:hover {
+        background: #f0f6fb;
+        border-color: #3a78b1;
+    }
+
+    .download-card .recommended-badge {
+        display: inline-block;
+        background: #3a78b1;
+        color: white;
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 10px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        vertical-align: middle;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+
+    /* ============= CHECKSUMS SECTION ============= */
+    .checksums-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .checksums-section summary {
+        cursor: pointer;
+        color: #3a78b1;
+        font-weight: 500;
+        padding: 0.5rem 0;
+    }
+
+    .checksums-section table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    .checksums-section table th:nth-child(1),
+    .checksums-section table td:nth-child(1) {
+        width: 30%;
+    }
+
+    .checksums-section table th:nth-child(2),
+    .checksums-section table td:nth-child(2) {
+        width: 40%;
+    }
+
+    .checksums-section table th:nth-child(3),
+    .checksums-section table td:nth-child(3) {
+        width: 10%;
+    }
+
+    .checksums-section table th:nth-child(4),
+    .checksums-section table td:nth-child(4) {
+        width: 20%;
     }
 
     .checksum {
@@ -31,7 +196,6 @@
         text-decoration: underline;
         position: relative;
         display: inline-block;
-        /* Added to ensure proper tooltip positioning */
     }
 
     .copy-feedback {
@@ -53,219 +217,237 @@
     .copy-feedback.visible {
         opacity: 1;
     }
+
+
+    /* ============= RESPONSIVE ============= */
+    @media (min-width: 480px) {
+        .download-cards {
+            gap: 1.25rem;
+            margin: 2rem 0;
+        }
+
+        .download-card {
+            padding: 1.5rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .download-cards {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .download-card {
+            padding: 1.75rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .download-cards {
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .download-card {
+            padding: 2rem;
+        }
+    }
+
+    @media (min-width: 1400px) {
+        .download-cards {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 479px) {
+        .download-card .download-option {
+            padding: 0.5rem 0;
+            gap: 0.75rem;
+        }
+
+        .download-card .download-option a.download-link {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .download-hero {
+            padding: 1.5rem 1rem;
+        }
+    }
+
+    /* Used by install.qmd OS-detection buttons */
+    .hidden {
+        display: none !important;
+    }
+
+    #macos-buttons, #windows-buttons {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
 </style>
+
+<noscript>
+<style>
+    .download-hero { display: none !important; }
+</style>
+</noscript>
 
 <script type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", () => {
-        setLinkEnablement(false);
+        detectOS();
         setupOSDetection();
     });
 
+    function detectOS() {
+        const heroSection = document.getElementById('download-hero');
+        if (!heroSection) return;
+
+        const heroTitle = document.getElementById('hero-title');
+        const heroSubtitle = document.getElementById('hero-subtitle');
+        const heroBtns = document.getElementById('hero-buttons');
+
+        const userAgent = navigator.userAgent;
+        const version = heroSection.dataset.version;
+        const cdnUrl = 'https://cdn.posit.co/positron/releases/';
+
+        if (userAgent.indexOf('Mac') !== -1) {
+            heroTitle.textContent = 'Recommended for your Mac';
+            heroSubtitle.textContent = 'We detected macOS. Choose your chip:';
+            heroBtns.innerHTML = `
+                <a href="${cdnUrl}mac/arm64/Positron-${version}-arm64.dmg" class="btn btn-primary">
+                    Download for Apple Silicon
+                </a>
+                <a href="${cdnUrl}mac/x64/Positron-${version}-x64.dmg" class="btn btn-outline-primary">
+                    Download for Intel
+                </a>
+            `;
+            highlightCard('card-macos');
+        } else if (userAgent.indexOf('Win') !== -1) {
+            heroTitle.textContent = 'Recommended for your PC';
+            heroSubtitle.textContent = 'We detected Windows. Choose your architecture:';
+            heroBtns.innerHTML = `
+                <a href="${cdnUrl}win/x86_64/Positron-${version}-UserSetup-x64.exe" class="btn btn-primary">
+                    Download for x64
+                </a>
+                <a href="${cdnUrl}win/arm64/Positron-${version}-UserSetup-arm64.exe" class="btn btn-outline-primary">
+                    Download for ARM64
+                </a>
+            `;
+            highlightCard('card-windows');
+        } else if (userAgent.indexOf('Linux') !== -1) {
+            heroTitle.textContent = 'Recommended for your system';
+            heroSubtitle.textContent = 'We detected Linux. Choose your package format:';
+            heroBtns.innerHTML = `
+                <a href="${cdnUrl}deb/x86_64/Positron-${version}-x64.deb" class="btn btn-primary">
+                    Download .deb (x64)
+                </a>
+                <a href="${cdnUrl}rpm/x86_64/Positron-${version}-x64.rpm" class="btn btn-outline-primary">
+                    Download .rpm (x64)
+                </a>
+            `;
+            highlightCard('card-linux');
+        } else {
+            heroSection.style.display = 'none';
+        }
+
+    }
+
+    function highlightCard(cardId) {
+        const card = document.getElementById(cardId);
+        if (card) {
+            const heading = card.querySelector('h4');
+            if (heading) {
+                const badge = document.createElement('span');
+                badge.className = 'recommended-badge';
+                badge.textContent = 'Your OS';
+                heading.appendChild(badge);
+            }
+        }
+    }
+
+    // Used by install.qmd for OS-detected download buttons
     function setupOSDetection() {
         const downloadBtn = document.getElementById('download-btn');
         const osName = document.getElementById('os-name');
-        const privacyPolicy = document.getElementById('privacy-policy');
         const allDownloads = document.getElementById('all-downloads');
 
         if (!downloadBtn || !osName) {
-            return; // Elements not found, likely not on start page
+            return;
         }
 
-        // Get version from data attribute, fallback to hardcoded version
         const version = downloadBtn.dataset.version;
-        const cdnUrl = 'https://cdn.posit.co/positron/releases/'; // Keep this in sync with cdn_url in download.qmd
-
+        const cdnUrl = 'https://cdn.posit.co/positron/releases/';
         const userAgent = navigator.userAgent;
-        const platform = navigator.platform;
 
         let detectedOS = '';
         let downloadUrl = '';
         let allDownloadsText = null;
-        let enableLinks = false;
 
-        ///////////////////////////////////////////////////////////////////////////
-        // NOTE: please check download.qmd to ensure the URLs here are constructed
-        // similarly to the ones there.
-        ///////////////////////////////////////////////////////////////////////////
-
-        // Detect operating system
         if (userAgent.indexOf('Win') !== -1) {
-            // Show two buttons for Windows: x64 and arm64
             const winButtons = document.getElementById('windows-buttons');
             const winX64Btn = document.getElementById('download-btn-win-x64');
             const winArm64Btn = document.getElementById('download-btn-win-arm64');
 
             if (winButtons && winX64Btn && winArm64Btn) {
-                // Hide the main download button, show the Windows buttons
                 downloadBtn.style.display = 'none';
                 winButtons.classList.remove('hidden');
-
-                // Set download URLs for both buttons
-                const x64Url = `${cdnUrl}win/x86_64/Positron-${version}-UserSetup-x64.exe`;
-                const arm64Url = `${cdnUrl}win/arm64/Positron-${version}-UserSetup-arm64.exe`;
-                winX64Btn.dataset.originalHref = x64Url;
-                winX64Btn.href = x64Url;
-                winArm64Btn.dataset.originalHref = arm64Url;
-                winArm64Btn.href = arm64Url;
+                winX64Btn.href = `${cdnUrl}win/x86_64/Positron-${version}-UserSetup-x64.exe`;
+                winArm64Btn.href = `${cdnUrl}win/arm64/Positron-${version}-UserSetup-arm64.exe`;
             }
-
             detectedOS = 'for Windows';
             allDownloadsText = 'System Installer & Other Platforms';
         } else if (userAgent.indexOf('Mac') !== -1) {
-            // Show two buttons for macOS: Apple Silicon and Intel
             const macButtons = document.getElementById('macos-buttons');
             const macArmBtn = document.getElementById('download-btn-mac-arm');
             const macIntelBtn = document.getElementById('download-btn-mac-intel');
 
             if (macButtons && macArmBtn && macIntelBtn) {
-                // Hide the main download button, show the macOS buttons
                 downloadBtn.style.display = 'none';
                 macButtons.classList.remove('hidden');
-
-                // Set download URLs for both buttons
-                const armUrl = `${cdnUrl}mac/arm64/Positron-${version}-arm64.dmg`;
-                const intelUrl = `${cdnUrl}mac/x64/Positron-${version}-x64.dmg`;
-                macArmBtn.dataset.originalHref = armUrl;
-                macArmBtn.href = armUrl;
-                macIntelBtn.dataset.originalHref = intelUrl;
-                macIntelBtn.href = intelUrl;
+                macArmBtn.href = `${cdnUrl}mac/arm64/Positron-${version}-arm64.dmg`;
+                macIntelBtn.href = `${cdnUrl}mac/x64/Positron-${version}-x64.dmg`;
             }
-
             detectedOS = 'for macOS';
             allDownloadsText = 'Other Platforms';
         } else if (userAgent.indexOf('Linux') !== -1) {
             detectedOS = 'for Linux';
-            downloadUrl = `download.html`;
-            enableLinks = true;
+            downloadUrl = 'download.html';
         } else {
-            // Unsupported OS or Linux with no specific download
             detectedOS = '';
-            downloadUrl = `download.html`;
-            enableLinks = true;
+            downloadUrl = 'download.html';
         }
 
-        // Update UI
         osName.textContent = detectedOS;
-        downloadBtn.dataset.originalHref = downloadUrl;
-        downloadBtn.href = downloadUrl;
+        if (downloadUrl) {
+            downloadBtn.href = downloadUrl;
+        }
 
-        if (allDownloadsText) {
+        if (allDownloadsText && allDownloads) {
             allDownloads.textContent = allDownloadsText;
-        } else {
+        } else if (allDownloads) {
             allDownloads.hidden = true;
         }
-
-        if (enableLinks) {
-            privacyPolicy.hidden = true;
-            setLinkEnablement(true);
-        }
-    }
-
-    function setLinkEnablement(enable) {
-        const downloadTable = window.document.querySelector("#download-table");
-        const downloadLinks = window.document.querySelectorAll("#download-table a");
-        const downloadBtn = window.document.getElementById("download-btn");
-        const macArmBtn = window.document.getElementById("download-btn-mac-arm");
-        const macIntelBtn = window.document.getElementById("download-btn-mac-intel");
-        const winX64Btn = window.document.getElementById("download-btn-win-x64");
-        const winArm64Btn = window.document.getElementById("download-btn-win-arm64");
-
-        if (enable) {
-            if (downloadTable) {
-                downloadTable.classList.remove("disabled-overlay");
-                downloadTable.classList.add("visible");
-            }
-            if (downloadBtn) {
-                downloadBtn.disabled = false;
-                downloadBtn.classList.remove("disabled");
-            }
-            if (macArmBtn) {
-                macArmBtn.disabled = false;
-                macArmBtn.classList.remove("disabled");
-            }
-            if (macIntelBtn) {
-                macIntelBtn.disabled = false;
-                macIntelBtn.classList.remove("disabled");
-            }
-            if (winX64Btn) {
-                winX64Btn.disabled = false;
-                winX64Btn.classList.remove("disabled");
-            }
-            if (winArm64Btn) {
-                winArm64Btn.disabled = false;
-                winArm64Btn.classList.remove("disabled");
-            }
-        }
-        else {
-            if (downloadTable) {
-                downloadTable.classList.add("disabled-overlay");
-                downloadTable.classList.remove("visible");
-            }
-            if (downloadBtn) {
-                downloadBtn.disabled = true;
-                downloadBtn.classList.add("disabled");
-            }
-            if (macArmBtn) {
-                macArmBtn.disabled = true;
-                macArmBtn.classList.add("disabled");
-            }
-            if (macIntelBtn) {
-                macIntelBtn.disabled = true;
-                macIntelBtn.classList.add("disabled");
-            }
-            if (winX64Btn) {
-                winX64Btn.disabled = true;
-                winX64Btn.classList.add("disabled");
-            }
-            if (winArm64Btn) {
-                winArm64Btn.disabled = true;
-                winArm64Btn.classList.add("disabled");
-            }
-        }
-
-        downloadLinks.forEach((link) => {
-            if (enable) {
-                link.classList.remove("disabled");
-                link.removeAttribute("aria-disabled");
-                link.removeAttribute("tabindex");
-            } else {
-                link.classList.add("disabled");
-                link.setAttribute("aria-disabled", "");
-                link.setAttribute("tabindex", "-1");
-            }
-            return;
-        });
-    }
-
-    function updatePrivacy(checkbox) {
-        setLinkEnablement(checkbox.checked);
     }
 
     function copyChecksum(text, element) {
-        // Remove any existing feedback elements
         const existingFeedback = element.querySelector('.copy-feedback');
         if (existingFeedback) {
             existingFeedback.remove();
         }
 
-        // Create feedback element
         const feedback = document.createElement('div');
         feedback.className = 'copy-feedback';
         feedback.textContent = 'Copied!';
         element.appendChild(feedback);
 
-        // Copy to clipboard
         navigator.clipboard.writeText(text).then(() => {
-            // Show feedback
             requestAnimationFrame(() => {
                 feedback.classList.add('visible');
-
-                // Hide and remove feedback after delay
                 setTimeout(() => {
                     feedback.classList.remove('visible');
-                    setTimeout(() => {
-                        feedback.remove();
-                    }, 200); // Remove after fade out
+                    setTimeout(() => { feedback.remove(); }, 200);
                 }, 1000);
             });
         }).catch((err) => {
@@ -274,9 +456,7 @@
             feedback.classList.add('visible');
             setTimeout(() => {
                 feedback.classList.remove('visible');
-                setTimeout(() => {
-                    feedback.remove();
-                }, 200);
+                setTimeout(() => { feedback.remove(); }, 200);
             }, 1000);
         });
     }

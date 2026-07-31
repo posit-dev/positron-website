@@ -8,24 +8,9 @@ format:
 
 ---
 
-## Positron on desktop
-
-Find out what you need to know before you [install](install.qmd) Positron, then download the desktop installer for your platform.
-
-:::: callout-important
-## Accept license agreement
-
-Please review [Positron's license agreement](licensing.qmd) and [privacy policy](https://posit.co/about/privacy-policy/). Your acceptance of this license agreement and privacy policy is required as a condition to proceeding with your download or use of the software.
-
-::: {#privacy-policy-agreement}
-<input type="checkbox" id="privacy-checkbox" onclick="updatePrivacy(this)"> <label for="privacy-checkbox">I agree to the [Positron license agreement](licensing.qmd) and [Posit Privacy Policy](https://posit.co/about/privacy-policy/).</label>
-:::
-::::
-
-```{r, id='download-table'}
+```{r}
 #| echo: false
 #| warning: false
-#| classes: plain
 
 library(purrr)
 library(glue)
@@ -53,17 +38,18 @@ debian_x64 <- glue("Positron-{release_version}-x64.deb")
 debian_arm <- glue("Positron-{release_version}-arm64.deb")
 redhat_x64 <- glue("Positron-{release_version}-x64.rpm")
 redhat_arm <- glue("Positron-{release_version}-arm64.rpm")
+
 urls <- list(
-  glue("{cdn_url}win/x86_64/{windows_system_x64}"),
-  glue("{cdn_url}win/x86_64/{windows_user_x64}"),
-  glue("{cdn_url}win/arm64/{windows_system_arm64}"),
-  glue("{cdn_url}win/arm64/{windows_user_arm64}"),
-  glue("{cdn_url}mac/arm64/{macos_arm64}"),
-  glue("{cdn_url}mac/x64/{macos_x64}"),
-  glue("{cdn_url}deb/x86_64/{debian_x64}"),
-  glue("{cdn_url}deb/arm64/{debian_arm}"),
-  glue("{cdn_url}rpm/x86_64/{redhat_x64}"),
-  glue("{cdn_url}rpm/arm64/{redhat_arm}")
+  win_sys_x64 = glue("{cdn_url}win/x86_64/{windows_system_x64}"),
+  win_user_x64 = glue("{cdn_url}win/x86_64/{windows_user_x64}"),
+  win_sys_arm64 = glue("{cdn_url}win/arm64/{windows_system_arm64}"),
+  win_user_arm64 = glue("{cdn_url}win/arm64/{windows_user_arm64}"),
+  mac_arm64 = glue("{cdn_url}mac/arm64/{macos_arm64}"),
+  mac_x64 = glue("{cdn_url}mac/x64/{macos_x64}"),
+  deb_x64 = glue("{cdn_url}deb/x86_64/{debian_x64}"),
+  deb_arm64 = glue("{cdn_url}deb/arm64/{debian_arm}"),
+  rpm_x64 = glue("{cdn_url}rpm/x86_64/{redhat_x64}"),
+  rpm_arm64 = glue("{cdn_url}rpm/arm64/{redhat_arm}")
 )
 
 # Get checksums
@@ -85,19 +71,128 @@ all_installers <- list(
   redhat_arm
 )
 checksums <- map_chr(all_installers, ~ pluck(checksum_data, .))
-checksums_short <- substr(checksums, 1, 7)
 
 # Get file sizes
 cloudfront_headers <- map(urls, HEAD) |> map(headers)
 file_sizes <- map(cloudfront_headers, "content-length") |>
   map(fs::fs_bytes) |>
   map_chr(as.character)
-file_names_only <- stringr::str_extract(urls, "[^\\/]+$")
 
-markdown_links <- glue('<a href="{urls}">{file_names_only}</a>')
+# Build download link HTML (avoids markdown escaping of URLs)
+dl <- list(
+  mac_arm64 = glue('<a href="{urls$mac_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[5]}</a>'),
+  mac_x64 = glue('<a href="{urls$mac_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[6]}</a>'),
+  win_user_x64 = glue('<a href="{urls$win_user_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[2]}</a>'),
+  win_sys_x64 = glue('<a href="{urls$win_sys_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[1]}</a>'),
+  win_user_arm64 = glue('<a href="{urls$win_user_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[4]}</a>'),
+  win_sys_arm64 = glue('<a href="{urls$win_sys_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[3]}</a>'),
+  deb_x64 = glue('<a href="{urls$deb_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[7]}</a>'),
+  deb_arm64 = glue('<a href="{urls$deb_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[8]}</a>'),
+  rpm_x64 = glue('<a href="{urls$rpm_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[9]}</a>'),
+  rpm_arm64 = glue('<a href="{urls$rpm_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[10]}</a>')
+)
+```
 
-# Create base table without checksums
-download_table <- data.frame(
+Find out what you need to know before you [install](install.qmd) Positron, then download the desktop installer for your platform.
+
+::: {#download-hero .download-hero data-version="`{r} release_version`"}
+
+### [Recommended for you]{#hero-title}
+
+[Detecting your operating system...]{#hero-subtitle .hero-subtitle}
+
+::: {#hero-buttons}
+:::
+
+<p class="hero-legal">By downloading and using Positron, you agree to Positron's <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.</p>
+
+:::
+
+## All platforms
+
+<p class="hero-legal">By downloading and using Positron, you agree to Positron's <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.</p>
+
+```{r}
+#| echo: false
+#| results: asis
+
+cat('<div class="download-cards">
+
+<div id="card-macos" class="download-card">
+<h4><i class="fa-brands fa-apple" aria-hidden="true"></i> macOS <span class="option-meta">11.0+</span></h4>
+<div class="download-option">
+<div class="option-label">Apple Silicon<br><span class="option-meta">(M-series)</span></div>
+', dl$mac_arm64, '
+</div>
+<div class="download-option">
+<div class="option-label">Intel</div>
+', dl$mac_x64, '
+</div>
+</div>
+
+<div id="card-windows" class="download-card">
+<h4><i class="fa-brands fa-windows" aria-hidden="true"></i> Windows</h4>
+<div class="download-group">
+<p><strong>x64</strong> <span class="option-meta">(Windows 10+)</span></p>
+<div class="download-option">
+<div class="option-label">User install</div>
+', dl$win_user_x64, '
+</div>
+<div class="download-option">
+<div class="option-label">System install</div>
+', dl$win_sys_x64, '
+</div>
+</div>
+<div class="download-group">
+<p><strong>ARM64</strong> <span class="option-meta">(Windows 11)</span></p>
+<div class="download-option">
+<div class="option-label">User install</div>
+', dl$win_user_arm64, '
+</div>
+<div class="download-option">
+<div class="option-label">System install</div>
+', dl$win_sys_arm64, '
+</div>
+</div>
+</div>
+
+<div id="card-linux" class="download-card">
+<h4><i class="fa-brands fa-linux" aria-hidden="true"></i> Linux</h4>
+<div class="download-group">
+<p><strong>x64</strong></p>
+<div class="download-option">
+<div class="option-label">.deb <span class="option-meta">(Ubuntu, Debian)</span></div>
+', dl$deb_x64, '
+</div>
+<div class="download-option">
+<div class="option-label">.rpm <span class="option-meta">(Red Hat, Fedora)</span></div>
+', dl$rpm_x64, '
+</div>
+</div>
+<div class="download-group">
+<p><strong>ARM64</strong></p>
+<div class="download-option">
+<div class="option-label">.deb <span class="option-meta">(Ubuntu, Debian)</span></div>
+', dl$deb_arm64, '
+</div>
+<div class="download-option">
+<div class="option-label">.rpm <span class="option-meta">(Red Hat, Fedora)</span></div>
+', dl$rpm_arm64, '
+</div>
+</div>
+</div>
+
+</div>')
+```
+
+<details class="checksums-section">
+<summary>SHA-256 checksums</summary>
+
+```{r}
+#| echo: false
+#| warning: false
+
+checksum_table <- data.frame(
   Platform = c(
     "Windows 10, 11 x64 (system level install)",
     "Windows 10, 11 x64 (user level install)",
@@ -110,20 +205,33 @@ download_table <- data.frame(
     "Red Hat-based Linux x64 (RHEL9)",
     "Red Hat-based Linux arm64 (RHEL9)"
   ),
-  Download = markdown_links,
-  Size = file_sizes
+  Installer = c(
+    glue('<a href="{urls$win_sys_x64}">{windows_system_x64}</a>'),
+    glue('<a href="{urls$win_user_x64}">{windows_user_x64}</a>'),
+    glue('<a href="{urls$win_sys_arm64}">{windows_system_arm64}</a>'),
+    glue('<a href="{urls$win_user_arm64}">{windows_user_arm64}</a>'),
+    glue('<a href="{urls$mac_arm64}">{macos_arm64}</a>'),
+    glue('<a href="{urls$mac_x64}">{macos_x64}</a>'),
+    glue('<a href="{urls$deb_x64}">{debian_x64}</a>'),
+    glue('<a href="{urls$deb_arm64}">{debian_arm}</a>'),
+    glue('<a href="{urls$rpm_x64}">{redhat_x64}</a>'),
+    glue('<a href="{urls$rpm_arm64}">{redhat_arm}</a>')
+  ),
+  Size = unname(file_sizes),
+  check.names = FALSE
 )
 
-# Add checksums column if data is available
-if (length(checksums) > 0) {
-  download_table$`SHA-256` <- glue(
-    '<span class="checksum" onclick="copyChecksum(\'{checksums}\', this)" title="Click to copy full checksum">{checksums_short}</span>'
-  )
-}
+# `checksums` and `file_sizes` follow the same order as the rows above.
+checksums_display <- substr(checksums, 1, 7)
 
-knitr::kable(download_table, format = "html", escape = FALSE)
+checksum_table$`SHA-256` <- glue(
+  '<span class="checksum" onclick="copyChecksum(\'{checksums}\', this)" title="Click to copy full checksum">{checksums_display}</span>'
+)
+
+knitr::kable(checksum_table, format = "html", escape = FALSE, row.names = FALSE)
 ```
-<br>
+
+</details>
 
 Once you install Positron, it will [automatically check for updates moving forward](updating.qmd).
 

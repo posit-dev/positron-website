@@ -64,34 +64,21 @@ rig system rtools add
 
 Download the installer for your operating system from the button below and follow the standard installation process for your platform. You only need to install Positron once, as it [automatically updates](updating.qmd) to the latest version after installation.
 
-:::{.callout-important #privacy-policy}
-## Accept license agreement
-
-Please review [Positron's license agreement](licensing.qmd) and [privacy policy](https://posit.co/about/privacy-policy/). Your acceptance of this license agreement and privacy policy is required as a condition to proceeding with your download or use of the software.
-
-<div id="privacy-policy-agreement">
-  <input type="checkbox" id="privacy-checkbox" onclick="updatePrivacy(this)">
-  <label for="privacy-checkbox">I agree to the <a href="licensing.qmd">Positron license agreement</a> and <a href="https://posit.co/about/privacy-policy/">Posit Privacy Policy</a>.</label>
-</div>
-:::
-
-<!-- The below R code is used by the _download.html snippet
-to populate the platform-default download button -->
 ```{r}
 #| echo: false
 positronVersion <- Sys.getenv("RELEASE_VERSION")
 ```
 
-[Download Positron <span id="os-name"></span>](#){.btn .btn-primary .disabled #download-btn data-version="`{r} positronVersion`"}
+[Download Positron <span id="os-name"></span>](#){.btn .btn-primary #download-btn data-version="`{r} positronVersion`"}
 
 ::: {#windows-buttons .hidden}
-[Download for Windows (x64)](#){.btn .btn-primary .disabled #download-btn-win-x64 data-version="`{r} positronVersion`"}
-[Download for Windows (arm64)](#){.btn .btn-secondary .disabled #download-btn-win-arm64 data-version="`{r} positronVersion`"}
+[Download for Windows (x64)](#){.btn .btn-primary #download-btn-win-x64 data-version="`{r} positronVersion`"}
+[Download for Windows (arm64)](#){.btn .btn-outline-primary #download-btn-win-arm64 data-version="`{r} positronVersion`"}
 :::
 
 ::: {#macos-buttons .hidden}
-[Download for macOS (Apple Silicon)](#){.btn .btn-primary .disabled #download-btn-mac-arm data-version="`{r} positronVersion`"}
-[Download for macOS (Intel)](#){.btn .btn-secondary .disabled #download-btn-mac-intel data-version="`{r} positronVersion`"}
+[Download for macOS (Apple Silicon)](#){.btn .btn-primary #download-btn-mac-arm data-version="`{r} positronVersion`"}
+[Download for macOS (Intel)](#){.btn .btn-outline-primary #download-btn-mac-intel data-version="`{r} positronVersion`"}
 :::
 
 [All Downloads](download.qmd){#all-downloads}
