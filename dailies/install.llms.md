@@ -57,12 +57,6 @@ install.packages(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 
 Download the installer for your operating system from the button below and follow the standard installation process for your platform. You only need to install Positron once, as it [automatically updates](updating.llms.md) to the latest version after installation.
 
-> **IMPORTANT:**
->
-> Please review [Positron’s license agreement](licensing.llms.md) and [privacy policy](https://posit.co/about/privacy-policy/). Your acceptance of this license agreement and privacy policy is required as a condition to proceeding with your download or use of the software.
->
-> I agree to the [Positron license agreement](licensing.llms.md) and [Posit Privacy Policy](https://posit.co/about/privacy-policy/).
-
 [Download Positron ](#)
 
 [Download for Windows (x64)](#) [Download for Windows (arm64)](#)

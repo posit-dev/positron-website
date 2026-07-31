@@ -2,17 +2,76 @@
 
 Download Positron for Windows, macOS, or Linux. Free data science IDE supporting Python and R with automatic updates included.
 
-## Positron on desktop
-
 Find out what you need to know before you [install](install.llms.md) Positron, then download the desktop installer for your platform.
 
-> **IMPORTANT:**
->
-> Please review [Positron’s license agreement](licensing.llms.md) and [privacy policy](https://posit.co/about/privacy-policy/). Your acceptance of this license agreement and privacy policy is required as a condition to proceeding with your download or use of the software.
->
-> I agree to the [Positron license agreement](licensing.llms.md) and [Posit Privacy Policy](https://posit.co/about/privacy-policy/).
+### Recommended for you
 
-| Platform | Download | Size | SHA-256 |
+Detecting your operating system…
+
+By downloading and using Positron, you agree to Positron’s [license agreement](licensing.llms.md) and [privacy policy](https://posit.co/about/privacy-policy/).
+
+## All platforms
+
+By downloading and using Positron, you agree to Positron’s [license agreement](licensing.llms.md) and [privacy policy](https://posit.co/about/privacy-policy/).
+
+####  macOS 11.0+
+
+Apple Silicon  
+(M-series)
+
+[ 799M](https://cdn.posit.co/positron/releases/mac/arm64/Positron-2026.07.1-5-arm64.dmg)
+
+Intel
+
+[ 811M](https://cdn.posit.co/positron/releases/mac/x64/Positron-2026.07.1-5-x64.dmg)
+
+####  Windows
+
+**x64** (Windows 10+)
+
+User install
+
+[ 425M](https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.07.1-5-UserSetup-x64.exe)
+
+System install
+
+[ 425M](https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.07.1-5-Setup-x64.exe)
+
+**ARM64** (Windows 11)
+
+User install
+
+[ 418M](https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.07.1-5-UserSetup-arm64.exe)
+
+System install
+
+[ 418M](https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.07.1-5-Setup-arm64.exe)
+
+####  Linux
+
+**x64**
+
+.deb (Ubuntu, Debian)
+
+[ 454M](https://cdn.posit.co/positron/releases/deb/x86_64/Positron-2026.07.1-5-x64.deb)
+
+.rpm (Red Hat, Fedora)
+
+[ 519M](https://cdn.posit.co/positron/releases/rpm/x86_64/Positron-2026.07.1-5-x64.rpm)
+
+**ARM64**
+
+.deb (Ubuntu, Debian)
+
+[ 428M](https://cdn.posit.co/positron/releases/deb/arm64/Positron-2026.07.1-5-arm64.deb)
+
+.rpm (Red Hat, Fedora)
+
+[ 492M](https://cdn.posit.co/positron/releases/rpm/arm64/Positron-2026.07.1-5-arm64.rpm)
+
+SHA-256 checksums
+
+| Platform | Installer | Size | SHA-256 |
 |:---|:---|:---|:---|
 | Windows 10, 11 x64 (system level install) | [Positron-2026.07.1-5-Setup-x64.exe](https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.07.1-5-Setup-x64.exe) | 425M | 95c1039 |
 | Windows 10, 11 x64 (user level install) | [Positron-2026.07.1-5-UserSetup-x64.exe](https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.07.1-5-UserSetup-x64.exe) | 425M | 7672c1c |
@@ -24,8 +83,6 @@ Find out what you need to know before you [install](install.llms.md) Positron, t
 | Debian-based Linux arm64 (Ubuntu 20+) | [Positron-2026.07.1-5-arm64.deb](https://cdn.posit.co/positron/releases/deb/arm64/Positron-2026.07.1-5-arm64.deb) | 428M | a928ea0 |
 | Red Hat-based Linux x64 (RHEL9) | [Positron-2026.07.1-5-x64.rpm](https://cdn.posit.co/positron/releases/rpm/x86_64/Positron-2026.07.1-5-x64.rpm) | 519M | b01a872 |
 | Red Hat-based Linux arm64 (RHEL9) | [Positron-2026.07.1-5-arm64.rpm](https://cdn.posit.co/positron/releases/rpm/arm64/Positron-2026.07.1-5-arm64.rpm) | 492M | 14407c2 |
-
-  
 
 Once you install Positron, it will [automatically check for updates moving forward](updating.llms.md).
 
