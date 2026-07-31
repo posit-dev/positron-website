@@ -93,8 +93,6 @@ dl <- list(
 )
 ```
 
-## Positron on desktop
-
 Find out what you need to know before you [install](install.qmd) Positron, then download the desktop installer for your platform.
 
 ::: {#download-hero .download-hero data-version="`{r} release_version`"}
