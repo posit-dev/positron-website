@@ -1,0 +1,61 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'videos/**'
+  workflow_dispatch:
+
+name: Publish Videos
+
+# Avoid concurrent runs racing to sync the same prefix; let the latest win.
+concurrency:
+  group: publish-videos
+  cancel-in-progress: false
+
+jobs:
+  s3-videos:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          # This workflow is the one place that needs the real video bytes
+          # rather than LFS pointer stubs.
+          lfs: true
+
+      - name: Configure AWS Credentials for S3
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_S3_RW_ROLE }}
+          aws-region: us-east-1
+
+      - name: Sync videos to S3
+        run: |
+          S3_PREFIX="s3://posit-positron-downloads/positron/releases/videos"
+          # Additive sync: uploads new or changed files only, never deletes
+          # existing objects, so re-running is safe and idempotent.
+          #
+          # Videos publish to the `releases` channel only. They are evergreen
+          # and identical across channels, so the dailies build references
+          # these same URLs.
+          aws s3 sync "${GITHUB_WORKSPACE}/videos/" "${S3_PREFIX}/" \
+            --no-progress \
+            --exclude "README.md" \
+            --exclude "generate-posters.sh" \
+            --cache-control "public, max-age=604800"
+
+      - name: Configure AWS Credentials for CloudFront
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_CDN_RW_ROLE }}
+          aws-region: us-east-1
+
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.AWS_CDN_DISTRIBUTION_ID }} \
+            --paths "/positron/releases/videos/*"
