@@ -158,7 +158,9 @@ If you did not try the Positron Notebook editor in the last tutorial, try it now
 
 The video below demonstrates how the Positron IDE responds to your notebook edits, which enhances your authoring experience.
 
-{{< video videos/tutorial-vscode-notebooks.mp4 aria-label="The entire IDE tracks and responds to the Notebook Editor." >}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/tutorial-vscode-notebooks.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/tutorial-vscode-notebooks-poster.jpg"
+  aria-label="The entire IDE tracks and responds to the Notebook Editor." >}}
 
 # Set up AI with your Copilot account
 

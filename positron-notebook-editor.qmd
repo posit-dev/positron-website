@@ -68,7 +68,9 @@ The Positron Notebook Editor integrates with [Posit Assistant](assistant.qmd) to
 - **Transparent**: You can inspect and control the specific context the Assistant is using.
 - **Collaborative**: Use [Follow Assistant](#follow-assistant) to automatically scroll and highlight cells as they are edited.
 
-{{< video videos/notebook-ai-quick-actions.mp4 aria-label="Using Positron Assistant to generate AI-powered suggestions and edits in a notebook" >}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/notebook-ai-quick-actions.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/notebook-ai-quick-actions-poster.jpg"
+  aria-label="Using Positron Assistant to generate AI-powered suggestions and edits in a notebook" >}}
 
 ### Enable Posit Assistant
 
@@ -99,7 +101,9 @@ When a cell fails to run, Positron shows **Fix** and **Explain** buttons right o
 - **Fix:** Assistant diagnoses the error and suggests a corrected version of your code.
 - **Explain:** Assistant describes what your code does, analyzes the error, and suggests possible solutions, without editing your notebook.
 
-{{< video videos/notebook-fix-error.mp4 aria-label="Using Fix and Explain on a notebook cell error" >}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/notebook-fix-error.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/notebook-fix-error-poster.jpg"
+  aria-label="Using Fix and Explain on a notebook cell error" >}}
 
 The main button starts a new chat with the error attached as context. Use the dropdown arrow next to it to send the error to your current chat instead.
 

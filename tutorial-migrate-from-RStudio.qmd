@@ -143,7 +143,9 @@ Open the Command Palette and search for _Preferences: Color Theme_. Use the arro
 
 The video below shows how to preview color themes with _Preferences: Color Theme_.
 
-{{< video videos/tutorial-migrate-color-themes.mp4 aria-label="Use _Preferences: Color Theme_ to preview color themes." >}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/tutorial-migrate-color-themes.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/tutorial-migrate-color-themes-poster.jpg"
+  aria-label="Use _Preferences: Color Theme_ to preview color themes." >}}
 
 # Make Positron tailored to your workflow
 

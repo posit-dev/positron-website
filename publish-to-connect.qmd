@@ -8,7 +8,9 @@ Publish your data science work directly from Positron to [Posit Connect](https:/
 
 Whether you're sharing reports, applications, or APIs, the Publisher extension streamlines the deployment process and makes it easy to get your work in front of stakeholders quickly with a button click.
 
-{{< video videos/deploy-to-connect.mp4 aria-label="Positron Publisher extension demonstrating one-click deployment to Posit Connect" >}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/deploy-to-connect.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/deploy-to-connect-poster.jpg"
+  aria-label="Positron Publisher extension demonstrating one-click deployment to Posit Connect" >}}
 
 ## Getting started with Publisher
 
