@@ -601,7 +601,7 @@
     "href": "positron-notebook-editor.html",
     "title": "Positron Notebook Editor",
     "section": "",
-    "text": "Note\n\n\n\nThe Positron Notebook Editor is the default editor for Jupyter (.ipynb) files. We are actively working on improving the notebook experience in Positron and want to hear from you! Share your thoughts on this Github discussion or schedule a call with our product and engineering team.\nThe Positron Notebook Editor provides a familiar notebook experience for Jupyter (.ipynb) files. IDE features work out of the box in notebooks, including AI assistance, data exploration, and debugging.",
+    "text": "Note\n\n\n\nThe Positron Notebook Editor is the default editor for Jupyter (.ipynb) files.\nThe Positron Notebook Editor provides a familiar notebook experience for Jupyter (.ipynb) files. IDE features work out of the box in notebooks, including AI assistance, data exploration, and debugging.",
     "crumbs": [
       "Guides",
       "Dynamic Documents and Apps",
@@ -680,19 +680,6 @@
     "title": "Positron Notebook Editor",
     "section": "Customization & settings",
     "text": "Customization & settings\n\nGeneral\n\npositron.notebook.enabled: Use the Positron Notebook Editor as the default editor for .ipynb files. Enabled by default.\npositron.notebook.experimental: Enable experimental Positron Notebook features. Experimental features might change or be removed in future releases.\nTo set the default working directory for a notebook, use the notebook.workingDirectory setting.\n\n\n\nSaving\n\nnotebook.save.outputs: Save outputs to the notebook file. Enabled by default.\nnotebook.save.executionCounts: Save execution counts to the notebook file for version-control-friendly notebooks.\n\n\n\nInline Data Explorer\n\npositron.notebook.inlineDataExplorer.enabled: Display data frames inline as interactive data grids. Enabled by default.\npositron.notebook.inlineDataExplorer.maxHeight: Set the maximum height in pixels for inline data explorers in notebook and Quarto outputs. Default to 300 pixels.\n\n\n\nAssistant\n\nnotebook.ai.enabled: Enable or disable all AI features in the Notebook Editor, including ghost cell suggestions, the Notebook Assistant panel, Visualize, and cell Fix & Explain actions. Enabled by default. Note: notebook AI features are active only when both notebook.ai.enabled and ai.enabled are true.\npositron.assistant.notebook.suggestions.model: Set the model used when generating AI suggestions in notebooks.\npositron.assistant.notebook.deletionSentinel.show: Show deletion sentinels when cells are deleted. When disabled, cells are deleted immediately without undo placeholders. Enabled by default.\npositron.assistant.notebook.deletionSentinel.timeout: Time in milliseconds before deletion sentinels auto-dismiss (0 to disable auto-dismiss).\npositron.assistant.notebook.showDiff: Show a diff view for AI assistant edits to notebook cells. When disabled, the assistant applies changes directly without requiring approval. Enabled by default.\n\n\n\nGhost cell suggestions (experimental)\n\npositron.assistant.notebook.ghostCellSuggestions.enabled: Show AI-generated suggestions for the next cell after successful cell execution. A ghost cell with a suggested next step will appear after a brief delay.\npositron.assistant.notebook.ghostCellSuggestions.automatic: When enabled, suggestions appear automatically after cell execution. When disabled, a placeholder appears and you can request a suggestion by clicking Get Suggestion or pressing .\npositron.assistant.notebook.ghostCellSuggestions.delay: Time in milliseconds to wait after cell execution before showing ghost cell suggestions.\npositron.assistant.notebook.ghostCellSuggestions.maxVariables: Maximum number of session variables to include in ghost cell suggestion context. Variables are prioritized by relevance (DataFrames and tables first, then collections and scalars). Set to 0 to disable variable context.\npositron.assistant.notebook.ghostCellSuggestions.model: Model patterns for ghost cell suggestions. Patterns are tried in order until a match is found (case-insensitive partial matching). Falls back to the current chat session model, then the provider’s model, then the first available model.",
-    "crumbs": [
-      "Guides",
-      "Dynamic Documents and Apps",
-      "Jupyter Notebooks",
-      "Positron Notebook Editor"
-    ]
-  },
-  {
-    "objectID": "positron-notebook-editor.html#share-your-feedback",
-    "href": "positron-notebook-editor.html#share-your-feedback",
-    "title": "Positron Notebook Editor",
-    "section": "Share your feedback",
-    "text": "Share your feedback\nWe’d love your feedback. Please book time to chat with us or:\n\nFile issues for any bugs or improvements you want to see.\nUpvote on features you want to see next.",
     "crumbs": [
       "Guides",
       "Dynamic Documents and Apps",
@@ -1052,7 +1039,7 @@
     "href": "jupyter-notebooks.html#notebook-editors",
     "title": "Jupyter Notebooks",
     "section": "Notebook editors",
-    "text": "Notebook editors\nPositron offers two editors for working with Jupyter Notebooks: the Positron Notebook Editor, which is the default, and the Legacy Notebook Editor, the VS Code based notebook editor.\n\nPositron Notebook Editor\n\n\n\n\n\n\nNote\n\n\n\nThe Positron Notebook Editor is the default editor for Jupyter Notebooks. We are actively working on improving the notebook experience in Positron and want to hear from you! Share your thoughts on this Github discussion or schedule a call with our product and engineering team.\n\n\nThe Positron Notebook Editor is a native notebook experience built specifically for Positron. It provides notebook-aware AI assistance, integrated data exploration, and an improved user experience for data science workflows. Check out the launch article for more details.\nRead the launch blog post to learn more about why we built the Positron Notebook Editor.\nYour .ipynb files open in the Positron Notebook Editor by default. To learn more, see the setup instructions.\n\n\nLegacy notebook editor\nThe Legacy Notebook Editor is the Code OSS based notebook editor. If you are familiar with Jupyter Notebooks in VS Code, this editor will feel familiar. To use it, disable the positron.notebook.enabled setting.",
+    "text": "Notebook editors\nPositron offers two editors for working with Jupyter Notebooks: the Positron Notebook Editor, which is the default, and the Legacy Notebook Editor, the VS Code based notebook editor.\n\nPositron Notebook Editor\nThe Positron Notebook Editor is a native notebook experience built specifically for Positron. It provides notebook-aware AI assistance, integrated data exploration, and an improved user experience for data science workflows. Check out the launch article for more details.\nRead the launch blog post to learn more about why we built the Positron Notebook Editor.\nYour .ipynb files open in the Positron Notebook Editor by default. To learn more, see the setup instructions.\n\n\nLegacy notebook editor\nThe Legacy Notebook Editor is the Code OSS based notebook editor. If you are familiar with Jupyter Notebooks in VS Code, this editor will feel familiar. To use it, disable the positron.notebook.enabled setting.",
     "crumbs": [
       "Guides",
       "Dynamic Documents and Apps",
@@ -3021,7 +3008,7 @@
     "href": "education.html#how-can-i-use-positron-in-an-educational-setting",
     "title": "Positron for Education",
     "section": "How can I use Positron in an educational setting?",
-    "text": "How can I use Positron in an educational setting?\n\nUnder the Positron Elastic license, individuals may install and use Positron Desktop for any purpose.\nQualified academic institutions can host Positron as a service in the following ways. All of them require a license.\n\nPositron Server for Jupyter\nPosit Workbench for Education\n\n\n\n\n\n\n\n\nNoteWe are here to help\n\n\n\nBook a call with us or reach out via a discussion in our GitHub repository.",
+    "text": "How can I use Positron in an educational setting?\n\nUnder the Positron Elastic license, individuals may install and use Positron Desktop for any purpose.\nQualified academic institutions can host Positron as a service in the following ways. All of them require a license.\n\nPositron Server for Jupyter\nPosit Workbench for Education\n\n\n\n\n\n\n\n\nNoteWe are here to help\n\n\n\nReach out via a discussion in our GitHub repository.",
     "crumbs": [
       "About",
       "Positron for Education"

@@ -20,10 +20,6 @@ Positron offers two editors for working with Jupyter Notebooks: the [Positron No
 
 ### Positron Notebook Editor
 
-> **NOTE:**
->
-> The Positron Notebook Editor is the default editor for Jupyter Notebooks. We are actively working on improving the notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or [schedule a call](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) with our product and engineering team.
-
 The [Positron Notebook Editor](positron-notebook-editor.llms.md) is a native notebook experience built specifically for Positron. It provides notebook-aware AI assistance, integrated data exploration, and an improved user experience for data science workflows. Check out the [launch article](https://posit.co/blog/announcing-the-positron-notebook-editor-for-jupyter-notebooks/) for more details.
 
 Read the [launch blog post](https://posit.co/blog/announcing-the-positron-notebook-editor-for-jupyter-notebooks/) to learn more about why we built the Positron Notebook Editor.

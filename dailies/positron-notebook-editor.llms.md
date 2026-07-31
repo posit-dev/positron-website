@@ -4,7 +4,7 @@ Use the Positron Notebook Editor for a native notebook experience with integrate
 
 > **NOTE:**
 >
-> The Positron Notebook Editor is the default editor for Jupyter (`.ipynb`) files. We are actively working on improving the notebook experience in Positron and want to hear from you! Share your thoughts on [this Github discussion](https://github.com/posit-dev/positron/discussions/10047) or [schedule a call](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) with our product and engineering team.
+> The Positron Notebook Editor is the default editor for Jupyter (`.ipynb`) files.
 
 The Positron Notebook Editor provides a familiar notebook experience for Jupyter (`.ipynb`) files. IDE features work out of the box in notebooks, including AI assistance, data exploration, and debugging.
 
@@ -153,11 +153,3 @@ When the Assistant is actively editing cells in your notebook, you may want to w
 - [`positron.assistant.notebook.ghostCellSuggestions.delay`](positron://settings/positron.assistant.notebook.ghostCellSuggestions.delay): Time in milliseconds to wait after cell execution before showing ghost cell suggestions.
 - [`positron.assistant.notebook.ghostCellSuggestions.maxVariables`](positron://settings/positron.assistant.notebook.ghostCellSuggestions.maxVariables): Maximum number of session variables to include in ghost cell suggestion context. Variables are prioritized by relevance (DataFrames and tables first, then collections and scalars). Set to 0 to disable variable context.
 - [`positron.assistant.notebook.ghostCellSuggestions.model`](positron://settings/positron.assistant.notebook.ghostCellSuggestions.model): Model patterns for ghost cell suggestions. Patterns are tried in order until a match is found (case-insensitive partial matching). Falls back to the current chat session model, then the provider’s model, then the first available model.
-
-## Share your feedback
-
-We’d love your feedback. Please [book time to chat with us](https://scheduler.zoom.us/cindy-tong/improving-the-positron-notebook-experience) or:
-
-1.  [File issues](https://github.com/posit-dev/positron/issues) for any bugs or improvements you want to see.
-
-2.  Upvote on [features](https://github.com/posit-dev/positron/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22area%3A%20notebooks-jupyter%22) you want to see next.

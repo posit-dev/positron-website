@@ -23,7 +23,7 @@ Explore the full list of [Positron features](features.llms.md).
 
 > **NOTE:**
 >
-> [Book a call with us](https://scheduler.zoom.us/cindy-tong/positron-education) or reach out via a discussion in our [GitHub repository](https://github.com/posit-dev/positron/discussions).
+> Reach out via a discussion in our [GitHub repository](https://github.com/posit-dev/positron/discussions).
 
 ## Eligibility for teaching licenses
 
