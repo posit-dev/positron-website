@@ -136,7 +136,7 @@ To disable Console Fix and Explain, set [`console.assistantActions.enabled`](pos
 
 ### Control what extensions read from the console
 
-Extensions such as Posit Assistant can read your recent console history — the commands you've run, with their output and any errors — to offer more relevant help without re-running code.
+Extensions such as Posit Assistant can read your recent console history to offer more relevant help without re-running code. This history includes the commands you have run, along with their output and any errors.
 
 To stop extensions from reading console history, set [`console.historyApiEnabled`](positron://settings/console.historyApiEnabled) to `false`.
 
