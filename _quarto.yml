@@ -3,6 +3,11 @@ project:
   type: website
   render:
     - "*.qmd"
+  resources:
+    # Videos are served from cdn.posit.co, never from the built site. Excluding
+    # them here keeps them out of every profile's output and out of the docs
+    # bundles published by release-docs-bundles.yml. See videos/README.md.
+    - "!videos/**"
 
 execute:
   freeze: auto

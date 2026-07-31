@@ -17,7 +17,6 @@ project:
     - "!tutorial-migrate-from-RStudio.qmd"
   resources:
     - _redirects
-    - "!videos/**"
 
 website:
   open-graph: true
@@ -230,7 +229,3 @@ format:
     toc-expand: true
 
 show-videos: false
-
-filters:
-  - quarto
-  - video-filter

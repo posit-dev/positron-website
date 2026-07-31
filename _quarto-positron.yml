@@ -247,3 +247,8 @@ format:
       - "assets/_kapa-ai.html"
 
 show-videos: true
+
+# Applies to every {{< cdn-video >}} on the site. "none" keeps the 10 MB+ hero
+# off the critical path; the poster frame is what the visitor sees until they
+# click play. See videos/README.md.
+video-preload: "none"
