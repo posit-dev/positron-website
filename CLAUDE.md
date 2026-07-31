@@ -24,7 +24,7 @@ There is also a **dailies** overlay (`_quarto-dailies.yml`) for the dev docs ser
 
 New pages will likely need to be added to both the positron and workbench profile config files (not the dailies overlay).
 
-**Videos are excluded from the workbench profile.** A Lua filter (`_extensions/video-filter/`) automatically removes video elements when building for workbench. Use the standard `{{< video >}}` shortcode; videos will appear in the public site but not in the workbench bundle.
+**Videos are excluded from the workbench profile.** The `cdn-video` shortcode drops video elements when `show-videos: false`, so videos appear in the public site but not in the workbench bundle. See "Videos" below.
 
 ## Code Execution and Freeze
 
@@ -70,9 +70,29 @@ Key formatting rules:
   - `publish-release-notes.yml`: Manual workflow for S3/CloudFront deployment of the release notes markdown
   - `publish-release-notes-assets.yml`: Syncs `release-notes/assets/` (images, GIFs) to S3/CloudFront. Runs automatically when assets change on `main`, plus manual dispatch. See `release-notes/assets/README.md`.
 
-## Videos and Git LFS
+## Videos
 
-Video files (`.mp4`, `.mov`) are stored with Git LFS (see `.gitattributes`). When adding or replacing a video, make sure Git LFS is installed and initialized (`git lfs install`) so the file goes through the LFS filter.
+**Read `videos/README.md` before adding, replacing, or referencing a video.** It is the authoritative reference; the summary here is only so you know the shape of the workflow.
+
+Videos are **not served by Netlify**. They are published to `cdn.posit.co` by `.github/workflows/publish-videos.yml` and referenced from pages by absolute CDN URL. Adding one is a three-step sequence, and the order matters:
+
+1. **Encode and add the file** to `videos/` (cap at 1600px/30fps, drop silent audio tracks, use `-movflags +faststart`), then run `bash videos/generate-posters.sh` to make its poster frame. Check the poster is a sensible thumbnail rather than a splash screen or empty editor; add a per-file offset in the script if not.
+2. **Merge that change to `main` first.** Publishing happens on merge, so a PR that adds a video and the page using it in one go will show a broken player in its Netlify preview.
+3. **Then reference it** with the `cdn-video` shortcode, writing both the video and poster URLs out in full:
+
+```
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/example.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/example-poster.jpg"
+  aria-label="Describe what the video shows" >}}
+```
+
+Both URLs are explicit on purpose, so what you read in the source is exactly what the browser requests. `poster` and `aria-label` are both required and the build fails without them.
+
+**Do not use Quarto's built-in `{{< video >}}` shortcode.** It injects video.js, 569 KB of render-blocking JavaScript, into the page head.
+
+### Git LFS
+
+Video files (`.mp4`, `.mov`) are stored with Git LFS (see `.gitattributes`). Poster frames (`.jpg`) are not; they are plain git objects, matching `images/`. When adding or replacing a video, make sure Git LFS is installed and initialized (`git lfs install`) so the file goes through the LFS filter.
 
 If a video shows up as changed in `git diff` or `git status` but you didn't touch it, that's a phantom diff: the file was committed as raw binary instead of an LFS pointer, so the clean filter now produces a pointer that differs from the stored blob. Do not stage or commit this as part of unrelated work. Running `git add` would rewrite the stored blob into a pointer, which is a real change to history. Instead, discard it with `git restore <file>`, and open a separate PR to re-add the file through LFS:
 
