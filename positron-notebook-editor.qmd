@@ -17,7 +17,7 @@ The Positron Notebook Editor provides a familiar notebook experience for Jupyter
 - **Improved user experience**: Optimized for data science workflows
 - **Notebook-aware AI assistance**: AI understands your notebook context, execution history, and execution order
 - **Integrated data exploration**: Variables pane and Data Explorer work seamlessly
-- **Debugging**: Works out of the box without additional setup
+- **[Debugging](notebook-debugging.qmd)**: Works out of the box without additional setup
 - **Improved version control**: Control what metadata is saved for better diffing and version control
 
 ## Use the Positron Notebook Editor

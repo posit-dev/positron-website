@@ -172,6 +172,7 @@ website:
                 - text: "Overview"
                   href: jupyter-notebooks.qmd
                 - positron-notebook-editor.qmd
+                - notebook-debugging.qmd
                 - legacy-notebook-editor.qmd
             - code-cells.qmd
             - develop-data-apps.qmd

@@ -1,0 +1,81 @@
+---
+title: "Debugging Notebooks"
+description: "Set breakpoints, inspect variables, and step through code in the Positron Notebook Editor."
+---
+
+The [Positron Notebook Editor](positron-notebook-editor.qmd) has built-in support for debugging notebook cells. You can set breakpoints in cells, run a cell under the debugger, and pause execution to inspect variables and step through your code line by line. Debugging works for both Python and R notebooks.
+
+<!-- TODO(video): short walkthrough of setting a breakpoint in a cell, running Debug Cell, inspecting a variable in the Debug pane, then continuing -->
+
+## Requirements
+
+Debugging is available when the notebook's kernel supports it:
+
+- **Python**: The kernel advertises debugging support when the [`debugpy`](https://github.com/microsoft/debugpy) package is available in the notebook's environment. It is installed automatically alongside `ipykernel`, so most Python environments support debugging out of the box.
+- **R**: Debugging works out of the box with the R kernel bundled with Positron.
+
+If the kernel does not support debugging, the **Debug Cell** action is disabled.
+
+## Set breakpoints
+
+To set a breakpoint, select the gutter to the left of a line number in a code cell. A dot appears, indicating the breakpoint is set. Right-click the gutter for more options, such as conditional breakpoints.
+
+<!-- TODO(screenshot): breakpoint gutter in a notebook cell with a breakpoint dot -->
+
+You can set breakpoints in any code cell, not just the one you are about to debug. For example, if a function is defined in one cell and called from another, a breakpoint inside the function definition is hit when you debug the cell that calls it. Run the cell containing the definition first so the kernel knows about the code.
+
+::: {.callout-note}
+Breakpoints only pause execution when you run a cell with **Debug Cell**. Running a cell normally with **Run Cell** never stops at breakpoints.
+:::
+
+## Debug a cell
+
+To run a cell under the debugger, select the **Debug Cell** button in the cell action bar, press {{< kbd mac=Shift-Option-Enter win=Shift-Alt-Enter linux=Shift-Alt-Enter >}} while the cell is focused, or run the _Notebook: Debug Cell_ command from the Command Palette.
+
+<!-- TODO(screenshot): cell action bar with the Debug Cell button highlighted -->
+
+The cell runs under the debugger and pauses at the first breakpoint it reaches. The debug session ends automatically when the cell finishes executing, or when you stop it from the debug toolbar.
+
+::: {.callout-note}
+Debugging also works in the [Legacy Notebook Editor](legacy-notebook-editor.qmd): select **Debug Cell** from the dropdown next to a cell's run button.
+:::
+
+## Inspect state while paused
+
+When execution pauses at a breakpoint, the paused line is highlighted in the cell and the **Debug** pane opens.
+
+<!-- TODO(screenshot): notebook paused at a breakpoint with the current-line indicator visible and the Debug pane open -->
+
+From here you can:
+
+- **Inspect variables**: The **Variables** section of the **Debug** pane shows the variables in the current scope. Expand complex objects such as lists and data frames to explore their structure.
+- **Watch expressions**: Add expressions to the **Watch** section to track computed values, such as `nrow(df)` or `len(items)`, as you step through code.
+- **Navigate the call stack**: The **Call Stack** view shows the chain of function calls that led to the current pause point. Select a frame to inspect the variables in that scope.
+
+## Step through code
+
+Use the debug toolbar to control execution:
+
+- **Continue**: Resume execution until the next breakpoint, or to the end of the cell.
+- **Step Over**: Execute the current line and pause on the next one.
+- **Step Into**: Pause inside the function called on the current line.
+- **Step Out**: Finish the current function and pause in the caller.
+- **Stop**: End the debug session.
+
+<!-- TODO(screenshot): debug toolbar during a notebook debug session -->
+
+## Tips
+
+- **Debug before expensive operations.** Set a breakpoint just before a long-running call, such as fitting a model or writing to remote storage, and use **Debug Cell** to verify your inputs are correct before committing to the computation.
+- **Interrupting works while debugging.** Interrupting the kernel stops the cell and ends the debug session, just like a normal cell execution.
+
+## Limitations
+
+- The debug session is scoped to a single cell execution, so you cannot keep inspecting state after the cell finishes. Debug the cell again to pick up where you left off.
+- The debugger steps through your own code and skips library internals.
+- Each notebook supports one debug session at a time. Wait for the current debug session to finish before debugging another cell.
+
+## Related reading
+
+- [Debugging R code](guide-r-debugging.qmd) covers R-specific debugging workflows in more depth, including error and warning breakpoints, the Watch pane, and classic R debugging functions such as `browser()`.
+- The [VS Code debugging documentation](https://code.visualstudio.com/docs/debugtest/debugging) describes the debug UI that Positron builds on.
