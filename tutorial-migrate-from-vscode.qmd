@@ -146,7 +146,7 @@ You can also open the Data Explorer by clicking the {{< fa table-cells >}} next 
 
 You might have noticed the notebook in the last tutorial looked a little different from the one in VS Code. That is because Positron uses an enhanced notebook editor built for data science. It comes with notebook-aware AI assistance and is synchronized with the Variables, Plots, Help, History, and Data Explorer panes you just used.
 
-If you prefer the editor you know from VS Code, Positron still includes it as the [Legacy Notebook Editor](legacy-notebook-editor.qmd), and you can switch between the two.
+If you prefer the editor you know from VS Code, Positron still includes it as the [legacy notebook editor](jupyter-notebooks.qmd#legacy-notebook-editor), and you can switch between the two.
 
 ::: {.callout-tip title="Try it now"}
 If you did not try the Positron Notebook editor in the last tutorial, try it now:

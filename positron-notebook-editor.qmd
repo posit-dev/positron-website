@@ -22,7 +22,7 @@ The Positron Notebook Editor provides a familiar notebook experience for Jupyter
 
 ## Use the Positron Notebook Editor
 
-The Positron Notebook Editor is the default editor for Jupyter Notebooks, so your `.ipynb` files open in it automatically. If you prefer the [Legacy Notebook Editor](legacy-notebook-editor.qmd), disable the [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled) setting, and `.ipynb` files will open in the Legacy Notebook Editor instead.
+The Positron Notebook Editor is the default editor for Jupyter Notebooks, so your `.ipynb` files open in it automatically. If you prefer the [legacy notebook editor](jupyter-notebooks.qmd#legacy-notebook-editor), disable the [`positron.notebook.enabled`](positron://settings/positron.notebook.enabled) setting, and `.ipynb` files will open in the legacy notebook editor instead.
 
 ## Getting started
 
@@ -31,6 +31,8 @@ You can create and edit `.ipynb` files in Positron just as you would in other ed
 ### Notebook layout
 
 For the best experience, open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}} and run the _View: Notebook Layout_ command. This layout arranges the IDE panes into a notebook-friendly setup, giving you quick access to your variables, plots, and other data science tools alongside your notebook.
+
+<!-- TODO(screenshot): re-capture Notebook layout screenshot with the current Assistant UI -->
 
 ![The Positron IDE in Notebook layout showing the Positron Assistant chat pane to the left, the notebook editor in the center, and the Variables pane to the right.](images/positron-notebook-layout.png){fig-alt="Positron IDE with labeled regions: Assistant Chat pane on left, Notebook Editor in center showing code and a bar chart, and Variables pane on right."}
 
@@ -54,9 +56,95 @@ When a notebook is the active editor, the Interpreter picker also offers a **Cha
 
 You can restart the notebook session at any time by selecting the {{<fa rotate-right>}} icon in the notebook editor action bar.
 
-## Version control
+## Running cells
 
-The Positron Notebook Editor controls what metadata is saved to the notebook file. This makes notebooks more version-control-friendly. By default, cell outputs are saved but execution counts are not. You can adjust this behavior with the [Saving settings](#saving) below.
+Each code cell has a **Run Cell** button in its action bar. The cell action bar also offers **Run Cells Above** and **Run Cells Below** to run everything before or after the current cell, and the notebook action bar has a **Run All Cells** button.
+
+<!-- TODO(screenshot): a code cell with the cell action bar visible (Run Cell, Debug Cell, Run Cells Above/Below) -->
+
+The most common ways to run code with the keyboard:
+
+| Shortcut | Description |
+| -------- | ----------- |
+| {{< kbd mac=Command-Enter win=Ctrl-Enter linux=Ctrl-Enter >}} | Run the current cell |
+| {{< kbd Shift-Enter >}} | Run the current cell and select the cell below |
+| {{< kbd mac=Option-Enter win=Alt-Enter linux=Alt-Enter >}} | Run the current cell and insert a new cell below |
+| {{< kbd mac=Command-Shift-Enter win=Ctrl-Shift-Enter linux=Ctrl-Shift-Enter >}} | While editing a cell: run the selected code, or the current line if nothing is selected. Otherwise: run all cells |
+| {{< kbd mac=Shift-Option-Enter win=Shift-Alt-Enter linux=Shift-Alt-Enter >}} | [Debug the current cell](notebook-debugging.qmd) |
+
+While a cell is running, its **Run Cell** button becomes **Stop Cell Execution**, and the **Run All Cells** button becomes **Stop Execution**. To interrupt the kernel from the keyboard, press {{< kbd I >}} twice while no cell editor is focused.
+
+After a cell runs, its execution order appears as a numbered badge next to the cell, and a status footer below the cell shows whether the run succeeded, how long it took, and when it last ran.
+
+<!-- TODO(screenshot): cell status footer showing success check mark, duration, and relative timestamp -->
+
+## Cells
+
+Notebooks are made up of code cells, markdown cells, and raw cells. Add a cell with the **Code** or **Markdown** buttons between cells, or press {{< kbd A >}} / {{< kbd B >}} to insert a code cell above/below the current cell while no cell editor is focused. Convert a cell to a different type with {{< kbd Y >}} (code), {{< kbd M >}} (markdown), or {{< kbd R >}} (raw).
+
+### Markdown cells
+
+Markdown cells render rich content, including:
+
+- **Math**: Inline and block LaTeX math rendered with KaTeX, including `\begin{}`/`\end{}` environments
+- **Diagrams**: Fenced code blocks with the `mermaid` language render as [Mermaid](https://mermaid.js.org/) diagrams
+- **Images**: Local, relative, and remote image paths
+- **Code blocks**: Syntax highlighting for fenced code blocks
+- Tables, footnotes, superscript and subscript, and linkable headings
+
+Double-click a rendered markdown cell (or press {{< kbd Enter >}}) to edit it, and run it to render.
+
+### Cell tags
+
+Cell tags, used by tools like Quarto and papermill, are shown as pills below each cell. Select **Add Tag** from the cell's **...** menu (or run _Notebook: Add Tag_ from the Command Palette) to tag the current cell, click a tag to edit it, and use _Notebook: Toggle Cell Tag Visibility_ or _Notebook: Remove All Cell Tags_ to manage tags across the notebook. Tags are saved to the cell metadata in the notebook file.
+
+<!-- TODO(screenshot): a code cell with tag pills visible in the cell footer -->
+
+## Cell outputs
+
+### Rich output support
+
+The Positron Notebook Editor renders these output types natively:
+
+| Output | MIME types |
+| ------ | ---------- |
+| Text, including terminal colors | `text/plain`, stdout and stderr streams |
+| Errors and tracebacks | notebook error output |
+| HTML | `text/html` |
+| Markdown | `text/markdown` |
+| Math | `text/latex` (rendered with KaTeX) |
+| Images | `image/png`, `image/svg+xml` |
+| JSON | `application/json` (interactive collapsible viewer) |
+| Tables | Interactive inline data grids for supported data frame outputs |
+
+Interactive outputs from libraries such as Plotly, Bokeh, HoloViews, and [Jupyter Widgets (ipywidgets)](https://ipywidgets.readthedocs.io/) are rendered in sandboxed webviews, so interactive figures and widgets work as expected.
+
+### Inline Data Explorer
+
+When a cell outputs a data frame, the Positron Notebook Editor displays it as an interactive data grid instead of a static table. You can scroll and explore the data inline, or select **Open in Data Explorer** in the grid's header to open the full [Data Explorer](data-explorer.qmd). Control this behavior with the [Inline Data Explorer settings](#settings-inline-data-explorer).
+
+<!-- TODO(screenshot): inline data explorer grid in a notebook cell output with the Open in Data Explorer button visible -->
+
+### Output actions
+
+Hold the pointer over an output to reveal its action bar. From there (or from the output's right-click menu) you can:
+
+- **Copy Output**: Copy the output's text content ({{< kbd mac=Command-C win=Ctrl-C linux=Ctrl-C >}} when the output is focused)
+- **Copy Image**: Copy an image output, such as a plot, to the clipboard
+- **Copy JSON**: Copy a JSON output to the clipboard
+- **Collapse Output** / **Expand Output**: Hide or show the output ({{< kbd O >}} while no cell editor is focused)
+- **Truncate Output** / **Show Full Output**: Limit long text output to a scrollable region, or show all of it ({{< kbd Shift-O >}})
+- **Clear Output**: Remove the cell's output
+
+To clear every output in the notebook, run _Notebook: Clear All Outputs_ or press {{< kbd mac=Command-K win=Ctrl-K linux=Ctrl-K >}} {{< kbd K >}}.
+
+<!-- TODO(screenshot): output action bar shown on hover over a plot output, with Copy Image visible -->
+
+## Notebook outline
+
+Select the **Toggle Outline** button in the notebook action bar to open the Outline view, which shows a table of contents built from your markdown headings and code cells. Select an entry to jump to that cell. The same structure powers the editor breadcrumbs and the _Go to Symbol in Editor..._ command.
+
+<!-- TODO(screenshot): Outline view next to a notebook showing nested markdown headings -->
 
 ## AI integration
 
@@ -68,6 +156,8 @@ The Positron Notebook Editor integrates with [Posit Assistant](assistant.qmd) to
 - **Transparent**: You can inspect and control the specific context the Assistant is using.
 - **Collaborative**: Use [Follow Assistant](#follow-assistant) to automatically scroll and highlight cells as they are edited.
 
+<!-- TODO(video): verify notebook-ai-quick-actions.mp4 still matches the current Assistant UI; re-record if stale -->
+
 {{< video videos/notebook-ai-quick-actions.mp4 aria-label="Using Positron Assistant to generate AI-powered suggestions and edits in a notebook" >}}
 
 ### Enable Posit Assistant
@@ -76,11 +166,15 @@ To use the integrated notebook AI features, first configure a language model pro
 
 Once you are signed in, you will see assistant specific actions in the notebook editor action bar. To disable notebook AI features, set [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled) to `false`. See [Configure AI features](ai-configuration.qmd) for other ways to turn AI features on and off.
 
+<!-- TODO(screenshot): re-capture assistant action bar screenshot with the current UI -->
+
 ![The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle.](images/positron-notebook-assistant-action-bar.png){fig-alt="Notebook action bar showing the Assistant icon button."}
 
 ### Notebook Assistant panel
 
 The Notebook Assistant panel provides a quick way to interact with Assistant directly from your notebook. To open it, select the **Assistant** icon button in the notebook editor action bar.
+
+<!-- TODO(screenshot): re-capture assistant panel screenshot with the current UI -->
 
 ![The Notebook Assistant panel showing the cells included in the context, quick actions to fix, explain, or improve the current notebook, and an action to generate AI suggestions based off the current state of the notebook.](images/positron-notebook-assistant-panel.png){fig-alt="Notebook Assistant panel showing context cells, quick actions like Fix, Explain, and Improve, and AI-generated suggestions based on the notebook state."}
 
@@ -99,6 +193,8 @@ When a cell fails to run, Positron shows **Fix** and **Explain** buttons right o
 - **Fix:** Assistant diagnoses the error and suggests a corrected version of your code.
 - **Explain:** Assistant describes what your code does, analyzes the error, and suggests possible solutions, without editing your notebook.
 
+<!-- TODO(video): verify notebook-fix-error.mp4 still matches the current UI; re-record if stale -->
+
 {{< video videos/notebook-fix-error.mp4 aria-label="Using Fix and Explain on a notebook cell error" >}}
 
 The main button starts a new chat with the error attached as context. Use the dropdown arrow next to it to send the error to your current chat instead.
@@ -113,6 +209,54 @@ To enable ghost cell suggestions, set [`positron.assistant.notebook.ghostCellSug
 
 When the Assistant is actively editing cells in your notebook, you may want to watch its progress. Select **Follow Assistant** in the notebook editor action bar to have the notebook automatically scroll to cells as they are edited. This lets you review changes in real-time.
 
+## Version control
+
+The Positron Notebook Editor controls what metadata is saved to the notebook file. This makes notebooks more version-control-friendly. By default, cell outputs are saved but execution counts are not. You can adjust this behavior with the [Saving settings](#saving) below.
+
+### Export to scripts and Quarto
+
+To convert a notebook to another format, select **Export...** from the notebook editor's **...** menu. You can export a notebook to:
+
+- A **Quarto document** (`.qmd`)
+- A **Python script** (`.py`) with `# %%` cell markers
+- An **R script** (`.R`) with `# %%` cell markers
+
+The exported file opens in a new tab, ready to save. Exporting to Quarto is a convenient path to [publishing notebooks](publish-to-connect.qmd) or continuing your work in a version-control-friendly plain text format; see the [Quarto documentation](quarto.qmd) for more.
+
+<!-- TODO(screenshot): the Export... format picker opened from the notebook toolbar -->
+
+## Notebook console (experimental)
+
+The notebook console gives a notebook its own Console session, so you can run ad hoc code against the notebook's kernel without adding cells. To try it, enable the [`console.showNotebookConsoleActions`](positron://settings/console.showNotebookConsoleActions) setting, then select **Open Notebook Console** from the kernel menu in the notebook action bar. Related experimental settings:
+
+- [`console.showNotebookConsoles`](positron://settings/console.showNotebookConsoles): Automatically show a console for each open notebook.
+- [`console.notebookPlotPreviewHeight`](positron://settings/console.notebookPlotPreviewHeight): Control the height of plot previews in the notebook console (0 to disable).
+
+## Keyboard shortcuts
+
+Press {{< kbd mac=Command-Shift-H win=Ctrl-Shift-H linux=Ctrl-Shift-H >}} in a notebook to open the **Notebook Help** panel, which lists all notebook shortcuts and commands. You can also run _Notebook: Show Notebook Commands_ from the Command Palette to search every notebook command.
+
+Like Jupyter, the notebook has two modes: *edit mode* (typing inside a cell editor) and *command mode* (a cell is selected but the editor is not focused). Press {{< kbd Enter >}} to edit the selected cell and {{< kbd Escape >}} to return to command mode. Command mode shortcuts include:
+
+| Shortcut | Description |
+| -------- | ----------- |
+| {{< kbd Up >}} / {{< kbd Down >}} or {{< kbd K >}} / {{< kbd J >}} | Move focus between cells |
+| {{< kbd A >}} / {{< kbd B >}} | Insert a code cell above / below |
+| {{< kbd C >}} / {{< kbd X >}} / {{< kbd V >}} | Copy / cut / paste cell |
+| {{< kbd Backspace >}} or {{< kbd D >}} {{< kbd D >}} | Delete cell |
+| {{< kbd Z >}} / {{< kbd Shift-Z >}} | Undo / redo |
+| {{< kbd Y >}} / {{< kbd M >}} / {{< kbd R >}} | Change cell to code / markdown / raw |
+| {{< kbd 1 >}}...{{< kbd 6 >}} | Change cell to heading 1-6 |
+| {{< kbd mac=Option-Up win=Alt-Up linux=Alt-Up >}} / {{< kbd mac=Option-Down win=Alt-Down linux=Alt-Down >}} | Move cell up / down |
+| {{< kbd Shift-M >}} | Join selected cells |
+| {{< kbd O >}} / {{< kbd Shift-O >}} | Toggle cell output / output scrolling |
+| {{< kbd I >}} {{< kbd I >}} | Interrupt kernel |
+| {{< kbd mac=Command-A win=Ctrl-A linux=Ctrl-A >}} | Select all cells |
+| {{< kbd mac=Command-F win=Ctrl-F linux=Ctrl-F >}} | Find in notebook |
+| {{< kbd Shift-L >}} | Toggle line numbers |
+
+While editing a cell, run the _Notebook: Split Cell_ command to split the cell at the cursor.
+
 ## Customization & settings
 #### General
 
@@ -125,7 +269,13 @@ When the Assistant is actively editing cells in your notebook, you may want to w
 - [`notebook.save.outputs`](positron://settings/notebook.save.outputs): Save outputs to the notebook file. Enabled by default.
 - [`notebook.save.executionCounts`](positron://settings/notebook.save.executionCounts): Save execution counts to the notebook file for version-control-friendly notebooks.
 
-#### Inline Data Explorer
+#### Outputs
+
+- [`notebook.output.scrolling`](positron://settings/notebook.output.scrolling): Make long text outputs scrollable by default. Override per output with **Truncate Output** / **Show Full Output**.
+- [`notebook.output.textLineLimit`](positron://settings/notebook.output.textLineLimit): Number of text lines to show before truncating an output.
+- [`notebook.output.fontSize`](positron://settings/notebook.output.fontSize) and [`notebook.markup.fontSize`](positron://settings/notebook.markup.fontSize): Adjust output and markdown font sizes.
+
+#### Inline Data Explorer {#settings-inline-data-explorer}
 
 - [`positron.notebook.inlineDataExplorer.enabled`](positron://settings/positron.notebook.inlineDataExplorer.enabled): Display data frames inline as interactive data grids. Enabled by default.
 - [`positron.notebook.inlineDataExplorer.maxHeight`](positron://settings/positron.notebook.inlineDataExplorer.maxHeight): Set the maximum height in pixels for inline data explorers in notebook and Quarto outputs. Default to 300 pixels.
@@ -133,6 +283,7 @@ When the Assistant is actively editing cells in your notebook, you may want to w
 #### Assistant
 
 - [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled): Enable or disable all AI features in the Notebook Editor, including ghost cell suggestions, the Notebook Assistant panel, Visualize, and [cell Fix & Explain actions](#notebook-fix-and-explain). Enabled by default. Note: notebook AI features are active only when both `notebook.ai.enabled` and [`ai.enabled`](positron://settings/ai.enabled) are `true`.
+- [`positron.assistant.notebook.autoFollow`](positron://settings/positron.assistant.notebook.autoFollow): Automatically scroll to cells modified by the AI assistant. Enabled by default.
 - [`positron.assistant.notebook.suggestions.model`](positron://settings/positron.assistant.notebook.suggestions.model): Set the model used when generating AI suggestions in notebooks.
 - [`positron.assistant.notebook.deletionSentinel.show`](positron://settings/positron.assistant.notebook.deletionSentinel.show): Show deletion sentinels when cells are deleted. When disabled, cells are deleted immediately without undo placeholders. Enabled by default.
 - [`positron.assistant.notebook.deletionSentinel.timeout`](positron://settings/positron.assistant.notebook.deletionSentinel.timeout): Time in milliseconds before deletion sentinels auto-dismiss (0 to disable auto-dismiss).
@@ -145,4 +296,3 @@ When the Assistant is actively editing cells in your notebook, you may want to w
 - [`positron.assistant.notebook.ghostCellSuggestions.delay`](positron://settings/positron.assistant.notebook.ghostCellSuggestions.delay): Time in milliseconds to wait after cell execution before showing ghost cell suggestions.
 - [`positron.assistant.notebook.ghostCellSuggestions.maxVariables`](positron://settings/positron.assistant.notebook.ghostCellSuggestions.maxVariables): Maximum number of session variables to include in ghost cell suggestion context. Variables are prioritized by relevance (DataFrames and tables first, then collections and scalars). Set to 0 to disable variable context.
 - [`positron.assistant.notebook.ghostCellSuggestions.model`](positron://settings/positron.assistant.notebook.ghostCellSuggestions.model): Model patterns for ghost cell suggestions. Patterns are tried in order until a match is found (case-insensitive partial matching). Falls back to the current chat session model, then the provider's model, then the first available model.
-

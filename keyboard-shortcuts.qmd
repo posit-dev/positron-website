@@ -22,6 +22,7 @@ Our documentation shows you keyboard shortcuts based on your operating system. F
 | {{< kbd mac=Command-K win=Ctrl-K linux=Ctrl-K >}}, {{< kbd V >}} | Focus the Variables pane |
 | {{< kbd Ctrl-L >}} | Clear the Console |
 
+For shortcuts specific to the Positron Notebook Editor, see the [notebook keyboard shortcuts](positron-notebook-editor.qmd#keyboard-shortcuts).
 
 ## Custom shortcuts
 
