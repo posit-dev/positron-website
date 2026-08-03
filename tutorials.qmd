@@ -30,6 +30,10 @@ listing:
 
 Learn how to get the most out of Positron.
 
+::: {.callout-note}
+Looking for a more guided learning experience? Check out the [Introduction to Positron](https://academy.posit.co/path/introduction-to-positron) path on Posit Academy.
+:::
+
 ::: {#tutorials}
 :::
 
