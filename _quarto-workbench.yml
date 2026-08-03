@@ -55,6 +55,8 @@ website:
         href: features.qmd
       - text: "Guides"
         href: welcome.qmd
+      - text: "Release Notes"
+        href: release-notes.qmd
       - text: "Help"
         href: troubleshooting.qmd
       - text: "About"
@@ -213,7 +215,6 @@ website:
       style: "docked"
       contents:
         - about.qmd
-        - release-notes.qmd
 
 format:
   html:
