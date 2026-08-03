@@ -4,6 +4,10 @@ Step-by-step tutorials to help you get the most out of Positron, from setting up
 
 Learn how to get the most out of Positron.
 
+> **NOTE:**
+>
+> Looking for a more guided learning experience? Check out the [Introduction to Positron](https://academy.posit.co/path/introduction-to-positron) path on Posit Academy.
+
 ### First data analysis with Python in a Jupyter Notebook
 
 Set up a Python environment, open a Jupyter Notebook, and perform your first data analysis.
