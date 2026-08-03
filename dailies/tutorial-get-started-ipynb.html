@@ -80,9 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7f3c135505f33e53fe344bb8386717ef.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d9b94bce6a9f9753cbd3274b88b79024.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a8d28592f0d0500d0f95d66d5745551e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
@@ -393,7 +391,7 @@ Important
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add pandas plotnine</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>uv add</code> installs the package and adds it to your <code>pyproject.toml</code> file so that you can keep track of the packages you have installed in your environment.</p>
 <p>This is what it looks like to set up a new Python project in Positron:</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="Setting up a new Python project in Positron, including creating a virtual environment and installing packages"><source src="videos/tutorial-load-python.mp4"></video></div>
+<div class="quarto-video"><video controls="" playsinline="" preload="none" poster="https://cdn.posit.co/positron/releases/videos/tutorial-load-python-poster.jpg" aria-label="Setting up a new Python project in Positron, including creating a virtual environment and installing packages"><source src="https://cdn.posit.co/positron/releases/videos/tutorial-load-python.mp4" type="video/mp4"></video></div>
 </section>
 <section id="open-a-jupyter-notebook" class="level2">
 <h2 class="anchored" data-anchor-id="open-a-jupyter-notebook">Open a Jupyter Notebook</h2>
@@ -432,7 +430,7 @@ Important
 <p>We will use the following code to filter <code>mpg</code> to only rows where year is 2008:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mpg_2008 <span class="op">=</span> mpg[mpg[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">2008</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The video below shows how to use the Data Explorer to filter the data and copy the code for that filter to a notebook cell.</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="Using the Positron Data Explorer to filter the mpg dataset and copy the generated filter code into a notebook cell"><source src="videos/tutorial-filter-python.mp4"></video></div>
+<div class="quarto-video"><video controls="" playsinline="" preload="none" poster="https://cdn.posit.co/positron/releases/videos/tutorial-filter-python-poster.jpg" aria-label="Using the Positron Data Explorer to filter the mpg dataset and copy the generated filter code into a notebook cell"><source src="https://cdn.posit.co/positron/releases/videos/tutorial-filter-python.mp4" type="video/mp4"></video></div>
 <p>Next we will visualize the relationship between the engine displacement (<code>displ</code>) and the miles per gallon (<code>mpg</code>) for cars from 2008 using plotnine:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -449,10 +447,10 @@ Important
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> .sort_values(by<span class="op">=</span><span class="st">'hwy'</span>, ascending<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Finally, we will place a markdown cell with a title at the top of the notebook. To do this, point to the area where you would like to insert the new cell and click <strong>+ Markdown</strong>.</p>
 <p>Watch the video below to see these steps in action:</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="Building a plotnine chart and a summary table in a Jupyter Notebook, then adding a markdown title cell"><source src="videos/tutorial-explore-python.mp4"></video></div>
+<div class="quarto-video"><video controls="" playsinline="" preload="none" poster="https://cdn.posit.co/positron/releases/videos/tutorial-explore-python-poster.jpg" aria-label="Building a plotnine chart and a summary table in a Jupyter Notebook, then adding a markdown title cell"><source src="https://cdn.posit.co/positron/releases/videos/tutorial-explore-python.mp4" type="video/mp4"></video></div>
 <p>To test that the notebook runs correctly, click <strong>Clear Outputs</strong> in the toolbar to clear all of the outputs from the cells. Next, click <strong>Restart Kernel</strong> to create a fresh session. Then click <strong>Run All</strong> to run all of the cells in order. The plot and the table appear as outputs from the cells.</p>
 <p>The entire process looks like this:</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="Clearing outputs, restarting the kernel, and running all cells in a Jupyter Notebook in Positron"><source src="videos/tutorial-test-python.mp4"></video></div>
+<div class="quarto-video"><video controls="" playsinline="" preload="none" poster="https://cdn.posit.co/positron/releases/videos/tutorial-test-python-poster.jpg" aria-label="Clearing outputs, restarting the kernel, and running all cells in a Jupyter Notebook in Positron"><source src="https://cdn.posit.co/positron/releases/videos/tutorial-test-python.mp4" type="video/mp4"></video></div>
 </section>
 <section id="save-your-notebook" class="level2">
 <h2 class="anchored" data-anchor-id="save-your-notebook">Save your notebook</h2>
@@ -935,10 +933,6 @@ Important
     </div>
   </div>
 </footer>
-<script>videojs(video_shortcode_videojs_video1);</script>
-<script>videojs(video_shortcode_videojs_video2);</script>
-<script>videojs(video_shortcode_videojs_video3);</script>
-<script>videojs(video_shortcode_videojs_video4);</script>
 <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;

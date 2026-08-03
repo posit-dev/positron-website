@@ -80,9 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7f3c135505f33e53fe344bb8386717ef.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d9b94bce6a9f9753cbd3274b88b79024.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a8d28592f0d0500d0f95d66d5745551e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
@@ -417,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>starwars_humans <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Human"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This video shows how to open a Quarto document and use the Data Explorer to generate the filtering code above.</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="Opening a Quarto document in Positron and using the Data Explorer to generate code that filters the starwars dataset"><source src="videos/tutorial-load-r.mp4"></video></div>
+<div class="quarto-video"><video controls="" playsinline="" preload="none" poster="https://cdn.posit.co/positron/releases/videos/tutorial-load-r-poster.jpg" aria-label="Opening a Quarto document in Positron and using the Data Explorer to generate code that filters the starwars dataset"><source src="https://cdn.posit.co/positron/releases/videos/tutorial-load-r.mp4" type="video/mp4"></video></div>
 <p>Next we will visualize the relationship between height and mass for human Star Wars characters using ggplot2:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(starwars_humans, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> mass)) <span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> gender), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
@@ -438,7 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We can also write text in markdown between our code cells. For example, we can explain our work or add section headers. This is also a good time to change the title of your document, if you have not already.</p>
 <p>Watch as we run the code above.</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="Running ggplot2 visualization and summary table code in a Quarto document in Positron"><source src="videos/tutorial-explore-r.mp4"></video></div>
+<div class="quarto-video"><video controls="" playsinline="" preload="none" poster="https://cdn.posit.co/positron/releases/videos/tutorial-explore-r-poster.jpg" aria-label="Running ggplot2 visualization and summary table code in a Quarto document in Positron"><source src="https://cdn.posit.co/positron/releases/videos/tutorial-explore-r.mp4" type="video/mp4"></video></div>
 </section>
 <section id="save-your-document" class="level2">
 <h2 class="anchored" data-anchor-id="save-your-document">Save your document</h2>
@@ -464,7 +462,7 @@ Note
 <p>Positron renders your <code>.qmd</code> file into an HTML document and displays a live preview in the Viewer pane alongside your source code. Every time you render, Quarto executes all of the code cells in order and produces a complete report with your text, code, and outputs.</p>
 <p>The new HTML file is saved in the project folder beside your <code>.qmd</code> file. You can open this file in any web browser to view your report, or share it with others.</p>
 <p>See this process unfold in the video.</p>
-<div class="quarto-video"><video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title="" aria-label="Rendering and previewing a Quarto document as an HTML report in Positron"><source src="videos/tutorial-render-r.mp4"></video></div>
+<div class="quarto-video"><video controls="" playsinline="" preload="none" poster="https://cdn.posit.co/positron/releases/videos/tutorial-render-r-poster.jpg" aria-label="Rendering and previewing a Quarto document as an HTML report in Positron"><source src="https://cdn.posit.co/positron/releases/videos/tutorial-render-r.mp4" type="video/mp4"></video></div>
 <p>Turn on <strong>Render on Save</strong> (in Settings, via the checkbox on the editor action bar, or by adding <code>editor: render-on-save: true</code> to the YAML header) and your report refreshes every time you save the file.</p>
 </section>
 <section id="conclusion" class="level2">
@@ -936,9 +934,6 @@ Note
     </div>
   </div>
 </footer>
-<script>videojs(video_shortcode_videojs_video1);</script>
-<script>videojs(video_shortcode_videojs_video2);</script>
-<script>videojs(video_shortcode_videojs_video3);</script>
 <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
