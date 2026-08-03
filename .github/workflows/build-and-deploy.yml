@@ -20,10 +20,25 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      # Netlify cannot read the pin out of another file, so while it still builds
+      # production its copy has to be kept in step by hand. Fail the PR rather
+      # than let the two builds silently render with different Quarto versions.
+      # Delete this step together with the netlify.toml plugin at cutover.
+      - name: Check netlify.toml agrees with .quarto-version
+        run: |
+          set -euo pipefail
+          PINNED="$(tr -d '[:space:]' < .quarto-version)"
+          NETLIFY="$(grep 'version = ' netlify.toml | sed 's/.*version = "v\?\([^"]*\)".*/\1/')"
+          if [ "$PINNED" != "$NETLIFY" ]; then
+            echo "error: .quarto-version says ${PINNED} but netlify.toml pins ${NETLIFY}." >&2
+            echo "Netlify still builds production, so both pins must match." >&2
+            exit 1
+          fi
+
       - name: Get Quarto version
         id: get-quarto-version
         run: |
-          QUARTO_VERSION=$(grep 'version = ' netlify.toml | sed 's/.*version = "v\?\([^"]*\)".*/\1/')
+          QUARTO_VERSION="$(tr -d '[:space:]' < .quarto-version)"
           echo "quarto_version=${QUARTO_VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Set up Quarto
@@ -100,6 +115,11 @@ jobs:
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    # Shared with the publish-site job in release-docs-bundles.yml: two
+    # workflows now write to gh-pages, and both push with --force, so a release
+    # publish overlapping a merge to main could drop the other's commit. Queue
+    # them instead of cancelling, so neither publish is lost.
+    concurrency: gh-pages-deploy
     permissions:
       contents: write
     steps:
