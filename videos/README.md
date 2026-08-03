@@ -6,7 +6,7 @@ make sure LFS is installed and initialized (`git lfs install`) before adding or
 replacing one.
 
 The site does **not** serve these files. Netlify excludes them from the build
-output (`"!videos/**"` in `_quarto-positron.yml` and `_quarto-workbench.yml`),
+output (`"!videos/**"` in `_quarto.yml`),
 and pages load them from the CDN instead.
 
 ## How these reach the CDN
