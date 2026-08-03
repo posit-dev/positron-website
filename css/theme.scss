@@ -433,6 +433,31 @@ img.drop-shadow {
   box-shadow: $posit-box-shadow;
 }
 
+// ============= VIDEOS =============
+// Sizing for the {{< cdn-video >}} shortcode's native <video> element.
+// This has to live here: the responsive behaviour used to come from video.js's
+// `vjs-fluid` class and video-js.css, and we no longer load either. Without
+// these rules the element falls back to its intrinsic size, which for a
+// poster-bearing <video> is the poster's own width (1600px) and overflows the
+// content column.
+.quarto-video {
+  margin-block: 1.5rem;
+
+  video {
+    display: block;
+    width: 100%;
+    height: auto;
+    // Do NOT hardcode a single ratio. These range from 1.588 to 1.778: only 6
+    // of 18 are actually 16:9 and 7 are 1280x802, so a fixed ratio pillarboxes
+    // most of them. `auto` takes the real ratio from the poster (generated at
+    // the video's own aspect ratio), and the 16/10 is only a pre-load
+    // placeholder to limit layout shift.
+    aspect-ratio: auto 16 / 10;
+    background-color: #000;
+    border-radius: 4px;
+  }
+}
+
 // ============= MISC ELEMENTS =============
 // Footnotes
 a.footnote-back {

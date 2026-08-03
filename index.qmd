@@ -54,9 +54,9 @@ Move from question to insight to analysis, model, or application faster than eve
 <a href="welcome.qmd" class="btn btn-outline-primary">Guides</a>
 :::
 
-{{< video videos/positron-hero-fast-tour.mp4 
-  aria-label="Video demonstration of Positron, the data science IDE for Python and R"
->}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/positron-hero-fast-tour.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/positron-hero-fast-tour-poster.jpg"
+  aria-label="Video demonstration of Positron, the data science IDE for Python and R" >}}
 
 ::: {.content-visible when-profile="workbench"}
 ![Execute code and explore data in Positron](images/astropy.png){fig-alt="Positron IDE showing Python code for astronomical data visualization with a galactic coordinate plot and Variables pane displaying data objects."}

@@ -114,7 +114,9 @@ starwars_humans <- starwars |>
 
 This video shows how to open a Quarto document and use the Data Explorer to generate the filtering code above.
 
-{{< video videos/tutorial-load-r.mp4 aria-label="Opening a Quarto document in Positron and using the Data Explorer to generate code that filters the starwars dataset" >}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/tutorial-load-r.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/tutorial-load-r-poster.jpg"
+  aria-label="Opening a Quarto document in Positron and using the Data Explorer to generate code that filters the starwars dataset" >}}
 
 Next we will visualize the relationship between height and mass for human Star Wars characters using ggplot2:
 
@@ -146,7 +148,9 @@ We can also write text in markdown between our code cells. For example, we can e
 
 Watch as we run the code above.
 
-{{< video videos/tutorial-explore-r.mp4 aria-label="Running ggplot2 visualization and summary table code in a Quarto document in Positron" >}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/tutorial-explore-r.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/tutorial-explore-r-poster.jpg"
+  aria-label="Running ggplot2 visualization and summary table code in a Quarto document in Positron" >}}
 
 ## Save your document
 
@@ -168,7 +172,9 @@ The new HTML file is saved in the project folder beside your `.qmd` file. You ca
 
 See this process unfold in the video.
 
-{{< video videos/tutorial-render-r.mp4 aria-label="Rendering and previewing a Quarto document as an HTML report in Positron" >}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/tutorial-render-r.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/tutorial-render-r-poster.jpg"
+  aria-label="Rendering and previewing a Quarto document as an HTML report in Positron" >}}
 
 Turn on **Render on Save** (in Settings, via the checkbox on the editor action bar, or by adding `editor: render-on-save: true` to the YAML header) and your report refreshes every time you save the file.
 

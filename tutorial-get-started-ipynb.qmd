@@ -74,7 +74,9 @@ uv add pandas plotnine
 
 This is what it looks like to set up a new Python project in Positron:
 
-{{< video videos/tutorial-load-python.mp4 aria-label="Setting up a new Python project in Positron, including creating a virtual environment and installing packages" >}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/tutorial-load-python.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/tutorial-load-python-poster.jpg"
+  aria-label="Setting up a new Python project in Positron, including creating a virtual environment and installing packages" >}}
 
 ## Open a Jupyter Notebook
 
@@ -122,7 +124,9 @@ mpg_2008 = mpg[mpg['year'] == 2008]
 ```
 The video below shows how to use the Data Explorer to filter the data and copy the code for that filter to a notebook cell.
 
-{{< video videos/tutorial-filter-python.mp4 aria-label="Using the Positron Data Explorer to filter the mpg dataset and copy the generated filter code into a notebook cell" >}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/tutorial-filter-python.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/tutorial-filter-python-poster.jpg"
+  aria-label="Using the Positron Data Explorer to filter the mpg dataset and copy the generated filter code into a notebook cell" >}}
 
 Next we will visualize the relationship between the engine displacement (`displ`) and the miles per gallon (`mpg`) for cars from 2008 using plotnine:
 
@@ -150,13 +154,17 @@ Finally, we will place a markdown cell with a title at the top of the notebook. 
 
 Watch the video below to see these steps in action:
 
-{{< video videos/tutorial-explore-python.mp4 aria-label="Building a plotnine chart and a summary table in a Jupyter Notebook, then adding a markdown title cell" >}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/tutorial-explore-python.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/tutorial-explore-python-poster.jpg"
+  aria-label="Building a plotnine chart and a summary table in a Jupyter Notebook, then adding a markdown title cell" >}}
 
 To test that the notebook runs correctly, click **Clear Outputs** in the toolbar to clear all of the outputs from the cells. Next, click **Restart Kernel** to create a fresh session. Then click **Run All** to run all of the cells in order. The plot and the table appear as outputs from the cells.
 
 The entire process looks like this:
 
-{{< video videos/tutorial-test-python.mp4 aria-label="Clearing outputs, restarting the kernel, and running all cells in a Jupyter Notebook in Positron" >}}
+{{< cdn-video https://cdn.posit.co/positron/releases/videos/tutorial-test-python.mp4
+  poster="https://cdn.posit.co/positron/releases/videos/tutorial-test-python-poster.jpg"
+  aria-label="Clearing outputs, restarting the kernel, and running all cells in a Jupyter Notebook in Positron" >}}
 
 ## Save your notebook
 
