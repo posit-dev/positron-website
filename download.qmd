@@ -282,6 +282,8 @@ rig system rtools add
 
 :::
 
+## Staying up to date
+
 Once you install Positron, it will [automatically check for updates moving forward](updating.qmd).
 
 ::: {.callout-note}
