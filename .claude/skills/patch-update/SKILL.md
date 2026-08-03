@@ -120,11 +120,10 @@ First, check which pages currently use the env vars:
 grep -rln 'env RELEASE_VERSION\|env NEXT_RELEASE' --include='*.qmd' .
 ```
 
-As of writing, the set is `download.qmd`, `install.qmd`, and `release-notes.qmd`. If grep returns a new file, render it too.
+As of writing, the set is `download.qmd` and `release-notes.qmd`. If grep returns a new file, render it too.
 
 ```bash
 quarto render download.qmd
-quarto render install.qmd
 quarto render release-notes.qmd
 ```
 

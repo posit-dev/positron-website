@@ -275,17 +275,6 @@
             padding: 1.5rem 1rem;
         }
     }
-
-    /* Used by install.qmd OS-detection buttons */
-    .hidden {
-        display: none !important;
-    }
-
-    #macos-buttons, #windows-buttons {
-        display: flex;
-        gap: 0.75rem;
-        flex-wrap: wrap;
-    }
 </style>
 
 <noscript>
@@ -297,7 +286,6 @@
 <script type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", () => {
         detectOS();
-        setupOSDetection();
     });
 
     function detectOS() {
@@ -364,70 +352,6 @@
                 badge.textContent = 'Your OS';
                 heading.appendChild(badge);
             }
-        }
-    }
-
-    // Used by install.qmd for OS-detected download buttons
-    function setupOSDetection() {
-        const downloadBtn = document.getElementById('download-btn');
-        const osName = document.getElementById('os-name');
-        const allDownloads = document.getElementById('all-downloads');
-
-        if (!downloadBtn || !osName) {
-            return;
-        }
-
-        const version = downloadBtn.dataset.version;
-        const cdnUrl = 'https://cdn.posit.co/positron/releases/';
-        const userAgent = navigator.userAgent;
-
-        let detectedOS = '';
-        let downloadUrl = '';
-        let allDownloadsText = null;
-
-        if (userAgent.indexOf('Win') !== -1) {
-            const winButtons = document.getElementById('windows-buttons');
-            const winX64Btn = document.getElementById('download-btn-win-x64');
-            const winArm64Btn = document.getElementById('download-btn-win-arm64');
-
-            if (winButtons && winX64Btn && winArm64Btn) {
-                downloadBtn.style.display = 'none';
-                winButtons.classList.remove('hidden');
-                winX64Btn.href = `${cdnUrl}win/x86_64/Positron-${version}-UserSetup-x64.exe`;
-                winArm64Btn.href = `${cdnUrl}win/arm64/Positron-${version}-UserSetup-arm64.exe`;
-            }
-            detectedOS = 'for Windows';
-            allDownloadsText = 'System Installer & Other Platforms';
-        } else if (userAgent.indexOf('Mac') !== -1) {
-            const macButtons = document.getElementById('macos-buttons');
-            const macArmBtn = document.getElementById('download-btn-mac-arm');
-            const macIntelBtn = document.getElementById('download-btn-mac-intel');
-
-            if (macButtons && macArmBtn && macIntelBtn) {
-                downloadBtn.style.display = 'none';
-                macButtons.classList.remove('hidden');
-                macArmBtn.href = `${cdnUrl}mac/arm64/Positron-${version}-arm64.dmg`;
-                macIntelBtn.href = `${cdnUrl}mac/x64/Positron-${version}-x64.dmg`;
-            }
-            detectedOS = 'for macOS';
-            allDownloadsText = 'Other Platforms';
-        } else if (userAgent.indexOf('Linux') !== -1) {
-            detectedOS = 'for Linux';
-            downloadUrl = 'download.html';
-        } else {
-            detectedOS = '';
-            downloadUrl = 'download.html';
-        }
-
-        osName.textContent = detectedOS;
-        if (downloadUrl) {
-            downloadBtn.href = downloadUrl;
-        }
-
-        if (allDownloadsText && allDownloads) {
-            allDownloads.textContent = allDownloadsText;
-        } else if (allDownloads) {
-            allDownloads.hidden = true;
         }
     }
 

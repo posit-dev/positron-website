@@ -4,7 +4,6 @@ project:
     - "!licensing.qmd"
     - "!privacy.qmd"
     - "!download.qmd"
-    - "!install.qmd"
     - "!updating.qmd"
     - "!remote-ssh.qmd"
     - "!dev-containers.qmd"

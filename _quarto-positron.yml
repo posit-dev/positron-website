@@ -85,7 +85,6 @@ website:
           href: welcome.qmd
           contents:
             - welcome.qmd
-            - install.qmd
             - download.qmd
         - section: "Configuration"
           contents:

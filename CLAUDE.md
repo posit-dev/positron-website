@@ -18,7 +18,7 @@ quarto render                 # Render all .qmd files to HTML
 
 The site has two Quarto profiles defined in `_quarto.yml`:
 - **positron** (`_quarto-positron.yml`): Full public documentation site, outputs to `_site/`
-- **workbench** (`_quarto-workbench.yml`): Subset for Workbench bundled docs, excludes download/install pages, outputs to `_site-workbench/`
+- **workbench** (`_quarto-workbench.yml`): Subset for Workbench bundled docs, excludes the download page, outputs to `_site-workbench/`
 
 There is also a **dailies** overlay (`_quarto-dailies.yml`) for the dev docs served at positron.posit.co/dailies, built from `main` on every merge. It is not a standalone profile: activate it together with positron, listed first so its values win for scalar options (`QUARTO_PROFILE=dailies,positron quarto render`). It only contains deltas from the positron profile (output to `_site-dailies/`, `/dailies` site URL, an announcement banner, a `NEXT_RELEASE` footer version, and a noindex meta tag), so it has no navbar/sidebar config of its own.
 
@@ -28,7 +28,7 @@ New pages will likely need to be added to both the positron and workbench profil
 
 ## Code Execution and Freeze
 
-Some pages contain executable code (e.g., download.qmd, install.qmd). The project uses Quarto's "freeze" feature (`execute: freeze: auto`). When updating pages with computations:
+Some pages contain executable code (e.g., download.qmd). The project uses Quarto's "freeze" feature (`execute: freeze: auto`). When updating pages with computations:
 1. Render the page locally
 2. Commit the generated files in `_freeze/` directory
 

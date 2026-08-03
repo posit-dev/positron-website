@@ -12,7 +12,7 @@ listing:
         -   title: "Get started"
             description: "Download and install Positron on your system"
             icon: "bi-rocket-takeoff"
-            link: "install.qmd"
+            link: "download.qmd"
             hide-profiles: [workbench]
         -   title: "Explore Features"
             description: "Discover key Positron features to streamline your workflow"
