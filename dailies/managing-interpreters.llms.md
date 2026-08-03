@@ -137,6 +137,12 @@ When a console session reports an error, you can send it to Posit Assistant for 
 
 To disable Console Fix and Explain, set [`console.assistantActions.enabled`](positron://settings/console.assistantActions.enabled) to `false`. See [Configure AI features](ai-configuration.llms.md) for other ways to turn AI features on and off.
 
+### Control what extensions read from the console
+
+Extensions such as Posit Assistant can read your recent console history to offer more relevant help without re-running code. This history includes the commands you have run, along with their output and any errors.
+
+To stop extensions from reading console history, set [`console.historyApiEnabled`](positron://settings/console.historyApiEnabled) to `false`.
+
 ## Notebook sessions
 
 Notebook sessions run the code from a Jupyter Notebook’s cells and are tied to the notebook file. To manage a notebook session, use the Kernel Selector and the restart icon in the notebook editor’s action bar. Closing the notebook shuts down its session.

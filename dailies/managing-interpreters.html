@@ -851,6 +851,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#rename-a-console-session" id="toc-rename-a-console-session" class="nav-link" data-scroll-target="#rename-a-console-session">Rename a console session</a></li>
   <li><a href="#view-console-session-metadata" id="toc-view-console-session-metadata" class="nav-link" data-scroll-target="#view-console-session-metadata">View console session metadata</a></li>
   <li><a href="#console-fix-and-explain" id="toc-console-fix-and-explain" class="nav-link" data-scroll-target="#console-fix-and-explain">Fix and explain Console errors with AI</a></li>
+  <li><a href="#control-what-extensions-read-from-the-console" id="toc-control-what-extensions-read-from-the-console" class="nav-link" data-scroll-target="#control-what-extensions-read-from-the-console">Control what extensions read from the console</a></li>
   </ul></li>
   <li><a href="#notebook-sessions" id="toc-notebook-sessions" class="nav-link" data-scroll-target="#notebook-sessions">Notebook sessions</a></li>
   </ul>
@@ -1024,6 +1025,11 @@ Note
 <li><strong>Explain:</strong> The assistant describes what your code does, analyzes the error, and suggests possible solutions. Use Explain to learn more about your code or get advice on complex issues.</li>
 </ul>
 <p>To disable Console Fix and Explain, set <a href="positron://settings/console.assistantActions.enabled"><code>console.assistantActions.enabled</code></a> to <code>false</code>. See <a href="./ai-configuration.html">Configure AI features</a> for other ways to turn AI features on and off.</p>
+</section>
+<section id="control-what-extensions-read-from-the-console" class="level3">
+<h3 class="anchored" data-anchor-id="control-what-extensions-read-from-the-console">Control what extensions read from the console</h3>
+<p>Extensions such as Posit Assistant can read your recent console history to offer more relevant help without re-running code. This history includes the commands you have run, along with their output and any errors.</p>
+<p>To stop extensions from reading console history, set <a href="positron://settings/console.historyApiEnabled"><code>console.historyApiEnabled</code></a> to <code>false</code>.</p>
 </section>
 </section>
 <section id="notebook-sessions" class="level2">
