@@ -28,3 +28,5 @@ The current release of Positron is {{< env RELEASE_VERSION >}}.
 {{< include release-notes/release.md >}}
 
 ## Older releases
+
+Older releases [are available on GitHub](https://github.com/posit-dev/positron/releases).
