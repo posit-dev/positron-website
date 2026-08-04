@@ -31,3 +31,8 @@ jobs:
       # surfaces as a failed release rather than a failed PR.
       - name: Test the LLM docs bundle build
         run: scripts/test-build-llms-bundle.sh
+
+      # The generator otherwise only runs inside a render, where a shadowing bug
+      # would surface as a broken production page rather than a failed PR.
+      - name: Test the redirect stub generator
+        run: scripts/test-generate-redirect-stubs.sh

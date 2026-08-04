@@ -1,5 +1,11 @@
 # Netlify redirects
 # https://docs.netlify.com/manage/routing/redirects/overview/
+#
+# Also the source of truth for the static redirect stubs that
+# scripts/generate-redirect-stubs.sh writes into the rendered site, which is how
+# these paths keep working on GitHub Pages. Sources must be root-relative paths,
+# destinations must be absolute http(s) URLs, and splats, placeholders, status
+# codes, and rewrites are rejected, because a static stub cannot express them.
 
 # Redirect links
 # Prefix redirect links with /redirect/ to avoid conflicts with actual content paths.
