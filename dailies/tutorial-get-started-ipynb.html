@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Set up a Python environment, install packages, and explore data in a Jupyter Notebook in Positron.">
 
 <title>First data analysis with Python in a Jupyter Notebook – Positron</title>
 <style>
@@ -117,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <meta property="og:title" content="First data analysis with Python in a Jupyter Notebook – Positron">
-<meta property="og:description" content="">
+<meta property="og:description" content="Set up a Python environment, install packages, and explore data in a Jupyter Notebook in Positron.">
 <meta property="og:image" content="https://positron.posit.co/dailies/images/download-button.png">
 <meta property="og:site_name" content="Positron">
 <meta property="og:image:alt" content="The Positron download page with the Download button.">
@@ -289,6 +290,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 class="title">First data analysis with Python in a Jupyter Notebook</h1>
 </div>
 
+<div>
+  <div class="description">
+    Set up a Python environment, install packages, and explore data in a Jupyter Notebook in Positron.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -313,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="install-positron" class="level2">
 <h2 class="anchored" data-anchor-id="install-positron">Install Positron</h2>
-<p>Positron is a free and source available code editor for data scientists. To install Positron on your computer, visit our <a href="./download.html">download page</a> and click <strong>Download</strong>.</p>
+<p>Positron is a free and source-available code editor for data scientists. To install Positron on your computer, visit our <a href="./download.html">download page</a> and click <strong>Download</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="images/download-button.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The Positron download page"><img src="images/download-button.png" class="img-fluid figure-img" alt="The Positron download page with the Download button."></a></p>
@@ -325,6 +331,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="make-a-python-environment" class="level2">
 <h2 class="anchored" data-anchor-id="make-a-python-environment">Make a Python environment</h2>
 <p>Python users typically create a project folder for each analysis they do. This keeps all the files for that project organized in one place. Each project also has its own virtual environment, which is a self-contained Python environment that has its own set of packages installed. This allows you to have different versions of packages for different projects without conflicts.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>No Python installed yet?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You do not need to install Python before you begin. When you build your environment with uv in the steps below, Positron downloads a version of Python for you if you do not already have one. You can also install a version at any time from the Command Palette (<kbd title="linux: Ctrl-Shift-P, mac: Command-Shift-P, windows: Ctrl-Shift-P" aria-hidden="true" data-linux="Ctrl-Shift-P" data-mac="Command-Shift-P" data-windows="Ctrl-Shift-P"></kbd><span class="visually-hidden"></span>) by running <em>Python: Install Python via uv</em>.</p>
+</div>
+</div>
 <p>To create a project folder with its own virtual environment in Positron, follow these steps:</p>
 <ol type="1">
 <li>Open Positron</li>
@@ -357,9 +376,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The next screen will help you set up your Python environment.</p>
 <ol type="1">
 <li><p>Choose whether to create a new virtual environment or to use an existing environment. For this tutorial, we will create a new virtual environment.</p></li>
-<li><p>Select a tool to build your environment. We recommend uv, but you can also use pip or conda.</p></li>
+<li><p>Select a tool to build your environment. We recommend uv, but you can also use pip or conda. If you do not already have Python installed, choose uv. Positron uses uv to download a version of Python for you when it builds your environment.</p></li>
 <li><p>Give your environment a name. Python users typically choose .venv as the name for their virtual environments, but you can choose any name you like.</p></li>
-<li><p>Select a Python version to use for your environment. We recommend using the latest stable version of Python.</p></li>
+<li><p>Select a Python version to use for your environment. We recommend using the latest stable version of Python. If you built your environment with uv, you can pick any supported version (3.9 through 3.14) and uv will download it for you if it is not already on your computer.</p></li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">

@@ -1,5 +1,7 @@
 # First data analysis with Python in a Jupyter Notebook
 
+Set up a Python environment, install packages, and explore data in a Jupyter Notebook in Positron.
+
 This quick tutorial will show you how to use [Jupyter Notebooks](jupyter-notebooks.llms.md) within Positron. We will:
 
 - Install Positron
@@ -10,7 +12,7 @@ This quick tutorial will show you how to use [Jupyter Notebooks](jupyter-noteboo
 
 ## Install Positron
 
-Positron is a free and source available code editor for data scientists. To install Positron on your computer, visit our [download page](download.llms.md) and click **Download**.
+Positron is a free and source-available code editor for data scientists. To install Positron on your computer, visit our [download page](download.llms.md) and click **Download**.
 
 [![The Positron download page with the Download button.](images/download-button.png)](images/download-button.png "The Positron download page")
 
@@ -21,6 +23,10 @@ Follow the instructions to install Positron.
 ## Make a Python environment
 
 Python users typically create a project folder for each analysis they do. This keeps all the files for that project organized in one place. Each project also has its own virtual environment, which is a self-contained Python environment that has its own set of packages installed. This allows you to have different versions of packages for different projects without conflicts.
+
+> **NOTE:**
+>
+> You do not need to install Python before you begin. When you build your environment with uv in the steps below, Positron downloads a version of Python for you if you do not already have one. You can also install a version at any time from the Command Palette () by running *Python: Install Python via uv*.
 
 To create a project folder with its own virtual environment in Positron, follow these steps:
 
@@ -47,11 +53,11 @@ The next screen will help you set up your Python environment.
 
 1.  Choose whether to create a new virtual environment or to use an existing environment. For this tutorial, we will create a new virtual environment.
 
-2.  Select a tool to build your environment. We recommend uv, but you can also use pip or conda.
+2.  Select a tool to build your environment. We recommend uv, but you can also use pip or conda. If you do not already have Python installed, choose uv. Positron uses uv to download a version of Python for you when it builds your environment.
 
 3.  Give your environment a name. Python users typically choose .venv as the name for their virtual environments, but you can choose any name you like.
 
-4.  Select a Python version to use for your environment. We recommend using the latest stable version of Python.
+4.  Select a Python version to use for your environment. We recommend using the latest stable version of Python. If you built your environment with uv, you can pick any supported version (3.9 through 3.14) and uv will download it for you if it is not already on your computer.
 
 [![Create Python Environment dialog.](images/create-python-environment.png)](images/create-python-environment.png "Create Python Environment dialog")
 
