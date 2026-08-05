@@ -44,6 +44,8 @@ website:
         href: features.qmd
       - text: "Guides"
         href: welcome.qmd
+      - text: "Release Notes"
+        href: release-notes.qmd
       - text: "Tutorials"
         href: tutorials.qmd
       - text: "Help"
@@ -86,7 +88,6 @@ website:
           href: welcome.qmd
           contents:
             - welcome.qmd
-            - install.qmd
             - download.qmd
         - section: "Configuration"
           contents:
@@ -208,6 +209,12 @@ website:
         - section: "Extending Positron"  
           contents:
           - extension-development.qmd
+    - title: "Release Notes"
+      style: "docked"
+      contents:
+        - text: "Current Release"
+          href: release-notes.qmd
+        - older-releases.qmd  
     - title: "Tutorials"
       style: "docked"
       contents:
@@ -227,7 +234,6 @@ website:
       style: "docked"
       contents:
         - about.qmd
-        - release-notes.qmd
         - education.qmd
         - privacy.qmd
         - licensing.qmd

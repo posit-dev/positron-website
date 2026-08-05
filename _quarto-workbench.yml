@@ -4,7 +4,6 @@ project:
     - "!licensing.qmd"
     - "!privacy.qmd"
     - "!download.qmd"
-    - "!install.qmd"
     - "!updating.qmd"
     - "!remote-ssh.qmd"
     - "!dev-containers.qmd"
@@ -56,6 +55,8 @@ website:
         href: features.qmd
       - text: "Guides"
         href: welcome.qmd
+      - text: "Release Notes"
+        href: release-notes.qmd
       - text: "Help"
         href: troubleshooting.qmd
       - text: "About"
@@ -204,6 +205,12 @@ website:
         - section: "Extending Positron"  
           contents:
           - extension-development.qmd
+    - title: "Release Notes"
+      style: "docked"
+      contents:
+        - text: "Current Release"
+          href: release-notes.qmd
+        - older-releases.qmd        
     - title: "Help"
       style: "docked"
       contents:
@@ -214,7 +221,6 @@ website:
       style: "docked"
       contents:
         - about.qmd
-        - release-notes.qmd
 
 format:
   html:

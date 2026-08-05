@@ -276,15 +276,55 @@
         }
     }
 
-    /* Used by install.qmd OS-detection buttons */
-    .hidden {
-        display: none !important;
+    /* ============= LICENSE AGREEMENT DIALOG ============= */
+    dialog#license-dialog {
+        max-width: 420px;
+        padding: 1.5rem;
+        border: none;
+        border-radius: 8px;
+        background: white;
+        color: #242426;
+        box-shadow: 0 8px 30px rgba(87, 89, 89, 0.2);
     }
 
-    #macos-buttons, #windows-buttons {
+    dialog#license-dialog::backdrop {
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    /* Explicit classes, not bare `h2`/`p`: theme.scss:58 forces
+       `font-weight: 400 !important` on every heading, and the dialog title is
+       not part of the page's heading outline anyway. */
+    dialog#license-dialog .license-dialog-title {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: #242426;
+    }
+
+    dialog#license-dialog .license-dialog-body {
+        margin-bottom: 0;
+        font-size: 0.9rem;
+        color: #707073;
+    }
+
+    dialog#license-dialog a {
+        color: #3a78b1;
+    }
+
+    .license-dialog-actions {
         display: flex;
-        gap: 0.75rem;
-        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+    }
+
+    /* Keep the default `margin: auto` so showModal() still centers the dialog;
+       only constrain the width on narrow viewports. */
+    @media (max-width: 479px) {
+        dialog#license-dialog {
+            max-width: calc(100vw - 2rem);
+        }
     }
 </style>
 
@@ -297,7 +337,7 @@
 <script type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", () => {
         detectOS();
-        setupOSDetection();
+        setupLicenseGate();
     });
 
     function detectOS() {
@@ -367,68 +407,142 @@
         }
     }
 
-    // Used by install.qmd for OS-detected download buttons
-    function setupOSDetection() {
-        const downloadBtn = document.getElementById('download-btn');
-        const osName = document.getElementById('os-name');
-        const allDownloads = document.getElementById('all-downloads');
+    const LICENSE_CONSENT_KEY = 'positron-license-accepted';
+    const INSTALLER_PREFIX = 'https://cdn.posit.co/positron/releases/';
+    const INSTALLER_EXTENSIONS = ['.exe', '.dmg', '.deb', '.rpm'];
 
-        if (!downloadBtn || !osName) {
+    let licenseDialog = null;
+    let pendingDownload = null;
+
+    function hasSessionConsent() {
+        try {
+            return window.sessionStorage.getItem(LICENSE_CONSENT_KEY) === 'true';
+        } catch (err) {
+            // Storage blocked (private browsing, blocked cookies). Treat as no
+            // consent on record: the reader is re-prompted, never blocked.
+            return false;
+        }
+    }
+
+    function rememberSessionConsent() {
+        try {
+            window.sessionStorage.setItem(LICENSE_CONSENT_KEY, 'true');
+        } catch (err) {
+            // Consent still applies to the download in flight; the next one
+            // re-prompts.
+        }
+    }
+
+    function buildLicenseDialog() {
+        const dialog = document.createElement('dialog');
+        if (typeof dialog.showModal !== 'function') {
+            return null;
+        }
+
+        dialog.id = 'license-dialog';
+        dialog.setAttribute('aria-labelledby', 'license-dialog-title');
+        dialog.setAttribute('aria-describedby', 'license-dialog-body');
+        dialog.innerHTML = `
+            <p id="license-dialog-title" class="license-dialog-title">Accept license agreement</p>
+            <p id="license-dialog-body" class="license-dialog-body">
+                Please review the Positron <a href="licensing.html">license agreement</a> and
+                <a href="https://posit.co/about/privacy-policy/">privacy policy</a>. Your
+                acceptance of this license agreement and privacy policy is required as a
+                condition to proceeding with your download or use of the software.
+            </p>
+            <div class="license-dialog-actions">
+                <button type="button" class="btn btn-outline-primary" id="license-dialog-cancel" autofocus>Cancel</button>
+                <button type="button" class="btn btn-primary" id="license-dialog-agree">I Agree &amp; Download</button>
+            </div>
+        `;
+
+        document.body.appendChild(dialog);
+
+        dialog.querySelector('#license-dialog-cancel').addEventListener('click', () => {
+            dialog.close();
+        });
+
+        dialog.querySelector('#license-dialog-agree').addEventListener('click', () => {
+            // Capture the link before close(), because the 'close' handler
+            // clears pendingDownload.
+            const link = pendingDownload;
+            rememberSessionConsent();
+            dialog.close();
+            if (link) {
+                link.dataset.licenseAccepted = 'true';
+                link.click();
+            }
+        });
+
+        // Fires for Cancel and for Escape, which bypasses both buttons.
+        dialog.addEventListener('close', () => {
+            pendingDownload = null;
+        });
+
+        return dialog;
+    }
+
+    // Single entry point for opening the dialog, so initial focus is the same
+    // however it was triggered. The `autofocus` attribute on Cancel is not
+    // honored here: the body paragraph's links precede the buttons and win the
+    // dialog focusing steps, so move focus explicitly to the dismissive action.
+    function openLicenseDialog(dialog) {
+        dialog.showModal();
+        const cancel = dialog.querySelector('#license-dialog-cancel');
+        if (cancel) {
+            cancel.focus();
+        }
+    }
+
+    function isGatedDownload(anchor) {
+        // getAttribute, not .href: read the literal authored URL rather than a
+        // browser-resolved one.
+        const href = anchor.getAttribute('href') || '';
+        if (href.indexOf(INSTALLER_PREFIX) !== 0) {
+            return false;
+        }
+        return INSTALLER_EXTENSIONS.some((extension) => href.endsWith(extension));
+    }
+
+    function setupLicenseGate() {
+        licenseDialog = buildLicenseDialog();
+        if (!licenseDialog) {
+            // No <dialog> support: leave every download exactly as it is.
             return;
         }
 
-        const version = downloadBtn.dataset.version;
-        const cdnUrl = 'https://cdn.posit.co/positron/releases/';
-        const userAgent = navigator.userAgent;
-
-        let detectedOS = '';
-        let downloadUrl = '';
-        let allDownloadsText = null;
-
-        if (userAgent.indexOf('Win') !== -1) {
-            const winButtons = document.getElementById('windows-buttons');
-            const winX64Btn = document.getElementById('download-btn-win-x64');
-            const winArm64Btn = document.getElementById('download-btn-win-arm64');
-
-            if (winButtons && winX64Btn && winArm64Btn) {
-                downloadBtn.style.display = 'none';
-                winButtons.classList.remove('hidden');
-                winX64Btn.href = `${cdnUrl}win/x86_64/Positron-${version}-UserSetup-x64.exe`;
-                winArm64Btn.href = `${cdnUrl}win/arm64/Positron-${version}-UserSetup-arm64.exe`;
+        document.addEventListener('click', (event) => {
+            if (event.defaultPrevented) {
+                return;
             }
-            detectedOS = 'for Windows';
-            allDownloadsText = 'System Installer & Other Platforms';
-        } else if (userAgent.indexOf('Mac') !== -1) {
-            const macButtons = document.getElementById('macos-buttons');
-            const macArmBtn = document.getElementById('download-btn-mac-arm');
-            const macIntelBtn = document.getElementById('download-btn-mac-intel');
 
-            if (macButtons && macArmBtn && macIntelBtn) {
-                downloadBtn.style.display = 'none';
-                macButtons.classList.remove('hidden');
-                macArmBtn.href = `${cdnUrl}mac/arm64/Positron-${version}-arm64.dmg`;
-                macIntelBtn.href = `${cdnUrl}mac/x64/Positron-${version}-x64.dmg`;
+            // Let modifier and middle clicks keep their native behavior, such
+            // as opening in a new tab.
+            if (event.button !== 0 || event.metaKey || event.ctrlKey ||
+                event.shiftKey || event.altKey) {
+                return;
             }
-            detectedOS = 'for macOS';
-            allDownloadsText = 'Other Platforms';
-        } else if (userAgent.indexOf('Linux') !== -1) {
-            detectedOS = 'for Linux';
-            downloadUrl = 'download.html';
-        } else {
-            detectedOS = '';
-            downloadUrl = 'download.html';
-        }
 
-        osName.textContent = detectedOS;
-        if (downloadUrl) {
-            downloadBtn.href = downloadUrl;
-        }
+            const anchor = event.target.closest ? event.target.closest('a') : null;
+            if (!anchor || !isGatedDownload(anchor)) {
+                return;
+            }
 
-        if (allDownloadsText && allDownloads) {
-            allDownloads.textContent = allDownloadsText;
-        } else if (allDownloads) {
-            allDownloads.hidden = true;
-        }
+            // The replayed click from the Agree button. Clear the flag and let
+            // the browser follow the href so Plausible sees a real click.
+            if (anchor.dataset.licenseAccepted === 'true') {
+                delete anchor.dataset.licenseAccepted;
+                return;
+            }
+
+            if (hasSessionConsent()) {
+                return;
+            }
+
+            event.preventDefault();
+            pendingDownload = anchor;
+            openLicenseDialog(licenseDialog);
+        });
     }
 
     function copyChecksum(text, element) {
