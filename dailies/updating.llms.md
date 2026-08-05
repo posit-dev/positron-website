@@ -17,7 +17,7 @@ For users who are interested in trying out new features at a faster cadence, we 
 If you change the setting to `"dailies"`, what can you expect?
 
 - You will have an updated version of Positron available most days (instead of once a month). You’ll see a notification in the bottom left prompting you to restart.
-- These daily builds only go through automated testing before being made available, not our full QA process. If you consider yourself an adventurous early adopter, this may be a good fit for you!
+- Daily builds let you try new capabilities as they’re developed, and your feedback helps us identify what works well, what doesn’t, and where we can improve before those features reach everyone.
 - If some daily build happens to be entirely broken for you, the best step for you to take is to close Positron and [install the latest monthly release](download.llms.md).
 
 ### Retention policy
