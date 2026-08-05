@@ -1,6 +1,6 @@
 ---
 title: "Older Releases"
-description: "TODO."
+description: "Browse release notes for older Positron versions. Find changelogs, bug fixes, and feature history for past monthly releases."
 listing:
   type: table
   sort: "title desc"
