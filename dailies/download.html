@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Download Positron for Windows, macOS, or Linux. Free data science IDE supporting Python and R with automatic updates included.">
+<meta name="description" content="Download and install Positron for Windows, macOS, or Linux. Free data science IDE supporting Python and R, with prerequisites, setup instructions, and automatic updates.">
 
 <title>Download Positron – Positron</title>
 <style>
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -34,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./keyboard-shortcuts.html" rel="next">
-<link href="./install.html" rel="prev">
+<link href="./welcome.html" rel="prev">
 <link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -351,15 +386,55 @@ ul.task-list li input[type="checkbox"] {
         }
     }
 
-    /* Used by install.qmd OS-detection buttons */
-    .hidden {
-        display: none !important;
+    /* ============= LICENSE AGREEMENT DIALOG ============= */
+    dialog#license-dialog {
+        max-width: 420px;
+        padding: 1.5rem;
+        border: none;
+        border-radius: 8px;
+        background: white;
+        color: #242426;
+        box-shadow: 0 8px 30px rgba(87, 89, 89, 0.2);
     }
 
-    #macos-buttons, #windows-buttons {
+    dialog#license-dialog::backdrop {
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    /* Explicit classes, not bare `h2`/`p`: theme.scss:58 forces
+       `font-weight: 400 !important` on every heading, and the dialog title is
+       not part of the page's heading outline anyway. */
+    dialog#license-dialog .license-dialog-title {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: #242426;
+    }
+
+    dialog#license-dialog .license-dialog-body {
+        margin-bottom: 0;
+        font-size: 0.9rem;
+        color: #707073;
+    }
+
+    dialog#license-dialog a {
+        color: #3a78b1;
+    }
+
+    .license-dialog-actions {
         display: flex;
-        gap: 0.75rem;
-        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+    }
+
+    /* Keep the default `margin: auto` so showModal() still centers the dialog;
+       only constrain the width on narrow viewports. */
+    @media (max-width: 479px) {
+        dialog#license-dialog {
+            max-width: calc(100vw - 2rem);
+        }
     }
 </style>
 
@@ -372,7 +447,7 @@ ul.task-list li input[type="checkbox"] {
 <script type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", () => {
         detectOS();
-        setupOSDetection();
+        setupLicenseGate();
     });
 
     function detectOS() {
@@ -442,68 +517,142 @@ ul.task-list li input[type="checkbox"] {
         }
     }
 
-    // Used by install.qmd for OS-detected download buttons
-    function setupOSDetection() {
-        const downloadBtn = document.getElementById('download-btn');
-        const osName = document.getElementById('os-name');
-        const allDownloads = document.getElementById('all-downloads');
+    const LICENSE_CONSENT_KEY = 'positron-license-accepted';
+    const INSTALLER_PREFIX = 'https://cdn.posit.co/positron/releases/';
+    const INSTALLER_EXTENSIONS = ['.exe', '.dmg', '.deb', '.rpm'];
 
-        if (!downloadBtn || !osName) {
+    let licenseDialog = null;
+    let pendingDownload = null;
+
+    function hasSessionConsent() {
+        try {
+            return window.sessionStorage.getItem(LICENSE_CONSENT_KEY) === 'true';
+        } catch (err) {
+            // Storage blocked (private browsing, blocked cookies). Treat as no
+            // consent on record: the reader is re-prompted, never blocked.
+            return false;
+        }
+    }
+
+    function rememberSessionConsent() {
+        try {
+            window.sessionStorage.setItem(LICENSE_CONSENT_KEY, 'true');
+        } catch (err) {
+            // Consent still applies to the download in flight; the next one
+            // re-prompts.
+        }
+    }
+
+    function buildLicenseDialog() {
+        const dialog = document.createElement('dialog');
+        if (typeof dialog.showModal !== 'function') {
+            return null;
+        }
+
+        dialog.id = 'license-dialog';
+        dialog.setAttribute('aria-labelledby', 'license-dialog-title');
+        dialog.setAttribute('aria-describedby', 'license-dialog-body');
+        dialog.innerHTML = `
+            <p id="license-dialog-title" class="license-dialog-title">Accept license agreement</p>
+            <p id="license-dialog-body" class="license-dialog-body">
+                Please review the Positron <a href="licensing.html">license agreement</a> and
+                <a href="https://posit.co/about/privacy-policy/">privacy policy</a>. Your
+                acceptance of this license agreement and privacy policy is required as a
+                condition to proceeding with your download or use of the software.
+            </p>
+            <div class="license-dialog-actions">
+                <button type="button" class="btn btn-outline-primary" id="license-dialog-cancel" autofocus>Cancel</button>
+                <button type="button" class="btn btn-primary" id="license-dialog-agree">I Agree &amp; Download</button>
+            </div>
+        `;
+
+        document.body.appendChild(dialog);
+
+        dialog.querySelector('#license-dialog-cancel').addEventListener('click', () => {
+            dialog.close();
+        });
+
+        dialog.querySelector('#license-dialog-agree').addEventListener('click', () => {
+            // Capture the link before close(), because the 'close' handler
+            // clears pendingDownload.
+            const link = pendingDownload;
+            rememberSessionConsent();
+            dialog.close();
+            if (link) {
+                link.dataset.licenseAccepted = 'true';
+                link.click();
+            }
+        });
+
+        // Fires for Cancel and for Escape, which bypasses both buttons.
+        dialog.addEventListener('close', () => {
+            pendingDownload = null;
+        });
+
+        return dialog;
+    }
+
+    // Single entry point for opening the dialog, so initial focus is the same
+    // however it was triggered. The `autofocus` attribute on Cancel is not
+    // honored here: the body paragraph's links precede the buttons and win the
+    // dialog focusing steps, so move focus explicitly to the dismissive action.
+    function openLicenseDialog(dialog) {
+        dialog.showModal();
+        const cancel = dialog.querySelector('#license-dialog-cancel');
+        if (cancel) {
+            cancel.focus();
+        }
+    }
+
+    function isGatedDownload(anchor) {
+        // getAttribute, not .href: read the literal authored URL rather than a
+        // browser-resolved one.
+        const href = anchor.getAttribute('href') || '';
+        if (href.indexOf(INSTALLER_PREFIX) !== 0) {
+            return false;
+        }
+        return INSTALLER_EXTENSIONS.some((extension) => href.endsWith(extension));
+    }
+
+    function setupLicenseGate() {
+        licenseDialog = buildLicenseDialog();
+        if (!licenseDialog) {
+            // No <dialog> support: leave every download exactly as it is.
             return;
         }
 
-        const version = downloadBtn.dataset.version;
-        const cdnUrl = 'https://cdn.posit.co/positron/releases/';
-        const userAgent = navigator.userAgent;
-
-        let detectedOS = '';
-        let downloadUrl = '';
-        let allDownloadsText = null;
-
-        if (userAgent.indexOf('Win') !== -1) {
-            const winButtons = document.getElementById('windows-buttons');
-            const winX64Btn = document.getElementById('download-btn-win-x64');
-            const winArm64Btn = document.getElementById('download-btn-win-arm64');
-
-            if (winButtons && winX64Btn && winArm64Btn) {
-                downloadBtn.style.display = 'none';
-                winButtons.classList.remove('hidden');
-                winX64Btn.href = `${cdnUrl}win/x86_64/Positron-${version}-UserSetup-x64.exe`;
-                winArm64Btn.href = `${cdnUrl}win/arm64/Positron-${version}-UserSetup-arm64.exe`;
+        document.addEventListener('click', (event) => {
+            if (event.defaultPrevented) {
+                return;
             }
-            detectedOS = 'for Windows';
-            allDownloadsText = 'System Installer & Other Platforms';
-        } else if (userAgent.indexOf('Mac') !== -1) {
-            const macButtons = document.getElementById('macos-buttons');
-            const macArmBtn = document.getElementById('download-btn-mac-arm');
-            const macIntelBtn = document.getElementById('download-btn-mac-intel');
 
-            if (macButtons && macArmBtn && macIntelBtn) {
-                downloadBtn.style.display = 'none';
-                macButtons.classList.remove('hidden');
-                macArmBtn.href = `${cdnUrl}mac/arm64/Positron-${version}-arm64.dmg`;
-                macIntelBtn.href = `${cdnUrl}mac/x64/Positron-${version}-x64.dmg`;
+            // Let modifier and middle clicks keep their native behavior, such
+            // as opening in a new tab.
+            if (event.button !== 0 || event.metaKey || event.ctrlKey ||
+                event.shiftKey || event.altKey) {
+                return;
             }
-            detectedOS = 'for macOS';
-            allDownloadsText = 'Other Platforms';
-        } else if (userAgent.indexOf('Linux') !== -1) {
-            detectedOS = 'for Linux';
-            downloadUrl = 'download.html';
-        } else {
-            detectedOS = '';
-            downloadUrl = 'download.html';
-        }
 
-        osName.textContent = detectedOS;
-        if (downloadUrl) {
-            downloadBtn.href = downloadUrl;
-        }
+            const anchor = event.target.closest ? event.target.closest('a') : null;
+            if (!anchor || !isGatedDownload(anchor)) {
+                return;
+            }
 
-        if (allDownloadsText && allDownloads) {
-            allDownloads.textContent = allDownloadsText;
-        } else if (allDownloads) {
-            allDownloads.hidden = true;
-        }
+            // The replayed click from the Agree button. Clear the flag and let
+            // the browser follow the href so Plausible sees a real click.
+            if (anchor.dataset.licenseAccepted === 'true') {
+                delete anchor.dataset.licenseAccepted;
+                return;
+            }
+
+            if (hasSessionConsent()) {
+                return;
+            }
+
+            event.preventDefault();
+            pendingDownload = anchor;
+            openLicenseDialog(licenseDialog);
+        });
     }
 
     function copyChecksum(text, element) {
@@ -541,7 +690,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Download Positron – Positron">
-<meta property="og:description" content="Download Positron for Windows, macOS, or Linux. Free data science IDE supporting Python and R with automatic updates included.">
+<meta property="og:description" content="Download and install Positron for Windows, macOS, or Linux. Free data science IDE supporting Python and R, with prerequisites, setup instructions, and automatic updates.">
 <meta property="og:image" content="https://positron.posit.co/dailies/images/positron-social.png">
 <meta property="og:site_name" content="Positron">
 <meta property="og:image:height" content="1080">
@@ -573,6 +722,10 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link active" href="./welcome.html" aria-current="page"> 
 <span class="menu-text">Guides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./release-notes.html"> 
+<span class="menu-text">Release Notes</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./tutorials.html"> 
@@ -667,12 +820,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./welcome.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./install.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Install Positron</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1293,14 +1440,13 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#recommended-for-you" id="toc-recommended-for-you" class="nav-link active" data-scroll-target="#recommended-for-you"><span id="hero-title">Recommended for you</span></a></li>
   <li><a href="#all-platforms" id="toc-all-platforms" class="nav-link" data-scroll-target="#all-platforms">All platforms</a></li>
-  <li><a href="#positron-pro-on-posit-workbench" id="toc-positron-pro-on-posit-workbench" class="nav-link" data-scroll-target="#positron-pro-on-posit-workbench">Positron Pro on Posit Workbench</a></li>
-  <li><a href="#release-notes" id="toc-release-notes" class="nav-link" data-scroll-target="#release-notes">Release notes</a>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a>
   <ul class="collapse">
-  <li><a href="#patch-notes" id="toc-patch-notes" class="nav-link" data-scroll-target="#patch-notes">Patch notes</a></li>
-  <li><a href="#release-highlights" id="toc-release-highlights" class="nav-link" data-scroll-target="#release-highlights">Release highlights</a></li>
-  <li><a href="#changelog" id="toc-changelog" class="nav-link" data-scroll-target="#changelog">Changelog</a></li>
+  <li><a href="#windows-setup" id="toc-windows-setup" class="nav-link" data-scroll-target="#windows-setup">Windows setup</a></li>
+  <li><a href="#optional-language-setup" id="toc-optional-language-setup" class="nav-link" data-scroll-target="#optional-language-setup">Optional language setup</a></li>
   </ul></li>
-  <li><a href="#older-releases" id="toc-older-releases" class="nav-link" data-scroll-target="#older-releases">Older releases</a></li>
+  <li><a href="#staying-up-to-date" id="toc-staying-up-to-date" class="nav-link" data-scroll-target="#staying-up-to-date">Staying up to date</a></li>
+  <li><a href="#positron-pro-on-posit-workbench" id="toc-positron-pro-on-posit-workbench" class="nav-link" data-scroll-target="#positron-pro-on-posit-workbench">Positron Pro on Posit Workbench</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/download.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/download.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -1314,7 +1460,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Download Positron for Windows, macOS, or Linux. Free data science IDE supporting Python and R with automatic updates included.
+    Download and install Positron for Windows, macOS, or Linux. Free data science IDE supporting Python and R, with prerequisites, setup instructions, and automatic updates.
   </div>
 </div>
 
@@ -1331,7 +1477,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Find out what you need to know before you <a href="./install.html">install</a> Positron, then download the desktop installer for your platform.</p>
+<p>Download the desktop installer for your platform. Most systems need nothing else, but you can check the <a href="#prerequisites">prerequisites</a> to be sure.</p>
 <div id="download-hero" class="download-hero" data-version="2026.07.1-5">
 <section id="recommended-for-you" class="level3">
 <h3 class="anchored" data-anchor-id="recommended-for-you"><span id="hero-title">Recommended for you</span></h3>
@@ -1340,14 +1486,14 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 <p class="hero-legal">
-By downloading and using Positron, you agree to Positron’s <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.
+By downloading and using Positron, you agree to the Positron <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.
 </p>
 </section>
 </div>
 <section id="all-platforms" class="level2">
 <h2 class="anchored" data-anchor-id="all-platforms">All platforms</h2>
 <p class="hero-legal">
-By downloading and using Positron, you agree to Positron’s <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.
+By downloading and using Positron, you agree to the Positron <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.
 </p>
 <div class="download-cards">
 <div id="card-macos" class="download-card">
@@ -1527,6 +1673,61 @@ SHA-256 checksums
 </div>
 </div>
 </details>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>In most cases, Positron is ready to go as soon as it is installed. Check the section for your platform or language to see if you need anything more.</p>
+<section id="windows-setup" class="level3">
+<h3 class="anchored" data-anchor-id="windows-setup">Windows setup</h3>
+<p>If you’re using Windows, make sure you have the <a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-microsoft-visual-c-redistributable-version">latest Visual C++ Redistributable</a> installed.</p>
+</section>
+<section id="optional-language-setup" class="level3">
+<h3 class="anchored" data-anchor-id="optional-language-setup">Optional language setup</h3>
+<p>Positron runs without any programming language installed. If you plan to use R or Python, follow these steps to get your environment working.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Positron works with <a href="https://devguide.python.org/versions/#versions">actively supported versions</a> of Python.</p>
+<p>If you do not have a valid Python version available, Positron <a href="./python-installations.html#automatic-uv-installation">can install one for you</a>. If you prefer to use an existing environment, Positron supports the following Python environment managers:</p>
+<ul>
+<li><strong>venv</strong>: Standard library virtual environments created with <code>python -m venv</code></li>
+<li><strong>uv</strong>: Virtual environments and Python installations managed by <code>uv</code></li>
+<li><strong>pyenv</strong>: Python installations managed by <code>pyenv</code>, including virtual environments</li>
+<li><strong>conda</strong>: Conda environments created with <code>conda create</code> or <code>mamba create</code>, as well as pixi environments created with <code>pixi init</code></li>
+</ul>
+<p>Other tools might also be compatible, even if Positron does not officially support them. For the full list of requirements, see <a href="./python-installations.html">Python environment qualifications</a>.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Ensure you have R 4.2 or higher installed. To install R, follow the <a href="https://cloud.r-project.org/">instructions for your operating system</a>.</p>
+<p>Alternatively, if you’d like to have multiple R installations, <a href="https://github.com/r-lib/rig">rig</a> is a great tool to manage this which works well with Positron.</p>
+<p>If you’re an R package developer, you will also want to make sure that you have the current versions of certain R packages, all of which had recent updates to make them work more smoothly in Positron. Run one of the code snippets below to ensure that you are up-to-date:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if you're a pak person (we are!)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pak</span>(<span class="fu">c</span>(<span class="st">"usethis"</span>, <span class="st">"cli"</span>, <span class="st">"crayon"</span>, <span class="st">"rlang"</span>, <span class="st">"roxygen2"</span>, <span class="st">"pkgload"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># or using base R</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"usethis"</span>, <span class="st">"cli"</span>, <span class="st">"crayon"</span>, <span class="st">"rlang"</span>, <span class="st">"roxygen2"</span>, <span class="st">"pkgload"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’re a Windows user, note that Positron doesn’t bundle <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a>. If you need Rtools for your package development or other work, you can either use the official guidance from CRAN on installing Rtools and putting it on the PATH, or alternatively, use <a href="https://github.com/r-lib/rig">rig</a> to install and set up Rtools:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rig</span> system rtools add</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="staying-up-to-date" class="level2">
+<h2 class="anchored" data-anchor-id="staying-up-to-date">Staying up to date</h2>
 <p>Once you install Positron, it will <a href="./updating.html">automatically check for updates moving forward</a>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1544,203 +1745,7 @@ SHA-256 checksums
 </section>
 <section id="positron-pro-on-posit-workbench" class="level2">
 <h2 class="anchored" data-anchor-id="positron-pro-on-posit-workbench">Positron Pro on Posit Workbench</h2>
-<p><a href="https://posit.co/products/enterprise/workbench/">Posit Workbench</a> 2025.09.0 and later includes support for Positron Pro. To configure and use Positron Pro on Posit Workbench, please see the <a href="https://docs.posit.co/ide/server-pro/admin/positron_sessions/">Posit Workbench Administration Guide</a> and the <a href="https://docs.posit.co/ide/server-pro/user/positron/getting-started/">Positron Pro user guide</a>.</p>
-</section>
-<section id="release-notes" class="level2">
-<h2 class="anchored" data-anchor-id="release-notes">Release notes</h2>
-<p>The current release of Positron is 2026.07.1-5.</p>
-<section id="patch-notes" class="level3">
-<h3 class="anchored" data-anchor-id="patch-notes">Patch notes</h3>
-<p>The <a href="https://github.com/posit-dev/positron/releases/tag/2026.07.1-5">2026.07.1 patch release</a> (2026-07-09) improves Python discovery behavior and when GitHub Copilot completions are offered.</p>
-</section>
-<section id="release-highlights" class="level3">
-<h3 class="anchored" data-anchor-id="release-highlights">Release highlights</h3>
-<p>Welcome to the 2026.07.0 release of Positron!</p>
-<ul>
-<li><a href="#positron-notebook-editor">Positron Notebook Editor</a></li>
-<li><a href="#packages-pane">Packages pane</a></li>
-<li><a href="#posit-assistant">Posit Assistant</a></li>
-<li><a href="#r-language-intelligence">R language intelligence</a></li>
-<li><a href="#open-excel-files-directly-in-the-data-explorer">Open Excel files directly in the Data Explorer</a></li>
-<li><a href="#try-data-connections-preview">Try Data Connections (preview)</a></li>
-</ul>
-<div id="checkbox">
-
-</div>
-<section id="positron-notebook-editor" class="level4">
-<h4 class="anchored" data-anchor-id="positron-notebook-editor">Positron Notebook Editor</h4>
-<p>The <a href="https://positron.posit.co/positron-notebook-editor">Positron Notebook Editor</a> comes out of preview to general availability in this release, and is now the default editor for Jupyter (<code>.ipynb</code>) notebooks. Built specifically for data science, it offers notebook-aware AI assistance, integrated data exploration through the Variables pane and Data Explorer, and debugging that works out of the box, with no extensions required.</p>
-<p>Alongside general availability, this release adds a wave of improvements. You can split-edit a notebook side by side, add and manage cell tags, run a selection or the current line in a cell, and export a notebook to a Quarto, Python, or R file. A new Help panel, opened from a toolbar button or <kbd>F1</kbd>, lists notebook commands and keyboard shortcuts, and we added many of the keyboard shortcuts you know from JupyterLab. Rich outputs also render more faithfully, including inline PDFs, Mermaid diagrams, htmlwidgets, and theme-aware ipywidgets.</p>
-</section>
-<section id="packages-pane" class="level4">
-<h4 class="anchored" data-anchor-id="packages-pane">Packages pane</h4>
-<p>The <a href="https://positron.posit.co/packages-pane">Packages</a> pane also comes out of preview to general availability in this release. It gives you a live view of the R and Python packages installed in your active session, so you can search, install, update, and remove packages, and jump to their documentation, without leaving Positron.</p>
-<p align="center">
-<img src="https://cdn.posit.co/positron/releases/release-notes/assets/2026-07-packages-pane.gif" alt="The Packages pane in Positron, showing installed Python packages with a detail editor.">
-</p>
-<p>This release also makes the pane more capable. Clicking a package opens a detail editor with its overview, metadata, and actions, similar to the Extensions pane. Installing a package searches results as you type, and each row has a button that opens the package’s website. Update indicators appear immediately on a new session from a cached snapshot, and <strong>Update All Packages</strong> reports exactly what changed. Package operations keep your environment consistent too, resolving against a workspace <code>requirements.txt</code> for Python and updating the <code>renv.lock</code> snapshot for R.</p>
-</section>
-<section id="posit-assistant" class="level4">
-<h4 class="anchored" data-anchor-id="posit-assistant">Posit Assistant</h4>
-<p><a href="https://assistant.posit.co/">Posit Assistant</a> is our unified, data-science-focused approach to AI assistance in Positron. As announced in the <a href="https://opensource.posit.co/blog/2026-06-08_positron-2026-06-release/">previous release</a>, we have now removed the older Positron Assistant, and Posit Assistant is the single way to bring AI into your Positron workflow. For the story of how we got here, read about the <a href="https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents/">history of Posit data science agents</a>.</p>
-<p>This release also gives you finer control over AI in Positron. The new <a href="positron://settings/ai.enabled"><code>ai.enabled</code></a> setting turns off every Positron AI feature at once, and administrators can enforce it; <a href="positron://settings/notebook.ai.enabled"><code>notebook.ai.enabled</code></a> does the same for notebooks specifically. The set of language model providers keeps growing, with DeepSeek joining as an experimental provider and Microsoft Foundry reaching general availability. The configuration modal now shows every provider by default with preview and experimental badges.</p>
-</section>
-<section id="r-language-intelligence" class="level4">
-<h4 class="anchored" data-anchor-id="r-language-intelligence">R language intelligence</h4>
-<p>Last release, R language support in Positron gained the ability to understand symbols within a file, and this release takes that further. Go to Definition, Find References, and Rename Symbol now work across files, in both R packages and standalone scripts, where cross-file resolution follows <code>source()</code> calls. This more accurate resolution strategy is experimental and, for now, powers symbol navigation only. R language intelligence is also more responsive to your workspace. Features such as diagnostics and workspace symbols react to changes made outside open editors, like switching a git branch or having an agent write a file. What Positron knows about your code stays in sync with what is on disk.</p>
-</section>
-<section id="open-excel-files-directly-in-the-data-explorer" class="level4">
-<h4 class="anchored" data-anchor-id="open-excel-files-directly-in-the-data-explorer">Open Excel files directly in the Data Explorer</h4>
-<p>Open an Excel workbook (<code>.xlsx</code>) and start exploring it right away in the <a href="https://positron.posit.co/data-explorer">Data Explorer</a>, without first needing to load it via Python or R. Sort, filter, and profile columns, switch between worksheets, and toggle whether the first row holds column names. An <strong>Open in Excel</strong> button opens the workbook in your native spreadsheet application.</p>
-<p>This release broadens what you can open in the Data Explorer overall. Backed by a native DuckDB engine, it now also previews compressed CSV, TSV, and Parquet files. Also, a new <strong>Open in Data Explorer</strong> code action, from the editor lightbulb or <kbd>Cmd+.</kbd>, opens the data frame under your cursor in R, Python, and Quarto files, so you can jump straight from your code to exploring your data.</p>
-</section>
-<section id="try-data-connections-preview" class="level4">
-<h4 class="anchored" data-anchor-id="try-data-connections-preview">Try Data Connections (preview)</h4>
-<p>We are building new Data Connections support to become the way you work with database-like resources in Positron, from local files and database servers to cloud data warehouses. In this experimental preview, you can browse schemas, tables, views, columns, and indexes in a tree, open a table or view in the Data Explorer with a double-click, and generate ready-to-run connection code in Python or R. It supports DuckDB, PostgreSQL, and SQLite today, with more databases and warehouses on the way. This feature is in early days, and your feedback will directly shape where it goes. Learn how to try it out and tell us what you think in the <a href="https://github.com/posit-dev/positron/discussions/14571">Data Connections discussion</a>: which databases and warehouses you need, whether the connection setup is clear, and anything confusing, missing, or broken.</p>
-</section>
-</section>
-<section id="changelog" class="level3">
-<h3 class="anchored" data-anchor-id="changelog">Changelog</h3>
-<section id="new-features" class="level4">
-<h4 class="anchored" data-anchor-id="new-features">New features</h4>
-<ul>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13529">#13529</a>] Notebooks: the Positron Notebook Editor is now the default editor for Jupyter notebooks.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/10598">#10598</a>] Notebooks: Mermaid diagrams in notebook markdown cells now render as visual diagrams.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13876">#13876</a>] Notebooks: added support for split editing of notebooks.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13510">#13510</a>, <a href="https://github.com/posit-dev/positron/issues/13512">#13512</a>] Notebooks: added a Help panel for the notebook editor (from a toolbar button or <kbd>F1</kbd>) with keyboard shortcuts and a searchable list of notebook commands grouped by area.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/1532">#1532</a>] Notebooks: added inline cell tag support, with commands to add, remove, and toggle the visibility of tags.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/3804">#3804</a>] Notebooks: run a selection or the current line in a notebook cell with <kbd>Cmd/Ctrl+Shift+Enter</kbd>, with the output shown on that cell.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/9791">#9791</a>] Notebooks: added an <strong>Export…</strong> action to export a Jupyter notebook to Quarto (<code>.qmd</code>), Python, or R.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/10606">#10606</a>] Notebooks: PDF outputs (such as from <code>IPython.display.IFrame</code>) now render inline in notebook cells using the full PDF viewer, with an <strong>Open With…</strong> action to open the PDF in another editor.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12727">#12727</a>] Notebooks: added commonly expected JupyterLab keyboard shortcuts, such as changing a cell to a heading level (<kbd>1</kbd>-<kbd>6</kbd>), toggling line numbers (<kbd>Shift+L</kbd>), and interrupting the kernel (<kbd>I</kbd> <kbd>I</kbd>).</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13314">#13314</a>] Notebooks: the inline add-cell control now has a Code/Raw split button, so you can add a raw cell inline.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13323">#13323</a>] Notebooks: the R debugger for notebooks now supports Watch pane expressions.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14542">#14542</a>] Notebooks: added a <a href="positron://settings/notebook.ai.enabled"><code>notebook.ai.enabled</code></a> setting to turn off all notebook AI features (ghost cell suggestions, the Assistant, Visualize, and Fix/Explain) at once; notebook AI is active only when both this and the global <a href="positron://settings/ai.enabled"><code>ai.enabled</code></a> are on.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12527">#12527</a>] Notebooks: notebook settings now show a <strong>Legacy</strong> badge in the Settings editor when they only apply to the legacy notebook editor, and can be filtered with <code>@tag:legacy</code> or <code>@tag:positronNotebook</code>.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13128">#13128</a>] Packages: search for packages as you type when installing from the Packages pane, with results ordered to surface exact matches first.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13723">#13723</a>] Packages: package update indicators now appear immediately in the Packages pane on a new session, restored from a disk cache while the latest status refreshes in the background; the new <a href="positron://settings/packages.outdatedCache.enabled"><code>packages.outdatedCache.enabled</code></a> and <a href="positron://settings/packages.outdatedCache.maxAgeHours"><code>packages.outdatedCache.maxAgeHours</code></a> settings control this.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13890">#13890</a>] Packages: added an external link button to Packages pane rows that opens a package’s website.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13129">#13129</a>] Packages: after installing or updating a package, the affected package now scrolls into view and briefly flashes in the Packages pane so the change is easy to spot.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13607">#13607</a>] Packages: <strong>Update All Packages</strong> now reports which packages were actually updated, and confirms when everything is already up to date.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12926">#12926</a>] Packages: click a package in the Packages pane to open a detail editor showing its overview, metadata, and actions (such as Update, Uninstall, and Show Help), similar to the Extensions pane.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13808">#13808</a>, <a href="https://github.com/posit-dev/positron/issues/13222">#13222</a>] Assistant: the older Positron Assistant has been removed, as announced in the previous release. Posit Assistant is now the unified approach to AI assistance in Positron, and the standalone chat UI reverts to Copilot Chat.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14356">#14356</a>] Assistant: added an <a href="positron://settings/ai.enabled"><code>ai.enabled</code></a> setting that turns off all Positron-integrated AI features (Posit Assistant, GitHub Copilot, Posit AI Next Edit Suggestions, notebook AI features, and Console Fix &amp; Explain) at once, and can be enforced by administrators.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13652">#13652</a>] Assistant: added DeepSeek as an experimental language model provider (behind <a href="positron://settings/assistant.provider.deepseek.enabled"><code>assistant.provider.deepseek.enabled</code></a>).</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13630">#13630</a>] Assistant: language model management actions (such as <strong>Configure Language Model Providers</strong>) are now hidden from the accounts menu and Command Palette when AI features are disabled.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13810">#13810</a>] Assistant: Microsoft Foundry is now generally available as a language model provider, no longer in preview.</li>
-<li>[<a href="https://github.com/posit-dev/positron/pull/14026">#14026</a>] Connections: added a native DuckDB data connection driver to the Connections pane.</li>
-<li>[<a href="https://github.com/posit-dev/positron/pull/14177">#14177</a>] Connections: you can now open a database table, view, or column from the Connections pane in the Data Explorer (by double-clicking or using the <strong>Open in Data Explorer</strong> action), for the SQLite, PostgreSQL, and DuckDB drivers.</li>
-<li>[<a href="https://github.com/posit-dev/positron/pull/14357">#14357</a>] Connections: generate Python and R connection code (<strong>Connect With</strong>) for SQLite, DuckDB, and PostgreSQL databases, with multiple package variants, an editable code preview, and the option to copy it, save it as a script, or run it in a console.</li>
-<li>[<a href="https://github.com/posit-dev/positron/pull/14357">#14357</a>] Connections: browse database schema in the Data Connections panel, with indexes nested under their tables and a primary-key indicator on table columns.</li>
-<li>[<a href="https://github.com/posit-dev/positron/pull/14498">#14498</a>] Connections: data connection drivers can now offer multiple connection mechanisms, selectable when creating a connection; PostgreSQL offers user and password, local server, client certificate, and connection string.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13859">#13859</a>] Quarto: reworked the inline output cell toolbar with a more prominent <strong>Run</strong> button and a <strong>More cell actions</strong> menu (cut, copy, delete, join, and insert cells); the new <a href="positron://settings/positron.quarto.inlineOutput.showCellToolbar"><code>positron.quarto.inlineOutput.showCellToolbar</code></a> setting can hide it.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13288">#13288</a>] Quarto: LaTeX display equations (<code>$$ ... $$</code>) now render inline in Quarto and R Markdown documents, updating live as you edit; controlled by the new <a href="positron://settings/positron.quarto.equationPreview.enabled"><code>positron.quarto.equationPreview.enabled</code></a> setting.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12891">#12891</a>] Quarto: added a <strong>Preview</strong> split button to the editor action bar, with a dropdown to preview a document in a specific format such as HTML, PDF, or Word.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14029">#14029</a>] Quarto: Positron can now be set as the default application to open <code>.qmd</code> files from the OS file manager, with a Quarto document icon (macOS and Windows).</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/5889">#5889</a>] Data Explorer: can now preview compressed CSV, TSV, and Parquet files, using native DuckDB.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/4202">#4202</a>] Data Explorer: added Excel (<code>.xlsx</code>) workbook support, including multi-sheet selection, a header-row toggle, and an <strong>Open in Excel</strong> action.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/2974">#2974</a>] Data Explorer: added an <strong>Open in Data Explorer</strong> code action that opens the Data Explorer for the data frame at the editor cursor, available from the editor lightbulb (<kbd>Cmd+.</kbd>) in R, Python, and Quarto files.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/4525">#4525</a>] R: language intelligence features (diagnostics, workspace symbols, and more) are now reactive to changes outside open editors, such as switching a git branch or an agent writing a file in the workspace.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/11112">#11112</a>] R: Go to Definition, Find References, and Rename Symbol now work across files, both in packages and in standalone scripts (following <code>source()</code> calls). This more accurate resolution strategy is experimental and currently used only for symbol navigation.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13256">#13256</a>] Python: added a <em>Python: Install Python via uv</em> command to the Command Palette for on-demand, uv-managed Python installation.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/11458">#11458</a>] Console: added a resource monitor to the Console action bar when only one console is open, so it appears even without a console tab list.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12790">#12790</a>] Variables: added a configurable low-memory warning to the Variables pane memory meter, controlled by the new <a href="positron://settings/memoryUsage.lowMemoryThresholdPercent"><code>memoryUsage.lowMemoryThresholdPercent</code></a> and <a href="positron://settings/memoryUsage.lowMemoryThresholdMB"><code>memoryUsage.lowMemoryThresholdMB</code></a> settings.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/3676">#3676</a>] Plots: R plots with Quarto figure dimensions (<code>fig-width</code> and <code>fig-height</code>) are now drawn at those dimensions in the Plots pane.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13135">#13135</a>] Interpreter: the interpreter picker now shows a progress spinner and status message while interpreters are still being discovered.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13118">#13118</a>] Workbench: added an API for extensions to be notified when files are uploaded or downloaded.</li>
-<li>[<a href="https://github.com/posit-dev/positron/pull/14260">#14260</a>] Server: Positron Server (such as running on JupyterHub) now verifies signed license tokens against a public key, replacing the file-based license-manager activation flow.</li>
-</ul>
-</section>
-<section id="bug-fixes" class="level4">
-<h4 class="anchored" data-anchor-id="bug-fixes">Bug fixes</h4>
-<ul>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13688">#13688</a>] Notebooks: fixed the notebook kernel badge spinning indefinitely when opening a saved notebook.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/10466">#10466</a>] Notebooks: fixed conditional cell actions (such as Run All Above) not appearing in the Notebook Cells editor submenu.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13919">#13919</a>] Notebooks: fixed Quick Open consolidating split notebook panes instead of activating the notebook in place.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13564">#13564</a>] Notebooks: reduced the top and bottom padding above the first cell so it feels visually anchored.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/8383">#8383</a>] Notebooks: fixed images displayed with <code>retina=True</code> rendering at full pixel size instead of the correct half-size dimensions.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12618">#12618</a>] Notebooks: fixed a cell staying stuck in the running state when the runtime exits unexpectedly, so the play button now resets.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13561">#13561</a>] Notebooks: fixed concurrently created untitled notebooks all being named <code>Untitled-1.ipynb</code>.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12665">#12665</a>] Notebooks: fixed the <a href="positron://settings/editor.scrollBeyondLastLine"><code>editor.scrollBeyondLastLine</code></a> setting having no effect in Positron notebooks.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/4219">#4219</a>] Notebooks: fixed htmlwidgets (such as leaflet and plotly) not rendering inline, across the Jupyter notebook, Positron notebook, and inline Quarto output views.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13567">#13567</a>] Notebooks: fixed excessive left gutter padding on code cells, and all code cells now share the same line-number column width.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/11586">#11586</a>] Notebooks: fixed a cell footer showing a stale execution time when you scroll back to the cell.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13565">#13565</a>] Notebooks: removed an underscore-like artifact that appeared to the left of unexecuted code cells; the execution-order badge now shows only after a cell has run.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14160">#14160</a>, <a href="https://github.com/posit-dev/positron/issues/14194">#14194</a>] Notebooks: fixed Great Tables output overflowing into neighboring cells and hiding the output action bar buttons on hover, by rendering full-document HTML inline instead of in a webview overlay.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12806">#12806</a>] Notebooks: ipywidgets in notebook outputs now inherit the active Positron theme instead of the hardcoded JupyterLab palette, fixing low-contrast widgets in dark themes.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14127">#14127</a>, <a href="https://github.com/posit-dev/positron/issues/13559">#13559</a>] Notebooks: fixed notebook modals (Help, Ghost Cell Info, Assistant, and Visualize) not closing on <kbd>Escape</kbd> when opened over a cell in edit mode.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13283">#13283</a>] Notebooks: fixed closing a Data Explorer editor tab breaking a still-open inline data explorer in a notebook cell output that shared the same connection.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12627">#12627</a>] Packages: R package install, update, and uninstall in renv projects no longer report failure when only the <code>renv.lock</code> snapshot fails; the new <a href="positron://settings/packages.r.renvAutoSnapshot"><code>packages.r.renvAutoSnapshot</code></a> setting controls the automatic snapshot.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14195">#14195</a>] Packages: fixed the first R package install or update in a session hanging when the pak install prompt was suppressed by notification filtering, such as Do Not Disturb.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14328">#14328</a>] Packages: installing or updating a Python package from the Packages pane now keeps the environment consistent, resolving against a workspace <code>requirements.txt</code> when present (otherwise the full installed set); an operation that would leave the environment inconsistent now fails with an error instead of silently breaking it. You can opt out of using <code>requirements.txt</code> with the new <a href="positron://settings/python.packageManager.useRequirementsFile"><code>python.packageManager.useRequirementsFile</code></a> setting.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14344">#14344</a>] Packages: the Python version picker now lists only versions installable in the active environment, hiding versions excluded by <code>Requires-Python</code> or that have been yanked.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13933">#13933</a>] Assistant: fixed the Assistant layout preset not opening the Posit Assistant pane.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13750">#13750</a>] Assistant: fixed the Snowflake Cortex provider referencing a nonexistent base URL setting.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14056">#14056</a>] Assistant: updated the provider notices in the language model configuration dialog, adding Terms of Service and Privacy Policy links for more providers.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13930">#13930</a>] Assistant: the Console <strong>Fix</strong> and <strong>Explain</strong> actions now appear for Posit Assistant users even when the legacy Positron Assistant is disabled.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13446">#13446</a>] Assistant: fixed MCP server OAuth sign-in on Posit Workbench and Positron Server.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13856">#13856</a>] Assistant: expiring AWS credentials are now refreshed on demand, so Bedrock keeps working in a long-lived session instead of failing with an expired-token error.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13810">#13810</a>] Assistant: all language model providers now show in the configuration modal by default, with preview and experimental providers indicated by a badge.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14563">#14563</a>] Assistant: renamed two language model providers in the provider modal: Gemini Code Assist is now Google Gemini, and Google Vertex AI is now Gemini Enterprise Agent Platform.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13716">#13716</a>] Assistant: Copilot inline completion language settings are now controlled by <a href="positron://settings/github.copilot.enable"><code>github.copilot.enable</code></a>; Positron migrates the deprecated <code>positron.assistant.inlineCompletions.enable</code> setting automatically.</li>
-<li>[<a href="https://github.com/posit-dev/positron/pull/14026">#14026</a>] Connections: database connection drivers now run their native bindings in an isolated worker process, so a native fault in a connection no longer crashes the extension host.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13984">#13984</a>] Quarto: fixed floating “ghost” cell toolbars that could appear after deleting a cell.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13936">#13936</a>] R: fixed module-managed R interpreters at standard <code>/opt/R/&lt;version&gt;</code> locations were losing their environment module metadata, so the <code>module load</code> startup command now runs and module-provided dependencies are available.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14222">#14222</a>] R: fixed the runtime discovery cache sometimes missing R versions installed with <a href="https://github.com/r-lib/rig">rig</a>, particularly the default version. If you still have trouble with R 4.6 being discovered, update to the latest version of rig.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/10682">#10682</a>] R: fixed the Test Explorer not matching test outcomes for testthat <code>describe()</code> and <code>it()</code> tests after testthat 3.3.0.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/10133">#10133</a>] R: fixed the Test Explorer being unable to run an individual test with a multi-line description on Windows.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/2929">#2929</a>] R: the Test Explorer now live-updates its file nodes as test files are created, deleted, or renamed.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14499">#14499</a>] R: the Test Explorer now refreshes a file’s test items when its contents change outside the editor, such as on a branch switch or an external edit.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/7416">#7416</a>] Python: fixed <code>help()</code> raising an error for PyTorch and TensorFlow functions such as <code>torch.abs</code>.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12855">#12855</a>] Python: fixed inline color decorators not appearing for Python code in notebook cells and <code>.py</code> files.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12116">#12116</a>] Python: fixed spurious Python consoles starting during extension activation and after active environment changes.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/11281">#11281</a>] Python: fixed the wrong active interpreter sometimes being used (wrong package-install target, stale diagnostics) when no folder is open, such as after switching between console sessions.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/8898">#8898</a>] Python: fixed seaborn plots stacking elements such as colorbars when the same code is re-run across cells; each run now starts on a fresh figure.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14483">#14483</a>] Python: fixed Python interpreters intermittently missing from the interpreter list after the first discovery pass at startup, which previously required running <em>Interpreter: Discover All Interpreters</em> to resolve.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13691">#13691</a>] Console: fixed the “Cannot start consoles in restricted mode” message appearing briefly even in trusted workspaces.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13419">#13419</a>] Console: fixed <kbd>Shift+Up</kbd> and <kbd>Shift+Down</kbd> in the console extending text selection instead of triggering history navigation.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/9500">#9500</a>] Console: on macOS, user keybindings for <kbd>Ctrl+N</kbd> and <kbd>Ctrl+P</kbd> now take effect in the console instead of being consumed by history navigation.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/7380">#7380</a>] Console: cleaned up the console keyboard shortcuts. Reverse history search (<kbd>Ctrl+R</kbd>), <kbd>Home</kbd>, <kbd>End</kbd>, and <kbd>Ctrl+U</kbd> are now registered keybindings that appear in the Keyboard Shortcuts editor and can be reassigned, and the disabled interactive window’s keybindings no longer appear there misleadingly.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13991">#13991</a>, <a href="https://github.com/posit-dev/positron/issues/11772">#11772</a>] Console: clicking the console now moves the cursor to the input even when the last line is not visible, and no longer jumps the viewport to the cursor when you have scrolled up to view output.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13532">#13532</a>] Console: fixed new windows sometimes opening with the Terminal focused in the Panel instead of the Console.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14155">#14155</a>] Console: fixed odd spacing around the <strong>Start Session</strong> button shown in an empty console.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13925">#13925</a>] Console: fixed the console intermittently losing its input prompt and no longer accepting input until the window was reloaded.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14131">#14131</a>] Plots: fixed removing a single plot from the gallery hiding the entire gallery.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13066">#13066</a>] Plots: fixed a pre-rendering issue that could cause a plot to miss a re-render after an update.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12124">#12124</a>] Variables: fixed the Variables pane rendering as empty after being dragged into a different view container.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13949">#13949</a>] Interpreter: fixed environment module interpreters failing to start a session on systems where the <code>module</code> command is only available in login shells.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12862">#12862</a>] Interpreter: fixed interpreters defined via environment modules being shown in the interpreter picker with the wrong source (“System” for R, “Unknown” for Python) instead of “Module”.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13530">#13530</a>] Workbench: fixed the editor action bar <strong>Save</strong> button staying disabled on web after editing.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13964">#13964</a>] Workbench: fixed <em>Show Release Notes</em> and other docs links not resolving in Workbench.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13451">#13451</a>] Workbench: fixed the PDF viewer being blocked by content security policy in remote and Workbench browser sessions.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/9390">#9390</a>] Workbench: fixed terminal paste showing the browser’s native <strong>Paste</strong> menu on every <kbd>Cmd/Ctrl+V</kbd> in Firefox and Safari on the web.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13123">#13123</a>] Server: fixed orphaned <code>kcserver</code> processes accumulating when the server exits due to a missing or invalid license.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14063">#14063</a>] Windows: improved error handling for the kernel supervisor so startup failures are easier to diagnose.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13498">#13498</a>] Extensions: Positron now notifies you when the <code>EXTENSIONS_GALLERY</code> environment variable overrides the extension gallery source setting, or when its value cannot be parsed.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/12921">#12921</a>] Help: fixed find in the Help pane so pressing <kbd>Enter</kbd> advances to the next match (and <kbd>Shift+Enter</kbd> to the previous, wrapping around) without leaving the Find input.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14128">#14128</a>] Removed the broken “Dark Experimental” and “Light Experimental” themes, which rendered as the default light theme; use the “Dark 2026” and “Light 2026” themes instead.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13711">#13711</a>] Fixed the interpreter picker in <strong>New Folder from Template</strong> occasionally missing interpreters.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13673">#13673</a>] Fixed clicking outside a dropdown inside a modal dialog dismissing the entire dialog.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14022">#14022</a>] Fixed the <em>Developer: Runtime Startup Diagnostics</em> report dropping the Discovery Cache section.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13687">#13687</a>] Fixed the update tooltip to show the Positron version and icon, and updated the release notes editor to use the Positron logo.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13426">#13426</a>] Standardized the refresh and restart icons across the Console, Variables, and Viewer panes to use the standard refresh icon.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/13952">#13952</a>] Fixed a misleading <code>startup_environment_arg</code> warning appearing during normal kernel startup.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14036">#14036</a>] Fixed an unexpected <code>snowflake.log</code> file appearing in the user’s home directory on Linux.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14418">#14418</a>] Fixed the accept and discard buttons in the save-conflict editor doing nothing when clicked.</li>
-<li>[<a href="https://github.com/posit-dev/positron/issues/14386">#14386</a>] Fixed reconnecting to a kernel supervisor failing with <code>HTTP 401</code> when a different server was answering at the same address, which left the session unrecoverable; this was most common when returning to a long-idle Posit Workbench session.</li>
-</ul>
-</section>
-<section id="dependencies" class="level4">
-<h4 class="anchored" data-anchor-id="dependencies">Dependencies</h4>
-<ul>
-<li>Updated <code>code-oss</code> upstream to v1.118.0.</li>
-</ul>
-</section>
-</section>
-</section>
-<section id="older-releases" class="level2">
-<h2 class="anchored" data-anchor-id="older-releases">Older releases</h2>
-<p>Older releases <a href="https://github.com/posit-dev/positron/releases">are available on GitHub</a>, and you can also find the <a href="./release-notes.html#older-releases">release notes for previous versions</a>.</p>
+<p><a href="https://posit.co/products/enterprise/workbench/">Posit Workbench</a> includes support for Positron Pro. To configure and use Positron Pro on Posit Workbench, please see the <a href="https://docs.posit.co/ide/server-pro/admin/positron_sessions/">Posit Workbench Administration Guide</a> and the <a href="https://docs.posit.co/ide/server-pro/user/positron/getting-started/">Positron Pro user guide</a>.</p>
 
 
 </section>
@@ -2148,8 +2153,8 @@ SHA-256 checksums
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./install.html" class="pagination-link" aria-label="Install Positron">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Install Positron</span>
+      <a href="./welcome.html" class="pagination-link" aria-label="Getting Started">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Getting Started</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

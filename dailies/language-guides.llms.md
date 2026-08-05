@@ -20,7 +20,7 @@ In addition to the language-specific guides, learn more about:
 
 &nbsp;
 
-- [Prerequisites for using Python or R](install.llms.md#prerequisites) in Positron
+- [Prerequisites for using Python or R](download.llms.md#prerequisites) in Positron
 
 &nbsp;
 
