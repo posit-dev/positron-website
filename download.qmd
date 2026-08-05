@@ -5,7 +5,9 @@ format:
   html:
     include-in-header:
       - '_download.html'
-
+aliases:
+  - install.html
+  - start.html
 ---
 
 ```{r}
