@@ -26,8 +26,8 @@ release_version <- Sys.getenv("RELEASE_VERSION")
 cdn_url <- "https://cdn.posit.co/positron/releases/" # Keep this in sync with cdnUrl in _download.html
 
 #######################################################################################
-# NOTE: please also check welcome.qmd and _download.html when updating the various URLs,
-# to ensure that we are constructing these URLs consistently in both places.
+# NOTE: please also check _download.html when updating the various URLs, to ensure that
+# we are constructing these URLs consistently in both places.
 #######################################################################################
 
 windows_system_x64 <- glue("Positron-{release_version}-Setup-x64.exe")
