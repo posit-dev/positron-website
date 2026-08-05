@@ -123,18 +123,21 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
       - name: Download _site-dailies artifact
         uses: actions/download-artifact@v4
         with:
           name: site-dailies
           path: _site-dailies
 
-      # keep_files preserves the released site at the root (and CNAME); this job
-      # only ever touches the dailies/ subdirectory.
+      # Matches the publish-site job in release-docs-bundles.yml
       - name: Publish to gh-pages under /dailies
-        uses: peaceiris/actions-gh-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _site-dailies
-          destination_dir: dailies
-          keep_files: true
+          folder: _site-dailies
+          target-folder: dailies
+          branch: gh-pages
+          clean: true
+          commit-message: "Deploy dailies for ${{ github.sha }}"

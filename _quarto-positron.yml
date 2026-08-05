@@ -1,7 +1,8 @@
 project:
+  post-render: bash scripts/generate-redirect-stubs.sh
   resources:
-    - _redirects
-    - images/posit-icon-fullcolor.svg
+    - /_redirects
+    - /images/posit-icon-fullcolor.svg
 
 website:
   open-graph: true
