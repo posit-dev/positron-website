@@ -106,13 +106,13 @@ Download the desktop installer for your platform. Most systems need nothing else
 ::: {#hero-buttons}
 :::
 
-<p class="hero-legal">By downloading and using Positron, you agree to Positron's <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.</p>
+<p class="hero-legal">By downloading and using Positron, you agree to the Positron <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.</p>
 
 :::
 
 ## All platforms
 
-<p class="hero-legal">By downloading and using Positron, you agree to Positron's <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.</p>
+<p class="hero-legal">By downloading and using Positron, you agree to the Positron <a href="licensing.html">license agreement</a> and <a href="https://posit.co/about/privacy-policy/">privacy policy</a>.</p>
 
 ```{r}
 #| echo: false
