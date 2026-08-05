@@ -208,6 +208,12 @@ website:
         - section: "Extending Positron"  
           contents:
           - extension-development.qmd
+    - title: "Release Notes"
+      style: "docked"
+      contents:
+        - text: "Current Release"
+          href: release-notes.qmd
+        - older-releases.qmd  
     - title: "Tutorials"
       style: "docked"
       contents:
