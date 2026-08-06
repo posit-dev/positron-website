@@ -3,7 +3,7 @@ title: "Inline Output"
 description: "Display the output of Quarto cells directly in the source editor in Positron."
 ---
 
-Positron can optionally display the output of Quarto cells in the source editor, similar to a [Jupyter Notebook](jupyter-notebooks.qmd) or RStudio's [R Notebooks](https://posit.co/blog/r-notebooks) feature. To enable inline output, turn on [`positron.quarto.inlineOutput.enabled`](positron://settings/positron.quarto.inlineOutput.enabled).
+Positron can optionally display the output of Quarto cells in the source editor, similar to a [Jupyter Notebook](jupyter-notebooks.qmd) or RStudio's [R Notebooks](https://posit.co/blog/r-notebooks) feature. To enable inline output, turn on [`quarto.inlineOutput.enabled`](positron://settings/quarto.inlineOutput.enabled).
 
 ## Per-document kernels
 
