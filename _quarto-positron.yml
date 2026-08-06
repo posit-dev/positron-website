@@ -54,17 +54,21 @@ website:
         href: about.qmd
       - text: "Resources"
         menu:
+          - text: "Blog"
+            icon: journal-text
+            href: https://opensource.posit.co/blog/q/positron/
+            target: _blank
           - text: "Sign up for updates"
             href: https://posit.co/positron-updates-signup/
             target: _blank
             icon: envelope
-          - text: "Positron at Posit Open Source"
-            icon: code-slash
-            href: https://opensource.posit.co/blog/q/positron/
-            target: _blank  
-          - text: "Company Blog Posts"
-            icon: box-arrow-up-right
-            href: https://posit.co/blog/?post_tag=positron  
+          - text: "LinkedIn"
+            icon: linkedin
+            href: https://www.linkedin.com/showcase/positron-ide/
+            target: _blank
+          - text: "Positron on posit.co"
+            icon: laptop
+            href: https://posit.co/products/ide/positron
             target: _blank
           - text: "Events"
             icon: calendar-event
