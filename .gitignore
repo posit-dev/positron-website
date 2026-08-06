@@ -18,3 +18,5 @@ __pycache__/
 
 # Local Netlify folder
 .netlify
+
+docs/superpowers/
