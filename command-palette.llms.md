@@ -1,0 +1,40 @@
+# Command Palette
+
+Access any Positron command instantly with the keyboard-driven Command Palette. Find commands, open files, and navigate your project without using menus.
+
+Positron inherits the Command Palette from VS Code. The Command Palette is a fast and powerful way to interact with Positron without taking your hands off the keyboard. Think of it as a search bar for functionality. Rather than navigating menus, you can quickly find and run commands from a single interface.
+
+For additional documentation on the Command Palette, see the [VS Code Command Palette documentation](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
+
+### Command access and execution
+
+The Command Palette provides access to all Positron commands. You can execute any command without using menus or remembering keyboard shortcuts.
+
+To open the Command Palette, press . Start typing a keyword or the name of a command. The Command Palette shows a list of matching actions. Use the arrow keys to select a command, then press EnterEnter to run it.
+
+For example, you can:
+
+- type “interpreter” to view interpreter session management commands.
+- type “git” to view version control commands.
+
+### File access and navigation
+
+The Command Palette makes it easy to open files without using the File Explorer. This is especially useful in large projects with many files.
+
+Press to open the file picker. Start typing part of a file name to see matching files. Use the arrow keys to select a file, then press EnterEnter to open the selected file.
+
+You can also use:
+
+| Key                          | Action                                  |
+|------------------------------|-----------------------------------------|
+| \>\>                         | Switch to command mode                  |
+| @@                           | Search for symbols in the current file  |
+| \#\#                         | Search for symbols across the workspace |
+| :: followed by a line number | Jump to that line                       |
+
+### Tips for effective use
+
+- **Use partial matches:** You do not need to type the full command or file name. The Command Palette uses fuzzy matching to find what you need.
+- **Learn common prefixes:** Commands are grouped by category (for example, “View:” for layout commands, “Git:” for version control).
+- **Browse available commands:** Open the Command Palette and scroll through the list to discover new functionality.
+- **Use recent commands:** The Command Palette shows recently used commands first, making it faster to repeat common tasks.

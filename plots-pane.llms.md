@@ -1,0 +1,51 @@
+# Plots Pane
+
+View, explore, and manage plots from your Python or R session. Navigate plot history, zoom, copy, and save visualizations in multiple formats.
+
+The **Plots** pane displays visualizations generated from your Python or R session and by default, is located in the Secondary Side Bar.
+
+## Opening the Plots pane
+
+If the **Plots** pane is not already displayed, you can access it via:
+
+- Selecting **View** \> **Plots** from the menu bar
+- Running *Session: Focus on Plots View* from the [Command Palette](command-palette.llms.md)
+
+## Viewing plots
+
+When you create a plot in Python or R, it automatically appears in the **Plots** pane. The pane maintains a history of all plots generated during your session, allowing you to navigate back and forth between them. Each plot displays which session (Python or R) created it.
+
+### Plot history navigation
+
+Use the navigation arrows in the **Plots** pane toolbar to browse through your plot history:
+
+-  Show previous plot
+-  Show next plot
+
+### Zooming
+
+You can zoom in on plots to examine details more closely. Use the zoom controls in the toolbar or open your plot in an editor tab or a new window.
+
+### Navigating to plot source code
+
+The **Plots** pane can navigate to, copy, or rerun the code that created a plot. Select the icon in the toolbar to access these actions.
+
+### Saving and exporting plots
+
+The **Plots** pane provides several options for saving and sharing your visualizations.
+
+- **Copy plot to clipboard:** Copy the current plot to your clipboard for pasting into other applications
+- **Save plot:** Export the plot to a file in various formats (PNG, SVG, PDF, etc.)
+
+## Plots gallery
+
+To pop the whole **Plots** pane UI to a separate auxiliary window, either run the command *Plots: Open Plots Gallery in New Window* or select from the **Plots** pane action bar.
+
+## Plots settings
+
+Key settings control how you interact with your data visualizations.
+
+- [`plots.defaultSizingPolicy`](positron://settings/plots.defaultSizingPolicy): The default sizing policy to use for newly created plots
+- [`plots.darkFilter`](positron://settings/plots.darkFilter): Use a color filter to make light plots appear dark
+- [`plots.freezeSlowPlots`](positron://settings/plots.freezeSlowPlots): Freeze slow-to-generate plots at a fixed size to avoid rendering repeatedly on viewport changes
+- [`plots.historyPolicy`](positron://settings/plots.historyPolicy): When the plot history filmstrip is visible

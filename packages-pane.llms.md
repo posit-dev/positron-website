@@ -1,0 +1,65 @@
+# Packages Pane
+
+Install, update, and uninstall packages in your active R or Python session without leaving Positron. Browse installed packages and search package repositories.
+
+The **Packages** pane provides an interface for managing the packages installed in your active R or Python session. You can browse installed packages, search package repositories, and install, update, or uninstall packages without leaving Positron.
+
+## Open the Packages pane
+
+The **Packages** pane appears in the **Primary Side Bar**. If it is not already displayed, select the **Packages** icon in the **Activity Bar**, or run *View: Packages* from the Command Palette ().
+
+## Browse installed packages
+
+The **Packages** pane lists packages installed in the active session’s library. Each entry shows the package name, version, and an indicator of whether the package is currently attached. There are also buttons to open the package’s documentation in [the **Help** pane](help-pane.llms.md) and, when the package has a documentation site, its website in your browser.
+
+Use the filter input at the top of the pane to search by name. The filter menu also lets you limit the list to **Outdated** or **Attached** packages, and sort entries by name.
+
+A package is “attached” when you have explicitly loaded it into the active session, with `library()` in R or `import` in Python. A package that is only present because another package pulled it in as a dependency is not attached.
+
+## Install a package
+
+1.  Select **Install Package** in the **Packages** pane action bar, or run *Packages: Install Package* from the Command Palette.
+2.  Enter a package name to search the configured repository.
+3.  Select a package and version from the results to install it into the active session.
+
+## Update packages
+
+Positron flags packages as outdated when a newer version is available in the configured repository. To update an outdated package, select it in the list, then select **Update Package** in the action bar. To update every outdated package at once, select **Update All Packages** in the action bar.
+
+You can also run *Packages: Update Package* or *Packages: Update All Packages* from the Command Palette.
+
+## Uninstall a package
+
+Select a package in the list, then select **Uninstall Package** in the action bar, or run *Packages: Uninstall Package* from the Command Palette.
+
+After installing, updating, or uninstalling a package, Positron prompts you to restart the session so the changes take effect.
+
+## Commands
+
+All **Packages** actions are available from [the Command Palette](command-palette.llms.md) (). Type *Packages:* to see the full list, including commands to install, update, uninstall, and refresh packages.
+
+## Settings
+
+#### General
+
+- [`packages.enabled`](positron://settings/packages.enabled): Show the **Packages** pane.
+
+#### Missing packages
+
+- [`packages.confirmMissingOnRun`](positron://settings/packages.confirmMissingOnRun): Before running a file or notebook, offer to install packages it references that are not installed.
+- [`packages.warnMissingInEditor`](positron://settings/packages.warnMissingInEditor): Show a warning in the editor when the current file references packages that are not installed.
+- [`packages.suggestInstallOnError`](positron://settings/packages.suggestInstallOnError): When a runtime error reports a missing package, suggest installing it beneath the error in the Console.
+
+#### Python packages
+
+- [`python.packageManager.useRequirementsFile`](positron://settings/python.packageManager.useRequirementsFile): Use the workspace root `requirements.txt` file (when present) as the source of truth for install and update operations from the **Packages** pane. When disabled, changes resolve against the currently installed packages instead.
+
+#### R packages
+
+- [`packages.r.installer`](positron://settings/packages.r.installer): Which installer to use for R packages (`auto`, `pak`, or `base`). Projects using renv always use renv.
+- [`packages.r.renvAutoSnapshot`](positron://settings/packages.r.renvAutoSnapshot): When using renv, automatically run `renv::snapshot()` after installing, updating, or removing packages to keep `renv.lock` in sync.
+
+#### Metadata cache
+
+- [`packages.metadataCache.enabled`](positron://settings/packages.metadataCache.enabled): Cache package metadata (such as update availability) on disk so it appears immediately in new sessions, while Positron fetches the current data in the background.
+- [`packages.metadataCache.maxAgeHours`](positron://settings/packages.metadataCache.maxAgeHours): How long, in hours, Positron shows cached package metadata before refreshing it in the background. Only applies when [`packages.metadataCache.enabled`](positron://settings/packages.metadataCache.enabled) is enabled.

@@ -1,0 +1,141 @@
+# Debugging R code
+
+Set breakpoints, inspect variables, and step through R code in Positron.
+
+Breakpoints let you pause R code at specific lines so you can inspect variables and step through execution.
+
+## Setting breakpoints in the editor
+
+To set a breakpoint, select the gutter to the left of a line number. A gray dot appears, indicating the breakpoint is set but not yet active.
+
+To activate a breakpoint, you need to run the code:
+
+- **In scripts**: Either evaluate the code with , or source the file. Evaluating has the advantage that you do not need to run the entire script from the start and reset any state.
+
+- **In packages**: Call `devtools::load_all()` to load the package with breakpoints enabled. This requires a recent version of pkgload. If breakpoints do not activate, install the latest version.
+
+The dot turns red once the breakpoint is active. Positron may also adjust breakpoints to valid locations. For example, a breakpoint inside a multi-line expression moves to the first line of that expression.
+
+When R reaches an active breakpoint, it pauses execution and opens the debugger. You can then inspect variables, step through code line by line using the debug toolbar, or continue running.
+
+See the [VS Code documentation on breakpoints](https://code.visualstudio.com/docs/debugtest/debugging#_breakpoints) for more ways to manage breakpoints.
+
+> **NOTE:**
+>
+> In scripts, if you evaluate code that immediately reaches a breakpoint, such as a `for` loop or `lapply()` call, the breakpoint activates and triggers in one step.
+
+## Why is my breakpoint gray?
+
+A gray dot means the breakpoint is not yet active. This happens when:
+
+- **You have not run the code yet.** Evaluate or source the code to activate the breakpoint.
+- **You edited the file.** Editing invalidates all breakpoints in that file to prevent stepping through a stale view of the code. Run the code again to reactivate them.
+- **The breakpoint is in an invalid location.** If the breakpoint remains gray after sourcing or evaluating, it is in an invalid location. For instance, breakpoints on closing braces `}` cannot be hit. Hover over the dot to see the reason.
+
+## Error, warning, and interrupt breakpoints
+
+The **Breakpoints** pane provides checkboxes to break on errors, warnings, or interrupts. These let the debugger pause automatically when R raises a condition, without setting a line breakpoint in advance.
+
+- **Errors**: Pauses execution when an error occurs. This replaces the `options(error = browser)` or `options(error = recover)` pattern.
+
+- **Warnings**: Pauses execution when R emits a warning. This replaces the `options(warn = 2, error = browser)` pattern.
+
+- **Interrupts**: Pauses execution when you interrupt R instead of cancelling the computation. This is useful to investigate why R is taking a long time or why it is stuck in an infinite loop.
+
+  Select this checkbox, then interrupt R with Ctrl-CCtrl-C or by clicking **Interrupt** in the **Console**. You can inspect the call stack and variables, then resume the computation as if R had not been paused at all by clicking **Continue** in the **Debug** toolbar or sending `c` in the **Console**.
+
+When the debugger pauses on an error or warning, the condition type and message appear in the editor and the debug UI. The initial pause location is typically inside internal error handling or emission code, which is not always useful on its own. Use the **Call Stack** view to navigate to the frame where the error or warning originated. Clicking **Continue** resumes execution and propagates the condition normally.
+
+> **NOTE:**
+>
+> You can also pause R at any time by running the *Debug: Pause* command from the **Command Palette**, without enabling the **Interrupts** checkbox first.
+
+## Navigating the call stack
+
+When the debugger is active, the **Call Stack** view in the **Debug** pane shows the chain of function calls that led to the current pause point.
+
+Selecting a frame in the **Call Stack** view switches the context for the rest of the debugging UI:
+
+- The **Console** evaluates expressions in the selected frame’s environment, so you can interact with local objects higher up in the call stack. This provides similar functionality to `base::recover()`.
+
+- The **Variables** pane updates to show the variables in the selected frame’s environment. The more developer-oriented **Debug Variables** section in the **Debug** pane also tracks the selected frame.
+
+- **Autocompletions** in the **Console** are sensitive to the selected frame.
+
+## Watch pane
+
+The **Watch** section in the **Debug** pane lets you track expressions across debug steps. Add an expression, and its value updates each time the debugger pauses or you select a different frame in the **Call Stack**. Watch expressions return the same structured variables as the **Debug Variables** section, and you can expand complex objects such as lists and data frames.
+
+The **Watch** pane is useful in two situations:
+
+- **Tracking the result of expressions.** Add any R expression such as `nrow(df)` or `range(x)` to monitor computed values as you step through code.
+
+- **Tracking variables from an outer scope.** Variables defined in a parent function do not appear in the **Debug Variables** section. For example, in a Shiny app:
+
+  ``` r
+  server <- function(input, output) {
+    output$distPlot <- renderPlot({
+      x <- faithful$waiting
+      bins <- seq(min(x), max(x), length.out = input$bins + 1)
+      hist(x, breaks = bins)
+    })
+  }
+  ```
+
+  When you step through the `renderPlot()` body, `input` does not appear in the **Variables** pane because it belongs to the `server` scope, one level above the renderer. Add `input$bins` to the **Watch** pane to track its value without switching frames.
+
+Prefix an expression with `/print` to display the full printed R output instead of a structured variable. For example, `/print summary(model)` shows the printed summary. The **Watch** pane truncates the result to a single line, but you can hold the pointer over it to see the full output.
+
+## Debugging Shiny apps
+
+Breakpoints work inside Shiny apps. You can place a breakpoint inside a reactive expression such as `renderPlot()`, then run the app with `shiny::runApp()` or via the **Play** button. The debugger pauses when R reaches the breakpoint.
+
+> **IMPORTANT:**
+>
+> Install the latest version of the `shiny` package for full debugging support.
+
+By default, the **Call Stack** view hides Shiny internal frames so you can focus on your own code. To show them, see the [`ark.debugger.show_hidden_frames`](#configuration) option.
+
+## Differences from RStudio
+
+If you are coming from RStudio, note these differences:
+
+- You do not need to source files. Evaluating code is enough.
+- Breakpoints work everywhere, including R6 methods and Shiny apps.
+- Error and warning breakpoints in the **Breakpoints** pane replace `options(error = browser)` and `options(error = recover)`.
+- The **Console** is synchronized with the selected call stack frame, which replaces the `recover()` workflow for inspecting parent frames.
+- In packages, breakpoints do not activate automatically. In RStudio, you can run `load_all()` once and breakpoints update automatically thereafter. In Positron, you need to call `load_all()` again to activate new breakpoints.
+
+> **NOTE:**
+>
+> Familiar R debugging workflows are well integrated in Positron. You can insert `browser()` directly in your code to pause execution at that point. Other useful functions include `debug(fn)` to step through every call to a function, or `debugonce(fn)` for a single call.
+>
+> Once in the debugger, you can enter debug commands as an alternative to using the debug toolbar: `n` (Step Over), `s` (Step Into), `f` (Step Out), `c` (Continue), or `Q` (Disconnect).
+
+## Differences from other debuggers
+
+If you are coming from debuggers in other languages, note these differences:
+
+- **Step Out** (`f`) finishes the current loop or function rather than returning to the caller.
+- **Editing a file invalidates all breakpoints** in that file immediately, even if the breakpoint line did not change. This prevents stepping through a stale view of the code.
+
+## Configuration
+
+`options(ark.debugger.show_hidden_frames = )`  
+Controls which hidden frames the **Call Stack** view displays. The debugger hides two categories of frames by default:
+
+- `"fenced"`: Frames fenced by `..stacktraceon..` and `..stacktraceoff..` markers. Packages like Shiny use these markers to hide their internals from the call stack.
+
+- `"internal"`: Frames involved in condition emission and handling, such as `.handleSimpleError` or `doWithOneRestart`.
+
+Set this option to a character vector of categories to show:
+
+``` r
+# Show fenced frames (e.g. Shiny internals)
+options(ark.debugger.show_hidden_frames = "fenced")
+
+# Show all hidden frames (equivalent to TRUE)
+options(ark.debugger.show_hidden_frames = c("fenced", "internal"))
+```
+
+Set to `TRUE` to show all hidden frames, or `FALSE` (the default) to hide them all.

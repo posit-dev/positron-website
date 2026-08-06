@@ -1,0 +1,118 @@
+# Commands & Participants
+
+Speed up your workflow with slash commands and chat participants in Positron Assistant. Access quick actions and specialized AI help without long prompts.
+
+> **WARNING:**
+>
+> This page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by [Posit Assistant](https://assistant.posit.co) as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.
+>
+> If you are on Positron 2026.07 or later, see the [Posit Assistant documentation](https://assistant.posit.co) to get set up with Posit Assistant. For background on this change, see [The history of Posit’s data science agents](https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents).
+
+> **NOTE:**
+>
+> Posit Assistant has its own set of slash commands. See [Commands](https://assistant.posit.co/docs/features/commands/) in the Posit Assistant documentation.
+
+## Slash commands
+
+Slash commands provide quick access to common tasks without writing long prompts.
+
+### Using slash commands
+
+To use a slash command in the chat pane or inline chat, type the `/` character to bring up the command menu. Then, select a command and optionally add any additional instructions before sending the message.
+
+### Available slash commands
+
+Slash commands are provided by Positron Assistant and other installed extensions, as well as any [custom prompt files](assistant-chat-agents.llms.md#custom-chat-agents) you have created.
+
+Some built-in slash commands include:
+
+- `/exportQuarto`: Generate a Quarto document from the current chat conversation.
+- `/fix`: Fix a piece of code.
+- `/explain`: Explain a piece of code or concept.
+
+### Custom slash commands
+
+Create custom slash commands by adding custom prompt files. This allows you to:
+
+- Reuse prompts across chat requests and sessions
+- Explicitly apply prompts to specific chat requests
+
+Run the command *Chat: Configure Prompt Files…* to manage custom prompt files in your chat sessions.
+
+#### Create a custom prompt file
+
+1.  Run the command *Chat: New Prompt File…* and follow the prompts to create a new prompt file.
+2.  Edit the newly created `.prompt.md` file to specify the prompt `description`, chat `agent`s the prompt should be available for, the `tools` the prompt can use, as well as the prompt content.
+
+After creating a custom prompt file, you can access it through [slash commands](assistant-chat-commands-participants.llms.md#slash-commands) in both the chat pane and inline chat.
+
+> **NOTE:**
+>
+> To learn more about the format of custom prompt files, see the following VS Code documentation:
+>
+> - [Prompt file structure](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_prompt-file-structure)
+> - [Tips for defining prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files#_tips-for-defining-prompt-files)
+>
+> Positron Assistant does not support the `model` field.
+
+Example custom prompt file
+
+This shows a custom prompt tailored to code review which demonstrates key features of custom prompts in Positron Assistant. It includes header fields like `description`, `name`, `agent`, `tools`, and `argument-hint` to configure behavior and guide users. The prompt body uses an input variable (`${input:codeContext}`) to accept dynamic user input, making it reusable across different code snippets and files. By specifying the agent mode and restricting what tools are available, the prompt tailors the behavior of Assistant to the task at hand.
+
+``` code-overflow-wrap
+---
+description: Perform a thorough code review focusing on best practices and potential issues
+name: code-review
+agent: agent
+tools: ['search', 'todos', 'executeCode']
+argument-hint: "File path or brief description of code to review"
+---
+
+You are an expert code reviewer. Perform a comprehensive code review of the provided code, focusing on code quality, best practices, and potential issues.
+
+## Review Criteria
+
+1. **Code quality**: Assess readability, maintainability, and adherence to style guidelines
+2. **Logic and correctness**: Identify potential bugs, edge cases, or logical errors
+3. **Performance**: Highlight inefficient operations or opportunities for optimization
+4. **Security**: Check for common security vulnerabilities or unsafe practices
+5. **Best practices**: Suggest improvements based on language-specific conventions
+
+## Output Format
+
+Structure your review as follows:
+- **Overall assessment**: Brief summary of code quality
+- **Strengths**: What the code does well
+- **Issues found**: List specific problems with severity (critical/moderate/minor)
+- **Recommendations**: Concrete suggestions for improvement
+
+The code to review is: ${input:codeContext:e.g., src/utils/data-processor.py}
+
+Use the available tools to search the codebase and execute code examples if needed.
+```
+
+## Chat participants
+
+Chat participants provide specialized knowledge to Positron Assistant. If you want help with a specific topic, you can add a chat participant to your conversation.
+
+### Adding chat participants
+
+To add a chat participant, enter `@` to bring up the chat participant menu. Then, select a participant and optionally add any additional instructions before sending the message.
+
+### Available chat participants
+
+Chat participants are provided by Positron Assistant and other installed extensions.
+
+Shiny Assistant
+
+Shiny Assistant is a chat participant available within Positron Assistant that provides context-aware assistance for developing Shiny applications in Python or R. It can help you with tasks such as generating Shiny UI components, server logic, and reactive expressions.
+
+Shiny Assistant is available in the chat once you have installed the [Shiny extension](https://open-vsx.org/extension/posit/shiny). Like other chat participants, Shiny Assistant can be invoked by typing `@shiny` in the chat pane or inline chat, followed by your question or request related to Shiny development.
+
+Shiny Assistant enhances the default prompt with additional information about Shiny that we have found improves the quality of generated apps and Shiny components. It is also kept up to date with Shiny features and best practices, in a way that is not practical with foundation models or fine-tuning.
+
+GitHub Copilot
+
+If you are authenticated with GitHub Copilot as a language model provider in Positron, you can use chat participants provided by GitHub Copilot when chatting with GitHub Copilot models in Positron Assistant.
+
+Refer to the GitHub Copilot [Chat participants](https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features#_chat-participants) documentation for more information on available chat participants and how to use them.

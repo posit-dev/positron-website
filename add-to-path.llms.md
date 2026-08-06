@@ -1,0 +1,32 @@
+# Launch Positron from a Terminal
+
+Launch Positron from your terminal by adding it to your PATH. Walk through step-by-step instructions for macOS, Windows, and Linux.
+
+If Positron is on your PATH, you can launch it from the terminal:
+
+- Type `positron .` to open Positron in the current folder, *or*
+- `positron foo` to open Positron in a custom folder of your choice.
+
+See the instructions below on how to add Positron to your PATH based on operating system.
+
+### macOS
+
+After you have installed Positron, you can add it to your PATH via the Command Palette. Press to open the palette and type *Install ‘positron’ command in PATH*.
+
+[![Command Palette showing 'positron path' search with options to install or uninstall the positron command in PATH.](images/positron-path.png)](images/positron-path.png "Add Positron to your PATH")
+
+Add Positron to your PATH
+
+After you have executed this command once, Positron is added to your PATH. Restart your terminal to pick up the changes to your PATH.
+
+### Windows
+
+Positron installers on Windows include an option to add a `positron` command to your PATH. This installation option is selected by default.
+
+[![Windows installer option Add to PATH](images/installer-windows-add-to-path.png)](images/installer-windows-add-to-path.png "Windows installer option Add to PATH")
+
+Windows installer option Add to PATH
+
+If you had cleared this option during installation, you can manually add the `bin` folder of your Positron installation to your PATH. For a System level installation, this folder is located at `C:\Program Files\Positron\bin` by default. For a User level installation, this folder is located at `C:\Users\username\AppData\Local\Programs\Positron\bin` by default. You will need to restart your terminal after updating your PATH.
+
+Once Positron is on your PATH, you can use a terminal to launch Positron.

@@ -1,0 +1,65 @@
+# Extending the Connections Pane
+
+Extend Positron’s Connections pane with custom database connection types. Learn to add new database connection providers and integrate with the New Connections modal.
+
+The **Connections** pane can be extended by:
+
+- Adding support for browsing and managing a new connection type in the **Connections** pane.
+- Extending the “New connections” modal to support creating a connection of a new type.
+
+## Adding new connection types
+
+In R, you can extend connection types using the [RStudio connections contract](https://rstudio.github.io/rstudio-extensions/connections-contract.llms.md). Refer to the [RStudio connections contract documentation](https://rstudio.github.io/rstudio-extensions/connections-contract.llms.md) for more information on how to implement a new connection type.
+
+For Python, Positron does not support an external extension mechanism. The **Connections** pane can be extended by implementing a subclass of the `Connection` class (defined in [`connections.py`](https://github.com/posit-dev/positron/blob/main/extensions/positron-python/python_files/posit/positron/connections.py)) and submitting a PR to the Positron repository. Refer to `SQLite3Connection` for [an example](https://github.com/posit-dev/positron/blob/main/extensions/positron-python/python_files/posit/positron/connections.py).
+
+## Extending the “New connections” modal
+
+The “New connections” modal allows users to easily create connections to different databases. It helps users create a connection by providing a form to fill in the connection details.
+
+The modal can be extended by creating an extension for Positron; see [Extension Development](extension-development.llms.md) for more information.
+
+In order for an extension to provide support for a new connection type, it needs to implement and register a `positron.ConnectionsDriver`. A driver provides metadata about the connection type and implements callbacks that are used to install dependencies required to create the connection, connect with the database, and disconnect.
+
+The definition can be found in [positron.d.ts](https://github.com/posit-dev/positron/blob/main/src/positron-dts/positron.d.ts); look for `ConnectionsDriver`.
+
+``` ts
+export interface ConnectionsDriver {
+    /**
+     * The unique identifier for the driver.
+     */
+    driverId: string;
+
+    /**
+     * The metadata for the driver.
+     */
+    metadata: ConnectionsDriverMetadata;
+
+    /**
+     * Generates the connection code based on the inputs.
+     */
+    generateCode?: (inputs: Array<ConnectionsInput>) => string;
+
+    /**
+     * Connect session.
+     */
+    connect?: (code: string) => Promise<void>;
+
+    /**
+     * Checks if the dependencies for the driver are installed
+     * and functioning.
+     */
+    checkDependencies?: () => Promise<boolean>;
+
+    /**
+     * Installs the dependencies for the driver.
+     * For instance, R packages would install the required
+     * R packages, and or other dependencies.
+     */
+    installDependencies?: () => Promise<boolean>;
+}
+```
+
+To register a driver, extensions need to call `positron.connections.registerConnectionDriver()` with the driver instance as an argument.
+
+Refer to [drivers.ts](https://github.com/posit-dev/positron/blob/main/extensions/positron-connections/src/drivers.ts) for examples of drivers implemented in the Positron Connections extension.
