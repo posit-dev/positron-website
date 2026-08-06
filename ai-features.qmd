@@ -33,7 +33,7 @@ listing:
         link: "git.qmd#generate-commit-messages"
 ---
 
-AI features in Positron help you write, understand, and debug code. To start using them, follow the [Get started](assistant-getting-started.qmd) guide.
+AI features in Positron help you write, understand, and debug code. To start using them, follow the [Get started](assistant-getting-started.qmd) guide. If something is not working the way you expect, run the _AI: Create Diagnostic Report_ command and see [AI diagnostics](troubleshooting.qmd#ai-diagnostics).
 
 ::: {#ai-features}
 :::
