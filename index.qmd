@@ -7,20 +7,6 @@ description: |
   Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.
 hide-description: true
 image: images/positron-social.png
-format:
-  html:
-    include-in-header:
-      - text: |
-          <!-- Open Graph Meta Tags -->
-          <meta property="og:title" content="Positron - The Data Science IDE">
-          <meta property="og:description" content="Positron unifies exploration and production work in one free, AI-assisted environment, empowering the full spectrum of data science in Python and R.">
-          <meta property="og:type" content="website">
-          <meta property="og:url" content="https://positron.posit.co/">
-          <meta property="og:image" content="https://positron.posit.co/images/index-positron-social-share.png">
-          <meta property="og:image:width" content="1200">
-          <meta property="og:image:height" content="630">
-          <meta property="og:site_name" content="Positron">
-          <meta property="og:locale" content="en_US">
 ---
 <div class="index-section">
 
