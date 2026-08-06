@@ -14,6 +14,12 @@ execute:
 
 website:
   llms-txt: true
+  site-url: "https://positron.posit.co"
+  image: "images/positron-social.png"
+  image-alt: "Positron: a next generation data science IDE"
+  open-graph: true
+  twitter-card:
+    card-style: summary_large_image
 
 profile:
   group: 
