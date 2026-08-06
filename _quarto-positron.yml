@@ -6,6 +6,7 @@ project:
 
 website:
   open-graph: true
+  twitter-card: true
   bread-crumbs: true
   page-navigation: true
   favicon: "images/favicon.svg"
