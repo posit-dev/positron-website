@@ -106,4 +106,4 @@ If you are not receiving suggestions:
 - Confirm you are signed in to your completions provider in the [language model provider configuration](assistant-getting-started.llms.md#configure-a-language-model-provider).
 - Check that your completions provider’s per-language settings do not disable the current language (see [Posit AI Next Edit Suggestions](#posit-ai-nes) or [GitHub Copilot](#github-copilot)).
 - Check that [`positron.assistant.aiExcludes`](positron://settings/positron.assistant.aiExcludes) does not match the current file.
-- Refer to the [Troubleshooting](assistant-troubleshooting.llms.md) guide for more help.
+- Run the *AI: Create Diagnostic Report* command to see your providers, feature settings, and recent completions logs in one report. See [AI diagnostics](troubleshooting.llms.md#ai-diagnostics).

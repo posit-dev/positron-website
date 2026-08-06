@@ -2,7 +2,7 @@
 
 Display the output of Quarto cells directly in the source editor in Positron.
 
-Positron can optionally display the output of Quarto cells in the source editor, similar to a [Jupyter Notebook](jupyter-notebooks.llms.md) or RStudio’s [R Notebooks](https://posit.co/blog/r-notebooks) feature. To enable inline output, turn on [`positron.quarto.inlineOutput.enabled`](positron://settings/positron.quarto.inlineOutput.enabled).
+Positron can optionally display the output of Quarto cells in the source editor, similar to a [Jupyter Notebook](jupyter-notebooks.llms.md) or RStudio’s [R Notebooks](https://posit.co/blog/r-notebooks) feature. To enable inline output, turn on [`quarto.inlineOutput.enabled`](positron://settings/quarto.inlineOutput.enabled).
 
 ## Per-document kernels
 
@@ -52,7 +52,6 @@ To use Fix and Explain, first [set up a language model provider](assistant-getti
 Inline output for Quarto documents is a new feature in Positron, and has some differences from the RStudio implementation you may be familiar with. The following limitations apply; links go to GitHub issues.
 
 - You [cannot share a single R or Python session among multiple Quarto documents](https://github.com/posit-dev/positron/issues/12732).
-- Execution indicators in the gutter [do not track progress line by line](https://github.com/posit-dev/positron/issues/13505).
 - Documents containing a mix of R and Python [are not executed with Reticulate](https://github.com/posit-dev/positron/issues/13161).
 - Quarto documents in subfolders [don’t run the parent .Rprofile or renv scripts](https://github.com/posit-dev/positron/issues/4695).
 - Positron reads execution options (such as width and height) only from Quarto-style options (`#| width: foo`), not from Knitr-style chunk-header options (`{width=foo}`).

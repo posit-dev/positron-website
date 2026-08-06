@@ -43,3 +43,7 @@ To disable a specific feature without affecting others:
 Positron hides the GitHub Copilot chat interface by default, since Posit Assistant is the default chat experience in Positron. To show the GitHub Copilot chat UI again, set [`chat.disableAIFeatures`](positron://settings/chat.disableAIFeatures) to `false`.
 
 Regardless of that setting, GitHub Copilot [ghost-text completions and NES](assistant-completions.llms.md#github-copilot) are available once you [sign in to GitHub Copilot as a provider](assistant-providers.llms.md#github-copilot).
+
+## Check your AI configuration
+
+To see how Positron applies the settings on this page, run the *AI: Create Diagnostic Report* command. The report lists which features are on, which providers you are signed in to, and the AI settings that differ from their defaults. See [AI diagnostics](troubleshooting.llms.md#ai-diagnostics) for what the report contains and what it redacts.

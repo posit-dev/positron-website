@@ -78,3 +78,7 @@ For detailed diagnostics about Positron Assistant, including information about y
 
 1.  Run the command *Positron Assistant: Collect Diagnostics*
 2.  A diagnostic report will be generated and opened in a new editor tab
+
+> **NOTE:**
+>
+> The *Positron Assistant: Collect Diagnostics* command is only available in builds that still ship the Positron Assistant extension. On Positron 2026.08 and later, run *AI: Create Diagnostic Report* instead. It covers all of the AI features in Positron, not only the chat and completions interfaces. See [AI diagnostics](troubleshooting.llms.md#ai-diagnostics).

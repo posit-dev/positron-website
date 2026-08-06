@@ -220,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </nav>
   <div id="quarto-announcement" data-announcement-id="687d7ef531e974cef1bf7d0f11614fac" class="alert alert-danger hidden"><i class="bi bi-cone-striped quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p>You are viewing the development version of Positron documentation for the dailies (2026.08.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
+<p>You are viewing the development version of Positron documentation for the dailies (2026.09.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
 </div></div>
 </header>
 <!-- content -->
@@ -264,6 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#log-level" id="toc-log-level" class="nav-link" data-scroll-target="#log-level">Log level</a></li>
   </ul></li>
   <li><a href="#runtime-startup-diagnostics" id="toc-runtime-startup-diagnostics" class="nav-link" data-scroll-target="#runtime-startup-diagnostics">Runtime startup diagnostics</a></li>
+  <li><a href="#ai-diagnostics" id="toc-ai-diagnostics" class="nav-link" data-scroll-target="#ai-diagnostics">AI diagnostics</a></li>
   <li><a href="#developer-tools" id="toc-developer-tools" class="nav-link" data-scroll-target="#developer-tools">Developer tools</a></li>
   <li><a href="#resetting-positron" id="toc-resetting-positron" class="nav-link" data-scroll-target="#resetting-positron">Resetting Positron</a></li>
   <li><a href="#ask-for-help" id="toc-ask-for-help" class="nav-link" data-scroll-target="#ask-for-help">Ask for help</a></li>
@@ -372,6 +373,34 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>The diagnostics output may include environment variables. Review the output and remove any sensitive information such as API keys or tokens before sharing.</p>
+</div>
+</div>
+</section>
+<section id="ai-diagnostics" class="level2">
+<h2 class="anchored" data-anchor-id="ai-diagnostics">AI diagnostics</h2>
+<p>If an <a href="./ai-features.html">AI feature</a> is not working the way you expect, run the <em>AI: Create Diagnostic Report</em> command from the <a href="./command-palette.html">Command Palette</a>. The report gathers everything needed to debug an AI problem into a single Markdown file and opens it in a new editor tab.</p>
+<p>The report includes the following:</p>
+<ul>
+<li>Version information for Positron and each AI extension, including whether the extension activated</li>
+<li>Which AI features are on or off, starting with the <a href="positron://settings/ai.enabled"><code>ai.enabled</code></a> main switch</li>
+<li>The providers you are signed in to, the providers you have turned off, and the models each one offers</li>
+<li>The AI settings whose values differ from their defaults</li>
+<li>Recent logs from Authentication, Posit Assistant, Posit AI Next Edit Suggestions (NES), and GitHub Copilot</li>
+</ul>
+<p>The logs in the report include trace and debug detail even when your <a href="#log-level">log level</a> is set higher, so you do not need to reproduce the problem first. The command also works when AI features are off, which helps you find out why a feature is unavailable.</p>
+<p>If Posit Assistant is installed, the command asks what to collect before it starts. Choose <strong>Report only</strong> for the report by itself. Choose <strong>Report and diagnostics bundle</strong> to also save a zip file with detailed Assistant logs, recent model requests and errors, and your open conversation. Include the bundle when you need to share the conversation itself.</p>
+<p>Include the report when you <a href="https://github.com/posit-dev/positron/issues">open an issue</a> about an AI feature.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Read the report before you share it
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Positron replaces API keys, tokens, and custom header values with <code>&lt;redacted&gt;</code>. Everything else appears as you configured it, including base URLs, which can name internal endpoints. Read through the whole report and remove anything sensitive before you share it.</p>
 </div>
 </div>
 </section>
@@ -881,7 +910,7 @@ Note
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.08.0 (development version)</p>
+<p>Positron 2026.09.0 (development version)</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/troubleshooting.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/troubleshooting.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

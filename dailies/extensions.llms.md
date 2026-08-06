@@ -8,7 +8,7 @@ Since Positron is built on [Code OSS](https://github.com/microsoft/vscode) (the 
 
 Positron has an Extensions view, just like VS Code. The primary difference is that when you browse extensions in Positron, the extensions don’t come from VS Code’s Marketplace. This is necessary for licensing reasons; Microsoft doesn’t permit access to the Marketplace outside of their Visual Studio Code (VS Code) builds.
 
-By default, Positron browses and installs extensions from [Posit Public Package Manager](https://p3m.dev) (P3M), served from Posit infrastructure for reliable distribution. The catalog is the same set of extensions available from [Open VSX](https://open-vsx.org/), an Eclipse open-source project and vendor-neutral alternative to the Visual Studio Marketplace. If you prefer to use Open VSX directly, you can switch via the [`positron.extensions.gallerySource`](positron://settings/positron.extensions.gallerySource) setting.
+By default, Positron browses and installs extensions from [Posit Public Package Manager](https://p3m.dev) (P3M), served from Posit infrastructure for reliable distribution. The catalog is the same set of extensions available from [Open VSX](https://open-vsx.org/), an Eclipse open-source project and vendor-neutral alternative to the Visual Studio Marketplace. If you prefer to use Open VSX directly, you can switch via the [`positron.extensions.gallerySource`](positron://settings/positron.extensions.gallerySource) setting. You can also point Positron at [a gallery of your own](#custom-extension-gallery).
 
 Open VSX includes most popular VS Code extensions, but not all; some authors don’t publish their extensions to Open VSX (it’s an extra step) and others don’t keep the Open VSX version of the extension up to date. Open VSX has a suggested [template](https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md) to request that the authors of an extension cross-publish their extension on the Open VSX Registry.
 
@@ -122,3 +122,17 @@ Modal prompt to confirm trust in that specific extension publisher
 Open VSX removes known malicious extensions and also makes use of the extension blocklist from the VS Code marketplace. To report suspicious or questionable extensions, or to report abuse, please reach out to Open VSX via their [security portal](https://github.com/eclipse/openvsx/security) or via the “Report Abuse” button on the specific extension’s page of Open VSX.
 
 For more information about the full set of extension privileges and security that come from upstream Code OSS, please see the VS Code documentation on [Extension runtime security](https://code.visualstudio.com/docs/configure/extensions/extension-runtime-security).
+
+## Custom extension gallery
+
+Positron can browse and install extensions from a gallery other than the default. This is most useful for organizations that mirror extensions on their own [Posit Package Manager](https://posit.co/products/enterprise/package-manager/) instance, including air-gapped deployments.
+
+Set [`positron.extensions.gallerySource`](positron://settings/positron.extensions.gallerySource) to one of:
+
+- **Posit Public Package Manager**: the default, described in [Extension gallery](#extension-gallery).
+- **Open VSX Registry**: install from Open VSX directly.
+- **Custom**: use your own Open VSX-compatible gallery.
+
+For **Custom**, also set [`positron.extensions.customGalleryUrl`](positron://settings/positron.extensions.customGalleryUrl) to the root URL of the Open VSX endpoint, for example `https://my-ppm.example.com/openvsx/latest/vscode`. Positron appends the `/gallery` and asset paths for you. Changes to either setting take effect after you restart Positron.
+
+If your gallery does not follow the standard Open VSX URL scheme, set the `EXTENSIONS_GALLERY` environment variable instead. That variable overrides both settings.

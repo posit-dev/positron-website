@@ -189,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </nav>
   <div id="quarto-announcement" data-announcement-id="687d7ef531e974cef1bf7d0f11614fac" class="alert alert-danger hidden"><i class="bi bi-cone-striped quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p>You are viewing the development version of Positron documentation for the dailies (2026.08.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
+<p>You are viewing the development version of Positron documentation for the dailies (2026.09.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
 </div></div>
 </header>
 <!-- content -->
@@ -864,7 +864,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Positron can optionally display the output of Quarto cells in the source editor, similar to a <a href="./jupyter-notebooks.html">Jupyter Notebook</a> or RStudio’s <a href="https://posit.co/blog/r-notebooks">R Notebooks</a> feature. To enable inline output, turn on <a href="positron://settings/positron.quarto.inlineOutput.enabled"><code>positron.quarto.inlineOutput.enabled</code></a>.</p>
+<p>Positron can optionally display the output of Quarto cells in the source editor, similar to a <a href="./jupyter-notebooks.html">Jupyter Notebook</a> or RStudio’s <a href="https://posit.co/blog/r-notebooks">R Notebooks</a> feature. To enable inline output, turn on <a href="positron://settings/quarto.inlineOutput.enabled"><code>quarto.inlineOutput.enabled</code></a>.</p>
 <section id="per-document-kernels" class="level2">
 <h2 class="anchored" data-anchor-id="per-document-kernels">Per-document kernels</h2>
 <p>When inline output is disabled, Positron’s Quarto execution model is similar to RStudio’s; running code from a Quarto cell sends it to the Console where you have Python or R running.</p>
@@ -925,7 +925,6 @@ q3[Quarto Doc 3] --&gt; rc3[Interpreter Session 3]
 <p>Inline output for Quarto documents is a new feature in Positron, and has some differences from the RStudio implementation you may be familiar with. The following limitations apply; links go to GitHub issues.</p>
 <ul>
 <li>You <a href="https://github.com/posit-dev/positron/issues/12732">cannot share a single R or Python session among multiple Quarto documents</a>.</li>
-<li>Execution indicators in the gutter <a href="https://github.com/posit-dev/positron/issues/13505">do not track progress line by line</a>.</li>
 <li>Documents containing a mix of R and Python <a href="https://github.com/posit-dev/positron/issues/13161">are not executed with Reticulate</a>.</li>
 <li>Quarto documents in subfolders <a href="https://github.com/posit-dev/positron/issues/4695">don’t run the parent .Rprofile or renv scripts</a>.</li>
 <li>Positron reads execution options (such as width and height) only from Quarto-style options (<code>#| width: foo</code>), not from Knitr-style chunk-header options (<code>{width=foo}</code>).</li>
@@ -1361,7 +1360,7 @@ q3[Quarto Doc 3] --&gt; rc3[Interpreter Session 3]
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.08.0 (development version)</p>
+<p>Positron 2026.09.0 (development version)</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/quarto-inline-output.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/quarto-inline-output.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

@@ -50,6 +50,28 @@ Include this diagnostic output when filing issues related to interpreter startup
 >
 > The diagnostics output may include environment variables. Review the output and remove any sensitive information such as API keys or tokens before sharing.
 
+## AI diagnostics
+
+If an [AI feature](ai-features.llms.md) is not working the way you expect, run the *AI: Create Diagnostic Report* command from the [Command Palette](command-palette.llms.md). The report gathers everything needed to debug an AI problem into a single Markdown file and opens it in a new editor tab.
+
+The report includes the following:
+
+- Version information for Positron and each AI extension, including whether the extension activated
+- Which AI features are on or off, starting with the [`ai.enabled`](positron://settings/ai.enabled) main switch
+- The providers you are signed in to, the providers you have turned off, and the models each one offers
+- The AI settings whose values differ from their defaults
+- Recent logs from Authentication, Posit Assistant, Posit AI Next Edit Suggestions (NES), and GitHub Copilot
+
+The logs in the report include trace and debug detail even when your [log level](#log-level) is set higher, so you do not need to reproduce the problem first. The command also works when AI features are off, which helps you find out why a feature is unavailable.
+
+If Posit Assistant is installed, the command asks what to collect before it starts. Choose **Report only** for the report by itself. Choose **Report and diagnostics bundle** to also save a zip file with detailed Assistant logs, recent model requests and errors, and your open conversation. Include the bundle when you need to share the conversation itself.
+
+Include the report when you [open an issue](https://github.com/posit-dev/positron/issues) about an AI feature.
+
+> **WARNING:**
+>
+> Positron replaces API keys, tokens, and custom header values with `<redacted>`. Everything else appears as you configured it, including base URLs, which can name internal endpoints. Read through the whole report and remove anything sensitive before you share it.
+
 ## Developer tools
 
 Positron is built on Electron, which means it has a built-in developer tools panel similar to what you see in web browsers. When looking for the source of an error, the developer tools output can be helpful.

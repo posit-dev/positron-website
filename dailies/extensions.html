@@ -229,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </nav>
   <div id="quarto-announcement" data-announcement-id="687d7ef531e974cef1bf7d0f11614fac" class="alert alert-danger hidden"><i class="bi bi-cone-striped quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p>You are viewing the development version of Positron documentation for the dailies (2026.08.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
+<p>You are viewing the development version of Positron documentation for the dailies (2026.09.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
 </div></div>
 </header>
 <!-- content -->
@@ -882,6 +882,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#extension-trust" id="toc-extension-trust" class="nav-link" data-scroll-target="#extension-trust">Extension trust</a></li>
   </ul></li>
+  <li><a href="#custom-extension-gallery" id="toc-custom-extension-gallery" class="nav-link" data-scroll-target="#custom-extension-gallery">Custom extension gallery</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/extensions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/extensions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -916,7 +917,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="extension-gallery" class="level2">
 <h2 class="anchored" data-anchor-id="extension-gallery">Extension gallery</h2>
 <p>Positron has an Extensions view, just like VS Code. The primary difference is that when you browse extensions in Positron, the extensions don’t come from VS Code’s Marketplace. This is necessary for licensing reasons; Microsoft doesn’t permit access to the Marketplace outside of their Visual Studio Code (VS Code) builds.</p>
-<p>By default, Positron browses and installs extensions from <a href="https://p3m.dev">Posit Public Package Manager</a> (P3M), served from Posit infrastructure for reliable distribution. The catalog is the same set of extensions available from <a href="https://open-vsx.org/">Open VSX</a>, an Eclipse open-source project and vendor-neutral alternative to the Visual Studio Marketplace. If you prefer to use Open VSX directly, you can switch via the <a href="positron://settings/positron.extensions.gallerySource"><code>positron.extensions.gallerySource</code></a> setting.</p>
+<p>By default, Positron browses and installs extensions from <a href="https://p3m.dev">Posit Public Package Manager</a> (P3M), served from Posit infrastructure for reliable distribution. The catalog is the same set of extensions available from <a href="https://open-vsx.org/">Open VSX</a>, an Eclipse open-source project and vendor-neutral alternative to the Visual Studio Marketplace. If you prefer to use Open VSX directly, you can switch via the <a href="positron://settings/positron.extensions.gallerySource"><code>positron.extensions.gallerySource</code></a> setting. You can also point Positron at <a href="#custom-extension-gallery">a gallery of your own</a>.</p>
 <p>Open VSX includes most popular VS Code extensions, but not all; some authors don’t publish their extensions to Open VSX (it’s an extra step) and others don’t keep the Open VSX version of the extension up to date. Open VSX has a suggested <a href="https://github.com/open-vsx/publish-extensions/blob/master/docs/external_contribution_request.md">template</a> to request that the authors of an extension cross-publish their extension on the Open VSX Registry.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1030,9 +1031,21 @@ Note
 </div>
 <p>Open VSX removes known malicious extensions and also makes use of the extension blocklist from the VS Code marketplace. To report suspicious or questionable extensions, or to report abuse, please reach out to Open VSX via their <a href="https://github.com/eclipse/openvsx/security">security portal</a> or via the “Report Abuse” button on the specific extension’s page of Open VSX.</p>
 <p>For more information about the full set of extension privileges and security that come from upstream Code OSS, please see the VS Code documentation on <a href="https://code.visualstudio.com/docs/configure/extensions/extension-runtime-security">Extension runtime security</a>.</p>
-
-
 </section>
+</section>
+<section id="custom-extension-gallery" class="level2">
+<h2 class="anchored" data-anchor-id="custom-extension-gallery">Custom extension gallery</h2>
+<p>Positron can browse and install extensions from a gallery other than the default. This is most useful for organizations that mirror extensions on their own <a href="https://posit.co/products/enterprise/package-manager/">Posit Package Manager</a> instance, including air-gapped deployments.</p>
+<p>Set <a href="positron://settings/positron.extensions.gallerySource"><code>positron.extensions.gallerySource</code></a> to one of:</p>
+<ul>
+<li><strong>Posit Public Package Manager</strong>: the default, described in <a href="#extension-gallery">Extension gallery</a>.</li>
+<li><strong>Open VSX Registry</strong>: install from Open VSX directly.</li>
+<li><strong>Custom</strong>: use your own Open VSX-compatible gallery.</li>
+</ul>
+<p>For <strong>Custom</strong>, also set <a href="positron://settings/positron.extensions.customGalleryUrl"><code>positron.extensions.customGalleryUrl</code></a> to the root URL of the Open VSX endpoint, for example <code>https://my-ppm.example.com/openvsx/latest/vscode</code>. Positron appends the <code>/gallery</code> and asset paths for you. Changes to either setting take effect after you restart Positron.</p>
+<p>If your gallery does not follow the standard Open VSX URL scheme, set the <code>EXTENSIONS_GALLERY</code> environment variable instead. That variable overrides both settings.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1461,7 +1474,7 @@ Note
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.08.0 (development version)</p>
+<p>Positron 2026.09.0 (development version)</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/extensions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/extensions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

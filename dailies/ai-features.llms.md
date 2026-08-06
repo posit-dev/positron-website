@@ -2,7 +2,7 @@
 
 Overview of the AI features available in Positron.
 
-AI features in Positron help you write, understand, and debug code. To start using them, follow the [Get started](assistant-getting-started.llms.md) guide.
+AI features in Positron help you write, understand, and debug code. To start using them, follow the [Get started](assistant-getting-started.llms.md) guide. If something is not working the way you expect, run the *AI: Create Diagnostic Report* command and see [AI diagnostics](troubleshooting.llms.md#ai-diagnostics).
 
 ### Posit Assistant
 
