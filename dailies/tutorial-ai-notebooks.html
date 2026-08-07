@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Use Posit Assistant to explore Excel data, build a Python notebook, and turn it into a Quarto dashboard.">
+
+<title>Collaborate with AI on a Python analysis – Positron</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./tutorial-migrate-from-RStudio.html" rel="prev">
+<link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4baa764f875b246559963e1eef64b3c8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "/"
+  ],
+  "show-item-context": true,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="25dee41d-4924-4490-9c7f-65853d503cd8" data-project-name="Positron" data-modal-title="Positron Docs AI ✨" data-modal-disclaimer="This is a custom LLM for answering questions about using Positron IDE. Answers are based on the contents of our documentation." data-modal-ask-ai-input-placeholder="How do I..." data-modal-example-questions="How do I install Positron?,How do I switch between Python and R interpreters?,How do I use AI in Positron?" data-user-analytics-cookie-enabled="false" data-bot-protection-mechanism="hcaptcha" data-modal-example-questions-col-span="12" data-project-color="#ffffff" data-project-logo="/images/posit-icon-fullcolor.svg" data-font-family="Open Sans, sans-serif" data-hyperlink-color="#447099" data-button-hide="true" data-button-position-bottom="80px" data-button-position-right="25px" data-button-border="solid 1px #ffffff" data-button-text-color="#447099" data-submit-query-button-bg-color="#447099" data-deep-thinking-button-active-bg-color="#eaeaee" data-deep-thinking-button-active-hover-text-color="#447099" data-deep-thinking-button-active-hover-bg-color="#eaeaee" data-deep-thinking-button-active-text-color="#000000" data-modal-override-open-id="custom-ask-ai-button" data-modal-x-offset="0" data-modal-y-offset="0" data-modal-z-index="1031" data-modal-with-overlay="false" data-modal-inner-flex-direction="column" data-modal-inner-justify-content="end" data-modal-inner-max-width="500px" data-modal-inner-position-left="auto" data-modal-inner-position-right="0" data-modal-inner-position-bottom="0" data-modal-inner-position-top="0" data-modal-size="100vh" data-modal-lock-scroll="false"></script>
+<script defer="" file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
+<meta name="robots" content="noindex">
+
+
+<meta property="og:title" content="Collaborate with AI on a Python analysis – Positron">
+<meta property="og:description" content="Use Posit Assistant to explore Excel data, build a Python notebook, and turn it into a Quarto dashboard.">
+<meta property="og:image" content="https://positron.posit.co/dailies/images/tutorial-python-ai-git.png">
+<meta property="og:site_name" content="Positron">
+<meta property="og:image:alt" content="The Positron IDE displaying the New Folder from Git wizard.">
+<meta property="og:image:height" content="1872">
+<meta property="og:image:width" content="2926">
+<meta name="twitter:title" content="Collaborate with AI on a Python analysis – Positron">
+<meta name="twitter:description" content="Use Posit Assistant to explore Excel data, build a Python notebook, and turn it into a Quarto dashboard.">
+<meta name="twitter:image" content="https://positron.posit.co/dailies/images/tutorial-python-ai-git.png">
+<meta name="twitter:image:alt" content="The Positron IDE displaying the New Folder from Git wizard.">
+<meta name="twitter:image-height" content="1872">
+<meta name="twitter:image-width" content="2926">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/images/positron-logo_fullcolor-TM.png" alt="Positron Documentation" class="navbar-logo light-content">
+    <img src="./assets/images/positron-logo_fullcolor-TM.png" alt="Positron Documentation" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./features.html"> 
+<span class="menu-text">Features</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./welcome.html"> 
+<span class="menu-text">Guides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./release-notes.html"> 
+<span class="menu-text">Release Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./tutorials.html" aria-current="page"> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./troubleshooting.html"> 
+<span class="menu-text">Help</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://posit.co/positron-updates-signup/" target="_blank"><i class="bi bi-envelope" role="img">
+</i> 
+ <span class="dropdown-text">Sign up for updates</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://opensource.posit.co/blog/q/positron/" target="_blank"><i class="bi bi-code-slash" role="img">
+</i> 
+ <span class="dropdown-text">Positron at Posit Open Source</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/blog/?post_tag=positron" target="_blank"><i class="bi bi-box-arrow-up-right" role="img">
+</i> 
+ <span class="dropdown-text">Company Blog Posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/events/?search=positron&amp;poststatus=all" target="_blank"><i class="bi bi-calendar-event" role="img">
+</i> 
+ <span class="dropdown-text">Events</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./download.html"> 
+<span class="menu-text"><span id="top-bar-download-btn" class="btn btn-primary">Download</span></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/posit-dev/positron"> <i class="bi bi-github" role="img" aria-label="Link to Positron Github Repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="javascript:void(0);"> 
+<span class="menu-text"><span id="custom-ask-ai-button">Ask AI ✨</span></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial-ai-notebooks.html">Collaborate with AI on a Python analysis</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+  <div id="quarto-announcement" data-announcement-id="687d7ef531e974cef1bf7d0f11614fac" class="alert alert-danger hidden"><i class="bi bi-cone-striped quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p>You are viewing the development version of Positron documentation for the dailies (2026.09.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
+</div></div>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial-get-started-ipynb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First data analysis with Python in a Jupyter Notebook</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial-get-started-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First data analysis with R in a Quarto document</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial-migrate-from-vscode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Migrate from VS Code to Positron</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial-migrate-from-RStudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Migrate from RStudio to Positron</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial-ai-notebooks.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Collaborate with AI on a Python analysis</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#open-the-workshop-project" id="toc-open-the-workshop-project" class="nav-link active" data-scroll-target="#open-the-workshop-project">Open the workshop project</a></li>
+  <li><a href="#explore-the-data-in-the-data-explorer" id="toc-explore-the-data-in-the-data-explorer" class="nav-link" data-scroll-target="#explore-the-data-in-the-data-explorer">Explore the data in the Data Explorer</a></li>
+  <li><a href="#set-a-goal" id="toc-set-a-goal" class="nav-link" data-scroll-target="#set-a-goal">Set a goal</a></li>
+  <li><a href="#set-up-a-reproducible-python-environment" id="toc-set-up-a-reproducible-python-environment" class="nav-link" data-scroll-target="#set-up-a-reproducible-python-environment">Set up a reproducible Python environment</a></li>
+  <li><a href="#configure-a-language-model-provider" id="toc-configure-a-language-model-provider" class="nav-link" data-scroll-target="#configure-a-language-model-provider">Configure a language model provider</a></li>
+  <li><a href="#ask-posit-assistant-to-write-the-analysis" id="toc-ask-posit-assistant-to-write-the-analysis" class="nav-link" data-scroll-target="#ask-posit-assistant-to-write-the-analysis">Ask Posit Assistant to write the analysis</a></li>
+  <li><a href="#export-the-conversation-as-a-notebook" id="toc-export-the-conversation-as-a-notebook" class="nav-link" data-scroll-target="#export-the-conversation-as-a-notebook">Export the conversation as a notebook</a></li>
+  <li><a href="#work-with-ai-inside-the-notebook" id="toc-work-with-ai-inside-the-notebook" class="nav-link" data-scroll-target="#work-with-ai-inside-the-notebook">Work with AI inside the notebook</a></li>
+  <li><a href="#fix-a-cell-error-with-one-click" id="toc-fix-a-cell-error-with-one-click" class="nav-link" data-scroll-target="#fix-a-cell-error-with-one-click">Fix a cell error with one click</a></li>
+  <li><a href="#extend-the-notebook-with-a-ghost-cell" id="toc-extend-the-notebook-with-a-ghost-cell" class="nav-link" data-scroll-target="#extend-the-notebook-with-a-ghost-cell">Extend the notebook with a ghost cell</a></li>
+  <li><a href="#turn-the-notebook-into-a-quarto-report" id="toc-turn-the-notebook-into-a-quarto-report" class="nav-link" data-scroll-target="#turn-the-notebook-into-a-quarto-report">Turn the notebook into a Quarto report</a></li>
+  <li><a href="#convert-the-report-into-a-dashboard" id="toc-convert-the-report-into-a-dashboard" class="nav-link" data-scroll-target="#convert-the-report-into-a-dashboard">Convert the report into a dashboard</a></li>
+  <li><a href="#publish-your-dashboard" id="toc-publish-your-dashboard" class="nav-link" data-scroll-target="#publish-your-dashboard">Publish your dashboard</a></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up">Wrap up</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/tutorial-ai-notebooks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/tutorial-ai-notebooks.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Collaborate with AI on a Python analysis</h1>
+</div>
+
+<div>
+  <div class="description">
+    Use Posit Assistant to explore Excel data, build a Python notebook, and turn it into a Quarto dashboard.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Is this the right tutorial to start with? It picks up where <a href="./tutorial-get-started-ipynb.html">First data analysis with Python in a Jupyter Notebook</a> and <a href="./tutorial-migrate-from-vscode.html">Migrate from VS Code to Positron</a> leave off. If you have not worked through those, start there. This tutorial assumes you already know how to:</p>
+<ol type="1">
+<li>Install Positron</li>
+<li>Use the Command Palette</li>
+<li>Run a notebook cell</li>
+</ol>
+</div>
+</div>
+<p>Positron is a free, source-available IDE for data science, built on the same open source core as VS Code. In the earlier tutorials, you used Positron to build a notebook by hand. In this one, you will bring an AI assistant alongside you to write, extend, and improve an analysis, while you stay in control of the result.</p>
+<p>You will work through a small analysis from raw data to a published dashboard, using the AI features you might reach for every day:</p>
+<ul>
+<li>Posit Assistant, the AI assistant built into Positron</li>
+<li>The <code>/notebook</code> and <code>/report</code> commands, which turn a conversation with Posit Assistant into a Jupyter notebook or a Quarto document</li>
+<li>Notebook-aware AI, including the Notebook Assistant panel and one-click cell fixes</li>
+<li>Ghost cell suggestions, which suggest the next cell for your notebook</li>
+</ul>
+<p>The whole path runs on one dataset: a spreadsheet of retail orders that you will aggregate into quarterly sales, visualize, and ship as an interactive dashboard.</p>
+<section id="open-the-workshop-project" class="level2">
+<h2 class="anchored" data-anchor-id="open-the-workshop-project">Open the workshop project</h2>
+<p>The dataset you will use lives in a GitHub repository, alongside a <code>requirements.txt</code> file that lists the packages you will need.</p>
+<p>You can clone a repository without leaving Positron. The <strong>New Folder from Git</strong> option, available on the Welcome screen or from the Command Palette, clones a remote repository and opens it as your project.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-git.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The New Folder from Git helper in Positron"><img src="images/tutorial-python-ai-git.png" class="img-fluid figure-img" alt="The Positron IDE displaying the New Folder from Git wizard."></a></p>
+<figcaption>The New Folder from Git helper in Positron</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open the Command Palette with <kbd title="linux: Ctrl-Shift-P, mac: Command-Shift-P, windows: Ctrl-Shift-P" aria-hidden="true" data-linux="Ctrl-Shift-P" data-mac="Command-Shift-P" data-windows="Ctrl-Shift-P"></kbd><span class="visually-hidden"></span>, run <em>Workspaces: New Folder from Git</em>, and paste the repository URL when prompted:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>https://github.com/posit-dev/positron-notebook-workshop</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Choose a location, then open the cloned folder when Positron offers to.</p>
+<p><strong>You will know it worked when</strong> the <strong>Explorer</strong> in the left sidebar shows the project files, including a <code>data</code> folder and <code>requirements.txt</code>.</p>
+</div>
+</div>
+<p>When the project opens, Positron detects the <code>requirements.txt</code> and offers, through a notification, to create an environment and install the packages for you. For this tutorial, dismiss that notification by clicking <strong>Not now</strong> in the bottom right. We will set the environment up deliberately in a later step so you can see what it does.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-notification.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Positron’s notification offering to create a virtual environment from requirements.txt"><img src="images/tutorial-python-ai-notification.png" class="img-fluid figure-img" alt="The new Positron window displaying a notification in the bottom right corner."></a></p>
+<figcaption>Positron’s notification offering to create a virtual environment from requirements.txt</figcaption>
+</figure>
+</div>
+</section>
+<section id="explore-the-data-in-the-data-explorer" class="level2">
+<h2 class="anchored" data-anchor-id="explore-the-data-in-the-data-explorer">Explore the data in the Data Explorer</h2>
+<p>Let’s take a look at the data before setting a goal. The dataset is an Excel file, <code>data/retail_sales.xlsx</code>. You can open Excel files directly in the Positron Data Explorer and inspect them without writing any code or converting the file first.</p>
+<p>The Data Explorer is a sortable, filterable table with per-column summary statistics. It gives you four ways to get your bearings in an unfamiliar table:</p>
+<ul>
+<li>Scroll through the rows or columns to see cell values. Pin a row or column so it stays in view while you scroll.</li>
+<li>Sort on a column by clicking its header.</li>
+<li>Filter to a subset with the filter controls in the table header.</li>
+<li>View summary statistics for each column in the expandable sidebar.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the <strong>Explorer</strong>, double-click <code>data/retail_sales.xlsx</code>. It opens in the Data Explorer as a table of retail orders.</p>
+<ol type="1">
+<li>Scroll down to get a feel for the roughly 9,800 rows.</li>
+<li>Pin the <code>order_id</code> column so it stays visible.</li>
+<li>Sort by <code>sales</code> to find the largest single order. On which date did it occur?</li>
+</ol>
+<p><strong>You will know it worked when</strong> you can name the two columns this analysis will need: <code>order_date</code> and <code>sales</code>.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-explorer.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="retail_sales.xlsx open in the Data Explorer with columns pinned and sorted"><img src="images/tutorial-python-ai-explorer.png" class="img-fluid figure-img" alt="The Positron Data Explorer showing a table of retail orders, with the order_id column pinned and the rows sorted by the sales column." width="600"></a></p>
+<figcaption><code>retail_sales.xlsx</code> open in the Data Explorer with columns pinned and sorted</figcaption>
+</figure>
+</div>
+</section>
+<section id="set-a-goal" class="level2">
+<h2 class="anchored" data-anchor-id="set-a-goal">Set a goal</h2>
+<p>Now that you know the data, here is the goal: aggregate the orders into total sales per quarter, then visualize the trend.</p>
+<p>To keep a reproducible record, you will express the work as Python code. That means the next step is to set Positron up to run Python for this project.</p>
+</section>
+<section id="set-up-a-reproducible-python-environment" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-a-reproducible-python-environment">Set up a reproducible Python environment</h2>
+<p>A virtual environment is a self-contained Python setup with its own packages. Let’s add one to this project so its dependencies stay separate from everything else on your computer. The <code>requirements.txt</code> in the workshop repository pins the exact versions the analysis needs, including the pandas, openpyxl, itables, and plotnine packages.</p>
+<p>You saw Positron offer to build this environment when the project opened. You can accept that notification anytime and it does the same thing as the steps below. Here you will run it from the Command Palette so you can see each choice.</p>
+<p>The <em>Python: Create Environment</em> command creates a virtual environment and, when it finds a <code>requirements.txt</code>, installs the packages listed there.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Run <em>Python: Create Environment</em> from the Command Palette.</li>
+<li>Choose <strong>venv</strong> (or <strong>uv</strong>, if it is available).</li>
+<li>Select a Python version when prompted. The latest stable version is a good default.</li>
+<li>When Positron asks which dependencies to install, select <code>requirements.txt</code>.</li>
+</ol>
+<p><strong>You will know it worked when</strong> a <code>.venv</code> folder appears in the <strong>Explorer</strong> and the packages from <code>requirements.txt</code> install without errors. The new environment also becomes the active interpreter, shown in the interpreter picker in the top right.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-environment.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="The new virtual environment shown as the active interpreter in the interpreter picker"><img src="images/tutorial-python-ai-environment.png" class="img-fluid figure-img" alt="Positron displaying the new environment as the active interpreter, shown in the interpreter picker in the top right."></a></p>
+<figcaption>The new virtual environment shown as the active interpreter in the interpreter picker</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If Positron does not pick up the environment, run <em>Interpreter: Discover All Interpreters</em> to refresh the list. See <a href="./python-installations.html">Python installations and environments</a> for the full set of options.</p>
+</div>
+</div>
+</section>
+<section id="configure-a-language-model-provider" class="level2">
+<h2 class="anchored" data-anchor-id="configure-a-language-model-provider">Configure a language model provider</h2>
+<p>You are set up to run Python reproducibly. Now let’s set up Positron to run a large language model (LLM).</p>
+<p>Posit Assistant is the AI assistant built into Positron. It does not include a language model of its own. Instead, it sends your prompt, along with context such as your open files and your session’s data, to a language model provider that you choose and sign in to. The provider runs the model and returns the response, which Posit Assistant shows in the chat. You can open Posit Assistant by clicking its icon in the activity bar or by running <em>View: Show Posit Assistant</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-assistant.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Posit Assistant open in the left sidebar"><img src="images/tutorial-python-ai-assistant.png" class="img-fluid figure-img" alt="Positron with Posit Assistant loaded in the left sidebar."></a></p>
+<figcaption>Posit Assistant open in the left sidebar</figcaption>
+</figure>
+</div>
+<p>To use Posit Assistant, you must first log in to a model provider with <em>Authentication: Configure Language Model Providers</em>. Posit Assistant lists every provider by default, but none is active until you authenticate with it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-configure-model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="The Configure Language Model Providers window"><img src="images/tutorial-python-ai-configure-model.png" class="img-fluid figure-img" alt="The Posit Assistant Configure Language Model Providers window." width="500"></a></p>
+<figcaption>The Configure Language Model Providers window</figcaption>
+</figure>
+</div>
+<p>Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, <a href="./assistant-providers.html#posit-ai">Posit AI</a> is the most direct way to get started. You can start a free trial at <a href="https://posit.ai/">posit.ai</a> and sign in through your browser, with no API keys to manage.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Run <em>Authentication: Configure Language Model Providers</em> from the Command Palette.</li>
+<li>Select your provider from the list.</li>
+<li>Complete the sign-in or credential step the provider asks for. The <a href="./assistant-providers.html">Language Model Providers</a> reference lists what each one needs.</li>
+</ol>
+<p><strong>You will know it worked when</strong> the provider shows as connected and you can open a chat with <em>View: Show Posit Assistant</em>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For notebook work, we recommend an <a href="./assistant-providers.html#anthropic">Anthropic</a> model for the best experience. You can connect it directly, or reach Anthropic models through Posit AI.</p>
+</div>
+</div>
+</section>
+<section id="ask-posit-assistant-to-write-the-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="ask-posit-assistant-to-write-the-analysis">Ask Posit Assistant to write the analysis</h2>
+<p>With a provider connected, describe the analysis in plain language and let Posit Assistant draft the code. A good request names three things:</p>
+<ul>
+<li>the files to work with</li>
+<li>the packages to use</li>
+<li>the outputs you want</li>
+</ul>
+<p>so the assistant knows what to do and how to do it.</p>
+<p>Before you send the request, predict what a correct answer looks like. You want the orders grouped by quarter, one row per quarter, and a chart with a bar and a line over the same quarterly totals. Holding that picture in mind makes it easy to judge whether the generated code did the right thing.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-chart.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="The quarterly sales chart you will ask Posit Assistant to build"><img src="images/tutorial-python-ai-chart.png" class="img-fluid figure-img" alt="A bar chart showing quarterly sales over time, with a superimposed line chart." width="500"></a></p>
+<figcaption>The quarterly sales chart you will ask Posit Assistant to build</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open Posit Assistant with <em>View: Show Posit Assistant</em> and send this request:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Read data/retail_sales.xlsx into a pandas DataFrame using openpyxl.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Parse order_date as a date and aggregate total sales by calendar quarter.</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Then:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>1. Show the quarterly totals as an interactive table with itables.</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>2. Plot quarterly sales as a plotnine bar chart with a line overlaying the same values.</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Run the code and show me the results.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Posit Assistant proposes code and, with your permission, runs it in your environment. Review each step before you approve it.</p>
+<p><strong>You will know it worked when</strong> you see an interactive table of quarterly totals and a bar-and-line chart of sales over time.</p>
+</div>
+</div>
+<p>Before it runs anything, Posit Assistant asks for permission. You can <strong>Accept</strong>, <strong>Decline</strong>, or reply with written instructions to adjust what it does.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-permission.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Posit Assistant asking permission to run code"><img src="images/tutorial-python-ai-permission.png" class="img-fluid figure-img" alt="A chat with Posit Assistant asking permission to run lines of code." width="400"></a></p>
+<figcaption>Posit Assistant asking permission to run code</figcaption>
+</figure>
+</div>
+<p>Your generated code will vary, but it will resemble this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itables <span class="im">import</span> show</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> ggplot, aes, geom_col, geom_line, labs</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">"data/retail_sales.xlsx"</span>, engine<span class="op">=</span><span class="st">"openpyxl"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"order_date"</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">"order_date"</span>])</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"quarter"</span>] <span class="op">=</span> df[<span class="st">"order_date"</span>].dt.to_period(<span class="st">"Q"</span>).astype(<span class="bu">str</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>quarterly <span class="op">=</span> df.groupby(<span class="st">"quarter"</span>, as_index<span class="op">=</span><span class="va">False</span>)[<span class="st">"sales"</span>].<span class="bu">sum</span>()</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>show(quarterly)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>(ggplot(quarterly, aes(x<span class="op">=</span><span class="st">"quarter"</span>, y<span class="op">=</span><span class="st">"sales"</span>, group<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> geom_col(fill<span class="op">=</span><span class="st">"#447099"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> geom_line(color<span class="op">=</span><span class="st">"#EE6331"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> labs(title<span class="op">=</span><span class="st">"Quarterly retail sales"</span>, x<span class="op">=</span><span class="st">"Quarter"</span>, y<span class="op">=</span><span class="st">"Sales"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-results.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="The interactive table and chart Posit Assistant generated"><img src="images/tutorial-python-ai-results.png" class="img-fluid figure-img" alt="The Positron IDE showing a chart in the chat and a table in the viewer sidebar."></a></p>
+<figcaption>The interactive table and chart Posit Assistant generated</figcaption>
+</figure>
+</div>
+<p>If a result looks off, say so in the same conversation. Posit Assistant keeps the context as it makes revisions, so you can steer it toward the picture you predicted rather than starting over.</p>
+</section>
+<section id="export-the-conversation-as-a-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="export-the-conversation-as-a-notebook">Export the conversation as a notebook</h2>
+<p>The analysis works, but right now it lives in a chat. To save it as a reproducible artifact, type <code>/notebook</code> into the chat to export the conversation as a Jupyter notebook. Posit Assistant collects the code from your conversation into a <code>.ipynb</code> file that you can rerun, edit, and commit.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the same conversation, type <code>/notebook</code> and send it. Posit Assistant exports the conversation’s code as a Jupyter notebook and opens it in the Positron Notebook Editor.</p>
+<p><strong>You will know it worked when</strong> a new <code>.ipynb</code> file opens with your analysis laid out in cells.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-notebook.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="The exported notebook open in the Positron Notebook Editor"><img src="images/tutorial-python-ai-notebook.png" class="img-fluid figure-img" alt="Positron in Notebook Layout mode with a notebook open."></a></p>
+<figcaption>The exported notebook open in the Positron Notebook Editor</figcaption>
+</figure>
+</div>
+<p>Check the kernel selector in the notebook’s action bar. The notebook runs on the <code>.venv</code> you created, so it uses the same pinned packages as the rest of the project. That is what makes the exported notebook reproducible rather than tied to whatever Python happened to be active.</p>
+</section>
+<section id="work-with-ai-inside-the-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="work-with-ai-inside-the-notebook">Work with AI inside the notebook</h2>
+<p>Posit Assistant is notebook-aware: Posit Assistant can see your cells, their outputs, and the order you ran them. That context powers a set of AI features you can reach without leaving the notebook. For the best view of them, run <em>View: Notebook Layout</em> to arrange the assistant, the notebook, and the Variables pane side by side, as in the previous screenshot.</p>
+<p>The notebook offers four AI entry points:</p>
+<ul>
+<li>The <strong>Notebook Assistant panel</strong>, opened from the robot icon above the notebook, shows which cells are in context and offers quick actions to explain, fix, or improve the notebook. <strong>Follow Assistant</strong> scrolls the notebook to each cell as Posit Assistant edits it, so you can watch changes land.</li>
+<li><strong>Fix</strong> and <strong>Explain</strong> buttons appear on any cell that errors, sending the failure straight to Posit Assistant.</li>
+<li>Ghost cell suggestions predict the next cell after you run one.</li>
+<li>Posit Assistant can edit the notebook when prompted from the chat.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-notebook-assistant.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="The Notebook Assistant panel, showing context cells, quick actions, and suggestions"><img src="images/tutorial-python-ai-notebook-assistant.png" class="img-fluid figure-img" alt="Notebook Assistant panel showing context cells, quick actions like Fix, Explain, and Improve, and AI-generated suggestions based on the notebook state."></a></p>
+<figcaption>The Notebook Assistant panel, showing context cells, quick actions, and suggestions</figcaption>
+</figure>
+</div>
+<p>The next two sections put two of these to work.</p>
+</section>
+<section id="fix-a-cell-error-with-one-click" class="level2">
+<h2 class="anchored" data-anchor-id="fix-a-cell-error-with-one-click">Fix a cell error with one click</h2>
+<p>Errors are a normal part of notebook work, and the fastest AI win is fixing one without copying the traceback anywhere. When a cell fails, Positron shows <strong>Fix</strong> and <strong>Explain</strong> buttons right on the error output. <strong>Fix</strong> sends the code and the error to Posit Assistant and proposes a corrected cell. <strong>Explain</strong> describes the cause without editing anything.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Introduce a small, deliberate error so you can practice the recovery. In any cell, misspell a column name, for example change <code>"sales"</code> to <code>"sale"</code>, and run it. When the cell fails:</p>
+<ol type="1">
+<li>Click <strong>Fix</strong> on the error output.</li>
+<li>Read the correction Posit Assistant proposes.</li>
+<li>Accept it and rerun the cell.</li>
+</ol>
+<p><strong>You will know it worked when</strong> Posit Assistant identifies the wrong column name, restores <code>"sales"</code>, and the cell runs cleanly.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-explain-error.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Posit Assistant explaining a cell error"><img src="images/tutorial-python-ai-explain-error.png" class="img-fluid figure-img" alt="A Posit Assistant chat that explains the cause of the error seen in the notebook beside it." width="600"></a></p>
+<figcaption>Posit Assistant explaining a cell error</figcaption>
+</figure>
+</div>
+</section>
+<section id="extend-the-notebook-with-a-ghost-cell" class="level2">
+<h2 class="anchored" data-anchor-id="extend-the-notebook-with-a-ghost-cell">Extend the notebook with a ghost cell</h2>
+<p>Ghost cell suggestions predict your next step after you run the final cell. A ghost cell appears below the current one with a suggested action you can accept, edit, or dismiss. The notebook proposes where to go next instead of waiting for a blank cell. Ghost cell suggestions are experimental and off by default, so you enable them first.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-ghost-cell.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="A ghost cell shown in grey with a dashed boundary"><img src="images/tutorial-python-ai-ghost-cell.png" class="img-fluid figure-img" alt="A notebook that displays a ghost cell below a regular cell." width="500"></a></p>
+<figcaption>A ghost cell shown in grey with a dashed boundary</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Run <em>Preferences: Open User Settings</em>.</li>
+<li>Search for <a href="positron://settings/positron.assistant.notebook.ghostCellSuggestions.enabled"><code>positron.assistant.notebook.ghostCellSuggestions.enabled</code></a> in the settings. Set it to <code>true</code>.</li>
+<li>Run the cell that builds your <code>quarterly</code> table.</li>
+<li>Wait for the ghost cell to appear below it. To trigger it yourself instead, disable <a href="positron://settings/positron.assistant.notebook.ghostCellSuggestions.automatic"><code>positron.assistant.notebook.ghostCellSuggestions.automatic</code></a> and press <kbd title="linux: Ctrl-Shift-G, mac: Command-Shift-G, windows: Ctrl-Shift-G" aria-hidden="true" data-linux="Ctrl-Shift-G" data-mac="Command-Shift-G" data-windows="Ctrl-Shift-G"></kbd><span class="visually-hidden"></span>.</li>
+<li>Accept a suggestion that adds something useful, such as the quarter with the highest sales, or edit it before accepting.</li>
+</ol>
+<p><strong>You will know it worked when</strong> a suggested cell appears in faded text and becomes a real, runnable cell once you accept it.</p>
+</div>
+</div>
+</section>
+<section id="turn-the-notebook-into-a-quarto-report" class="level2">
+<h2 class="anchored" data-anchor-id="turn-the-notebook-into-a-quarto-report">Turn the notebook into a Quarto report</h2>
+<p>A notebook is a great place to work, but when you want to share results as a document, a Quarto report is a better container. It can render the same code and prose to HTML, PDF, Word, and more, so one source can become whatever format your audience needs.</p>
+<p>The <code>/report</code> command in Posit Assistant creates a Quarto document from your conversation, the same way <code>/notebook</code> creates the Jupyter notebook.</p>
+<p>If you already have a Jupyter notebook that you want to convert to a Quarto document, you can convert it to Quarto with <em>Notebook: Convert to .qmd</em>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Run <em>Notebook: Convert to .qmd</em> from the Command Palette.</p>
+<p><strong>You will know it worked when</strong> a <code>.qmd</code> file opens containing your code and explanatory prose. Click <strong>Preview</strong> at the top of the file to render an HTML version of the report.</p>
+</div>
+</div>
+<p>You can also convert a notebook to a .qmd with the <strong>Convert to .qmd</strong> menu item.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-convert-to-qmd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="The Convert to .qmd item in the notebook menu"><img src="images/tutorial-python-ai-convert-to-qmd.png" class="img-fluid figure-img" alt="The Convert to .qmd item highlighted in the menu of the notebook pane." width="500"></a></p>
+<figcaption>The Convert to .qmd item in the notebook menu</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>New to the format? See <a href="./quarto.html">Quarto</a> for how Positron renders and previews <code>.qmd</code> files.</p>
+</div>
+</div>
+</section>
+<section id="convert-the-report-into-a-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="convert-the-report-into-a-dashboard">Convert the report into a dashboard</h2>
+<p>Quarto can render that same document as a dashboard, a layout of cards arranged in rows and columns, built for at-a-glance reading. Because the analysis is already Quarto, turning it into a dashboard is a change to how the content is laid out, not a rewrite. Ask Posit Assistant to make that change.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Try it now
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>With the <code>.qmd</code> open, ask Posit Assistant:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Convert this Quarto document into a dashboard with format: dashboard.</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Use a two-column layout, and add a toggle to switch between light and dark mode.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>When Posit Assistant has finished, press <strong>Preview</strong> to render the dashboard and preview it.</p>
+<p><strong>You will know it worked when</strong> the report renders as a two-column dashboard with a control to switch between light and dark themes. The dashboard appears as an HTML file saved in your project folder.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/tutorial-python-ai-dashboard.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="The finished dashboard"><img src="images/tutorial-python-ai-dashboard.png" class="img-fluid figure-img" alt="A two-column Quarto dashboard showing a quarterly sales table and a bar-and-line chart of sales over time, with a light and dark mode toggle."></a></p>
+<figcaption>The finished dashboard</figcaption>
+</figure>
+</div>
+</section>
+<section id="publish-your-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="publish-your-dashboard">Publish your dashboard</h2>
+<p>Your dashboard is a single file you can share several ways, all from inside Positron:</p>
+<ul>
+<li>Commit and push it with the Git client to store it in a repository like the one you cloned. See <a href="./git.html">Using Git in Positron</a>.</li>
+<li>Publish it to <a href="./publish-to-connect.html">Posit Connect</a> or to Posit Connect Cloud with the Publisher extension, which deploys the rendered dashboard to a server your colleagues can open in a browser.</li>
+</ul>
+</section>
+<section id="wrap-up" class="level2">
+<h2 class="anchored" data-anchor-id="wrap-up">Wrap up</h2>
+<p>You took one spreadsheet from raw data to a published dashboard, with AI as a collaborator. Along that path, you did the following:</p>
+<ul>
+<li>Explored <code>retail_sales.xlsx</code> in the Data Explorer and set a reproducible goal</li>
+<li>Built a virtual environment from <code>requirements.txt</code></li>
+<li>Configured a language model provider for Posit Assistant</li>
+<li>Had Posit Assistant write the quarterly aggregation, an itables table, and a plotnine chart</li>
+<li>Exported the conversation with <code>/notebook</code>, then fixed a cell and extended it with a ghost cell</li>
+<li>Turned the analysis into a Quarto report and reshaped it into a publishable dashboard</li>
+</ul>
+<p>Throughout, the AI drafted and the choices stayed yours: you reviewed each step, accepted or edited it, and kept a reproducible record you can rerun and share.</p>
+<p>From here, dig deeper into the tools you used:</p>
+<ul>
+<li><a href="./assistant.html">Posit Assistant</a></li>
+<li><a href="./positron-notebook-editor.html">Positron Notebook Editor</a></li>
+<li><a href="./assistant-completions.html">Completions</a></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Next steps
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To keep going, explore the <a href="./welcome.html">Guides</a> for in-depth documentation on everything Positron can do.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/positron\.posit\.co\/dailies");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./tutorial-migrate-from-RStudio.html" class="pagination-link" aria-label="Migrate from RStudio to Positron">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Migrate from RStudio to Positron</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://posit.co/">
+<p><img class="posit-footer-logo" alt="Posit" src="./images/posit-logo-black-TM.svg">Copyright © 2022-2026 Posit Software, PBC. All Rights Reserved.</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+<p>Positron 2026.09.0 (development version)</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/tutorial-ai-notebooks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/tutorial-ai-notebooks.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://support.posit.co/">
+<p>Support</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./licensing.html">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://posit.co/about/privacy-policy/">
+<p>Privacy Policy</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
