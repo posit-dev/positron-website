@@ -29,7 +29,7 @@ The dataset you will use lives in a GitHub repository, alongside a `requirements
 
 You can clone a repository without leaving Positron. The **New Folder from Git** option, available on the Welcome screen or from the Command Palette, clones a remote repository and opens it as your project.
 
-![The New Folder from Git helper in Positron.](images/tutorial-python-ai-git.png){fig-alt="The Positron IDE displaying the New Folder from Git wizard."}
+![The New Folder from Git helper in Positron](images/tutorial-python-ai-git.png){fig-alt="The Positron IDE displaying the New Folder from Git wizard."}
 
 ::: {.callout-tip title="Try it now"}
 Open the Command Palette with {{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}, run _Workspaces: New Folder from Git_, and paste the repository URL when prompted:
@@ -44,9 +44,9 @@ Choose a location, then open the cloned folder when Positron offers to.
 
 :::
 
-When the project opens, Positron detects the `requirements.txt` and offers, through a notification, to create an environment and install the packages for you. You can dismiss that notification for now. We will set the environment up deliberately in a later step so you can see what it does.
+When the project opens, Positron detects the `requirements.txt` and offers, through a notification, to create an environment and install the packages for you. For this tutorial, dismiss that notification by clicking **Not now** in the bottom right. We will set the environment up deliberately in a later step so you can see what it does.
 
-![Positron offers to create a new virtual environment when it detects a requirements.txt file in the project folder. For this tutorial, click **Not now** in the notification that appears in the bottom right.](images/tutorial-python-ai-notification.png){fig-alt="The new Positron window displaying a notification in the bottom right corner."}
+![Positron's notification offering to create a virtual environment from requirements.txt](images/tutorial-python-ai-notification.png){fig-alt="The new Positron window displaying a notification in the bottom right corner."}
 
 ## Explore the data in the Data Explorer
 
@@ -70,7 +70,7 @@ In the **Explorer**, double-click `data/retail_sales.xlsx`. It opens in the Data
 
 :::
 
-![`retail_sales.xlsx` open in the Data Explorer with columns pinned and sorted.](images/tutorial-python-ai-explorer.png){width=600 fig-alt="The Positron Data Explorer showing a table of retail orders, with the order_id column pinned and the rows sorted by the sales column."}
+![`retail_sales.xlsx` open in the Data Explorer with columns pinned and sorted](images/tutorial-python-ai-explorer.png){width=600 fig-alt="The Positron Data Explorer showing a table of retail orders, with the order_id column pinned and the rows sorted by the sales column."}
 
 ## Set a goal
 
@@ -96,7 +96,7 @@ The _Python: Create Environment_ command creates a virtual environment and, when
 
 :::
 
-![Positron makes the new virtual environment the active interpreter, as shown in the interpreter picker at the top of the IDE.](images/tutorial-python-ai-environment.png){fig-alt="Positron displaying the new environment as the active interpreter, shown in the interpreter picker in the top right."}
+![The new virtual environment shown as the active interpreter in the interpreter picker](images/tutorial-python-ai-environment.png){fig-alt="Positron displaying the new environment as the active interpreter, shown in the interpreter picker in the top right."}
 
 ::: {.callout-note}
 If Positron does not pick up the environment, run _Interpreter: Discover All Interpreters_ to refresh the list. See [Python installations and environments](python-installations.qmd) for the full set of options.
@@ -106,13 +106,13 @@ If Positron does not pick up the environment, run _Interpreter: Discover All Int
 
 You are set up to run Python reproducibly. Now let's set up Positron to run a large language model (LLM).
 
-Posit Assistant is the AI assistant built into Positron. It does not include a language model of its own. Instead, it sends your prompt, along with context such as your open files and your session's data, to a language model provider that you choose and sign in to. The provider runs the model and returns the response, which Posit Assistant shows in the chat. 
+Posit Assistant is the AI assistant built into Positron. It does not include a language model of its own. Instead, it sends your prompt, along with context such as your open files and your session's data, to a language model provider that you choose and sign in to. The provider runs the model and returns the response, which Posit Assistant shows in the chat. You can open Posit Assistant by clicking its icon in the activity bar or by running _View: Show Posit Assistant_.
 
-![Access Posit Assistant by clicking the Posit Assistant icon in the activity bar or by running _View: Show Posit Assistant_.](images/tutorial-python-ai-assistant.png){fig-alt="Positron with Posit Assistant loaded in the left sidebar."}
+![Posit Assistant open in the left sidebar](images/tutorial-python-ai-assistant.png){fig-alt="Positron with Posit Assistant loaded in the left sidebar."}
 
 To use Posit Assistant, you must first log in to a model provider with _Authentication: Configure Language Model Providers_. Posit Assistant lists every provider by default, but none is active until you authenticate with it.
 
-![Select a model provider to sign in to from the Configure Language Model Providers window.](images/tutorial-python-ai-configure-model.png){width=500 fig-alt="The Posit Assistant Configure Language Model Providers window."}
+![The Configure Language Model Providers window](images/tutorial-python-ai-configure-model.png){width=500 fig-alt="The Posit Assistant Configure Language Model Providers window."}
 
 Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, [Posit AI](assistant-providers.qmd#posit-ai) is the most direct way to get started. You can start a free trial at [posit.ai](https://posit.ai/) and sign in through your browser, with no API keys to manage.
 
@@ -140,7 +140,7 @@ so the assistant knows what to do and how to do it.
 
 Before you send the request, predict what a correct answer looks like. You want the orders grouped by quarter, one row per quarter, and a chart with a bar and a line over the same quarterly totals. Holding that picture in mind makes it easy to judge whether the generated code did the right thing.
 
-![Ask Posit Assistant to visualize `retail_sales.xlsx` like this.](images/tutorial-python-ai-chart.png){width=500 fig-alt="A bar chart showing quarterly sales over time, with a superimposed line chart."}
+![The quarterly sales chart you will ask Posit Assistant to build](images/tutorial-python-ai-chart.png){width=500 fig-alt="A bar chart showing quarterly sales over time, with a superimposed line chart."}
 
 ::: {.callout-tip title="Try it now"}
 Open Posit Assistant with _View: Show Posit Assistant_ and send this request:
@@ -160,7 +160,9 @@ Posit Assistant proposes code and, with your permission, runs it in your environ
 
 :::
 
-![Posit Assistant asks permission to run code on your computer. Accept, Decline, or give it written instructions.](images/tutorial-python-ai-permission.png){width=400 fig-alt="A chat with Posit Assistant asking permission to run lines of code."}
+Before it runs anything, Posit Assistant asks for permission. You can **Accept**, **Decline**, or reply with written instructions to adjust what it does.
+
+![Posit Assistant asking permission to run code](images/tutorial-python-ai-permission.png){width=400 fig-alt="A chat with Posit Assistant asking permission to run lines of code."}
 
 Your generated code will vary, but it will resemble this:
 
@@ -183,7 +185,7 @@ show(quarterly)
  + labs(title="Quarterly retail sales", x="Quarter", y="Sales"))
 ```
 
-![Posit Assistant runs code in your IDE to make the interactive table and chart.](images/tutorial-python-ai-results.png){fig-alt="The Positron IDE showing a chart in the chat and a table in the viewer sidebar."}
+![The interactive table and chart Posit Assistant generated](images/tutorial-python-ai-results.png){fig-alt="The Positron IDE showing a chart in the chat and a table in the viewer sidebar."}
 
 If a result looks off, say so in the same conversation. Posit Assistant keeps the context as it makes revisions, so you can steer it toward the picture you predicted rather than starting over.
 
@@ -197,7 +199,7 @@ In the same conversation, type `/notebook` and send it. Posit Assistant exports 
 **You will know it worked when** a new `.ipynb` file opens with your analysis laid out in cells.
 :::
 
-![Posit Assistant writes the code in your chat to a .ipynb file when you run `/notebook`.](images/tutorial-python-ai-notebook.png){fig-alt="Positron in Notebook Layout mode with a notebook open."}
+![The exported notebook open in the Positron Notebook Editor](images/tutorial-python-ai-notebook.png){fig-alt="Positron in Notebook Layout mode with a notebook open."}
 
 Check the kernel selector in the notebook's action bar. The notebook runs on the `.venv` you created, so it uses the same pinned packages as the rest of the project. That is what makes the exported notebook reproducible rather than tied to whatever Python happened to be active.
 
@@ -207,12 +209,12 @@ Posit Assistant is notebook-aware: Posit Assistant can see your cells, their out
 
 The notebook offers four AI entry points:
 
-- The **Notebook Assistant panel**, opened from the **Assistant** button in the action bar, shows which cells are in context and offers quick actions to explain, fix, or improve the notebook. **Follow Assistant** scrolls the notebook to each cell as Posit Assistant edits it, so you can watch changes land.
+- The **Notebook Assistant panel**, opened from the robot icon above the notebook, shows which cells are in context and offers quick actions to explain, fix, or improve the notebook. **Follow Assistant** scrolls the notebook to each cell as Posit Assistant edits it, so you can watch changes land.
 - **Fix** and **Explain** buttons appear on any cell that errors, sending the failure straight to Posit Assistant.
 - Ghost cell suggestions predict the next cell after you run one.
 - Posit Assistant can edit the notebook when prompted from the chat.
 
-![Click the robot icon above the notebook to access the Notebook Assistant panel. The Notebook Assistant panel shows the cells in context, quick actions to fix, explain, or improve the notebook, and generated suggestions. ](images/tutorial-python-ai-notebook-assistant.png){fig-alt="Notebook Assistant panel showing context cells, quick actions like Fix, Explain, and Improve, and AI-generated suggestions based on the notebook state."}
+![The Notebook Assistant panel, showing context cells, quick actions, and suggestions](images/tutorial-python-ai-notebook-assistant.png){fig-alt="Notebook Assistant panel showing context cells, quick actions like Fix, Explain, and Improve, and AI-generated suggestions based on the notebook state."}
 
 The next two sections put two of these to work.
 
@@ -231,13 +233,13 @@ Introduce a small, deliberate error so you can practice the recovery. In any cel
 
 :::
 
-![Click Fix or Explain when a cell returns an error to ask Posit Assistant for help.](images/tutorial-python-ai-explain-error.png){width=600 fig-alt="A Posit Assistant chat that explains the cause of the error seen in the notebook beside it."}
+![Posit Assistant explaining a cell error](images/tutorial-python-ai-explain-error.png){width=600 fig-alt="A Posit Assistant chat that explains the cause of the error seen in the notebook beside it."}
 
 ## Extend the notebook with a ghost cell
 
 Ghost cell suggestions predict your next step after you run the final cell. A ghost cell appears below the current one with a suggested action you can accept, edit, or dismiss. The notebook proposes where to go next instead of waiting for a blank cell. Ghost cell suggestions are experimental and off by default, so you enable them first.
 
-![Ghost cells appear in grey with a dashed cell boundary.](images/tutorial-python-ai-ghost-cell.png){width=500 fig-alt="A notebook that displays a ghost cell below a regular cell."}
+![A ghost cell shown in grey with a dashed boundary](images/tutorial-python-ai-ghost-cell.png){width=500 fig-alt="A notebook that displays a ghost cell below a regular cell."}
 
 ::: {.callout-tip title="Try it now"}
 1. Run _Preferences: Open User Settings_.
@@ -265,7 +267,9 @@ Run _Notebook: Convert to .qmd_ from the Command Palette.
 **You will know it worked when** a `.qmd` file opens containing your code and explanatory prose. Click **Preview** at the top of the file to render an HTML version of the report.
 :::
 
-![You can also convert a notebook to a .qmd with the **Convert to .qmd** menu item.](images/tutorial-python-ai-convert-to-qmd.png){width=500 fig-alt="The Convert to .qmd item highlighted in the menu of the notebook pane."}
+You can also convert a notebook to a .qmd with the **Convert to .qmd** menu item.
+
+![The Convert to .qmd item in the notebook menu](images/tutorial-python-ai-convert-to-qmd.png){width=500 fig-alt="The Convert to .qmd item highlighted in the menu of the notebook pane."}
 
 ::: {.callout-note}
 New to the format? See [Quarto](quarto.qmd) for how Positron renders and previews `.qmd` files.
@@ -289,7 +293,7 @@ When Posit Assistant has finished, press **Preview** to render the dashboard and
 
 :::
 
-![The finished dashboard.](images/tutorial-python-ai-dashboard.png){fig-alt="A two-column Quarto dashboard showing a quarterly sales table and a bar-and-line chart of sales over time, with a light and dark mode toggle."}
+![The finished dashboard](images/tutorial-python-ai-dashboard.png){fig-alt="A two-column Quarto dashboard showing a quarterly sales table and a bar-and-line chart of sales over time, with a light and dark mode toggle."}
 
 ## Publish your dashboard
 
