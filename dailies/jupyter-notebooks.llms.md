@@ -2,7 +2,7 @@
 
 Work with Jupyter Notebooks in Positron with built-in support for Python and R. No extra dependencies needed as notebooks integrate seamlessly with the IDE.
 
-[Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/notebook.llms.md) offer a flexible, interactive UI for combining code, prose, and visualizations.
+[Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html) offer a flexible, interactive UI for combining code, prose, and visualizations.
 
 Positron enhances Jupyter Notebooks in several key ways:
 

@@ -10,7 +10,7 @@ August 4, 2025
 
 #### Positron Assistant 🤖
 
-[Positron Assistant](https://positron.posit.co/assistant.llms.md), our AI client currently in preview, has received several updates in this release. We have made changes to reduce token usage, added an experimental git integration, and added new tools that the Assistant can use (for example, to create documents, view documentation, or to get info on your rectangular data). You can also now control Assistant’s access to data in your Python and R sessions. If you have a problem with the Assistant that you want to report, use the commands that begin *Positron Assistant: Export the current chat* to export your logs.
+[Positron Assistant](https://positron.posit.co/assistant.html), our AI client currently in preview, has received several updates in this release. We have made changes to reduce token usage, added an experimental git integration, and added new tools that the Assistant can use (for example, to create documents, view documentation, or to get info on your rectangular data). You can also now control Assistant’s access to data in your Python and R sessions. If you have a problem with the Assistant that you want to report, use the commands that begin *Positron Assistant: Export the current chat* to export your logs.
 
 #### New keybinding ⌨️
 

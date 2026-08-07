@@ -30,7 +30,7 @@ All R code receives some basic formatting when you type EnterEnter, but this fir
 
 > **NOTE:**
 >
-> You can use special comments to tell Air to [skip formatting specific sections of code](https://posit-dev.github.io/air/formatter.llms.md#skip-comments), if you don’t want to apply Air’s strict formatting rules in a specific situation.
+> You can use special comments to tell Air to [skip formatting specific sections of code](https://posit-dev.github.io/air/formatter.html#skip-comments), if you don’t want to apply Air’s strict formatting rules in a specific situation.
 
 ## Opt in to “Format on save”
 
@@ -56,4 +56,4 @@ Here is what `.vscode/settings.json` might look like for someone who wants their
 }
 ```
 
-To learn more about using Air, read its documentation for [Positron and VS Code](https://posit-dev.github.io/air/editor-vscode.llms.md).
+To learn more about using Air, read its documentation for [Positron and VS Code](https://posit-dev.github.io/air/editor-vscode.html).

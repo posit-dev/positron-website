@@ -14,7 +14,7 @@ The [2026.04.1 patch release](https://github.com/posit-dev/positron/releases/tag
 
 #### Positron Server for academic use via JupyterHub 🎓
 
-Academic institutions can now offer Positron Server to their students at no cost through JupyterHub. If your institution already runs JupyterHub, you can add Positron as a launcher option alongside JupyterLab, with no additional infrastructure required. Students simply log in and select Positron from the launcher, getting the full Positron experience including rich Python and R support, the extension marketplace, and (optionally) Positron Assistant. To get started, review the [eligibility criteria](https://positron.posit.co/faqs.llms.md#how-can-i-use-positron-in-an-educational-setting) and send an email to <academic-licenses@posit.co> to request a free teaching license.
+Academic institutions can now offer Positron Server to their students at no cost through JupyterHub. If your institution already runs JupyterHub, you can add Positron as a launcher option alongside JupyterLab, with no additional infrastructure required. Students simply log in and select Positron from the launcher, getting the full Positron experience including rich Python and R support, the extension marketplace, and (optionally) Positron Assistant. To get started, review the [eligibility criteria](https://positron.posit.co/faqs.html#how-can-i-use-positron-in-an-educational-setting) and send an email to <academic-licenses@posit.co> to request a free teaching license.
 
 #### Positron Notebook Editor improvements 📓
 

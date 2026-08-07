@@ -253,7 +253,7 @@ You can also [create your own extensions](extension-development.llms.md) with Ty
 
 ## Run your RStudio addins
 
-Positron supports most [RStudio addins](https://rstudio.github.io/rstudio-extensions/rstudio_addins.llms.md) through shims for the [rstudioapi](https://rstudio.github.io/rstudioapi/) package. To run one, open the Command Palette and run *R: Run RStudio Addin*. For example, with the [reprex](https://reprex.tidyverse.org/) package installed, you can launch its addin to build a reproducible example.
+Positron supports most [RStudio addins](https://rstudio.github.io/rstudio-extensions/rstudio_addins.html) through shims for the [rstudioapi](https://rstudio.github.io/rstudioapi/) package. To run one, open the Command Palette and run *R: Run RStudio Addin*. For example, with the [reprex](https://reprex.tidyverse.org/) package installed, you can launch its addin to build a reproducible example.
 
 # Know the gaps
 

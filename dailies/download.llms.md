@@ -16,7 +16,7 @@ By downloading and using Positron, you agree to the Positron [license agreement]
 
 ####  macOS 11.0+
 
-Apple Silicon  
+Apple Silicon\
 (M-series)
 
 [ 1007M](https://cdn.posit.co/positron/releases/mac/arm64/Positron-2026.08.0-331-arm64.dmg)

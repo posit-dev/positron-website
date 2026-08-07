@@ -38,7 +38,7 @@ A few examples of these integration points include Positron’s:
 
 All of that Positron-specific context is in addition to the core capabilities of what traditional software-oriented GenAI clients have (active files, selected lines of code, files in project, training data in the model, etc).
 
-For more information please see the [Positron Assistant](https://positron.posit.co/assistant.llms.md) section of the user guide.
+For more information please see the [Positron Assistant](https://positron.posit.co/assistant.html) section of the user guide.
 
 ### Changelog
 
