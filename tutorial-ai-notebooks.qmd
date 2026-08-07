@@ -253,7 +253,7 @@ Ghost cell suggestions predict your next step after you run the final cell. A gh
 
 ## Turn the notebook into a Quarto report
 
-A notebook is a great place to work, but when you want to share results as a document, a Quarto report is a better container. It renders the same code and prose to HTML, PDF, Word, and more, so one source can become whatever format your audience needs.
+A notebook is a great place to work, but when you want to share results as a document, a Quarto report is a better container. It can render the same code and prose to HTML, PDF, Word, and more, so one source can become whatever format your audience needs.
 
 The `/report` command in Posit Assistant creates a Quarto document from your conversation, the same way `/notebook` creates the Jupyter notebook.
 
