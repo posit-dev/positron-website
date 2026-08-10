@@ -1,8 +1,4 @@
-### Patch notes
-
-The [2026.08.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.08.1-2) (2026-08-10) fixes problems with autoupdating on Windows.
-
-### Release highlights
+### Highlights
 
 Welcome to the 2026.08.0 release of Positron!
 
