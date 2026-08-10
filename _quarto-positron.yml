@@ -66,15 +66,15 @@ website:
             icon: linkedin
             href: https://www.linkedin.com/showcase/positron-ide/
             target: _blank
-          - text: "Positron on posit.co"
-            icon: laptop
-            href: https://posit.co/products/ide/positron
-            target: _blank
           - text: "Events"
             icon: calendar-event
             href: https://posit.co/events/?search=positron&poststatus=all
             target: _blank
-      
+          - text: "More Posit products"
+            icon: laptop
+            href: https://posit.co/products/
+            target: _blank
+
     right:
       - text: "<span id='top-bar-download-btn' class='btn btn-primary'>Download</span>"
         href: download.qmd
