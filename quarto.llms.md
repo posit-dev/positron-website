@@ -15,11 +15,11 @@ Positron enhances how you can use Quarto in several important ways:
 
 A Quarto document in Positron, with narrative, executable code chunks, and the rendered preview in Positron’s integrated Viewer pane.
 
-Learn more in the Quarto documentation about [getting started with Quarto and Positron](https://quarto.org/docs/get-started/hello/positron.llms.md), or [the details of using Positron as a tool for working with Quarto](https://quarto.org/docs/tools/positron/).
+Learn more in the Quarto documentation about [getting started with Quarto and Positron](https://quarto.org/docs/get-started/hello/positron.html), or [the details of using Positron as a tool for working with Quarto](https://quarto.org/docs/tools/positron/).
 
 > **NOTE:**
 >
-> Quarto’s [visual editor](https://quarto.org/docs/tools/positron/visual-editor.llms.md) has limited support in Positron. It is a great fit for rich text authoring, but statement execution and other language features are not supported. Consider switching to source mode when you need such features, and [follow along on GitHub for updates](https://github.com/posit-dev/positron/issues/1805) on this support.
+> Quarto’s [visual editor](https://quarto.org/docs/tools/positron/visual-editor.html) has limited support in Positron. It is a great fit for rich text authoring, but statement execution and other language features are not supported. Consider switching to source mode when you need such features, and [follow along on GitHub for updates](https://github.com/posit-dev/positron/issues/1805) on this support.
 
 ## Support for R Markdown
 
@@ -28,7 +28,7 @@ Quarto provides Positron’s support for [R Markdown](https://rmarkdown.rstudio.
 Positron’s [Command Palette](command-palette.llms.md) does provide commands for working with R Markdown:
 
 - *R: Render Document With R Markdown* renders an `.Rmd` file using the R package [rmarkdown](https://pkgs.rstudio.com/rmarkdown/) instead of Quarto. This approach *does* support all `.Rmd` features but does *not* automatically open a preview of the rendered output.
-- *R: New R Markdown from Template* creates a new `.Rmd` file from an [R Markdown template](https://rstudio.github.io/rstudio-extensions/rmarkdown_templates.llms.md) available in an installed R package, such as the GitHub flavored markdown template or the flexdashboard templates.
+- *R: New R Markdown from Template* creates a new `.Rmd` file from an [R Markdown template](https://rstudio.github.io/rstudio-extensions/rmarkdown_templates.html) available in an installed R package, such as the GitHub flavored markdown template or the flexdashboard templates.
 
 ## Using the Quarto extension
 

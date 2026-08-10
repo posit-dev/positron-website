@@ -19,22 +19,22 @@ Get answers to common questions about Positron: supported languages, RStudio dif
 
 ### How can I use Positron with a server?
 
-- Positron is available as a free desktop app for Windows, MacOS, and Linux. This desktop app includes [support for remote SSH sessions](remote-ssh.llms.md), allowing you to connect to remote Linux servers for scaling or data access purposes.  
+- Positron is available as a free desktop app for Windows, MacOS, and Linux. This desktop app includes [support for remote SSH sessions](remote-ssh.llms.md), allowing you to connect to remote Linux servers for scaling or data access purposes.\
 - The native browser or server-based version of Positron is only available via [Posit Workbench](https://posit.co/products/enterprise/workbench/). Posit Workbench provides enterprise-grade features such as access to highly scalable compute, single-sign on security, native authorization to data governance tools such as Databricks or Snowflake, container-backed sessions, multi-session capabilities, and more.
-- Remote SSH and Posit Workbench features are supported on RHEL 8, 9, and 10 and Ubuntu 22/24. However, we plan to expand this set of Linux distributions. Full Posit Team platform support is available on the [Posit Platform Support page](https://docs.posit.co/platform-support.llms.md#positron-pro-sessions-in-workbench).
+- Remote SSH and Posit Workbench features are supported on RHEL 8, 9, and 10 and Ubuntu 22/24. However, we plan to expand this set of Linux distributions. Full Posit Team platform support is available on the [Posit Platform Support page](https://docs.posit.co/platform-support.html#positron-pro-sessions-in-workbench).
 
 ### Why build a new IDE rather than VS Code extensions?
 
 - Our aspirations for Positron go far beyond what is possible via only extensions. Ultimately, VS Code’s Extension API doesn’t provide enough leverage to modify the main “workbench” surface.
-- To deliver a truly excellent data science experience, we need to change and augment core components and UI elements that are outside the scope of VS Code’s extension API.  
+- To deliver a truly excellent data science experience, we need to change and augment core components and UI elements that are outside the scope of VS Code’s extension API.\
 - We have developed some components as extensions for use in both Positron and VS Code, such as Quarto and Shiny for R/Python. However, given the additional API surface in Positron, we plan to progressively enhance these and future extensions when installed in Positron.
 
 ### Is RStudio going away?
 
-- No, we are committed to maintaining and updating RStudio. RStudio is very mature, stable software, and we intend to prioritize security, stability, priority bug fixes, and targeted improvements over an emphasis on sweeping novel feature development. Given our opportunity to make progress in parallel on a new platform, the bulk of large-scale, new features will go into Positron.  
-- We are developing Positron as part of our mission to support open-source data science in multiple languages, including R and Python.  
-- If you are new to R or RStudio, we recommend starting with Positron. However, if you’re currently using RStudio and are happy with the experience, you can continue to enjoy RStudio. RStudio includes 10+ years of applied optimizations for R data analysis and package development.  
+- No, we are committed to maintaining and updating RStudio. RStudio is very mature, stable software, and we intend to prioritize security, stability, priority bug fixes, and targeted improvements over an emphasis on sweeping novel feature development. Given our opportunity to make progress in parallel on a new platform, the bulk of large-scale, new features will go into Positron.\
+- We are developing Positron as part of our mission to support open-source data science in multiple languages, including R and Python.\
+- If you are new to R or RStudio, we recommend starting with Positron. However, if you’re currently using RStudio and are happy with the experience, you can continue to enjoy RStudio. RStudio includes 10+ years of applied optimizations for R data analysis and package development.\
 - While Positron and RStudio have some features in common, some R-focused features will remain exclusive to RStudio. For example:
-  - RStudio has deeper support for Sweave and R Markdown compared to our targeted focus on Quarto in Positron, although Positron does support rendering R Markdown documents as well.  
-  - RStudio is extensible only via RStudio add-ins, and while Positron supports some of the same, existing RStudio add-ins, not all are supported. Rather than doubling down on the more limited RStudio add-in capabilities for novel integrations, we suggest exploring [extension development and our Positron API endpoints](extension-development.llms.md).  
+  - RStudio has deeper support for Sweave and R Markdown compared to our targeted focus on Quarto in Positron, although Positron does support rendering R Markdown documents as well.\
+  - RStudio is extensible only via RStudio add-ins, and while Positron supports some of the same, existing RStudio add-ins, not all are supported. Rather than doubling down on the more limited RStudio add-in capabilities for novel integrations, we suggest exploring [extension development and our Positron API endpoints](extension-development.llms.md).\
   - We do *not* plan to have a `.Rproj` equivalent for Positron (e.g., a `.positronproj`), but rather Positron can open and treat any folder as a “project” or workspace. We still suggest project-oriented workflows, and for more context, please see: [Migrating from RStudio: The Rproj File](migrate-rstudio-rproj.llms.md).

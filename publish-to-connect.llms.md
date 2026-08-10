@@ -12,7 +12,7 @@ The [Posit Publisher extension](https://open-vsx.org/extension/posit/publisher) 
 
 ## What you can publish
 
-[Connect](https://docs.posit.co/connect/user/publishing-positron-vscode/) and [Connect Cloud](https://docs.posit.co/connect-cloud/user/publish/ide.llms.md) support many of the most popular Python and R frameworks such as Shiny, Dash, Gradio, Streamlit, Bokeh, Quarto, R Markdown, Jupyter Notebook, FastAPI, Flask, Plumber, and more.
+[Connect](https://docs.posit.co/connect/user/publishing-positron-vscode/) and [Connect Cloud](https://docs.posit.co/connect-cloud/user/publish/ide.html) support many of the most popular Python and R frameworks such as Shiny, Dash, Gradio, Streamlit, Bokeh, Quarto, R Markdown, Jupyter Notebook, FastAPI, Flask, Plumber, and more.
 
 For a full list of supported project types, view the [Publisher documentation](https://github.com/posit-dev/publisher/blob/main/docs/configuration.md).
 
@@ -20,11 +20,11 @@ For a full list of supported project types, view the [Publisher documentation](h
 
 Once your project is ready for publication, you can publish directly from Positron. Follow the steps outlined based your deployment target:
 
-- Publishing with [Connect Cloud](https://docs.posit.co/connect-cloud/user/publish/ide.llms.md)
+- Publishing with [Connect Cloud](https://docs.posit.co/connect-cloud/user/publish/ide.html)
 - Publishing with [Connect](https://docs.posit.co/connect/user/publishing-positron-vscode/)
 
 ## Getting help
 
-- See the [troubleshooting guide](https://posit-dev.github.io/publisher/troubleshooting.llms.md) for the Publisher extension.
+- See the [troubleshooting guide](https://posit-dev.github.io/publisher/troubleshooting.html) for the Publisher extension.
 - Review the [Publisher extension repository](https://github.com/posit-dev/publisher) for updates and issues.
 - Check out both the [Posit Connect documentation](https://docs.posit.co/connect/) and the [Posit Connect Cloud documentation](https://docs.posit.co/connect-cloud/).

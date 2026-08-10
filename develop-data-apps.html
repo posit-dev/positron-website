@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.23">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -38,15 +41,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f3c135505f33e53fe344bb8386717ef.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a8d28592f0d0500d0f95d66d5745551e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4baa764f875b246559963e1eef64b3c8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
@@ -88,6 +90,13 @@ ul.task-list li input[type="checkbox"] {
 <meta property="og:image:alt" content="Editor action bar with the Play button highlighted in a red box, showing a Python Streamlit file open in the Editor.">
 <meta property="og:image:height" content="1400">
 <meta property="og:image:width" content="2040">
+<meta name="twitter:title" content="Develop Data Apps – Positron">
+<meta name="twitter:description" content="Build and preview Shiny, Streamlit, Dash, FastAPI, and Flask apps in Positron. Launch with one click of the Play button, or use our debugging support.">
+<meta name="twitter:image" content="https://positron.posit.co/images/run-app-button.png">
+<meta name="twitter:image:alt" content="Editor action bar with the Play button highlighted in a red box, showing a Python Streamlit file open in the Editor.">
+<meta name="twitter:image-height" content="1400">
+<meta name="twitter:image-width" content="2040">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -1396,7 +1405,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.08.0-331</p>
+<p>Positron 2026.08.1-2</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/develop-data-apps.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/develop-data-apps.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

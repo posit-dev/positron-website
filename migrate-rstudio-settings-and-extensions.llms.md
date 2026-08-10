@@ -103,9 +103,9 @@ Positron provides shims for much of the functionality available via the [rstudio
 
 > **NOTE:**
 >
-> Because Positron provides shims for rstudioapi functions, Positron supports running many [RStudio addins](https://rstudio.github.io/rstudio-extensions/rstudio_addins.llms.md) provided by R packages you have installed. Open the [Command Palette](command-palette.llms.md) and run *R: Run RStudio Addin* to see a list of available addins, grouped by package, and execute one directly. For example, with the [reprex](https://reprex.tidyverse.org/) package installed, you can launch its addin to create a reproducible example.
+> Because Positron provides shims for rstudioapi functions, Positron supports running many [RStudio addins](https://rstudio.github.io/rstudio-extensions/rstudio_addins.html) provided by R packages you have installed. Open the [Command Palette](command-palette.llms.md) and run *R: Run RStudio Addin* to see a list of available addins, grouped by package, and execute one directly. For example, with the [reprex](https://reprex.tidyverse.org/) package installed, you can launch its addin to create a reproducible example.
 
-You can also [create your own extensions](extension-development.llms.md) for Positron. This is a powerful way to add custom functionality or integrate with other tools and services. Creating an extension is more involved than creating an [RStudio addin](https://docs.posit.co/ide/user/ide/guide/productivity/add-ins.llms.md) and does require some knowledge of TypeScript/JavaScript, but extensions can customize the behavior of Positron in ways that have never been possible for RStudio.
+You can also [create your own extensions](extension-development.llms.md) for Positron. This is a powerful way to add custom functionality or integrate with other tools and services. Creating an extension is more involved than creating an [RStudio addin](https://docs.posit.co/ide/user/ide/guide/productivity/add-ins.html) and does require some knowledge of TypeScript/JavaScript, but extensions can customize the behavior of Positron in ways that have never been possible for RStudio.
 
 For a general approach to detect if your R code is running inside Positron, use `Sys.getenv("POSITRON")`.
 

@@ -6,7 +6,7 @@ Expert data scientists keep all the files associated with a given project togeth
 
 ## The Rproj file in RStudio
 
-In RStudio, you can designate the folder for a particular project (lowercase “p”) as an [RStudio Project](https://docs.posit.co/ide/user/ide/guide/code/projects.llms.md) (uppercase “P”). Concretely, this means that RStudio places a special file in that folder, where it stores Project-specific settings. This file is usually named after the Project and has the `.Rproj` extension, so we’re going to refer to them as Rproj files here. For example, the source of the dplyr R package is kept in a folder named `dplyr` and, inside of that, is the `dplyr.Rproj` file.
+In RStudio, you can designate the folder for a particular project (lowercase “p”) as an [RStudio Project](https://docs.posit.co/ide/user/ide/guide/code/projects.html) (uppercase “P”). Concretely, this means that RStudio places a special file in that folder, where it stores Project-specific settings. This file is usually named after the Project and has the `.Rproj` extension, so we’re going to refer to them as Rproj files here. For example, the source of the dplyr R package is kept in a folder named `dplyr` and, inside of that, is the `dplyr.Rproj` file.
 
 Positron does not place anything that functions exactly like an Rproj file and the purpose of this guide to explore the implications of this.
 

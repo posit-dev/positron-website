@@ -33,9 +33,9 @@ Posit AI is Posit’s own hosted service, so Posit’s own policies apply rather
 
 ### DeepSeek
 
-- [Privacy Policy](https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.llms.md)
-- [Terms of Use](https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.llms.md)
-- [Open Platform Terms of Service](https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.llms.md)
+- [Privacy Policy](https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html)
+- [Terms of Use](https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html)
+- [Open Platform Terms of Service](https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html)
 
 ### Gemini Enterprise Agent Platform
 

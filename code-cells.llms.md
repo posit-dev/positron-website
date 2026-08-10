@@ -52,7 +52,7 @@ head(penguins)
 aggregate(body_mass_g ~ species, data = penguins, FUN = mean)
 ```
 
-A [section header comment](https://docs.posit.co/ide/user/ide/guide/code/code-sections.llms.md) such as `# Load data ----` ends the current cell, so you can combine code sections and code cells in the same script.
+A [section header comment](https://docs.posit.co/ide/user/ide/guide/code/code-sections.html) such as `# Load data ----` ends the current cell, so you can combine code sections and code cells in the same script.
 
 ### Custom cell delimiters
 

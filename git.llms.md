@@ -9,7 +9,7 @@ Git is a powerful version control system that helps you track changes to your co
 Git is a distributed version control system that tracks changes in your files over time. It allows you to:
 
 - Keep a complete history of your project
-- Work on different features simultaneously using branches  
+- Work on different features simultaneously using branches\
 - Collaborate with others on the same codebase
 - Revert to previous versions when needed
 - Merge changes from different contributors

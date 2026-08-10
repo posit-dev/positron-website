@@ -56,7 +56,7 @@ To sort columns in the summary panel, select one of the following options from t
 
 - **Sort by original:** Display columns in their original order
 - **Sort by name, ascending:** Sort column names A to Z
-- **Sort by name, descending:** Sort column names Z to A  
+- **Sort by name, descending:** Sort column names Z to A\
 - **Sort by type, ascending:** Sort data types alphabetically (float, integer, string)
 - **Sort by type, descending:** Sort data types reverse alphabetically (string, integer, float)
 

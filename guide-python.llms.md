@@ -43,7 +43,7 @@ To read more about Python language servers, see our [blog post on Python type ch
 
 ## Magics
 
-Positron provides support for [IPython-style magics](https://ipython.readthedocs.io/en/stable/interactive/magics.llms.md) in the Positron console (as well as Python scripts and Jupyter notebooks, where appropriate). Magics are special commands prefixed with the `%` symbol that provide convenient shortcuts for common tasks. You can see the supported magics by running the `%lsmagic` command in the Positron console.
+Positron provides support for [IPython-style magics](https://ipython.readthedocs.io/en/stable/interactive/magics.html) in the Positron console (as well as Python scripts and Jupyter notebooks, where appropriate). Magics are special commands prefixed with the `%` symbol that provide convenient shortcuts for common tasks. You can see the supported magics by running the `%lsmagic` command in the Positron console.
 
 Positron provides three new, custom magics created specifically for working in Positron:
 
@@ -76,4 +76,4 @@ Positron bundles the [Python Debugger](https://open-vsx.org/extension/ms-python/
 
 ## Plots
 
-Positron automatically sets the [`matplotlib` backend](https://matplotlib.org/stable/users/explain/figure/backends.llms.md#what-is-a-backend) to `module://positron.matplotlib_backend`. This configures your plots to be displayed inside the [Plots pane](plots-pane.llms.md) by default. If you prefer to use your own backend, you can override this setting by running `matplotlib.use(backend_name)` in the active Console or by setting the environment variable `MPLBACKEND` to the desired backend name.
+Positron automatically sets the [`matplotlib` backend](https://matplotlib.org/stable/users/explain/figure/backends.html#what-is-a-backend) to `module://positron.matplotlib_backend`. This configures your plots to be displayed inside the [Plots pane](plots-pane.llms.md) by default. If you prefer to use your own backend, you can override this setting by running `matplotlib.use(backend_name)` in the active Console or by setting the environment variable `MPLBACKEND` to the desired backend name.

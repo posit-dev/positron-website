@@ -113,7 +113,7 @@ The discovery process runs in the background and updates the interpreter list as
 
 ### IPython kernel
 
-Positron requires the [IPython kernel](https://pypi.org/project/ipykernel/) (version 6.19.1 or higher) to communicate with Python. By default, Positron bundles the IPython kernel for the CPython implementation (the standard Python implementation) and adds it to the [Python search path](https://docs.python.org/3/library/sys_path_init.llms.md). This means you can use new environments immediately after Positron creates them, without installing extra dependencies.
+Positron requires the [IPython kernel](https://pypi.org/project/ipykernel/) (version 6.19.1 or higher) to communicate with Python. By default, Positron bundles the IPython kernel for the CPython implementation (the standard Python implementation) and adds it to the [Python search path](https://docs.python.org/3/library/sys_path_init.html). This means you can use new environments immediately after Positron creates them, without installing extra dependencies.
 
 If you prefer finer control over your Python environment, set the [`python.useBundledIpykernel`](positron://settings/python.useBundledIpykernel) setting to false. If you do that or are using an implementation other than CPython, install the IPython kernel yourself with `pip install ipykernel`.
 

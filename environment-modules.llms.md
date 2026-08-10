@@ -29,7 +29,7 @@ Place the configuration in the user settings JSON file (`settings.json`); use th
 
 > **NOTE:**
 >
-> On Posit Workbench, you can use the [Positron Pro User Settings](https://docs.posit.co/ide/server-pro/admin/positron_sessions/user_settings.llms.md) feature to make the configuration available to all your users.
+> On Posit Workbench, you can use the [Positron Pro User Settings](https://docs.posit.co/ide/server-pro/admin/positron_sessions/user_settings.html) feature to make the configuration available to all your users.
 
 Each entry in the configuration beneath the [`positron.environmentModules.environments`](positron://settings/positron.environmentModules.environments) key consists of the following:
 

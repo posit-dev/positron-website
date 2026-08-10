@@ -36,7 +36,7 @@ When you create a new connection, Positron stores and manages connection strings
 
 To create a connection in the Positron **Connections** pane, you need to connect to a database using any package that supports the connections contract, such as [odbc](https://github.com/r-dbi/odbc), [sparklyr](https://github.com/rstudio/sparklyr), [bigrquery](https://github.com/r-dbi/bigrquery), and others.
 
-The Positron **Connections** pane implements [RStudio’s connections contract](https://rstudio.github.io/rstudio-extensions/connections-contract.llms.md); this means that any package that works within RStudio’s **Connections** pane should work within the Positron **Connections** pane.
+The Positron **Connections** pane implements [RStudio’s connections contract](https://rstudio.github.io/rstudio-extensions/connections-contract.html); this means that any package that works within RStudio’s **Connections** pane should work within the Positron **Connections** pane.
 
 Here is an example of how to open a connection using the [connections](https://github.com/rstudio/connections) package to open a SQLite connection:
 
@@ -52,14 +52,14 @@ You can find more information about connecting to a specific database [from Posi
 
 Connections can be created using:
 
-- [sqlite3](https://docs.python.org/3/library/sqlite3.llms.md)
+- [sqlite3](https://docs.python.org/3/library/sqlite3.html)
 - [SQLAlchemy](https://www.sqlalchemy.org)
 - [duckdb](https://duckdb.org/docs/clients/python/overview)
 - SQL Server via [pymssql](https://pymssql.readthedocs.io/) or [pyodbc](https://github.com/mkleehammer/pyodbc)
-- [Databricks SQL Connector](https://docs.databricks.com/en/dev-tools/python-sql-connector.llms.md)
+- [Databricks SQL Connector](https://docs.databricks.com/en/dev-tools/python-sql-connector.html)
 - [Snowflake Connector](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector)
 - [Google BigQuery](https://cloud.google.com/python/docs/reference/bigquery/)
-- [AWS Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/python-redshift-driver.llms.md)
+- [AWS Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/python-redshift-driver.html)
 
 To open a connection in the **Connections** pane, create a top level object that represents the connection/engine.
 

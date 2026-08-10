@@ -20,7 +20,7 @@ It is common for IDEs to provide explicit support for code snippets and this cer
 
 Documentation on snippets in:
 
-- [RStudio](https://docs.posit.co/ide/user/ide/guide/productivity/snippets.llms.md)
+- [RStudio](https://docs.posit.co/ide/user/ide/guide/productivity/snippets.html)
 - [VS Code](https://code.visualstudio.com/docs/editing/userdefinedsnippets)
 
 ## Default and custom snippets in RStudio

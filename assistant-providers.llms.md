@@ -17,7 +17,7 @@ Posit AI is a hosted language model service from Posit, offering both chat model
 
 ## Amazon Bedrock
 
-- **Account:** an AWS account with Amazon Bedrock access, plus [access to the foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.llms.md) you want to use
+- **Account:** an AWS account with Amazon Bedrock access, plus [access to the foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html) you want to use
 - **Authentication:** sign in to your AWS account with the AWS CLI. Positron checks that you are signed in
 - **Settings:**
   - [`authentication.aws.credentials`](positron://settings/authentication.aws.credentials) (optional): override `AWS_REGION` or `AWS_PROFILE` for Positron only (see below)
@@ -25,9 +25,9 @@ Posit AI is a hosted language model service from Posit, offering both chat model
 
 ### Sign in with the AWS CLI
 
-1.  [Download and install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.llms.md)
-2.  [Configure your AWS credentials for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.llms.md)
-3.  [Sign in with the AWS CLI](https://docs.aws.amazon.com/signin/latest/userguide/command-line-sign-in.llms.md)
+1.  [Download and install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+2.  [Configure your AWS credentials for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+3.  [Sign in with the AWS CLI](https://docs.aws.amazon.com/signin/latest/userguide/command-line-sign-in.html)
 
 ### Configure AWS region and profile (optional)
 
@@ -35,7 +35,7 @@ Positron reads `AWS_REGION` from your environment and uses your `default` AWS CL
 
 #### `AWS_REGION`
 
-Set this if your shell does not already have a region configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.llms.md) reference lists the identifier for each location. Make sure the models you want are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.llms.md).
+Set this if your shell does not already have a region configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the identifier for each location. Make sure the models you want are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
 
 #### `AWS_PROFILE`
 
@@ -49,7 +49,7 @@ To set either value, add it to the [`authentication.aws.credentials`](positron:/
 
 ### Configure inference profile region (optional)
 
-Positron uses [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.llms.md) to route requests across multiple AWS regions for higher availability and throughput. Positron derives the inference profile region automatically from `AWS_REGION` by taking its geographic prefix:
+Positron uses [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) to route requests across multiple AWS regions for higher availability and throughput. Positron derives the inference profile region automatically from `AWS_REGION` by taking its geographic prefix:
 
 | `AWS_REGION`                       | Derived inference profile region |
 |------------------------------------|----------------------------------|

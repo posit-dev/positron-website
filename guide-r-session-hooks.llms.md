@@ -7,7 +7,7 @@ Positron supports hooks to run some R code once R startup is complete and Positr
 - `positron.session_init` fires when a session starts or restarts.
 - `positron.session_reconnect` fires when Positron reconnects to an existing R session.
 
-These hooks are analogous to RStudio’s [`rstudio.sessionInit`](https://rstudio.github.io/rstudioapi/articles/r-session.llms.md#running-at-startup) hook.
+These hooks are analogous to RStudio’s [`rstudio.sessionInit`](https://rstudio.github.io/rstudioapi/articles/r-session.html#running-at-startup) hook.
 
 ## Why session hooks?
 
@@ -15,12 +15,12 @@ Code in `.Rprofile` runs very early, before Positron is ready to respond to UI-r
 
 Common uses include:
 
-- Driving the UI, such as opening a file with [`rstudioapi::navigateToFile()`](https://rstudio.github.io/rstudioapi/reference/navigateToFile.llms.md).
-- Querying the UI for information, such as the current workspace with [`rstudioapi::getActiveProject()`](https://rstudio.github.io/rstudioapi/reference/projects.llms.md) or the actual [console width](https://cli.r-lib.org/reference/console_width.llms.md).
+- Driving the UI, such as opening a file with [`rstudioapi::navigateToFile()`](https://rstudio.github.io/rstudioapi/reference/navigateToFile.html).
+- Querying the UI for information, such as the current workspace with [`rstudioapi::getActiveProject()`](https://rstudio.github.io/rstudioapi/reference/projects.html) or the actual [console width](https://cli.r-lib.org/reference/console_width.html).
 
 ## Registering a hook
 
-Register a hook with [`setHook()`](https://stat.ethz.ch/R-manual/R-patched/library/base/help/setHook.llms.md), typically in your `.Rprofile`. You usually want to use `action = "append"`, so you don’t clobber any hook logic that has been registered elsewhere:
+Register a hook with [`setHook()`](https://stat.ethz.ch/R-manual/R-patched/library/base/help/setHook.html), typically in your `.Rprofile`. You usually want to use `action = "append"`, so you don’t clobber any hook logic that has been registered elsewhere:
 
 ``` r
 setHook(
@@ -69,7 +69,7 @@ setHook(
 
 ## Comparison to RStudio
 
-| Event | RStudio [`rstudio.sessionInit`](https://rstudio.github.io/rstudioapi/articles/r-session.llms.md#running-at-startup) | Positron |
+| Event | RStudio [`rstudio.sessionInit`](https://rstudio.github.io/rstudioapi/articles/r-session.html#running-at-startup) | Positron |
 |----|----|----|
 | Session start | Fires with `newSession = TRUE` | `positron.session_init` with `start_type = "new"` |
 | Session restart | Fires with `newSession = TRUE` | `positron.session_init` with `start_type = "restart"` |

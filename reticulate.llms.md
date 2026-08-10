@@ -24,7 +24,7 @@ New interpreter session list
 
 Python interpreters managed by the reticulate package have some important differences compared to standard Python interpreters:
 
-- They use the **Python version selected by reticulate**. See Reticulate’s [Python version configuration](https://rstudio.github.io/reticulate/articles/versions.llms.md) for additional information.
+- They use the **Python version selected by reticulate**. See Reticulate’s [Python version configuration](https://rstudio.github.io/reticulate/articles/versions.html) for additional information.
 
 - They run within the **same process as the R session** that started it.
 
@@ -38,6 +38,6 @@ Accessing R objects in Python
 
 - You can access Python objects from R using the `py` prefix. For example, if you have a Python function named `my_function`, you can call it in R as `py$my_function()`.
 
-Note that for the above, the conversion between R and Python objects is managed by reticulate using the `py_to_r()` and `r_to_py()` generics. See the [type conversions table](https://rstudio.github.io/reticulate/index.llms.md#type-conversions) for more information.
+Note that for the above, the conversion between R and Python objects is managed by reticulate using the `py_to_r()` and `r_to_py()` generics. See the [type conversions table](https://rstudio.github.io/reticulate/index.html#type-conversions) for more information.
 
 The reticulate Python interpreter session is tied to the lifecycle of its parent R session. If you close the parent R session or restart it, the Python interpreter session will also be terminated. It’s possible to restart the Python interpreter session independently, but note that this **will not** restart the associated R session.

@@ -33,7 +33,7 @@ Some filters apply to all column types, such as checking for equality, null, or 
 **String columns:**
 
 - Contains
-- Starts with or ends with  
+- Starts with or ends with\
 - Is empty
 - Equal to
 

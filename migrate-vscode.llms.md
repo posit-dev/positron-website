@@ -83,7 +83,7 @@ While you can launch IPython from the Terminal as you would in VS Code, the Cons
 
 Positron bundles IPython, allowing you to use the console without installing it separately. If you wish to use an external version of IPython, you can toggle the use of the bundled one with the [`python.useBundledIpykernel`](positron://settings/python.useBundledIpykernel) setting.
 
-By default, the Console enables the IPython [`autoreload` extension](https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.llms.md) for imports. You can change this with the [`python.enableAutoReload`](positron://settings/python.enableAutoReload) setting.
+By default, the Console enables the IPython [`autoreload` extension](https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html) for imports. You can change this with the [`python.enableAutoReload`](positron://settings/python.enableAutoReload) setting.
 
 ## R
 

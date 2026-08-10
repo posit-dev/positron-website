@@ -22,7 +22,7 @@ The Data Explorer now provides a **Convert to Code** button to make your analysi
 
 #### DuckDB for Python 🦆
 
-The [Connections Pane](https://positron.posit.co/connections-pane.llms.md) now supports managing and exploring native DuckDB connections in Python, as has already been possible for R. Connect to local or remote DuckDB databases, explore their schemas, and interactively preview your DuckDB tables.
+The [Connections Pane](https://positron.posit.co/connections-pane.html) now supports managing and exploring native DuckDB connections in Python, as has already been possible for R. Connect to local or remote DuckDB databases, explore their schemas, and interactively preview your DuckDB tables.
 
 ### Changelog
 

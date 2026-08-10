@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.23">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -73,15 +76,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f3c135505f33e53fe344bb8386717ef.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a8d28592f0d0500d0f95d66d5745551e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4baa764f875b246559963e1eef64b3c8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -694,6 +696,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta property="og:site_name" content="Positron">
 <meta property="og:image:height" content="1080">
 <meta property="og:image:width" content="1920">
+<meta name="twitter:title" content="Download Positron – Positron">
+<meta name="twitter:description" content="Download and install Positron for Windows, macOS, or Linux. Free data science IDE supporting Python and R, with prerequisites, setup instructions, and automatic updates.">
+<meta name="twitter:image" content="https://positron.posit.co/images/positron-social.png">
+<meta name="twitter:image-height" content="1080">
+<meta name="twitter:image-width" content="1920">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -1474,7 +1482,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Download the desktop installer for your platform. Most systems need nothing else, but you can check the <a href="#prerequisites">prerequisites</a> to be sure.</p>
-<div id="download-hero" class="download-hero" data-version="2026.08.0-331">
+<div id="download-hero" class="download-hero" data-version="2026.08.1-2">
 <section id="recommended-for-you" class="level3">
 <h3 class="anchored" data-anchor-id="recommended-for-you"><span id="hero-title">Recommended for you</span></h3>
 <p><span id="hero-subtitle" class="hero-subtitle">Detecting your operating system…</span></p>
@@ -1500,13 +1508,13 @@ By downloading and using Positron, you agree to the Positron <a href="licensing.
 <div class="option-label">
 Apple Silicon<br><span class="option-meta">(M-series)</span>
 </div>
-<p><a href="https://cdn.posit.co/positron/releases/mac/arm64/Positron-2026.08.0-331-arm64.dmg" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 1007M</a></p>
+<p><a href="https://cdn.posit.co/positron/releases/mac/arm64/Positron-2026.08.1-2-arm64.dmg" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 997M</a></p>
 </div>
 <div class="download-option">
 <div class="option-label">
 Intel
 </div>
-<p><a href="https://cdn.posit.co/positron/releases/mac/x64/Positron-2026.08.0-331-x64.dmg" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 1019M</a></p>
+<p><a href="https://cdn.posit.co/positron/releases/mac/x64/Positron-2026.08.1-2-x64.dmg" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 1009M</a></p>
 </div>
 </div>
 <div id="card-windows" class="download-card">
@@ -1521,13 +1529,13 @@ Intel
 <div class="option-label">
 User install
 </div>
-<p><a href="https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.08.0-331-UserSetup-x64.exe" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 501M</a></p>
+<p><a href="https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.08.1-2-UserSetup-x64.exe" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 499M</a></p>
 </div>
 <div class="download-option">
 <div class="option-label">
 System install
 </div>
-<p><a href="https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.08.0-331-Setup-x64.exe" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 501M</a></p>
+<p><a href="https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.08.1-2-Setup-x64.exe" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 499M</a></p>
 </div>
 </div>
 <div class="download-group">
@@ -1538,13 +1546,13 @@ System install
 <div class="option-label">
 User install
 </div>
-<p><a href="https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.08.0-331-UserSetup-arm64.exe" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 491M</a></p>
+<p><a href="https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.08.1-2-UserSetup-arm64.exe" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 489M</a></p>
 </div>
 <div class="download-option">
 <div class="option-label">
 System install
 </div>
-<p><a href="https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.08.0-331-Setup-arm64.exe" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 491M</a></p>
+<p><a href="https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.08.1-2-Setup-arm64.exe" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 489M</a></p>
 </div>
 </div>
 </div>
@@ -1560,13 +1568,13 @@ System install
 <div class="option-label">
 .deb <span class="option-meta">(Ubuntu, Debian)</span>
 </div>
-<p><a href="https://cdn.posit.co/positron/releases/deb/x86_64/Positron-2026.08.0-331-x64.deb" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 572M</a></p>
+<p><a href="https://cdn.posit.co/positron/releases/deb/x86_64/Positron-2026.08.1-2-x64.deb" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 569M</a></p>
 </div>
 <div class="download-option">
 <div class="option-label">
 .rpm <span class="option-meta">(Red Hat, Fedora)</span>
 </div>
-<p><a href="https://cdn.posit.co/positron/releases/rpm/x86_64/Positron-2026.08.0-331-x64.rpm" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 658M</a></p>
+<p><a href="https://cdn.posit.co/positron/releases/rpm/x86_64/Positron-2026.08.1-2-x64.rpm" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 653M</a></p>
 </div>
 </div>
 <div class="download-group">
@@ -1577,13 +1585,13 @@ System install
 <div class="option-label">
 .deb <span class="option-meta">(Ubuntu, Debian)</span>
 </div>
-<p><a href="https://cdn.posit.co/positron/releases/deb/arm64/Positron-2026.08.0-331-arm64.deb" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 537M</a></p>
+<p><a href="https://cdn.posit.co/positron/releases/deb/arm64/Positron-2026.08.1-2-arm64.deb" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 534M</a></p>
 </div>
 <div class="download-option">
 <div class="option-label">
 .rpm <span class="option-meta">(Red Hat, Fedora)</span>
 </div>
-<p><a href="https://cdn.posit.co/positron/releases/rpm/arm64/Positron-2026.08.0-331-arm64.rpm" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 620M</a></p>
+<p><a href="https://cdn.posit.co/positron/releases/rpm/arm64/Positron-2026.08.1-2-arm64.rpm" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> 614M</a></p>
 </div>
 </div>
 </div>
@@ -1606,63 +1614,63 @@ SHA-256 checksums
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Windows 10, 11 x64 (system level install)</td>
-<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.08.0-331-Setup-x64.exe">Positron-2026.08.0-331-Setup-x64.exe</a></td>
-<td style="text-align: left;">501M</td>
-<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('59a7b5a8d9cdc84465676fb74544928d8e35ee33eeacc39b8864f1f9f0b037cb', this)" title="Click to copy full checksum">59a7b5a</span></td>
+<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.08.1-2-Setup-x64.exe">Positron-2026.08.1-2-Setup-x64.exe</a></td>
+<td style="text-align: left;">499M</td>
+<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('d46679518e23857f35f09fa2b77904048c1613919252db380b7444e0070cc93a', this)" title="Click to copy full checksum">d466795</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Windows 10, 11 x64 (user level install)</td>
-<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.08.0-331-UserSetup-x64.exe">Positron-2026.08.0-331-UserSetup-x64.exe</a></td>
-<td style="text-align: left;">501M</td>
-<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('a9e4e1c3abed1b09bc6ebe18c86b1c0a93de755cc073ca38c696738b7f7a1f40', this)" title="Click to copy full checksum">a9e4e1c</span></td>
+<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.08.1-2-UserSetup-x64.exe">Positron-2026.08.1-2-UserSetup-x64.exe</a></td>
+<td style="text-align: left;">499M</td>
+<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('ea67b92db7afb263b3cbd370ecaa82c8ec136d4ca1da5be083b5fdcde981dc26', this)" title="Click to copy full checksum">ea67b92</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Windows 11 arm64 (system level install)</td>
-<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.08.0-331-Setup-arm64.exe">Positron-2026.08.0-331-Setup-arm64.exe</a></td>
-<td style="text-align: left;">491M</td>
-<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('31cf83cbcebe4fbc87e3da8fd6786798058443cc8b7eb56acd84e6f2e7f24b20', this)" title="Click to copy full checksum">31cf83c</span></td>
+<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.08.1-2-Setup-arm64.exe">Positron-2026.08.1-2-Setup-arm64.exe</a></td>
+<td style="text-align: left;">489M</td>
+<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('12690add848df46b3e2aaaab98fb066036e8ed0a276e61159673da04c415c555', this)" title="Click to copy full checksum">12690ad</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Windows 11 arm64 (user level install)</td>
-<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.08.0-331-UserSetup-arm64.exe">Positron-2026.08.0-331-UserSetup-arm64.exe</a></td>
-<td style="text-align: left;">491M</td>
-<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('ea85468c1333cf91bedbb06fc27ec8da761636eafc0e603a59acb3c891173c60', this)" title="Click to copy full checksum">ea85468</span></td>
+<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.08.1-2-UserSetup-arm64.exe">Positron-2026.08.1-2-UserSetup-arm64.exe</a></td>
+<td style="text-align: left;">489M</td>
+<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('2e65f7450b9ba1231979ff2ea77b6388e1cbde8661014927c58cbfa6d6413445', this)" title="Click to copy full checksum">2e65f74</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">MacOS 11.0+ (arm64/Apple Silicon)</td>
-<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/mac/arm64/Positron-2026.08.0-331-arm64.dmg">Positron-2026.08.0-331-arm64.dmg</a></td>
-<td style="text-align: left;">1007M</td>
-<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('853f4b44c89c6643264f8d39c89d72f843a6ff912378b4582fa0b48cfe18b8e2', this)" title="Click to copy full checksum">853f4b4</span></td>
+<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/mac/arm64/Positron-2026.08.1-2-arm64.dmg">Positron-2026.08.1-2-arm64.dmg</a></td>
+<td style="text-align: left;">997M</td>
+<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('538b8ed53d12b05abf83313949dbc0323eadb7e062d4a88c2264fe25c4810700', this)" title="Click to copy full checksum">538b8ed</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">MacOS 11.0+ (x64/Intel)</td>
-<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/mac/x64/Positron-2026.08.0-331-x64.dmg">Positron-2026.08.0-331-x64.dmg</a></td>
-<td style="text-align: left;">1019M</td>
-<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('1acb2cca87c73f6fcda457782a6431ba81aae4c44edd29c94e57202285b3b1e5', this)" title="Click to copy full checksum">1acb2cc</span></td>
+<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/mac/x64/Positron-2026.08.1-2-x64.dmg">Positron-2026.08.1-2-x64.dmg</a></td>
+<td style="text-align: left;">1009M</td>
+<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('8f023df47b72a5ee0305142812cc22ceea495ac1ae6e67160dffcc33649d5175', this)" title="Click to copy full checksum">8f023df</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Debian-based Linux x64 (Ubuntu 20+)</td>
-<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/deb/x86_64/Positron-2026.08.0-331-x64.deb">Positron-2026.08.0-331-x64.deb</a></td>
-<td style="text-align: left;">572M</td>
-<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('178538e00880c5133926df965f2b8a72ce6531d8c3342a3fecb9807d1d690ad2', this)" title="Click to copy full checksum">178538e</span></td>
+<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/deb/x86_64/Positron-2026.08.1-2-x64.deb">Positron-2026.08.1-2-x64.deb</a></td>
+<td style="text-align: left;">569M</td>
+<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('e307d3710b054de4236b62591702419887d73bdb65e8253f279fc7663d3ced89', this)" title="Click to copy full checksum">e307d37</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Debian-based Linux arm64 (Ubuntu 20+)</td>
-<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/deb/arm64/Positron-2026.08.0-331-arm64.deb">Positron-2026.08.0-331-arm64.deb</a></td>
-<td style="text-align: left;">537M</td>
-<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('7d6733a68f9d6094822511c679a4da138e9408b76f14362646f859c62f7af5ca', this)" title="Click to copy full checksum">7d6733a</span></td>
+<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/deb/arm64/Positron-2026.08.1-2-arm64.deb">Positron-2026.08.1-2-arm64.deb</a></td>
+<td style="text-align: left;">534M</td>
+<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('78ccb9b8f25f6a0c99fd233367f6675c24001bf54347d5ad694423020976d7ca', this)" title="Click to copy full checksum">78ccb9b</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Red Hat-based Linux x64 (RHEL9)</td>
-<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/rpm/x86_64/Positron-2026.08.0-331-x64.rpm">Positron-2026.08.0-331-x64.rpm</a></td>
-<td style="text-align: left;">658M</td>
-<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('21c2ccf5f1692d120122e3a32cada5a1d3bbbbf546c4c9de8ef58df156182866', this)" title="Click to copy full checksum">21c2ccf</span></td>
+<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/rpm/x86_64/Positron-2026.08.1-2-x64.rpm">Positron-2026.08.1-2-x64.rpm</a></td>
+<td style="text-align: left;">653M</td>
+<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('1b8d8896657be3e8ee50146a8dda18e661e747d477ec8acf08c8dffc6e60b963', this)" title="Click to copy full checksum">1b8d889</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Red Hat-based Linux arm64 (RHEL9)</td>
-<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/rpm/arm64/Positron-2026.08.0-331-arm64.rpm">Positron-2026.08.0-331-arm64.rpm</a></td>
-<td style="text-align: left;">620M</td>
-<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('20acf36cd41a9086334ef2ab46a19017ad4bdfbe778e36243cf09e3e9c23a95e', this)" title="Click to copy full checksum">20acf36</span></td>
+<td style="text-align: left;"><a href="https://cdn.posit.co/positron/releases/rpm/arm64/Positron-2026.08.1-2-arm64.rpm">Positron-2026.08.1-2-arm64.rpm</a></td>
+<td style="text-align: left;">614M</td>
+<td style="text-align: left;"><span class="checksum" onclick="copyChecksum('948370d74d1e500aa947fd9a78384c4a0c1a6a03897ae998efb837c22ea71953', this)" title="Click to copy full checksum">948370d</span></td>
 </tr>
 </tbody>
 </table>
@@ -2172,7 +2180,7 @@ Note
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.08.0-331</p>
+<p>Positron 2026.08.1-2</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/download.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/download.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

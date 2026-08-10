@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.23">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -37,15 +40,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f3c135505f33e53fe344bb8386717ef.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a8d28592f0d0500d0f95d66d5745551e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4baa764f875b246559963e1eef64b3c8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -81,6 +83,12 @@ ul.task-list li input[type="checkbox"] {
 <meta property="og:site_name" content="Positron">
 <meta property="og:image:height" content="1080">
 <meta property="og:image:width" content="1920">
+<meta name="twitter:title" content="Release Notes – Positron">
+<meta name="twitter:description" content="View release notes for all Positron versions. Track new features, bug fixes, and improvements across monthly releases.">
+<meta name="twitter:image" content="https://positron.posit.co/images/positron-social.png">
+<meta name="twitter:image-height" content="1080">
+<meta name="twitter:image-width" content="1920">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -214,7 +222,8 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#latest-release" id="toc-latest-release" class="nav-link active" data-scroll-target="#latest-release">Latest release</a>
   <ul class="collapse">
-  <li><a href="#highlights" id="toc-highlights" class="nav-link" data-scroll-target="#highlights">Highlights</a></li>
+  <li><a href="#patch-notes" id="toc-patch-notes" class="nav-link" data-scroll-target="#patch-notes">Patch notes</a></li>
+  <li><a href="#release-highlights" id="toc-release-highlights" class="nav-link" data-scroll-target="#release-highlights">Release highlights</a></li>
   <li><a href="#changelog" id="toc-changelog" class="nav-link" data-scroll-target="#changelog">Changelog</a></li>
   </ul></li>
   </ul>
@@ -249,9 +258,13 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="latest-release" class="level2">
 <h2 class="anchored" data-anchor-id="latest-release">Latest release</h2>
-<p>The current release of Positron is 2026.08.0-331.</p>
-<section id="highlights" class="level3">
-<h3 class="anchored" data-anchor-id="highlights">Highlights</h3>
+<p>The current release of Positron is 2026.08.1-2.</p>
+<section id="patch-notes" class="level3">
+<h3 class="anchored" data-anchor-id="patch-notes">Patch notes</h3>
+<p>The <a href="https://github.com/posit-dev/positron/releases/tag/2026.08.1-2">2026.08.1 patch release</a> (2026-08-10) fixes problems with autoupdating on Windows.</p>
+</section>
+<section id="release-highlights" class="level3">
+<h3 class="anchored" data-anchor-id="release-highlights">Release highlights</h3>
 <p>Welcome to the 2026.08.0 release of Positron!</p>
 <ul>
 <li><a href="#data-connections">Data Connections</a></li>
@@ -860,7 +873,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.08.0-331</p>
+<p>Positron 2026.08.1-2</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/release-notes.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/release-notes.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
