@@ -1,6 +1,8 @@
 ---
 title: "Collaborate with AI on a Python analysis"
 description: "Use Posit Assistant to explore Excel data, build a Python notebook, and turn it into a Quarto dashboard."
+categories: [Python, AI]
+icon: bi-robot
 ---
 
 ::: {.callout-note}

@@ -1,6 +1,8 @@
 ---
 title: "Collaborate with AI on an R analysis"
 description: "Use Posit Assistant to explore Excel data, build an R analysis in a Quarto document, and turn it into a dashboard."
+categories: [R, AI]
+icon: bi-robot
 ---
 
 ::: {.callout-note}

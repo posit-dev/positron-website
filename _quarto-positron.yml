@@ -255,6 +255,9 @@ format:
     code-copy: true
     toc: true
     toc-expand: true
+    # Tutorial pages carry `categories` for the tutorials.qmd listing only;
+    # keep them out of each page's title block.
+    title-block-categories: false
     include-in-header:
       - text: |
           <script defer file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>

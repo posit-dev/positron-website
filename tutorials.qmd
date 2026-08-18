@@ -3,43 +3,25 @@ title: "Tutorials"
 description: "Step-by-step tutorials to help you get the most out of Positron, from setting up an environment to running your first data analysis."
 listing:
   - id: tutorials-python
-    type: custom
-    template: templates/welcome-card.ejs
+    template: templates/tutorial-listing.ejs
     contents:
-      - title: "First data analysis with Python in a Jupyter Notebook"
-        description: "Set up a Python environment, open a Jupyter Notebook, and perform your first data analysis."
-        icon: "bi-journal-code"
-        link: "tutorial-get-started-ipynb.qmd"
-        columns: 2
-      - title: "Migrate to Positron from VS Code"
-        description: "You already know the VS Code interface. Learn what is different in Positron and how it makes a better editor for data science."
-        icon: "bi-signpost-2"
-        link: "tutorial-migrate-from-vscode.qmd"
-        columns: 2
-      - title: "Collaborate with AI on a Python analysis"
-        description: "Use Posit Assistant to explore Excel data, build a Python notebook, and turn it into a Quarto dashboard."
-        icon: "bi-robot"
-        link: "tutorial-ai-notebooks.qmd"
-        columns: 2
+      - tutorial-get-started-ipynb.qmd
+      - tutorial-migrate-from-vscode.qmd
+      - tutorial-ai-notebooks.qmd
+    sort: false
+    filter-ui: false
+    sort-ui: false
+    categories: false
   - id: tutorials-r
-    type: custom
-    template: templates/welcome-card.ejs
+    template: templates/tutorial-listing.ejs
     contents:
-      - title: "First data analysis with R in a Quarto document"
-        description: "Set up an R environment, open a Quarto document, and perform your first data analysis."
-        icon: "bi-code-slash"
-        link: "tutorial-get-started-quarto.qmd"
-        columns: 2
-      - title: "Migrate to Positron from RStudio"
-        description: "Set up Positron so it looks, feels, and responds like the RStudio you already know."
-        icon: "bi-luggage"
-        link: "tutorial-migrate-from-RStudio.qmd"
-        columns: 2
-      - title: "Collaborate with AI on an R analysis"
-        description: "Use Posit Assistant to explore Excel data, build an R analysis in a Quarto document, and turn it into a dashboard."
-        icon: "bi-robot"
-        link: "tutorial-ai-quarto.qmd"
-        columns: 2
+      - tutorial-get-started-quarto.qmd
+      - tutorial-migrate-from-RStudio.qmd
+      - tutorial-ai-quarto.qmd
+    sort: false
+    filter-ui: false
+    sort-ui: false
+    categories: false
 ---
 
 Learn how to get the most out of Positron.

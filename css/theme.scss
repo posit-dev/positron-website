@@ -433,6 +433,95 @@ img.drop-shadow {
   box-shadow: $posit-box-shadow;
 }
 
+// ============= TUTORIAL LISTING =============
+// Native Quarto listing rendered as a vertical list via
+// templates/tutorial-listing.ejs (used on tutorials.qmd).
+.tutorial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.tutorial-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: white;
+  border: 1px solid $positron-blue;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(87, 89, 89, 0.08);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.tutorial-list-item:hover,
+.tutorial-list-item:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(87, 89, 89, 0.12);
+  background-color: lighten($posit-light-blue-1, 10%);
+  outline: none;
+}
+
+.tutorial-list-icon {
+  flex: 0 0 auto;
+  width: 45px;
+  height: 45px;
+  background: $positron-blue;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tutorial-list-icon i {
+  font-size: 1.4rem;
+  color: white;
+}
+
+.tutorial-list-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tutorial-list-title {
+  margin: 0;
+  font-size: 1.15rem;
+
+  // Suppress the hover anchor (anchor.js) inside listing card titles.
+  .anchor-link,
+  .anchorjs-link {
+    display: none !important;
+  }
+}
+
+.tutorial-list-description {
+  margin: 0;
+  color: $posit-light-gray-3;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.tutorial-list-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.tutorial-list-category {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: $posit-light-blue-1;
+  color: $positron-blue;
+  line-height: 1.4;
+}
+
 // ============= VIDEOS =============
 // Sizing for the {{< cdn-video >}} shortcode's native <video> element.
 // This has to live here: the responsive behaviour used to come from video.js's
