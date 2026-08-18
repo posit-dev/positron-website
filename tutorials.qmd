@@ -35,6 +35,11 @@ listing:
         icon: "bi-luggage"
         link: "tutorial-migrate-from-RStudio.qmd"
         columns: 2
+      - title: "Collaborate with AI on an R analysis"
+        description: "Use Posit Assistant to explore Excel data, build an R analysis in a Quarto document, and turn it into a dashboard."
+        icon: "bi-robot"
+        link: "tutorial-ai-quarto.qmd"
+        columns: 2
 ---
 
 Learn how to get the most out of Positron.
