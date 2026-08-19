@@ -1,0 +1,31 @@
+```{=html}
+<div class="tutorial-list">
+  <% for (const item of items) { %>
+    <a href="<%= item.path %>" class="tutorial-list-item">
+      <% if (item.icon) { %>
+      <div class="tutorial-list-icon">
+        <i class="<%= item.icon %>"></i>
+      </div>
+      <% } %>
+      <div class="tutorial-list-body">
+        <h3 class="tutorial-list-title"><%= item.title %></h3>
+        <% if (item.description) { %>
+        <p class="tutorial-list-description"><%= item.description %></p>
+        <% } %>
+        <%
+          // Language (R/Python) is already conveyed by the section heading, so
+          // show only topic tags here. Keep languages in front matter for metadata.
+          const topics = (item.categories || []).filter(c => !['R', 'Python'].includes(c));
+        %>
+        <% if (topics.length) { %>
+        <div class="tutorial-list-categories">
+          <% for (const category of topics) { %>
+          <span class="tutorial-list-category"><%= category %></span>
+          <% } %>
+        </div>
+        <% } %>
+      </div>
+    </a>
+  <% } %>
+</div>
+```

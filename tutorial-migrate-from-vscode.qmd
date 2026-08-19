@@ -1,6 +1,8 @@
 ---
-title: "Migrate from VS Code to Positron"
+title: "Migrate to Positron from VS Code"
 description: "Import your VS Code settings and extensions into Positron and see what makes Positron different."
+categories: [Python, Migrating]
+icon: bi-signpost-2
 ---
 
 ::: {.callout-note}

@@ -1,6 +1,8 @@
 ---
 title: "First data analysis with Python in a Jupyter Notebook"
 description: "Set up a Python environment, install packages, and explore data in a Jupyter Notebook in Positron."
+categories: [Python, Getting started]
+icon: bi-journal-code
 ---
 
 This quick tutorial will show you how to use [Jupyter Notebooks](jupyter-notebooks.qmd) within Positron. We will:

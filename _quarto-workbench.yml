@@ -15,6 +15,7 @@ project:
     - "!tutorial-migrate-from-vscode.qmd"
     - "!tutorial-migrate-from-RStudio.qmd"
     - "!tutorial-ai-notebooks.qmd"
+    - "!tutorial-ai-quarto.qmd"
   resources:
     - /_redirects
 

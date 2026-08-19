@@ -1,6 +1,8 @@
 ---
-title: "Migrate from RStudio to Positron"
+title: "Migrate to Positron from RStudio"
 description: "Set up Positron so it looks, feels, and responds like the RStudio you already know. A hands-on tutorial for RStudio users."
+categories: [R, Migrating]
+icon: bi-luggage
 ---
 
 ::: {.callout-important}
