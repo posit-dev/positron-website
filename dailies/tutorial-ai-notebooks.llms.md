@@ -4,7 +4,7 @@ Use Posit Assistant to explore Excel data, build a Python notebook, and turn it 
 
 > **NOTE:**
 >
-> Is this the right tutorial to start with? It picks up where [First data analysis with Python in a Jupyter Notebook](tutorial-get-started-ipynb.llms.md) and [Migrate from VS Code to Positron](tutorial-migrate-from-vscode.llms.md) leave off. If you have not worked through those, start there. This tutorial assumes you already know how to:
+> Is this the right tutorial to start with? It picks up where [First data analysis with Python in a Jupyter Notebook](tutorial-get-started-ipynb.llms.md) and [Migrate to Positron from VS Code](tutorial-migrate-from-vscode.llms.md) leave off. If you have not worked through those, start there. This tutorial assumes you already know how to:
 >
 > 1.  Install Positron
 > 2.  Use the Command Palette

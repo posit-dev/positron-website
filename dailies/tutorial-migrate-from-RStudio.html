@@ -8,7 +8,7 @@
 
 <meta name="description" content="Set up Positron so it looks, feels, and responds like the RStudio you already know. A hands-on tutorial for RStudio users.">
 
-<title>Migrate from RStudio to Positron – Positron</title>
+<title>Migrate to Positron from RStudio – Positron</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4baa764f875b246559963e1eef64b3c8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f99b58bb69b961cc97e8aa78c1e615ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
@@ -121,14 +121,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="robots" content="noindex">
 
 
-<meta property="og:title" content="Migrate from RStudio to Positron – Positron">
+<meta property="og:title" content="Migrate to Positron from RStudio – Positron">
 <meta property="og:description" content="Set up Positron so it looks, feels, and responds like the RStudio you already know. A hands-on tutorial for RStudio users.">
 <meta property="og:image" content="https://positron.posit.co/dailies/images/tutorial-migrate-command-palette.png">
 <meta property="og:site_name" content="Positron">
 <meta property="og:image:alt" content="A screenshot of the Positron IDE with the Command Palette open.">
 <meta property="og:image:height" content="1746">
 <meta property="og:image:width" content="2736">
-<meta name="twitter:title" content="Migrate from RStudio to Positron – Positron">
+<meta name="twitter:title" content="Migrate to Positron from RStudio – Positron">
 <meta name="twitter:description" content="Set up Positron so it looks, feels, and responds like the RStudio you already know. A hands-on tutorial for RStudio users.">
 <meta name="twitter:image" content="https://positron.posit.co/dailies/images/tutorial-migrate-command-palette.png">
 <meta name="twitter:image:alt" content="A screenshot of the Positron IDE with the Command Palette open.">
@@ -237,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial-migrate-from-RStudio.html">Migrate from RStudio to Positron</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tutorial-migrate-from-RStudio.html">Migrate to Positron from RStudio</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -273,19 +273,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial-migrate-from-vscode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migrate from VS Code to Positron</span></a>
+ <span class="menu-text">Migrate to Positron from VS Code</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial-migrate-from-RStudio.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Migrate from RStudio to Positron</span></a>
+ <span class="menu-text">Migrate to Positron from RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial-ai-notebooks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Collaborate with AI on a Python analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial-ai-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Collaborate with AI on an R analysis</span></a>
   </div>
 </li>
     </ul>
@@ -327,8 +333,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Migrate from RStudio to Positron</h1>
-</div>
+<h1 class="title">Migrate to Positron from RStudio</h1>
+  </div>
 
 <div>
   <div class="description">
@@ -1329,8 +1335,8 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./tutorial-migrate-from-vscode.html" class="pagination-link" aria-label="Migrate from VS Code to Positron">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Migrate from VS Code to Positron</span>
+      <a href="./tutorial-migrate-from-vscode.html" class="pagination-link" aria-label="Migrate to Positron from VS Code">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Migrate to Positron from VS Code</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
