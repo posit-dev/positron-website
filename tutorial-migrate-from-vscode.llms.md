@@ -1,4 +1,4 @@
-# Migrate from VS Code to Positron
+# Migrate to Positron from VS Code
 
 Import your VS Code settings and extensions into Positron and see what makes Positron different.
 

@@ -1,4 +1,4 @@
-# Migrate from RStudio to Positron
+# Migrate to Positron from RStudio
 
 Set up Positron so it looks, feels, and responds like the RStudio you already know. A hands-on tutorial for RStudio users.
 

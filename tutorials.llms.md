@@ -12,24 +12,40 @@ Learn how to get the most out of Positron.
 
 ### First data analysis with Python in a Jupyter Notebook
 
-Set up a Python environment, open a Jupyter Notebook, and perform your first data analysis.
+Set up a Python environment, install packages, and explore data in a Jupyter Notebook in Positron.
 
-### Migrate from VS Code to Positron
+Getting started
 
-You already know the VS Code interface. Learn what is different in Positron and how it makes a better editor for data science.
+### Migrate to Positron from VS Code
+
+Import your VS Code settings and extensions into Positron and see what makes Positron different.
+
+Migrating
 
 ### Collaborate with AI on a Python analysis
 
 Use Posit Assistant to explore Excel data, build a Python notebook, and turn it into a Quarto dashboard.
 
+AI
+
 ## R tutorials
 
 ### First data analysis with R in a Quarto document
 
-Set up an R environment, open a Quarto document, and perform your first data analysis.
+Set up an R environment, install packages, and explore data in a Quarto document in Positron.
 
-### Migrate from RStudio to Positron
+Getting started
 
-Set up Positron so it looks, feels, and responds like the RStudio you already know.
+### Migrate to Positron from RStudio
+
+Set up Positron so it looks, feels, and responds like the RStudio you already know. A hands-on tutorial for RStudio users.
+
+Migrating
+
+### Collaborate with AI on an R analysis
+
+Use Posit Assistant to explore Excel data, build an R analysis in a Quarto document, and turn it into a dashboard.
+
+AI
 
 Also see [Features](features.llms.md) to learn about how Positron can keep you productive for all your data science work.

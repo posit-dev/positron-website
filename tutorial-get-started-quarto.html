@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Set up an R environment, install packages, and explore data in a Quarto document in Positron.">
 
 <title>First data analysis with R in a Quarto document – Positron</title>
 <style>
@@ -82,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4baa764f875b246559963e1eef64b3c8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f99b58bb69b961cc97e8aa78c1e615ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
@@ -120,14 +121,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <meta property="og:title" content="First data analysis with R in a Quarto document – Positron">
-<meta property="og:description" content="">
+<meta property="og:description" content="Set up an R environment, install packages, and explore data in a Quarto document in Positron.">
 <meta property="og:image" content="https://positron.posit.co/images/download-button.png">
 <meta property="og:site_name" content="Positron">
 <meta property="og:image:alt" content="The Positron download page with the Download button.">
 <meta property="og:image:height" content="1832">
 <meta property="og:image:width" content="3116">
 <meta name="twitter:title" content="First data analysis with R in a Quarto document – Positron">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="Set up an R environment, install packages, and explore data in a Quarto document in Positron.">
 <meta name="twitter:image" content="https://positron.posit.co/images/download-button.png">
 <meta name="twitter:image:alt" content="The Positron download page with the Download button.">
 <meta name="twitter:image-height" content="1832">
@@ -183,24 +184,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
         <li>
+    <a class="dropdown-item" href="https://opensource.posit.co/blog/q/positron/" target="_blank"><i class="bi bi-journal-text" role="img">
+</i> 
+ <span class="dropdown-text">Blog</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="https://posit.co/positron-updates-signup/" target="_blank"><i class="bi bi-envelope" role="img">
 </i> 
  <span class="dropdown-text">Sign up for updates</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://opensource.posit.co/blog/q/positron/" target="_blank"><i class="bi bi-code-slash" role="img">
+    <a class="dropdown-item" href="https://www.linkedin.com/showcase/positron-ide/" target="_blank"><i class="bi bi-linkedin" role="img">
 </i> 
- <span class="dropdown-text">Positron at Posit Open Source</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://posit.co/blog/?post_tag=positron" target="_blank"><i class="bi bi-box-arrow-up-right" role="img">
-</i> 
- <span class="dropdown-text">Company Blog Posts</span></a>
+ <span class="dropdown-text">LinkedIn</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://posit.co/events/?search=positron&amp;poststatus=all" target="_blank"><i class="bi bi-calendar-event" role="img">
 </i> 
  <span class="dropdown-text">Events</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/products/" target="_blank"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="dropdown-text">More Posit products</span></a>
   </li>  
     </ul>
   </li>
@@ -263,19 +269,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial-migrate-from-vscode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migrate from VS Code to Positron</span></a>
+ <span class="menu-text">Migrate to Positron from VS Code</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial-migrate-from-RStudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migrate from RStudio to Positron</span></a>
+ <span class="menu-text">Migrate to Positron from RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial-ai-notebooks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Collaborate with AI on a Python analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial-ai-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Collaborate with AI on an R analysis</span></a>
   </div>
 </li>
     </ul>
@@ -305,8 +317,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">First data analysis with R in a Quarto document</h1>
-</div>
+  </div>
 
+<div>
+  <div class="description">
+    Set up an R environment, install packages, and explore data in a Quarto document in Positron.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -908,8 +925,8 @@ Note
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./tutorial-migrate-from-vscode.html" class="pagination-link" aria-label="Migrate from VS Code to Positron">
-        <span class="nav-page-text">Migrate from VS Code to Positron</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tutorial-migrate-from-vscode.html" class="pagination-link" aria-label="Migrate to Positron from VS Code">
+        <span class="nav-page-text">Migrate to Positron from VS Code</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -926,7 +943,7 @@ Note
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.08.1-2</p>
+<p>Positron 2026.08.2-4</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/tutorial-get-started-quarto.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/tutorial-get-started-quarto.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

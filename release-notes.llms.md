@@ -4,11 +4,13 @@ View release notes for all Positron versions. Track new features, bug fixes, and
 
 ## Latest release
 
-The current release of Positron is 2026.08.1-2.
+The current release of Positron is 2026.08.2-4.
 
 ### Patch notes
 
 The [2026.08.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.08.1-2) (2026-08-10) fixes problems with autoupdating on Windows.
+
+The [2026.08.2 patch release](https://github.com/posit-dev/positron/releases/tag/2026.08.2-4) (2026-08-21) fixes performance problems throughout the app, a problem with Python discovery, and how Assistant settings are detected.
 
 ### Release highlights
 

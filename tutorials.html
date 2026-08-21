@@ -49,7 +49,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4baa764f875b246559963e1eef64b3c8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f99b58bb69b961cc97e8aa78c1e615ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -85,9 +85,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-icon','listing-link','listing-columns',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-project','listing-execute','listing-website','listing-engines','listing-format','listing-show-videos','listing-video-preload','listing-language','listing-title','listing-description','listing-categories','listing-icon','listing-path','listing-outputHref','listing-author','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-title","listing-description","listing-icon","listing-link","listing-columns"],
+      searchColumns: ["listing-project","listing-execute","listing-website","listing-engines","listing-format","listing-show-videos","listing-video-preload","listing-language","listing-title","listing-description","listing-categories","listing-icon","listing-path","listing-outputHref","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -113,9 +113,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-icon','listing-link','listing-columns',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-project','listing-execute','listing-website','listing-engines','listing-format','listing-show-videos','listing-video-preload','listing-language','listing-title','listing-description','listing-categories','listing-icon','listing-path','listing-outputHref','listing-author','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-title","listing-description","listing-icon","listing-link","listing-columns"],
+      searchColumns: ["listing-project","listing-execute","listing-website","listing-engines","listing-format","listing-show-videos","listing-video-preload","listing-language","listing-title","listing-description","listing-categories","listing-icon","listing-path","listing-outputHref","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -227,24 +227,29 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
         <li>
+    <a class="dropdown-item" href="https://opensource.posit.co/blog/q/positron/" target="_blank"><i class="bi bi-journal-text" role="img">
+</i> 
+ <span class="dropdown-text">Blog</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="https://posit.co/positron-updates-signup/" target="_blank"><i class="bi bi-envelope" role="img">
 </i> 
  <span class="dropdown-text">Sign up for updates</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://opensource.posit.co/blog/q/positron/" target="_blank"><i class="bi bi-code-slash" role="img">
+    <a class="dropdown-item" href="https://www.linkedin.com/showcase/positron-ide/" target="_blank"><i class="bi bi-linkedin" role="img">
 </i> 
- <span class="dropdown-text">Positron at Posit Open Source</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://posit.co/blog/?post_tag=positron" target="_blank"><i class="bi bi-box-arrow-up-right" role="img">
-</i> 
- <span class="dropdown-text">Company Blog Posts</span></a>
+ <span class="dropdown-text">LinkedIn</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="https://posit.co/events/?search=positron&amp;poststatus=all" target="_blank"><i class="bi bi-calendar-event" role="img">
 </i> 
  <span class="dropdown-text">Events</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/products/" target="_blank"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="dropdown-text">More Posit products</span></a>
   </li>  
     </ul>
   </li>
@@ -307,19 +312,25 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial-migrate-from-vscode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migrate from VS Code to Positron</span></a>
+ <span class="menu-text">Migrate to Positron from VS Code</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial-migrate-from-RStudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Migrate from RStudio to Positron</span></a>
+ <span class="menu-text">Migrate to Positron from RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tutorial-ai-notebooks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Collaborate with AI on a Python analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tutorial-ai-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Collaborate with AI on an R analysis</span></a>
   </div>
 </li>
     </ul>
@@ -381,65 +392,73 @@ Note
 <section id="python-tutorials" class="level2">
 <h2 class="anchored" data-anchor-id="python-tutorials">Python tutorials</h2>
 <div id="listing-tutorials-python" class="quarto-listing quarto-listing-container-custom">
-
-<div class="custom-card-grid columns-2">
+<div class="tutorial-list">
   
-    
-    <a href="./tutorial-get-started-ipynb.html" class="custom-card-wrapper">
-      <div class="custom-card">
-        <div class="custom-card-icon-container">
-          <div class="custom-card-icon">
-            <i class="bi-journal-code"></i>
-          </div>
+    <a href="./tutorial-get-started-ipynb.html" class="tutorial-list-item">
+      
+      <div class="tutorial-list-icon">
+        <i class="bi-journal-code"></i>
+      </div>
+      
+      <div class="tutorial-list-body">
+        <h3 class="tutorial-list-title anchored">First data analysis with Python in a Jupyter Notebook</h3>
+        
+        <p class="tutorial-list-description">Set up a Python environment, install packages, and explore data in a Jupyter Notebook in Positron.</p>
+        
+        
+        
+        <div class="tutorial-list-categories">
+          
+          <span class="tutorial-list-category">Getting started</span>
+          
         </div>
         
-        <h3 class="custom-card-title anchored">
-          First data analysis with Python in a Jupyter Notebook
-        </h3>
-        
-        <p class="custom-card-description">
-          Set up a Python environment, open a Jupyter Notebook, and perform your first data analysis.
-        </p>
       </div>
-    </a>  
+    </a>
   
-    
-    <a href="./tutorial-migrate-from-vscode.html" class="custom-card-wrapper">
-      <div class="custom-card">
-        <div class="custom-card-icon-container">
-          <div class="custom-card-icon">
-            <i class="bi-signpost-2"></i>
-          </div>
+    <a href="./tutorial-migrate-from-vscode.html" class="tutorial-list-item">
+      
+      <div class="tutorial-list-icon">
+        <i class="bi-signpost-2"></i>
+      </div>
+      
+      <div class="tutorial-list-body">
+        <h3 class="tutorial-list-title anchored">Migrate to Positron from VS Code</h3>
+        
+        <p class="tutorial-list-description">Import your VS Code settings and extensions into Positron and see what makes Positron different.</p>
+        
+        
+        
+        <div class="tutorial-list-categories">
+          
+          <span class="tutorial-list-category">Migrating</span>
+          
         </div>
         
-        <h3 class="custom-card-title anchored">
-          Migrate from VS Code to Positron
-        </h3>
-        
-        <p class="custom-card-description">
-          You already know the VS Code interface. Learn what is different in Positron and how it makes a better editor for data science.
-        </p>
       </div>
-    </a>  
+    </a>
   
-    
-    <a href="./tutorial-ai-notebooks.html" class="custom-card-wrapper">
-      <div class="custom-card">
-        <div class="custom-card-icon-container">
-          <div class="custom-card-icon">
-            <i class="bi-robot"></i>
-          </div>
+    <a href="./tutorial-ai-notebooks.html" class="tutorial-list-item">
+      
+      <div class="tutorial-list-icon">
+        <i class="bi-robot"></i>
+      </div>
+      
+      <div class="tutorial-list-body">
+        <h3 class="tutorial-list-title anchored">Collaborate with AI on a Python analysis</h3>
+        
+        <p class="tutorial-list-description">Use Posit Assistant to explore Excel data, build a Python notebook, and turn it into a Quarto dashboard.</p>
+        
+        
+        
+        <div class="tutorial-list-categories">
+          
+          <span class="tutorial-list-category">AI</span>
+          
         </div>
         
-        <h3 class="custom-card-title anchored">
-          Collaborate with AI on a Python analysis
-        </h3>
-        
-        <p class="custom-card-description">
-          Use Posit Assistant to explore Excel data, build a Python notebook, and turn it into a Quarto dashboard.
-        </p>
       </div>
-    </a>  
+    </a>
   
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
@@ -448,46 +467,73 @@ Note
 <section id="r-tutorials" class="level2">
 <h2 class="anchored" data-anchor-id="r-tutorials">R tutorials</h2>
 <div id="listing-tutorials-r" class="quarto-listing quarto-listing-container-custom">
-
-<div class="custom-card-grid columns-2">
+<div class="tutorial-list">
   
-    
-    <a href="./tutorial-get-started-quarto.html" class="custom-card-wrapper">
-      <div class="custom-card">
-        <div class="custom-card-icon-container">
-          <div class="custom-card-icon">
-            <i class="bi-code-slash"></i>
-          </div>
+    <a href="./tutorial-get-started-quarto.html" class="tutorial-list-item">
+      
+      <div class="tutorial-list-icon">
+        <i class="bi-code-slash"></i>
+      </div>
+      
+      <div class="tutorial-list-body">
+        <h3 class="tutorial-list-title anchored">First data analysis with R in a Quarto document</h3>
+        
+        <p class="tutorial-list-description">Set up an R environment, install packages, and explore data in a Quarto document in Positron.</p>
+        
+        
+        
+        <div class="tutorial-list-categories">
+          
+          <span class="tutorial-list-category">Getting started</span>
+          
         </div>
         
-        <h3 class="custom-card-title anchored">
-          First data analysis with R in a Quarto document
-        </h3>
-        
-        <p class="custom-card-description">
-          Set up an R environment, open a Quarto document, and perform your first data analysis.
-        </p>
       </div>
-    </a>  
+    </a>
   
-    
-    <a href="./tutorial-migrate-from-RStudio.html" class="custom-card-wrapper">
-      <div class="custom-card">
-        <div class="custom-card-icon-container">
-          <div class="custom-card-icon">
-            <i class="bi-luggage"></i>
-          </div>
+    <a href="./tutorial-migrate-from-RStudio.html" class="tutorial-list-item">
+      
+      <div class="tutorial-list-icon">
+        <i class="bi-luggage"></i>
+      </div>
+      
+      <div class="tutorial-list-body">
+        <h3 class="tutorial-list-title anchored">Migrate to Positron from RStudio</h3>
+        
+        <p class="tutorial-list-description">Set up Positron so it looks, feels, and responds like the RStudio you already know. A hands-on tutorial for RStudio users.</p>
+        
+        
+        
+        <div class="tutorial-list-categories">
+          
+          <span class="tutorial-list-category">Migrating</span>
+          
         </div>
         
-        <h3 class="custom-card-title anchored">
-          Migrate from RStudio to Positron
-        </h3>
-        
-        <p class="custom-card-description">
-          Set up Positron so it looks, feels, and responds like the RStudio you already know.
-        </p>
       </div>
-    </a>  
+    </a>
+  
+    <a href="./tutorial-ai-quarto.html" class="tutorial-list-item">
+      
+      <div class="tutorial-list-icon">
+        <i class="bi-robot"></i>
+      </div>
+      
+      <div class="tutorial-list-body">
+        <h3 class="tutorial-list-title anchored">Collaborate with AI on an R analysis</h3>
+        
+        <p class="tutorial-list-description">Use Posit Assistant to explore Excel data, build an R analysis in a Quarto document, and turn it into a dashboard.</p>
+        
+        
+        
+        <div class="tutorial-list-categories">
+          
+          <span class="tutorial-list-category">AI</span>
+          
+        </div>
+        
+      </div>
+    </a>
   
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
@@ -921,7 +967,7 @@ Note
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.08.1-2</p>
+<p>Positron 2026.08.2-4</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/tutorials.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/tutorials.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

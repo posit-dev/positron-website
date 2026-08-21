@@ -4,26 +4,6 @@
     "items": []
   },
   {
-    "listing": "/assistant.html",
-    "items": []
-  },
-  {
-    "listing": "/ai-features.html",
-    "items": []
-  },
-  {
-    "listing": "/assistant-getting-started.html",
-    "items": []
-  },
-  {
-    "listing": "/features.html",
-    "items": []
-  },
-  {
-    "listing": "/language-guides.html",
-    "items": []
-  },
-  {
     "listing": "/older-releases.html",
     "items": [
       "/release-notes/release-2026-07.html",
@@ -42,7 +22,34 @@
     ]
   },
   {
-    "listing": "/tutorials.html",
+    "listing": "/language-guides.html",
     "items": []
+  },
+  {
+    "listing": "/features.html",
+    "items": []
+  },
+  {
+    "listing": "/assistant-getting-started.html",
+    "items": []
+  },
+  {
+    "listing": "/ai-features.html",
+    "items": []
+  },
+  {
+    "listing": "/assistant.html",
+    "items": []
+  },
+  {
+    "listing": "/tutorials.html",
+    "items": [
+      "/tutorial-get-started-ipynb.html",
+      "/tutorial-migrate-from-vscode.html",
+      "/tutorial-ai-notebooks.html",
+      "/tutorial-get-started-quarto.html",
+      "/tutorial-migrate-from-RStudio.html",
+      "/tutorial-ai-quarto.html"
+    ]
   }
 ]

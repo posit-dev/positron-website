@@ -1,5 +1,7 @@
 # First data analysis with R in a Quarto document
 
+Set up an R environment, install packages, and explore data in a Quarto document in Positron.
+
 This quick tutorial will show you how to use [Quarto documents](quarto.llms.md) within Positron. We will:
 
 - Install Positron
