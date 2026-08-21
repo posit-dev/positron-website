@@ -4,7 +4,7 @@ View release notes for all Positron versions. Track new features, bug fixes, and
 
 ## Latest release
 
-The current release of Positron is 2026.08.2-4.
+The current release of Positron is 2026.08.1-2.
 
 ### Patch notes
 
