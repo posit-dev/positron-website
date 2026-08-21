@@ -2,6 +2,8 @@
 
 The [2026.08.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.08.1-2) (2026-08-10) fixes problems with autoupdating on Windows.
 
+The [2026.08.2 patch release](https://github.com/posit-dev/positron/releases/tag/2026.08.2-4) (2026-08-21) fixes performance problems throughout the app, a problem with Python discovery, and how Assistant settings are detected.
+
 ### Release highlights
 
 Welcome to the 2026.08.0 release of Positron!
