@@ -17,16 +17,15 @@
   <g transform="translate(12, 10) scale(0.6250)" fill="#5A5A5A">
     <path d="M8 1.5C8 1.22386 7.77614 1 7.5 1C7.22386 1 7 1.22386 7 1.5V7H1.5C1.22386 7 1 7.22386 1 7.5C1 7.77614 1.22386 8 1.5 8H7V13.5C7 13.7761 7.22386 14 7.5 14C7.77614 14 8 13.7761 8 13.5V8H13.5C13.7761 8 14 7.77614 14 7.5C14 7.22386 13.7761 7 13.5 7H8V1.5Z"/>
   </g>
-  <rect x="26" y="13.5" width="20" height="4" rx="2" fill="#8A8A8A"/>
+  <text x="26" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9" fill="#5A5A5A">New</text>
   <g transform="translate(60, 10) scale(0.6250)" fill="#5A5A5A">
     <path d="M2 4.5V9.10022L2.92389 7.5C3.45979 6.5718 4.45017 6 5.52196 6L11.9146 6C11.7087 5.4174 11.1531 5 10.5 5H7C6.86739 5 6.74021 4.94732 6.64645 4.85355L4.93934 3.14645C4.84557 3.05268 4.71839 3 4.58579 3H3.5C2.67157 3 2 3.67157 2 4.5ZM7.06895 13.9953C7.04641 13.9984 7.02339 14 7 14H3.5C2.11929 14 1 12.8807 1 11.5V4.5C1 3.11929 2.11929 2 3.5 2H4.58579C4.98361 2 5.36514 2.15804 5.64645 2.43934L7.20711 4H10.5C11.724 4 12.7426 4.87965 12.958 6.04127C14.605 6.34148 15.5443 8.22106 14.6616 9.75L13.0766 12.4953C12.5407 13.4235 11.5503 13.9953 10.4785 13.9953H7.06895ZM5.52196 7C4.80743 7 4.14718 7.3812 3.78991 8L2.20492 10.7453C1.62757 11.7453 2.34926 12.9953 3.50396 12.9953L10.4785 12.9953C11.193 12.9953 11.8533 12.6141 12.2105 11.9953L13.7955 9.25C14.3729 8.25 13.6512 7 12.4965 7L5.52196 7Z"/>
   </g>
-  <rect x="74" y="13.5" width="24" height="4" rx="2" fill="#8A8A8A"/>
+  <text x="74" y="18" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9" fill="#5A5A5A">Open</text>
   <rect x="321" y="7" width="158" height="16" rx="8" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="1"/>
-  <g transform="translate(366, 10.5) scale(0.5625)" fill="#8A8A8A">
+  <g transform="translate(327, 10.5) scale(0.5625)" fill="#8A8A8A">
     <path d="M10.0195 10.7266C9.06578 11.5217 7.83875 12 6.5 12C3.46243 12 1 9.53757 1 6.5C1 3.46243 3.46243 1 6.5 1C9.53757 1 12 3.46243 12 6.5C12 7.83875 11.5217 9.06578 10.7266 10.0195L13.8535 13.1464C14.0488 13.3417 14.0488 13.6583 13.8535 13.8536C13.6583 14.0488 13.3417 14.0488 13.1464 13.8536L10.0195 10.7266ZM11 6.5C11 4.01472 8.98528 2 6.5 2C4.01472 2 2 4.01472 2 6.5C2 8.98528 4.01472 11 6.5 11C8.98528 11 11 8.98528 11 6.5Z"/>
   </g>
-  <rect x="380" y="13.5" width="30" height="3.5" rx="1.75" fill="#8A8A8A"/>
   <g transform="translate(462, 11) scale(0.5000)" fill="#8A8A8A">
     <path d="M7.976 10.072l4.357-4.357.62.618L8.284 11h-.618L3 6.333l.619-.618 4.357 4.357z"/>
   </g>
@@ -219,10 +218,6 @@
   </g>
   <rect x="256" y="90" width="84" height="15" rx="3" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="1"/>
   <rect class="caret" x="262" y="93" width="1.4" height="9" fill="#3E4246"/>
-  <circle cx="352" cy="98" r="7.5" fill="#FFFFFF" stroke="#447099" stroke-width="1.2"/>
-  <g transform="translate(355.5, 94.5) scale(-0.4375, 0.4375)" fill="#447099">
-    <path d="M6.14601 3.14579C5.95101 3.34079 5.95101 3.65779 6.14601 3.85279L10.292 7.99879L6.14601 12.1448C5.95101 12.3398 5.95101 12.6568 6.14601 12.8518C6.34101 13.0468 6.65801 13.0468 6.85301 12.8518L11.353 8.35179C11.548 8.15679 11.548 7.83979 11.353 7.64478L6.85301 3.14479C6.65801 2.94979 6.34101 2.95079 6.14601 3.14579Z"/>
-  </g>
   <g transform="translate(177, 123) scale(0.3750)" fill="#8A8A8A">
     <path d="M6.14601 3.14579C5.95101 3.34079 5.95101 3.65779 6.14601 3.85279L10.292 7.99879L6.14601 12.1448C5.95101 12.3398 5.95101 12.6568 6.14601 12.8518C6.34101 13.0468 6.65801 13.0468 6.85301 12.8518L11.353 8.35179C11.548 8.15679 11.548 7.83979 11.353 7.64478L6.85301 3.14479C6.65801 2.94979 6.34101 2.95079 6.14601 3.14579Z"/>
   </g>
@@ -435,7 +430,12 @@
   <rect x="258" y="390" width="52" height="2" fill="#447099" opacity="0.55"/>
   <rect x="318" y="384.5" width="10" height="3" rx="1.5" fill="#C8C8C8"/>
   <rect x="334" y="384.5" width="24" height="3" rx="1.5" fill="#E8E8E8"/>
-  <line x1="367" y1="80" x2="367" y2="428" stroke="#E0E0E0" stroke-width="1"/>
+  <line x1="367" y1="80" x2="367" y2="434" stroke="#E0E0E0" stroke-width="1"/>
+  <!-- Collapse/expand summary panel button, centered on the panel/grid border -->
+  <circle cx="367" cy="98" r="7.5" fill="#FFFFFF" stroke="#447099" stroke-width="0.8"/>
+  <g transform="translate(371.5, 93.5) scale(-0.5625, 0.5625)" fill="#447099">
+    <path d="M6.14601 3.14579C5.95101 3.34079 5.95101 3.65779 6.14601 3.85279L10.292 7.99879L6.14601 12.1448C5.95101 12.3398 5.95101 12.6568 6.14601 12.8518C6.34101 13.0468 6.65801 13.0468 6.85301 12.8518L11.353 8.35179C11.548 8.15679 11.548 7.83979 11.353 7.64478L6.85301 3.14479C6.65801 2.94979 6.34101 2.95079 6.14601 3.14579Z"/>
+  </g>
 
   <!-- ============ DATA GRID ============ -->
   <rect x="401" y="90" width="26" height="4" rx="2" fill="#8A8A8A"/>
@@ -453,13 +453,13 @@
   <rect x="749" y="90" width="30" height="4" rx="2" fill="#8A8A8A"/>
   <rect x="749" y="103" width="24" height="3" rx="1.5" fill="#C8C8C8"/>
   <line x1="367" y1="116" x2="800" y2="116" stroke="#E0E0E0" stroke-width="1"/>
-  <line x1="395" y1="80" x2="395" y2="396" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="453" y1="80" x2="453" y2="396" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="511" y1="80" x2="511" y2="396" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="569" y1="80" x2="569" y2="396" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="627" y1="80" x2="627" y2="396" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="685" y1="80" x2="685" y2="396" stroke="#EEEEEE" stroke-width="1"/>
-  <line x1="743" y1="80" x2="743" y2="396" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="395" y1="80" x2="395" y2="416" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="453" y1="80" x2="453" y2="416" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="511" y1="80" x2="511" y2="416" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="569" y1="80" x2="569" y2="416" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="627" y1="80" x2="627" y2="416" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="685" y1="80" x2="685" y2="416" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="743" y1="80" x2="743" y2="416" stroke="#EEEEEE" stroke-width="1"/>
   <rect x="380" y="121.2" width="8" height="3" rx="1.5" fill="#D0D0D0"/>
   <rect x="433" y="121.2" width="14" height="3.4" rx="1.7" fill="#C8C8C8"/>
   <rect x="491" y="121.2" width="14" height="3.4" rx="1.7" fill="#C8C8C8"/>
@@ -639,17 +639,12 @@
   <rect x="665" y="387.2" width="14" height="3.4" rx="1.7" fill="#C8C8C8"/>
   <rect x="711" y="387.2" width="26" height="3.4" rx="1.7" fill="#C8C8C8"/>
   <rect x="771" y="387.2" width="24" height="3.4" rx="1.7" fill="#C8C8C8"/>
-  <rect x="470" y="398" width="200" height="5" rx="2.5" fill="#C8C8C8"/>
-  <line x1="172" y1="404" x2="800" y2="404" stroke="#E0E0E0" stroke-width="1"/>
-  <circle cx="380" cy="416" r="4.5" fill="none" stroke="#8A8A8A" stroke-width="1.2"/>
-  <rect x="392" y="414" width="48" height="4" rx="2" fill="#8A8A8A"/>
-  <rect x="450" y="414" width="36" height="4" rx="2" fill="#8A8A8A"/>
+  <rect x="470" y="409" width="200" height="5" rx="2.5" fill="#C8C8C8"/>
+  <line x1="367" y1="416" x2="800" y2="416" stroke="#E0E0E0" stroke-width="1"/>
+  <circle cx="380" cy="425" r="4" fill="none" stroke="#447099" stroke-width="1.2"/>
+  <text x="390" y="427.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="7" fill="#5A5A5A">1000 columns   20 rows</text>
 
   <!-- ============ STATUS BAR ============ -->
   <line x1="0" y1="434" x2="800" y2="434" stroke="#E0E0E0" stroke-width="1"/>
   <rect x="0" y="434.5" width="800" height="15.5" fill="#F4F4F4"/>
-  <rect x="10" y="440.5" width="26" height="3.5" rx="1.75" fill="#A8A8A8"/>
-  <rect x="44" y="440.5" width="34" height="3.5" rx="1.75" fill="#A8A8A8"/>
-  <rect x="734" y="440.5" width="20" height="3.5" rx="1.75" fill="#A8A8A8"/>
-  <rect x="762" y="440.5" width="28" height="3.5" rx="1.75" fill="#A8A8A8"/>
 </svg>
