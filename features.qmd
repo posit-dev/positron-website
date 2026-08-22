@@ -62,11 +62,6 @@ listing:
         link: "remote-ssh.qmd"
         anchor-text: "Remote SSH"
         hide-profiles: [workbench]
-      - title: "Manage & explore database connections"
-        description: "Create connections to databases, explore their schemas, and interactively preview database tables."
-        icon: "bi-database"
-        link: "connections-pane.qmd"
-        anchor-text: "Connections Pane"
       - title: "Automatically setup projects"
         description: "Avoid manual setup by using templatized ready-to-use environments."
         icon: "bi-folder-plus"
@@ -109,27 +104,21 @@ listing:
 
 ## Bridge the exploration and production divide
 
-{{< cdn-video https://cdn.posit.co/positron/releases/videos/positron-assistant-copytoeditor.mp4
-  poster="https://cdn.posit.co/positron/releases/videos/positron-assistant-copytoeditor-poster.jpg"
-  aria-label="Video demonstration of Positron's AI assistance and environment inspection features" >}}
+![](images/features-bridge.svg){.drop-shadow fig-alt="The Positron IDE with Posit Assistant open as an editor tab. The assistant has edited a file in the project. The Session pane beside it shows the resulting data frame in Variables and a chart in Plots."}
 
 ::: {#features-insights-1}
 :::
 
 ## Explore and analyze with speed
 
-{{< cdn-video https://cdn.posit.co/positron/releases/videos/data-explorer.mp4
-  poster="https://cdn.posit.co/positron/releases/videos/data-explorer-poster.jpg"
-  aria-label="Video demonstration of Positron's data exploration features" >}}
+![](images/features-explore.svg){.drop-shadow fig-alt="The Positron IDE showing the Data Connections pane expanded to a database and its tables. The Data Explorer displays a table, with a summary profile for each column next to the data grid."}
 
 ::: {#features-speed-2}
 :::
 
 ## Develop with confidence
 
-{{< cdn-video https://cdn.posit.co/positron/releases/videos/connections.mp4
-  poster="https://cdn.posit.co/positron/releases/videos/connections-poster.jpg"
-  aria-label="Video demonstration of Positron's database connection features" >}}
+![](images/features-publish.svg){.drop-shadow fig-alt="The Positron IDE with Posit Publisher open. The publishing log shows each deployment step completed in turn. The Viewer pane previews the deployed data application."}
 
 ::: {#features-develop-3}
 :::
@@ -140,9 +129,7 @@ listing:
 For teams that need enterprise-grade capabilities, [Positron Pro](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page) on [Posit Workbench](https://posit.co/products/enterprise/workbench/?utm_source=positron-docs&utm_medium=features-page) provides the scalability, data access, admin configuration, and security your organization requires.
 
 
-{{< cdn-video https://cdn.posit.co/positron/releases/videos/positron-workbench.mp4
-  poster="https://cdn.posit.co/positron/releases/videos/positron-workbench-poster.jpg"
-  aria-label="Video demonstration of Positron Pro on Posit Workbench for enterprise teams" >}}
+![](images/features-enterprise.svg){.drop-shadow fig-alt="The Positron IDE running a full session. A Quarto document is open in the editor with an executable code cell. The Console sits below it, and the Session pane shows Variables and a plot."}
 
 ::: {#features-pro-4}
 :::
