@@ -8,6 +8,8 @@ Discover the complete data science toolkit designed to keep you in the flow. Qui
 
 ## Bridge the exploration and production divide
 
+[![The Positron IDE with Posit Assistant open as an editor tab. The assistant has edited a file in the project. The Session pane beside it shows the resulting data frame in Variables and a chart in Plots.](images/features-bridge.svg)](images/features-bridge.svg)
+
 ### Build data applications
 
 Instantly develop and preview data applications directly from Positron.
@@ -33,6 +35,8 @@ Enhance code quality and accelerate insights with integrated AI assistance conte
 [AI features](ai-features.llms.md)
 
 ## Explore and analyze with speed
+
+[![The Positron IDE showing the Data Connections pane expanded to a database and its tables. The Data Explorer displays a table, with a summary profile for each column next to the data grid.](images/features-explore.svg)](images/features-explore.svg)
 
 ### Python and R
 
@@ -60,17 +64,13 @@ Create high-quality visualizations quickly to uncover patterns and communicate f
 
 ## Develop with confidence
 
+[![The Positron IDE with Posit Publisher open. The publishing log shows each deployment step completed in turn. The Viewer pane previews the deployed data application.](images/features-publish.svg)](images/features-publish.svg)
+
 ### Scale beyond your local workstation
 
 Collaborate securely with your team via Posit Workbench or use remote SSH to access your own servers.
 
 [Remote SSH](remote-ssh.llms.md)
-
-### Manage & explore database connections
-
-Create connections to databases, explore their schemas, and interactively preview database tables.
-
-[Connections Pane](connections-pane.llms.md)
 
 ### Automatically setup projects
 
@@ -93,6 +93,8 @@ With a click of a button, seamlessly deploy and share your project with Posit Pu
 ## Enterprise-ready with Positron Pro
 
 For teams that need enterprise-grade capabilities, [Positron Pro](https://posit.co/products/ide/positron/?utm_source=positron-docs&utm_medium=features-page) on [Posit Workbench](https://posit.co/products/enterprise/workbench/?utm_source=positron-docs&utm_medium=features-page) provides the scalability, data access, admin configuration, and security your organization requires.
+
+[![The Positron IDE running a full session. A Quarto document is open in the editor with an executable code cell. The Console sits below it, and the Session pane shows Variables and a plot.](images/features-enterprise.svg)](images/features-enterprise.svg)
 
 ### Enhanced Security
 
