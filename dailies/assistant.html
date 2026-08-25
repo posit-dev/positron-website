@@ -956,30 +956,34 @@ window.Quarto = {
 <td>Slash commands typed at the start of a message that trigger special actions, such as <code>/plan</code>, <code>/new</code>, and <code>/savememory</code>.</td>
 </tr>
 <tr class="even">
-<td><a href="https://assistant.posit.co/docs/features/skills/">Skills</a></td>
-<td>Specialized knowledge modules that load automatically when relevant to a request, with no manual activation needed. Built-ins include <code>quarto-authoring</code>, <code>shiny-bslib</code>, and <code>predictive-modeling-r</code>, plus user and project-level custom skills.</td>
-</tr>
-<tr class="odd">
-<td><a href="https://assistant.posit.co/docs/features/memory/">Memory</a></td>
-<td>Persistent project context via an <code>AGENTS.md</code> file that captures conventions, architecture, and preferences. The file loads automatically at the start of every conversation in trusted workspaces.</td>
-</tr>
-<tr class="even">
-<td><a href="https://assistant.posit.co/docs/features/conversations/">Conversations</a></td>
-<td>Full conversation history with switching, renaming, and deletion. Includes tree-based branching when you edit a previous message and import and export in Markdown, HTML, or JSON.</td>
+<td><a href="https://assistant.posit.co/docs/features/chat-features/">Chat Features</a></td>
+<td>File attachments via drag-and-drop, clipboard paste, or the paperclip, with <code>@</code> mentions to reference workspace files. Also includes adjustable thinking effort (Off, Low, Medium, and High) and optional web search.</td>
 </tr>
 <tr class="odd">
 <td><a href="https://assistant.posit.co/docs/features/plan-mode/">Plan Mode</a></td>
 <td>A collaborative design phase where the assistant explores the codebase, asks questions, and writes a plan file before changing code. Best for multi-step features, refactors, and unfamiliar codebases.</td>
 </tr>
 <tr class="even">
-<td><a href="https://assistant.posit.co/docs/features/chat-features/">Chat Features</a></td>
-<td>File attachments via drag-and-drop, clipboard paste, or the paperclip, with <code>@</code> mentions to reference workspace files. Also includes adjustable thinking effort (Off, Low, Medium, and High) and optional web search.</td>
+<td><a href="https://assistant.posit.co/docs/features/skills/">Skills</a></td>
+<td>Specialized knowledge modules that load automatically when relevant to a request, with no manual activation needed. Built-ins include <code>quarto-authoring</code>, <code>shiny-bslib</code>, and <code>predictive-modeling-r</code>, plus user and project-level custom skills.</td>
 </tr>
 <tr class="odd">
+<td><a href="https://assistant.posit.co/docs/reference/mcp-servers/">MCP Servers</a></td>
+<td>Connect external tool servers via the Model Context Protocol to extend the assistant with custom tools, such as database access, API integrations, and internal services. Supports local (stdio) and remote (HTTP/SSE) servers with bearer token or OAuth authentication, including servers hosted on Posit Connect.</td>
+</tr>
+<tr class="even">
+<td><a href="https://assistant.posit.co/docs/features/memory/">Memory</a></td>
+<td>Persistent project context via an <code>AGENTS.md</code> file that captures conventions, architecture, and preferences. The file loads automatically at the start of every conversation in trusted workspaces.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://assistant.posit.co/docs/features/conversations/">Conversations</a></td>
+<td>Full conversation history with switching, renaming, and deletion. Includes tree-based branching when you edit a previous message and import and export in Markdown, HTML, or JSON.</td>
+</tr>
+<tr class="even">
 <td><a href="https://assistant.posit.co/docs/features/context-management/">Context Management</a></td>
 <td>Automatic inclusion of session info (language, version, variable names and types) when connected to R or Python. Provides a token counter with detailed breakdown and auto, manual, and micro-compaction to keep long conversations within the model’s context window.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="https://assistant.posit.co/docs/features/permissions/">Permissions &amp; Trust</a></td>
 <td>Three approval modes (Normal, YOLO, Restricted) and per-tool permissions configurable in settings. Includes workspace trust prompts when opening projects with <code>AGENTS.md</code> and an optional sandbox mode for bash execution.</td>
 </tr>
