@@ -71,7 +71,7 @@ Two sites are published from the `gh-pages` branch, and **merging to `main` does
 
 Both live on one branch. The root publish preserves `dailies/` and `CNAME`; the dailies publish writes only into `dailies/`. The two jobs share the `gh-pages-deploy` concurrency group, so a release publish and a merge to `main` queue instead of overwriting each other.
 
-A fix to the released site therefore needs a release publish, not a merge. Land the fix on `main` and rerun Release Documentation Bundles. When `main` already carries content that is not ready to ship, build instead from a backport branch cut from the release tag and pass that branch as the workflow's `ref` input.
+A fix to the released site therefore needs a release publish, not a merge. Land the fix on `main` and rerun Release Documentation Bundles. Check the workflow's `overwrite` input: the version is already published, so the pre-flight step fails the run without it. `overwrite` also deletes and recreates the GitHub release and its tag. When `main` already carries content that is not ready to ship, build instead from a backport branch cut from the release tag and pass that branch as the workflow's `ref` input.
 
 GitHub Actions:
 
