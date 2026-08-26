@@ -5,7 +5,7 @@ the pages that use them. They are stored with Git LFS (see `.gitattributes`), so
 make sure LFS is installed and initialized (`git lfs install`) before adding or
 replacing one.
 
-The site does **not** serve these files. Netlify excludes them from the build
+The site does **not** serve these files. The build excludes them from the
 output (`"!videos/**"` in `_quarto.yml`),
 and pages load them from the CDN instead.
 

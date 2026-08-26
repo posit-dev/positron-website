@@ -154,6 +154,14 @@ PR conventions from past patch releases:
 
 ⏸ Confirm title and body with the user before running `gh pr create`. Do not merge automatically.
 
+## 7. After the PR merges
+
+Merging does not publish positron.posit.co. A merge to `main` republishes positron.posit.co/dailies only. Patches publish the same way monthly releases do: the [Release Documentation Bundles](https://github.com/posit-dev/positron-website/actions/workflows/release-docs-bundles.yml) workflow builds from `main`, reads `RELEASE_VERSION` from `_environment`, and publishes the rendered site to the root of `gh-pages`. So this PR has to merge before that workflow runs.
+
+⏸ Tell the user this step is still outstanding once the PR merges. Leave the workflow run to them.
+
+Once it finishes, the footer on the live site should read the new patch version, and the patch notes should be at <https://positron.posit.co/download.html#release-notes>.
+
 ## Style and repo conventions
 
 - No em dashes in file contents (repo style preference). Use commas, semicolons, parentheses, or two sentences.
