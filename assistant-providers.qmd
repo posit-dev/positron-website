@@ -10,9 +10,9 @@ This page covers what each provider needs: the account to have ready, how you au
 
 Please ensure you consult your provider's privacy policy and terms of service for information on the data they collect and how it is used. For reference links, see the [Privacy & Terms](assistant-provider-info.qmd) guide.
 
-## Where provider configuration lives {#provider-configuration-file}
+## `providers.json` {#provider-configuration-file}
 
-Provider configuration lives in a single file, `~/.posit/ai/providers.json`. Positron writes it for you as you connect and edit providers, so most people never need to open it. Your API keys and tokens are not in this file. Positron stores them separately.
+Provider configuration lives in a single file: `~/.posit/ai/providers.json`. Positron writes it for you as you connect and edit providers. Your API keys and tokens are not in this file. Positron stores them separately.
 
 Open the file with the _Open AI Provider Settings (JSON)_ command when you need something the provider dialog does not cover. That includes turning a provider off, sending custom HTTP headers, and filtering the model list. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) in the Posit Assistant documentation.
 
@@ -33,7 +33,7 @@ Posit AI is a hosted language model service from Posit, offering both chat model
 
 - **Account:** an AWS account with Amazon Bedrock access, plus [access to the foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html) you want to use
 - **Authentication:** sign in to your AWS account with the AWS CLI. Positron checks that you are signed in
-- **Configuration:** the AWS region and profile, if your environment does not already set them (see below)
+- **Configuration:** the AWS region and profile, if your environment does not already set them (see [Configure AWS region and profile](#configure-aws-region-profile))
 
 ### Sign in with the AWS CLI
 
@@ -41,7 +41,7 @@ Posit AI is a hosted language model service from Posit, offering both chat model
 1. [Configure your AWS credentials for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
 1. [Sign in with the AWS CLI](https://docs.aws.amazon.com/signin/latest/userguide/command-line-sign-in.html)
 
-### Configure AWS region and profile (optional)
+### Configure AWS region and profile (optional) {#configure-aws-region-profile}
 
 Positron reads `AWS_REGION` from your environment and uses your `default` AWS CLI profile automatically, so most people can skip this.
 
@@ -49,11 +49,13 @@ Positron reads `AWS_REGION` from your environment and uses your `default` AWS CL
 
 Set a region if your shell does not already have one configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the identifier for each location. Make sure the models you want are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
 
+Set it with the `AWS_REGION` environment variable before you launch Positron, or, to set it for Posit Assistant only, with the `aws.region` key under `providers.bedrock` in `providers.json`. See [`aws`](https://assistant.posit.co/docs/reference/providers-config/#aws) in the `providers.json` reference.
+
 #### Profile
 
 Set a profile if the one you use for Bedrock is not named `default`. This applies when you have a dedicated Bedrock role separate from your development credentials, or your Bedrock access lives in a different AWS account. Run `aws configure list-profiles` in a terminal to see your profiles.
 
-Set either value with the `AWS_REGION` and `AWS_PROFILE` environment variables before you launch Positron. To set them for Positron only, use the `aws.region` and `aws.profile` keys under `providers.bedrock` in `providers.json`. See [`aws`](https://assistant.posit.co/docs/reference/providers-config/#aws) in the `providers.json` reference.
+Set it with the `AWS_PROFILE` environment variable before you launch Positron, or, to set it for Posit Assistant only, with the `aws.profile` key under `providers.bedrock` in `providers.json`. See [`aws`](https://assistant.posit.co/docs/reference/providers-config/#aws) in the `providers.json` reference.
 
 ::: {.callout-note}
 Do not set a profile if you use Posit Workbench managed credentials or environment variable credentials (`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`). Both of those paths bypass named profile resolution, so setting a profile name causes credential resolution to fail.

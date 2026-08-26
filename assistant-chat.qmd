@@ -82,10 +82,6 @@ Fix and Explain inherit these options from the chat pane:
 
 ## Managing models
 
-::: {.callout-note}
-Positron deprecated the `positron.assistant.models.overrides.*` settings below as of Positron 2026.08. Model configuration lives in `~/.posit/ai/providers.json`. See [Choosing which models appear](https://assistant.posit.co/docs/reference/providers-config/#choosing-which-models-appear) in the `providers.json` reference.
-:::
-
 You can customize which models Assistant has access to and set default preferences using the following settings:
 
 - [`positron.assistant.models.preference.global`](positron://settings/positron.assistant.models.preference.global): Set a preferred model to be pre-selected across all providers. Matching is case-insensitive and supports partial matches.
