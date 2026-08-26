@@ -37,10 +37,12 @@ To connect a provider, run the command _Authentication: Configure Language Model
 | [OpenAI](assistant-providers.qmd#openai) | {{< fa check >}} | | API Key |
 | [Snowflake Cortex](assistant-providers.qmd#snowflake-cortex) | {{< fa check >}} | | API Key or Workbench Managed Credentials |
 | [GitHub Copilot](assistant-providers.qmd#github-copilot) [Preview]{.provider-badge .preview} | {{< fa check >}} | {{< fa check >}} | OAuth |
-| [Custom Provider](assistant-providers.qmd#custom-provider) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
+| [OpenAI Compatible](assistant-providers.qmd#custom-provider) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [DeepSeek](assistant-providers.qmd#deepseek) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [Google Gemini](assistant-providers.qmd#gemini-code-assist) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [Gemini Enterprise Agent Platform](assistant-providers.qmd#gemini-enterprise-agent-platform) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | Google Cloud CLI or Service Account Credentials |
+
+You can also connect additional, named providers of your own beyond this list. See [Custom providers](assistant-providers.qmd#custom-providers).
 
 Please ensure you consult your provider's privacy policy for information on the data they collect and how they use it. For reference links, see the [Privacy & Terms](assistant-provider-info.qmd) guide.
 
