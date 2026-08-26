@@ -185,6 +185,16 @@ PR conventions from past releases:
 
 ⏸ Confirm title and body with the user before running `gh pr create`. Do not merge automatically.
 
+## 8. After the PR merges
+
+Merging does not publish positron.posit.co. A merge to `main` republishes positron.posit.co/dailies only. The released site is published by the [Release Documentation Bundles](https://github.com/posit-dev/positron-website/actions/workflows/release-docs-bundles.yml) workflow, which is step 6 of the [release process](https://github.com/posit-dev/positron-wiki/blob/main/release-process.qmd).
+
+The order matters. That workflow builds from `main` and reads `RELEASE_VERSION` from `_environment`, so this PR has to merge first, along with any downstream doc fixes from step 5 that should ship with the release. Whatever sits in an open PR does not go out. The workflow then cuts the docs release, uploads the bundles, and publishes the rendered site to the root of `gh-pages`.
+
+⏸ Tell the user this step is still outstanding once the PR merges. Leave the workflow run to them.
+
+Once it finishes, the footer on the live site should read the new `RELEASE_VERSION`, and the new notes should be at <https://positron.posit.co/download.html#release-notes>. Until then the live site still shows last month's release, which is expected.
+
 ## Style and repo conventions
 
 - Sentence case for headings inside `.qmd` content (per the Posit style guide; PR #295 had a follow-up commit to fix this).
