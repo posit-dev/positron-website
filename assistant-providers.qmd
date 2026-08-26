@@ -6,9 +6,21 @@ toc-depth: 2
 
 Positron connects to a range of language model providers. To connect one, run the command _Authentication: Configure Language Model Providers_, select the provider, and authenticate.
 
-This page covers what each provider needs: the account to have ready, how you authenticate, and any Positron settings to configure first.
+This page covers what each provider needs: the account to have ready, how you authenticate, and anything to configure first.
 
 Please ensure you consult your provider's privacy policy and terms of service for information on the data they collect and how it is used. For reference links, see the [Privacy & Terms](assistant-provider-info.qmd) guide.
+
+## Where provider configuration lives {#provider-configuration-file}
+
+Provider configuration lives in a single file, `~/.posit/ai/providers.json`. Positron writes it for you as you connect and edit providers, so most people never need to open it. Your API keys and tokens are not in this file. Positron stores them separately.
+
+Open the file with the _Open AI Provider Settings (JSON)_ command when you need something the provider dialog does not cover. That includes turning a provider off, sending custom HTTP headers, and filtering the model list. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) in the Posit Assistant documentation.
+
+::: {.callout-note}
+## Provider settings are deprecated
+
+Positron deprecated the `authentication.*` and `positron.assistant.provider.*` settings in favor of `providers.json`. Positron migrates them for you when you upgrade, and you can run the migration again at any time with the _Migrate AI Provider Settings to providers.json_ command.
+:::
 
 ## Posit AI
 
@@ -21,9 +33,7 @@ Posit AI is a hosted language model service from Posit, offering both chat model
 
 - **Account:** an AWS account with Amazon Bedrock access, plus [access to the foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html) you want to use
 - **Authentication:** sign in to your AWS account with the AWS CLI. Positron checks that you are signed in
-- **Settings:**
-  - [`authentication.aws.credentials`](positron://settings/authentication.aws.credentials) (optional): override `AWS_REGION` or `AWS_PROFILE` for Positron only (see below)
-  - [`authentication.aws.inferenceProfileRegion`](positron://settings/authentication.aws.inferenceProfileRegion) (optional): override the derived cross-region inference profile (`us`, `eu`, `apac`, or `global`) (see below)
+- **Configuration:** the AWS region and profile, if your environment does not already set them (see below)
 
 ### Sign in with the AWS CLI
 
@@ -35,38 +45,31 @@ Posit AI is a hosted language model service from Posit, offering both chat model
 
 Positron reads `AWS_REGION` from your environment and uses your `default` AWS CLI profile automatically, so most people can skip this.
 
-#### `AWS_REGION`
+#### Region
 
-Set this if your shell does not already have a region configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the identifier for each location. Make sure the models you want are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
+Set a region if your shell does not already have one configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the identifier for each location. Make sure the models you want are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
 
-#### `AWS_PROFILE`
+#### Profile
 
-Set this if the profile you use for Bedrock is not named `default`, for example when you have a dedicated Bedrock role separate from your development credentials, or your Bedrock access lives in a different AWS account. Run `aws configure list-profiles` in a terminal to see your profiles.
+Set a profile if the one you use for Bedrock is not named `default`. This applies when you have a dedicated Bedrock role separate from your development credentials, or your Bedrock access lives in a different AWS account. Run `aws configure list-profiles` in a terminal to see your profiles.
 
-To set either value, add it to the [`authentication.aws.credentials`](positron://settings/authentication.aws.credentials) setting as an item keyed by `AWS_REGION` or `AWS_PROFILE`. These override any matching environment variables for Positron only. They do not affect your terminal or other tools. Changes require a restart to take effect.
+Set either value with the `AWS_REGION` and `AWS_PROFILE` environment variables before you launch Positron. To set them for Positron only, use the `aws.region` and `aws.profile` keys under `providers.bedrock` in `providers.json`. See [`aws`](https://assistant.posit.co/docs/reference/providers-config/#aws) in the `providers.json` reference.
 
 ::: {.callout-note}
-Do not set `AWS_PROFILE` if you use Posit Workbench managed credentials or environment variable credentials (`AWS_ACCESS_KEY_ID`/`AWS_SECRET_ACCESS_KEY`). Both of those paths bypass named profile resolution, so setting a profile name causes credential resolution to fail.
+Do not set a profile if you use Posit Workbench managed credentials or environment variable credentials (`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`). Both of those paths bypass named profile resolution, so setting a profile name causes credential resolution to fail.
 :::
 
-### Configure inference profile region (optional)
+### Cross-region inference profiles
 
-Positron uses [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) to route requests across multiple AWS regions for higher availability and throughput. Positron derives the inference profile region automatically from `AWS_REGION` by taking its geographic prefix:
+Positron uses [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) to route requests across multiple AWS regions for higher availability and throughput. It derives the inference profile region from your AWS region by taking the geographic prefix, and there is nothing to configure:
 
-| `AWS_REGION` | Derived inference profile region |
+| AWS region | Derived inference profile region |
 |---|---|
 | `us-east-1`, `us-west-2` | `us` |
 | `eu-west-1`, `eu-central-1` | `eu` |
 | `ap-southeast-1`, `ap-northeast-1` | `apac` |
 
-Most users do not need to change this. Use the [`authentication.aws.inferenceProfileRegion`](positron://settings/authentication.aws.inferenceProfileRegion) setting to override the derived value if:
-
-- Your AWS account has Bedrock model access in a different geographic pool than your `AWS_REGION` implies. For example, you connect through `us-east-1` but want to route inference through `eu` profiles.
-- You want a `global` inference profile, which Positron cannot derive automatically from any region.
-
-Valid values are `us`, `eu`, `apac`, and `global`. This setting requires a restart to take effect.
-
-If no inference profile exists for your preferred region, Positron falls back to the first available inference profile for that model. If a model has no inference profile at all, it does not appear in the model list.
+If no inference profile exists for the derived region, Positron falls back to the first available inference profile for that model. If a model has no inference profile at all, it does not appear in the model list.
 
 ## Anthropic
 
@@ -93,29 +96,38 @@ Support for OAuth sign-in depends on Anthropic offering API access to Posit Assi
 
 - **Account:** a [Microsoft Foundry](https://ai.azure.com/) resource with one or more models deployed
 - **Authentication:** the endpoint URL and API key for your Foundry resource
-- **Settings:**
-  - [`positron.assistant.models.overrides.msFoundry`](positron://settings/positron.assistant.models.overrides.msFoundry) (optional): Foundry has no automatic model discovery and defaults to `model-router`, so set this to use specific models (see below)
+- **Configuration:** Foundry has no automatic model discovery and defaults to `model-router`, so declare your models to use specific ones (see below)
 
 Positron accepts deployment-based Azure OpenAI URLs (for example, `https://<resource>.openai.azure.com/openai/deployments/<name>/chat/completions?api-version=...`) and automatically normalizes them to the supported v1 format. A message displays when this conversion occurs.
 
 ### Configure a custom model listing {#configure-custom-model-overrides-msfoundry}
 
-To use specific models instead of `model-router`, configure the [`positron.assistant.models.overrides.msFoundry`](positron://settings/positron.assistant.models.overrides.msFoundry) setting:
+To use specific models instead of `model-router`, declare them under `providers.ms-foundry.models` in `providers.json`. Run _Open AI Provider Settings (JSON)_ to open the file, and use the deployment identifier from your Foundry resource as each model's `id`:
 
-```json
-"positron.assistant.models.overrides.msFoundry": [
-  {
-    "name": "gpt-4.1",
-    "identifier": "gpt-4.1"
-  },
-  {
-    "name": "gpt-5.3-chat",
-    "identifier": "gpt-5.3-chat"
+```{.json filename="providers.json"}
+{
+  "providers": {
+    "ms-foundry": {
+      "models": {
+        "discovery": "off",
+        "custom": [
+          {
+            "id": "gpt-4.1",
+            "name": "GPT-4.1",
+            "maxContextLength": 128000,
+            "supportsTools": true,
+            "supportsImages": true,
+            "supportsToolResultImages": false,
+            "supportsWebSearch": false
+          }
+        ]
+      }
+    }
   }
-]
+}
 ```
 
-Use the model name and deployment identifier from your Foundry resource for each entry.
+Set the capability fields to match your deployment. For what each field means and the optional ones this example leaves out, see [Model fields](https://assistant.posit.co/docs/reference/providers-config/#model-fields) in the `providers.json` reference.
 
 ## OpenAI
 
@@ -126,8 +138,8 @@ Use the model name and deployment identifier from your Foundry resource for each
 
 - **Account:** a Snowflake account with Cortex access
 - **Authentication:** your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier) and a [programmatic access token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) (PAT)
-- **Settings:**
-  - [`authentication.snowflake.credentials`](positron://settings/authentication.snowflake.credentials) (required): add your account ID as an item with the key `SNOWFLAKE_ACCOUNT` before you connect
+
+Enter the account identifier in the **Account Identifier** field when you connect the provider. Positron derives the Cortex URL from it and saves it to `providers.json` for you.
 
 ## GitHub Copilot [Preview]{.provider-badge .preview} {#github-copilot}
 
@@ -176,21 +188,12 @@ The custom provider works with any [OpenAI-compatible](https://ai-sdk.dev/provid
 
 - **Account:** an account with your chosen OpenAI-compatible provider
 - **Authentication:** an API key and the provider's base URL
-- **Settings:**
-  - [`positron.assistant.models.overrides.customProvider`](positron://settings/positron.assistant.models.overrides.customProvider) (optional): list models if your provider does not implement the `/models` endpoint (see below)
 
 ### Configure a custom model listing
 
-Some OpenAI-compatible providers might not implement the `/models` endpoint, which Positron uses to list available models. If this is the case for your provider, configure a custom model listing using the [`positron.assistant.models.overrides.customProvider`](positron://settings/positron.assistant.models.overrides.customProvider) setting:
+Some OpenAI-compatible providers might not implement the `/models` endpoint, which Positron uses to list available models. If this is the case for your provider, list the model IDs it serves in the **Models** field when you connect it. Positron saves them under `providers.openai-compatible.models` in `providers.json`.
 
-```json
-"positron.assistant.models.overrides.customProvider": [
-  {
-    "name": "Claude Sonnet 4.5 via OpenRouter",
-    "identifier": "anthropic/claude-sonnet-4.5"
-  }
-]
-```
+To change those entries, or to set the capability fields for each model, edit that block directly. See [Choosing which models appear](https://assistant.posit.co/docs/reference/providers-config/#choosing-which-models-appear) in the `providers.json` reference.
 
 ## DeepSeek [Experimental]{.provider-badge .experimental} {#deepseek}
 
@@ -208,8 +211,9 @@ Formerly Google Vertex AI.
 
 - **Account:** a Google Cloud project with the [Agent Platform APIs enabled](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/cloud-environment) and [access to the models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) you want to use
 - **Authentication:** authenticate with Google Cloud using Application Default Credentials (`gcloud`) or a service account (see below)
-- **Settings:**
-  - [`authentication.googleVertex.credentials`](positron://settings/authentication.googleVertex.credentials) (required, or env vars): set your project ID and location, which take precedence over the `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` environment variables
+- **Configuration:** your project ID and location, set with the `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` environment variables, or with the `googleCloud.project` and `googleCloud.location` keys under `providers.google-vertex` in `providers.json` (which take precedence)
+
+For the project and location keys, see [`googleCloud`](https://assistant.posit.co/docs/reference/providers-config/#googlecloud) in the `providers.json` reference.
 
 ### Sign in with Application Default Credentials (ADC)
 
