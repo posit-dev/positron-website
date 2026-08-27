@@ -4,7 +4,7 @@ Use Posit Assistant to explore Excel data, build an R analysis in a Quarto docum
 
 > **NOTE:**
 >
-> Is this the right tutorial to start with? It picks up where [First data analysis with R in a Quarto document](tutorial-get-started-quarto.llms.md) and [Migrate to Positron from RStudio](tutorial-migrate-from-RStudio.llms.md) leave off. If you have not worked through those, start there. This tutorial assumes you already know how to:
+> Is this the right tutorial to start with? It picks up where [First data analysis with R in a Quarto document](tutorial-get-started-quarto.llms.md) and [Migrate to Positron from RStudio](tutorial-migrate-from-rstudio.llms.md) leave off. If you have not worked through those, start there. This tutorial assumes you already know how to:
 >
 > 1.  Install Positron
 > 2.  Use the Command Palette

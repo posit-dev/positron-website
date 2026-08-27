@@ -4713,8 +4713,8 @@
     ]
   },
   {
-    "objectID": "tutorial-migrate-from-RStudio.html",
-    "href": "tutorial-migrate-from-RStudio.html",
+    "objectID": "tutorial-migrate-from-rstudio.html",
+    "href": "tutorial-migrate-from-rstudio.html",
     "title": "Migrate to Positron from RStudio",
     "section": "",
     "text": "Important\n\n\n\nShould you take this tutorial first? This tutorial assumes Positron is installed and you have a project open. If that is not the case, start with First data analysis with R in a Quarto document. It takes about 15 minutes and leaves you with a project you can configure here.\nYou just finished your first analysis in Positron. If some of it felt unfamiliar compared to RStudio, that is completely normal, and it is exactly what this tutorial fixes.\nYou are fast in RStudio because of muscle memory, not because of RStudio itself. In RStudio, you know where everything is. Over the next 20 minutes you will rebuild that familiarity by configuring Positron to be similar to RStudio. Along the way you will meet a few things Positron can do that RStudio cannot.\nWe will suggest specific settings that work well for most RStudio users, but you can change these settings however you like. Think of this as your chance to make Positron your personalized IDE.",
@@ -4724,8 +4724,8 @@
     ]
   },
   {
-    "objectID": "tutorial-migrate-from-RStudio.html#open-your-existing-rstudio-projects",
-    "href": "tutorial-migrate-from-RStudio.html#open-your-existing-rstudio-projects",
+    "objectID": "tutorial-migrate-from-rstudio.html#open-your-existing-rstudio-projects",
+    "href": "tutorial-migrate-from-rstudio.html#open-your-existing-rstudio-projects",
     "title": "Migrate to Positron from RStudio",
     "section": "Open your existing RStudio projects",
     "text": "Open your existing RStudio projects\nIn RStudio, you open a project by double-clicking its .Rproj file. In Positron, a workspace is simply a folder opened in its own window: the same idea, without the special file.\nTo open one of your existing projects, use File: Open Folder in the Command Palette (or File &gt; Open Folder) and choose the project folder. You can also run positron . from a terminal inside the folder.\nYour existing .Rproj file is safe to leave in place. Positron ignores it. If you use Git, your .git/ folder continues to mark the project root for tools like the here package, so paths keep working exactly as before.\n\n\n\nVarious ways to open a folder in Positron, highlighted in orange.\n\n\n\n\n\n\n\n\nTipTry it now\n\n\n\nOpen the Command Palette and search for File: Open Recent. Reopen a project you already work in.\nYou will know it worked when the project opens in its own window with your files in the Explorer, no .Rproj required. Rerun File: Open Recent to return to your previous project.\n\n\n\n\n\n\n\n\nNote\n\n\n\nPositron stores project-specific settings in .vscode/settings.json, but only creates that file once you configure something project-specific. There is no Positron equivalent of the .Rproj file, and you do not need one.",
@@ -4735,8 +4735,8 @@
     ]
   },
   {
-    "objectID": "tutorial-migrate-from-RStudio.html#match-your-layout",
-    "href": "tutorial-migrate-from-RStudio.html#match-your-layout",
+    "objectID": "tutorial-migrate-from-rstudio.html#match-your-layout",
+    "href": "tutorial-migrate-from-rstudio.html#match-your-layout",
     "title": "Migrate to Positron from RStudio",
     "section": "Match your layout",
     "text": "Match your layout\nRStudio arranges everything into four fixed panes. Positron uses the same building blocks, an Editor, a Console, and panes for Variables, Plots, and more, but gives you two controls for arranging them:\n\nThe Activity Bar (the icon strip on the far left) chooses what the Primary Side Bar shows.\nThe Primary Side Bar displays context-specific content (files, search, Git, extensions) depending on the active Activity Bar icon.\n\nHere is how the Activity Bar maps to tools you know from RStudio:\n\n\n\nActivity Bar icon\nRStudio equivalent\n\n\n\n\nExplorer \nFiles pane and document Outline\n\n\nSearch \nEdit &gt; Find in Files or \n\n\nSource Control \nGit pane (see using Git in Positron)\n\n\nDebugger\nDebugging pane when in debugger mode\n\n\nTest Explorer \nNo RStudio equivalent\n\n\nPosit Assistant\nPosit Assistant Chat window\n\n\nPublisher\nPublishing Wizard\n\n\nPackages\nPackages pane\n\n\n\n\n\n\nInterface of the Positron IDE\n\n\nThe Positron layout is more flexible than the RStudio layout. We recommend starting from a built-in preset and adjusting from there.\n\n\n\n\n\n\nTipTry it now\n\n\n\nOpen the Command Palette and type layout. Try the Stacked, Side-by-Side, and Notebook presets.\nYou will know it worked when the panes rearrange instantly. Keep the one that feels most like your RStudio setup. You can also drag any pane to a new spot.\n\n\nYou can also adjust the layout with the icons at the top right of Positron, drag tabs from one pane to another, or resize panes by dragging their borders.\n\n\n\nLayout buttons\n\n\n\n\n\n\n\n\nNote\n\n\n\nSee Customize the Layout for the full set of options.",
@@ -4746,8 +4746,8 @@
     ]
   },
   {
-    "objectID": "tutorial-migrate-from-RStudio.html#bring-over-your-theme",
-    "href": "tutorial-migrate-from-RStudio.html#bring-over-your-theme",
+    "objectID": "tutorial-migrate-from-rstudio.html#bring-over-your-theme",
+    "href": "tutorial-migrate-from-rstudio.html#bring-over-your-theme",
     "title": "Migrate to Positron from RStudio",
     "section": "Bring over your theme",
     "text": "Bring over your theme\nA familiar color scheme goes a long way. If you like the default RStudio editor colors, install the Tomorrow Night Bright (R Classic) theme (see Add features with extensions below). Otherwise, Positron ships with dozens of built-in themes.\n\n\n\n\n\n\nTipTry it now\n\n\n\nOpen the Command Palette and search for Preferences: Color Theme. Use the arrow keys to move through the list.\nYou will know it worked when the whole editor recolors live as you move, a small taste of how much Positron previews before you commit. Press EnterEnter on the one you want.\n\n\nThe video below shows how to preview color themes with Preferences: Color Theme.",
@@ -4757,8 +4757,8 @@
     ]
   },
   {
-    "objectID": "tutorial-migrate-from-RStudio.html#format-your-code-automatically-with-air",
-    "href": "tutorial-migrate-from-RStudio.html#format-your-code-automatically-with-air",
+    "objectID": "tutorial-migrate-from-rstudio.html#format-your-code-automatically-with-air",
+    "href": "tutorial-migrate-from-rstudio.html#format-your-code-automatically-with-air",
     "title": "Migrate to Positron from RStudio",
     "section": "Format your code automatically with Air",
     "text": "Format your code automatically with Air\nIn RStudio you might reformat code by hand or run styler. Positron bundles Air, an R formatter, for .R, .qmd, and .Rmd files.\n\nTo format a file, open the Command Palette and run Format Document.\nTo format a selection, run Format Selection.\n\nWe recommend enabling Format on Save so your code is tidied automatically every time you save, with no shortcut to remember.\n\n\n\n\n\n\nTipTry it now\n\n\n\nOpen the Command Palette, search for Preferences: Open Settings (UI), and turn on editor.formatOnSave. Then open an R file, add some messy spacing, and save with .\nYou will know it worked when Air snaps the code into clean formatting the instant you save.\n\n\n\n\n\n\n\n\nNote\n\n\n\nSee the Air documentation for details on choosing a user vs. workspace setting.",
@@ -4768,8 +4768,8 @@
     ]
   },
   {
-    "objectID": "tutorial-migrate-from-RStudio.html#reuse-code-with-snippets",
-    "href": "tutorial-migrate-from-RStudio.html#reuse-code-with-snippets",
+    "objectID": "tutorial-migrate-from-rstudio.html#reuse-code-with-snippets",
+    "href": "tutorial-migrate-from-rstudio.html#reuse-code-with-snippets",
     "title": "Migrate to Positron from RStudio",
     "section": "Reuse code with snippets",
     "text": "Reuse code with snippets\nCode snippets insert ready-made templates for common code patterns. For example, typing for and selecting the snippet inserts this skeleton:\nfor (variable in vector) {\n    # code to repeat\n}\nPress TabTab to jump between the placeholders for variable, vector, and # code to repeat.\n\n\n\nCompletion list after typing “for”, showing the snippet that can be inserted\n\n\nPositron provides snippets for R’s reserved words (if, while, for, function) out of the box.\n\n\n\n\n\n\nTipTry it now\n\n\n\nIn an R file, type for and select the snippet from the completion list. Press TabTab to move through each placeholder.\nYou will know it worked when the cursor jumps cleanly from variable to vector to the body.\n\n\nTo add your own snippets, open the Command Palette and run Snippets: Configure Snippets. Positron uses the TextMate snippet syntax, which differs from the RStudio format. You can find the default RStudio snippets already translated to the Positron syntax in r.code-snippets on GitHub.",
@@ -4779,8 +4779,8 @@
     ]
   },
   {
-    "objectID": "tutorial-migrate-from-RStudio.html#add-features-with-extensions",
-    "href": "tutorial-migrate-from-RStudio.html#add-features-with-extensions",
+    "objectID": "tutorial-migrate-from-rstudio.html#add-features-with-extensions",
+    "href": "tutorial-migrate-from-rstudio.html#add-features-with-extensions",
     "title": "Migrate to Positron from RStudio",
     "section": "Add features with extensions",
     "text": "Add features with extensions\nExtensions let you add features to Positron beyond its defaults. In this way, they are like RStudio addins, but the Extensions marketplace is far larger. Open the Extensions view from the Activity Bar, or run Extensions: Focus on Extensions View from the Command Palette. Then search for an extension by name or keyword.\nHere are some popular picks for R users:\n\n\n\nExtension\nPurpose\n\n\n\n\nTomorrow Night Bright (R Classic)\nRStudio dark theme ported to Positron\n\n\nIndent-Rainbow\nColorized indentation\n\n\nRainbow CSV\nColorized CSV file editing\n\n\nGitHub Actions\nInteract with GitHub Actions from the IDE\n\n\nGitLab Workflow\nGitLab support\n\n\nProject Manager\nQuickly switch between projects\n\n\n\n\n\n\n\n\n\nTipTry it now\n\n\n\nOpen the Command Palette, run Extensions: Focus on Extensions View, and search for “Tomorrow Night Bright (R Classic)”. Click Install.\nYou will know it worked when you can select it from Preferences: Color Theme and your editor takes on the classic RStudio dark mode colors. Scroll to Light to return to the default Posit colors.\n\n\n\n\n\nHow to find and install an extension from the marketplace.\n\n\nYou can also create your own extensions with TypeScript and JavaScript, going well beyond what RStudio addins can do.\n\n\n\n\n\n\nNote\n\n\n\nMany software companies provide free extensions that let you run their software inside Positron, such as SAS, Snowflake, Databricks, and DuckDB. If you use specific software in your workflow, check for it in the Extension Marketplace.",
@@ -4790,8 +4790,8 @@
     ]
   },
   {
-    "objectID": "tutorial-migrate-from-RStudio.html#run-your-rstudio-addins",
-    "href": "tutorial-migrate-from-RStudio.html#run-your-rstudio-addins",
+    "objectID": "tutorial-migrate-from-rstudio.html#run-your-rstudio-addins",
+    "href": "tutorial-migrate-from-rstudio.html#run-your-rstudio-addins",
     "title": "Migrate to Positron from RStudio",
     "section": "Run your RStudio addins",
     "text": "Run your RStudio addins\nPositron supports most RStudio addins through shims for the rstudioapi package. To run one, open the Command Palette and run R: Run RStudio Addin. For example, with the reprex package installed, you can launch its addin to build a reproducible example.",
@@ -4801,8 +4801,8 @@
     ]
   },
   {
-    "objectID": "tutorial-migrate-from-RStudio.html#what-is-not-in-positron-and-what-to-do-instead",
-    "href": "tutorial-migrate-from-RStudio.html#what-is-not-in-positron-and-what-to-do-instead",
+    "objectID": "tutorial-migrate-from-rstudio.html#what-is-not-in-positron-and-what-to-do-instead",
+    "href": "tutorial-migrate-from-rstudio.html#what-is-not-in-positron-and-what-to-do-instead",
     "title": "Migrate to Positron from RStudio",
     "section": "What is not in Positron (and what to do instead)",
     "text": "What is not in Positron (and what to do instead)\nA few RStudio features are not yet in Positron. If any of these are essential to your workflow, it is perfectly reasonable to keep using RStudio for that task:\n\nSaving and reloading workspace state on R restart. Positron starts each session clean. Rely on your scripts to rebuild state.\nDedicated panes and buttons for code profiling and package development. The underlying tooling still works from the Console and Command Palette.\nA data import widget. Follow progress on GitHub. In the meantime, use readr or readxl in code.",
@@ -4812,8 +4812,8 @@
     ]
   },
   {
-    "objectID": "tutorial-migrate-from-RStudio.html#what-positron-does-that-rstudio-cannot",
-    "href": "tutorial-migrate-from-RStudio.html#what-positron-does-that-rstudio-cannot",
+    "objectID": "tutorial-migrate-from-rstudio.html#what-positron-does-that-rstudio-cannot",
+    "href": "tutorial-migrate-from-rstudio.html#what-positron-does-that-rstudio-cannot",
     "title": "Migrate to Positron from RStudio",
     "section": "What Positron does that RStudio cannot",
     "text": "What Positron does that RStudio cannot\nAnd here is what you gain by making the move:\n\nPositron gives you easy access to multiple R versions and multiple concurrent R sessions in one window.\nIf a session crashes, you can open a new one without restarting the IDE.\nPython is a first-class citizen, with data science support on par with R and the ability to run R and Python in the same session.\nAn integrated Data Explorer works with data frames and files such as CSV and Parquet.\nA large third-party extension marketplace provides tools from providers like SAS, Snowflake, and Databricks.\nRemote sessions in Posit Workbench keep the UI local while compute runs on a remote server.\n\n\n\n\n\n\n\nNote\n\n\n\nIf you ever miss a button or pane from RStudio, check the Command Palette first. Almost every action in Positron lives there, and your familiar keyboard shortcuts usually work too.",
