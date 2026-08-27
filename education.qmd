@@ -31,6 +31,8 @@ Reach out via a discussion in our [GitHub repository](https://github.com/posit-d
 
 Academic institutions can use Positron Server or Positron on Workbench with a free teaching license. Full eligibility details are in the Positron [Academic License Rider](licensing.qmd#positron-education-license-rider).
 
+Free licenses for academic research are also available on a case-by-case basis; see the [FAQ below](#can-i-get-a-free-license-for-academic-research) for details.
+
 ## Applying for a teaching license
 
 1. **Check eligibility.** Review the [Positron Education License Rider](licensing.qmd#positron-education-license-rider) to confirm qualification for a teaching license.
@@ -55,7 +57,11 @@ Yes, with a teaching license you can choose multiple distribution options, inclu
 
 #### Can I use a teaching license for research purposes?
 
-No, the teaching license is only for instructional use. If you are interested in using Positron for research, you can use Positron Desktop or purchase a discounted research license. [Learn more about research licenses](https://posit.co/pricing/academic#we-help-educators).
+No, the teaching license is only for instructional use. If you are interested in using Positron for research, you can use Positron Desktop, request a free academic research license (see below), or purchase a discounted research license. [Learn more about research licenses](https://posit.co/pricing/academic#we-help-educators).
+
+#### Can I get a free license for academic research?
+
+Possibly. We grant free licenses for academic research on a case-by-case basis, typically for research conducted at degree-granting academic institutions. These licenses are not intended for all research settings; for example, research and development at corporate research labs or similar large-scale research organizations generally requires a paid [Posit Workbench](https://posit.co/pricing/academic#we-help-educators) license. To inquire about a free academic research license, email [academic-licenses@posit.co](mailto:academic-licenses@posit.co) with a brief description of your research and institution.
 
 #### Does the license expire at the end of the semester?
 
