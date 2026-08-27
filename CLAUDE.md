@@ -6,6 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the documentation website for Positron IDE, built with Quarto and published to GitHub Pages at https://positron.posit.co/. Documentation pages are `.qmd` files in the repository root, including reusable content in `.qmd` files that are prefixed with `_`. We use a mostly flat directory structure, especially for any files that get rendered into pages. The directories `/assets` and `/css` contain files we use for styling, and the directories `/images` and `/videos` contain visual content assets.
 
+## File Naming
+
+**Use all lowercase, kebab-case filenames.** This applies to everything in the repo that reaches the built site: `.qmd` pages, images, videos, poster frames, CSS, and JS. Write `tutorial-migrate-from-rstudio.qmd`, not `tutorial-migrate-from-RStudio.qmd`. Keep product names lowercase in filenames even where prose capitalizes them (`rstudio`, `vscode`, `python`).
+
+GitHub Pages serves static files and matches paths case-sensitively, so `/Foo.html` and `/foo.html` are two different URLs and only the one that matches the file on disk resolves. The other 404s.
+
+The two Posit logo assets (`assets/images/positron-logo_fullcolor-TM.png` and `images/posit-logo-black-TM.svg`) are known exceptions. Their references match their on-disk case, so they resolve correctly, and the `-TM` is meaningful. Leave them alone.
+
 ## Build Commands
 
 ```bash
