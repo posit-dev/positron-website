@@ -1,6 +1,6 @@
 ---
 title: "Positron for Education"
-description: "Bring Positron to your classroom with a free teaching license."
+description: "Bring Positron to your classroom with a free education license."
 ---
 ## A true multi-language IDE for data science for all
 
@@ -27,17 +27,17 @@ Explore the full list of [Positron features](features.qmd).
 Reach out via a discussion in our [GitHub repository](https://github.com/posit-dev/positron/discussions).
 :::
 
-## Eligibility for teaching licenses
+## Eligibility for education licenses
 
-Academic institutions can use Positron Server or Positron on Workbench with a free teaching license. Full eligibility details are in the Positron [Academic License Rider](licensing.qmd#positron-education-license-rider).
+Academic institutions can use Positron Server or Positron on Workbench for teaching with a free education license. Full eligibility details are in the Positron [Academic License Rider](licensing.qmd#positron-education-license-rider).
 
 Free licenses for academic research are also available on a case-by-case basis; see the [FAQ below](#can-i-get-a-free-license-for-academic-research) for details.
 
-## Applying for a teaching license
+## Applying for an education license
 
-1. **Check eligibility.** Review the [Positron Education License Rider](licensing.qmd#positron-education-license-rider) to confirm qualification for a teaching license.
+1. **Check eligibility.** Review the [Positron Education License Rider](licensing.qmd#positron-education-license-rider) to confirm qualification for an education license.
 
-2. **Request a license.** Send an email to [academic-licenses@posit.co](mailto:academic-licenses@posit.co) to get a free teaching license key.
+2. **Request a license.** Send an email to [academic-licenses@posit.co](mailto:academic-licenses@posit.co) to get a free education license key.
 
 3. **Install instructions.** Follow the instructions for your installation method to get Positron up and running. For example, for installing Positron on JupyterHub:
     * See the [`jupyter-positron-server` documentation](https://posit-dev.github.io/jupyter-positron-server/) to complete setup.
@@ -47,13 +47,13 @@ Free licenses for academic research are also available on a case-by-case basis; 
 
 ## Frequently asked questions
 
-#### How much does a teaching license cost?
+#### How much does an education license cost?
 
-Teaching licenses are free for qualified academic institutions.
+Education licenses are free for qualified academic institutions.
 
-#### Does a teaching license cover both Positron Server and Positron on Workbench?
+#### Does an education license for teaching cover both Positron Server and Positron on Workbench?
 
-Yes, with a teaching license you can choose multiple distribution options, including Positron Server and Positron on Workbench.
+Yes, with an education license you can choose multiple distribution options, including Positron Server and Positron on Workbench.
 
 #### Can I get a free license for academic research?
 
