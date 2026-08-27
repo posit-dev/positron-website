@@ -228,7 +228,7 @@ website:
         - tutorial-get-started-ipynb.qmd
         - tutorial-get-started-quarto.qmd
         - tutorial-migrate-from-vscode.qmd
-        - tutorial-migrate-from-RStudio.qmd
+        - tutorial-migrate-from-rstudio.qmd
         - tutorial-ai-notebooks.qmd
         - tutorial-ai-quarto.qmd
     - title: "Help"
