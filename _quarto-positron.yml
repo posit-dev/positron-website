@@ -161,7 +161,10 @@ website:
             - variables-pane.qmd
             - plots-pane.qmd
         - section: "Database Connections"
+          href: data-connections.qmd
           contents:
+            - text: "Overview"
+              href: data-connections.qmd
             - connections-pane.qmd
             - extending-connections.qmd 
             - catalog-explorer.qmd
