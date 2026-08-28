@@ -57,7 +57,9 @@ Yes, with an education license you can choose multiple distribution options, inc
 
 #### Can I get a free license for academic research?
 
-Possibly. We grant free licenses for academic research on a case-by-case basis, typically for research conducted at degree-granting academic institutions. These licenses are not intended for all research settings; for example, research and development at corporate research labs or similar large-scale research organizations generally requires a paid [Posit Workbench](https://posit.co/pricing/academic#we-help-educators) license. Individuals can also use Positron Desktop for any purpose, including research, under the [Positron Elastic license](licensing.qmd). To inquire about a free academic research license, email [academic-licenses@posit.co](mailto:academic-licenses@posit.co) with a brief description of your research and institution.
+Possibly. We grant free licenses for academic research on a case-by-case basis, typically for research conducted at degree-granting academic institutions. These licenses are not intended for all research settings; for example, research and development at corporate research labs or similar large-scale research organizations generally requires a paid [Posit Workbench](https://posit.co/pricing/academic#we-help-educators) license. In that scenario, Posit does still provide a [research discount](https://posit.co/pricing/academic) for Posit Workbench where appropriate.
+
+Individuals can also use Positron Desktop for any purpose, including research, under the [Positron Elastic license](licensing.qmd). To inquire about a free academic research license, email [academic-licenses@posit.co](mailto:academic-licenses@posit.co) with a brief description of your research and institution.
 
 #### Does the license expire at the end of the semester?
 
