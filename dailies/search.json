@@ -1660,22 +1660,22 @@
     ]
   },
   {
-    "objectID": "education.html#eligibility-for-teaching-licenses",
-    "href": "education.html#eligibility-for-teaching-licenses",
+    "objectID": "education.html#eligibility-for-education-licenses",
+    "href": "education.html#eligibility-for-education-licenses",
     "title": "Positron for Education",
-    "section": "Eligibility for teaching licenses",
-    "text": "Eligibility for teaching licenses\nAcademic institutions can use Positron Server or Positron on Workbench with a free teaching license. Full eligibility details are in the Positron Academic License Rider.",
+    "section": "Eligibility for education licenses",
+    "text": "Eligibility for education licenses\nAcademic institutions can use Positron Server or Positron on Workbench for teaching with a free education license. Full eligibility details are in the Positron Academic License Rider.\nFree licenses for academic research are also available on a case-by-case basis; see the FAQ below for details.",
     "crumbs": [
       "About",
       "Positron for Education"
     ]
   },
   {
-    "objectID": "education.html#applying-for-a-teaching-license",
-    "href": "education.html#applying-for-a-teaching-license",
+    "objectID": "education.html#applying-for-an-education-license",
+    "href": "education.html#applying-for-an-education-license",
     "title": "Positron for Education",
-    "section": "Applying for a teaching license",
-    "text": "Applying for a teaching license\n\nCheck eligibility. Review the Positron Education License Rider to confirm qualification for a teaching license.\nRequest a license. Send an email to academic-licenses@posit.co to get a free teaching license key.\nInstall instructions. Follow the instructions for your installation method to get Positron up and running. For example, for installing Positron on JupyterHub:\n\nSee the jupyter-positron-server documentation to complete setup.\nWatch the installation walkthrough for a step-by-step guide.",
+    "section": "Applying for an education license",
+    "text": "Applying for an education license\n\nCheck eligibility. Review the Positron Education License Rider to confirm qualification for an education license.\nRequest a license. Send an email to academic-licenses@posit.co to get a free education license key.\nInstall instructions. Follow the instructions for your installation method to get Positron up and running. For example, for installing Positron on JupyterHub:\n\nSee the jupyter-positron-server documentation to complete setup.\nWatch the installation walkthrough for a step-by-step guide.",
     "crumbs": [
       "About",
       "Positron for Education"
@@ -1686,7 +1686,7 @@
     "href": "education.html#frequently-asked-questions",
     "title": "Positron for Education",
     "section": "Frequently asked questions",
-    "text": "Frequently asked questions\n\nHow much does a teaching license cost?\nTeaching licenses are free for qualified academic institutions.\n\n\nDoes a teaching license cover both Positron Server and Positron on Workbench?\nYes, with a teaching license you can choose multiple distribution options, including Positron Server and Positron on Workbench.\n\n\nCan I use a teaching license for research purposes?\nNo, the teaching license is only for instructional use. If you are interested in using Positron for research, you can use Positron Desktop or purchase a discounted research license. Learn more about research licenses.\n\n\nDoes the license expire at the end of the semester?\nThe license lasts for 12 months from the desired start date you indicate when applying. Please note, we only process licenses within two months before the start of a semester.\n\n\nCan I disable specific extensions for all students on JupyterHub?\nAn admin can configure settings in the machine-level settings file, available at a path like /home/jupyter-admin/.positron-server/data/Machine/settings.json. You can use the extensions.allowed setting to approve or deny extensions for all users on your JupyterHub server.\n\n\nHow do I upgrade Positron Server to the latest version?\nInstall the latest version of Positron to the same location.\n\n\nCan I pre-configure a default environment (specific packages, files, settings) so all students start from the same place?\nPositron can locate Python environments as well as any files on a user’s JupyterHub instance, so packages and files in shared locations are automatically available. An admin can configure settings in the machine-level settings file, available at a path like /home/jupyter-admin/.positron-server/data/Machine/settings.json.\n\n\nCan I use Positron Server alongside Jupyter Notebooks at the same time?\nYes, Positron has a native Jupyter editor your students can work with. You can also have students open two tabs, one with Positron and another with JupyterLab.",
+    "text": "Frequently asked questions\n\nHow much does an education license cost?\nEducation licenses are free for qualified academic institutions.\n\n\nDoes an education license for teaching cover both Positron Server and Positron on Workbench?\nYes, with an education license you can choose multiple distribution options, including Positron Server and Positron on Workbench.\n\n\nCan I get a free license for academic research?\nPossibly. We grant free licenses for academic research on a case-by-case basis, typically for research conducted at degree-granting academic institutions. These licenses are not intended for all research settings; for example, research and development at corporate research labs or similar large-scale research organizations generally requires a paid Posit Workbench license. In that scenario, Posit does still provide a research discount for Posit Workbench where appropriate.\nIndividuals can also use Positron Desktop for any purpose, including research, under the Positron Elastic license. To inquire about a free academic research license, email academic-licenses@posit.co with a brief description of your research and institution.\n\n\nDoes the license expire at the end of the semester?\nThe license lasts for 12 months from the desired start date you indicate when applying. Please note, we only process licenses within two months before the start of a semester.\n\n\nCan I disable specific extensions for all students on JupyterHub?\nAn admin can configure settings in the machine-level settings file, available at a path like /home/jupyter-admin/.positron-server/data/Machine/settings.json. You can use the extensions.allowed setting to approve or deny extensions for all users on your JupyterHub server.\n\n\nHow do I upgrade Positron Server to the latest version?\nInstall the latest version of Positron to the same location.\n\n\nCan I pre-configure a default environment (specific packages, files, settings) so all students start from the same place?\nPositron can locate Python environments as well as any files on a user’s JupyterHub instance, so packages and files in shared locations are automatically available. An admin can configure settings in the machine-level settings file, available at a path like /home/jupyter-admin/.positron-server/data/Machine/settings.json.\n\n\nCan I use Positron Server alongside Jupyter Notebooks at the same time?\nYes, Positron has a native Jupyter editor your students can work with. You can also have students open two tabs, one with Positron and another with JupyterLab.",
     "crumbs": [
       "About",
       "Positron for Education"
