@@ -37,6 +37,8 @@ The **Add Custom Provider** button appears once your installed Posit Assistant s
 1. Pick a **Provider Type**: **OpenAI Compatible**, **Anthropic**, or **OpenAI**. The type decides the fields you fill in next, since a custom entry reuses that provider's own connection fields (for example, an Anthropic-type entry asks for the same API key as the built-in Anthropic provider).
 1. Enter the credential and base URL, if the type asks for them, and connect.
 
+**OpenAI Compatible**, **Anthropic**, and **OpenAI** are the only types Positron offers here. An entry of a different type, such as `aws` or `ollama`, does not register in Positron, even if you add it to `providers.json` directly.
+
 Some endpoints do not implement a `/models` listing. If yours does not, list its model identifiers in the **Models** field before connecting.
 
 ### Where a custom provider appears
