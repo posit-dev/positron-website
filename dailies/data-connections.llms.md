@@ -1,0 +1,77 @@
+# Data Connections
+
+Connect to databases and data warehouses in Positron. Browse schemas, generate connection code, and preview tables in the Data Explorer.
+
+> **IMPORTANT:**
+>
+> Data Connections is a preview feature. Opt in via the [`dataConnections.enabled`](positron://settings/dataConnections.enabled) setting, and reload Positron to apply. Share your feedback on this new feature in the [Positron GitHub discussions](https://github.com/posit-dev/positron/discussions).
+
+Data Connections brings together the older [Connections pane](connections-pane.llms.md) and [Catalog Explorer](catalog-explorer.llms.md) into a single, unified experience for working with databases and data warehouses in Positron. Once enabled, the **Data Connections** view appears in the primary sidebar. From there, you can create connections, browse tables and views in a tree, open tables and views in the [Data Explorer](data-explorer.llms.md), and generate ready-to-run connection code in Python or R.
+
+Data Connections exists side-by-side with the Connections pane and Catalog Explorer for now, and nothing changes about how those features work. In the future, Data Connections will replace both.
+
+## Supported databases
+
+Data Connections includes drivers for the following data sources:
+
+| Data source | Notes |
+|----|----|
+| Databricks | Personal access token, OAuth user-to-machine (U2M), or OAuth machine-to-machine (M2M) authentication, and browsing of Unity Catalog catalogs, schemas, tables, views, and volumes |
+| DuckDB | Connect to DuckDB database files, with a read-only option |
+| ODBC | Any database with a locally installed ODBC driver, via a configured data source name (DSN), server and driver details, or a connection string |
+| Posit Connect Pins | Browse and download [pins](https://docs.posit.co/connect/user/pins/) published on [Connect](https://posit.co/products/enterprise/connect), and authenticate with environment variables, browser sign-in, or an API key |
+| PostgreSQL | User and password, local server (no password), client certificate (SSL), or connection string |
+| Redshift | Multiple authentication methods |
+| Snowflake | Multiple authentication methods |
+| SQLite | Connect to SQLite database files, with a read-only option |
+
+When you install a recognized ODBC driver, dedicated entries for databases such as MySQL, MariaDB, SQL Server, Oracle, Db2, Hive, Impala, Teradata, and BigQuery also appear when creating a connection. Positron automatically detects data sources already configured on your machine (for example, in `odbc.ini`) and shows them in the tree with a **Detected** badge.
+
+Let us know which databases and warehouses you need in the [Positron GitHub discussions](https://github.com/posit-dev/positron/discussions).
+
+## Create a connection
+
+1.  Select the **Add Connection** button at the top of the **Data Connections** view.
+2.  Choose a database provider, such as DuckDB, PostgreSQL, or SQLite.
+3.  If the provider offers more than one way to connect, choose a connection method and select **Next**. For example, PostgreSQL offers **User & Password**, **Local Server (No Password)**, **Client Certificate (SSL)**, and **Connection String**.
+4.  Fill in the connection details and give the connection a name, then select **Save**.
+
+Positron stores passwords, tokens, and connection strings in your operating system’s secret storage, not in plain text.
+
+## Explore a connection
+
+Expand a connection in the tree to browse its structure: catalogs, schemas, tables, views, columns, and indexes, depending on what the database supports. A green dot on a connection indicates a live connection.
+
+Double-click a table or view (or right-click and choose **Open in Data Explorer**) to preview it in the [Data Explorer](data-explorer.llms.md), where you can sort, filter, and view column profiles.
+
+Collapsing a connection disconnects it, unless you have Data Explorer tabs open from that connection. In that case, the connection stays open until you close the last of those tabs.
+
+## Generate connection code
+
+Data Connections can generate ready-to-run code so you can use a connection in your own scripts and notebooks. Right-click a connection and choose **Connect With**, then **Python** or **R**. The dialog offers the following actions:
+
+- Choose a **Package** variant where offered. For example, PostgreSQL can generate Python code using the psycopg2 or SQLAlchemy packages, or R code using the DBI package.
+- Review the generated **Connection Code**.
+- Select **Copy** to copy the code to the clipboard, **Create Script** to open it in a new file, or **Connect** to run it in the active console.
+
+By default, generated code references your stored credentials rather than embedding them. Check **Include Secrets** to embed credentials directly in the code. Positron asks for confirmation first, since the resulting code contains your secrets in plain text.
+
+## Manage connections
+
+Right-click a connection, or select its **Actions** menu, to take the following actions:
+
+- **Edit Connection**: Change the saved connection details.
+- **Refresh**: Reload that part of the tree from the database. A refresh preserves your expansion state and briefly highlights refreshed items. **Refresh** is available at every level of the tree, not just on connections.
+- **Remove**: Delete the saved connection, including its saved settings and stored secrets. Positron asks for confirmation before removing, since this cannot be undone. Removing also closes any Data Explorer tabs open on the connection.
+
+Select the **Refresh All** button at the top of the view to reload every expanded connection at once.
+
+## Troubleshooting
+
+Each driver writes to its own Output channel, named `Data Connections: <driver>` (for example, `Data Connections: PostgreSQL`). Positron creates the channel the first time you use that driver. To see more detail, including per-query timing, use the gear menu in the Output panel to set the log level to **Trace**. Drivers never log SQL text or connection strings.
+
+## Settings
+
+| Setting | Description |
+|----|----|
+| [`dataConnections.enabled`](positron://settings/dataConnections.enabled) | Enable the Data Connections panel. Requires a reload to take effect. Can be set per workspace. |

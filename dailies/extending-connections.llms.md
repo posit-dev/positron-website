@@ -2,6 +2,10 @@
 
 Extend Positron’s Connections pane with custom database connection types. Learn to add new database connection providers and integrate with the New Connections modal.
 
+> **NOTE:**
+>
+> This page describes extending the classic **Connections** pane, which is being superseded by the new [Data Connections](data-connections.llms.md) experience.
+
 The **Connections** pane can be extended by:
 
 - Adding support for browsing and managing a new connection type in the **Connections** pane.

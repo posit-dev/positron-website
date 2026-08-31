@@ -1595,7 +1595,7 @@
     "href": "extending-connections.html",
     "title": "Extending the Connections Pane",
     "section": "",
-    "text": "The Connections pane can be extended by:",
+    "text": "Note\n\n\n\nThis page describes extending the classic Connections pane, which is being superseded by the new Data Connections experience.\nThe Connections pane can be extended by:",
     "crumbs": [
       "Guides",
       "Database Connections",
@@ -1918,165 +1918,711 @@
     ]
   },
   {
-    "objectID": "command-palette.html",
-    "href": "command-palette.html",
-    "title": "Command Palette",
+    "objectID": "connections-pane.html",
+    "href": "connections-pane.html",
+    "title": "Connections Pane",
     "section": "",
-    "text": "Positron inherits the Command Palette from VS Code. The Command Palette is a fast and powerful way to interact with Positron without taking your hands off the keyboard. Think of it as a search bar for functionality. Rather than navigating menus, you can quickly find and run commands from a single interface.\nFor additional documentation on the Command Palette, see the VS Code Command Palette documentation.\n\nCommand access and execution\nThe Command Palette provides access to all Positron commands. You can execute any command without using menus or remembering keyboard shortcuts.\nTo open the Command Palette, press . Start typing a keyword or the name of a command. The Command Palette shows a list of matching actions. Use the arrow keys to select a command, then press EnterEnter to run it.\nFor example, you can:\n\ntype “interpreter” to view interpreter session management commands.\ntype “git” to view version control commands.\n\n\n\nFile access and navigation\nThe Command Palette makes it easy to open files without using the File Explorer. This is especially useful in large projects with many files.\nPress  to open the file picker. Start typing part of a file name to see matching files. Use the arrow keys to select a file, then press EnterEnter to open the selected file.\nYou can also use:\n\n\n\n\n\n\n\nKey\nAction\n\n\n\n\n&gt;&gt;\nSwitch to command mode\n\n\n@@\nSearch for symbols in the current file\n\n\n##\nSearch for symbols across the workspace\n\n\n:: followed by a line number\nJump to that line\n\n\n\n\n\nTips for effective use\n\nUse partial matches: You do not need to type the full command or file name. The Command Palette uses fuzzy matching to find what you need.\nLearn common prefixes: Commands are grouped by category (for example, “View:” for layout commands, “Git:” for version control).\nBrowse available commands: Open the Command Palette and scroll through the list to discover new functionality.\nUse recent commands: The Command Palette shows recently used commands first, making it faster to repeat common tasks.",
+    "text": "Note\n\n\n\nThis page describes the classic Connections pane, which is being superseded by the new Data Connections experience. We recommend starting there for new work.\nThe Connections pane allows you to manage and explore database connections for use within your Python and R sessions. You can create connections to databases, explore their schemas, and interactively preview database tables.",
+    "crumbs": [
+      "Guides",
+      "Database Connections",
+      "Connections Pane"
+    ]
+  },
+  {
+    "objectID": "connections-pane.html#explore-your-database-schema",
+    "href": "connections-pane.html#explore-your-database-schema",
+    "title": "Connections Pane",
+    "section": "Explore your database schema",
+    "text": "Explore your database schema\nOnce you create a new connection, you can use the Connections pane to explore the database schema.\n\n\n\nConnections pane showing database schema, tables, and columns\n\n\nYou can navigate through the database schema, viewing tables, columns, and their data types. You can also select the table icon to explore a preview of the database contents in the Data Explorer.",
+    "crumbs": [
+      "Guides",
+      "Database Connections",
+      "Connections Pane"
+    ]
+  },
+  {
+    "objectID": "connections-pane.html#create-a-new-connection",
+    "href": "connections-pane.html#create-a-new-connection",
+    "title": "Connections Pane",
+    "section": "Create a new connection",
+    "text": "Create a new connection\nYou can create a new connection to a database either from the UI, or using Python or R code.\n\nCreate a new connection from the UI\nTo open a new connection, select the New connection button in the Connections pane. This will open a modal that allows you to select the connection type and fill in the connection details. This modal generates the code required to open the connection in your Python or R session.\n\n\n\nNew connections modal\n\n\nWhen you create a new connection, Positron stores and manages connection strings for future usage.\n\n\nCreate a connection using R\nTo create a connection in the Positron Connections pane, you need to connect to a database using any package that supports the connections contract, such as odbc, sparklyr, bigrquery, and others.\nThe Positron Connections pane implements RStudio’s connections contract; this means that any package that works within RStudio’s Connections pane should work within the Positron Connections pane.\nHere is an example of how to open a connection using the connections package to open a SQLite connection:\ncon &lt;- connections::connection_open(RSQLite::SQLite(), \"nycflights13.sqlite\")\nSelect the connection object from the Variables pane or use connections::connect_view(con) to open the Connections pane.\nYou can find more information about connecting to a specific database from Posit Solutions Engineering.\n\n\nCreate a connection using Python\nConnections can be created using:\n\nsqlite3\nSQLAlchemy\nduckdb\nSQL Server via pymssql or pyodbc\nDatabricks SQL Connector\nSnowflake Connector\nGoogle BigQuery\nAWS Redshift\n\nTo open a connection in the Connections pane, create a top level object that represents the connection/engine.\nimport sqlite3\nconn = sqlite3.connect(\"nycflights13.sqlite\")\nYou can then either use %connection_show conn to open the connection in the Connections pane or open it from the Variables pane.",
+    "crumbs": [
+      "Guides",
+      "Database Connections",
+      "Connections Pane"
+    ]
+  },
+  {
+    "objectID": "connections-pane.html#explore-a-connection-from-the-variables-pane",
+    "href": "connections-pane.html#explore-a-connection-from-the-variables-pane",
+    "title": "Connections Pane",
+    "section": "Explore a connection from the Variables pane",
+    "text": "Explore a connection from the Variables pane\nYou can open an existing connection that you created from Python or R from the Variables pane:\n\n\n\nVariables pane showing a connection object\n\n\nSelect the database icon to bring up the Connections pane, allowing you to navigate the database.",
+    "crumbs": [
+      "Guides",
+      "Database Connections",
+      "Connections Pane"
+    ]
+  },
+  {
+    "objectID": "code-cells.html",
+    "href": "code-cells.html",
+    "title": "Code Cells",
+    "section": "",
+    "text": "Code cells let you divide a plain .py or .R script into sections that you can run one at a time, using special comments like # %% as cell boundaries. You get a notebook-like, interactive workflow while your code stays in a regular file that is easy to version, diff, and reuse.\nPositron supports code cells in both Python and R files:",
+    "crumbs": [
+      "Guides",
+      "Dynamic Documents and Apps",
+      "Code Cells"
+    ]
+  },
+  {
+    "objectID": "code-cells.html#creating-code-cells",
+    "href": "code-cells.html#creating-code-cells",
+    "title": "Code Cells",
+    "section": "Creating code cells",
+    "text": "Creating code cells\nStart a new cell by adding a comment line that begins with the cell delimiter. A cell extends until the next delimiter or the end of the file. You can also use the Positron: Insert Code Cell command or  to insert a new cell below the current one.\n\nPythonR\n\n\nIn Python files, a comment starting with # %% begins a new cell:\n# %%\nimport pandas as pd\n\npenguins = pd.read_csv(\"penguins.csv\")\npenguins.head()\n\n# %%\npenguins.groupby(\"species\")[\"body_mass_g\"].mean()\nThis is the same “percent” format used by Jupytext, Spyder, and VS Code, so scripts with code cells move between editing tools fluently. Markdown cells in this format, starting with # %% [markdown], are also supported; running one renders its contents as formatted output in the Console.\n\n\nIn R files, a comment starting with # %% or # + begins a new cell:\n# %%\npenguins &lt;- read.csv(\"penguins.csv\")\nhead(penguins)\n\n# %%\naggregate(body_mass_g ~ species, data = penguins, FUN = mean)\nA section header comment such as # Load data ---- ends the current cell, so you can combine code sections and code cells in the same script.\n\n\n\n\nCustom cell delimiters\nTo use an additional cell delimiter, set codeCells.additionalCellDelimiter. By default, this setting adds support for the # COMMAND ---------- delimiter used by Databricks notebooks exported as source files.",
+    "crumbs": [
+      "Guides",
+      "Dynamic Documents and Apps",
+      "Code Cells"
+    ]
+  },
+  {
+    "objectID": "code-cells.html#running-code-cells",
+    "href": "code-cells.html#running-code-cells",
+    "title": "Code Cells",
+    "section": "Running code cells",
+    "text": "Running code cells\nClick the Run Cell link above a cell to run it in your current Console session. The Run Above link runs all cells before the current cell, which is useful for restoring your session state from the top of the script, and Run Next runs the cell that follows.\nYou can also run cells with keyboard shortcuts:\n\n\n\n\n\n\n\nShortcut\nDescription\n\n\n\n\n\nRun the current cell\n\n\nShift-EnterShift-Enter\nRun the current cell and advance to the next cell\n\n\n\nRun all cells\n\n\n\nRun all cells above the current cell\n\n\n\nRun all cells below the current cell\n\n\n\nRun the previous cell\n\n\n\nRun the next cell\n\n\n\nAll of these commands are also available from the Command Palette, such as Positron: Run All Cells.",
+    "crumbs": [
+      "Guides",
+      "Dynamic Documents and Apps",
+      "Code Cells"
+    ]
+  },
+  {
+    "objectID": "code-cells.html#navigating-between-cells",
+    "href": "code-cells.html#navigating-between-cells",
+    "title": "Code Cells",
+    "section": "Navigating between cells",
+    "text": "Navigating between cells\nMove between cells without running them using  to go to the next cell and  to go to the previous cell, or the corresponding Positron: Go to Next Cell and Positron: Go to Previous Cell commands.",
+    "crumbs": [
+      "Guides",
+      "Dynamic Documents and Apps",
+      "Code Cells"
+    ]
+  },
+  {
+    "objectID": "code-cells.html#customizing-cell-appearance",
+    "href": "code-cells.html#customizing-cell-appearance",
+    "title": "Code Cells",
+    "section": "Customizing cell appearance",
+    "text": "Customizing cell appearance\nThe cell containing your cursor is highlighted with a background color by default. Use codeCells.cellStyle to choose a background, border, or both style for the active cell. The colors come from your theme. You can customize them via the notebook.selectedCellBackground and interactive.activeCodeBorder theme colors.",
+    "crumbs": [
+      "Guides",
+      "Dynamic Documents and Apps",
+      "Code Cells"
+    ]
+  },
+  {
+    "objectID": "assistant.html",
+    "href": "assistant.html",
+    "title": "Posit Assistant",
+    "section": "",
+    "text": "Posit Assistant is an AI coding assistant for data science in Positron. It first became available as a preview feature in Positron 2026.04.0, and as of Positron 2026.07 it ships with Positron as the default AI experience, replacing Positron Assistant and Databot. For more on how it came to be, see The history of Posit’s data science agents.\nBeyond your active files, selected code, and project structure, Posit Assistant uses context from your interactive data science work, such as your loaded data, plots, and console history. This enables more relevant guidance for core data science workflows, including exploratory analysis, data cleaning, data app development, and modeling.\nTo learn how to enable it and get set up, visit the Get Started guide.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Posit Assistant"
+    ]
+  },
+  {
+    "objectID": "assistant.html#features",
+    "href": "assistant.html#features",
+    "title": "Posit Assistant",
+    "section": "Features",
+    "text": "Features\nPosit Assistant has a rich set of features with the highlights listed below.\n\n\n\n\nFeature\nSummary\n\n\n\n\nCommands\nSlash commands typed at the start of a message that trigger special actions, such as /plan, /new, and /savememory.\n\n\nChat Features\nFile attachments via drag-and-drop, clipboard paste, or the paperclip, with @ mentions to reference workspace files. Also includes adjustable thinking effort (Off, Low, Medium, and High) and optional web search.\n\n\nPlan Mode\nA collaborative design phase where the assistant explores the codebase, asks questions, and writes a plan file before changing code. Best for multi-step features, refactors, and unfamiliar codebases.\n\n\nSkills\nSpecialized knowledge modules that load automatically when relevant to a request, with no manual activation needed. Built-ins include quarto-authoring, shiny-bslib, and predictive-modeling-r, plus user and project-level custom skills.\n\n\nMCP Servers\nConnect external tool servers via the Model Context Protocol to extend the assistant with custom tools, such as database access, API integrations, and internal services. Supports local (stdio) and remote (HTTP/SSE) servers with bearer token or OAuth authentication, including servers hosted on Posit Connect.\n\n\nMemory\nPersistent project context via an AGENTS.md file that captures conventions, architecture, and preferences. The file loads automatically at the start of every conversation in trusted workspaces.\n\n\nConversations\nFull conversation history with switching, renaming, and deletion. Includes tree-based branching when you edit a previous message and import and export in Markdown, HTML, or JSON.\n\n\nContext Management\nAutomatic inclusion of session info (language, version, variable names and types) when connected to R or Python. Provides a token counter with detailed breakdown and auto, manual, and micro-compaction to keep long conversations within the model’s context window.\n\n\nPermissions & Trust\nThree approval modes (Normal, YOLO, Restricted) and per-tool permissions configurable in settings. Includes workspace trust prompts when opening projects with AGENTS.md and an optional sandbox mode for bash execution.\n\n\n\n\nFor the full Posit Assistant configuration guide and feature documentation, see the Posit Assistant documentation.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Posit Assistant"
+    ]
+  },
+  {
+    "objectID": "assistant.html#learn-more",
+    "href": "assistant.html#learn-more",
+    "title": "Posit Assistant",
+    "section": "Learn more",
+    "text": "Learn more\n\n\n\n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Get Started\n        \n        \n        \n          Configure a language model provider and start using Posit Assistant in Positron.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Posit Assistant vs. Positron Assistant\n        \n        \n        \n          Watch a walkthrough comparing Posit Assistant and Positron Assistant.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          AI at Posit\n        \n        \n        \n          Explore Posit's broader work on artificial intelligence for data science.\n        \n      \n      \n  \n\nNo matching items",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Posit Assistant"
+    ]
+  },
+  {
+    "objectID": "assistant.html#support-and-terms-of-service",
+    "href": "assistant.html#support-and-terms-of-service",
+    "title": "Posit Assistant",
+    "section": "Support and terms of service",
+    "text": "Support and terms of service\nPosit does not provide support or assistance for any code written or generated in Positron, with or without AI features in Positron such as Posit Assistant, Positron Assistant, or Databot, regardless of which model provider you use. Posit does not support any model provider’s output or test the logic a provider uses to generate code from prompts. Consult your AI model provider’s documentation for more information.\n\nBYO-key model providers\nAI features in Positron use a bring-your-own-key (BYO-key) model. You connect to a range of different model providers, such as Anthropic, Amazon Bedrock, GitHub Copilot, or OpenAI. You or your organization has an agreement with the provider and pays them directly for access to the model.\n\n\nData collection and privacy\nPositron provides local software as a client to your selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when you use AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). This applies as long as you use an external model provider. These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. If you select Posit AI as your model provider, the privacy policy and Posit AI Agreement apply instead.\nIf you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with Posit’s privacy policy.\nHowever, your AI model provider may store or collect data according to their own privacy policies and terms of service. Please review your AI model provider’s data practices for details on what information they collect and how it is used.\nBy using an external model provider, you acknowledge that your use is subject to their Terms of Service. All external model providers are considered “Third Party Materials” as defined in the Posit End User License Agreement and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Posit Assistant"
+    ]
+  },
+  {
+    "objectID": "assistant-tips.html",
+    "href": "assistant-tips.html",
+    "title": "Tips & Glossary",
+    "section": "",
+    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.\nThis guide provides tips for using Positron Assistant effectively, as well as some common terms and definitions in the Glossary section.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Tips & Glossary"
+    ]
+  },
+  {
+    "objectID": "assistant-tips.html#glossary",
+    "href": "assistant-tips.html#glossary",
+    "title": "Tips & Glossary",
+    "section": "Glossary",
+    "text": "Glossary\n\nBring your own key (BYOK)\nBring Your Own (API) Key. This means you need to obtain and provide your own API key from the language model provider to use their models with Positron Assistant.\n\n\nContext\nThe information available to the language model when generating responses. In Positron Assistant, context includes your current file content, active interpreter session (loaded data, variables, plots), project structure, and any manually attached files or tools. Richer context helps the model generate more accurate and relevant responses for your specific data science workflow.\n\n\nModel\nA specific version or configuration of a language model provided by a language model provider, such as Anthropic Claude or GitHub Copilot. Different models can have different capabilities, performance characteristics, and pricing. Examples include “Claude Sonnet 4.5” or “GPT-5”.\n\n\nPrompt\nThe input text or instructions given to a language model to generate a response. Prompts can include questions, commands, or context to guide the model’s output. Positron Assistant has predefined prompts for various tasks, and you can also define custom prompts or instructions. These prompts and instructions are provided to the model along with your messages in chat or inline chat sessions.\n\n\nProvider\nA company or service that offers access to language models via APIs. Also known as a language model provider or a vendor. Examples include Anthropic and GitHub Copilot.\n\n\nTokens\nUnits of text that language models process. Tokens can be as short as one character or as long as one word. Language models have limits on the number of tokens they can process in a single request, which includes both the input prompt and the generated response.\n\n\nTool\nA specialized function that enables language models to interact with your Positron environment. Tools allow Assistant to read variables from your session, view plots, execute code in the Console, access file contents, and perform other workspace operations beyond just generating text responses.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Tips & Glossary"
+    ]
+  },
+  {
+    "objectID": "assistant-provider-info.html",
+    "href": "assistant-provider-info.html",
+    "title": "Privacy & terms",
+    "section": "",
+    "text": "Note\n\n\n\nFor information on what information is collected by Posit, review Posit’s privacy policy.\nWhen you use AI features in Positron, Positron might share data including your prompts, responses, and usage with third-party AI model providers, depending on the providers you use. Each provider has its own data handling, privacy policies, and terms of service.\nPlease review your providers’ websites directly for complete and updated details on their data practices and terms of service. This list might not be up to date.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Providers",
+      "Privacy & terms"
+    ]
+  },
+  {
+    "objectID": "assistant-provider-info.html#providers",
+    "href": "assistant-provider-info.html#providers",
+    "title": "Privacy & terms",
+    "section": "Providers",
+    "text": "Providers\n\nPosit AI\nPosit AI is Posit’s own hosted service, so Posit’s own policies apply rather than a third party’s.\n\nPrivacy Policy\nPosit AI Agreement\n\n\n\nAmazon Bedrock\n\nPrivacy Notice\nTerms of Service\n\n\n\nAnthropic\n\nPrivacy Policy\nCommercial Privacy Center\nConsole Privacy Controls\nCommercial Terms of Service\n\n\n\nDeepSeek\n\nPrivacy Policy\nTerms of Use\nOpen Platform Terms of Service\n\n\n\nGemini Enterprise Agent Platform\n\nGoogle Cloud Privacy Notice\nGoogle Cloud Platform Terms of Service\nGemini Enterprise Agent Platform and zero data retention\n\n\n\nGitHub Copilot\n\nPrivacy Statement\nTerms of Service\n\n\n\nGoogle Gemini\n\nPrivacy Policy\nGoogle APIs Terms of Service\nGemini API Additional Terms of Service\n\n\n\nMicrosoft Foundry\n\nMicrosoft Privacy Statement\nAzure AI Services Terms\n\n\n\nOpenAI\n\nPrivacy Policy\nPrivacy Portal\nTerms of Use\n\n\n\nSnowflake Cortex\n\nPrivacy Policy\nTerms of Service\n\n\n\nCustom Provider\nThe custom provider connects to any OpenAI-compatible endpoint you configure, so its data handling and terms depend entirely on the provider you choose. Review that provider’s own privacy policy and terms of service directly.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Providers",
+      "Privacy & terms"
+    ]
+  },
+  {
+    "objectID": "assistant-provider-info.html#support-and-terms-of-service",
+    "href": "assistant-provider-info.html#support-and-terms-of-service",
+    "title": "Privacy & terms",
+    "section": "Support and terms of service",
+    "text": "Support and terms of service\nPosit does not provide support or assistance for any code written or generated in Positron, with or without AI features in Positron such as Posit Assistant, Positron Assistant, or Databot, regardless of which model provider you use. Posit does not support any model provider’s output or test the logic a provider uses to generate code from prompts. Consult your AI model provider’s documentation for more information.\n\nBYO-key model providers\nAI features in Positron use a bring-your-own-key (BYO-key) model. You connect to a range of different model providers, such as Anthropic, Amazon Bedrock, GitHub Copilot, or OpenAI. You or your organization has an agreement with the provider and pays them directly for access to the model.\n\n\nData collection and privacy\nPositron provides local software as a client to your selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when you use AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). This applies as long as you use an external model provider. These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. If you select Posit AI as your model provider, the privacy policy and Posit AI Agreement apply instead.\nIf you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with Posit’s privacy policy.\nHowever, your AI model provider may store or collect data according to their own privacy policies and terms of service. Please review your AI model provider’s data practices for details on what information they collect and how it is used.\nBy using an external model provider, you acknowledge that your use is subject to their Terms of Service. All external model providers are considered “Third Party Materials” as defined in the Posit End User License Agreement and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Providers",
+      "Privacy & terms"
+    ]
+  },
+  {
+    "objectID": "assistant-completions.html",
+    "href": "assistant-completions.html",
+    "title": "Completions",
+    "section": "",
+    "text": "Code completions are text suggestions that appear inline as you type in an editor. These suggestions can be lines or blocks of code based on the context of what you’re writing. Other names for code completions include inline suggestions, ghost text, or inline completions.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Completions"
+    ]
+  },
+  {
+    "objectID": "assistant-completions.html#using-code-completions",
+    "href": "assistant-completions.html#using-code-completions",
+    "title": "Completions",
+    "section": "Using code completions",
+    "text": "Using code completions\nWhen code completions are available, ghost text appears in your editor as you type. The ghost text represents the suggested completion.\nInteract with suggestions by:\n\nPressing the TabTab key to accept the entire suggestion.\nPressing  to accept the suggestion word-by-word for a single-line suggestion, or line-by-line for multi-line suggestions.\nPressing EscEsc or continuing to type to dismiss the suggestion.\n\n\nCommands\nThe following commands apply to both providers:\n\n\n\n\n\n\n\nCommand\nDescription\n\n\n\n\nSnooze Inline Suggestions\nPause inline suggestions temporarily for a specified duration.\n\n\nCancel Snooze Inline Suggestions\nResume snoozed inline suggestions immediately.\n\n\n\n\n\nSettings\nThe following settings apply to both providers:\n\npositron.assistant.aiExcludes: Files matching these patterns will not have their contents sent to AI providers for code completions or chat context.\neditor.inlineSuggest.minShowDelay: Delay in milliseconds before showing inline suggestions. For example, setting this to 500 will show suggestions half a second after typing.\neditor.inlineSuggest.enabled: Set to false to turn off inline suggestions altogether, regardless of provider.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Completions"
+    ]
+  },
+  {
+    "objectID": "assistant-completions.html#posit-ai-nes",
+    "href": "assistant-completions.html#posit-ai-nes",
+    "title": "Completions",
+    "section": "Posit AI Next Edit Suggestions (NES)",
+    "text": "Posit AI Next Edit Suggestions (NES)\nWhen using Posit AI as your completions provider, code completions take the form of Posit AI Next Edit Suggestions (NES), a preview feature. Posit AI NES proposes edits anywhere in the file, not just at the cursor. It responds to your recent changes, including insertions, deletions, and modifications to existing code.\nPosit AI NES suggestions appear inline in the editor. You can accept, navigate, or dismiss them using the same keybindings as other code completions.\n\nEnable\nPosit AI NES is enabled by default once you have signed in to the Posit AI provider. No additional setting changes are required.\n\n\nRestrict to specific languages\nPosit AI NES skips plaintext, markdown, and scminput unless you configure otherwise. Use the nextEditSuggestions.enabled setting to change which languages Posit AI NES applies to.\n\n\nDisable\nTo disable Posit AI NES, do any of the following:\n\nSign out of Posit AI in Positron via the Accounts menu or the Accounts: Manage Accounts command. This also affects chat and other features that rely on the account.\nSet nextEditSuggestions.enabled to { \"*\": false } to disable Posit AI NES everywhere. To disable only some languages, set those entries to false.\n\nTo exclude specific files from Posit AI NES regardless of language, use the shared aiExcludes setting.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Completions"
+    ]
+  },
+  {
+    "objectID": "assistant-completions.html#github-copilot",
+    "href": "assistant-completions.html#github-copilot",
+    "title": "Completions",
+    "section": "GitHub Copilot",
+    "text": "GitHub Copilot\nWhen using GitHub Copilot as your completions provider, code completions appear as ghost text at the cursor position as you type. To learn more, visit the GitHub Copilot inline suggestions documentation.\nGitHub Copilot also has its own Next Edit Suggestions, separate from the ghost-text completions described here and from Posit AI NES. It is available whenever you sign in to GitHub Copilot as a provider.\n\nEnable\nGitHub Copilot completions are enabled after you sign in to the GitHub Copilot provider. No additional setting changes are required.\n\n\nRestrict to specific languages\nGitHub Copilot completions skip plaintext, markdown, and scminput unless you configure otherwise. Use the github.copilot.enable setting to change which languages Copilot completions apply to.\n\n\nDisable\nIf you have enabled GitHub Copilot as a model provider, you can disable completions by doing any of the following:\n\nSet github.copilot.enable to { \"*\": false } to disable both ghost-text completions and Next Edit Suggestions, without having to sign out. To disable only some languages, set those entries to false instead of *.\nSet github.copilot.nextEditSuggestions.enabled to false to disable Next Edit Suggestions on their own, while keeping ghost-text completions on.\nSign out of GitHub in Positron via the Accounts menu or the Accounts: Manage Accounts command. This also affects other features and extensions that rely on the GitHub account. Without a signed-in GitHub account, GitHub Copilot Chat cannot be used, and GitHub Copilot cannot provide completions, Next Edit Suggestions, or be used as a provider for Posit Assistant.\n\nTo exclude specific files from Copilot completions regardless of language, use the shared aiExcludes setting.\n\n\nStatus bar icon\nThe Assistant status bar icon indicates the current state of GitHub Copilot completions.\n\n\n\nAssistant status bar icon\n\n\nTo manage Copilot completions using the status bar icon:\n\nSelect the status bar icon to open the menu.\nFrom the menu, enable or disable completions for the current file type or for all files, or view the remaining time for snoozed completions.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Completions"
+    ]
+  },
+  {
+    "objectID": "assistant-completions.html#troubleshooting",
+    "href": "assistant-completions.html#troubleshooting",
+    "title": "Completions",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\nIf you are not receiving suggestions:\n\nCheck that ai.enabled is not set to false. When it is, Positron disables all AI features including code completions, regardless of other settings.\nConfirm you are signed in to your completions provider in the language model provider configuration.\nCheck that your completions provider’s per-language settings do not disable the current language (see Posit AI Next Edit Suggestions or GitHub Copilot).\nCheck that positron.assistant.aiExcludes does not match the current file.\nRun the AI: Create Diagnostic Report command to see your providers, feature settings, and recent completions logs in one report. See AI diagnostics.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Completions"
+    ]
+  },
+  {
+    "objectID": "assistant-chat-instructions.html",
+    "href": "assistant-chat-instructions.html",
+    "title": "Custom Instructions",
+    "section": "",
+    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.\nPositron Assistant supports both automatic workspace instructions and custom instructions files to tailor AI behavior to your project’s needs.\nCustom instructions do not apply to code completions.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Custom Instructions"
+    ]
+  },
+  {
+    "objectID": "assistant-chat-instructions.html#automatic-workspace-instructions",
+    "href": "assistant-chat-instructions.html#automatic-workspace-instructions",
+    "title": "Custom Instructions",
+    "section": "Automatic workspace instructions",
+    "text": "Automatic workspace instructions\nAdd project-wide custom instructions by creating one or more of these files in your workspace root directory:\n\nagent.md\nagents.md\npositron.md\nclaude.md\ngemini.md\nllms.txt\n\nPositron Assistant automatically appends the content from these files to all chat interactions. This allows you to:\n\nAdd project-specific coding standards or conventions\nInclude domain-specific terminology or context\nDefine preferred libraries or frameworks for your project\n\nNote that Positron Assistant does not guarantee the order in which it appends these files. Follow issue #10571 for updates.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Custom Instructions"
+    ]
+  },
+  {
+    "objectID": "assistant-chat-instructions.html#custom-instructions-files",
+    "href": "assistant-chat-instructions.html#custom-instructions-files",
+    "title": "Custom Instructions",
+    "section": "Custom instructions files",
+    "text": "Custom instructions files\nCreate .instructions.md files that specify glob patterns for when the instructions should apply.\nPositron Assistant automatically uses these instructions when you work with files that match the specified patterns. This allows you to:\n\nEnforce coding standards for specific file types (e.g., *.py for Python scripts)\nProvide context-specific guidelines for different parts of your project (e.g., src/data/**/* for data processing scripts)\nApply instructions workspace-wide using broad patterns (e.g., **/* for all files)\n\n\nCreating and managing custom instructions files\n\nRun the command Chat: New Instructions File… and follow the prompts to create a new instructions file\nEdit the newly created .instructions.md file to specify the applyTo file glob pattern and the instructions you want to apply\nTo manage existing files, run the command Chat: Configure Instructions…\n\n\n\n\n\n\n\nNote\n\n\n\nTo learn more about the format of custom instructions files, see the following VS Code documentation:\n\nInstructions file format\nTips for defining custom instructions\n\n\n\n\n\nExample custom instructions\n\nThis example demonstrates how a quarto.instructions.md file shapes Positron Assistant behavior when working with Quarto documentation files. The filename was chosen to reflect the purpose of these instructions, but can be anything ending with .instructions.md.\nBy automatically applying these rules to all .qmd files, Assistant writes in a consistent style that prioritizes clarity, brevity, and accessibility. The instructions guide Assistant to use active voice, avoid technical jargon, maintain proper formatting conventions, and produce content suitable for screen readers and translation tools. This keeps content aligned with your project’s standards without repeating these preferences in every chat request.\n\n\nquarto.instructions.md\n\n---\nname: \"Quarto Documentation Standards\"\ndescription: \"Writing guidelines for Quarto documentation following Positron style guide\"\napplyTo: \"**/*.qmd\"\n---\n\n# Quarto Documentation Guidelines\n\n## Writing and Style\n\n- Write at approximately 12th grade reading level with sentences of 28-30 words or fewer\n- Use present tense and active voice; avoid contractions and gerunds as nouns\n- Use the Oxford comma and spell out acronyms on first use\n- Maintain an energetic, compassionate tone that is simple and direct\n- Use clear, literal language suitable for screen readers and translation tools; avoid idioms and metaphors\n- Do not use possessives with product names\n\n## Formatting\n\n- Use Title Case for titles/H1s; sentence case for other headings\n- Always include `title` and `description` in YAML front matter\n- Bold UI elements, italicize commands, use backticks for code\n- Use the Quarto `kbd` shortcode for keyboard shortcuts: `{{&lt; kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P &gt;}}`\n- Link to settings: `[positron://settings/category.nameOfSetting](positron://settings/category.nameOfSetting)`\n- Use em dashes (—) for emphasis; en dashes (–) for ranges",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Custom Instructions"
+    ]
+  },
+  {
+    "objectID": "assistant-chat-commands-participants.html",
+    "href": "assistant-chat-commands-participants.html",
+    "title": "Commands & Participants",
+    "section": "",
+    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Commands & Participants"
+    ]
+  },
+  {
+    "objectID": "assistant-chat-commands-participants.html#slash-commands",
+    "href": "assistant-chat-commands-participants.html#slash-commands",
+    "title": "Commands & Participants",
+    "section": "Slash commands",
+    "text": "Slash commands\nSlash commands provide quick access to common tasks without writing long prompts.\n\nUsing slash commands\nTo use a slash command in the chat pane or inline chat, type the / character to bring up the command menu. Then, select a command and optionally add any additional instructions before sending the message.\n\n\nAvailable slash commands\nSlash commands are provided by Positron Assistant and other installed extensions, as well as any custom prompt files you have created.\nSome built-in slash commands include:\n\n/exportQuarto: Generate a Quarto document from the current chat conversation.\n/fix: Fix a piece of code.\n/explain: Explain a piece of code or concept.\n\n\n\nCustom slash commands\nCreate custom slash commands by adding custom prompt files. This allows you to:\n\nReuse prompts across chat requests and sessions\nExplicitly apply prompts to specific chat requests\n\nRun the command Chat: Configure Prompt Files… to manage custom prompt files in your chat sessions.\n\nCreate a custom prompt file\n\nRun the command Chat: New Prompt File… and follow the prompts to create a new prompt file.\nEdit the newly created .prompt.md file to specify the prompt description, chat agents the prompt should be available for, the tools the prompt can use, as well as the prompt content.\n\nAfter creating a custom prompt file, you can access it through slash commands in both the chat pane and inline chat.\n\n\n\n\n\n\nNote\n\n\n\nTo learn more about the format of custom prompt files, see the following VS Code documentation:\n\nPrompt file structure\nTips for defining prompt files\n\nPositron Assistant does not support the model field.\n\n\n\n\nExample custom prompt file\n\nThis shows a custom prompt tailored to code review which demonstrates key features of custom prompts in Positron Assistant. It includes header fields like description, name, agent, tools, and argument-hint to configure behavior and guide users. The prompt body uses an input variable (${input:codeContext}) to accept dynamic user input, making it reusable across different code snippets and files. By specifying the agent mode and restricting what tools are available, the prompt tailors the behavior of Assistant to the task at hand.\n\n\ncode-review.prompt.md\n\n---\ndescription: Perform a thorough code review focusing on best practices and potential issues\nname: code-review\nagent: agent\ntools: ['search', 'todos', 'executeCode']\nargument-hint: \"File path or brief description of code to review\"\n---\n\nYou are an expert code reviewer. Perform a comprehensive code review of the provided code, focusing on code quality, best practices, and potential issues.\n\n## Review Criteria\n\n1. **Code quality**: Assess readability, maintainability, and adherence to style guidelines\n2. **Logic and correctness**: Identify potential bugs, edge cases, or logical errors\n3. **Performance**: Highlight inefficient operations or opportunities for optimization\n4. **Security**: Check for common security vulnerabilities or unsafe practices\n5. **Best practices**: Suggest improvements based on language-specific conventions\n\n## Output Format\n\nStructure your review as follows:\n- **Overall assessment**: Brief summary of code quality\n- **Strengths**: What the code does well\n- **Issues found**: List specific problems with severity (critical/moderate/minor)\n- **Recommendations**: Concrete suggestions for improvement\n\nThe code to review is: ${input:codeContext:e.g., src/utils/data-processor.py}\n\nUse the available tools to search the codebase and execute code examples if needed.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Commands & Participants"
+    ]
+  },
+  {
+    "objectID": "assistant-chat-commands-participants.html#chat-participants",
+    "href": "assistant-chat-commands-participants.html#chat-participants",
+    "title": "Commands & Participants",
+    "section": "Chat participants",
+    "text": "Chat participants\nChat participants provide specialized knowledge to Positron Assistant. If you want help with a specific topic, you can add a chat participant to your conversation.\n\nAdding chat participants\nTo add a chat participant, enter @ to bring up the chat participant menu. Then, select a participant and optionally add any additional instructions before sending the message.\n\n\nAvailable chat participants\nChat participants are provided by Positron Assistant and other installed extensions.\n\n\nShiny Assistant\n\nShiny Assistant is a chat participant available within Positron Assistant that provides context-aware assistance for developing Shiny applications in Python or R. It can help you with tasks such as generating Shiny UI components, server logic, and reactive expressions.\nShiny Assistant is available in the chat once you have installed the Shiny extension. Like other chat participants, Shiny Assistant can be invoked by typing @shiny in the chat pane or inline chat, followed by your question or request related to Shiny development.\nShiny Assistant enhances the default prompt with additional information about Shiny that we have found improves the quality of generated apps and Shiny components. It is also kept up to date with Shiny features and best practices, in a way that is not practical with foundation models or fine-tuning.\n\n\n\nGitHub Copilot\n\nIf you are authenticated with GitHub Copilot as a language model provider in Positron, you can use chat participants provided by GitHub Copilot when chatting with GitHub Copilot models in Positron Assistant.\nRefer to the GitHub Copilot Chat participants documentation for more information on available chat participants and how to use them.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Commands & Participants"
+    ]
+  },
+  {
+    "objectID": "ai-features.html",
+    "href": "ai-features.html",
+    "title": "AI features",
+    "section": "",
+    "text": "AI features in Positron help you write, understand, and debug code. To start using them, follow the Get started guide. If something is not working the way you expect, run the AI: Create Diagnostic Report command and see AI diagnostics.\n\n\n\n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Posit Assistant\n        \n        \n        \n          Chat about your code, Console sessions, and in-memory objects.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Completions\n        \n        \n        \n          Inline code suggestions as you type, powered by Posit AI NES or GitHub Copilot.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Notebook AI features\n        \n        \n        \n          Notebook-aware AI that understands your cells, outputs, and execution history.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Console fix and explain\n        \n        \n        \n          Fix and explain errors from your R and Python Console sessions.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Quarto fix and explain\n        \n        \n        \n          Fix and explain errors from Quarto chunks running with inline output.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Git commit messages\n        \n        \n        \n          Generate a commit message for your staged changes from the Source Control pane.\n        \n      \n      \n  \n\nNo matching items",
+    "crumbs": [
+      "Guides",
+      "AI Features"
+    ]
+  },
+  {
+    "objectID": "add-to-path.html",
+    "href": "add-to-path.html",
+    "title": "Launch Positron from a Terminal",
+    "section": "",
+    "text": "If Positron is on your PATH, you can launch it from the terminal:\n\nType positron . to open Positron in the current folder, or\npositron foo to open Positron in a custom folder of your choice.\n\nSee the instructions below on how to add Positron to your PATH based on operating system.\n\nmacOS\nAfter you have installed Positron, you can add it to your PATH via the Command Palette. Press  to open the palette and type Install ‘positron’ command in PATH.\n\n\n\nAdd Positron to your PATH\n\n\nAfter you have executed this command once, Positron is added to your PATH. Restart your terminal to pick up the changes to your PATH.\n\n\nWindows\nPositron installers on Windows include an option to add a positron command to your PATH. This installation option is selected by default.\n\n\n\nWindows installer option Add to PATH\n\n\nIf you had cleared this option during installation, you can manually add the bin folder of your Positron installation to your PATH. For a System level installation, this folder is located at C:\\Program Files\\Positron\\bin by default. For a User level installation, this folder is located at C:\\Users\\username\\AppData\\Local\\Programs\\Positron\\bin by default. You will need to restart your terminal after updating your PATH.\nOnce Positron is on your PATH, you can use a terminal to launch Positron.",
+    "crumbs": [
+      "Guides",
+      "Configuration",
+      "Launch Positron from a Terminal"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Positron",
+    "section": "",
+    "text": "The goal of Positron is to create an IDE for data science that supports the full scope of modern scientific and data-driven work, across languages, tools, and workflows. We aim to do this by:\n\nProviding a cohesive and thoughtful experience for writing code, performing analyses, and exploring data. Whether you’re working in Python, R, or both, Positron combines notebooks, scripts, and consoles with native support for plotting and data output.\nSupporting the kinds of workflows that are central to data science. This includes iterative development, rich interactive output, and publication-quality documents. Positron provides built-in support for notebooks, Quarto, web applications, and more, enabling a range of common authoring and analysis tasks.\nOffering a modern, extensible editor built on open standards. Positron is built on Code OSS, the same foundation as Visual Studio Code, with custom features and UI elements designed specifically for data science. This includes support for a wide array of VSIX extensions and customization, while also enabling deeper integration of language-specific tools.\n\nWe believe that powerful, user-friendly, and open tools are essential for scientific computing. Positron is freely available, aligning with our goal to make high-quality data science tools accessible to everyone.\n\n\n\n\n\n\nNote\n\n\n\nInterested in Positron for your team? Learn about enterprise solutions.",
+    "crumbs": [
+      "About",
+      "About Positron"
+    ]
+  },
+  {
+    "objectID": "action-bars.html",
+    "href": "action-bars.html",
+    "title": "Action Bars",
+    "section": "",
+    "text": "Positron uses Action Bars throughout the application to put essential functionality at your fingertips.",
     "crumbs": [
       "Guides",
       "User Interface",
-      "Command Palette"
+      "Action Bars"
     ]
   },
   {
-    "objectID": "catalog-explorer.html",
-    "href": "catalog-explorer.html",
-    "title": "Catalog Explorer",
+    "objectID": "action-bars.html#anatomy-of-an-action-bar",
+    "href": "action-bars.html#anatomy-of-an-action-bar",
+    "title": "Action Bars",
+    "section": "Anatomy of an Action Bar",
+    "text": "Anatomy of an Action Bar\n\nRegions\nAn Action Bar is divided into three regions: left, center, and right. Every Action Bar includes the left and right regions, while the center region appears only when needed. The most important actions are typically placed on the left.\n\n\n\nAction Bar Regions\n\n\n\n\nElements\nAction Bars are made up of Action Bar Elements.\n\n\n\n\n\n\n\nElement\nDescription\n\n\n\n\n \nButtonExecutes an action.\n\n\n\nMenu buttonDisplays a drop-down menu of actions.\n\n\n \nSplit menu buttonDisplays a drop-down menu of actions with a default action button on the left.\n\n\n\nToggleToggles between options.\n\n\n\nCheckboxEnables or disables an option.\n\n\n\nInformationDisplays contextual information.\n\n\n\nSeparatorSeparates elements.\n\n\n\nOverflow ButtonDisplays a drop-down menu of overflow actions.\n\n\n\n\n\nTooltips\nHold the pointer over an Action Bar Element to reveal its tooltip and quickly understand what it does.\n\n\n\nAction Bar Tooltip",
+    "crumbs": [
+      "Guides",
+      "User Interface",
+      "Action Bars"
+    ]
+  },
+  {
+    "objectID": "action-bars.html#top-action-bar",
+    "href": "action-bars.html#top-action-bar",
+    "title": "Action Bars",
+    "section": "Top Action Bar",
+    "text": "Top Action Bar\nThe Top Action Bar helps you manage your work. On the left, you will find actions to create or open files and folders. In the center, you can navigate backward and forward through recent cursor positions and use the command center to quickly access Positron commands or locate files in your project. On the right, the interpreter selector lets you start new interpreters or switch between running ones, while the folder selector allows you to open recently used folders, either in the current window or a new one.\n\n\n\nTop Action Bar",
+    "crumbs": [
+      "Guides",
+      "User Interface",
+      "Action Bars"
+    ]
+  },
+  {
+    "objectID": "action-bars.html#wrapping-up",
+    "href": "action-bars.html#wrapping-up",
+    "title": "Action Bars",
+    "section": "Wrapping up",
+    "text": "Wrapping up\nAction Bars surface the most important and frequently used actions in each area of the product, so you do not have to rely on the Command Palette to find everything. Because they are contextual, Action Bars present the tools you need right where you need them, helping you stay focused and work more efficiently in Positron.",
+    "crumbs": [
+      "Guides",
+      "User Interface",
+      "Action Bars"
+    ]
+  },
+  {
+    "objectID": "ai-configuration.html",
+    "href": "ai-configuration.html",
+    "title": "Configure AI features",
     "section": "",
-    "text": "Important\n\n\n\nCatalog Explorer is an experimental feature. Opt in via the catalogExplorer.enabled setting, and restart Positron to apply.\nThe Catalog Explorer provides an interface for browsing data in data catalog systems. Snowflake Horizon Catalogs and Databricks Catalogs are supported. You can explore catalogs, schemas, and tables in a tree view, and copy Python and R code snippets to preview data.",
+    "text": "Once you have set up a language model provider, you can configure how AI features behave in Positron.",
     "crumbs": [
       "Guides",
-      "Database Connections",
-      "Catalog Explorer"
+      "AI Features",
+      "Configure AI features"
     ]
   },
   {
-    "objectID": "catalog-explorer.html#add-a-catalog-provider",
-    "href": "catalog-explorer.html#add-a-catalog-provider",
-    "title": "Catalog Explorer",
-    "section": "Add a catalog provider",
-    "text": "Add a catalog provider\n\nOpen the Command Palette with \nRun Catalogs: Add Catalog Provider\nSelect your catalog type (e.g., Snowflake, Databricks)\nEnter your account credentials\n\nFor Snowflake connections, the Catalog Explorer will look for configuration in a connections.toml file. The default path is $SNOWFLAKE_HOME, but you can configure where this file is saved with the setting catalogExplorer.snowflakeConnections.",
+    "objectID": "ai-configuration.html#turn-features-on-or-off",
+    "href": "ai-configuration.html#turn-features-on-or-off",
+    "title": "Configure AI features",
+    "section": "Turn features on or off",
+    "text": "Turn features on or off\nYou can turn off individual features or disable all AI features at once.\n\nTurn off all AI features\nTo turn off all Positron AI features at once, set ai.enabled to false. This overrides individual feature settings and disables:\n\nPosit Assistant\nPosit AI Next Edit Suggestions (NES)\nNotebook AI features\nConsole Fix & Explain\nQuarto Fix & Explain\nGitHub Copilot (Chat, Completions)\nGit commit message generation\n\n\n\nTurn off a specific feature\nTo disable a specific feature without affecting others:\n\n\n\nSetting\nFeatures affected\n\n\n\n\nassistant.enabled\nPosit Assistant (set to false to disable)\n\n\nnextEditSuggestions.enabled\nPosit AI NES (set to { \"*\": false } to disable)\n\n\ngithub.copilot.enable\nGitHub Copilot ghost-text completions and Next Edit Suggestions (set to { \"*\": false } to disable both)\n\n\ngithub.copilot.nextEditSuggestions.enabled\nGitHub Copilot Next Edit Suggestions (set to false to disable)\n\n\nnotebook.ai.enabled\nNotebook AI features (set to false to disable)\n\n\nconsole.assistantActions.enabled\nConsole Fix & Explain (set to false to disable)\n\n\ngit.suggestions.enabled\nGit commit messages (set to false to disable)",
     "crumbs": [
       "Guides",
-      "Database Connections",
-      "Catalog Explorer"
+      "AI Features",
+      "Configure AI features"
     ]
   },
   {
-    "objectID": "catalog-explorer.html#work-with-tables",
-    "href": "catalog-explorer.html#work-with-tables",
-    "title": "Catalog Explorer",
-    "section": "Work with tables",
-    "text": "Work with tables\nThe Catalog Explorer differs from the Connections pane in that it offers a view of many warehouses and tables at once. It is particularly useful to browse many different tables quickly before connecting to a specific table. In the Catalog Explorer, right-click on a table to:\n\nPreview Table in Active Session: Load a data preview using the active console\nPreview Table with Python: Copy Python code to access the table and print column names\nPreview Table with R: Copy R code to access the table and print column names",
+    "objectID": "ai-configuration.html#github-copilot-chat",
+    "href": "ai-configuration.html#github-copilot-chat",
+    "title": "Configure AI features",
+    "section": "GitHub Copilot chat",
+    "text": "GitHub Copilot chat\nPositron hides the GitHub Copilot chat interface by default, since Posit Assistant is the default chat experience in Positron. To show the GitHub Copilot chat UI again, set chat.disableAIFeatures to false.\nRegardless of that setting, GitHub Copilot ghost-text completions and NES are available once you sign in to GitHub Copilot as a provider.",
     "crumbs": [
       "Guides",
-      "Database Connections",
-      "Catalog Explorer"
+      "AI Features",
+      "Configure AI features"
     ]
   },
   {
-    "objectID": "catalog-explorer.html#work-with-files",
-    "href": "catalog-explorer.html#work-with-files",
-    "title": "Catalog Explorer",
-    "section": "Work with files",
-    "text": "Work with files\nAlong with support for tables, the Catalog Explorer also supports previewing and downloading files like CSVs. Right-click on a CSV to:\n\nOpen With…: Preview file in the Data Explorer\nDownload File in Active Session: Download file locally to your machine using the active console\nCopy Path: Copy path to file, based on location in your catalog\nDownload File with R: Download file locally to your machine using an active R console\nDownload File with Python: Download file locally to your machine using an active Python console",
+    "objectID": "ai-configuration.html#check-your-ai-configuration",
+    "href": "ai-configuration.html#check-your-ai-configuration",
+    "title": "Configure AI features",
+    "section": "Check your AI configuration",
+    "text": "Check your AI configuration\nTo see how Positron applies the settings on this page, run the AI: Create Diagnostic Report command. The report lists which features are on, which providers you are signed in to, and the AI settings that differ from their defaults. See AI diagnostics for what the report contains and what it redacts.",
     "crumbs": [
       "Guides",
-      "Database Connections",
-      "Catalog Explorer"
+      "AI Features",
+      "Configure AI features"
     ]
   },
   {
-    "objectID": "catalog-explorer.html#remove-a-catalog-provider",
-    "href": "catalog-explorer.html#remove-a-catalog-provider",
-    "title": "Catalog Explorer",
-    "section": "Remove a catalog provider",
-    "text": "Remove a catalog provider\nSelect the trash icon next to a provider name to remove it, or run Catalogs: Remove Catalog Provider from the Command Palette.",
+    "objectID": "assistant-chat-agents.html",
+    "href": "assistant-chat-agents.html",
+    "title": "Chat Agents",
+    "section": "",
+    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.\nChat agents tailor Assistant’s behavior for specific tasks by providing unique instructions and tools. Select the agent selector dropdown at the bottom of the chat pane to switch between agents.\nYou can also create custom chat agents to suit your specific workflows and requirements.",
     "crumbs": [
       "Guides",
-      "Database Connections",
-      "Catalog Explorer"
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Chat Agents"
     ]
   },
   {
-    "objectID": "catalog-explorer.html#settings",
-    "href": "catalog-explorer.html#settings",
-    "title": "Catalog Explorer",
+    "objectID": "assistant-chat-agents.html#default-chat-agents",
+    "href": "assistant-chat-agents.html#default-chat-agents",
+    "title": "Chat Agents",
+    "section": "Default chat agents",
+    "text": "Default chat agents\n\nAsk: Provides answers and code suggestions without automatic execution\nEdit: Suggests code changes for you to apply to files\nAgent: Autonomously executes work including running code and modifying files\nPlan: Creates detailed step-by-step plans before execution\n\n\n\nView detailed descriptions and example prompts\n\n\n\n\n\n\n\n\n\nAgent\nDescription\nExample Prompts\n\n\n\n\nAsk\nProvides answers to questions, helps with debugging, and generates code suggestions.The Ask agent offers code you can apply in your Editor or run in the Console, but it will not edit or run code automatically.\n“How do I plot a histogram in Python?”“Why am I getting a syntax error in my R script?”“Can you explain what this function does?”\n\n\nEdit\nSuggests code changes based on your prompts that you can apply to your files.The Edit agent helps you modify existing code but requires your approval for each change.\n“Refactor this function to improve readability.”“Convert this R code to Python.”“Add error handling to this script.”\n\n\nAgent\nDetermines the steps needed for your request and autonomously carries out the work.The Agent can execute code in the Console, create and modify files, and identify next steps based on previous results.\n“Create a new Python file and set up a basic data analysis workflow.”“Install the required packages and run the code in the Console.”“Generate a summary report from my current dataset.”\n\n\nPlan\nCreates a step-by-step plan to accomplish your request.The Plan agent retrieves relevant context and develops a detailed plan, which it presents for your review before proceeding with execution.\n“Outline the steps needed to analyze a dataset and generate visualizations.”“Plan how to test and debug this R script.”“Create a plan to display my data in an interactive Shiny app.”",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Chat Agents"
+    ]
+  },
+  {
+    "objectID": "assistant-chat-agents.html#custom-chat-agents",
+    "href": "assistant-chat-agents.html#custom-chat-agents",
+    "title": "Chat Agents",
+    "section": "Custom chat agents",
+    "text": "Custom chat agents\nAdding custom chat agents allows you to:\n\nCreate specialized agents for specific tasks or workflows\nTailor the Positron Assistant’s behavior and available tools for different use cases\n\n\nCreate a custom chat agent\n\nRun the command Chat: New Custom Agent… and follow the prompts to create a new chat agent file.\nEdit the newly created .agent.md file to specify the chat agent description, the tools the chat agent can use, as well as the chat agent prompt content.\nOnce you have created a custom chat agent, it will be available in the agent selector dropdown in the chat pane.\n\n\n\n\n\n\n\nNote\n\n\n\nTo learn more about the format of custom agents, see the following VS Code documentation:\n\nCustom agent file structure\nCustom agents in VS Code\n\nPositron Assistant does not support the model field.\n\n\n\n\nExample custom chat agent\n\nBelow is a custom chat agent tailored to debugging R and Python code. The definition contains rules, direction, and clarification that the agent follows when invoked. These guide its responses to be more relevant to troubleshooting and fixing code issues.\n\n\ndebug-code.agent.md\n\n---\ndescription: Debug and troubleshoot issues in R or Python code.\nname: Code Debugger\ntools: ['search', 'edit', 'executeCode', 'inspectVariables', 'runCommands', 'runTasks']\nhandoffs:\n  - label: Test Code\n    agent: agent\n    prompt: Run the code to verify the fix works correctly.\n    send: false\n---\n# R/Python Debugging Specialist\n\nYou are a debugging expert for R and Python. Your role is to identify, diagnose, and fix issues in code.\n\n## Your debugging expertise includes:\n\n* **Logic Errors**: Identify incorrect algorithms, off-by-one errors, and faulty conditional logic\n* **Runtime Errors**: Diagnose exceptions, type errors, and null/missing value issues\n* **Data Issues**: Detect problems with data types, shapes, and unexpected values\n\n## Debugging workflow:\n\n1. Ask the user to describe the problem, error messages, and expected behavior\n2. Review relevant code sections and identify potential issues\n3. Use available tools to inspect variables and test code snippets\n4. Explain the root cause and suggest specific code changes\n5. Edit the code directly with the proposed solution\n\n## Common issues you solve:\n\n- Index out of bounds errors\n- Type mismatches and conversion errors\n- Incorrect function arguments or return values\n- Logic errors producing unexpected results\n\n## Rules\n\n- Always explain the root cause before proposing a fix.\n- Edit files directly rather than just providing code snippets.\n- Use `executeCode` to test fixes when appropriate.\n\ntools: The agent is restricted to tools relating to debugging functionality, limiting the number of “decisions” Positron Assistant must make while working. For example, you can grant a data analysis agent access to the getPlot tool to inspect the plot output in Positron, whereas a debugging agent focuses on code inspection and execution tools.\nhandoffs: This agent provides a handoff, which gives users a way to trigger a subsequent action with one click. A user will naturally want to test code after it is fixed, so this handoff presents the user with a button titled “Test Code” which instructs Assistant to run the code and verify the fix. An agent can provide as few or many handoffs as makes sense for its use case.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Chat Agents"
+    ]
+  },
+  {
+    "objectID": "assistant-chat-context.html",
+    "href": "assistant-chat-context.html",
+    "title": "Context",
+    "section": "",
+    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.\nPositron Assistant goes beyond reading your code files. It also accesses your loaded data, plots, and Console activity by calling tools and executing code in your R or Python interpreter session or running commands in the Terminal.\nThis access allows Assistant to provide more relevant coding guidance based on:",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Context"
+    ]
+  },
+  {
+    "objectID": "assistant-chat-context.html#attach-context",
+    "href": "assistant-chat-context.html#attach-context",
+    "title": "Context",
+    "section": "Attach context",
+    "text": "Attach context\nProviding useful context to Positron Assistant is crucial for getting accurate and relevant responses.\nBy default, the active editor file and the active interpreter session (if any) are attached as context for your chat messages in the chat pane.\nTo include additional attachments as context for your prompts:\n\nClick the  paperclip button in the chat pane\nChoose from options such as:\n\nFiles & Folders: specific files or folders in your workspace.\nSource Control: commits from your version control history.\nTools: specific tools you would like Assistant to use.\n\n\nFor more information on attaching context to your chat message, refer to the Add context to your prompt VS Code documentation.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Context"
+    ]
+  },
+  {
+    "objectID": "assistant-chat-context.html#interpreter-session-context",
+    "href": "assistant-chat-context.html#interpreter-session-context",
+    "title": "Context",
+    "section": "Interpreter session context",
+    "text": "Interpreter session context\nBy default, Positron Assistant can see the active R or Python interpreter session in the chat pane. The Chat input box displays the active Console session as an attachment.\nWhen an interpreter session is attached, Positron Assistant can access:\n\nCode inputs and outputs in that session\nIn-memory objects and dataframes in the Variables pane\nThe active plot in the Plots pane\nTool calls that require the interpreter session\n\n\nSwitch the attached interpreter session\n\nClick the interpreter session in the Console pane to make it active.\nPositron Assistant automatically updates to use the newly active interpreter session.\n\n\n\nToggle the visibility of the active interpreter session\nIn the chat pane, click the  eye button on the interpreter session attachment to toggle whether Assistant can access the session data.\n\n: When the eye icon appears without a slash through it, the interpreter session is visible.\n: When the eye icon has a slash through it, the interpreter session is hidden.\n\n\n\nAttach an interpreter session\n\nClick the  paperclip button in the chat pane\nChoose “Interpreter Sessions…” to select an interpreter session to attach.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Context"
+    ]
+  },
+  {
+    "objectID": "assistant-chat-context.html#source-control-context",
+    "href": "assistant-chat-context.html#source-control-context",
+    "title": "Context",
+    "section": "Source control context",
+    "text": "Source control context\nIf your workspace uses Git source control, Positron Assistant can access your commit history and generate commit messages in the Source Control pane.\n\nCommit history context\nInclude commit history in your chat session in the following ways:\n\nAdd context attachments and select “Source Control…” to attach a commit.\nInclude the text #changes as part of your prompt, to include recent changes on the current branch.\n\n\n\nGenerate commit messages\nFrom the Source Control pane, you can use Positron Assistant to generate commit messages for your staged changes.\n\nOpen the Source Control pane (Source Control: Focus on Changes View in the Command Palette).\nEnsure you have staged changes to commit.\nClick the sparkles icon in the commit message input box.\nPositron Assistant will analyze your staged changes and generate a commit message.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Context"
+    ]
+  },
+  {
+    "objectID": "assistant-chat-context.html#settings",
+    "href": "assistant-chat-context.html#settings",
+    "title": "Context",
     "section": "Settings",
-    "text": "Settings\n\n\n\nSetting\nDescription\n\n\n\n\ncatalogExplorer.enabled\nEnable or disable Catalog Explorer. Requires a restart.\n\n\ncatalogExplorer.snowflakeConnections\nPath to the Snowflake connections directory containing connections.toml. Defaults to $SNOWFLAKE_HOME.",
+    "text": "Settings\n\nchat.implicitSessionContext.enabled: Configure whether Positron Assistant automatically attaches the active interpreter session in the chat pane.\n\nTo disable the interpreter session context in the chat pane by default, change the configuration for panel to never. You will still be able to Attach an interpreter session if needed.\n\nchat.implicitContext.enabled: Configure whether Positron Assistant automatically attaches the active editor in the chat pane.\n\nTo disable the active editor context in the chat pane by default, change the configuration for panel to never. You will still be able to add context attachments for files if needed.\n\npositron.assistant.gitIntegration.enable: Configure whether Positron Assistant can access Git source control context, such as commit history, and whether commit messages can be generated in the Source Control pane.\npositron.assistant.aiExcludes: Files matching these patterns will not have their contents sent to AI providers for inline completions or chat context.",
     "crumbs": [
       "Guides",
-      "Database Connections",
-      "Catalog Explorer"
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Chat",
+      "Context"
     ]
   },
   {
-    "objectID": "assistant-troubleshooting.html",
-    "href": "assistant-troubleshooting.html",
-    "title": "Troubleshooting",
+    "objectID": "assistant-chat.html",
+    "href": "assistant-chat.html",
+    "title": "Chat",
     "section": "",
-    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.\nIf you are having trouble with Positron Assistant, here are some resources and tools to help diagnose the issue and get things working smoothly.\nCannot find what you are looking for? Reach out through our feedback channels and we will help you out!",
+    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.\nPositron Assistant provides multiple ways to interact with AI assistance across your workspace. Whether you use the dedicated chat pane, inline chat within your Editor or Terminal, or quick Console actions for errors, Assistant works within your development environment.\nTo use Positron Assistant features, first configure a language model provider. See the Getting Started guide for more details.",
     "crumbs": [
       "Guides",
       "AI Features",
       "Positron Assistant (deprecated)",
-      "Troubleshooting"
+      "Chat"
     ]
   },
   {
-    "objectID": "assistant-troubleshooting.html#i-am-getting-unexpected-or-incorrect-responses",
-    "href": "assistant-troubleshooting.html#i-am-getting-unexpected-or-incorrect-responses",
-    "title": "Troubleshooting",
-    "section": "I am getting unexpected or incorrect responses",
-    "text": "I am getting unexpected or incorrect responses\nIf you receive unexpected or incorrect responses from Assistant, consider the following steps:\n\nProvide more context: Ensure that your messages include sufficient context about your code, data, or the task at hand.\nRephrase your query: Try rewording your question or request to be more specific or clear.\nStart a new conversation: If the current conversation has become lengthy or confusing, starting a new chat conversation may help reset the context.\nReach out for support: If you continue to experience issues, consider reaching out for support to provide feedback or report the problem.",
+    "objectID": "assistant-chat.html#chat-pane",
+    "href": "assistant-chat.html#chat-pane",
+    "title": "Chat",
+    "section": "Chat pane",
+    "text": "Chat pane\nThe chat pane provides a dedicated interface for asking questions, editing, and debugging your code. Assistant responds based on your active session context, making it easier to troubleshoot issues and learn new techniques.\nYou can interact with your R and Python Console sessions, including code, outputs, and in-memory objects like dataframes, via chat. Code generated by Assistant can be run in the Console, copied to the clipboard, or sent to an Editor using controls attached to code output blocks. Access to Variables and Plots panes provides additional context for your conversations.\n\nOpening the chat pane\nTo open the chat pane, click the chat robot icon in the sidebar or run the command Chat: Open Chat from the Command Palette.\n\n\nKey features\n\n\n\nFeature\nDescription\n\n\n\n\nChat agents\nChoose from default agents (Ask, Edit, Agent, Plan) or create custom agents to tailor the responses from Assistant.\n\n\nContext\nAttach files, interpreter sessions, tools, and source control history for more relevant responses.\n\n\nCommands and participants\nUse commands for pre-defined actions and interact with dedicated participants for specific tasks.\n\n\nCustom instructions\nCreate and use custom instructions to personalize your chat experience.",
     "crumbs": [
       "Guides",
       "AI Features",
       "Positron Assistant (deprecated)",
-      "Troubleshooting"
+      "Chat"
     ]
   },
   {
-    "objectID": "assistant-troubleshooting.html#i-am-getting-an-error-message",
-    "href": "assistant-troubleshooting.html#i-am-getting-an-error-message",
-    "title": "Troubleshooting",
-    "section": "I am getting an error message",
-    "text": "I am getting an error message\nIf you encounter an error message while using Positron Assistant, try the following:\n\nTry again: Sometimes, transient issues can cause errors. Retry your request to see if the issue persists.\nStart a new conversation: If the error is related to the current chat context, starting a new chat conversation may resolve it.\nCheck provider status: Check if your language model provider has any service outages or issues.\nReach out for support: If the error persists, consider reaching out for support to provide feedback or report the problem.",
+    "objectID": "assistant-chat.html#inline-chat",
+    "href": "assistant-chat.html#inline-chat",
+    "title": "Chat",
+    "section": "Inline chat",
+    "text": "Inline chat\nInline chat is a mini chat interface that can be opened directly within your code Editor, Notebook, or Terminal. It allows you to ask questions, get suggestions, and apply changes without leaving your current context.\n\nEditor or notebookTerminal\n\n\nTo use the inline chat interface in an Editor or Notebook:\n\nIn an Editor or Notebook, place your cursor where you want to open the inline chat interface.\nOpen the inline chat interface using the default keybinding ; or, by running the command Inline Chat: Open Inline Chat from the Command Palette.\nEnter your question or request in the inline chat input box and press EnterEnter to send the message.\nAccept or dismiss suggestions directly from the inline chat response.\n\nLearn more about how to Use editor inline chat in the VS Code documentation.\n\n\nTo use the inline chat interface in a Terminal:\n\nIn a Terminal, place your cursor where you want to open the inline chat interface.\nOpen the inline chat interface using the default keybinding ; or, by running the command Terminal: Open Inline Chat from the Command Palette.\nEnter your question or request in the inline chat input box and press EnterEnter to send the message.\nAccept or dismiss suggestions directly from the inline chat response.",
     "crumbs": [
       "Guides",
       "AI Features",
       "Positron Assistant (deprecated)",
-      "Troubleshooting"
+      "Chat"
     ]
   },
   {
-    "objectID": "assistant-troubleshooting.html#feedback-issues",
-    "href": "assistant-troubleshooting.html#feedback-issues",
-    "title": "Troubleshooting",
-    "section": "Feedback and issues",
-    "text": "Feedback and issues\nWe welcome your feedback to help us improve Positron Assistant!\nPlease provide as much detail as possible when reporting issues, including:\n\nSteps to reproduce the problem\nScreenshots or screen recordings if possible\nAny relevant logs, error messages, and diagnostics\n\nIf you encounter any issues or have suggestions, please let us know by:\n\nVisiting the Positron Discussions forum to share your thoughts and ideas, or start a discussion with other users and the Positron team.\nReporting bugs or issues on the Positron GitHub Issues page. Please include logs and diagnostics if applicable.",
+    "objectID": "assistant-chat.html#console-actions",
+    "href": "assistant-chat.html#console-actions",
+    "title": "Chat",
+    "section": "Console actions",
+    "text": "Console actions\nPositron Assistant provides quick assistance for errors in the Console. When you see an error, you can choose the following options to send your Console session to Assistant for immediate help:\n\nFix: Assistant diagnoses the error and suggests a corrected version of your code. Use Fix to resolve errors quickly or apply recommended changes.\nExplain: Assistant describes what your code does, analyzes the error, and suggests possible solutions. Use Explain to learn more about your code or get advice on complex issues.\n\nFix and Explain inherit these options from the chat pane:\n\nSelected model\nFiles added or removed from context\nConsole session visibility\n\n\nManaging Console actions\n\nTo disable Console actions, set console.assistantActions.enabled to false.\nTo review your Fix and Explain chat history for the current chat session, run the Chat: Open Quick Chat command and your chat history will appear in the Quick Chat overlay.",
     "crumbs": [
       "Guides",
       "AI Features",
       "Positron Assistant (deprecated)",
-      "Troubleshooting"
+      "Chat"
     ]
   },
   {
-    "objectID": "assistant-troubleshooting.html#logs",
-    "href": "assistant-troubleshooting.html#logs",
-    "title": "Troubleshooting",
-    "section": "Logs",
-    "text": "Logs\n\nView output logs\n\nRun the command Output: Show Output Channels…\nEnter “Assistant” in the input box to filter the output channels\nPress EnterEnter to open the Assistant output logs\n\nTo include additional detail in the logs:\n\nRun the command Developer: Set Log Level…\nSelect Debug for debug-level logging, or Trace to enable the most detailed logging\nReproduce the issue you are experiencing\nReturn to the Assistant output logs to view the detailed logs\n\n\n\nExport chat log\nTo export the log of a chat conversation:\n\nFocus your cursor in the chat interface of the conversation you want to export, either in the chat pane or inline chat\nRun one of the commands that start with Positron Assistant: Export the current chat\nSelect the button in the notification that appears to open the exported chat log",
+    "objectID": "assistant-chat.html#managing-models",
+    "href": "assistant-chat.html#managing-models",
+    "title": "Chat",
+    "section": "Managing models",
+    "text": "Managing models\nYou can customize which models Assistant has access to and set default preferences using the following settings:\n\npositron.assistant.models.preference.global: Set a preferred model to be pre-selected across all providers. Matching is case-insensitive and supports partial matches.\npositron.assistant.models.preference.&lt;provider&gt;: Set a default model for a specific provider. Provider-specific preferences take precedence over the global preference.\n\npositron.assistant.models.preference.anthropic\npositron.assistant.models.preference.amazonBedrock\npositron.assistant.models.preference.snowflakeCortex\npositron.assistant.models.preference.openAI\npositron.assistant.models.preference.customProvider\n\npositron.assistant.models.include: Restrict which models are available by specifying patterns. Supports wildcards and regular expressions. Does not affect GitHub Copilot models.\npositron.assistant.models.overrides.&lt;provider&gt;: Manually configure models for a specific provider instead of retrieving the model listing automatically. Use this setting when the provider does not support the /models endpoint or if you want to replace the provider’s model listing with your own custom set of models.\n\npositron.assistant.models.overrides.anthropic\npositron.assistant.models.overrides.amazonBedrock\npositron.assistant.models.overrides.snowflakeCortex\npositron.assistant.models.overrides.openAI\npositron.assistant.models.overrides.customProvider",
     "crumbs": [
       "Guides",
       "AI Features",
       "Positron Assistant (deprecated)",
-      "Troubleshooting"
+      "Chat"
     ]
   },
   {
-    "objectID": "assistant-troubleshooting.html#diagnostics",
-    "href": "assistant-troubleshooting.html#diagnostics",
-    "title": "Troubleshooting",
-    "section": "Diagnostics",
-    "text": "Diagnostics\nFor detailed diagnostics about Positron Assistant, including information about your language model providers, version information, Positron Assistant settings, and more:\n\nRun the command Positron Assistant: Collect Diagnostics\nA diagnostic report will be generated and opened in a new editor tab\n\n\n\n\n\n\n\nNote\n\n\n\nThe Positron Assistant: Collect Diagnostics command is only available in builds that still ship the Positron Assistant extension. On Positron 2026.08 and later, run AI: Create Diagnostic Report instead. It covers all of the AI features in Positron, not only the chat and completions interfaces. See AI diagnostics.",
+    "objectID": "assistant-getting-started.html",
+    "href": "assistant-getting-started.html",
+    "title": "Get started",
+    "section": "",
+    "text": "To use AI in Positron, first configure a language model provider, then start using AI features such as Posit Assistant. Follow the steps below to get set up.",
     "crumbs": [
       "Guides",
       "AI Features",
-      "Positron Assistant (deprecated)",
-      "Troubleshooting"
+      "Get started"
+    ]
+  },
+  {
+    "objectID": "assistant-getting-started.html#configure-a-language-model-provider",
+    "href": "assistant-getting-started.html#configure-a-language-model-provider",
+    "title": "Get started",
+    "section": "Step 1: Configure a language model provider",
+    "text": "Step 1: Configure a language model provider\nPositron enables all providers by default and they appear in the provider list, but none are active unless you authenticate with the provider.\nTo connect a provider, run the command Authentication: Configure Language Model Providers, select the provider, and authenticate. For account requirements, authentication details, and any settings to configure first, see the Language Model Providers reference.\n\n\n\nProvider\nChat\nCode Completions\nAuthentication\n\n\n\n\nPosit AI\n\n\nOAuth\n\n\nAmazon Bedrock\n\n\nAWS CLI or Posit Workbench Managed Credentials\n\n\nAnthropic\n\n\nAPI Key\n\n\nMicrosoft Foundry\n\n\nAPI Key or Workbench Managed Credentials\n\n\nOpenAI\n\n\nAPI Key\n\n\nSnowflake Cortex\n\n\nAPI Key or Workbench Managed Credentials\n\n\nGitHub Copilot Preview\n\n\nOAuth\n\n\nCustom Provider Experimental\n\n\nAPI Key\n\n\nDeepSeek Experimental\n\n\nAPI Key\n\n\nGoogle Gemini Experimental\n\n\nAPI Key\n\n\nGemini Enterprise Agent Platform Experimental\n\n\nGoogle Cloud CLI or Service Account Credentials\n\n\n\nPlease ensure you consult your provider’s privacy policy for information on the data they collect and how they use it. For reference links, see the Privacy & Terms guide.\nFor information on what information is collected by Posit, review Posit’s privacy policy.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Get started"
+    ]
+  },
+  {
+    "objectID": "assistant-getting-started.html#use-ai-in-positron",
+    "href": "assistant-getting-started.html#use-ai-in-positron",
+    "title": "Get started",
+    "section": "Step 2: Use AI in Positron",
+    "text": "Step 2: Use AI in Positron\nWith a language model provider configured, you can use AI throughout Positron. To start a chat, run the View: Show Posit Assistant command in the Command Palette to open the chat panel.\n\n\n\n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Posit Assistant\n        \n        \n        \n          Chat about your code, Console sessions, and in-memory objects.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Code completions\n        \n        \n        \n          Get inline code suggestions as you type in the editor or a notebook.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          All AI features\n        \n        \n        \n          Learn more about AI features in Positron.\n        \n      \n      \n  \n\nNo matching items\n\nTo control which AI features are active, or to turn them off, see Configure AI features.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Get started"
     ]
   },
   {
@@ -2224,711 +2770,253 @@
     ]
   },
   {
-    "objectID": "assistant-getting-started.html",
-    "href": "assistant-getting-started.html",
-    "title": "Get started",
+    "objectID": "assistant-troubleshooting.html",
+    "href": "assistant-troubleshooting.html",
+    "title": "Troubleshooting",
     "section": "",
-    "text": "To use AI in Positron, first configure a language model provider, then start using AI features such as Posit Assistant. Follow the steps below to get set up.",
+    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.\nIf you are having trouble with Positron Assistant, here are some resources and tools to help diagnose the issue and get things working smoothly.\nCannot find what you are looking for? Reach out through our feedback channels and we will help you out!",
     "crumbs": [
       "Guides",
       "AI Features",
-      "Get started"
+      "Positron Assistant (deprecated)",
+      "Troubleshooting"
     ]
   },
   {
-    "objectID": "assistant-getting-started.html#configure-a-language-model-provider",
-    "href": "assistant-getting-started.html#configure-a-language-model-provider",
-    "title": "Get started",
-    "section": "Step 1: Configure a language model provider",
-    "text": "Step 1: Configure a language model provider\nPositron enables all providers by default and they appear in the provider list, but none are active unless you authenticate with the provider.\nTo connect a provider, run the command Authentication: Configure Language Model Providers, select the provider, and authenticate. For account requirements, authentication details, and any settings to configure first, see the Language Model Providers reference.\n\n\n\nProvider\nChat\nCode Completions\nAuthentication\n\n\n\n\nPosit AI\n\n\nOAuth\n\n\nAmazon Bedrock\n\n\nAWS CLI or Posit Workbench Managed Credentials\n\n\nAnthropic\n\n\nAPI Key\n\n\nMicrosoft Foundry\n\n\nAPI Key or Workbench Managed Credentials\n\n\nOpenAI\n\n\nAPI Key\n\n\nSnowflake Cortex\n\n\nAPI Key or Workbench Managed Credentials\n\n\nGitHub Copilot Preview\n\n\nOAuth\n\n\nCustom Provider Experimental\n\n\nAPI Key\n\n\nDeepSeek Experimental\n\n\nAPI Key\n\n\nGoogle Gemini Experimental\n\n\nAPI Key\n\n\nGemini Enterprise Agent Platform Experimental\n\n\nGoogle Cloud CLI or Service Account Credentials\n\n\n\nPlease ensure you consult your provider’s privacy policy for information on the data they collect and how they use it. For reference links, see the Privacy & Terms guide.\nFor information on what information is collected by Posit, review Posit’s privacy policy.",
+    "objectID": "assistant-troubleshooting.html#i-am-getting-unexpected-or-incorrect-responses",
+    "href": "assistant-troubleshooting.html#i-am-getting-unexpected-or-incorrect-responses",
+    "title": "Troubleshooting",
+    "section": "I am getting unexpected or incorrect responses",
+    "text": "I am getting unexpected or incorrect responses\nIf you receive unexpected or incorrect responses from Assistant, consider the following steps:\n\nProvide more context: Ensure that your messages include sufficient context about your code, data, or the task at hand.\nRephrase your query: Try rewording your question or request to be more specific or clear.\nStart a new conversation: If the current conversation has become lengthy or confusing, starting a new chat conversation may help reset the context.\nReach out for support: If you continue to experience issues, consider reaching out for support to provide feedback or report the problem.",
     "crumbs": [
       "Guides",
       "AI Features",
-      "Get started"
+      "Positron Assistant (deprecated)",
+      "Troubleshooting"
     ]
   },
   {
-    "objectID": "assistant-getting-started.html#use-ai-in-positron",
-    "href": "assistant-getting-started.html#use-ai-in-positron",
-    "title": "Get started",
-    "section": "Step 2: Use AI in Positron",
-    "text": "Step 2: Use AI in Positron\nWith a language model provider configured, you can use AI throughout Positron. To start a chat, run the View: Show Posit Assistant command in the Command Palette to open the chat panel.\n\n\n\n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Posit Assistant\n        \n        \n        \n          Chat about your code, Console sessions, and in-memory objects.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Code completions\n        \n        \n        \n          Get inline code suggestions as you type in the editor or a notebook.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          All AI features\n        \n        \n        \n          Learn more about AI features in Positron.\n        \n      \n      \n  \n\nNo matching items\n\nTo control which AI features are active, or to turn them off, see Configure AI features.",
+    "objectID": "assistant-troubleshooting.html#i-am-getting-an-error-message",
+    "href": "assistant-troubleshooting.html#i-am-getting-an-error-message",
+    "title": "Troubleshooting",
+    "section": "I am getting an error message",
+    "text": "I am getting an error message\nIf you encounter an error message while using Positron Assistant, try the following:\n\nTry again: Sometimes, transient issues can cause errors. Retry your request to see if the issue persists.\nStart a new conversation: If the error is related to the current chat context, starting a new chat conversation may resolve it.\nCheck provider status: Check if your language model provider has any service outages or issues.\nReach out for support: If the error persists, consider reaching out for support to provide feedback or report the problem.",
     "crumbs": [
       "Guides",
       "AI Features",
-      "Get started"
+      "Positron Assistant (deprecated)",
+      "Troubleshooting"
     ]
   },
   {
-    "objectID": "assistant-chat.html",
-    "href": "assistant-chat.html",
-    "title": "Chat",
+    "objectID": "assistant-troubleshooting.html#feedback-issues",
+    "href": "assistant-troubleshooting.html#feedback-issues",
+    "title": "Troubleshooting",
+    "section": "Feedback and issues",
+    "text": "Feedback and issues\nWe welcome your feedback to help us improve Positron Assistant!\nPlease provide as much detail as possible when reporting issues, including:\n\nSteps to reproduce the problem\nScreenshots or screen recordings if possible\nAny relevant logs, error messages, and diagnostics\n\nIf you encounter any issues or have suggestions, please let us know by:\n\nVisiting the Positron Discussions forum to share your thoughts and ideas, or start a discussion with other users and the Positron team.\nReporting bugs or issues on the Positron GitHub Issues page. Please include logs and diagnostics if applicable.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "assistant-troubleshooting.html#logs",
+    "href": "assistant-troubleshooting.html#logs",
+    "title": "Troubleshooting",
+    "section": "Logs",
+    "text": "Logs\n\nView output logs\n\nRun the command Output: Show Output Channels…\nEnter “Assistant” in the input box to filter the output channels\nPress EnterEnter to open the Assistant output logs\n\nTo include additional detail in the logs:\n\nRun the command Developer: Set Log Level…\nSelect Debug for debug-level logging, or Trace to enable the most detailed logging\nReproduce the issue you are experiencing\nReturn to the Assistant output logs to view the detailed logs\n\n\n\nExport chat log\nTo export the log of a chat conversation:\n\nFocus your cursor in the chat interface of the conversation you want to export, either in the chat pane or inline chat\nRun one of the commands that start with Positron Assistant: Export the current chat\nSelect the button in the notification that appears to open the exported chat log",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "assistant-troubleshooting.html#diagnostics",
+    "href": "assistant-troubleshooting.html#diagnostics",
+    "title": "Troubleshooting",
+    "section": "Diagnostics",
+    "text": "Diagnostics\nFor detailed diagnostics about Positron Assistant, including information about your language model providers, version information, Positron Assistant settings, and more:\n\nRun the command Positron Assistant: Collect Diagnostics\nA diagnostic report will be generated and opened in a new editor tab\n\n\n\n\n\n\n\nNote\n\n\n\nThe Positron Assistant: Collect Diagnostics command is only available in builds that still ship the Positron Assistant extension. On Positron 2026.08 and later, run AI: Create Diagnostic Report instead. It covers all of the AI features in Positron, not only the chat and completions interfaces. See AI diagnostics.",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Positron Assistant (deprecated)",
+      "Troubleshooting"
+    ]
+  },
+  {
+    "objectID": "catalog-explorer.html",
+    "href": "catalog-explorer.html",
+    "title": "Catalog Explorer",
     "section": "",
-    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.\nPositron Assistant provides multiple ways to interact with AI assistance across your workspace. Whether you use the dedicated chat pane, inline chat within your Editor or Terminal, or quick Console actions for errors, Assistant works within your development environment.\nTo use Positron Assistant features, first configure a language model provider. See the Getting Started guide for more details.",
+    "text": "Important\n\n\n\nCatalog Explorer is an experimental feature. Opt in via the catalogExplorer.enabled setting, and restart Positron to apply.\nThe Catalog Explorer provides an interface for browsing data in data catalog systems. Snowflake Horizon Catalogs and Databricks Catalogs are supported. You can explore catalogs, schemas, and tables in a tree view, and copy Python and R code snippets to preview data.",
     "crumbs": [
       "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat"
+      "Database Connections",
+      "Catalog Explorer"
     ]
   },
   {
-    "objectID": "assistant-chat.html#chat-pane",
-    "href": "assistant-chat.html#chat-pane",
-    "title": "Chat",
-    "section": "Chat pane",
-    "text": "Chat pane\nThe chat pane provides a dedicated interface for asking questions, editing, and debugging your code. Assistant responds based on your active session context, making it easier to troubleshoot issues and learn new techniques.\nYou can interact with your R and Python Console sessions, including code, outputs, and in-memory objects like dataframes, via chat. Code generated by Assistant can be run in the Console, copied to the clipboard, or sent to an Editor using controls attached to code output blocks. Access to Variables and Plots panes provides additional context for your conversations.\n\nOpening the chat pane\nTo open the chat pane, click the chat robot icon in the sidebar or run the command Chat: Open Chat from the Command Palette.\n\n\nKey features\n\n\n\nFeature\nDescription\n\n\n\n\nChat agents\nChoose from default agents (Ask, Edit, Agent, Plan) or create custom agents to tailor the responses from Assistant.\n\n\nContext\nAttach files, interpreter sessions, tools, and source control history for more relevant responses.\n\n\nCommands and participants\nUse commands for pre-defined actions and interact with dedicated participants for specific tasks.\n\n\nCustom instructions\nCreate and use custom instructions to personalize your chat experience.",
+    "objectID": "catalog-explorer.html#add-a-catalog-provider",
+    "href": "catalog-explorer.html#add-a-catalog-provider",
+    "title": "Catalog Explorer",
+    "section": "Add a catalog provider",
+    "text": "Add a catalog provider\n\nOpen the Command Palette with \nRun Catalogs: Add Catalog Provider\nSelect your catalog type (e.g., Snowflake, Databricks)\nEnter your account credentials\n\nFor Snowflake connections, the Catalog Explorer will look for configuration in a connections.toml file. The default path is $SNOWFLAKE_HOME, but you can configure where this file is saved with the setting catalogExplorer.snowflakeConnections.",
     "crumbs": [
       "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat"
+      "Database Connections",
+      "Catalog Explorer"
     ]
   },
   {
-    "objectID": "assistant-chat.html#inline-chat",
-    "href": "assistant-chat.html#inline-chat",
-    "title": "Chat",
-    "section": "Inline chat",
-    "text": "Inline chat\nInline chat is a mini chat interface that can be opened directly within your code Editor, Notebook, or Terminal. It allows you to ask questions, get suggestions, and apply changes without leaving your current context.\n\nEditor or notebookTerminal\n\n\nTo use the inline chat interface in an Editor or Notebook:\n\nIn an Editor or Notebook, place your cursor where you want to open the inline chat interface.\nOpen the inline chat interface using the default keybinding ; or, by running the command Inline Chat: Open Inline Chat from the Command Palette.\nEnter your question or request in the inline chat input box and press EnterEnter to send the message.\nAccept or dismiss suggestions directly from the inline chat response.\n\nLearn more about how to Use editor inline chat in the VS Code documentation.\n\n\nTo use the inline chat interface in a Terminal:\n\nIn a Terminal, place your cursor where you want to open the inline chat interface.\nOpen the inline chat interface using the default keybinding ; or, by running the command Terminal: Open Inline Chat from the Command Palette.\nEnter your question or request in the inline chat input box and press EnterEnter to send the message.\nAccept or dismiss suggestions directly from the inline chat response.",
+    "objectID": "catalog-explorer.html#work-with-tables",
+    "href": "catalog-explorer.html#work-with-tables",
+    "title": "Catalog Explorer",
+    "section": "Work with tables",
+    "text": "Work with tables\nThe Catalog Explorer differs from the Connections pane in that it offers a view of many warehouses and tables at once. It is particularly useful to browse many different tables quickly before connecting to a specific table. In the Catalog Explorer, right-click on a table to:\n\nPreview Table in Active Session: Load a data preview using the active console\nPreview Table with Python: Copy Python code to access the table and print column names\nPreview Table with R: Copy R code to access the table and print column names",
     "crumbs": [
       "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat"
+      "Database Connections",
+      "Catalog Explorer"
     ]
   },
   {
-    "objectID": "assistant-chat.html#console-actions",
-    "href": "assistant-chat.html#console-actions",
-    "title": "Chat",
-    "section": "Console actions",
-    "text": "Console actions\nPositron Assistant provides quick assistance for errors in the Console. When you see an error, you can choose the following options to send your Console session to Assistant for immediate help:\n\nFix: Assistant diagnoses the error and suggests a corrected version of your code. Use Fix to resolve errors quickly or apply recommended changes.\nExplain: Assistant describes what your code does, analyzes the error, and suggests possible solutions. Use Explain to learn more about your code or get advice on complex issues.\n\nFix and Explain inherit these options from the chat pane:\n\nSelected model\nFiles added or removed from context\nConsole session visibility\n\n\nManaging Console actions\n\nTo disable Console actions, set console.assistantActions.enabled to false.\nTo review your Fix and Explain chat history for the current chat session, run the Chat: Open Quick Chat command and your chat history will appear in the Quick Chat overlay.",
+    "objectID": "catalog-explorer.html#work-with-files",
+    "href": "catalog-explorer.html#work-with-files",
+    "title": "Catalog Explorer",
+    "section": "Work with files",
+    "text": "Work with files\nAlong with support for tables, the Catalog Explorer also supports previewing and downloading files like CSVs. Right-click on a CSV to:\n\nOpen With…: Preview file in the Data Explorer\nDownload File in Active Session: Download file locally to your machine using the active console\nCopy Path: Copy path to file, based on location in your catalog\nDownload File with R: Download file locally to your machine using an active R console\nDownload File with Python: Download file locally to your machine using an active Python console",
     "crumbs": [
       "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat"
+      "Database Connections",
+      "Catalog Explorer"
     ]
   },
   {
-    "objectID": "assistant-chat.html#managing-models",
-    "href": "assistant-chat.html#managing-models",
-    "title": "Chat",
-    "section": "Managing models",
-    "text": "Managing models\nYou can customize which models Assistant has access to and set default preferences using the following settings:\n\npositron.assistant.models.preference.global: Set a preferred model to be pre-selected across all providers. Matching is case-insensitive and supports partial matches.\npositron.assistant.models.preference.&lt;provider&gt;: Set a default model for a specific provider. Provider-specific preferences take precedence over the global preference.\n\npositron.assistant.models.preference.anthropic\npositron.assistant.models.preference.amazonBedrock\npositron.assistant.models.preference.snowflakeCortex\npositron.assistant.models.preference.openAI\npositron.assistant.models.preference.customProvider\n\npositron.assistant.models.include: Restrict which models are available by specifying patterns. Supports wildcards and regular expressions. Does not affect GitHub Copilot models.\npositron.assistant.models.overrides.&lt;provider&gt;: Manually configure models for a specific provider instead of retrieving the model listing automatically. Use this setting when the provider does not support the /models endpoint or if you want to replace the provider’s model listing with your own custom set of models.\n\npositron.assistant.models.overrides.anthropic\npositron.assistant.models.overrides.amazonBedrock\npositron.assistant.models.overrides.snowflakeCortex\npositron.assistant.models.overrides.openAI\npositron.assistant.models.overrides.customProvider",
+    "objectID": "catalog-explorer.html#remove-a-catalog-provider",
+    "href": "catalog-explorer.html#remove-a-catalog-provider",
+    "title": "Catalog Explorer",
+    "section": "Remove a catalog provider",
+    "text": "Remove a catalog provider\nSelect the trash icon next to a provider name to remove it, or run Catalogs: Remove Catalog Provider from the Command Palette.",
     "crumbs": [
       "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat"
+      "Database Connections",
+      "Catalog Explorer"
     ]
   },
   {
-    "objectID": "assistant-chat-context.html",
-    "href": "assistant-chat-context.html",
-    "title": "Context",
-    "section": "",
-    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.\nPositron Assistant goes beyond reading your code files. It also accesses your loaded data, plots, and Console activity by calling tools and executing code in your R or Python interpreter session or running commands in the Terminal.\nThis access allows Assistant to provide more relevant coding guidance based on:",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Context"
-    ]
-  },
-  {
-    "objectID": "assistant-chat-context.html#attach-context",
-    "href": "assistant-chat-context.html#attach-context",
-    "title": "Context",
-    "section": "Attach context",
-    "text": "Attach context\nProviding useful context to Positron Assistant is crucial for getting accurate and relevant responses.\nBy default, the active editor file and the active interpreter session (if any) are attached as context for your chat messages in the chat pane.\nTo include additional attachments as context for your prompts:\n\nClick the  paperclip button in the chat pane\nChoose from options such as:\n\nFiles & Folders: specific files or folders in your workspace.\nSource Control: commits from your version control history.\nTools: specific tools you would like Assistant to use.\n\n\nFor more information on attaching context to your chat message, refer to the Add context to your prompt VS Code documentation.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Context"
-    ]
-  },
-  {
-    "objectID": "assistant-chat-context.html#interpreter-session-context",
-    "href": "assistant-chat-context.html#interpreter-session-context",
-    "title": "Context",
-    "section": "Interpreter session context",
-    "text": "Interpreter session context\nBy default, Positron Assistant can see the active R or Python interpreter session in the chat pane. The Chat input box displays the active Console session as an attachment.\nWhen an interpreter session is attached, Positron Assistant can access:\n\nCode inputs and outputs in that session\nIn-memory objects and dataframes in the Variables pane\nThe active plot in the Plots pane\nTool calls that require the interpreter session\n\n\nSwitch the attached interpreter session\n\nClick the interpreter session in the Console pane to make it active.\nPositron Assistant automatically updates to use the newly active interpreter session.\n\n\n\nToggle the visibility of the active interpreter session\nIn the chat pane, click the  eye button on the interpreter session attachment to toggle whether Assistant can access the session data.\n\n: When the eye icon appears without a slash through it, the interpreter session is visible.\n: When the eye icon has a slash through it, the interpreter session is hidden.\n\n\n\nAttach an interpreter session\n\nClick the  paperclip button in the chat pane\nChoose “Interpreter Sessions…” to select an interpreter session to attach.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Context"
-    ]
-  },
-  {
-    "objectID": "assistant-chat-context.html#source-control-context",
-    "href": "assistant-chat-context.html#source-control-context",
-    "title": "Context",
-    "section": "Source control context",
-    "text": "Source control context\nIf your workspace uses Git source control, Positron Assistant can access your commit history and generate commit messages in the Source Control pane.\n\nCommit history context\nInclude commit history in your chat session in the following ways:\n\nAdd context attachments and select “Source Control…” to attach a commit.\nInclude the text #changes as part of your prompt, to include recent changes on the current branch.\n\n\n\nGenerate commit messages\nFrom the Source Control pane, you can use Positron Assistant to generate commit messages for your staged changes.\n\nOpen the Source Control pane (Source Control: Focus on Changes View in the Command Palette).\nEnsure you have staged changes to commit.\nClick the sparkles icon in the commit message input box.\nPositron Assistant will analyze your staged changes and generate a commit message.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Context"
-    ]
-  },
-  {
-    "objectID": "assistant-chat-context.html#settings",
-    "href": "assistant-chat-context.html#settings",
-    "title": "Context",
+    "objectID": "catalog-explorer.html#settings",
+    "href": "catalog-explorer.html#settings",
+    "title": "Catalog Explorer",
     "section": "Settings",
-    "text": "Settings\n\nchat.implicitSessionContext.enabled: Configure whether Positron Assistant automatically attaches the active interpreter session in the chat pane.\n\nTo disable the interpreter session context in the chat pane by default, change the configuration for panel to never. You will still be able to Attach an interpreter session if needed.\n\nchat.implicitContext.enabled: Configure whether Positron Assistant automatically attaches the active editor in the chat pane.\n\nTo disable the active editor context in the chat pane by default, change the configuration for panel to never. You will still be able to add context attachments for files if needed.\n\npositron.assistant.gitIntegration.enable: Configure whether Positron Assistant can access Git source control context, such as commit history, and whether commit messages can be generated in the Source Control pane.\npositron.assistant.aiExcludes: Files matching these patterns will not have their contents sent to AI providers for inline completions or chat context.",
+    "text": "Settings\n\n\n\nSetting\nDescription\n\n\n\n\ncatalogExplorer.enabled\nEnable or disable Catalog Explorer. Requires a restart.\n\n\ncatalogExplorer.snowflakeConnections\nPath to the Snowflake connections directory containing connections.toml. Defaults to $SNOWFLAKE_HOME.",
     "crumbs": [
       "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Context"
+      "Database Connections",
+      "Catalog Explorer"
     ]
   },
   {
-    "objectID": "assistant-chat-agents.html",
-    "href": "assistant-chat-agents.html",
-    "title": "Chat Agents",
+    "objectID": "command-palette.html",
+    "href": "command-palette.html",
+    "title": "Command Palette",
     "section": "",
-    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.\nChat agents tailor Assistant’s behavior for specific tasks by providing unique instructions and tools. Select the agent selector dropdown at the bottom of the chat pane to switch between agents.\nYou can also create custom chat agents to suit your specific workflows and requirements.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Chat Agents"
-    ]
-  },
-  {
-    "objectID": "assistant-chat-agents.html#default-chat-agents",
-    "href": "assistant-chat-agents.html#default-chat-agents",
-    "title": "Chat Agents",
-    "section": "Default chat agents",
-    "text": "Default chat agents\n\nAsk: Provides answers and code suggestions without automatic execution\nEdit: Suggests code changes for you to apply to files\nAgent: Autonomously executes work including running code and modifying files\nPlan: Creates detailed step-by-step plans before execution\n\n\n\nView detailed descriptions and example prompts\n\n\n\n\n\n\n\n\n\nAgent\nDescription\nExample Prompts\n\n\n\n\nAsk\nProvides answers to questions, helps with debugging, and generates code suggestions.The Ask agent offers code you can apply in your Editor or run in the Console, but it will not edit or run code automatically.\n“How do I plot a histogram in Python?”“Why am I getting a syntax error in my R script?”“Can you explain what this function does?”\n\n\nEdit\nSuggests code changes based on your prompts that you can apply to your files.The Edit agent helps you modify existing code but requires your approval for each change.\n“Refactor this function to improve readability.”“Convert this R code to Python.”“Add error handling to this script.”\n\n\nAgent\nDetermines the steps needed for your request and autonomously carries out the work.The Agent can execute code in the Console, create and modify files, and identify next steps based on previous results.\n“Create a new Python file and set up a basic data analysis workflow.”“Install the required packages and run the code in the Console.”“Generate a summary report from my current dataset.”\n\n\nPlan\nCreates a step-by-step plan to accomplish your request.The Plan agent retrieves relevant context and develops a detailed plan, which it presents for your review before proceeding with execution.\n“Outline the steps needed to analyze a dataset and generate visualizations.”“Plan how to test and debug this R script.”“Create a plan to display my data in an interactive Shiny app.”",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Chat Agents"
-    ]
-  },
-  {
-    "objectID": "assistant-chat-agents.html#custom-chat-agents",
-    "href": "assistant-chat-agents.html#custom-chat-agents",
-    "title": "Chat Agents",
-    "section": "Custom chat agents",
-    "text": "Custom chat agents\nAdding custom chat agents allows you to:\n\nCreate specialized agents for specific tasks or workflows\nTailor the Positron Assistant’s behavior and available tools for different use cases\n\n\nCreate a custom chat agent\n\nRun the command Chat: New Custom Agent… and follow the prompts to create a new chat agent file.\nEdit the newly created .agent.md file to specify the chat agent description, the tools the chat agent can use, as well as the chat agent prompt content.\nOnce you have created a custom chat agent, it will be available in the agent selector dropdown in the chat pane.\n\n\n\n\n\n\n\nNote\n\n\n\nTo learn more about the format of custom agents, see the following VS Code documentation:\n\nCustom agent file structure\nCustom agents in VS Code\n\nPositron Assistant does not support the model field.\n\n\n\n\nExample custom chat agent\n\nBelow is a custom chat agent tailored to debugging R and Python code. The definition contains rules, direction, and clarification that the agent follows when invoked. These guide its responses to be more relevant to troubleshooting and fixing code issues.\n\n\ndebug-code.agent.md\n\n---\ndescription: Debug and troubleshoot issues in R or Python code.\nname: Code Debugger\ntools: ['search', 'edit', 'executeCode', 'inspectVariables', 'runCommands', 'runTasks']\nhandoffs:\n  - label: Test Code\n    agent: agent\n    prompt: Run the code to verify the fix works correctly.\n    send: false\n---\n# R/Python Debugging Specialist\n\nYou are a debugging expert for R and Python. Your role is to identify, diagnose, and fix issues in code.\n\n## Your debugging expertise includes:\n\n* **Logic Errors**: Identify incorrect algorithms, off-by-one errors, and faulty conditional logic\n* **Runtime Errors**: Diagnose exceptions, type errors, and null/missing value issues\n* **Data Issues**: Detect problems with data types, shapes, and unexpected values\n\n## Debugging workflow:\n\n1. Ask the user to describe the problem, error messages, and expected behavior\n2. Review relevant code sections and identify potential issues\n3. Use available tools to inspect variables and test code snippets\n4. Explain the root cause and suggest specific code changes\n5. Edit the code directly with the proposed solution\n\n## Common issues you solve:\n\n- Index out of bounds errors\n- Type mismatches and conversion errors\n- Incorrect function arguments or return values\n- Logic errors producing unexpected results\n\n## Rules\n\n- Always explain the root cause before proposing a fix.\n- Edit files directly rather than just providing code snippets.\n- Use `executeCode` to test fixes when appropriate.\n\ntools: The agent is restricted to tools relating to debugging functionality, limiting the number of “decisions” Positron Assistant must make while working. For example, you can grant a data analysis agent access to the getPlot tool to inspect the plot output in Positron, whereas a debugging agent focuses on code inspection and execution tools.\nhandoffs: This agent provides a handoff, which gives users a way to trigger a subsequent action with one click. A user will naturally want to test code after it is fixed, so this handoff presents the user with a button titled “Test Code” which instructs Assistant to run the code and verify the fix. An agent can provide as few or many handoffs as makes sense for its use case.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Chat Agents"
-    ]
-  },
-  {
-    "objectID": "ai-configuration.html",
-    "href": "ai-configuration.html",
-    "title": "Configure AI features",
-    "section": "",
-    "text": "Once you have set up a language model provider, you can configure how AI features behave in Positron.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Configure AI features"
-    ]
-  },
-  {
-    "objectID": "ai-configuration.html#turn-features-on-or-off",
-    "href": "ai-configuration.html#turn-features-on-or-off",
-    "title": "Configure AI features",
-    "section": "Turn features on or off",
-    "text": "Turn features on or off\nYou can turn off individual features or disable all AI features at once.\n\nTurn off all AI features\nTo turn off all Positron AI features at once, set ai.enabled to false. This overrides individual feature settings and disables:\n\nPosit Assistant\nPosit AI Next Edit Suggestions (NES)\nNotebook AI features\nConsole Fix & Explain\nQuarto Fix & Explain\nGitHub Copilot (Chat, Completions)\nGit commit message generation\n\n\n\nTurn off a specific feature\nTo disable a specific feature without affecting others:\n\n\n\nSetting\nFeatures affected\n\n\n\n\nassistant.enabled\nPosit Assistant (set to false to disable)\n\n\nnextEditSuggestions.enabled\nPosit AI NES (set to { \"*\": false } to disable)\n\n\ngithub.copilot.enable\nGitHub Copilot ghost-text completions and Next Edit Suggestions (set to { \"*\": false } to disable both)\n\n\ngithub.copilot.nextEditSuggestions.enabled\nGitHub Copilot Next Edit Suggestions (set to false to disable)\n\n\nnotebook.ai.enabled\nNotebook AI features (set to false to disable)\n\n\nconsole.assistantActions.enabled\nConsole Fix & Explain (set to false to disable)\n\n\ngit.suggestions.enabled\nGit commit messages (set to false to disable)",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Configure AI features"
-    ]
-  },
-  {
-    "objectID": "ai-configuration.html#github-copilot-chat",
-    "href": "ai-configuration.html#github-copilot-chat",
-    "title": "Configure AI features",
-    "section": "GitHub Copilot chat",
-    "text": "GitHub Copilot chat\nPositron hides the GitHub Copilot chat interface by default, since Posit Assistant is the default chat experience in Positron. To show the GitHub Copilot chat UI again, set chat.disableAIFeatures to false.\nRegardless of that setting, GitHub Copilot ghost-text completions and NES are available once you sign in to GitHub Copilot as a provider.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Configure AI features"
-    ]
-  },
-  {
-    "objectID": "ai-configuration.html#check-your-ai-configuration",
-    "href": "ai-configuration.html#check-your-ai-configuration",
-    "title": "Configure AI features",
-    "section": "Check your AI configuration",
-    "text": "Check your AI configuration\nTo see how Positron applies the settings on this page, run the AI: Create Diagnostic Report command. The report lists which features are on, which providers you are signed in to, and the AI settings that differ from their defaults. See AI diagnostics for what the report contains and what it redacts.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Configure AI features"
-    ]
-  },
-  {
-    "objectID": "action-bars.html",
-    "href": "action-bars.html",
-    "title": "Action Bars",
-    "section": "",
-    "text": "Positron uses Action Bars throughout the application to put essential functionality at your fingertips.",
+    "text": "Positron inherits the Command Palette from VS Code. The Command Palette is a fast and powerful way to interact with Positron without taking your hands off the keyboard. Think of it as a search bar for functionality. Rather than navigating menus, you can quickly find and run commands from a single interface.\nFor additional documentation on the Command Palette, see the VS Code Command Palette documentation.\n\nCommand access and execution\nThe Command Palette provides access to all Positron commands. You can execute any command without using menus or remembering keyboard shortcuts.\nTo open the Command Palette, press . Start typing a keyword or the name of a command. The Command Palette shows a list of matching actions. Use the arrow keys to select a command, then press EnterEnter to run it.\nFor example, you can:\n\ntype “interpreter” to view interpreter session management commands.\ntype “git” to view version control commands.\n\n\n\nFile access and navigation\nThe Command Palette makes it easy to open files without using the File Explorer. This is especially useful in large projects with many files.\nPress  to open the file picker. Start typing part of a file name to see matching files. Use the arrow keys to select a file, then press EnterEnter to open the selected file.\nYou can also use:\n\n\n\n\n\n\n\nKey\nAction\n\n\n\n\n&gt;&gt;\nSwitch to command mode\n\n\n@@\nSearch for symbols in the current file\n\n\n##\nSearch for symbols across the workspace\n\n\n:: followed by a line number\nJump to that line\n\n\n\n\n\nTips for effective use\n\nUse partial matches: You do not need to type the full command or file name. The Command Palette uses fuzzy matching to find what you need.\nLearn common prefixes: Commands are grouped by category (for example, “View:” for layout commands, “Git:” for version control).\nBrowse available commands: Open the Command Palette and scroll through the list to discover new functionality.\nUse recent commands: The Command Palette shows recently used commands first, making it faster to repeat common tasks.",
     "crumbs": [
       "Guides",
       "User Interface",
-      "Action Bars"
+      "Command Palette"
     ]
   },
   {
-    "objectID": "action-bars.html#anatomy-of-an-action-bar",
-    "href": "action-bars.html#anatomy-of-an-action-bar",
-    "title": "Action Bars",
-    "section": "Anatomy of an Action Bar",
-    "text": "Anatomy of an Action Bar\n\nRegions\nAn Action Bar is divided into three regions: left, center, and right. Every Action Bar includes the left and right regions, while the center region appears only when needed. The most important actions are typically placed on the left.\n\n\n\nAction Bar Regions\n\n\n\n\nElements\nAction Bars are made up of Action Bar Elements.\n\n\n\n\n\n\n\nElement\nDescription\n\n\n\n\n \nButtonExecutes an action.\n\n\n\nMenu buttonDisplays a drop-down menu of actions.\n\n\n \nSplit menu buttonDisplays a drop-down menu of actions with a default action button on the left.\n\n\n\nToggleToggles between options.\n\n\n\nCheckboxEnables or disables an option.\n\n\n\nInformationDisplays contextual information.\n\n\n\nSeparatorSeparates elements.\n\n\n\nOverflow ButtonDisplays a drop-down menu of overflow actions.\n\n\n\n\n\nTooltips\nHold the pointer over an Action Bar Element to reveal its tooltip and quickly understand what it does.\n\n\n\nAction Bar Tooltip",
-    "crumbs": [
-      "Guides",
-      "User Interface",
-      "Action Bars"
-    ]
-  },
-  {
-    "objectID": "action-bars.html#top-action-bar",
-    "href": "action-bars.html#top-action-bar",
-    "title": "Action Bars",
-    "section": "Top Action Bar",
-    "text": "Top Action Bar\nThe Top Action Bar helps you manage your work. On the left, you will find actions to create or open files and folders. In the center, you can navigate backward and forward through recent cursor positions and use the command center to quickly access Positron commands or locate files in your project. On the right, the interpreter selector lets you start new interpreters or switch between running ones, while the folder selector allows you to open recently used folders, either in the current window or a new one.\n\n\n\nTop Action Bar",
-    "crumbs": [
-      "Guides",
-      "User Interface",
-      "Action Bars"
-    ]
-  },
-  {
-    "objectID": "action-bars.html#wrapping-up",
-    "href": "action-bars.html#wrapping-up",
-    "title": "Action Bars",
-    "section": "Wrapping up",
-    "text": "Wrapping up\nAction Bars surface the most important and frequently used actions in each area of the product, so you do not have to rely on the Command Palette to find everything. Because they are contextual, Action Bars present the tools you need right where you need them, helping you stay focused and work more efficiently in Positron.",
-    "crumbs": [
-      "Guides",
-      "User Interface",
-      "Action Bars"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Positron",
+    "objectID": "data-connections.html",
+    "href": "data-connections.html",
+    "title": "Data Connections",
     "section": "",
-    "text": "The goal of Positron is to create an IDE for data science that supports the full scope of modern scientific and data-driven work, across languages, tools, and workflows. We aim to do this by:\n\nProviding a cohesive and thoughtful experience for writing code, performing analyses, and exploring data. Whether you’re working in Python, R, or both, Positron combines notebooks, scripts, and consoles with native support for plotting and data output.\nSupporting the kinds of workflows that are central to data science. This includes iterative development, rich interactive output, and publication-quality documents. Positron provides built-in support for notebooks, Quarto, web applications, and more, enabling a range of common authoring and analysis tasks.\nOffering a modern, extensible editor built on open standards. Positron is built on Code OSS, the same foundation as Visual Studio Code, with custom features and UI elements designed specifically for data science. This includes support for a wide array of VSIX extensions and customization, while also enabling deeper integration of language-specific tools.\n\nWe believe that powerful, user-friendly, and open tools are essential for scientific computing. Positron is freely available, aligning with our goal to make high-quality data science tools accessible to everyone.\n\n\n\n\n\n\nNote\n\n\n\nInterested in Positron for your team? Learn about enterprise solutions.",
-    "crumbs": [
-      "About",
-      "About Positron"
-    ]
-  },
-  {
-    "objectID": "add-to-path.html",
-    "href": "add-to-path.html",
-    "title": "Launch Positron from a Terminal",
-    "section": "",
-    "text": "If Positron is on your PATH, you can launch it from the terminal:\n\nType positron . to open Positron in the current folder, or\npositron foo to open Positron in a custom folder of your choice.\n\nSee the instructions below on how to add Positron to your PATH based on operating system.\n\nmacOS\nAfter you have installed Positron, you can add it to your PATH via the Command Palette. Press  to open the palette and type Install ‘positron’ command in PATH.\n\n\n\nAdd Positron to your PATH\n\n\nAfter you have executed this command once, Positron is added to your PATH. Restart your terminal to pick up the changes to your PATH.\n\n\nWindows\nPositron installers on Windows include an option to add a positron command to your PATH. This installation option is selected by default.\n\n\n\nWindows installer option Add to PATH\n\n\nIf you had cleared this option during installation, you can manually add the bin folder of your Positron installation to your PATH. For a System level installation, this folder is located at C:\\Program Files\\Positron\\bin by default. For a User level installation, this folder is located at C:\\Users\\username\\AppData\\Local\\Programs\\Positron\\bin by default. You will need to restart your terminal after updating your PATH.\nOnce Positron is on your PATH, you can use a terminal to launch Positron.",
+    "text": "Important\n\n\n\nData Connections is a preview feature. Opt in via the dataConnections.enabled setting, and reload Positron to apply. Share your feedback on this new feature in the Positron GitHub discussions.\nData Connections brings together the older Connections pane and Catalog Explorer into a single, unified experience for working with databases and data warehouses in Positron. Once enabled, the Data Connections view appears in the primary sidebar. From there, you can create connections, browse tables and views in a tree, open tables and views in the Data Explorer, and generate ready-to-run connection code in Python or R.\nData Connections exists side-by-side with the Connections pane and Catalog Explorer for now, and nothing changes about how those features work. In the future, Data Connections will replace both.",
     "crumbs": [
       "Guides",
-      "Configuration",
-      "Launch Positron from a Terminal"
+      "Database Connections"
     ]
   },
   {
-    "objectID": "ai-features.html",
-    "href": "ai-features.html",
-    "title": "AI features",
-    "section": "",
-    "text": "AI features in Positron help you write, understand, and debug code. To start using them, follow the Get started guide. If something is not working the way you expect, run the AI: Create Diagnostic Report command and see AI diagnostics.\n\n\n\n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Posit Assistant\n        \n        \n        \n          Chat about your code, Console sessions, and in-memory objects.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Completions\n        \n        \n        \n          Inline code suggestions as you type, powered by Posit AI NES or GitHub Copilot.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Notebook AI features\n        \n        \n        \n          Notebook-aware AI that understands your cells, outputs, and execution history.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Console fix and explain\n        \n        \n        \n          Fix and explain errors from your R and Python Console sessions.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Quarto fix and explain\n        \n        \n        \n          Fix and explain errors from Quarto chunks running with inline output.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Git commit messages\n        \n        \n        \n          Generate a commit message for your staged changes from the Source Control pane.\n        \n      \n      \n  \n\nNo matching items",
+    "objectID": "data-connections.html#supported-databases",
+    "href": "data-connections.html#supported-databases",
+    "title": "Data Connections",
+    "section": "Supported databases",
+    "text": "Supported databases\nData Connections includes drivers for the following data sources:\n\n\n\n\n\n\n\nData source\nNotes\n\n\n\n\nDatabricks\nPersonal access token, OAuth user-to-machine (U2M), or OAuth machine-to-machine (M2M) authentication, and browsing of Unity Catalog catalogs, schemas, tables, views, and volumes\n\n\nDuckDB\nConnect to DuckDB database files, with a read-only option\n\n\nODBC\nAny database with a locally installed ODBC driver, via a configured data source name (DSN), server and driver details, or a connection string\n\n\nPosit Connect Pins\nBrowse and download pins published on Connect, and authenticate with environment variables, browser sign-in, or an API key\n\n\nPostgreSQL\nUser and password, local server (no password), client certificate (SSL), or connection string\n\n\nRedshift\nMultiple authentication methods\n\n\nSnowflake\nMultiple authentication methods\n\n\nSQLite\nConnect to SQLite database files, with a read-only option\n\n\n\nWhen you install a recognized ODBC driver, dedicated entries for databases such as MySQL, MariaDB, SQL Server, Oracle, Db2, Hive, Impala, Teradata, and BigQuery also appear when creating a connection. Positron automatically detects data sources already configured on your machine (for example, in odbc.ini) and shows them in the tree with a Detected badge.\nLet us know which databases and warehouses you need in the Positron GitHub discussions.",
     "crumbs": [
       "Guides",
-      "AI Features"
+      "Database Connections"
     ]
   },
   {
-    "objectID": "assistant-chat-commands-participants.html",
-    "href": "assistant-chat-commands-participants.html",
-    "title": "Commands & Participants",
-    "section": "",
-    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.",
+    "objectID": "data-connections.html#create-a-connection",
+    "href": "data-connections.html#create-a-connection",
+    "title": "Data Connections",
+    "section": "Create a connection",
+    "text": "Create a connection\n\nSelect the  Add Connection button at the top of the Data Connections view.\nChoose a database provider, such as DuckDB, PostgreSQL, or SQLite.\nIf the provider offers more than one way to connect, choose a connection method and select Next. For example, PostgreSQL offers User & Password, Local Server (No Password), Client Certificate (SSL), and Connection String.\nFill in the connection details and give the connection a name, then select Save.\n\nPositron stores passwords, tokens, and connection strings in your operating system’s secret storage, not in plain text.",
     "crumbs": [
       "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Commands & Participants"
+      "Database Connections"
     ]
   },
   {
-    "objectID": "assistant-chat-commands-participants.html#slash-commands",
-    "href": "assistant-chat-commands-participants.html#slash-commands",
-    "title": "Commands & Participants",
-    "section": "Slash commands",
-    "text": "Slash commands\nSlash commands provide quick access to common tasks without writing long prompts.\n\nUsing slash commands\nTo use a slash command in the chat pane or inline chat, type the / character to bring up the command menu. Then, select a command and optionally add any additional instructions before sending the message.\n\n\nAvailable slash commands\nSlash commands are provided by Positron Assistant and other installed extensions, as well as any custom prompt files you have created.\nSome built-in slash commands include:\n\n/exportQuarto: Generate a Quarto document from the current chat conversation.\n/fix: Fix a piece of code.\n/explain: Explain a piece of code or concept.\n\n\n\nCustom slash commands\nCreate custom slash commands by adding custom prompt files. This allows you to:\n\nReuse prompts across chat requests and sessions\nExplicitly apply prompts to specific chat requests\n\nRun the command Chat: Configure Prompt Files… to manage custom prompt files in your chat sessions.\n\nCreate a custom prompt file\n\nRun the command Chat: New Prompt File… and follow the prompts to create a new prompt file.\nEdit the newly created .prompt.md file to specify the prompt description, chat agents the prompt should be available for, the tools the prompt can use, as well as the prompt content.\n\nAfter creating a custom prompt file, you can access it through slash commands in both the chat pane and inline chat.\n\n\n\n\n\n\nNote\n\n\n\nTo learn more about the format of custom prompt files, see the following VS Code documentation:\n\nPrompt file structure\nTips for defining prompt files\n\nPositron Assistant does not support the model field.\n\n\n\n\nExample custom prompt file\n\nThis shows a custom prompt tailored to code review which demonstrates key features of custom prompts in Positron Assistant. It includes header fields like description, name, agent, tools, and argument-hint to configure behavior and guide users. The prompt body uses an input variable (${input:codeContext}) to accept dynamic user input, making it reusable across different code snippets and files. By specifying the agent mode and restricting what tools are available, the prompt tailors the behavior of Assistant to the task at hand.\n\n\ncode-review.prompt.md\n\n---\ndescription: Perform a thorough code review focusing on best practices and potential issues\nname: code-review\nagent: agent\ntools: ['search', 'todos', 'executeCode']\nargument-hint: \"File path or brief description of code to review\"\n---\n\nYou are an expert code reviewer. Perform a comprehensive code review of the provided code, focusing on code quality, best practices, and potential issues.\n\n## Review Criteria\n\n1. **Code quality**: Assess readability, maintainability, and adherence to style guidelines\n2. **Logic and correctness**: Identify potential bugs, edge cases, or logical errors\n3. **Performance**: Highlight inefficient operations or opportunities for optimization\n4. **Security**: Check for common security vulnerabilities or unsafe practices\n5. **Best practices**: Suggest improvements based on language-specific conventions\n\n## Output Format\n\nStructure your review as follows:\n- **Overall assessment**: Brief summary of code quality\n- **Strengths**: What the code does well\n- **Issues found**: List specific problems with severity (critical/moderate/minor)\n- **Recommendations**: Concrete suggestions for improvement\n\nThe code to review is: ${input:codeContext:e.g., src/utils/data-processor.py}\n\nUse the available tools to search the codebase and execute code examples if needed.",
+    "objectID": "data-connections.html#explore-a-connection",
+    "href": "data-connections.html#explore-a-connection",
+    "title": "Data Connections",
+    "section": "Explore a connection",
+    "text": "Explore a connection\nExpand a connection in the tree to browse its structure: catalogs, schemas, tables, views, columns, and indexes, depending on what the database supports. A green dot on a connection indicates a live connection.\nDouble-click a table or view (or right-click and choose Open in Data Explorer) to preview it in the Data Explorer, where you can sort, filter, and view column profiles.\nCollapsing a connection disconnects it, unless you have Data Explorer tabs open from that connection. In that case, the connection stays open until you close the last of those tabs.",
     "crumbs": [
       "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Commands & Participants"
+      "Database Connections"
     ]
   },
   {
-    "objectID": "assistant-chat-commands-participants.html#chat-participants",
-    "href": "assistant-chat-commands-participants.html#chat-participants",
-    "title": "Commands & Participants",
-    "section": "Chat participants",
-    "text": "Chat participants\nChat participants provide specialized knowledge to Positron Assistant. If you want help with a specific topic, you can add a chat participant to your conversation.\n\nAdding chat participants\nTo add a chat participant, enter @ to bring up the chat participant menu. Then, select a participant and optionally add any additional instructions before sending the message.\n\n\nAvailable chat participants\nChat participants are provided by Positron Assistant and other installed extensions.\n\n\nShiny Assistant\n\nShiny Assistant is a chat participant available within Positron Assistant that provides context-aware assistance for developing Shiny applications in Python or R. It can help you with tasks such as generating Shiny UI components, server logic, and reactive expressions.\nShiny Assistant is available in the chat once you have installed the Shiny extension. Like other chat participants, Shiny Assistant can be invoked by typing @shiny in the chat pane or inline chat, followed by your question or request related to Shiny development.\nShiny Assistant enhances the default prompt with additional information about Shiny that we have found improves the quality of generated apps and Shiny components. It is also kept up to date with Shiny features and best practices, in a way that is not practical with foundation models or fine-tuning.\n\n\n\nGitHub Copilot\n\nIf you are authenticated with GitHub Copilot as a language model provider in Positron, you can use chat participants provided by GitHub Copilot when chatting with GitHub Copilot models in Positron Assistant.\nRefer to the GitHub Copilot Chat participants documentation for more information on available chat participants and how to use them.",
+    "objectID": "data-connections.html#generate-connection-code",
+    "href": "data-connections.html#generate-connection-code",
+    "title": "Data Connections",
+    "section": "Generate connection code",
+    "text": "Generate connection code\nData Connections can generate ready-to-run code so you can use a connection in your own scripts and notebooks. Right-click a connection and choose Connect With, then Python or R. The dialog offers the following actions:\n\nChoose a Package variant where offered. For example, PostgreSQL can generate Python code using the psycopg2 or SQLAlchemy packages, or R code using the DBI package.\nReview the generated Connection Code.\nSelect Copy to copy the code to the clipboard, Create Script to open it in a new file, or Connect to run it in the active console.\n\nBy default, generated code references your stored credentials rather than embedding them. Check Include Secrets to embed credentials directly in the code. Positron asks for confirmation first, since the resulting code contains your secrets in plain text.",
     "crumbs": [
       "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Commands & Participants"
+      "Database Connections"
     ]
   },
   {
-    "objectID": "assistant-chat-instructions.html",
-    "href": "assistant-chat-instructions.html",
-    "title": "Custom Instructions",
-    "section": "",
-    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.\nPositron Assistant supports both automatic workspace instructions and custom instructions files to tailor AI behavior to your project’s needs.\nCustom instructions do not apply to code completions.",
+    "objectID": "data-connections.html#manage-connections",
+    "href": "data-connections.html#manage-connections",
+    "title": "Data Connections",
+    "section": "Manage connections",
+    "text": "Manage connections\nRight-click a connection, or select its  Actions menu, to take the following actions:\n\nEdit Connection: Change the saved connection details.\nRefresh: Reload that part of the tree from the database. A refresh preserves your expansion state and briefly highlights refreshed items. Refresh is available at every level of the tree, not just on connections.\nRemove: Delete the saved connection, including its saved settings and stored secrets. Positron asks for confirmation before removing, since this cannot be undone. Removing also closes any Data Explorer tabs open on the connection.\n\nSelect the  Refresh All button at the top of the view to reload every expanded connection at once.",
     "crumbs": [
       "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Custom Instructions"
+      "Database Connections"
     ]
   },
   {
-    "objectID": "assistant-chat-instructions.html#automatic-workspace-instructions",
-    "href": "assistant-chat-instructions.html#automatic-workspace-instructions",
-    "title": "Custom Instructions",
-    "section": "Automatic workspace instructions",
-    "text": "Automatic workspace instructions\nAdd project-wide custom instructions by creating one or more of these files in your workspace root directory:\n\nagent.md\nagents.md\npositron.md\nclaude.md\ngemini.md\nllms.txt\n\nPositron Assistant automatically appends the content from these files to all chat interactions. This allows you to:\n\nAdd project-specific coding standards or conventions\nInclude domain-specific terminology or context\nDefine preferred libraries or frameworks for your project\n\nNote that Positron Assistant does not guarantee the order in which it appends these files. Follow issue #10571 for updates.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Custom Instructions"
-    ]
-  },
-  {
-    "objectID": "assistant-chat-instructions.html#custom-instructions-files",
-    "href": "assistant-chat-instructions.html#custom-instructions-files",
-    "title": "Custom Instructions",
-    "section": "Custom instructions files",
-    "text": "Custom instructions files\nCreate .instructions.md files that specify glob patterns for when the instructions should apply.\nPositron Assistant automatically uses these instructions when you work with files that match the specified patterns. This allows you to:\n\nEnforce coding standards for specific file types (e.g., *.py for Python scripts)\nProvide context-specific guidelines for different parts of your project (e.g., src/data/**/* for data processing scripts)\nApply instructions workspace-wide using broad patterns (e.g., **/* for all files)\n\n\nCreating and managing custom instructions files\n\nRun the command Chat: New Instructions File… and follow the prompts to create a new instructions file\nEdit the newly created .instructions.md file to specify the applyTo file glob pattern and the instructions you want to apply\nTo manage existing files, run the command Chat: Configure Instructions…\n\n\n\n\n\n\n\nNote\n\n\n\nTo learn more about the format of custom instructions files, see the following VS Code documentation:\n\nInstructions file format\nTips for defining custom instructions\n\n\n\n\n\nExample custom instructions\n\nThis example demonstrates how a quarto.instructions.md file shapes Positron Assistant behavior when working with Quarto documentation files. The filename was chosen to reflect the purpose of these instructions, but can be anything ending with .instructions.md.\nBy automatically applying these rules to all .qmd files, Assistant writes in a consistent style that prioritizes clarity, brevity, and accessibility. The instructions guide Assistant to use active voice, avoid technical jargon, maintain proper formatting conventions, and produce content suitable for screen readers and translation tools. This keeps content aligned with your project’s standards without repeating these preferences in every chat request.\n\n\nquarto.instructions.md\n\n---\nname: \"Quarto Documentation Standards\"\ndescription: \"Writing guidelines for Quarto documentation following Positron style guide\"\napplyTo: \"**/*.qmd\"\n---\n\n# Quarto Documentation Guidelines\n\n## Writing and Style\n\n- Write at approximately 12th grade reading level with sentences of 28-30 words or fewer\n- Use present tense and active voice; avoid contractions and gerunds as nouns\n- Use the Oxford comma and spell out acronyms on first use\n- Maintain an energetic, compassionate tone that is simple and direct\n- Use clear, literal language suitable for screen readers and translation tools; avoid idioms and metaphors\n- Do not use possessives with product names\n\n## Formatting\n\n- Use Title Case for titles/H1s; sentence case for other headings\n- Always include `title` and `description` in YAML front matter\n- Bold UI elements, italicize commands, use backticks for code\n- Use the Quarto `kbd` shortcode for keyboard shortcuts: `{{&lt; kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P &gt;}}`\n- Link to settings: `[positron://settings/category.nameOfSetting](positron://settings/category.nameOfSetting)`\n- Use em dashes (—) for emphasis; en dashes (–) for ranges",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Chat",
-      "Custom Instructions"
-    ]
-  },
-  {
-    "objectID": "assistant-completions.html",
-    "href": "assistant-completions.html",
-    "title": "Completions",
-    "section": "",
-    "text": "Code completions are text suggestions that appear inline as you type in an editor. These suggestions can be lines or blocks of code based on the context of what you’re writing. Other names for code completions include inline suggestions, ghost text, or inline completions.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Completions"
-    ]
-  },
-  {
-    "objectID": "assistant-completions.html#using-code-completions",
-    "href": "assistant-completions.html#using-code-completions",
-    "title": "Completions",
-    "section": "Using code completions",
-    "text": "Using code completions\nWhen code completions are available, ghost text appears in your editor as you type. The ghost text represents the suggested completion.\nInteract with suggestions by:\n\nPressing the TabTab key to accept the entire suggestion.\nPressing  to accept the suggestion word-by-word for a single-line suggestion, or line-by-line for multi-line suggestions.\nPressing EscEsc or continuing to type to dismiss the suggestion.\n\n\nCommands\nThe following commands apply to both providers:\n\n\n\n\n\n\n\nCommand\nDescription\n\n\n\n\nSnooze Inline Suggestions\nPause inline suggestions temporarily for a specified duration.\n\n\nCancel Snooze Inline Suggestions\nResume snoozed inline suggestions immediately.\n\n\n\n\n\nSettings\nThe following settings apply to both providers:\n\npositron.assistant.aiExcludes: Files matching these patterns will not have their contents sent to AI providers for code completions or chat context.\neditor.inlineSuggest.minShowDelay: Delay in milliseconds before showing inline suggestions. For example, setting this to 500 will show suggestions half a second after typing.\neditor.inlineSuggest.enabled: Set to false to turn off inline suggestions altogether, regardless of provider.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Completions"
-    ]
-  },
-  {
-    "objectID": "assistant-completions.html#posit-ai-nes",
-    "href": "assistant-completions.html#posit-ai-nes",
-    "title": "Completions",
-    "section": "Posit AI Next Edit Suggestions (NES)",
-    "text": "Posit AI Next Edit Suggestions (NES)\nWhen using Posit AI as your completions provider, code completions take the form of Posit AI Next Edit Suggestions (NES), a preview feature. Posit AI NES proposes edits anywhere in the file, not just at the cursor. It responds to your recent changes, including insertions, deletions, and modifications to existing code.\nPosit AI NES suggestions appear inline in the editor. You can accept, navigate, or dismiss them using the same keybindings as other code completions.\n\nEnable\nPosit AI NES is enabled by default once you have signed in to the Posit AI provider. No additional setting changes are required.\n\n\nRestrict to specific languages\nPosit AI NES skips plaintext, markdown, and scminput unless you configure otherwise. Use the nextEditSuggestions.enabled setting to change which languages Posit AI NES applies to.\n\n\nDisable\nTo disable Posit AI NES, do any of the following:\n\nSign out of Posit AI in Positron via the Accounts menu or the Accounts: Manage Accounts command. This also affects chat and other features that rely on the account.\nSet nextEditSuggestions.enabled to { \"*\": false } to disable Posit AI NES everywhere. To disable only some languages, set those entries to false.\n\nTo exclude specific files from Posit AI NES regardless of language, use the shared aiExcludes setting.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Completions"
-    ]
-  },
-  {
-    "objectID": "assistant-completions.html#github-copilot",
-    "href": "assistant-completions.html#github-copilot",
-    "title": "Completions",
-    "section": "GitHub Copilot",
-    "text": "GitHub Copilot\nWhen using GitHub Copilot as your completions provider, code completions appear as ghost text at the cursor position as you type. To learn more, visit the GitHub Copilot inline suggestions documentation.\nGitHub Copilot also has its own Next Edit Suggestions, separate from the ghost-text completions described here and from Posit AI NES. It is available whenever you sign in to GitHub Copilot as a provider.\n\nEnable\nGitHub Copilot completions are enabled after you sign in to the GitHub Copilot provider. No additional setting changes are required.\n\n\nRestrict to specific languages\nGitHub Copilot completions skip plaintext, markdown, and scminput unless you configure otherwise. Use the github.copilot.enable setting to change which languages Copilot completions apply to.\n\n\nDisable\nIf you have enabled GitHub Copilot as a model provider, you can disable completions by doing any of the following:\n\nSet github.copilot.enable to { \"*\": false } to disable both ghost-text completions and Next Edit Suggestions, without having to sign out. To disable only some languages, set those entries to false instead of *.\nSet github.copilot.nextEditSuggestions.enabled to false to disable Next Edit Suggestions on their own, while keeping ghost-text completions on.\nSign out of GitHub in Positron via the Accounts menu or the Accounts: Manage Accounts command. This also affects other features and extensions that rely on the GitHub account. Without a signed-in GitHub account, GitHub Copilot Chat cannot be used, and GitHub Copilot cannot provide completions, Next Edit Suggestions, or be used as a provider for Posit Assistant.\n\nTo exclude specific files from Copilot completions regardless of language, use the shared aiExcludes setting.\n\n\nStatus bar icon\nThe Assistant status bar icon indicates the current state of GitHub Copilot completions.\n\n\n\nAssistant status bar icon\n\n\nTo manage Copilot completions using the status bar icon:\n\nSelect the status bar icon to open the menu.\nFrom the menu, enable or disable completions for the current file type or for all files, or view the remaining time for snoozed completions.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Completions"
-    ]
-  },
-  {
-    "objectID": "assistant-completions.html#troubleshooting",
-    "href": "assistant-completions.html#troubleshooting",
-    "title": "Completions",
+    "objectID": "data-connections.html#troubleshooting",
+    "href": "data-connections.html#troubleshooting",
+    "title": "Data Connections",
     "section": "Troubleshooting",
-    "text": "Troubleshooting\nIf you are not receiving suggestions:\n\nCheck that ai.enabled is not set to false. When it is, Positron disables all AI features including code completions, regardless of other settings.\nConfirm you are signed in to your completions provider in the language model provider configuration.\nCheck that your completions provider’s per-language settings do not disable the current language (see Posit AI Next Edit Suggestions or GitHub Copilot).\nCheck that positron.assistant.aiExcludes does not match the current file.\nRun the AI: Create Diagnostic Report command to see your providers, feature settings, and recent completions logs in one report. See AI diagnostics.",
+    "text": "Troubleshooting\nEach driver writes to its own Output channel, named Data Connections: &lt;driver&gt; (for example, Data Connections: PostgreSQL). Positron creates the channel the first time you use that driver. To see more detail, including per-query timing, use the gear menu in the Output panel to set the log level to Trace. Drivers never log SQL text or connection strings.",
     "crumbs": [
       "Guides",
-      "AI Features",
-      "Completions"
+      "Database Connections"
     ]
   },
   {
-    "objectID": "assistant-provider-info.html",
-    "href": "assistant-provider-info.html",
-    "title": "Privacy & terms",
-    "section": "",
-    "text": "Note\n\n\n\nFor information on what information is collected by Posit, review Posit’s privacy policy.\nWhen you use AI features in Positron, Positron might share data including your prompts, responses, and usage with third-party AI model providers, depending on the providers you use. Each provider has its own data handling, privacy policies, and terms of service.\nPlease review your providers’ websites directly for complete and updated details on their data practices and terms of service. This list might not be up to date.",
+    "objectID": "data-connections.html#settings",
+    "href": "data-connections.html#settings",
+    "title": "Data Connections",
+    "section": "Settings",
+    "text": "Settings\n\n\n\n\n\n\n\nSetting\nDescription\n\n\n\n\ndataConnections.enabled\nEnable the Data Connections panel. Requires a reload to take effect. Can be set per workspace.",
     "crumbs": [
       "Guides",
-      "AI Features",
-      "Providers",
-      "Privacy & terms"
-    ]
-  },
-  {
-    "objectID": "assistant-provider-info.html#providers",
-    "href": "assistant-provider-info.html#providers",
-    "title": "Privacy & terms",
-    "section": "Providers",
-    "text": "Providers\n\nPosit AI\nPosit AI is Posit’s own hosted service, so Posit’s own policies apply rather than a third party’s.\n\nPrivacy Policy\nPosit AI Agreement\n\n\n\nAmazon Bedrock\n\nPrivacy Notice\nTerms of Service\n\n\n\nAnthropic\n\nPrivacy Policy\nCommercial Privacy Center\nConsole Privacy Controls\nCommercial Terms of Service\n\n\n\nDeepSeek\n\nPrivacy Policy\nTerms of Use\nOpen Platform Terms of Service\n\n\n\nGemini Enterprise Agent Platform\n\nGoogle Cloud Privacy Notice\nGoogle Cloud Platform Terms of Service\nGemini Enterprise Agent Platform and zero data retention\n\n\n\nGitHub Copilot\n\nPrivacy Statement\nTerms of Service\n\n\n\nGoogle Gemini\n\nPrivacy Policy\nGoogle APIs Terms of Service\nGemini API Additional Terms of Service\n\n\n\nMicrosoft Foundry\n\nMicrosoft Privacy Statement\nAzure AI Services Terms\n\n\n\nOpenAI\n\nPrivacy Policy\nPrivacy Portal\nTerms of Use\n\n\n\nSnowflake Cortex\n\nPrivacy Policy\nTerms of Service\n\n\n\nCustom Provider\nThe custom provider connects to any OpenAI-compatible endpoint you configure, so its data handling and terms depend entirely on the provider you choose. Review that provider’s own privacy policy and terms of service directly.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Providers",
-      "Privacy & terms"
-    ]
-  },
-  {
-    "objectID": "assistant-provider-info.html#support-and-terms-of-service",
-    "href": "assistant-provider-info.html#support-and-terms-of-service",
-    "title": "Privacy & terms",
-    "section": "Support and terms of service",
-    "text": "Support and terms of service\nPosit does not provide support or assistance for any code written or generated in Positron, with or without AI features in Positron such as Posit Assistant, Positron Assistant, or Databot, regardless of which model provider you use. Posit does not support any model provider’s output or test the logic a provider uses to generate code from prompts. Consult your AI model provider’s documentation for more information.\n\nBYO-key model providers\nAI features in Positron use a bring-your-own-key (BYO-key) model. You connect to a range of different model providers, such as Anthropic, Amazon Bedrock, GitHub Copilot, or OpenAI. You or your organization has an agreement with the provider and pays them directly for access to the model.\n\n\nData collection and privacy\nPositron provides local software as a client to your selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when you use AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). This applies as long as you use an external model provider. These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. If you select Posit AI as your model provider, the privacy policy and Posit AI Agreement apply instead.\nIf you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with Posit’s privacy policy.\nHowever, your AI model provider may store or collect data according to their own privacy policies and terms of service. Please review your AI model provider’s data practices for details on what information they collect and how it is used.\nBy using an external model provider, you acknowledge that your use is subject to their Terms of Service. All external model providers are considered “Third Party Materials” as defined in the Posit End User License Agreement and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Providers",
-      "Privacy & terms"
-    ]
-  },
-  {
-    "objectID": "assistant-tips.html",
-    "href": "assistant-tips.html",
-    "title": "Tips & Glossary",
-    "section": "",
-    "text": "WarningPositron Assistant is deprecated\n\n\n\nThis page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by Posit Assistant as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.\nIf you are on Positron 2026.07 or later, see the Posit Assistant documentation to get set up with Posit Assistant. For background on this change, see The history of Posit’s data science agents.\nThis guide provides tips for using Positron Assistant effectively, as well as some common terms and definitions in the Glossary section.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Tips & Glossary"
-    ]
-  },
-  {
-    "objectID": "assistant-tips.html#glossary",
-    "href": "assistant-tips.html#glossary",
-    "title": "Tips & Glossary",
-    "section": "Glossary",
-    "text": "Glossary\n\nBring your own key (BYOK)\nBring Your Own (API) Key. This means you need to obtain and provide your own API key from the language model provider to use their models with Positron Assistant.\n\n\nContext\nThe information available to the language model when generating responses. In Positron Assistant, context includes your current file content, active interpreter session (loaded data, variables, plots), project structure, and any manually attached files or tools. Richer context helps the model generate more accurate and relevant responses for your specific data science workflow.\n\n\nModel\nA specific version or configuration of a language model provided by a language model provider, such as Anthropic Claude or GitHub Copilot. Different models can have different capabilities, performance characteristics, and pricing. Examples include “Claude Sonnet 4.5” or “GPT-5”.\n\n\nPrompt\nThe input text or instructions given to a language model to generate a response. Prompts can include questions, commands, or context to guide the model’s output. Positron Assistant has predefined prompts for various tasks, and you can also define custom prompts or instructions. These prompts and instructions are provided to the model along with your messages in chat or inline chat sessions.\n\n\nProvider\nA company or service that offers access to language models via APIs. Also known as a language model provider or a vendor. Examples include Anthropic and GitHub Copilot.\n\n\nTokens\nUnits of text that language models process. Tokens can be as short as one character or as long as one word. Language models have limits on the number of tokens they can process in a single request, which includes both the input prompt and the generated response.\n\n\nTool\nA specialized function that enables language models to interact with your Positron environment. Tools allow Assistant to read variables from your session, view plots, execute code in the Console, access file contents, and perform other workspace operations beyond just generating text responses.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Positron Assistant (deprecated)",
-      "Tips & Glossary"
-    ]
-  },
-  {
-    "objectID": "assistant.html",
-    "href": "assistant.html",
-    "title": "Posit Assistant",
-    "section": "",
-    "text": "Posit Assistant is an AI coding assistant for data science in Positron. It first became available as a preview feature in Positron 2026.04.0, and as of Positron 2026.07 it ships with Positron as the default AI experience, replacing Positron Assistant and Databot. For more on how it came to be, see The history of Posit’s data science agents.\nBeyond your active files, selected code, and project structure, Posit Assistant uses context from your interactive data science work, such as your loaded data, plots, and console history. This enables more relevant guidance for core data science workflows, including exploratory analysis, data cleaning, data app development, and modeling.\nTo learn how to enable it and get set up, visit the Get Started guide.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Posit Assistant"
-    ]
-  },
-  {
-    "objectID": "assistant.html#features",
-    "href": "assistant.html#features",
-    "title": "Posit Assistant",
-    "section": "Features",
-    "text": "Features\nPosit Assistant has a rich set of features with the highlights listed below.\n\n\n\n\nFeature\nSummary\n\n\n\n\nCommands\nSlash commands typed at the start of a message that trigger special actions, such as /plan, /new, and /savememory.\n\n\nChat Features\nFile attachments via drag-and-drop, clipboard paste, or the paperclip, with @ mentions to reference workspace files. Also includes adjustable thinking effort (Off, Low, Medium, and High) and optional web search.\n\n\nPlan Mode\nA collaborative design phase where the assistant explores the codebase, asks questions, and writes a plan file before changing code. Best for multi-step features, refactors, and unfamiliar codebases.\n\n\nSkills\nSpecialized knowledge modules that load automatically when relevant to a request, with no manual activation needed. Built-ins include quarto-authoring, shiny-bslib, and predictive-modeling-r, plus user and project-level custom skills.\n\n\nMCP Servers\nConnect external tool servers via the Model Context Protocol to extend the assistant with custom tools, such as database access, API integrations, and internal services. Supports local (stdio) and remote (HTTP/SSE) servers with bearer token or OAuth authentication, including servers hosted on Posit Connect.\n\n\nMemory\nPersistent project context via an AGENTS.md file that captures conventions, architecture, and preferences. The file loads automatically at the start of every conversation in trusted workspaces.\n\n\nConversations\nFull conversation history with switching, renaming, and deletion. Includes tree-based branching when you edit a previous message and import and export in Markdown, HTML, or JSON.\n\n\nContext Management\nAutomatic inclusion of session info (language, version, variable names and types) when connected to R or Python. Provides a token counter with detailed breakdown and auto, manual, and micro-compaction to keep long conversations within the model’s context window.\n\n\nPermissions & Trust\nThree approval modes (Normal, YOLO, Restricted) and per-tool permissions configurable in settings. Includes workspace trust prompts when opening projects with AGENTS.md and an optional sandbox mode for bash execution.\n\n\n\n\nFor the full Posit Assistant configuration guide and feature documentation, see the Posit Assistant documentation.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Posit Assistant"
-    ]
-  },
-  {
-    "objectID": "assistant.html#learn-more",
-    "href": "assistant.html#learn-more",
-    "title": "Posit Assistant",
-    "section": "Learn more",
-    "text": "Learn more\n\n\n\n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Get Started\n        \n        \n        \n          Configure a language model provider and start using Posit Assistant in Positron.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          Posit Assistant vs. Positron Assistant\n        \n        \n        \n          Watch a walkthrough comparing Posit Assistant and Positron Assistant.\n        \n      \n      \n  \n    \n    \n      \n        \n          \n            \n          \n        \n        \n        \n          AI at Posit\n        \n        \n        \n          Explore Posit's broader work on artificial intelligence for data science.\n        \n      \n      \n  \n\nNo matching items",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Posit Assistant"
-    ]
-  },
-  {
-    "objectID": "assistant.html#support-and-terms-of-service",
-    "href": "assistant.html#support-and-terms-of-service",
-    "title": "Posit Assistant",
-    "section": "Support and terms of service",
-    "text": "Support and terms of service\nPosit does not provide support or assistance for any code written or generated in Positron, with or without AI features in Positron such as Posit Assistant, Positron Assistant, or Databot, regardless of which model provider you use. Posit does not support any model provider’s output or test the logic a provider uses to generate code from prompts. Consult your AI model provider’s documentation for more information.\n\nBYO-key model providers\nAI features in Positron use a bring-your-own-key (BYO-key) model. You connect to a range of different model providers, such as Anthropic, Amazon Bedrock, GitHub Copilot, or OpenAI. You or your organization has an agreement with the provider and pays them directly for access to the model.\n\n\nData collection and privacy\nPositron provides local software as a client to your selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when you use AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). This applies as long as you use an external model provider. These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. If you select Posit AI as your model provider, the privacy policy and Posit AI Agreement apply instead.\nIf you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with Posit’s privacy policy.\nHowever, your AI model provider may store or collect data according to their own privacy policies and terms of service. Please review your AI model provider’s data practices for details on what information they collect and how it is used.\nBy using an external model provider, you acknowledge that your use is subject to their Terms of Service. All external model providers are considered “Third Party Materials” as defined in the Posit End User License Agreement and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Posit Assistant"
-    ]
-  },
-  {
-    "objectID": "code-cells.html",
-    "href": "code-cells.html",
-    "title": "Code Cells",
-    "section": "",
-    "text": "Code cells let you divide a plain .py or .R script into sections that you can run one at a time, using special comments like # %% as cell boundaries. You get a notebook-like, interactive workflow while your code stays in a regular file that is easy to version, diff, and reuse.\nPositron supports code cells in both Python and R files:",
-    "crumbs": [
-      "Guides",
-      "Dynamic Documents and Apps",
-      "Code Cells"
-    ]
-  },
-  {
-    "objectID": "code-cells.html#creating-code-cells",
-    "href": "code-cells.html#creating-code-cells",
-    "title": "Code Cells",
-    "section": "Creating code cells",
-    "text": "Creating code cells\nStart a new cell by adding a comment line that begins with the cell delimiter. A cell extends until the next delimiter or the end of the file. You can also use the Positron: Insert Code Cell command or  to insert a new cell below the current one.\n\nPythonR\n\n\nIn Python files, a comment starting with # %% begins a new cell:\n# %%\nimport pandas as pd\n\npenguins = pd.read_csv(\"penguins.csv\")\npenguins.head()\n\n# %%\npenguins.groupby(\"species\")[\"body_mass_g\"].mean()\nThis is the same “percent” format used by Jupytext, Spyder, and VS Code, so scripts with code cells move between editing tools fluently. Markdown cells in this format, starting with # %% [markdown], are also supported; running one renders its contents as formatted output in the Console.\n\n\nIn R files, a comment starting with # %% or # + begins a new cell:\n# %%\npenguins &lt;- read.csv(\"penguins.csv\")\nhead(penguins)\n\n# %%\naggregate(body_mass_g ~ species, data = penguins, FUN = mean)\nA section header comment such as # Load data ---- ends the current cell, so you can combine code sections and code cells in the same script.\n\n\n\n\nCustom cell delimiters\nTo use an additional cell delimiter, set codeCells.additionalCellDelimiter. By default, this setting adds support for the # COMMAND ---------- delimiter used by Databricks notebooks exported as source files.",
-    "crumbs": [
-      "Guides",
-      "Dynamic Documents and Apps",
-      "Code Cells"
-    ]
-  },
-  {
-    "objectID": "code-cells.html#running-code-cells",
-    "href": "code-cells.html#running-code-cells",
-    "title": "Code Cells",
-    "section": "Running code cells",
-    "text": "Running code cells\nClick the Run Cell link above a cell to run it in your current Console session. The Run Above link runs all cells before the current cell, which is useful for restoring your session state from the top of the script, and Run Next runs the cell that follows.\nYou can also run cells with keyboard shortcuts:\n\n\n\n\n\n\n\nShortcut\nDescription\n\n\n\n\n\nRun the current cell\n\n\nShift-EnterShift-Enter\nRun the current cell and advance to the next cell\n\n\n\nRun all cells\n\n\n\nRun all cells above the current cell\n\n\n\nRun all cells below the current cell\n\n\n\nRun the previous cell\n\n\n\nRun the next cell\n\n\n\nAll of these commands are also available from the Command Palette, such as Positron: Run All Cells.",
-    "crumbs": [
-      "Guides",
-      "Dynamic Documents and Apps",
-      "Code Cells"
-    ]
-  },
-  {
-    "objectID": "code-cells.html#navigating-between-cells",
-    "href": "code-cells.html#navigating-between-cells",
-    "title": "Code Cells",
-    "section": "Navigating between cells",
-    "text": "Navigating between cells\nMove between cells without running them using  to go to the next cell and  to go to the previous cell, or the corresponding Positron: Go to Next Cell and Positron: Go to Previous Cell commands.",
-    "crumbs": [
-      "Guides",
-      "Dynamic Documents and Apps",
-      "Code Cells"
-    ]
-  },
-  {
-    "objectID": "code-cells.html#customizing-cell-appearance",
-    "href": "code-cells.html#customizing-cell-appearance",
-    "title": "Code Cells",
-    "section": "Customizing cell appearance",
-    "text": "Customizing cell appearance\nThe cell containing your cursor is highlighted with a background color by default. Use codeCells.cellStyle to choose a background, border, or both style for the active cell. The colors come from your theme. You can customize them via the notebook.selectedCellBackground and interactive.activeCodeBorder theme colors.",
-    "crumbs": [
-      "Guides",
-      "Dynamic Documents and Apps",
-      "Code Cells"
-    ]
-  },
-  {
-    "objectID": "connections-pane.html",
-    "href": "connections-pane.html",
-    "title": "Connections Pane",
-    "section": "",
-    "text": "The Connections pane allows you to manage and explore database connections for use within your Python and R sessions. You can create connections to databases, explore their schemas, and interactively preview database tables.",
-    "crumbs": [
-      "Guides",
-      "Database Connections",
-      "Connections Pane"
-    ]
-  },
-  {
-    "objectID": "connections-pane.html#explore-your-database-schema",
-    "href": "connections-pane.html#explore-your-database-schema",
-    "title": "Connections Pane",
-    "section": "Explore your database schema",
-    "text": "Explore your database schema\nOnce you create a new connection, you can use the Connections pane to explore the database schema.\n\n\n\nConnections pane showing database schema, tables, and columns\n\n\nYou can navigate through the database schema, viewing tables, columns, and their data types. You can also select the table icon to explore a preview of the database contents in the Data Explorer.",
-    "crumbs": [
-      "Guides",
-      "Database Connections",
-      "Connections Pane"
-    ]
-  },
-  {
-    "objectID": "connections-pane.html#create-a-new-connection",
-    "href": "connections-pane.html#create-a-new-connection",
-    "title": "Connections Pane",
-    "section": "Create a new connection",
-    "text": "Create a new connection\nYou can create a new connection to a database either from the UI, or using Python or R code.\n\nCreate a new connection from the UI\nTo open a new connection, select the New connection button in the Connections pane. This will open a modal that allows you to select the connection type and fill in the connection details. This modal generates the code required to open the connection in your Python or R session.\n\n\n\nNew connections modal\n\n\nWhen you create a new connection, Positron stores and manages connection strings for future usage.\n\n\nCreate a connection using R\nTo create a connection in the Positron Connections pane, you need to connect to a database using any package that supports the connections contract, such as odbc, sparklyr, bigrquery, and others.\nThe Positron Connections pane implements RStudio’s connections contract; this means that any package that works within RStudio’s Connections pane should work within the Positron Connections pane.\nHere is an example of how to open a connection using the connections package to open a SQLite connection:\ncon &lt;- connections::connection_open(RSQLite::SQLite(), \"nycflights13.sqlite\")\nSelect the connection object from the Variables pane or use connections::connect_view(con) to open the Connections pane.\nYou can find more information about connecting to a specific database from Posit Solutions Engineering.\n\n\nCreate a connection using Python\nConnections can be created using:\n\nsqlite3\nSQLAlchemy\nduckdb\nSQL Server via pymssql or pyodbc\nDatabricks SQL Connector\nSnowflake Connector\nGoogle BigQuery\nAWS Redshift\n\nTo open a connection in the Connections pane, create a top level object that represents the connection/engine.\nimport sqlite3\nconn = sqlite3.connect(\"nycflights13.sqlite\")\nYou can then either use %connection_show conn to open the connection in the Connections pane or open it from the Variables pane.",
-    "crumbs": [
-      "Guides",
-      "Database Connections",
-      "Connections Pane"
-    ]
-  },
-  {
-    "objectID": "connections-pane.html#explore-a-connection-from-the-variables-pane",
-    "href": "connections-pane.html#explore-a-connection-from-the-variables-pane",
-    "title": "Connections Pane",
-    "section": "Explore a connection from the Variables pane",
-    "text": "Explore a connection from the Variables pane\nYou can open an existing connection that you created from Python or R from the Variables pane:\n\n\n\nVariables pane showing a connection object\n\n\nSelect the database icon to bring up the Connections pane, allowing you to navigate the database.",
-    "crumbs": [
-      "Guides",
-      "Database Connections",
-      "Connections Pane"
+      "Database Connections"
     ]
   },
   {
