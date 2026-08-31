@@ -738,46 +738,12 @@ a.footnote-back {
   }
 
   // ---- Mobile: rail becomes a horizontal scroll strip with names ----
+  // ---- Mobile: equal-width segments that fit the viewport, no names ----
+  // The caption below shows the active feature name, so the labels would
+  // only force the rail to overflow into a scroll strip.
   @media (max-width: 767px) {
-    &__rail {
-      gap: 20px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 4px;
-      scrollbar-width: none;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
-
     &__seg {
-      flex: 0 0 auto;
-      scroll-snap-align: start;
       min-height: 44px; // touch target
-      text-align: left;
-    }
-
-    &__segTrack {
-      width: 100%;
-      min-width: 96px;
-    }
-
-    &__segName {
-      display: block;
-      margin-top: 8px;
-      font-family: $font-family-sans-serif;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: $posit-light-gray-2;
-      white-space: nowrap;
-    }
-
-    &__seg.is-active .pt-carousel__segName {
-      color: $posit-gray;
     }
 
     &__captionItem {
