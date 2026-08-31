@@ -17,14 +17,14 @@ Data Connections includes drivers for the following data sources:
 
 | Data source | Notes |
 |-------------|------|
+| Databricks | Personal access token, OAuth user-to-machine (U2M), or OAuth machine-to-machine (M2M) authentication, and browsing of Unity Catalog catalogs, schemas, tables, views, and volumes |
 | DuckDB | Connect to DuckDB database files, with a read-only option |
+| ODBC | Any database with a locally installed ODBC driver, via a configured data source name (DSN), server and driver details, or a connection string |
 | Posit Connect Pins | Browse and download [pins](https://docs.posit.co/connect/user/pins/) published on [Connect](https://posit.co/products/enterprise/connect), and authenticate with environment variables, browser sign-in, or an API key |
 | PostgreSQL | User and password, local server (no password), client certificate (SSL), or connection string |
-| SQLite | Connect to SQLite database files, with a read-only option |
-| Databricks | Personal access token, OAuth user-to-machine (U2M), or OAuth machine-to-machine (M2M) authentication, and browsing of Unity Catalog catalogs, schemas, tables, views, and volumes |
-| Snowflake | Multiple authentication methods |
 | Redshift | Multiple authentication methods |
-| ODBC | Any database with a locally installed ODBC driver, via a configured data source name (DSN), server and driver details, or a connection string |
+| Snowflake | Multiple authentication methods |
+| SQLite | Connect to SQLite database files, with a read-only option |
 
 : {tbl-colwidths="[25,75]"}
 
