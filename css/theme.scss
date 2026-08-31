@@ -669,8 +669,11 @@ a.footnote-back {
   &__segFill {
     display: block;
     height: 100%;
-    width: 0;
+    width: 100%;
     background: $primary;
+    transform: scaleX(0);
+    transform-origin: left;
+    will-change: transform;
   }
 
   // Visible only in the mobile scroll strip; on desktop the caption carries

@@ -102,8 +102,6 @@ divides itself evenly, so no CSS change is needed. Styles live under
 
 <script>
 (function () {
-  var STEP = 60; // ms between progress updates
-
   function init(root) {
     var slides   = Array.prototype.slice.call(root.querySelectorAll('.pt-carousel__slide'));
     var segs     = Array.prototype.slice.call(root.querySelectorAll('.pt-carousel__seg'));
@@ -113,10 +111,17 @@ divides itself evenly, so no CSS change is needed. Styles live under
     var duration = parseInt(root.getAttribute('data-interval'), 10) || 6000;
     var reduced  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    var index = 0, elapsed = 0, paused = false, stopped = reduced, timer = null;
+    var index = 0, elapsed = 0, paused = false, stopped = reduced;
+    var rafId = null, lastTs = null;
 
-    function progressPct() {
-      return stopped ? 100 : Math.min(100, (elapsed / duration) * 100);
+    function progressFrac() {
+      return stopped ? 1 : Math.min(1, elapsed / duration);
+    }
+
+    // scaleX is compositor-only, so the fill animates without layout work.
+    function setFill(i, frac) {
+      var fill = segs[i] && segs[i].querySelector('.pt-carousel__segFill');
+      if (fill) fill.style.transform = 'scaleX(' + frac + ')';
     }
 
     function toggle(el, on) {
@@ -138,16 +143,8 @@ divides itself evenly, so no CSS change is needed. Styles live under
         b.classList.toggle('is-active', on);
         b.setAttribute('aria-selected', on ? 'true' : 'false');
         b.tabIndex = on ? 0 : -1;
-        var fill = b.querySelector('.pt-carousel__segFill');
-        if (fill) {
-          fill.style.width = i < index ? '100%' : (on ? progressPct() + '%' : '0%');
-        }
+        setFill(i, i < index ? 1 : (on ? progressFrac() : 0));
       });
-    }
-
-    function tickFill() {
-      var fill = segs[index] && segs[index].querySelector('.pt-carousel__segFill');
-      if (fill) fill.style.width = progressPct() + '%';
     }
 
     function goTo(i) {
@@ -156,14 +153,23 @@ divides itself evenly, so no CSS change is needed. Styles live under
       paint();
     }
 
-    function start() {
-      if (stopped || timer) return;
-      timer = setInterval(function () {
-        if (paused) return;
-        elapsed += STEP;
+    // requestAnimationFrame keeps the fill in step with display refresh;
+    // measuring real elapsed time avoids drift from timer throttling.
+    function frame(ts) {
+      if (lastTs == null) lastTs = ts;
+      var dt = ts - lastTs;
+      lastTs = ts;
+      if (!paused) {
+        elapsed += dt;
         if (elapsed >= duration) goTo(index + 1);
-        else tickFill();
-      }, STEP);
+        else setFill(index, progressFrac());
+      }
+      rafId = requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (stopped || rafId) return;
+      rafId = requestAnimationFrame(frame);
     }
 
     segs.forEach(function (b, i) {
