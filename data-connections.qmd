@@ -9,7 +9,7 @@ Data Connections is a preview feature. Opt in via the [`dataConnections.enabled`
 
 Data Connections brings together the older [Connections pane](connections-pane.qmd) and [Catalog Explorer](catalog-explorer.qmd) into a single, unified experience for working with databases and data warehouses in Positron. Once enabled, the **Data Connections** view appears in the primary sidebar. From there, you can create connections, browse tables and views in a tree, open tables and views in the [Data Explorer](data-explorer.qmd), and generate ready-to-run connection code in Python or R.
 
-Data Connections exists side-by-side with the Connections pane and Catalog Explorer, and nothing changes about how those features work. Data Connections is intended to replace both.
+Data Connections exists side-by-side with the Connections pane and Catalog Explorer for now, and nothing changes about how those features work. In the future, Data Connections will replace both.
 
 ## Supported databases
 
