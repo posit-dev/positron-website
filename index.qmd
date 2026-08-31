@@ -12,26 +12,26 @@ image: images/positron-social.png
 
 <!--Hero banner section-->
 
-From [Posit PBC](https://posit.co/), the creators of RStudio
+From [Posit PBC](https://posit.co/), the creators of RStudio, the tidyverse, and Shiny
 
-# The data science IDE.<br>[Human-driven,]{.nowrap} [AI-assisted.]{.nowrap}
+<h1>The Data Science IDE</h1>
 
 ::: {.content-visible unless-profile="workbench"}
 
-Move from question to insight to analysis, model, or application faster than ever before. Positron is the free IDE made specifically for data science and analysis with Python and R.
+Positron is a free IDE purpose-built for Python and R, with transparent AI assistance, interactive data exploration, and everything you need to go from question to insight to application.
 
 :::
 
 ::: {.content-visible when-profile="workbench"}
 
-Move from question to insight to analysis, model, or application faster than ever before. Positron is the IDE made specifically for data science and analysis with Python and R.
+Positron is an IDE purpose-built for Python and R, with transparent AI assistance, interactive data exploration, and everything you need to go from question to insight to application.
 
 :::
 
 ::: {.content-visible unless-profile="workbench"}
 <a href="download.qmd" class="btn btn-outline-primary">Download</a>
 <a href="features.qmd" class="btn btn-outline-primary">Explore Features</a>
-<a href="https://posit.co/positron-updates-signup/" class="btn btn-outline-primary">Get Updates</a>
+<a href="tutorials.qmd" class="btn btn-outline-primary">Tutorials</a>
 :::
 
 ::: {.content-visible when-profile="workbench"}
@@ -40,13 +40,9 @@ Move from question to insight to analysis, model, or application faster than eve
 <a href="welcome.qmd" class="btn btn-outline-primary">Guides</a>
 :::
 
-{{< cdn-video https://cdn.posit.co/positron/releases/videos/positron-hero-fast-tour.mp4
-  poster="https://cdn.posit.co/positron/releases/videos/positron-hero-fast-tour-poster.jpg"
-  aria-label="Video demonstration of Positron, the data science IDE for Python and R" >}}
 
-::: {.content-visible when-profile="workbench"}
-![Execute code and explore data in Positron](images/astropy.png){fig-alt="Positron IDE showing Python code for astronomical data visualization with a galactic coordinate plot and Variables pane displaying data objects."}
-:::
+{{< include _hero-carousel.qmd >}}
+
 
 ::: {.content-visible unless-profile="workbench"}
 Positron™ is licensed under the [Elastic License 2.0](https://github.com/posit-dev/positron?tab=License-1-ov-file#readme), a source-available license. [Read more](licensing.qmd) about what this license means and our decision to use it.
