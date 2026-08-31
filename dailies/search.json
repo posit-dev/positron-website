@@ -1126,9 +1126,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "The data science IDE.Human-driven, AI-assisted.",
+    "title": "\nThe Data Science IDE\n",
     "section": "",
-    "text": "From Posit PBC, the creators of RStudio\n\nThe data science IDE.Human-driven, AI-assisted.\nMove from question to insight to analysis, model, or application faster than ever before. Positron is the free IDE made specifically for data science and analysis with Python and R.\nDownload Explore Features Get Updates\n\nPositron™ is licensed under the Elastic License 2.0, a source-available license. Read more about what this license means and our decision to use it."
+    "text": "From Posit PBC, the creators of RStudio, the tidyverse, and Shiny\n\nThe Data Science IDE\n\nPositron is a free IDE purpose-built for Python and R, with transparent AI assistance, interactive data exploration, and everything you need to go from question to insight to application.\nDownload Explore Features Tutorials\n\n\n  \n    \n      \n    \n    \n      \n    \n    \n      \n    \n    \n      \n    \n  \n\n  \n  \n    \n      \n      Posit Assistant\n    \n    \n      \n      Interactive Analysis\n    \n    \n      \n      Data Explorer\n    \n    \n      \n      Data Apps\n    \n  \n\n  \n  \n    \n      \n        Posit Assistant\n        An AI assistant built for data science, it connects to your live Python or R sessions, sees your data, and helps you explore, visualize, build, and debug.\n      \n      Learn more →\n    \n    \n      \n        Interactive Analysis\n        Seamlessly pivot between the exploratory narrative of a notebook and the power of a persistent, multi-session Python or R console.\n      \n      Learn more →\n    \n    \n      \n        Data Explorer\n        Explore and manipulate large local or remote datasets with an intuitive, fast, and interactive UI.\n      \n      Learn more →\n    \n    \n      \n        Data Apps\n        Develop, generate, or preview local apps, APIs, notebooks, or reports, then publish with guided deployments.\n      \n      Learn more →\n    \n  \n\n\n\nPositron™ is licensed under the Elastic License 2.0, a source-available license. Read more about what this license means and our decision to use it."
   },
   {
     "objectID": "guide-r.html",
