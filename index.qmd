@@ -31,7 +31,7 @@ Positron is an IDE purpose-built for Python and R, with transparent AI assistanc
 ::: {.content-visible unless-profile="workbench"}
 <a href="download.qmd" class="btn btn-outline-primary">Download</a>
 <a href="features.qmd" class="btn btn-outline-primary">Explore Features</a>
-<a href="https://posit.co/positron-updates-signup/" class="btn btn-outline-primary">Get Updates</a>
+<a href="tutorials.qmd" class="btn btn-outline-primary">Tutorials</a>
 :::
 
 ::: {.content-visible when-profile="workbench"}
@@ -41,38 +41,7 @@ Positron is an IDE purpose-built for Python and R, with transparent AI assistanc
 :::
 
 
-```{=html}
-<div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="images/features-explore.svg" class="d-block w-100 drop-shadow" alt="The Positron IDE showing the Data Connections pane expanded to a database and its tables. The Data Explorer displays a table, with a summary profile for each column next to the data grid.">
-    </div>
-    <div class="carousel-item">
-      <img src="images/features-bridge.svg" class="d-block w-100 drop-shadow" alt="The Positron IDE with Posit Assistant open as an editor tab. The assistant has edited a file in the project. The Session pane beside it shows the resulting data frame in Variables and a chart in Plots.">
-    </div>
-    <div class="carousel-item">
-      <img src="images/features-publish.svg" class="d-block w-100 drop-shadow" alt="The Positron IDE with Posit Publisher open. The publishing log shows each deployment step completed in turn. The Viewer pane previews the deployed data application.">
-    </div>
-    <div class="carousel-item">
-      <img src="images/features-enterprise.svg" class="d-block w-100 drop-shadow" alt="The Positron IDE running a full session. A Quarto document is open in the editor with an executable code cell. The Console sits below it, and the Session pane shows Variables and a plot.">
-    </div>
-  </div>
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Explore and analyze"></button>
-    <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Bridge exploration and production"></button>
-    <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Develop and publish"></button>
-    <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="3" aria-label="Full session with Quarto document"></button>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-```
+{{< include _hero-carousel.qmd >}}
 
 
 ::: {.content-visible unless-profile="workbench"}
