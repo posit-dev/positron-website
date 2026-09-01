@@ -41,10 +41,6 @@ You cannot rename a custom entry, change its type, or edit its model list from t
 
 To remove an entry, delete that block. **Disconnect** only clears the stored credential. The entry remains, ready to reconnect.
 
-### Reserved names
-
-You cannot name a custom entry after a built-in provider identifier: `anthropic-api`, `posit-ai`, `ms-foundry`, `amazon-bedrock`, `snowflake-cortex`, `openai-api`, `google`, `google-cloud`, `deepseek-api`, or `databricks`. You also cannot use `positron-custom-provider`, the authentication provider every custom entry shares.
-
 ### `providers.custom` in `providers.json`
 
 Each entry is a block under `providers.custom`, using the name you chose as the key:
