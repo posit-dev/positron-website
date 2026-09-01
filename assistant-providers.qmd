@@ -26,14 +26,10 @@ Positron deprecated the `authentication.*` and `positron.assistant.provider.*` s
 
 Beyond the providers below, you can add your own named entries: as many as you like, each with its own name, type, endpoint, credential, and model list. Use this to connect several accounts on the same provider, or a company gateway, under a name you choose.
 
-::: {.callout-note}
-The **Add Custom Provider** button appears once your installed Posit Assistant supports named custom providers. If you do not see it, update Posit Assistant.
-:::
-
 ### Add a custom provider
 
 1. Run _Authentication: Configure Language Model Providers_ and select **Add Custom Provider**.
-1. Enter a **Provider Name**. It appears in the model picker, and you cannot rename it later. To rename an entry, delete it and add it again.
+1. Enter a **Provider Name**. It appears in the model picker, and you cannot rename it later. To change the name, remove the entry and add it again.
 1. Pick a **Provider Type**: **OpenAI Compatible**, **Anthropic**, or **OpenAI** ([more types are planned](https://github.com/posit-dev/positron/issues/15701)). The type decides the fields you fill in next, since a custom entry reuses that provider's own connection fields (for example, an Anthropic-type entry asks for the same API key as the built-in Anthropic provider).
 1. Enter the credential and base URL, if the type asks for them, and connect.
 
@@ -47,7 +43,7 @@ A connected entry shows under **Connected Providers** with a **Custom** badge, a
 
 You cannot rename a custom entry, change its type, or edit its model list from the provider dialog after creating it. To change any of these, open `providers.json` with the _Open AI Provider Settings (JSON)_ command and edit its `providers.custom.<name>` block directly.
 
-To remove an entry for good, use **Delete** from its row or its connected view. This removes the entry and its stored credential together, and cannot be undone. **Disconnect** is different: it clears the credential but keeps the entry, so reconnecting only asks for the credential again.
+The dialog has no delete action. To remove an entry, delete its `providers.custom.<name>` block from `providers.json`. **Disconnect** only clears the stored credential. The entry stays in the list, ready to reconnect.
 
 ### Reserved names
 
