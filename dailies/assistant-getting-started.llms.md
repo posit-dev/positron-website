@@ -6,7 +6,7 @@ To use AI in Positron, first configure a language model provider, then start usi
 
 ## Step 1: Configure a language model provider
 
-Positron enables all providers by default and they appear in the provider list, but none are active unless you authenticate with the provider.
+Positron enables all providers by default and they appear in the provider list, but none are active unless you authenticate with the provider. To hide providers you do not use, see [Turn a provider on or off](ai-configuration.llms.md#turn-a-provider-on-or-off).
 
 To connect a provider, run the command *Authentication: Configure Language Model Providers*, select the provider, and authenticate. For account requirements, authentication details, and any settings to configure first, see the [Language Model Providers](assistant-providers.llms.md) reference.
 
