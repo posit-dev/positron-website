@@ -39,6 +39,10 @@ To disable a specific feature without affecting others:
 | [`console.assistantActions.enabled`](positron://settings/console.assistantActions.enabled) | [Console Fix & Explain](managing-interpreters.qmd#console-fix-and-explain) (set to `false` to disable) |
 | [`git.suggestions.enabled`](positron://settings/git.suggestions.enabled) | [Git commit messages](git.qmd#generate-commit-messages) (set to `false` to disable) |
 
+## Turn a provider on or off
+
+Positron enables every provider by default and reads the list from `~/.posit/ai/providers.json`, so to hide one, or to allow only a specific set, edit that file. Run _Open AI Provider Settings (JSON)_ to open it, and see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/) for the keys to use.
+
 ## GitHub Copilot chat {#github-copilot-chat}
 
 Positron hides the GitHub Copilot chat interface by default, since Posit Assistant is the default chat experience in Positron. To show the GitHub Copilot chat UI again, set [`chat.disableAIFeatures`](positron://settings/chat.disableAIFeatures) to `false`.
