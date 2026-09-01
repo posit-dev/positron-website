@@ -8,7 +8,8 @@ exclude = [
   "https://github.com/posit-dev/positron/issues",
   "positron://settings/",
   "https://forms.gle/DRCf8wgbaafz5fcG8", # testimonial Google Form (requires login)
-  "https://octocorp.ghe.com" # placeholder example URL for GHE docs
+  "https://octocorp.ghe.com", # placeholder example URL for GHE docs
+  "https://api.anthropic.com" # API base URL shown in a providers.json example, not a link
 ]
 
 # 403 (Forbidden) and 429 (Too Many Requests) are returned by sites that
