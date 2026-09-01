@@ -22,7 +22,7 @@ Open the file with the _Open AI Provider Settings (JSON)_ command when you need 
 Positron deprecated the `authentication.*` and `positron.assistant.provider.*` settings in favor of `providers.json`. Positron migrates them for you when you upgrade, and you can run the migration again at any time with the _Migrate AI Provider Settings to providers.json_ command.
 :::
 
-## Custom providers {#custom-providers}
+## Custom providers [Experimental]{.provider-badge .experimental} {#custom-providers}
 
 Beyond the providers below, you can add your own named entries: as many as you like, each with its own name, type, endpoint, credential, and model list. Use this to connect several accounts on the same provider, or a company gateway, under a name you choose.
 
