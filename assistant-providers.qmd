@@ -35,15 +35,11 @@ Beyond the providers below, you can add your own named entries: as many as you l
 
 Some endpoints do not implement a `/models` listing. If yours does not, list its model identifiers in the **Models** field before connecting.
 
-### Where a custom provider appears
-
-A connected entry shows under **Connected Providers** with a **Custom** badge, and in the model picker and {{< fa circle-user >}} **Accounts** menu as `<name> (Custom Provider)`. If it errors, it moves to **Needs Attention**. If you disconnect it, it moves to **Custom Providers** until you reconnect.
-
 ### Edit or remove a custom provider
 
 You cannot rename a custom entry, change its type, or edit its model list from the provider dialog after creating it. To change any of these, open `providers.json` with the _Open AI Provider Settings (JSON)_ command and edit its `providers.custom.<name>` block directly.
 
-To remove an entry, delete that block. **Disconnect** only clears the stored credential. The entry stays in the list, ready to reconnect.
+To remove an entry, delete that block. **Disconnect** only clears the stored credential. The entry remains, ready to reconnect.
 
 ### Reserved names
 
