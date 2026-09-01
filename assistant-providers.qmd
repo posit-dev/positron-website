@@ -235,7 +235,7 @@ Before you start, make sure your organization administrator has enabled GitHub C
 
 For more detail, see GitHub's guide on [authenticating to GitHub Copilot on GHE.com](https://docs.github.com/en/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
 
-## OpenAI Compatible [Experimental]{.provider-badge .experimental} {#custom-provider}
+## OpenAI Compatible [Experimental]{.provider-badge .experimental} {#openai-compatible}
 
 This provider works with any [OpenAI-compatible](https://ai-sdk.dev/providers/openai-compatible-providers) API endpoint that uses the `/v1/chat/completions` endpoint for chat. We do not recommend using a local model here. Read more about why [local models are not there (yet)](https://posit.co/blog/local-models-are-not-there-yet/) on the Posit blog.
 
