@@ -22,45 +22,6 @@ Open the file with the _Open AI Provider Settings (JSON)_ command when you need 
 Positron deprecated the `authentication.*` and `positron.assistant.provider.*` settings in favor of `providers.json`. Positron migrates them for you when you upgrade, and you can run the migration again at any time with the _Migrate AI Provider Settings to providers.json_ command.
 :::
 
-## Custom providers [Experimental]{.provider-badge .experimental} {#custom-providers}
-
-Beyond the providers below, you can add your own named entries: as many as you like, each with its own name, type, endpoint, credential, and model list. Use this to connect several accounts on the same provider, or a company gateway, under a name you choose.
-
-### Add a custom provider
-
-1. Run _Authentication: Configure Language Model Providers_ and select **Add Custom Provider**.
-1. Enter a **Provider Name**. It appears in the model picker, and you cannot change it from the dialog later.
-1. Select a **Provider Type**: **OpenAI Compatible**, **Anthropic**, or **OpenAI** ([tracking issue for more types](https://github.com/posit-dev/positron/issues/15701)). The type decides the fields you fill in next. A custom entry reuses that provider's own connection fields, so an Anthropic-type entry asks for the same API key as the built-in Anthropic provider.
-1. Enter the credential and base URL, if the type asks for them, and connect.
-
-Some endpoints do not implement a `/models` listing. If yours does not, list its model identifiers in the **Models** field before connecting.
-
-### Edit or remove a custom provider
-
-You cannot rename a custom entry, change its type, or edit its model list from the provider dialog after creating it. To change any of these, open `providers.json` with the _Open AI Provider Settings (JSON)_ command and edit its `providers.custom.<name>` block directly.
-
-To remove an entry, delete that block. **Disconnect** only clears the stored credential. The entry remains, ready to reconnect.
-
-### `providers.custom` in `providers.json`
-
-Each entry is a block under `providers.custom`, using the name you chose as the key:
-
-```{.json filename="providers.json"}
-{
-  "providers": {
-    "custom": {
-      "my anthropic": {
-        "type": "anthropic",
-        "enabled": true,
-        "baseUrl": "https://api.anthropic.com/v1"
-      }
-    }
-  }
-}
-```
-
-For the full set of fields, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
-
 ## Posit AI
 
 Posit AI is a hosted language model service from Posit, offering both chat models and code completions through [Next Edit Suggestions (NES)](assistant-completions.qmd#posit-ai-nes).
@@ -254,3 +215,42 @@ Set the following environment variables before launching Positron:
 
 - `GOOGLE_CLIENT_EMAIL`: the service account's client email
 - `GOOGLE_PRIVATE_KEY`: the service account's private key
+
+## Custom providers [Experimental]{.provider-badge .experimental} {#custom-providers}
+
+Beyond the providers above, you can add your own named entries: as many as you like, each with its own name, type, endpoint, credential, and model list. Use this to connect several accounts on the same provider, or a company gateway, under a name you choose.
+
+### Add a custom provider
+
+1. Run _Authentication: Configure Language Model Providers_ and select **Add Custom Provider**.
+1. Enter a **Provider Name**. It appears in the model picker, and you cannot change it from the dialog later.
+1. Select a **Provider Type**: **OpenAI Compatible**, **Anthropic**, or **OpenAI** ([tracking issue for more types](https://github.com/posit-dev/positron/issues/15701)). The type decides the fields you fill in next. A custom entry reuses that provider's own connection fields, so an Anthropic-type entry asks for the same API key as the built-in Anthropic provider.
+1. Enter the credential and base URL, if the type asks for them, and connect.
+
+Some endpoints do not implement a `/models` listing. If yours does not, list its model identifiers in the **Models** field before connecting.
+
+### Edit or remove a custom provider
+
+You cannot rename a custom entry, change its type, or edit its model list from the provider dialog after creating it. To change any of these, open `providers.json` with the _Open AI Provider Settings (JSON)_ command and edit its `providers.custom.<name>` block directly.
+
+To remove an entry, delete that block. **Disconnect** only clears the stored credential. The entry remains, ready to reconnect.
+
+### `providers.custom` in `providers.json`
+
+Each entry is a block under `providers.custom`, using the name you chose as the key:
+
+```{.json filename="providers.json"}
+{
+  "providers": {
+    "custom": {
+      "my anthropic": {
+        "type": "anthropic",
+        "enabled": true,
+        "baseUrl": "https://api.anthropic.com/v1"
+      }
+    }
+  }
+}
+```
+
+For the full set of fields, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
