@@ -30,7 +30,7 @@ Beyond the providers below, you can add your own named entries: as many as you l
 
 1. Run _Authentication: Configure Language Model Providers_ and select **Add Custom Provider**.
 1. Enter a **Provider Name**. It appears in the model picker, and you cannot rename it later. To change the name, remove the entry and add it again.
-1. Pick a **Provider Type**: **OpenAI Compatible**, **Anthropic**, or **OpenAI** ([more types are planned](https://github.com/posit-dev/positron/issues/15701)). The type decides the fields you fill in next, since a custom entry reuses that provider's own connection fields (for example, an Anthropic-type entry asks for the same API key as the built-in Anthropic provider).
+1. Select a **Provider Type**: **OpenAI Compatible**, **Anthropic**, or **OpenAI** ([tracking issue for more types](https://github.com/posit-dev/positron/issues/15701)). The type decides the fields you fill in next. A custom entry reuses that provider's own connection fields, so an Anthropic-type entry asks for the same API key as the built-in Anthropic provider.
 1. Enter the credential and base URL, if the type asks for them, and connect.
 
 Some endpoints do not implement a `/models` listing. If yours does not, list its model identifiers in the **Models** field before connecting.
@@ -51,7 +51,7 @@ You cannot name a custom entry after a built-in provider identifier: `anthropic-
 
 ### `providers.custom` in `providers.json`
 
-Each entry is a block under `providers.custom`, keyed by the name you chose:
+Each entry is a block under `providers.custom`, using the name you chose as the key:
 
 ```{.json filename="providers.json"}
 {
