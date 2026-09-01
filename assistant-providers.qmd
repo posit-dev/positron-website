@@ -29,7 +29,7 @@ Beyond the providers below, you can add your own named entries: as many as you l
 ### Add a custom provider
 
 1. Run _Authentication: Configure Language Model Providers_ and select **Add Custom Provider**.
-1. Enter a **Provider Name**. It appears in the model picker, and you cannot rename it later. To change the name, remove the entry and add it again.
+1. Enter a **Provider Name**. It appears in the model picker, and you cannot change it from the dialog later.
 1. Select a **Provider Type**: **OpenAI Compatible**, **Anthropic**, or **OpenAI** ([tracking issue for more types](https://github.com/posit-dev/positron/issues/15701)). The type decides the fields you fill in next. A custom entry reuses that provider's own connection fields, so an Anthropic-type entry asks for the same API key as the built-in Anthropic provider.
 1. Enter the credential and base URL, if the type asks for them, and connect.
 
