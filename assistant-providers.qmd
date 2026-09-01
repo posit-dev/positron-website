@@ -14,7 +14,7 @@ Please ensure you consult your provider's privacy policy and terms of service fo
 
 Provider configuration lives in a single file: `~/.posit/ai/providers.json`. Positron writes it for you as you connect and edit providers. Your API keys and tokens are not in this file. Positron stores them separately.
 
-Open the file with the _Open AI Provider Settings (JSON)_ command when you need something the provider dialog does not cover. That includes turning a provider off, sending custom HTTP headers, and filtering the model list. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) in the Posit Assistant documentation.
+Open the file with the _Open AI Provider Settings (JSON)_ command when you need something the provider dialog does not cover. That includes turning a provider off, sending custom HTTP headers, and filtering the model list. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/) in the Posit Assistant documentation.
 
 ::: {.callout-note}
 ## Provider settings are deprecated
@@ -49,13 +49,13 @@ Positron reads `AWS_REGION` from your environment and uses your `default` AWS CL
 
 Set a region if your shell does not already have one configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the identifier for each location. Make sure the models you want are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
 
-Set it with the `AWS_REGION` environment variable before you launch Positron, or, to set it for Posit Assistant only, with the `aws.region` key under `providers.bedrock` in `providers.json`. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) for the full list of `aws` keys.
+Set it with the `AWS_REGION` environment variable before you launch Positron, or, to set it for Posit Assistant only, with the `aws.region` key under `providers.bedrock` in `providers.json`. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/) for the full list of `aws` keys.
 
 #### Profile
 
 Set a profile if the one you use for Bedrock is not named `default`. This applies when you have a dedicated Bedrock role separate from your development credentials, or your Bedrock access lives in a different AWS account. Run `aws configure list-profiles` in a terminal to see your profiles.
 
-Set it with the `AWS_PROFILE` environment variable before you launch Positron, or, to set it for Posit Assistant only, with the `aws.profile` key under `providers.bedrock` in `providers.json`. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) for the full list of `aws` keys.
+Set it with the `AWS_PROFILE` environment variable before you launch Positron, or, to set it for Posit Assistant only, with the `aws.profile` key under `providers.bedrock` in `providers.json`. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/) for the full list of `aws` keys.
 
 ::: {.callout-note}
 Do not set a profile if you use Posit Workbench managed credentials or environment variable credentials (`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`). Both of those paths bypass named profile resolution, so setting a profile name causes credential resolution to fail.
@@ -129,7 +129,7 @@ To use specific models instead of `model-router`, declare them under `providers.
 }
 ```
 
-Set the capability fields to match your deployment. For what each field means and the optional ones this example leaves out, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
+Set the capability fields to match your deployment. For what each field means and the optional ones this example leaves out, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/).
 
 ## OpenAI
 
@@ -195,7 +195,7 @@ The custom provider works with any [OpenAI-compatible](https://ai-sdk.dev/provid
 
 Some OpenAI-compatible providers might not implement the `/models` endpoint, which Positron uses to list available models. If this is the case for your provider, list the model IDs it serves in the **Models** field when you connect it. Positron saves them under `providers.openai-compatible.models` in `providers.json`.
 
-To change those entries, or to set the capability fields for each model, edit that block directly. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) for how to choose which models appear.
+To change those entries, or to set the capability fields for each model, edit that block directly. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/) for how to choose which models appear.
 
 ## DeepSeek [Experimental]{.provider-badge .experimental} {#deepseek}
 
@@ -215,7 +215,7 @@ Formerly Google Vertex AI.
 - **Authentication:** authenticate with Google Cloud using Application Default Credentials (`gcloud`) or a service account (see below)
 - **Configuration:** your project ID and location, set with the `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` environment variables, or with the `googleCloud.project` and `googleCloud.location` keys under `providers.google-vertex` in `providers.json` (which take precedence)
 
-For the project and location keys, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
+For the project and location keys, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/).
 
 ### Sign in with Application Default Credentials (ADC)
 
