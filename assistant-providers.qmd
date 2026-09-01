@@ -71,7 +71,7 @@ Each entry is a block under `providers.custom`, keyed by the name you chose:
 }
 ```
 
-For the full set of fields, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
+For the full set of fields, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/).
 
 ## Posit AI
 
