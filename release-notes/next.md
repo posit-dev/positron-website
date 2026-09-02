@@ -12,7 +12,11 @@ Welcome to the 2026.09.0 release of Positron!
 
 #### Welcome page refresh
 
-We redesigned the Positron welcome page. It now leads with an environment setup card that checks whether Python and R are ready to use, with actions to help resolve any problem it finds. A new "Get Started with Positron" walkthrough covers the Positron panes, keyboard shortcuts, built-in extensions, and Git, and the page links to the walkthroughs from a banner.
+We redesigned the Positron welcome page. It now leads with an environment setup card that checks whether Python and R are ready to use, with actions to help resolve any problem it finds. 
+
+<p align="center"><img src="https://cdn.posit.co/positron/releases/release-notes/assets/2026-09-welcome-page.gif" alt="The redesigned Positron welcome page, showing the environment setup card and the Get Started walkthrough banner"></p>
+
+A new "Get Started with Positron" walkthrough covers the Positron panes, keyboard shortcuts, built-in extensions, and Git, and the page links to the walkthroughs from a banner.
 
 #### Import Data
 
