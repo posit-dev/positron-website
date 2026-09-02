@@ -40,7 +40,7 @@ To disable a specific feature without affecting others:
 
 ## Turn a provider on or off
 
-Positron enables every provider by default and reads the list from `~/.posit/ai/providers.json`, so to hide one, or to allow only a specific set, edit that file. Run *Open AI Provider Settings (JSON)* to open it, and see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/) for the keys to use.
+Positron enables every provider by default and reads the list from `~/.posit/ai/providers.json`, so to hide one, or to allow only a specific set, edit that file. Run *Open AI Provider Settings (JSON)* to open it, and see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) for the keys to use.
 
 ## GitHub Copilot chat
 

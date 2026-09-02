@@ -2117,7 +2117,7 @@
     "href": "assistant-provider-info.html#providers",
     "title": "Privacy & terms",
     "section": "Providers",
-    "text": "Providers\n\nPosit AI\nPosit AI is Posit’s own hosted service, so Posit’s own policies apply rather than a third party’s.\n\nPrivacy Policy\nPosit AI Agreement\n\n\n\nAmazon Bedrock\n\nPrivacy Notice\nTerms of Service\n\n\n\nAnthropic\n\nPrivacy Policy\nCommercial Privacy Center\nConsole Privacy Controls\nCommercial Terms of Service\n\n\n\nDeepSeek\n\nPrivacy Policy\nTerms of Use\nOpen Platform Terms of Service\n\n\n\nGemini Enterprise Agent Platform\n\nGoogle Cloud Privacy Notice\nGoogle Cloud Platform Terms of Service\nGemini Enterprise Agent Platform and zero data retention\n\n\n\nGitHub Copilot\n\nPrivacy Statement\nTerms of Service\n\n\n\nGoogle Gemini\n\nPrivacy Policy\nGoogle APIs Terms of Service\nGemini API Additional Terms of Service\n\n\n\nMicrosoft Foundry\n\nMicrosoft Privacy Statement\nAzure AI Services Terms\n\n\n\nOpenAI\n\nPrivacy Policy\nPrivacy Portal\nTerms of Use\n\n\n\nSnowflake Cortex\n\nPrivacy Policy\nTerms of Service\n\n\n\nCustom Provider\nThe custom provider connects to any OpenAI-compatible endpoint you configure, so its data handling and terms depend entirely on the provider you choose. Review that provider’s own privacy policy and terms of service directly.",
+    "text": "Providers\n\nPosit AI\nPosit AI is Posit’s own hosted service, so Posit’s own policies apply rather than a third party’s.\n\nPrivacy Policy\nPosit AI Agreement\n\n\n\nAmazon Bedrock\n\nPrivacy Notice\nTerms of Service\n\n\n\nAnthropic\n\nPrivacy Policy\nCommercial Privacy Center\nConsole Privacy Controls\nCommercial Terms of Service\n\n\n\nDeepSeek\n\nPrivacy Policy\nTerms of Use\nOpen Platform Terms of Service\n\n\n\nGemini Enterprise Agent Platform\n\nGoogle Cloud Privacy Notice\nGoogle Cloud Platform Terms of Service\nGemini Enterprise Agent Platform and zero data retention\n\n\n\nGitHub Copilot\n\nPrivacy Statement\nTerms of Service\n\n\n\nGoogle Gemini\n\nPrivacy Policy\nGoogle APIs Terms of Service\nGemini API Additional Terms of Service\n\n\n\nMicrosoft Foundry\n\nMicrosoft Privacy Statement\nAzure AI Services Terms\n\n\n\nOpenAI\n\nPrivacy Policy\nPrivacy Portal\nTerms of Use\n\n\n\nSnowflake Cortex\n\nPrivacy Policy\nTerms of Service\n\n\n\nCustom providers\nA named custom provider follows the terms of whichever type you gave it. An Anthropic-type entry follows Anthropic’s terms above, an OpenAI-type entry follows OpenAI’s, and an OpenAI Compatible-type entry follows the terms of whichever endpoint you point it at.",
     "crumbs": [
       "Guides",
       "AI Features",
@@ -2618,7 +2618,7 @@
     "href": "assistant-getting-started.html#configure-a-language-model-provider",
     "title": "Get started",
     "section": "Step 1: Configure a language model provider",
-    "text": "Step 1: Configure a language model provider\nPositron enables all providers by default and they appear in the provider list, but none are active unless you authenticate with the provider. To hide providers you do not use, see Turn a provider on or off.\nTo connect a provider, run the command Authentication: Configure Language Model Providers, select the provider, and authenticate. For account requirements, authentication details, and any settings to configure first, see the Language Model Providers reference.\n\n\n\nProvider\nChat\nCode Completions\nAuthentication\n\n\n\n\nPosit AI\n\n\nOAuth\n\n\nAmazon Bedrock\n\n\nAWS CLI or Posit Workbench Managed Credentials\n\n\nAnthropic\n\n\nAPI Key\n\n\nMicrosoft Foundry\n\n\nAPI Key or Workbench Managed Credentials\n\n\nOpenAI\n\n\nAPI Key\n\n\nSnowflake Cortex\n\n\nAPI Key or Workbench Managed Credentials\n\n\nGitHub Copilot Preview\n\n\nOAuth\n\n\nCustom Provider Experimental\n\n\nAPI Key\n\n\nDeepSeek Experimental\n\n\nAPI Key\n\n\nGoogle Gemini Experimental\n\n\nAPI Key\n\n\nGemini Enterprise Agent Platform Experimental\n\n\nGoogle Cloud CLI or Service Account Credentials\n\n\n\nPlease ensure you consult your provider’s privacy policy for information on the data they collect and how they use it. For reference links, see the Privacy & Terms guide.\nFor information on what information is collected by Posit, review Posit’s privacy policy.",
+    "text": "Step 1: Configure a language model provider\nPositron enables all providers by default and they appear in the provider list, but none are active unless you authenticate with the provider. To hide providers you do not use, see Turn a provider on or off.\nTo connect a provider, run the command Authentication: Configure Language Model Providers, select the provider, and authenticate. For account requirements, authentication details, and any settings to configure first, see the Language Model Providers reference.\n\n\n\nProvider\nChat\nCode Completions\nAuthentication\n\n\n\n\nPosit AI\n\n\nOAuth\n\n\nAmazon Bedrock\n\n\nAWS CLI or Posit Workbench Managed Credentials\n\n\nAnthropic\n\n\nAPI Key\n\n\nMicrosoft Foundry\n\n\nAPI Key or Workbench Managed Credentials\n\n\nOpenAI\n\n\nAPI Key\n\n\nSnowflake Cortex\n\n\nAPI Key or Workbench Managed Credentials\n\n\nGitHub Copilot Preview\n\n\nOAuth\n\n\nDeepSeek Experimental\n\n\nAPI Key\n\n\nGoogle Gemini Experimental\n\n\nAPI Key\n\n\nGemini Enterprise Agent Platform Experimental\n\n\nGoogle Cloud CLI or Service Account Credentials\n\n\n\nYou can also connect additional, named providers of your own beyond this list. See Custom providers.\nPlease ensure you consult your provider’s privacy policy for information on the data they collect and how they use it. For reference links, see the Privacy & Terms guide.\nFor information on what information is collected by Posit, review Posit’s privacy policy.",
     "crumbs": [
       "Guides",
       "AI Features",
@@ -2746,18 +2746,6 @@
     ]
   },
   {
-    "objectID": "assistant-providers.html#custom-provider",
-    "href": "assistant-providers.html#custom-provider",
-    "title": "Providers",
-    "section": "Custom Provider Experimental",
-    "text": "Custom Provider Experimental\nThe custom provider works with any OpenAI-compatible API endpoint that uses the /v1/chat/completions endpoint for chat. We do not recommend using a local model as a custom provider. Read more about why local models are not there (yet) on the Posit blog.\n\nAccount: an account with your chosen OpenAI-compatible provider\nAuthentication: an API key and the provider’s base URL\n\n\nConfigure a custom model listing\nSome OpenAI-compatible providers might not implement the /models endpoint, which Positron uses to list available models. If this is the case for your provider, list the model IDs it serves in the Models field when you connect it. Positron saves them under providers.openai-compatible.models in providers.json.\nTo change those entries, or to set the capability fields for each model, edit that block directly. See the providers.json reference for how to choose which models appear.",
-    "crumbs": [
-      "Guides",
-      "AI Features",
-      "Providers"
-    ]
-  },
-  {
     "objectID": "assistant-providers.html#deepseek",
     "href": "assistant-providers.html#deepseek",
     "title": "Providers",
@@ -2787,6 +2775,18 @@
     "title": "Providers",
     "section": "Gemini Enterprise Agent Platform Experimental",
     "text": "Gemini Enterprise Agent Platform Experimental\nFormerly Google Vertex AI.\n\nAccount: a Google Cloud project with the Agent Platform APIs enabled and access to the models you want to use\nAuthentication: authenticate with Google Cloud using Application Default Credentials (gcloud) or a service account (see below)\nConfiguration: your project ID and location, set with the GOOGLE_VERTEX_PROJECT and GOOGLE_VERTEX_LOCATION environment variables, or with the googleCloud.project and googleCloud.location keys under providers.google-vertex in providers.json (which take precedence)\n\nFor the project and location keys, see the providers.json reference.\n\nSign in with Application Default Credentials (ADC)\n\nInstall the Google Cloud CLI (gcloud)\nRun gcloud auth application-default login and complete the browser sign-in flow\n\n\n\nSign in with a service account\nSet the following environment variables before launching Positron:\n\nGOOGLE_CLIENT_EMAIL: the service account’s client email\nGOOGLE_PRIVATE_KEY: the service account’s private key",
+    "crumbs": [
+      "Guides",
+      "AI Features",
+      "Providers"
+    ]
+  },
+  {
+    "objectID": "assistant-providers.html#custom-providers",
+    "href": "assistant-providers.html#custom-providers",
+    "title": "Providers",
+    "section": "Custom providers Experimental",
+    "text": "Custom providers Experimental\nBeyond the providers above, you can add your own named entries: as many as you like, each with its own name, type, endpoint, credential, and model list. Use this to connect several accounts on the same provider, or a company gateway, under a name you choose.\n\nAdd a custom provider\n\nRun Authentication: Configure Language Model Providers and select Add Custom Provider.\nEnter a Provider Name. It appears in the model picker, and you cannot change it from the dialog later.\nSelect a Provider Type: OpenAI Compatible, Anthropic, or OpenAI (tracking issue for more types). The type decides the fields you fill in next. A custom entry reuses that provider’s own connection fields, so an Anthropic-type entry asks for the same API key as the built-in Anthropic provider.\nEnter the credential and base URL, if the type asks for them, and connect.\n\nSome endpoints do not implement a /models listing. If yours does not, list its model identifiers in the Models field before connecting.\n\n\nEdit or remove a custom provider\nYou cannot rename a custom entry, change its type, or edit its model list from the provider dialog after creating it. To change any of these, open providers.json with the Open AI Provider Settings (JSON) command and edit its providers.custom.&lt;name&gt; block directly.\nTo remove an entry, delete that block. Disconnect only clears the stored credential. The entry remains, ready to reconnect.\n\n\nproviders.custom in providers.json\nEach entry is a block under providers.custom, using the name you chose as the key:\n\n\nproviders.json\n\n{\n  \"providers\": {\n    \"custom\": {\n      \"my anthropic\": {\n        \"type\": \"anthropic\",\n        \"enabled\": true,\n        \"baseUrl\": \"https://api.anthropic.com/v1\"\n      }\n    }\n  }\n}\n\nFor the full set of fields, see the providers.json reference.",
     "crumbs": [
       "Guides",
       "AI Features",

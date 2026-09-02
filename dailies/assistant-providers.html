@@ -890,10 +890,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#openai" id="toc-openai" class="nav-link" data-scroll-target="#openai">OpenAI</a></li>
   <li><a href="#snowflake-cortex" id="toc-snowflake-cortex" class="nav-link" data-scroll-target="#snowflake-cortex">Snowflake Cortex</a></li>
   <li><a href="#github-copilot" id="toc-github-copilot" class="nav-link" data-scroll-target="#github-copilot">GitHub Copilot <span class="provider-badge preview">Preview</span></a></li>
-  <li><a href="#custom-provider" id="toc-custom-provider" class="nav-link" data-scroll-target="#custom-provider">Custom Provider <span class="provider-badge experimental">Experimental</span></a></li>
   <li><a href="#deepseek" id="toc-deepseek" class="nav-link" data-scroll-target="#deepseek">DeepSeek <span class="provider-badge experimental">Experimental</span></a></li>
   <li><a href="#gemini-code-assist" id="toc-gemini-code-assist" class="nav-link" data-scroll-target="#gemini-code-assist">Google Gemini <span class="provider-badge experimental">Experimental</span></a></li>
   <li><a href="#gemini-enterprise-agent-platform" id="toc-gemini-enterprise-agent-platform" class="nav-link" data-scroll-target="#gemini-enterprise-agent-platform">Gemini Enterprise Agent Platform <span class="provider-badge experimental">Experimental</span></a></li>
+  <li><a href="#custom-providers" id="toc-custom-providers" class="nav-link" data-scroll-target="#custom-providers">Custom providers <span class="provider-badge experimental">Experimental</span></a></li>
   </ul>
 <div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/posit-dev/positron-website/edit/main/assistant-providers.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/assistant-providers.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -930,7 +930,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="provider-configuration-file" class="level2">
 <h2 class="anchored" data-anchor-id="provider-configuration-file"><code>providers.json</code></h2>
 <p>Provider configuration lives in a single file: <code>~/.posit/ai/providers.json</code>. Positron writes it for you as you connect and edit providers. Your API keys and tokens are not in this file. Positron stores them separately.</p>
-<p>Open the file with the <em>Open AI Provider Settings (JSON)</em> command when you need something the provider dialog does not cover. That includes turning a provider off, sending custom HTTP headers, and filtering the model list. For every key the file accepts, see the <a href="https://assistant.posit.co/docs/reference/providers-settings/"><code>providers.json</code> reference</a> in the Posit Assistant documentation.</p>
+<p>Open the file with the <em>Open AI Provider Settings (JSON)</em> command when you need something the provider dialog does not cover. That includes turning a provider off, sending custom HTTP headers, and filtering the model list. For every key the file accepts, see the <a href="https://assistant.posit.co/docs/reference/providers-config/"><code>providers.json</code> reference</a> in the Posit Assistant documentation.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -974,12 +974,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="region" class="level4">
 <h4 class="anchored" data-anchor-id="region">Region</h4>
 <p>Set a region if your shell does not already have one configured and your Bedrock-enabled account is not in <code>us-east-1</code> (the default). Use the standard AWS region identifier (for example, <code>us-east-1</code>, <code>eu-west-1</code>, <code>ap-southeast-1</code>). The <a href="https://docs.aws.amazon.com/general/latest/gr/bedrock.html">Amazon Bedrock endpoints and quotas</a> reference lists the identifier for each location. Make sure the models you want are <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html">available in that region</a>.</p>
-<p>Set it with the <code>AWS_REGION</code> environment variable before you launch Positron, or, to set it for Posit Assistant only, with the <code>aws.region</code> key under <code>providers.bedrock</code> in <code>providers.json</code>. See the <a href="https://assistant.posit.co/docs/reference/providers-settings/"><code>providers.json</code> reference</a> for the full list of <code>aws</code> keys.</p>
+<p>Set it with the <code>AWS_REGION</code> environment variable before you launch Positron, or, to set it for Posit Assistant only, with the <code>aws.region</code> key under <code>providers.bedrock</code> in <code>providers.json</code>. See the <a href="https://assistant.posit.co/docs/reference/providers-config/"><code>providers.json</code> reference</a> for the full list of <code>aws</code> keys.</p>
 </section>
 <section id="profile" class="level4">
 <h4 class="anchored" data-anchor-id="profile">Profile</h4>
 <p>Set a profile if the one you use for Bedrock is not named <code>default</code>. This applies when you have a dedicated Bedrock role separate from your development credentials, or your Bedrock access lives in a different AWS account. Run <code>aws configure list-profiles</code> in a terminal to see your profiles.</p>
-<p>Set it with the <code>AWS_PROFILE</code> environment variable before you launch Positron, or, to set it for Posit Assistant only, with the <code>aws.profile</code> key under <code>providers.bedrock</code> in <code>providers.json</code>. See the <a href="https://assistant.posit.co/docs/reference/providers-settings/"><code>providers.json</code> reference</a> for the full list of <code>aws</code> keys.</p>
+<p>Set it with the <code>AWS_PROFILE</code> environment variable before you launch Positron, or, to set it for Posit Assistant only, with the <code>aws.profile</code> key under <code>providers.bedrock</code> in <code>providers.json</code>. See the <a href="https://assistant.posit.co/docs/reference/providers-config/"><code>providers.json</code> reference</a> for the full list of <code>aws</code> keys.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1082,7 +1082,7 @@ Note
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Set the capability fields to match your deployment. For what each field means and the optional ones this example leaves out, see the <a href="https://assistant.posit.co/docs/reference/providers-settings/"><code>providers.json</code> reference</a>.</p>
+<p>Set the capability fields to match your deployment. For what each field means and the optional ones this example leaves out, see the <a href="https://assistant.posit.co/docs/reference/providers-config/"><code>providers.json</code> reference</a>.</p>
 </section>
 </section>
 <section id="openai" class="level2">
@@ -1142,19 +1142,6 @@ Note
 <p>For more detail, see GitHub’s guide on <a href="https://docs.github.com/en/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom">authenticating to GitHub Copilot on GHE.com</a>.</p>
 </section>
 </section>
-<section id="custom-provider" class="level2">
-<h2 class="anchored" data-anchor-id="custom-provider">Custom Provider <span class="provider-badge experimental">Experimental</span></h2>
-<p>The custom provider works with any <a href="https://ai-sdk.dev/providers/openai-compatible-providers">OpenAI-compatible</a> API endpoint that uses the <code>/v1/chat/completions</code> endpoint for chat. We do not recommend using a local model as a custom provider. Read more about why <a href="https://posit.co/blog/local-models-are-not-there-yet/">local models are not there (yet)</a> on the Posit blog.</p>
-<ul>
-<li><strong>Account:</strong> an account with your chosen OpenAI-compatible provider</li>
-<li><strong>Authentication:</strong> an API key and the provider’s base URL</li>
-</ul>
-<section id="configure-a-custom-model-listing" class="level3">
-<h3 class="anchored" data-anchor-id="configure-a-custom-model-listing">Configure a custom model listing</h3>
-<p>Some OpenAI-compatible providers might not implement the <code>/models</code> endpoint, which Positron uses to list available models. If this is the case for your provider, list the model IDs it serves in the <strong>Models</strong> field when you connect it. Positron saves them under <code>providers.openai-compatible.models</code> in <code>providers.json</code>.</p>
-<p>To change those entries, or to set the capability fields for each model, edit that block directly. See the <a href="https://assistant.posit.co/docs/reference/providers-settings/"><code>providers.json</code> reference</a> for how to choose which models appear.</p>
-</section>
-</section>
 <section id="deepseek" class="level2">
 <h2 class="anchored" data-anchor-id="deepseek">DeepSeek <span class="provider-badge experimental">Experimental</span></h2>
 <ul>
@@ -1177,7 +1164,7 @@ Note
 <li><strong>Authentication:</strong> authenticate with Google Cloud using Application Default Credentials (<code>gcloud</code>) or a service account (see below)</li>
 <li><strong>Configuration:</strong> your project ID and location, set with the <code>GOOGLE_VERTEX_PROJECT</code> and <code>GOOGLE_VERTEX_LOCATION</code> environment variables, or with the <code>googleCloud.project</code> and <code>googleCloud.location</code> keys under <code>providers.google-vertex</code> in <code>providers.json</code> (which take precedence)</li>
 </ul>
-<p>For the project and location keys, see the <a href="https://assistant.posit.co/docs/reference/providers-settings/"><code>providers.json</code> reference</a>.</p>
+<p>For the project and location keys, see the <a href="https://assistant.posit.co/docs/reference/providers-config/"><code>providers.json</code> reference</a>.</p>
 <section id="sign-in-with-application-default-credentials-adc" class="level3">
 <h3 class="anchored" data-anchor-id="sign-in-with-application-default-credentials-adc">Sign in with Application Default Credentials (ADC)</h3>
 <ol type="1">
@@ -1192,6 +1179,46 @@ Note
 <li><code>GOOGLE_CLIENT_EMAIL</code>: the service account’s client email</li>
 <li><code>GOOGLE_PRIVATE_KEY</code>: the service account’s private key</li>
 </ul>
+</section>
+</section>
+<section id="custom-providers" class="level2">
+<h2 class="anchored" data-anchor-id="custom-providers">Custom providers <span class="provider-badge experimental">Experimental</span></h2>
+<p>Beyond the providers above, you can add your own named entries: as many as you like, each with its own name, type, endpoint, credential, and model list. Use this to connect several accounts on the same provider, or a company gateway, under a name you choose.</p>
+<section id="add-a-custom-provider" class="level3">
+<h3 class="anchored" data-anchor-id="add-a-custom-provider">Add a custom provider</h3>
+<ol type="1">
+<li>Run <em>Authentication: Configure Language Model Providers</em> and select <strong>Add Custom Provider</strong>.</li>
+<li>Enter a <strong>Provider Name</strong>. It appears in the model picker, and you cannot change it from the dialog later.</li>
+<li>Select a <strong>Provider Type</strong>: <strong>OpenAI Compatible</strong>, <strong>Anthropic</strong>, or <strong>OpenAI</strong> (<a href="https://github.com/posit-dev/positron/issues/15701">tracking issue for more types</a>). The type decides the fields you fill in next. A custom entry reuses that provider’s own connection fields, so an Anthropic-type entry asks for the same API key as the built-in Anthropic provider.</li>
+<li>Enter the credential and base URL, if the type asks for them, and connect.</li>
+</ol>
+<p>Some endpoints do not implement a <code>/models</code> listing. If yours does not, list its model identifiers in the <strong>Models</strong> field before connecting.</p>
+</section>
+<section id="edit-or-remove-a-custom-provider" class="level3">
+<h3 class="anchored" data-anchor-id="edit-or-remove-a-custom-provider">Edit or remove a custom provider</h3>
+<p>You cannot rename a custom entry, change its type, or edit its model list from the provider dialog after creating it. To change any of these, open <code>providers.json</code> with the <em>Open AI Provider Settings (JSON)</em> command and edit its <code>providers.custom.&lt;name&gt;</code> block directly.</p>
+<p>To remove an entry, delete that block. <strong>Disconnect</strong> only clears the stored credential. The entry remains, ready to reconnect.</p>
+</section>
+<section id="providers.custom-in-providers.json" class="level3">
+<h3 class="anchored" data-anchor-id="providers.custom-in-providers.json"><code>providers.custom</code> in <code>providers.json</code></h3>
+<p>Each entry is a block under <code>providers.custom</code>, using the name you chose as the key:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>providers.json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-filename="providers.json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"providers"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"custom"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"my anthropic"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"anthropic"</span><span class="fu">,</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"enabled"</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"baseUrl"</span><span class="fu">:</span> <span class="st">"https://api.anthropic.com/v1"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">}</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>For the full set of fields, see the <a href="https://assistant.posit.co/docs/reference/providers-config/"><code>providers.json</code> reference</a>.</p>
 
 
 </section>

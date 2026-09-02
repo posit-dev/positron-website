@@ -70,9 +70,9 @@ Posit AI is Posit’s own hosted service, so Posit’s own policies apply rather
 - [Privacy Policy](https://www.snowflake.com/en/legal/privacy/privacy-policy/)
 - [Terms of Service](https://www.snowflake.com/en/legal/terms-of-service/)
 
-### Custom Provider
+### Custom providers
 
-The custom provider connects to any OpenAI-compatible endpoint you configure, so its data handling and terms depend entirely on the provider you choose. Review that provider’s own privacy policy and terms of service directly.
+A [named custom provider](assistant-providers.llms.md#custom-providers) follows the terms of whichever type you gave it. An Anthropic-type entry follows Anthropic’s terms above, an OpenAI-type entry follows OpenAI’s, and an OpenAI Compatible-type entry follows the terms of whichever endpoint you point it at.
 
 ## Support and terms of service
 

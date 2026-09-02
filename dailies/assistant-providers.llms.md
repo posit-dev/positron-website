@@ -12,7 +12,7 @@ Please ensure you consult your provider’s privacy policy and terms of service 
 
 Provider configuration lives in a single file: `~/.posit/ai/providers.json`. Positron writes it for you as you connect and edit providers. Your API keys and tokens are not in this file. Positron stores them separately.
 
-Open the file with the *Open AI Provider Settings (JSON)* command when you need something the provider dialog does not cover. That includes turning a provider off, sending custom HTTP headers, and filtering the model list. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/) in the Posit Assistant documentation.
+Open the file with the *Open AI Provider Settings (JSON)* command when you need something the provider dialog does not cover. That includes turning a provider off, sending custom HTTP headers, and filtering the model list. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) in the Posit Assistant documentation.
 
 > **NOTE:**
 >
@@ -45,13 +45,13 @@ Positron reads `AWS_REGION` from your environment and uses your `default` AWS CL
 
 Set a region if your shell does not already have one configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the identifier for each location. Make sure the models you want are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
 
-Set it with the `AWS_REGION` environment variable before you launch Positron, or, to set it for Posit Assistant only, with the `aws.region` key under `providers.bedrock` in `providers.json`. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/) for the full list of `aws` keys.
+Set it with the `AWS_REGION` environment variable before you launch Positron, or, to set it for Posit Assistant only, with the `aws.region` key under `providers.bedrock` in `providers.json`. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) for the full list of `aws` keys.
 
 #### Profile
 
 Set a profile if the one you use for Bedrock is not named `default`. This applies when you have a dedicated Bedrock role separate from your development credentials, or your Bedrock access lives in a different AWS account. Run `aws configure list-profiles` in a terminal to see your profiles.
 
-Set it with the `AWS_PROFILE` environment variable before you launch Positron, or, to set it for Posit Assistant only, with the `aws.profile` key under `providers.bedrock` in `providers.json`. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/) for the full list of `aws` keys.
+Set it with the `AWS_PROFILE` environment variable before you launch Positron, or, to set it for Posit Assistant only, with the `aws.profile` key under `providers.bedrock` in `providers.json`. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) for the full list of `aws` keys.
 
 > **NOTE:**
 >
@@ -125,7 +125,7 @@ To use specific models instead of `model-router`, declare them under `providers.
 }
 ```
 
-Set the capability fields to match your deployment. For what each field means and the optional ones this example leaves out, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/).
+Set the capability fields to match your deployment. For what each field means and the optional ones this example leaves out, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
 
 ## OpenAI
 
@@ -180,19 +180,6 @@ Before you start, make sure your organization administrator has enabled GitHub C
 
 For more detail, see GitHub’s guide on [authenticating to GitHub Copilot on GHE.com](https://docs.github.com/en/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
 
-## Custom Provider Experimental
-
-The custom provider works with any [OpenAI-compatible](https://ai-sdk.dev/providers/openai-compatible-providers) API endpoint that uses the `/v1/chat/completions` endpoint for chat. We do not recommend using a local model as a custom provider. Read more about why [local models are not there (yet)](https://posit.co/blog/local-models-are-not-there-yet/) on the Posit blog.
-
-- **Account:** an account with your chosen OpenAI-compatible provider
-- **Authentication:** an API key and the provider’s base URL
-
-### Configure a custom model listing
-
-Some OpenAI-compatible providers might not implement the `/models` endpoint, which Positron uses to list available models. If this is the case for your provider, list the model IDs it serves in the **Models** field when you connect it. Positron saves them under `providers.openai-compatible.models` in `providers.json`.
-
-To change those entries, or to set the capability fields for each model, edit that block directly. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/) for how to choose which models appear.
-
 ## DeepSeek Experimental
 
 - **Account:** a [DeepSeek](https://platform.deepseek.com/) account with API access
@@ -211,7 +198,7 @@ Formerly Google Vertex AI.
 - **Authentication:** authenticate with Google Cloud using Application Default Credentials (`gcloud`) or a service account (see below)
 - **Configuration:** your project ID and location, set with the `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` environment variables, or with the `googleCloud.project` and `googleCloud.location` keys under `providers.google-vertex` in `providers.json` (which take precedence)
 
-For the project and location keys, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-settings/).
+For the project and location keys, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
 
 ### Sign in with Application Default Credentials (ADC)
 
@@ -224,3 +211,42 @@ Set the following environment variables before launching Positron:
 
 - `GOOGLE_CLIENT_EMAIL`: the service account’s client email
 - `GOOGLE_PRIVATE_KEY`: the service account’s private key
+
+## Custom providers Experimental
+
+Beyond the providers above, you can add your own named entries: as many as you like, each with its own name, type, endpoint, credential, and model list. Use this to connect several accounts on the same provider, or a company gateway, under a name you choose.
+
+### Add a custom provider
+
+1.  Run *Authentication: Configure Language Model Providers* and select **Add Custom Provider**.
+2.  Enter a **Provider Name**. It appears in the model picker, and you cannot change it from the dialog later.
+3.  Select a **Provider Type**: **OpenAI Compatible**, **Anthropic**, or **OpenAI** ([tracking issue for more types](https://github.com/posit-dev/positron/issues/15701)). The type decides the fields you fill in next. A custom entry reuses that provider’s own connection fields, so an Anthropic-type entry asks for the same API key as the built-in Anthropic provider.
+4.  Enter the credential and base URL, if the type asks for them, and connect.
+
+Some endpoints do not implement a `/models` listing. If yours does not, list its model identifiers in the **Models** field before connecting.
+
+### Edit or remove a custom provider
+
+You cannot rename a custom entry, change its type, or edit its model list from the provider dialog after creating it. To change any of these, open `providers.json` with the *Open AI Provider Settings (JSON)* command and edit its `providers.custom.<name>` block directly.
+
+To remove an entry, delete that block. **Disconnect** only clears the stored credential. The entry remains, ready to reconnect.
+
+### `providers.custom` in `providers.json`
+
+Each entry is a block under `providers.custom`, using the name you chose as the key:
+
+``` json
+{
+  "providers": {
+    "custom": {
+      "my anthropic": {
+        "type": "anthropic",
+        "enabled": true,
+        "baseUrl": "https://api.anthropic.com/v1"
+      }
+    }
+  }
+}
+```
+
+For the full set of fields, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
