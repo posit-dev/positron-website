@@ -75,8 +75,5 @@ Each driver writes to its own Output channel, named `Data Connections: <driver>`
 
 ## Settings
 
-| Setting | Description |
-|---------|-------------|
-| [`dataConnections.enabled`](positron://settings/dataConnections.enabled) | Enable the Data Connections panel. Requires a reload to take effect. Can be set per workspace. |
-
-: {tbl-colwidths="[35,65]"}
+- [`dataConnections.enabled`](positron://settings/dataConnections.enabled): Enable the Data Connections panel. Requires a reload to take effect. Can be set per workspace.
+- [`dataConnections.tree.showSingleSchema`](positron://settings/dataConnections.tree.showSingleSchema): Show a connection's schema even when it is the only one, folded together with its group on a single row (for example "Schemas · public"). When disabled (the default), a lone schema is hidden and its tables and views are shown directly under the connection.
