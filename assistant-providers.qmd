@@ -108,7 +108,7 @@ In Positron Desktop, select **OAuth** in the Databricks provider dialog and comp
 
 ### Personal access token
 
-Create a personal access token in your Databricks workspace. In the Databricks provider dialog, enter the **Workspace URL** and **Personal Access Token**. Positron checks the token with the Databricks workspace before saving it.
+Create a personal access token in your Databricks workspace. In the Databricks provider dialog, enter the **Workspace URL** and **API Key**. Positron checks the token with the Databricks workspace before saving it.
 
 You can also provide the same credential through environment variables before you launch Positron:
 
@@ -124,7 +124,7 @@ By default, Positron reads the `workbench` profile from `~/.databrickscfg`. To u
 Posit Workbench managed Databricks credentials use this path automatically, so you usually do not need to set these environment variables yourself in Workbench.
 
 ::: {.callout-note}
-When several Databricks credential sources are available, Positron uses them in this order: Posit Workbench managed credentials, `DATABRICKS_TOKEN` environment variable, `.databrickscfg` profile, then an interactive prompt.
+When several Databricks credential sources are available, Positron uses them in a fixed priority order. It checks Posit Workbench managed credentials first, then the `DATABRICKS_TOKEN` environment variable, then a `.databrickscfg` profile, and finally falls back to an interactive prompt.
 :::
 
 ## Microsoft Foundry {#microsoft-foundry}
