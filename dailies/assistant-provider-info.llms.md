@@ -31,6 +31,11 @@ Posit AI is Posit’s own hosted service, so Posit’s own policies apply rather
 - [Console Privacy Controls](https://platform.claude.com/settings/privacy)
 - [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms)
 
+### Databricks
+
+- [Privacy Notice](https://www.databricks.com/legal/privacynotice)
+- [Master Cloud Services Agreement](https://www.databricks.com/legal/mcsa)
+
 ### DeepSeek
 
 - [Privacy Policy](https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html)

@@ -19,6 +19,7 @@ To connect a provider, run the command *Authentication: Configure Language Model
 | [OpenAI](assistant-providers.llms.md#openai) |  |  | API Key |
 | [Snowflake Cortex](assistant-providers.llms.md#snowflake-cortex) |  |  | API Key or Workbench Managed Credentials |
 | [GitHub Copilot](assistant-providers.llms.md#github-copilot) Preview |  |  | OAuth |
+| [Databricks](assistant-providers.llms.md#databricks) Experimental |  |  | OAuth, Personal Access Token, Environment Variable, CLI Profile, or Workbench Managed Credentials |
 | [DeepSeek](assistant-providers.llms.md#deepseek) Experimental |  |  | API Key |
 | [Google Gemini](assistant-providers.llms.md#gemini-code-assist) Experimental |  |  | API Key |
 | [Gemini Enterprise Agent Platform](assistant-providers.llms.md#gemini-enterprise-agent-platform) Experimental |  |  | Google Cloud CLI or Service Account Credentials |

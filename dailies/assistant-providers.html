@@ -890,6 +890,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#openai" id="toc-openai" class="nav-link" data-scroll-target="#openai">OpenAI</a></li>
   <li><a href="#snowflake-cortex" id="toc-snowflake-cortex" class="nav-link" data-scroll-target="#snowflake-cortex">Snowflake Cortex</a></li>
   <li><a href="#github-copilot" id="toc-github-copilot" class="nav-link" data-scroll-target="#github-copilot">GitHub Copilot <span class="provider-badge preview">Preview</span></a></li>
+  <li><a href="#databricks" id="toc-databricks" class="nav-link" data-scroll-target="#databricks">Databricks <span class="provider-badge experimental">Experimental</span></a></li>
   <li><a href="#deepseek" id="toc-deepseek" class="nav-link" data-scroll-target="#deepseek">DeepSeek <span class="provider-badge experimental">Experimental</span></a></li>
   <li><a href="#gemini-code-assist" id="toc-gemini-code-assist" class="nav-link" data-scroll-target="#gemini-code-assist">Google Gemini <span class="provider-badge experimental">Experimental</span></a></li>
   <li><a href="#gemini-enterprise-agent-platform" id="toc-gemini-enterprise-agent-platform" class="nav-link" data-scroll-target="#gemini-enterprise-agent-platform">Gemini Enterprise Agent Platform <span class="provider-badge experimental">Experimental</span></a></li>
@@ -1140,6 +1141,47 @@ Note
 <li><p>Save the file. A prompt will appear asking you to sign in to GitHub. Click it and complete the browser authorization flow. If no prompt appears, restart Positron.</p></li>
 </ol>
 <p>For more detail, see GitHub’s guide on <a href="https://docs.github.com/en/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom">authenticating to GitHub Copilot on GHE.com</a>.</p>
+</section>
+</section>
+<section id="databricks" class="level2">
+<h2 class="anchored" data-anchor-id="databricks">Databricks <span class="provider-badge experimental">Experimental</span></h2>
+<p>Connect to Databricks with OAuth, a personal access token, or automatically discovered credentials.</p>
+<ul>
+<li><strong>Account:</strong> a Databricks workspace with access to supported AI models</li>
+<li><strong>Authentication:</strong> sign in through your browser with OAuth in Positron Desktop, enter a personal access token, or let Positron use automatic credentials from <code>DATABRICKS_TOKEN</code>, a <code>.databrickscfg</code> profile, or Posit Workbench managed credentials</li>
+<li><strong>Configuration:</strong> the workspace URL, entered in the <strong>Workspace URL</strong> field in the provider dialog, in a format like <code>https://adb-1234567890123456.7.azuredatabricks.net</code></li>
+</ul>
+<section id="sign-in-with-oauth" class="level3">
+<h3 class="anchored" data-anchor-id="sign-in-with-oauth">Sign in with OAuth</h3>
+<p>In Positron Desktop, select <strong>OAuth</strong> in the Databricks provider dialog and complete the browser sign-in flow. OAuth is not available when Positron runs on a remote server or in a browser. Use a personal access token or automatic credentials in those environments.</p>
+</section>
+<section id="personal-access-token" class="level3">
+<h3 class="anchored" data-anchor-id="personal-access-token">Personal access token</h3>
+<p>Create a personal access token in your Databricks workspace. In the Databricks provider dialog, enter the <strong>Workspace URL</strong> and <strong>API Key</strong>. Positron checks the token with the Databricks workspace before saving it.</p>
+<p>You can also provide the same credential through environment variables before you launch Positron:</p>
+<ul>
+<li><code>DATABRICKS_HOST</code>: the workspace URL</li>
+<li><code>DATABRICKS_TOKEN</code>: the personal access token</li>
+</ul>
+</section>
+<section id="automatic-credentials-from-.databrickscfg" class="level3">
+<h3 class="anchored" data-anchor-id="automatic-credentials-from-.databrickscfg">Automatic credentials from <code>.databrickscfg</code></h3>
+<p>Positron can read Databricks credentials from a Databricks CLI configuration file when the file is available to Positron’s extension host. In Positron Desktop, this is your local machine. In Positron on a remote server or in Posit Workbench, this is the remote server environment.</p>
+<p>By default, Positron reads the <code>workbench</code> profile from <code>~/.databrickscfg</code>. To use a different profile name, set <code>DATABRICKS_CONFIG_PROFILE</code> before you launch Positron. To use a configuration file in a different location, set <code>DATABRICKS_CONFIG_FILE</code>.</p>
+<p>Posit Workbench managed Databricks credentials use this path automatically, so you usually do not need to set these environment variables yourself in Workbench.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When several Databricks credential sources are available, Positron uses them in a fixed priority order. It checks Posit Workbench managed credentials first, then the <code>DATABRICKS_TOKEN</code> environment variable, then a <code>.databrickscfg</code> profile, and finally falls back to an interactive prompt.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="deepseek" class="level2">

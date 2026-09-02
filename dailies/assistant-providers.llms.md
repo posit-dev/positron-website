@@ -180,6 +180,39 @@ Before you start, make sure your organization administrator has enabled GitHub C
 
 For more detail, see GitHub’s guide on [authenticating to GitHub Copilot on GHE.com](https://docs.github.com/en/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
 
+## Databricks Experimental
+
+Connect to Databricks with OAuth, a personal access token, or automatically discovered credentials.
+
+- **Account:** a Databricks workspace with access to supported AI models
+- **Authentication:** sign in through your browser with OAuth in Positron Desktop, enter a personal access token, or let Positron use automatic credentials from `DATABRICKS_TOKEN`, a `.databrickscfg` profile, or Posit Workbench managed credentials
+- **Configuration:** the workspace URL, entered in the **Workspace URL** field in the provider dialog, in a format like `https://adb-1234567890123456.7.azuredatabricks.net`
+
+### Sign in with OAuth
+
+In Positron Desktop, select **OAuth** in the Databricks provider dialog and complete the browser sign-in flow. OAuth is not available when Positron runs on a remote server or in a browser. Use a personal access token or automatic credentials in those environments.
+
+### Personal access token
+
+Create a personal access token in your Databricks workspace. In the Databricks provider dialog, enter the **Workspace URL** and **API Key**. Positron checks the token with the Databricks workspace before saving it.
+
+You can also provide the same credential through environment variables before you launch Positron:
+
+- `DATABRICKS_HOST`: the workspace URL
+- `DATABRICKS_TOKEN`: the personal access token
+
+### Automatic credentials from `.databrickscfg`
+
+Positron can read Databricks credentials from a Databricks CLI configuration file when the file is available to Positron’s extension host. In Positron Desktop, this is your local machine. In Positron on a remote server or in Posit Workbench, this is the remote server environment.
+
+By default, Positron reads the `workbench` profile from `~/.databrickscfg`. To use a different profile name, set `DATABRICKS_CONFIG_PROFILE` before you launch Positron. To use a configuration file in a different location, set `DATABRICKS_CONFIG_FILE`.
+
+Posit Workbench managed Databricks credentials use this path automatically, so you usually do not need to set these environment variables yourself in Workbench.
+
+> **NOTE:**
+>
+> When several Databricks credential sources are available, Positron uses them in a fixed priority order. It checks Posit Workbench managed credentials first, then the `DATABRICKS_TOKEN` environment variable, then a `.databrickscfg` profile, and finally falls back to an interactive prompt.
+
 ## DeepSeek Experimental
 
 - **Account:** a [DeepSeek](https://platform.deepseek.com/) account with API access
