@@ -3049,7 +3049,7 @@
     "href": "data-connections.html#settings",
     "title": "Data Connections",
     "section": "Settings",
-    "text": "Settings\n\n\n\n\n\n\n\nSetting\nDescription\n\n\n\n\ndataConnections.enabled\nEnable the Data Connections panel. Requires a reload to take effect. Can be set per workspace.",
+    "text": "Settings\n\ndataConnections.enabled: Enable the Data Connections panel. Requires a reload to take effect. Can be set per workspace.\ndataConnections.tree.showSingleSchema: Show a connection’s schema even when it is the only one, folded together with its group on a single row (for example “Schemas · public”). When disabled (the default), a lone schema is hidden and its tables and views are shown directly under the connection.",
     "crumbs": [
       "Guides",
       "Database Connections"
