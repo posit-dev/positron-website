@@ -116,7 +116,7 @@ To use Posit Assistant, you must first log in to a model provider with _Authenti
 
 ![The Configure Language Model Providers window](images/tutorial-python-ai-configure-model.png){width=500 fig-alt="The Posit Assistant Configure Language Model Providers window."}
 
-Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, [Posit AI](assistant-providers.qmd#posit-ai) is the most direct way to get started. You can start a free trial at [posit.ai](https://posit.ai/) and sign in through your browser, with no API keys to manage.
+Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, [Posit AI Pass](assistant-providers.qmd#posit-ai) is the most direct way to get started. You can start a free trial at [posit.ai](https://posit.ai/) and sign in through your browser, with no API keys to manage.
 
 ::: {.callout-tip title="Try it now"}
 1. Run _Authentication: Configure Language Model Providers_ from the Command Palette.
@@ -127,7 +127,7 @@ Because providers differ in what account and credentials they need, the steps be
 :::
 
 ::: {.callout-note}
-For notebook work, we recommend an [Anthropic](assistant-providers.qmd#anthropic) model for the best experience. You can connect it directly, or reach Anthropic models through Posit AI.
+For notebook work, we recommend an [Anthropic](assistant-providers.qmd#anthropic) model for the best experience. You can connect it directly, or reach Anthropic models through Posit AI Pass.
 :::
 
 ## Ask Posit Assistant to write the analysis

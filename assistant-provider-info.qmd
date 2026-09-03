@@ -13,9 +13,9 @@ Please review your providers' websites directly for complete and updated details
 
 ## Providers
 
-### Posit AI
+### Posit AI Pass {#posit-ai}
 
-Posit AI is Posit's own hosted service, so Posit's own policies apply rather than a third party's.
+Posit AI Pass is Posit's own hosted service, so Posit's own policies apply rather than a third party's.
 
 * [Privacy Policy](https://posit.co/about/privacy-policy/)
 * [Posit AI Agreement](https://posit.co/about/posit-ai-agreement)

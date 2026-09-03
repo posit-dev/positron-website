@@ -1,6 +1,6 @@
 ---
 title: "Get started"
-description: "Set up AI assistance in Positron: configure a language model provider such as Posit AI, Anthropic, or GitHub Copilot, then use AI features in Positron, such as Posit Assistant."
+description: "Set up AI assistance in Positron: configure a language model provider such as Posit AI Pass, Anthropic, or GitHub Copilot, then use AI features in Positron, such as Posit Assistant."
 listing:
   - id: ai-features
     type: custom
@@ -30,7 +30,7 @@ To connect a provider, run the command _Authentication: Configure Language Model
 
 | Provider | Chat | Code Completions | Authentication |
 |------|:--:|:---:|---------|
-| [Posit AI](assistant-providers.qmd#posit-ai) | {{< fa check >}} | {{< fa check >}} | OAuth |
+| [Posit AI Pass](assistant-providers.qmd#posit-ai) | {{< fa check >}} | {{< fa check >}} | OAuth |
 | [Amazon Bedrock](assistant-providers.qmd#amazon-bedrock) | {{< fa check >}} | | AWS CLI or Posit Workbench Managed Credentials |
 | [Anthropic](assistant-providers.qmd#anthropic) | {{< fa check >}} | | API Key |
 | [Microsoft Foundry](assistant-providers.qmd#microsoft-foundry) | {{< fa check >}} | | API Key or Workbench Managed Credentials |
