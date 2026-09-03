@@ -107,7 +107,7 @@ Console code submission is now faster, always shows visual feedback, and can be 
 - [[#15177](https://github.com/posit-dev/positron/issues/15177)] Workbench: extension installs now honor `http.noProxy` and `NO_PROXY`, so an administrator can exempt the extension gallery from a corporate proxy.
 - [[#13719](https://github.com/posit-dev/positron/issues/13719)] Workbench: the session pod no longer goes to an error state when a user quits a Workbench session.
 - [[#15752](https://github.com/posit-dev/positron/pull/15752)] Workbench: fixed MCP server OAuth sign-in failures when Dynamic Client Registration requires an exact callback URL match.
-- [[#13902](https://github.com/posit-dev/positron/issues/13902)] Data Explorer: fixed columns and rows showing through pinned columns and pinned rows while scrolling.
+
 - [[#15427](https://github.com/posit-dev/positron/issues/15427)] Data Explorer: fixed slow scrolling when an enforced setting or a policy is active.
 - [[#15361](https://github.com/posit-dev/positron/issues/15361)] Data Explorer: fixed repeating or dropping rows when scrolling or exporting unsorted SQLite and DuckDB tables and views.
 - [[#15366](https://github.com/posit-dev/positron/issues/15366)] Data Explorer: fixed `DECIMAL` and `NUMERIC` values being rounded through a floating-point number before display, which rounded the wrong way at the digit limit and lost whole-number digits beyond 2^53.
