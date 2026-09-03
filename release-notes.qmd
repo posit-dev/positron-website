@@ -2,7 +2,7 @@
 title: "Release Notes"
 description: "View release notes for all Positron versions. Track new features, bug fixes, and improvements across monthly releases."
 aliases:
-  - release-notes/release-2026-08.html
+  - release-notes/release-2026-09.html
 ---
 
 ```{r}
