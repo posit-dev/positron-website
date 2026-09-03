@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f99b58bb69b961cc97e8aa78c1e615ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-34914894d4a419ab56af16687755a625.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
@@ -87,17 +87,13 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="Positron Notebook Editor – Positron">
 <meta property="og:description" content="Use the Positron Notebook Editor for a native notebook experience with integrated AI assistance, data exploration, and improved data science workflows.">
-<meta property="og:image" content="https://positron.posit.co/images/positron-notebook-layout.png">
+<meta property="og:image" content="https://positron.posit.co/images/positron-notebook-layout.svg">
 <meta property="og:site_name" content="Positron">
-<meta property="og:image:alt" content="Positron IDE with labeled regions: Assistant Chat pane on left, Notebook Editor in center showing code and a bar chart, and Variables pane on right.">
-<meta property="og:image:height" content="2164">
-<meta property="og:image:width" content="3404">
+<meta property="og:image:alt" content="Stylized diagram of the Positron IDE with three main regions: the Posit Assistant chat pane on the left, the notebook editor in the center showing a code cell and a scatter plot, and the Session pane on the right listing variables in the active session.">
 <meta name="twitter:title" content="Positron Notebook Editor – Positron">
 <meta name="twitter:description" content="Use the Positron Notebook Editor for a native notebook experience with integrated AI assistance, data exploration, and improved data science workflows.">
-<meta name="twitter:image" content="https://positron.posit.co/images/positron-notebook-layout.png">
-<meta name="twitter:image:alt" content="Positron IDE with labeled regions: Assistant Chat pane on left, Notebook Editor in center showing code and a bar chart, and Variables pane on right.">
-<meta name="twitter:image-height" content="2164">
-<meta name="twitter:image-width" content="3404">
+<meta name="twitter:image" content="https://positron.posit.co/images/positron-notebook-layout.svg">
+<meta name="twitter:image:alt" content="Stylized diagram of the Positron IDE with three main regions: the Posit Assistant chat pane on the left, the notebook editor in the center showing a code cell and a scatter plot, and the Session pane on the right listing variables in the active session.">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -552,13 +548,19 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+            <a href="./data-connections.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Database Connections</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-connections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./connections-pane.html" class="sidebar-item-text sidebar-link">
@@ -929,8 +931,8 @@ Note
 <p>For the best experience, open the Command Palette with <kbd title="linux: Ctrl-Shift-P, mac: Command-Shift-P, windows: Ctrl-Shift-P" aria-hidden="true" data-linux="Ctrl-Shift-P" data-mac="Command-Shift-P" data-windows="Ctrl-Shift-P"></kbd><span class="visually-hidden"></span> and run the <em>View: Notebook Layout</em> command. This layout arranges the IDE panes into a notebook-friendly setup, giving you quick access to your variables, plots, and other data science tools alongside your notebook.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/positron-notebook-layout.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The Positron IDE in Notebook layout showing the Positron Assistant chat pane to the left, the notebook editor in the center, and the Variables pane to the right."><img src="images/positron-notebook-layout.png" class="img-fluid figure-img" alt="Positron IDE with labeled regions: Assistant Chat pane on left, Notebook Editor in center showing code and a bar chart, and Variables pane on right."></a></p>
-<figcaption>The Positron IDE in Notebook layout showing the Positron Assistant chat pane to the left, the notebook editor in the center, and the Variables pane to the right.</figcaption>
+<p><a href="images/positron-notebook-layout.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Diagram of the Positron IDE in Notebook layout showing the Posit Assistant chat pane to the left, the notebook editor in the center, and the Session pane with Variables to the right."><img src="images/positron-notebook-layout.svg" class="drop-shadow img-fluid figure-img" alt="Stylized diagram of the Positron IDE with three main regions: the Posit Assistant chat pane on the left, the notebook editor in the center showing a code cell and a scatter plot, and the Session pane on the right listing variables in the active session."></a></p>
+<figcaption>Diagram of the Positron IDE in Notebook layout showing the Posit Assistant chat pane to the left, the notebook editor in the center, and the Session pane with Variables to the right.</figcaption>
 </figure>
 </div>
 <p>To learn more about customizing the Positron interface, read the <a href="./layout.html">Layout</a> documentation.</p>
@@ -971,7 +973,6 @@ Note
 <li><strong>Transparent</strong>: You can inspect and control the specific context the Assistant is using.</li>
 <li><strong>Collaborative</strong>: Use <a href="#follow-assistant">Follow Assistant</a> to automatically scroll and highlight cells as they are edited.</li>
 </ul>
-<div class="quarto-video"><video controls="" playsinline="" preload="none" poster="https://cdn.posit.co/positron/releases/videos/notebook-ai-quick-actions-poster.jpg" aria-label="Using Positron Assistant to generate AI-powered suggestions and edits in a notebook"><source src="https://cdn.posit.co/positron/releases/videos/notebook-ai-quick-actions.mp4" type="video/mp4"></video></div>
 <section id="enable-posit-assistant" class="level3">
 <h3 class="anchored" data-anchor-id="enable-posit-assistant">Enable Posit Assistant</h3>
 <p>To use the integrated notebook AI features, first configure a language model provider. See the <a href="./assistant-getting-started.html">Getting Started</a> guide for more details. We recommend using Anthropic for the best experience.</p>
@@ -1007,8 +1008,7 @@ Note
 <li><strong>Fix:</strong> Assistant diagnoses the error and suggests a corrected version of your code.</li>
 <li><strong>Explain:</strong> Assistant describes what your code does, analyzes the error, and suggests possible solutions, without editing your notebook.</li>
 </ul>
-<div class="quarto-video"><video controls="" playsinline="" preload="none" poster="https://cdn.posit.co/positron/releases/videos/notebook-fix-error-poster.jpg" aria-label="Using Fix and Explain on a notebook cell error"><source src="https://cdn.posit.co/positron/releases/videos/notebook-fix-error.mp4" type="video/mp4"></video></div>
-<p>The main button starts a new chat with the error attached as context. Use the dropdown arrow next to it to send the error to your current chat instead.</p>
+<p>Use the button to start a new chat with the error attached as context. Use the dropdown arrow on the button to send the error to your current chat instead.</p>
 </section>
 <section id="ghost-cell-suggestions-experimental" class="level3">
 <h3 class="anchored" data-anchor-id="ghost-cell-suggestions-experimental">Ghost cell suggestions (experimental)</h3>
@@ -1494,7 +1494,7 @@ Note
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.08.2-4</p>
+<p>Positron 2026.09.0-256</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/positron-notebook-editor.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/positron-notebook-editor.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

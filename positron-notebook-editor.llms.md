@@ -29,9 +29,9 @@ You can create and edit `.ipynb` files in Positron just as you would in other ed
 
 For the best experience, open the Command Palette with and run the *View: Notebook Layout* command. This layout arranges the IDE panes into a notebook-friendly setup, giving you quick access to your variables, plots, and other data science tools alongside your notebook.
 
-[![Positron IDE with labeled regions: Assistant Chat pane on left, Notebook Editor in center showing code and a bar chart, and Variables pane on right.](images/positron-notebook-layout.png)](images/positron-notebook-layout.png "The Positron IDE in Notebook layout showing the Positron Assistant chat pane to the left, the notebook editor in the center, and the Variables pane to the right.")
+[![Stylized diagram of the Positron IDE with three main regions: the Posit Assistant chat pane on the left, the notebook editor in the center showing a code cell and a scatter plot, and the Session pane on the right listing variables in the active session.](images/positron-notebook-layout.svg)](images/positron-notebook-layout.svg "Diagram of the Positron IDE in Notebook layout showing the Posit Assistant chat pane to the left, the notebook editor in the center, and the Session pane with Variables to the right.")
 
-The Positron IDE in Notebook layout showing the Positron Assistant chat pane to the left, the notebook editor in the center, and the Variables pane to the right.
+Diagram of the Positron IDE in Notebook layout showing the Posit Assistant chat pane to the left, the notebook editor in the center, and the Session pane with Variables to the right.
 
 To learn more about customizing the Positron interface, read the [Layout](layout.llms.md) documentation.
 
@@ -108,7 +108,7 @@ When a cell fails to run, Positron shows **Fix** and **Explain** buttons right o
 - **Fix:** Assistant diagnoses the error and suggests a corrected version of your code.
 - **Explain:** Assistant describes what your code does, analyzes the error, and suggests possible solutions, without editing your notebook.
 
-The main button starts a new chat with the error attached as context. Use the dropdown arrow next to it to send the error to your current chat instead.
+Use the button to start a new chat with the error attached as context. Use the dropdown arrow on the button to send the error to your current chat instead.
 
 ### Ghost cell suggestions (experimental)
 

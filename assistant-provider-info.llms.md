@@ -12,9 +12,9 @@ Please review your providers’ websites directly for complete and updated detai
 
 ## Providers
 
-### Posit AI
+### Posit AI Pass
 
-Posit AI is Posit’s own hosted service, so Posit’s own policies apply rather than a third party’s.
+Posit AI Pass is Posit’s own hosted service, so Posit’s own policies apply rather than a third party’s.
 
 - [Privacy Policy](https://posit.co/about/privacy-policy/)
 - [Posit AI Agreement](https://posit.co/about/posit-ai-agreement)
@@ -30,6 +30,11 @@ Posit AI is Posit’s own hosted service, so Posit’s own policies apply rather
 - [Commercial Privacy Center](https://privacy.claude.com/en/collections/10663361-commercial-customers)
 - [Console Privacy Controls](https://platform.claude.com/settings/privacy)
 - [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms)
+
+### Databricks
+
+- [Privacy Notice](https://www.databricks.com/legal/privacynotice)
+- [Master Cloud Services Agreement](https://www.databricks.com/legal/mcsa)
 
 ### DeepSeek
 
@@ -70,9 +75,9 @@ Posit AI is Posit’s own hosted service, so Posit’s own policies apply rather
 - [Privacy Policy](https://www.snowflake.com/en/legal/privacy/privacy-policy/)
 - [Terms of Service](https://www.snowflake.com/en/legal/terms-of-service/)
 
-### Custom Provider
+### Custom providers
 
-The custom provider connects to any OpenAI-compatible endpoint you configure, so its data handling and terms depend entirely on the provider you choose. Review that provider’s own privacy policy and terms of service directly.
+A [named custom provider](assistant-providers.llms.md#custom-providers) follows the terms of whichever type you gave it. An Anthropic-type entry follows Anthropic’s terms above, an OpenAI-type entry follows OpenAI’s, and an OpenAI Compatible-type entry follows the terms of whichever endpoint you point it at.
 
 ## Support and terms of service
 
@@ -84,7 +89,7 @@ AI features in Positron use a bring-your-own-key (BYO-key) model. You connect to
 
 ### Data collection and privacy
 
-Positron provides local software as a client to your selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when you use AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). This applies as long as you use an external model provider. These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. If you select [Posit AI](assistant-provider-info.llms.md#posit-ai) as your model provider, the [privacy policy](privacy.llms.md) and [Posit AI Agreement](https://posit.co/about/posit-ai-agreement) apply instead.
+Positron provides local software as a client to your selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when you use AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). This applies as long as you use an external model provider. These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. If you select [Posit AI Pass](assistant-provider-info.llms.md#posit-ai) as your model provider, the [privacy policy](privacy.llms.md) and [Posit AI Agreement](https://posit.co/about/posit-ai-agreement) apply instead.
 
 If you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with [Posit’s privacy policy](privacy.llms.md).
 

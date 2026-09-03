@@ -4,7 +4,7 @@ Use Posit Assistant to explore Excel data, build an R analysis in a Quarto docum
 
 > **NOTE:**
 >
-> Is this the right tutorial to start with? It picks up where [First data analysis with R in a Quarto document](tutorial-get-started-quarto.llms.md) and [Migrate to Positron from RStudio](tutorial-migrate-from-RStudio.llms.md) leave off. If you have not worked through those, start there. This tutorial assumes you already know how to:
+> Is this the right tutorial to start with? It picks up where [First data analysis with R in a Quarto document](tutorial-get-started-quarto.llms.md) and [Migrate to Positron from RStudio](tutorial-migrate-from-rstudio.llms.md) leave off. If you have not worked through those, start there. This tutorial assumes you already know how to:
 >
 > 1.  Install Positron
 > 2.  Use the Command Palette
@@ -112,7 +112,7 @@ To use Posit Assistant, you must first log in to a model provider with *Authenti
 
 The Configure Language Model Providers window
 
-Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, [Posit AI](assistant-providers.llms.md#posit-ai) is the most direct way to get started. You can start a free trial at [posit.ai](https://posit.ai/) and sign in through your browser, with no API keys to manage.
+Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, [Posit AI Pass](assistant-providers.llms.md#posit-ai) is the most direct way to get started. You can start a free trial at [posit.ai](https://posit.ai/) and sign in through your browser, with no API keys to manage.
 
 > **TIP:**
 >
@@ -124,7 +124,7 @@ Because providers differ in what account and credentials they need, the steps be
 
 > **NOTE:**
 >
-> Later in this tutorial you will also use code completions, which require [Posit AI](assistant-providers.llms.md#posit-ai) or [GitHub Copilot](assistant-providers.llms.md#github-copilot). Connecting one of those providers now lets you try that step when you reach it.
+> Later in this tutorial you will also use code completions, which require [Posit AI Pass](assistant-providers.llms.md#posit-ai) or [GitHub Copilot](assistant-providers.llms.md#github-copilot). Connecting one of those providers now lets you try that step when you reach it.
 
 ## Ask Posit Assistant to write the analysis
 
@@ -245,7 +245,7 @@ Posit Assistant explaining a cell error in a Quarto document
 
 ## Complete a line of code as you type
 
-Code completions suggest the next line as you type, drawn from the context of the surrounding code. The suggestion appears in faded ghost text that you accept with a keypress, so you fill in familiar code without typing every character. Posit AI or GitHub Copilot powers completions, so connect one of those providers if you have not already.
+Code completions suggest the next line as you type, drawn from the context of the surrounding code. The suggestion appears in faded ghost text that you accept with a keypress, so you fill in familiar code without typing every character. Posit AI Pass or GitHub Copilot powers completions, so connect one of those providers if you have not already.
 
 > **TIP:**
 >

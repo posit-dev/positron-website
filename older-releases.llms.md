@@ -6,6 +6,7 @@ Older releases [are also available on GitHub](https://github.com/posit-dev/posit
 
 | Release | Link |
 |----|----|
+| [2026.08.0-331 Release Notes](release-notes/release-2026-08.llms.md) | https://github.com/posit-dev/positron/releases/tag/2026.08.0-331 |
 | [2026.07.0-365 Release Notes](release-notes/release-2026-07.llms.md) | <https://github.com/posit-dev/positron/releases/tag/2026.07.0-365> |
 | [2026.06.0-211 Release Notes](release-notes/release-2026-06.llms.md) | <https://github.com/posit-dev/positron/releases/tag/2026.06.0-211> |
 | [2026.05.0-179 Release Notes](release-notes/release-2026-05.llms.md) | <https://github.com/posit-dev/positron/releases/tag/2026.05.0-179> |

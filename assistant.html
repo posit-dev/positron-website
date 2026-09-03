@@ -50,7 +50,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f99b58bb69b961cc97e8aa78c1e615ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-34914894d4a419ab56af16687755a625.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -603,13 +603,19 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+            <a href="./data-connections.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Database Connections</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-connections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./connections-pane.html" class="sidebar-item-text sidebar-link">
@@ -952,30 +958,34 @@ window.Quarto = {
 <td>Slash commands typed at the start of a message that trigger special actions, such as <code>/plan</code>, <code>/new</code>, and <code>/savememory</code>.</td>
 </tr>
 <tr class="even">
-<td><a href="https://assistant.posit.co/docs/features/skills/">Skills</a></td>
-<td>Specialized knowledge modules that load automatically when relevant to a request, with no manual activation needed. Built-ins include <code>quarto-authoring</code>, <code>shiny-bslib</code>, and <code>predictive-modeling-r</code>, plus user and project-level custom skills.</td>
-</tr>
-<tr class="odd">
-<td><a href="https://assistant.posit.co/docs/features/memory/">Memory</a></td>
-<td>Persistent project context via an <code>AGENTS.md</code> file that captures conventions, architecture, and preferences. The file loads automatically at the start of every conversation in trusted workspaces.</td>
-</tr>
-<tr class="even">
-<td><a href="https://assistant.posit.co/docs/features/conversations/">Conversations</a></td>
-<td>Full conversation history with switching, renaming, and deletion. Includes tree-based branching when you edit a previous message and import and export in Markdown, HTML, or JSON.</td>
+<td><a href="https://assistant.posit.co/docs/features/chat-features/">Chat Features</a></td>
+<td>File attachments via drag-and-drop, clipboard paste, or the paperclip, with <code>@</code> mentions to reference workspace files. Also includes adjustable thinking effort (Off, Low, Medium, and High) and optional web search.</td>
 </tr>
 <tr class="odd">
 <td><a href="https://assistant.posit.co/docs/features/plan-mode/">Plan Mode</a></td>
 <td>A collaborative design phase where the assistant explores the codebase, asks questions, and writes a plan file before changing code. Best for multi-step features, refactors, and unfamiliar codebases.</td>
 </tr>
 <tr class="even">
-<td><a href="https://assistant.posit.co/docs/features/chat-features/">Chat Features</a></td>
-<td>File attachments via drag-and-drop, clipboard paste, or the paperclip, with <code>@</code> mentions to reference workspace files. Also includes adjustable thinking effort (Off, Low, Medium, and High) and optional web search.</td>
+<td><a href="https://assistant.posit.co/docs/features/skills/">Skills</a></td>
+<td>Specialized knowledge modules that load automatically when relevant to a request, with no manual activation needed. Built-ins include <code>quarto-authoring</code>, <code>shiny-bslib</code>, and <code>predictive-modeling-r</code>, plus user and project-level custom skills.</td>
 </tr>
 <tr class="odd">
+<td><a href="https://assistant.posit.co/docs/reference/mcp-servers/">MCP Servers</a></td>
+<td>Connect external tool servers via the Model Context Protocol to extend the assistant with custom tools, such as database access, API integrations, and internal services. Supports local (stdio) and remote (HTTP/SSE) servers with bearer token or OAuth authentication, including servers hosted on Posit Connect.</td>
+</tr>
+<tr class="even">
+<td><a href="https://assistant.posit.co/docs/features/memory/">Memory</a></td>
+<td>Persistent project context via an <code>AGENTS.md</code> file that captures conventions, architecture, and preferences. The file loads automatically at the start of every conversation in trusted workspaces.</td>
+</tr>
+<tr class="odd">
+<td><a href="https://assistant.posit.co/docs/features/conversations/">Conversations</a></td>
+<td>Full conversation history with switching, renaming, and deletion. Includes tree-based branching when you edit a previous message and import and export in Markdown, HTML, or JSON.</td>
+</tr>
+<tr class="even">
 <td><a href="https://assistant.posit.co/docs/features/context-management/">Context Management</a></td>
 <td>Automatic inclusion of session info (language, version, variable names and types) when connected to R or Python. Provides a token counter with detailed breakdown and auto, manual, and micro-compaction to keep long conversations within the model’s context window.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="https://assistant.posit.co/docs/features/permissions/">Permissions &amp; Trust</a></td>
 <td>Three approval modes (Normal, YOLO, Restricted) and per-tool permissions configurable in settings. Includes workspace trust prompts when opening projects with <code>AGENTS.md</code> and an optional sandbox mode for bash execution.</td>
 </tr>
@@ -1060,7 +1070,7 @@ window.Quarto = {
 </section>
 <section id="data-collection-and-privacy" class="level3">
 <h3 class="anchored" data-anchor-id="data-collection-and-privacy">Data collection and privacy</h3>
-<p>Positron provides local software as a client to your selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when you use AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). This applies as long as you use an external model provider. These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. If you select <a href="./assistant-provider-info.html#posit-ai">Posit AI</a> as your model provider, the <span><a href="./privacy.html">privacy policy</a></span> and <a href="https://posit.co/about/posit-ai-agreement">Posit AI Agreement</a> apply instead.</p>
+<p>Positron provides local software as a client to your selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when you use AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). This applies as long as you use an external model provider. These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. If you select <a href="./assistant-provider-info.html#posit-ai">Posit AI Pass</a> as your model provider, the <span><a href="./privacy.html">privacy policy</a></span> and <a href="https://posit.co/about/posit-ai-agreement">Posit AI Agreement</a> apply instead.</p>
 <p>If you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with <span><a href="./privacy.html">Posit’s privacy policy</a></span>.</p>
 <p>However, your AI model provider may store or collect data according to their own privacy policies and terms of service. Please review your <a href="./assistant-provider-info.html">AI model provider’s data practices</a> for details on what information they collect and how it is used.</p>
 <p>By using an external model provider, you acknowledge that your use is subject to their Terms of Service. All external model providers are considered “Third Party Materials” as defined in the <a href="https://posit.co/about/eula/">Posit End User License Agreement</a> and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.</p>
@@ -1496,7 +1506,7 @@ window.Quarto = {
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.08.2-4</p>
+<p>Positron 2026.09.0-256</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/assistant.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/assistant.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

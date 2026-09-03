@@ -10,7 +10,7 @@ The **Packages** pane appears in the **Primary Side Bar**. If it is not already 
 
 ## Browse installed packages
 
-The **Packages** pane lists packages installed in the active session’s library. Each entry shows the package name, version, and an indicator of whether the package is currently attached. There are also buttons to open the package’s documentation in [the **Help** pane](help-pane.llms.md) and, when the package has a documentation site, its website in your browser.
+The **Packages** pane lists packages installed in the active session’s library. Each entry shows the package name, version, and an indicator of whether the package is currently attached. There are also buttons to open the package’s documentation in [the **Help** pane](help-pane.llms.md) and, when the package has a documentation site, its website in your browser. Entries also flag packages with known security vulnerabilities, with CVE (Common Vulnerabilities and Exposures) scoring from your environment’s Posit Package Manager repository when it has one, and from the public Posit Package Manager instance otherwise.
 
 Use the filter input at the top of the pane to search by name. The filter menu also lets you limit the list to **Outdated** or **Attached** packages, and sort entries by name.
 
