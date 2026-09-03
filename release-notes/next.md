@@ -1,19 +1,140 @@
 ### Highlights
 
-- Something cool is 🪩
+Welcome to the 2026.09.0 release of Positron!
+
+- [Welcome page refresh](#welcome-page-refresh)
+- [Import Data](#import-data)
+- [Data Connections](#data-connections)
+- [Package security vulnerabilities](#package-security-vulnerabilities)
+- [A more responsive Console](#a-more-responsive-console)
 
 <div id="checkbox"></div>
+
+#### Welcome page refresh
+
+We redesigned the Positron welcome page. It now leads with an environment setup card that checks whether Python and R are ready to use, with actions to help resolve any problem it finds. 
+
+<p align="center"><img src="https://cdn.posit.co/positron/releases/release-notes/assets/2026-09-welcome-page.gif" alt="The redesigned Positron welcome page, showing the environment setup card and the Get Started walkthrough banner"></p>
+
+A new "Get Started with Positron" walkthrough covers the Positron panes, keyboard shortcuts, built-in extensions, and Git, and the page links to the walkthroughs from a banner.
+
+#### Import Data
+
+Importing data via the Positron UI is currently our most upvoted feature request, and this release delivers a first version. When you view a CSV or TSV file in the Data Explorer, a new **Import Data** button in the action bar opens a dialog. The dialog shows the code to load that file into a data frame. You can copy the code, or click **Import** to run it in the console, starting a session if one is not already running.
+
+Import Data supports CSV and TSV files in Python with pandas and in R with the readr package, as well as Excel workbooks and Parquet files. You can open the dialog from the Data Explorer, the File menu, the Variables pane, or the File Explorer context menu.
+
+#### Data Connections
+
+The Data Connections preview keeps growing. A new ODBC data connection driver lets you browse any database with an installed ODBC driver in the new Connections pane and open it in the Data Explorer. Data sources already configured on your machine appear automatically. Databricks gains OAuth sign-in on desktop and reads `DATABRICKS_TOKEN`, `DATABRICKS_HOST`, and `DATABRICKS_CONFIG_FILE` credentials managed by Posit Workbench automatically. A **Disconnect** option in the context menu closes a connection and any Data Explorers opened from it, and each data connection driver now gets its own log output channel.
+
+#### Package security vulnerabilities
+
+The Packages pane now shows known security vulnerabilities (Common Vulnerabilities and Exposures scoring) for installed Python and R packages. The data comes from your environment's own Posit Package Manager repository when it has one, and from the public Posit instance otherwise.
+
+#### A more responsive Console
+
+Console code submission is now faster, always shows visual feedback, and can be canceled while a completeness check is in flight. The Console breaks multi-statement input into complete expressions and executes them statement by statement for languages that support it. A new `console.promptWhenIncomplete` setting runs submitted code immediately without a completeness check.
 
 ### Changelog
 
 #### New features
 
-- Added new ✨
+- [[#14855](https://github.com/posit-dev/positron/issues/14855), [#13007](https://github.com/posit-dev/positron/issues/13007)] Connections: added an ODBC data connection driver, so you can browse any database with an installed ODBC driver in the Connections pane and open it in the Data Explorer. Data sources already configured on the machine now appear automatically, and installed ODBC drivers are offered as dedicated database entries in New Connection.
+- [[#15396](https://github.com/posit-dev/positron/issues/15396), [#15263](https://github.com/posit-dev/positron/issues/15263)] Connections: added OAuth sign-in for Databricks on desktop, alongside the existing API key option. Databricks now reads `DATABRICKS_TOKEN`, `DATABRICKS_HOST`, and Workbench-managed `DATABRICKS_CONFIG_FILE` credentials automatically.
+- [[#14623](https://github.com/posit-dev/positron/issues/14623)] Connections: added a **Disconnect** option to the Data Connections context menu, which closes the connection and any Data Explorers opened from it.
+- [[#14905](https://github.com/posit-dev/positron/issues/14905)] Connections: added a log output channel for each data connection driver, created the first time the driver logs.
+- [[#15597](https://github.com/posit-dev/positron/pull/15597)] Connections: you can now set [`dataConnections.enabled`](positron://settings/dataConnections.enabled) per workspace, so a repository can enable the Data Connections panel for anyone who opens it.
+- [[#14626](https://github.com/posit-dev/positron/issues/14626)] Connections: reduced the depth of the Data Connections tree so table and column names get more of the panel's width. Also added a [`dataConnections.tree.indent`](positron://settings/dataConnections.tree.indent) setting for controlling indentation, which inherits `workbench.tree.indent` when unset.
+- [[#15555](https://github.com/posit-dev/positron/pull/15555)] Assistant: added an "Agent Layout" that opens Posit Assistant in the editor area with a compact Session pane, available when AI features are enabled.
+- [[#15561](https://github.com/posit-dev/positron/pull/15561)] Assistant: configuring language model providers now opens the new Configure LLM Providers modal, which groups providers by connection state. Set `assistant.newProviderModal` to `false` to go back to the previous dialog.
+- [[#15598](https://github.com/posit-dev/positron/pull/15598)] Assistant: `providers.json` now accepts comments, and comments survive edits Positron makes to the file.
+- [[#15272](https://github.com/posit-dev/positron/issues/15272)] Assistant: an expired AWS SSO session for Amazon Bedrock can now be renewed from the provider modal instead of requiring `aws sso login` in a terminal.
+- [[#12747](https://github.com/posit-dev/positron/issues/12747), [#14141](https://github.com/posit-dev/positron/issues/14141), [#13817](https://github.com/posit-dev/positron/issues/13817)] Assistant: added initial support for multiple custom providers, each with its own name, type, endpoint, credential, and model list. The previous "Custom Provider" option is now called "OpenAI Compatible" to match its functionality.
+- [[#15858](https://github.com/posit-dev/positron/pull/15858)] Assistant: renamed the Posit AI model provider to Posit AI Pass.
+- [[#15697](https://github.com/posit-dev/positron/issues/15697)] Assistant: the AWS profile and region for Amazon Bedrock can now be set in the provider configuration dialog instead of only through environment variables or a hand-edited `providers.json`.
+- [[#14950](https://github.com/posit-dev/positron/issues/14950)] Import Data: added an **Import Data** button to the Data Explorer.
+- [[#15582](https://github.com/posit-dev/positron/issues/15582)] Import Data: added R support, generating readr code for R sessions.
+- [[#15583](https://github.com/posit-dev/positron/issues/15583)] Import Data: added entry points in the File menu, the Variables pane, and the File Explorer context menu, not just the Data Explorer.
+- [[#15584](https://github.com/posit-dev/positron/issues/15584)] Import Data: can reproduce the current filters and sorts of the Data Explorer in the generated code.
+- [[#14414](https://github.com/posit-dev/positron/issues/14414)] Import Data: added support for Excel workbooks and Parquet files, in Python with pandas and in R with the readxl and nanoparquet packages.
+- [[#15774](https://github.com/posit-dev/positron/issues/15774)] Import Data: generated code names the file by a workspace-relative path when the file is inside the workspace.
+- [[#8129](https://github.com/posit-dev/positron/issues/8129)] Python: selecting a Python managed by your operating system or a package manager now offers to create a virtual environment for the workspace instead.
+- [[#15004](https://github.com/posit-dev/positron/issues/15004)] Python: added a [`python.locatorIdleTimeout`](positron://settings/python.locatorIdleTimeout) setting, which controls how long the Python environment locator server can sit idle before it shuts down.
+- [[#11095](https://github.com/posit-dev/positron/issues/11095)] Python: added marimo to the Python app frameworks Positron can run and debug, so marimo notebooks open in the Viewer pane from the editor play button.
+- [[#8915](https://github.com/posit-dev/positron/issues/8915)] Console: code submission is now faster, always shows visual feedback, and can be canceled while a completeness check is in flight.
+- [[#5272](https://github.com/posit-dev/positron/issues/5272)] Console: multi-statement input now breaks up into complete expressions and executes statement by statement for languages that support it.
+- [[#15078](https://github.com/posit-dev/positron/pull/15078)] Console: added a [`console.promptWhenIncomplete`](positron://settings/console.promptWhenIncomplete) setting to run submitted code immediately without a completeness check.
+- [[#12351](https://github.com/posit-dev/positron/issues/12351)] Editor: unsaved (untitled) R and Python scripts can now be run directly without a save prompt.
+- [[#14524](https://github.com/posit-dev/positron/issues/14524)] Editor: the empty editor screen now shows the Positron logo, a Focus Console shortcut, and buttons for viewing documentation and release notes.
+- [[#12850](https://github.com/posit-dev/positron/issues/12850)] Workbench: Positron now loads the environment modules used by the active R or Python interpreter in integrated terminals. Tools launched there (Shiny, Quarto preview, `Rscript`, `python`, and so on) use the same interpreter as the console.
+- [[#13356](https://github.com/posit-dev/positron/issues/13356)] Packages: the Packages pane shows known security vulnerabilities (Common Vulnerabilities and Exposures scoring) for installed packages. The data comes from the environment's own Package Manager repository when it has one, and from the public Posit instance otherwise.
+- [[#15643](https://github.com/posit-dev/positron/pull/15643)] R: the R test explorer now inherits more environment variables from the R console, including `RSTUDIO_PANDOC` and `QUARTO_R`.
+- [[#15482](https://github.com/posit-dev/positron/issues/15482)] Welcome page: added a "Get Started with Positron" walkthrough that covers the Positron panes, keyboard shortcuts, built-in extensions, and Git.
+- [[#14934](https://github.com/posit-dev/positron/issues/14934)] Welcome page: we redesigned the welcome page. It leads with an environment setup card that checks whether Python and R are ready to use, shows the Positron badge and name with **Help**, which opens the Help pane, and links to the walkthroughs from a banner.
+- [[#15588](https://github.com/posit-dev/positron/pull/15588)] Extensions: extensions can now attribute the origin of code they run through the Positron API.
 
 #### Bug fixes
 
-- Fixed 🐛
+- [[#15375](https://github.com/posit-dev/positron/pull/15375)] Assistant: clearing an AI provider setting in `providers.json` no longer silently falls back to the legacy `authentication.*` value the migration copied it from.
+- [[#15410](https://github.com/posit-dev/positron/pull/15410)] Assistant: language model API key validation now has more time to finish, so a slow provider response no longer reports a valid key as unvalidated.
+- [[#15248](https://github.com/posit-dev/positron/issues/15248)] Assistant: fixed provider sign-in validation when a configured provider requires custom request headers.
+- [[#15168](https://github.com/posit-dev/positron/issues/15168)] Assistant: Positron now hides GitHub Copilot commands and menu items when you turn off AI features.
+- [[#15416](https://github.com/posit-dev/positron/issues/15416)] Assistant: disabled local providers no longer display in the provider modal.
+- [[#15669](https://github.com/posit-dev/positron/pull/15669)] Assistant: signing in to Databricks no longer interrupts the flow with an external-website confirmation prompt.
+- [[#15805](https://github.com/posit-dev/positron/pull/15805)] Assistant: fixed agent session change counts disappearing after the session list refreshes.
+- [[#15321](https://github.com/posit-dev/positron/issues/15321)] Assistant: improved LLM provider icon legibility across themes in the provider modal.
+- [[#15821](https://github.com/posit-dev/positron/issues/15821)] Assistant: removed inaccurate legal disclaimer text from the provider connection modal.
+- [[#14888](https://github.com/posit-dev/positron/issues/14888)] Python: the prompt to create a virtual environment after a uv Python install now waits for an answer instead of disappearing.
+- [[#15147](https://github.com/posit-dev/positron/issues/15147)] Python: removed the startup notification that reported no interpreters were found and linked to documentation saying no setup was needed.
+- [[#15128](https://github.com/posit-dev/positron/issues/15128)] Python: Positron now retries interpreter resolution after a refresh, so a temporary resolve error no longer stops a session from starting.
+- [[#15620](https://github.com/posit-dev/positron/issues/15620)] Python: fixed an endless interpreter resolution loop when two symlinked interpreter paths have the same path length.
+- [[#15622](https://github.com/posit-dev/positron/issues/15622)] Python: fixed interpreter discovery hanging forever when `python.interpreters.override` or `python.interpreters.include` names a path that does not exist.
+- [[#14887](https://github.com/posit-dev/positron/issues/14887)] Python: the environment Positron creates with no folder open is now at `~/.virtualenvs/positron` instead of `~/.venv`, so it is still in the interpreter picker after a restart. With no folder open, Positron now asks before creating an environment in your home directory, and the Create Environment command no longer dead-ends with an "open a folder" error.
+- [[#15710](https://github.com/posit-dev/positron/issues/15710)] Python: interpreters installed under `/opt/python` are now labeled `Global` instead of `Unknown` in the interpreter picker.
+- [[#10411](https://github.com/posit-dev/positron/issues/10411)] Console: the Console no longer waits indefinitely with no feedback when the kernel is slow or unreachable during a completeness check. A **Cancel** affordance is now available.
+- [[#13402](https://github.com/posit-dev/positron/issues/13402)] Console: session names now ellipsize to fit the console tab list as it narrows, and the session rename input no longer shrinks to an unusable sliver at narrow widths.
+- [[#13155](https://github.com/posit-dev/positron/issues/13155)] Console: the console no longer takes focus at runtime startup when focus is in another view or editor.
+- [[#15405](https://github.com/posit-dev/positron/pull/15405)] Console: the active console session tab now shows a visible highlight in high contrast themes.
+- [[#15578](https://github.com/posit-dev/positron/issues/15578)] Console: **Interrupt** now stays visible after switching between busy consoles.
+- [[#15277](https://github.com/posit-dev/positron/issues/15277)] Quarto: fixed rendering, saving, copying, and opening Scalable Vector Graphics (SVG) images from Quarto inline output.
+- [[#15332](https://github.com/posit-dev/positron/pull/15332)] Quarto: restoring cached output during a document re-parse no longer drops inline output.
+- [[#14844](https://github.com/posit-dev/positron/issues/14844)] Quarto: fixed **Fix** and **Explain** drawing over the editor when re-running a cell that errors.
+- [[#15409](https://github.com/posit-dev/positron/issues/15409)] Quarto: code chunks now get completions from the session of the document only, and not also from the console session, when inline output is enabled with the `quarto.inlineOutput.enabled` setting.
+- [[#15682](https://github.com/posit-dev/positron/issues/15682)] Quarto: fixed code cells timing out after five minutes of execution when inline output is enabled.
+- [[#15549](https://github.com/posit-dev/positron/pull/15549)] Workbench: fixed a blank Data Explorer in Positron for Workbench when the extension host that owns a dataset was not the one core sent its requests to.
+- [[#14746](https://github.com/posit-dev/positron/issues/14746)] Workbench: Positron now loads environment modules before validating a module-provided Python interpreter, so sessions no longer abort with a missing `sqlite3` error.
+- [[#15177](https://github.com/posit-dev/positron/issues/15177)] Workbench: extension installs now honor `http.noProxy` and `NO_PROXY`, so an administrator can exempt the extension gallery from a corporate proxy.
+- [[#13719](https://github.com/posit-dev/positron/issues/13719)] Workbench: the session pod no longer goes to an error state when a user quits a Workbench session.
+- [[#15752](https://github.com/posit-dev/positron/pull/15752)] Workbench: fixed MCP server OAuth sign-in failures when Dynamic Client Registration requires an exact callback URL match.
+
+- [[#15427](https://github.com/posit-dev/positron/issues/15427)] Data Explorer: fixed slow scrolling when an enforced setting or a policy is active.
+- [[#15361](https://github.com/posit-dev/positron/issues/15361)] Data Explorer: fixed repeating or dropping rows when scrolling or exporting unsorted SQLite and DuckDB tables and views.
+- [[#15366](https://github.com/posit-dev/positron/issues/15366)] Data Explorer: fixed `DECIMAL` and `NUMERIC` values being rounded through a floating-point number before display, which rounded the wrong way at the digit limit and lost whole-number digits beyond 2^53.
+- [[#15366](https://github.com/posit-dev/positron/issues/15366)] Data Explorer: fixed integer columns reporting a median formatted as a decimal, inconsistent with their own minimum and maximum.
+- [[#13988](https://github.com/posit-dev/positron/issues/13988)] Windows: Positron now restarts after it applies a background update, and updates no longer swap files while the OS shuts down, which sometimes left a half-updated install.
+- [[#15330](https://github.com/posit-dev/positron/issues/15330)] Windows: restored Positron branding in the update helper. Update dialogs say Positron again, and the update log is written as `positron-inno-updater-*.log`.
+- [[#14702](https://github.com/posit-dev/positron/issues/14702)] Windows: kept install paths under the Windows `MAX_PATH` limit, fixing install and background-update failures for per-user installs under long account names.
+- [[#15476](https://github.com/posit-dev/positron/pull/15476)] Viewer: fixed the Viewer pane corrupting query parameters (such as access tokens) when navigating to a URL.
+- [[#15572](https://github.com/posit-dev/positron/issues/15572)] Viewer: fixed copying selected text from the Viewer pane for served apps such as Shiny and Dash.
+- [[#15831](https://github.com/posit-dev/positron/pull/15831)] Viewer: fixed query parameters being dropped from proxied websocket connections in Positron on Web and Workbench, which prevented marimo apps from connecting.
+- [[#14713](https://github.com/posit-dev/positron/issues/14713)] Packages: the help and website icons now show in the same order on package list items and on the package detail page.
+- [[#15122](https://github.com/posit-dev/positron/issues/15122)] Packages: package names and versions stay readable when the Packages pane is narrow.
+- [[#15726](https://github.com/posit-dev/positron/issues/15726)] R: clickable `{.run}` links from the cli package work again in the R console after the extension host restarts.
+- [[#15631](https://github.com/posit-dev/positron/issues/15631)] R: fixed a crash in the R language server for projects with an `R/` directory where one script calls `source()` on another.
+- [[#14778](https://github.com/posit-dev/positron/issues/14778)] Notebooks: cells fall back to printed output when the inline data explorer is disabled, instead of showing a "disabled" message.
+- [[#15739](https://github.com/posit-dev/positron/issues/15739)] Notebooks: <kbd>Escape</kbd> now exits notebook cell edit mode when using vim emulation extensions (VSCodeVim, vscode-neovim).
+- [[#15795](https://github.com/posit-dev/positron/issues/15795)] Connections: DuckDB connections now default to read-only, so the Connections pane and a Python or R session can have the same database open at once. Lock-conflict errors now explain that another session has locked the database.
+- [[#15400](https://github.com/posit-dev/positron/pull/15400)] Welcome page: hidden walkthrough content no longer stays in the keyboard tab order while off screen.
+- [[#15801](https://github.com/posit-dev/positron/pull/15801)] Help: help topics and vignettes keep working after an extension host restart. Previously, links on already-open pages stopped working and the Help pane went blank until the window was reloaded.
+- [[#15124](https://github.com/posit-dev/positron/issues/15124)] Extensions: Positron no longer installs or updates to an extension version that depends on a blocked extension, and selects the newest working version instead when possible.
+- [[#15026](https://github.com/posit-dev/positron/issues/15026)] Plots: R plots rendered at intrinsic size with Quarto figure dimensions (`fig-width` and `fig-height`) are no longer pixelated, and save at the correct resolution.
+- [[#15601](https://github.com/posit-dev/positron/issues/15601)] App Launcher: Shiny for R apps that take longer to start than the URL detection timeout are no longer stopped early. Positron previews them when their URL finally appears.
+- [[#15031](https://github.com/posit-dev/positron/issues/15031)] The update notification now shows once for each pending version.
+- [[#15383](https://github.com/posit-dev/positron/pull/15383)] The Release Notes notification and links now open the release notes page on the Positron website instead of the downloads page.
+- [[#15679](https://github.com/posit-dev/positron/pull/15679)] Dismissing a confirmation dialog with <kbd>Escape</kbd> no longer leaves the action it was confirming stuck forever. Most visibly, pressing <kbd>Escape</kbd> on the missing-packages prompt now cancels the run instead of silently doing nothing.
+- [[#15832](https://github.com/posit-dev/positron/issues/15832)] Reduced the default tree indentation from 18px to 16px.
 
 #### Dependencies
 
-- Updated bundled version ⚙️
+- Updated `code-oss` upstream to v1.130.0.
