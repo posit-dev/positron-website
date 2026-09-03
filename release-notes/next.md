@@ -110,6 +110,8 @@ Console code submission is now faster, always shows visual feedback, and can be 
 - [[#13902](https://github.com/posit-dev/positron/issues/13902)] Data Explorer: fixed columns and rows showing through pinned columns and pinned rows while scrolling.
 - [[#15427](https://github.com/posit-dev/positron/issues/15427)] Data Explorer: fixed slow scrolling when an enforced setting or a policy is active.
 - [[#15361](https://github.com/posit-dev/positron/issues/15361)] Data Explorer: fixed repeating or dropping rows when scrolling or exporting unsorted SQLite and DuckDB tables and views.
+- [[#15366](https://github.com/posit-dev/positron/issues/15366)] Data Explorer: fixed `DECIMAL` and `NUMERIC` values being rounded through a floating-point number before display, which rounded the wrong way at the digit limit and lost whole-number digits beyond 2^53.
+- [[#15366](https://github.com/posit-dev/positron/issues/15366)] Data Explorer: fixed integer columns reporting a median formatted as a decimal, inconsistent with their own minimum and maximum.
 - [[#13988](https://github.com/posit-dev/positron/issues/13988)] Windows: Positron now restarts after it applies a background update, and updates no longer swap files while the OS shuts down, which sometimes left a half-updated install.
 - [[#15330](https://github.com/posit-dev/positron/issues/15330)] Windows: restored Positron branding in the update helper. Update dialogs say Positron again, and the update log is written as `positron-inno-updater-*.log`.
 - [[#14702](https://github.com/posit-dev/positron/issues/14702)] Windows: kept install paths under the Windows `MAX_PATH` limit, fixing install and background-update failures for per-user installs under long account names.
