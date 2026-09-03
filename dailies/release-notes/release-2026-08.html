@@ -1,18 +1,865 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <title>Redirect</title>
-  <script type="text/javascript">
-    var redirects = {"":"../release-notes.html"};
-    var hash = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash;
-    var redirect = redirects[hash] || redirects[""] || "/";
-    window.document.title = 'Redirect to  ' +  redirect;
-    if (!redirects[hash]) {
-      redirect = redirect + window.location.hash;
-    }
-    redirect = redirect + window.location.search;
-    window.location.replace(redirect);
-  </script>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-08-06">
+
+<title>2026.08.0-331 Release Notes – Positron</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c1e08f802b9250c17a0b1f97b67bbc4c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "/"
+  ],
+  "show-item-context": true,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="25dee41d-4924-4490-9c7f-65853d503cd8" data-project-name="Positron" data-modal-title="Positron Docs AI ✨" data-modal-disclaimer="This is a custom LLM for answering questions about using Positron IDE. Answers are based on the contents of our documentation." data-modal-ask-ai-input-placeholder="How do I..." data-modal-example-questions="How do I install Positron?,How do I switch between Python and R interpreters?,How do I use AI in Positron?" data-user-analytics-cookie-enabled="false" data-bot-protection-mechanism="hcaptcha" data-modal-example-questions-col-span="12" data-project-color="#ffffff" data-project-logo="/images/posit-icon-fullcolor.svg" data-font-family="Open Sans, sans-serif" data-hyperlink-color="#447099" data-button-hide="true" data-button-position-bottom="80px" data-button-position-right="25px" data-button-border="solid 1px #ffffff" data-button-text-color="#447099" data-submit-query-button-bg-color="#447099" data-deep-thinking-button-active-bg-color="#eaeaee" data-deep-thinking-button-active-hover-text-color="#447099" data-deep-thinking-button-active-hover-bg-color="#eaeaee" data-deep-thinking-button-active-text-color="#000000" data-modal-override-open-id="custom-ask-ai-button" data-modal-x-offset="0" data-modal-y-offset="0" data-modal-z-index="1031" data-modal-with-overlay="false" data-modal-inner-flex-direction="column" data-modal-inner-justify-content="end" data-modal-inner-max-width="500px" data-modal-inner-position-left="auto" data-modal-inner-position-right="0" data-modal-inner-position-bottom="0" data-modal-inner-position-top="0" data-modal-size="100vh" data-modal-lock-scroll="false"></script>
+<script defer="" file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
+<meta name="robots" content="noindex">
+
+
+<meta property="og:title" content="2026.08.0-331 Release Notes – Positron">
+<meta property="og:description" content="https://github.com/posit-dev/positron/releases/tag/2026.08.0-331">
+<meta property="og:image" content="https://positron.posit.co/dailies/release-notes/images/positron-social.png">
+<meta property="og:site_name" content="Positron">
+<meta name="twitter:title" content="2026.08.0-331 Release Notes – Positron">
+<meta name="twitter:description" content="https://github.com/posit-dev/positron/releases/tag/2026.08.0-331">
+<meta name="twitter:image" content="https://positron.posit.co/dailies/release-notes/images/positron-social.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
-<body>
-</body>
-</html>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../assets/images/positron-logo_fullcolor-TM.png" alt="Positron Documentation" class="navbar-logo light-content">
+    <img src="../assets/images/positron-logo_fullcolor-TM.png" alt="Positron Documentation" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../features.html"> 
+<span class="menu-text">Features</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../welcome.html"> 
+<span class="menu-text">Guides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../release-notes.html"> 
+<span class="menu-text">Release Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../tutorials.html"> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../troubleshooting.html"> 
+<span class="menu-text">Help</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://opensource.posit.co/blog/q/positron/" target="_blank"><i class="bi bi-journal-text" role="img">
+</i> 
+ <span class="dropdown-text">Blog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/positron-updates-signup/" target="_blank"><i class="bi bi-envelope" role="img">
+</i> 
+ <span class="dropdown-text">Sign up for updates</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.linkedin.com/showcase/positron-ide/" target="_blank"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="dropdown-text">LinkedIn</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/events/?search=positron&amp;poststatus=all" target="_blank"><i class="bi bi-calendar-event" role="img">
+</i> 
+ <span class="dropdown-text">Events</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/products/" target="_blank"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="dropdown-text">More Posit products</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../download.html"> 
+<span class="menu-text"><span id="top-bar-download-btn" class="btn btn-primary">Download</span></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/posit-dev/positron"> <i class="bi bi-github" role="img" aria-label="Link to Positron Github Repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="javascript:void(0);"> 
+<span class="menu-text"><span id="custom-ask-ai-button">Ask AI ✨</span></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <div id="quarto-announcement" data-announcement-id="687d7ef531e974cef1bf7d0f11614fac" class="alert alert-danger hidden"><i class="bi bi-cone-striped quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p>You are viewing the development version of Positron documentation for the dailies (2026.10.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
+</div></div>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#patch-notes" id="toc-patch-notes" class="nav-link active" data-scroll-target="#patch-notes">Patch notes</a></li>
+  <li><a href="#release-highlights" id="toc-release-highlights" class="nav-link" data-scroll-target="#release-highlights">Release highlights</a></li>
+  <li><a href="#changelog" id="toc-changelog" class="nav-link" data-scroll-target="#changelog">Changelog</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/release-notes/release-2026-08.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/release-notes/release-2026-08.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">2026.08.0-331 Release Notes</h1>
+<p class="subtitle lead">https://github.com/posit-dev/positron/releases/tag/2026.08.0-331</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 6, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="patch-notes" class="level3">
+<h3 class="anchored" data-anchor-id="patch-notes">Patch notes</h3>
+<p>The <a href="https://github.com/posit-dev/positron/releases/tag/2026.08.1-2">2026.08.1 patch release</a> (2026-08-10) fixes problems with autoupdating on Windows.</p>
+<p>The <a href="https://github.com/posit-dev/positron/releases/tag/2026.08.2-4">2026.08.2 patch release</a> (2026-08-21) fixes performance problems throughout the app, a problem with Python discovery, and how Assistant settings are detected.</p>
+</section>
+<section id="release-highlights" class="level3">
+<h3 class="anchored" data-anchor-id="release-highlights">Release highlights</h3>
+<p>Welcome to the 2026.08.0 release of Positron!</p>
+<ul>
+<li><a href="#data-connections">Data Connections</a></li>
+<li><a href="#inline-output-for-quarto">Inline output for Quarto</a></li>
+<li><a href="#ai-model-providers">AI model providers</a></li>
+<li><a href="#install-missing-packages">Install missing packages</a></li>
+<li><a href="#performance-and-memory">Performance and memory</a></li>
+</ul>
+<div id="checkbox">
+
+</div>
+<section id="data-connections" class="level4">
+<h4 class="anchored" data-anchor-id="data-connections">Data Connections</h4>
+<p>Data Connections is our new way to work with database-like resources in Positron, from local files and database servers to cloud data warehouses. It is currently available as a preview feature, and you can enable it with the <a href="positron://settings/dataConnections.enabled"><code>dataConnections.enabled</code></a> setting. This release more than doubles the number of data sources you can reach. Amazon Redshift, Snowflake, Databricks, and Posit Connect pins join the existing DuckDB, PostgreSQL, and SQLite support.</p>
+<p align="center">
+<img src="https://cdn.posit.co/positron/releases/release-notes/assets/2026-08-data-connections.gif" alt="Browsing the schemas and tables of a DuckDB connection in the Data Connections panel, then opening a table in the Data Explorer to see its column profiles and data.">
+</p>
+<p>The panel itself is more capable as well. <strong>Refresh</strong> and <strong>Refresh All</strong> reload the tree while preserving what you have expanded, briefly highlighting the rows that were reloaded. Open connections now show an indicator. Collapsing a connection keeps it open while Data Explorers previewed from it are still open. Removing a connection asks for confirmation and reports how many Data Explorers will close with it.</p>
+<p>Data Connections is still an experimental preview, and your feedback continues to shape it. Tell us which databases and warehouses you need, and anything confusing, missing, or broken, in the <a href="https://github.com/posit-dev/positron/discussions/14571">Data Connections discussion</a>.</p>
+</section>
+<section id="inline-output-for-quarto" class="level4">
+<h4 class="anchored" data-anchor-id="inline-output-for-quarto">Inline output for Quarto</h4>
+<p><a href="https://positron.posit.co/quarto-inline-output">Inline output for <code>.qmd</code> documents</a> came out of preview last release, and this release brings you a substantial round of polish for this way of working. Be aware that the Quarto settings have moved into a dedicated <code>quarto.*</code> namespace with its own group in the Settings editor. The previous <code>positron.quarto.*</code> keys still work but are deprecated, and Positron will prompt you to update your settings.</p>
+<p>Before a kernel starts, the kernel status names the interpreter it will start and offers an explicit <strong>Start Kernel</strong> action. When a cell fails, <strong>Fix</strong> and <strong>Explain</strong> buttons send the error to <a href="https://assistant.posit.co/">Posit Assistant</a>, matching the Positron notebook experience. The editor also scrolls to reveal output as it is produced, which you can turn off with the new <a href="positron://settings/quarto.inlineOutput.autoScroll"><code>quarto.inlineOutput.autoScroll</code></a> setting.</p>
+<p>Output renders more faithfully as well. Running a cell now tells you much more about what is happening, as the editor gutter shows per-statement progress, so you can see which statement is currently executing. Positron draws images at your display’s pixel ratio, so plots are sharp on retina screens, and Python figures now respect the <code>fig-width</code> and <code>fig-height</code> cell options.</p>
+<p>HTML widgets no longer stick in the editor corner when you scroll past them, or trap scrolling instead of letting the document scroll. HTML widgets no longer render as raw HTML after a reload, and collapsed output no longer springs back open when its cell re-runs. Running code in a Quarto document also pins the editor tab now, so Positron does not silently close the document and its session when you open another file.</p>
+</section>
+<section id="ai-model-providers" class="level4">
+<h4 class="anchored" data-anchor-id="ai-model-providers">AI model providers</h4>
+<p>Positron now reads AI model provider configuration from a single <code>providers.json</code> file rather than a scattered set of settings. The new release will migrate your existing configuration automatically when you start it, and deprecates the <code>authentication.*</code> and <code>positron.assistant.provider.*.enable</code> settings in favor of it. Two new commands give you direct access: <em>Open AI Provider Settings (JSON)</em> opens <code>providers.json</code> from the Command Palette, and <em>Migrate Provider Settings to providers.json</em> runs the migration on demand.</p>
+</section>
+<section id="install-missing-packages" class="level4">
+<h4 class="anchored" data-anchor-id="install-missing-packages">Install missing packages</h4>
+<p>Positron now notices when your code refers to a package you do not have installed and offers to install it for you. The prompt appears for packages referenced by your scripts and notebooks in both R and Python. A <code>library()</code> or <code>import</code> call for something missing becomes a single click instead of an error you have to go resolve by hand.</p>
+</section>
+<section id="performance-and-memory" class="level4">
+<h4 class="anchored" data-anchor-id="performance-and-memory">Performance and memory</h4>
+<p>We continue to invest in the memory footprint, performance, and reliability of Positron. Several components now load only when they are actually needed, and turning off <a href="positron://settings/ai.enabled"><code>ai.enabled</code></a> now means Positron never loads some heavy AI-related components at all. We fixed a cluster of long-standing reliability problems around session restarts and lifecycles.</p>
+<p>Startup and editing are faster as well. R and Python kernels start much faster on Windows systems with aggressive antivirus software. The interpreter session picker appears immediately instead of waiting for interpreter discovery to finish. We also fixed slow typing, formatting, and saving in long R and Python files.</p>
+</section>
+</section>
+<section id="changelog" class="level3">
+<h3 class="anchored" data-anchor-id="changelog">Changelog</h3>
+<section id="new-features" class="level4">
+<h4 class="anchored" data-anchor-id="new-features">New features</h4>
+<ul>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14654">#14654</a>] Connections: added an Amazon Redshift data connection driver, with user and password authentication, SSL on by default, schema and table browsing, cross-database browsing on RA3 and Serverless clusters. Positron generates connection code for <code>redshift_connector</code> (Python) and DBI with RPostgres (R).</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14650">#14650</a>] Connections: added a Snowflake data connection driver with full Data Explorer support (filters, sorts, column profiles, and export) and four authentication mechanisms: key pair, OAuth client credentials, a programmatic access token, and a named connection from <code>connections.toml</code>.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14959">#14959</a>] Connections: added a Databricks data connection driver as a preview, with personal access token, interactive browser, and service principal authentication, Unity Catalog and Volumes browsing, and Data Explorer preview of tables, views, and columns.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14663">#14663</a>] Connections: added a Connect pins driver for browsing pins on a Connect server, including each pin’s versions in the tree with the active version marked. The driver supports browser and environment variable sign-in, and previewing tabular (Parquet and CSV) pins in the Data Explorer.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14624">#14624</a>] Connections: added <strong>Refresh</strong> and <strong>Refresh All</strong> actions to the Data Connections panel. Refreshing preserves the expanded state of the tree and briefly highlights the rows that were reloaded.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14623">#14623</a>] Connections: data connection entries now show an indicator while a connection is open. Collapsing a connection keeps it open while Data Explorers previewed from it are still open, and removing a connection asks for confirmation and reports how many open Data Explorers will close with it.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14728">#14728</a>] Connections: PostgreSQL connections can now omit the database to connect in server mode and browse all databases on the server.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14599">#14599</a>] Connections: added a <strong>Browse</strong> button to file fields in the Data Connections dialog for selecting local database files such as DuckDB and SQLite, with driver-declared file type filters.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14922">#14922</a>] Connections: Positron now remembers your preferred connection code package (such as SQLAlchemy or sqlite3) per data connection and language across sessions.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/12841">#12841</a>] Notebooks: added <strong>Save Image As</strong> and <strong>Open Output in New Tab</strong> actions for image outputs, matching Quarto inline output.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14301">#14301</a>] Quarto: settings now live in the <code>quarto.*</code> namespace with a dedicated Quarto group in the Settings editor. The previous <code>positron.quarto.*</code> keys still work but are deprecated.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/13505">#13505</a>] Quarto: the editor gutter now shows per-statement execution progress within a running cell, indicating which statement is currently executing.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/14185">#14185</a>] Quarto: inline output now shows the output of each individual R expression when running a cell, rather than only the last one (thanks to <span class="citation" data-cites="metehankaygsz">@metehankaygsz</span>).</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/13228">#13228</a>] Quarto: inline output errors now show <strong>Fix</strong> and <strong>Explain</strong> buttons that send the error to Posit Assistant, matching Positron notebooks.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14659">#14659</a>] Quarto: the editor now scrolls to reveal inline cell output as it is produced, controlled by the new <a href="positron://settings/quarto.inlineOutput.autoScroll"><code>quarto.inlineOutput.autoScroll</code></a> setting. This also applies to R Markdown documents.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14558">#14558</a>] Quarto: the kernel status now names the interpreter that will start and offers an explicit <strong>Start Kernel</strong> action.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15183">#15183</a>] Quarto: inline output now renders images at the display’s pixel ratio, so plots are sharp on retina screens.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14710">#14710</a>, <a href="https://github.com/posit-dev/positron/issues/14708">#14708</a>] Assistant: Positron now reads AI provider configuration from <code>providers.json</code>, and migrates existing provider settings to it automatically on startup. Added an <em>Open AI Provider Settings (JSON)</em> command to open the file from the Command Palette and a <em>Migrate Provider Settings to providers.json</em> command to run the migration on demand. The <code>authentication.*</code> and <code>positron.assistant.provider.*.enable</code> settings are deprecated.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14818">#14818</a>] Assistant: added a <strong>Configure LLM Providers</strong> modal for connecting to and managing AI model providers, behind a hidden <code>assistant.newProviderModal</code> setting.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8612">#8612</a>] Assistant: added a Databricks authentication provider so you can use models hosted on Databricks Model Serving, signing in with either browser-based OAuth or a personal access token. This provider is experimental and off by default. Enable it with the <code>assistant.provider.databricks.enabled</code> setting.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15117">#15117</a>] Assistant: added an <em>AI: Create Diagnostic Report</em> command that collects AI settings, provider and model state, and recent AI logs into a single report for troubleshooting.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14638">#14638</a>] Assistant: Positron core now provides assistant context (runtime sessions, variables, and code execution) to Copilot Chat, instead of a separate extension.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/4071">#4071</a>] Packages: Positron now prompts to install packages that are referenced by your scripts and notebooks but are not installed.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14675">#14675</a>] Packages: missing-package install prompts (the editor and notebook badge, the Command Palette commands, and the console error install suggestion) now work for any language runtime that implements the capability, rather than being hardcoded to Python and R.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/2974">#2974</a>] Data Explorer: <kbd>Cmd/Ctrl+Click</kbd> a data frame in the editor to open it in the Data Explorer, when the RStudio keymap is enabled.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/15226">#15226</a>] R: the R language engine now downloads and caches package sources on disk, so navigating to the definition of a package function shows you the actual source with full context and comments. This also lets the analysis engine discover much more about how the code you use works, which will be the basis for more sophisticated diagnostics in the future. You can disable source fetching with the new <code>oak.sourceFetching.enabled</code> setting.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/15280">#15280</a>] R: improved symbol navigation and renaming. Symbols no longer escape their local scope in <code>testthat::test_that()</code>, <code>shiny::reactive()</code>, and other well-known non-standard evaluation functions. Unquoted <code>.()</code> parts of <code>quote()</code> and <code>bquote()</code> now participate in symbol resolution, as do the substituted parts of <code>substitute()</code>. Navigation and renaming also understand custom assignment calls and operators such as <code>assign()</code>, <code>delayedAssign()</code>, <code>%&lt;&gt;%</code> from magrittr, and <code>:=</code> from S7. Positron also recognizes <code>library()</code>, <code>require()</code>, and <code>source()</code> calls semantically.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14790">#14790</a>] R: symbol navigation and renaming now understand more of the ways code gets loaded. Files in an <code>R/</code> folder are treated as an alphabetical collation unless a more precise loading context is found, so functions in sibling files can see each other. Directory sourcing with <code>targets::tar_source()</code> and <code>sourceDir()</code> is supported, sourced files see the context inherited from the <code>source()</code> location, and Shiny app auto-loading is understood.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15019">#15019</a>] R: the test explorer now clears existing test statuses at the start of a partial or full run, so you no longer see a mix of current and stale results. Runs that finish uncleanly reveal more actionable information in the <strong>Test Results</strong> panel.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15130">#15130</a>] R: the test explorer now supports <strong>Cancel Test Run</strong>.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15259">#15259</a>] R: a lone <code>#| fig-width</code> or <code>#| fig-height</code> cell option now resizes plots, rather than falling back to the default size.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/12660">#12660</a>] Python: figures in Quarto inline output now respect the <code>fig-width</code> and <code>fig-height</code> cell options, and render at the display’s pixel ratio.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14352">#14352</a>] Python: added a <strong>Create Python Environment</strong> item to the <strong>Start Session</strong> dropdown.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14570">#14570</a>] Help: added <strong>Show Help at Cursor</strong> to the editor context menu.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/14685">#14685</a>] Extensions: added support for configuring a custom Open VSX-compatible extension gallery, such as a self-hosted Posit Package Manager, via the <strong>Extension Gallery Source</strong> and <strong>Custom Gallery URL</strong> settings.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15031">#15031</a>] Update notifications can now be muted, either from the gear menu on the notification or with the <em>Notifications: Toggle Do Not Disturb Mode By Source</em> command.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/1507">#1507</a>] API: added <code>positron.window.activeConsoleEditor</code> and <code>onDidChangeActiveConsoleEditor</code>, which expose the active console input as a <code>vscode.TextEditor</code> so extensions can read and edit console text with the standard editor API.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14181">#14181</a>] API: added a <code>whenBusy</code> option to <code>positron.runtime.evaluateCode</code>, a synchronous <code>getRuntimeState()</code> accessor, and <code>onDidDisconnect</code> and <code>onDidReconnect</code> events on language runtime session handles.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14299">#14299</a>] API: added a <code>positron.workspace.registerConfigurationMigrations</code> API for extensions to migrate legacy configuration keys.</li>
+</ul>
+</section>
+<section id="bug-fixes" class="level4">
+<h4 class="anchored" data-anchor-id="bug-fixes">Bug fixes</h4>
+<ul>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14189">#14189</a>] Notebooks: restored hover tooltips, with keybinding hints, on the Find and Replace widget buttons.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/12887">#12887</a>] Notebooks: Positron now disposes orphaned overlay webviews (interactive plots and raw HTML) when their outputs are cleared, their cell is deleted, or the cell is re-run.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14085">#14085</a>, <a href="https://github.com/posit-dev/positron/issues/14656">#14656</a>] Notebooks: fixed clicks in a cell taller than the viewport placing the cursor on the wrong line, and jumping the scroll position to the top of the cell.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/11142">#11142</a>] Notebooks: plots from a notebook console now appear in the Plots pane at a usable size, and the <strong>Inspect</strong> gesture works.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15006">#15006</a>] Notebooks: fixed the kernel status showing the wrong kernel after a notebook is moved to another editor group.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/13978">#13978</a>] Quarto: fixed inline output webviews sticking in the editor corner when you scroll past the output.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14620">#14620</a>] Quarto: fixed inline output HTML widgets trapping scroll instead of letting the document scroll.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14559">#14559</a>] Quarto: fixed R HTML widgets in inline output rendering as raw HTML after a reload or reopen.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/13613">#13613</a>] Quarto: fixed running code in documents with inline output enabled and a custom Jupyter kernelspec name in the YAML header.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14736">#14736</a>] Quarto: running code in a document now pins its editor tab, so the document and its runtime session are not silently closed when you open another file.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/15205">#15205</a>] Quarto: collapsing inline output while a cell is re-running no longer springs back open when the new output arrives.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15275">#15275</a>] Quarto: opening an inline output plot in a new tab no longer leaves a temporary image file in the project directory.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/15278">#15278</a>] Quarto: fixed opening Scalable Vector Graphics (SVG) output from inline output in a new tab.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/15331">#15331</a>] Quarto: inline output no longer disappears after a window reload when an untitled document was saved with <strong>Save As</strong>.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15279">#15279</a>] Plots: fixed <strong>Save Plot</strong> doing nothing and <strong>Copy Plot</strong> failing for SVG plots.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14546">#14546</a>] Assistant: fixed Bedrock ignoring the configured AWS region when signing in.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/12096">#12096</a>] Assistant: notebook tools now send SVG cell outputs to the model as rasterized PNG images instead of an unusable binary attachment.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14250">#14250</a>] Assistant: notebook tools now explain how to reopen a notebook in the Positron Notebook Editor when it is open in the built-in notebook editor, instead of failing with “no notebook is open”.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14762">#14762</a>] Assistant: fixed a failure to find an open Positron notebook when the notebook is not the active editor pane, such as after opening a Data Explorer or moving focus to another editor.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/14735">#14735</a>] Assistant: the <strong>Explain</strong> button on notebook and Quarto error outputs now asks the assistant to explain the error without also attempting to fix it.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14369">#14369</a>] Assistant: Positron now shows the GitHub Copilot completions status icon by default, and using a GitHub account for AI features requires additional opt-in.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14989">#14989</a>] Assistant: Copilot usage (chat and premium request quotas) now appears in the status bar dialog even when the built-in Copilot chat UI is hidden.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15171">#15171</a>] Assistant: the AI provider settings migration now writes versioned base URLs (such as <code>https://api.anthropic.com/v1</code>) instead of copying bare hosts verbatim into <code>providers.json</code>.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/14677">#14677</a>] Assistant: model providers registered with no authentication method now show a base URL input in the configuration modal.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/15286">#15286</a>] Assistant: quick-fix attachment chips no longer expose <code>.txt</code> implementation-style names for console, notebook cell, and Quarto error attachments.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15306">#15306</a>] Assistant: fixed non-local model providers not appearing when you are connected to a remote session over Windows Subsystem for Linux (WSL) or Remote-SSH.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/15095">#15095</a>] Assistant: removed the unused <code>chat.useCopilotParticipantsWithOtherProviders</code> setting.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14686">#14686</a>] Connections: fixed opening the same DuckDB database file from more than one saved connection, which previously failed for every connection after the first.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14631">#14631</a>] Connections: added padding to the datatype label so it no longer sits against the panel’s right edge and scrollbar.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14904">#14904</a>] Connections: fixed the spacing of wrapped package names in the package picker of the <strong>Connect With</strong> dialog.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14623">#14623</a>] Connections: removing a data connection now closes the underlying connection instead of leaving it open for the rest of the session.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15189">#15189</a>] Data Explorer: fixed intermittently failing to open a table or column from the Data Connections tree and leaving an empty editor. Also fixed columns not being auto-sized when opening a table or column, and column widths not adjusting when the editor font changes.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/12547">#12547</a>] Data Explorer: fixed the grid remaining blank after a failed backend request, and fixed a blank grid when viewing an R matrix that has row names.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15042">#15042</a>] Data Explorer: fixed failing to open on Intel (x64) macOS with a missing <code>@duckdb/node-bindings-darwin-x64/duckdb.node</code> error.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/15215">#15215</a>] Data Explorer: column headers no longer briefly display <code>&lt;empty&gt;</code> while a slow connection’s schema is loading.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/13902">#13902</a>] Data Explorer: fixed columns and rows showing through pinned columns and pinned rows while scrolling.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14294">#14294</a>] Packages: <strong>Refresh</strong> now recomputes outdated packages live instead of showing stale cached indicators, and the pane no longer reports available updates for R packages that have only been rebuilt at the same version.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/3817">#3817</a>] R: the parallel package, which is not supported in Positron, now fails with an informative error that recommends using PSOCK clusters, <code>future::multisession()</code>, mirai, or <code>purrr::in_parallel()</code>.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/12840">#12840</a>] R: Positron help pages no longer include the new table of contents added in R 4.6.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/7385">#7385</a>, <a href="https://github.com/posit-dev/positron/issues/8167">#8167</a>] R: fixed the Data Explorer being blank when viewing objects piped with <code>%&gt;%</code>.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14481">#14481</a>] R: fixed hangs with the Evaluate pane of the debugger. An expression that takes a long time to evaluate, or that loops forever, is now cancelled after one second.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14909">#14909</a>] R: fixed a usability issue in completions of string-quoted names in brackets.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14851">#14851</a>, <a href="https://github.com/posit-dev/positron/issues/3599">#3599</a>] R: argument names in function hover docs are now top-aligned with the first line of their description, matching the Help pane.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14426">#14426</a>] R: fixed duplicate “Load R Object” prompts when viewing the diff of a modified <code>.rds</code> file.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15297">#15297</a>] R: fixed the interpreter architecture being misdetected as x64 for native arm64 conda-forge R on macOS.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15300">#15300</a>] R: interpreters installed by a Homebrew cask, such as miniforge, are no longer labeled “(Homebrew)”, and genuine Homebrew installs on Intel macOS are no longer labeled “System”.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/7403">#7403</a>] R: the R version used in the Terminal now matches the R version selected in the Console, including <code>PATH</code>, <code>R_HOME</code>, and <code>QUARTO_R</code>.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/14655">#14655</a>] Python: fixed local modules (sibling files and packages) being misreported as missing, installable packages when running a script.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/14646">#14646</a>] Python: <code>import ibis</code> now suggests installing <code>ibis-framework</code>.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14493">#14493</a>] Python: fixed distinct virtual environments that share a base interpreter being collapsed into one entry in the interpreter list, and fixed the same uv-managed interpreter appearing multiple times when reached through a symlinked version directory.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14556">#14556</a>] Python: uv environments are labeled “Unknown” less often.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14912">#14912</a>] Python: uv-managed standalone Python installs are now classified as global interpreters instead of uv environments.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15028">#15028</a>] Python: fixed an intermittent “Error while creating virtual environment” when creating a venv, even though the environment was created successfully.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15167">#15167</a>] Python: fixed Positron not offering to create an environment for a <code>pyproject.toml</code> without a <code>[build-system]</code> table.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15153">#15153</a>] Python: fixed a web and remote failure where creating a new Python environment via the <strong>New Folder</strong> flow sometimes left the console without a session.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15254">#15254</a>] Python: fixed <code>matplotlib_inline.backend_inline.set_matplotlib_formats(...)</code> breaking figure rendering.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/15253">#15253</a>] Python: fixed <code>%matplotlib</code> to toggle the matplotlib backend between the Plots pane and an interactive backend such as <code>qt</code>, and back again.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14267">#14267</a>] Console: adding a console while a notebook console is the active session now starts a new console session instead of showing an error.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14983">#14983</a>] Console: the session information dialog now opens immediately instead of waiting on the output channels lookup, so it no longer fails to open under load.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/10016">#10016</a>] Interpreter: fixed a cluster of session restart failures. Python and R sessions now restart after an extension host restart, the console reliably returns after an interpreter restart, the notebook kernel status badge no longer sticks on “Disconnected”, and restart works when the Kernel Supervisor shutdown timeout is set to persist sessions.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14688">#14688</a>] Interpreter: fixed the suggested interpreter appearing twice in the <strong>New Console Session</strong> quick pick.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14991">#14991</a>] Interpreter: the workspace default interpreter now starts reliably when its environment is slow to resolve at startup.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/14868">#14868</a>] Interpreter: the session picker now appears immediately instead of waiting on interpreter discovery, fixing a case where the session button sometimes appeared unresponsive right after opening a workspace.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/15336">#15336</a>] Interpreter: fixed intermittent “No language runtime with id … was found” failures when starting a kernel after a window reload.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/15335">#15335</a>] Workbench: access to <code>/proxy/</code> ports in Posit Workbench is now isolated to the user of the requesting session on multi-user hosts.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/13388">#13388</a>] Windows: improved R and Python startup time on systems with aggressive antivirus software.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14671">#14671</a>] Windows: fixed the kernel supervisor failing to start when <a href="positron://settings/kernelSupervisor.shutdownTimeout"><code>kernelSupervisor.shutdownTimeout</code></a> is non-default on installations with spaces in the path.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/8306">#8306</a>] Linux: <strong>Download Update</strong> now fetches the specific build detected by the update check, including on the dailies channel, instead of opening the website download page.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/14685">#14685</a>] Extensions: a non-default extension gallery (custom or Open VSX) no longer silently falls back to the default gallery when a resource request fails.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/13854">#13854</a>] Fixed tooltips not appearing for action buttons in view and sidebar headers.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14810">#14810</a>] Fixed links on the Help pane welcome page not opening when clicked.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14990">#14990</a>, <a href="https://github.com/posit-dev/positron/issues/15250">#15250</a>] Fixed slow typing, formatting, and saving in long R and Python files.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/14781">#14781</a>, <a href="https://github.com/posit-dev/positron/issues/14826">#14826</a>] Fixed the Positron editor action bar rendering inside the new modal Settings editor as a spurious second row of icons. Also fixed the Quarto kernel badge flipping to “No Kernel” over the modal.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/13764">#13764</a>] Fixed an empty icon column in context menus whose items are checkable but have no icons, such as the Packages pane <strong>Filter</strong> and <strong>Sort</strong> submenus, which pushed the checkmark and label to the right.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/998">#998</a>] Added bottom padding to terminal instances so the prompt is no longer squished against the bottom edge of the pane.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/1366">#1366</a>] Removed the “Copy vscode.dev Link” item from the editor, explorer, editor tab, and line number share menus.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/14956">#14956</a>] Fixed an intermittent issue where the Import VS Code Settings preview sometimes lost its conflict markers before you had a chance to review them.</li>
+<li>[<a href="https://github.com/posit-dev/positron/issues/12942">#12942</a>] Fixed <code>runtimePath</code> containing a <code>~</code>-shortened path that broke <code>execFile</code> callers. The workbench now computes <code>runtimeDisplayPath</code> centrally at runtime registration.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/14938">#14938</a>] Reduced the memory footprint of Positron at startup by only starting the backend for CSV, TSV, and Excel files when it is first used.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/14982">#14982</a>] The experimental Catalog Explorer extension no longer loads on startup when it is disabled, and it loads the Snowflake SDK only when connecting to Snowflake, reducing startup cost and memory footprint.</li>
+<li>[<a href="https://github.com/posit-dev/positron/pull/14899">#14899</a>, <a href="https://github.com/posit-dev/positron/pull/15008">#15008</a>] Reduced memory usage when AI features are disabled by not loading Posit Assistant, Copilot, or Next Edit Suggestions unless <a href="positron://settings/ai.enabled"><code>ai.enabled</code></a> is on.</li>
+</ul>
+</section>
+<section id="dependencies" class="level4">
+<h4 class="anchored" data-anchor-id="dependencies">Dependencies</h4>
+<ul>
+<li>Updated <code>code-oss</code> upstream to v1.124.0.</li>
+<li>Updated bundled Quarto to 1.10.18.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/positron\.posit\.co\/dailies");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://posit.co/">
+<p><img class="posit-footer-logo" alt="Posit" src="../images/posit-logo-black-TM.svg">Copyright © 2022-2026 Posit Software, PBC. All Rights Reserved.</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+<p>Positron 2026.10.0 (development version)</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/release-notes/release-2026-08.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/release-notes/release-2026-08.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://support.posit.co/">
+<p>Support</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../licensing.html">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://posit.co/about/privacy-policy/">
+<p>Privacy Policy</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

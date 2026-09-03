@@ -12,9 +12,9 @@ Please review your providers’ websites directly for complete and updated detai
 
 ## Providers
 
-### Posit AI
+### Posit AI Pass
 
-Posit AI is Posit’s own hosted service, so Posit’s own policies apply rather than a third party’s.
+Posit AI Pass is Posit’s own hosted service, so Posit’s own policies apply rather than a third party’s.
 
 - [Privacy Policy](https://posit.co/about/privacy-policy/)
 - [Posit AI Agreement](https://posit.co/about/posit-ai-agreement)
@@ -89,7 +89,7 @@ AI features in Positron use a bring-your-own-key (BYO-key) model. You connect to
 
 ### Data collection and privacy
 
-Positron provides local software as a client to your selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when you use AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). This applies as long as you use an external model provider. These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. If you select [Posit AI](assistant-provider-info.llms.md#posit-ai) as your model provider, the [privacy policy](privacy.llms.md) and [Posit AI Agreement](https://posit.co/about/posit-ai-agreement) apply instead.
+Positron provides local software as a client to your selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when you use AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). This applies as long as you use an external model provider. These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. If you select [Posit AI Pass](assistant-provider-info.llms.md#posit-ai) as your model provider, the [privacy policy](privacy.llms.md) and [Posit AI Agreement](https://posit.co/about/posit-ai-agreement) apply instead.
 
 If you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with [Posit’s privacy policy](privacy.llms.md).
 

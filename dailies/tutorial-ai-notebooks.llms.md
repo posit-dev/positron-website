@@ -121,7 +121,7 @@ To use Posit Assistant, you must first log in to a model provider with *Authenti
 
 The Configure Language Model Providers window
 
-Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, [Posit AI](assistant-providers.llms.md#posit-ai) is the most direct way to get started. You can start a free trial at [posit.ai](https://posit.ai/) and sign in through your browser, with no API keys to manage.
+Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, [Posit AI Pass](assistant-providers.llms.md#posit-ai) is the most direct way to get started. You can start a free trial at [posit.ai](https://posit.ai/) and sign in through your browser, with no API keys to manage.
 
 > **TIP:**
 >
@@ -133,7 +133,7 @@ Because providers differ in what account and credentials they need, the steps be
 
 > **NOTE:**
 >
-> For notebook work, we recommend an [Anthropic](assistant-providers.llms.md#anthropic) model for the best experience. You can connect it directly, or reach Anthropic models through Posit AI.
+> For notebook work, we recommend an [Anthropic](assistant-providers.llms.md#anthropic) model for the best experience. You can connect it directly, or reach Anthropic models through Posit AI Pass.
 
 ## Ask Posit Assistant to write the analysis
 

@@ -18,11 +18,11 @@ Open the file with the *Open AI Provider Settings (JSON)* command when you need 
 >
 > Positron deprecated the `authentication.*` and `positron.assistant.provider.*` settings in favor of `providers.json`. Positron migrates them for you when you upgrade, and you can run the migration again at any time with the *Migrate AI Provider Settings to providers.json* command.
 
-## Posit AI
+## Posit AI Pass
 
-Posit AI is a hosted language model service from Posit, offering both chat models and code completions through [Next Edit Suggestions (NES)](assistant-completions.llms.md#posit-ai-nes).
+Posit AI Pass (formerly Posit AI) is a hosted language model service from Posit, offering both chat models and code completions through [Next Edit Suggestions (NES)](assistant-completions.llms.md#posit-ai-nes).
 
-- **Account:** a Posit AI account, which you can create at [posit.ai](https://posit.ai/)
+- **Account:** a Posit AI Pass account, which you can create at [posit.ai](https://posit.ai/)
 - **Authentication:** sign in through your browser with OAuth
 
 ## Amazon Bedrock

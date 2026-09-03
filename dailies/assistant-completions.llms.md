@@ -6,9 +6,9 @@ Code completions are text suggestions that appear inline as you type in an edito
 
 > **IMPORTANT:**
 >
-> Completions are powered by Posit AI or GitHub Copilot. Ensure you have added one or both of these as a language model provider:
+> Completions are powered by Posit AI Pass or GitHub Copilot. Ensure you have added one or both of these as a language model provider:
 >
-> - [Add Posit AI as a language model provider](assistant-providers.llms.md#posit-ai)
+> - [Add Posit AI Pass as a language model provider](assistant-providers.llms.md#posit-ai)
 > - [Add GitHub Copilot as a language model provider](assistant-providers.llms.md#github-copilot)
 
 ## Using code completions
@@ -40,13 +40,13 @@ The following settings apply to both providers:
 
 ## Posit AI Next Edit Suggestions (NES)
 
-When using Posit AI as your completions provider, code completions take the form of Posit AI Next Edit Suggestions (NES), a preview feature. Posit AI NES proposes edits anywhere in the file, not just at the cursor. It responds to your recent changes, including insertions, deletions, and modifications to existing code.
+When using Posit AI Pass as your completions provider, code completions take the form of Posit AI Next Edit Suggestions (NES), a preview feature. Posit AI NES proposes edits anywhere in the file, not just at the cursor. It responds to your recent changes, including insertions, deletions, and modifications to existing code.
 
 Posit AI NES suggestions appear inline in the editor. You can accept, navigate, or dismiss them using the same keybindings as other code completions.
 
 ### Enable
 
-Posit AI NES is enabled by default once you have [signed in to the Posit AI provider](assistant-providers.llms.md#posit-ai). No additional setting changes are required.
+Posit AI NES is enabled by default once you have [signed in to the Posit AI Pass provider](assistant-providers.llms.md#posit-ai). No additional setting changes are required.
 
 ### Restrict to specific languages
 
@@ -56,7 +56,7 @@ Posit AI NES skips `plaintext`, `markdown`, and `scminput` unless you configure 
 
 To disable Posit AI NES, do any of the following:
 
-- Sign out of Posit AI in Positron via the Accounts menu or the *Accounts: Manage Accounts* command. This also affects chat and other features that rely on the account.
+- Sign out of Posit AI Pass in Positron via the Accounts menu or the *Accounts: Manage Accounts* command. This also affects chat and other features that rely on the account.
 - Set [`nextEditSuggestions.enabled`](positron://settings/nextEditSuggestions.enabled) to `{ "*": false }` to disable Posit AI NES everywhere. To disable only some languages, set those entries to `false`.
 
 To exclude specific files from Posit AI NES regardless of language, [use the shared `aiExcludes` setting](#shared-settings).
