@@ -2,402 +2,402 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://positron.posit.co/welcome.html</loc>
-    <lastmod>2026-09-03T16:53:06.705Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.158Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/updating.html</loc>
-    <lastmod>2026-09-03T16:53:06.047Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.099Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/tutorial-migrate-from-vscode.html</loc>
-    <lastmod>2026-09-03T16:53:06.047Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.099Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/tutorial-get-started-quarto.html</loc>
-    <lastmod>2026-09-03T16:53:06.047Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.099Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/tutorial-ai-quarto.html</loc>
-    <lastmod>2026-09-03T16:53:06.047Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.099Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/troubleshooting.html</loc>
-    <lastmod>2026-09-03T16:53:06.047Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.099Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/remote-ssh.html</loc>
-    <lastmod>2026-09-03T16:53:06.045Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.097Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2026-07.html</loc>
-    <lastmod>2026-09-03T16:53:06.045Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.097Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2026-05.html</loc>
-    <lastmod>2026-09-03T16:53:06.045Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.096Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2026-03.html</loc>
-    <lastmod>2026-09-03T16:53:06.044Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.096Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2026-01.html</loc>
-    <lastmod>2026-09-03T16:53:06.044Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.096Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2025-11.html</loc>
-    <lastmod>2026-09-03T16:53:06.044Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.096Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2025-09.html</loc>
-    <lastmod>2026-09-03T16:53:06.044Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.096Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2025-07.html</loc>
-    <lastmod>2026-09-03T16:53:06.044Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.096Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/r-installations.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/quarto-inline-output.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/publish-to-connect.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/positron-notebook-editor.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/packages-pane.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/migrate-vscode.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/migrate-rstudio-snippets.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/migrate-rstudio-rproj.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/migrate-rstudio-compare.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/licensing.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/layout.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/keyboard-shortcuts.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.092Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/interpreter-startup.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.092Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/help-pane.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/guide-r-session-hooks.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/guide-r-air.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/git.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/feedback.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/faqs.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/extension-development.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/environment-modules.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/download.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/dev-containers.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/data-explorer.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/data-explorer-filter-bar.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/data-connections.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/command-palette.html</loc>
-    <lastmod>2026-09-03T16:53:05.820Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.887Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/catalog-explorer.html</loc>
-    <lastmod>2026-09-03T16:53:05.820Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.887Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/assistant-troubleshooting.html</loc>
-    <lastmod>2026-09-03T16:53:05.820Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.887Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/assistant-providers.html</loc>
-    <lastmod>2026-09-03T16:53:05.820Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.886Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/assistant-getting-started.html</loc>
-    <lastmod>2026-09-03T16:53:05.820Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.886Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/assistant-chat.html</loc>
-    <lastmod>2026-09-03T16:53:05.819Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.886Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/assistant-chat-context.html</loc>
-    <lastmod>2026-09-03T16:53:05.819Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.886Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/assistant-chat-agents.html</loc>
-    <lastmod>2026-09-03T16:53:05.819Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.886Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/ai-configuration.html</loc>
-    <lastmod>2026-09-03T16:53:05.818Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.885Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/action-bars.html</loc>
-    <lastmod>2026-09-03T16:53:05.818Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.885Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/about.html</loc>
-    <lastmod>2026-09-03T16:53:05.818Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.885Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/add-to-path.html</loc>
-    <lastmod>2026-09-03T16:53:05.818Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.885Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/ai-features.html</loc>
-    <lastmod>2026-09-03T16:53:05.818Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.885Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/assistant-chat-commands-participants.html</loc>
-    <lastmod>2026-09-03T16:53:05.819Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.886Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/assistant-chat-instructions.html</loc>
-    <lastmod>2026-09-03T16:53:05.819Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.886Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/assistant-completions.html</loc>
-    <lastmod>2026-09-03T16:53:05.819Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.886Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/assistant-provider-info.html</loc>
-    <lastmod>2026-09-03T16:53:05.820Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.886Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/assistant-tips.html</loc>
-    <lastmod>2026-09-03T16:53:05.820Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.887Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/assistant.html</loc>
-    <lastmod>2026-09-03T16:53:05.820Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.887Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/code-cells.html</loc>
-    <lastmod>2026-09-03T16:53:05.820Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.887Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/connections-pane.html</loc>
-    <lastmod>2026-09-03T16:53:05.820Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.887Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/data-explorer-data-grid.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/data-explorer-summary-panel.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/databot.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/develop-data-apps.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/education.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/extending-connections.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/extensions.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/features.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/folder-templates.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/guide-python.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/guide-r-debugging.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/guide-r.html</loc>
-    <lastmod>2026-09-03T16:53:05.822Z</lastmod>
+    <lastmod>2026-09-04T21:00:19.888Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/index.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.092Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/jupyter-notebooks.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.092Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/language-guides.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/legacy-notebook-editor.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/managing-interpreters.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/migrate-rstudio-keybindings.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/migrate-rstudio-settings-and-extensions.html</loc>
-    <lastmod>2026-09-03T16:53:06.040Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/migrate-rstudio.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/older-releases.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/plots-pane.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/privacy.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/python-installations.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/quarto.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes.html</loc>
-    <lastmod>2026-09-03T16:53:06.041Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.094Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2025-08.html</loc>
-    <lastmod>2026-09-03T16:53:06.044Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.096Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2025-10.html</loc>
-    <lastmod>2026-09-03T16:53:06.044Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.096Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2025-12.html</loc>
-    <lastmod>2026-09-03T16:53:06.044Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.096Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2026-02.html</loc>
-    <lastmod>2026-09-03T16:53:06.044Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.096Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2026-04.html</loc>
-    <lastmod>2026-09-03T16:53:06.044Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.096Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2026-06.html</loc>
-    <lastmod>2026-09-03T16:53:06.045Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.096Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/release-notes/release-2026-08.html</loc>
-    <lastmod>2026-09-03T16:53:06.045Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.097Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/reticulate.html</loc>
-    <lastmod>2026-09-03T16:53:06.045Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.097Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/tutorial-ai-notebooks.html</loc>
-    <lastmod>2026-09-03T16:53:06.047Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.099Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/tutorial-get-started-ipynb.html</loc>
-    <lastmod>2026-09-03T16:53:06.047Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.099Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/tutorial-migrate-from-rstudio.html</loc>
-    <lastmod>2026-09-03T16:53:06.047Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.099Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/tutorials.html</loc>
-    <lastmod>2026-09-03T16:53:06.047Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.099Z</lastmod>
   </url>
   <url>
     <loc>https://positron.posit.co/variables-pane.html</loc>
-    <lastmod>2026-09-03T16:53:06.047Z</lastmod>
+    <lastmod>2026-09-04T21:00:20.099Z</lastmod>
   </url>
 </urlset>
