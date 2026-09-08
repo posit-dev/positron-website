@@ -59,7 +59,7 @@ Set it with the `AWS_PROFILE` environment variable before you launch Positron, o
 
 ### Cross-region inference profiles
 
-Positron uses [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) to route requests across multiple AWS regions for higher availability and throughput. It derives the inference profile region from your AWS region by taking the geographic prefix, and there is nothing to configure:
+Positron can use [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) to route requests across multiple AWS regions for higher availability and throughput. It derives the inference profile region from your AWS region by taking the geographic prefix, and there is nothing to configure:
 
 | AWS region                         | Derived inference profile region |
 |------------------------------------|----------------------------------|
