@@ -103,6 +103,8 @@ subtitle: <https://github.com/posit-dev/positron/releases/tag/<prev .0 version>>
 ---
 ```
 
+The angle brackets around the URL in `subtitle:` are literal Markdown autolink syntax, not this doc's `<placeholder>` convention. Only substitute the `<prev .0 version>` inside; keep the outer `<...>` in the final file, e.g. `subtitle: <https://github.com/posit-dev/positron/releases/tag/2026.08.0-331>`. Every prior archive file follows this format; check one (e.g. `release-notes/release-2026-07.qmd`) if unsure.
+
 Keep any "### Patch notes" section from `release.md` at the top of the body. It belongs in the archive.
 
 ### Promote `release-notes/next.md` to `release-notes/release.md`
