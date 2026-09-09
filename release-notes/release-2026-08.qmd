@@ -1,7 +1,7 @@
 ---
 title: "2026.08.0-331 Release Notes"
 date: 2026-08-06
-subtitle: https://github.com/posit-dev/positron/releases/tag/2026.08.0-331
+subtitle: <https://github.com/posit-dev/positron/releases/tag/2026.08.0-331>
 ---
 
 ### Patch notes
