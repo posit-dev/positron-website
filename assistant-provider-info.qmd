@@ -7,77 +7,8 @@ description: "Data handling, privacy, and terms of service for AI model provider
 {{< include _privacy-link.qmd >}}
 :::
 
-When you use AI features in Positron, Positron might share data including your prompts, responses, and usage with third-party AI model providers, depending on the providers you use. Each provider has its own data handling, privacy policies, and terms of service.
+Posit AI Pass is a hosted service that Posit operates. See [posit.ai](https://posit.ai/) for its terms and privacy policy. Every other AI model provider you can connect in Positron is a third-party service, and that provider's own terms of service and privacy policy govern your use of it.
 
-Please review your providers' websites directly for complete and updated details on their data practices and terms of service. This list might not be up to date.
-
-## Providers
-
-### Posit AI Pass {#posit-ai}
-
-Posit AI Pass is Posit's own hosted service, so Posit's own policies apply rather than a third party's.
-
-* [Privacy Policy](https://posit.co/about/privacy-policy/)
-* [Posit AI Agreement](https://posit.co/about/posit-ai-agreement)
-
-### Amazon Bedrock
-
-* [Privacy Notice](https://aws.amazon.com/privacy/)
-* [Terms of Service](https://aws.amazon.com/service-terms/)
-
-### Anthropic
-
-* [Privacy Policy](https://www.anthropic.com/legal/privacy)
-* [Commercial Privacy Center](https://privacy.claude.com/en/collections/10663361-commercial-customers)
-* [Console Privacy Controls](https://platform.claude.com/settings/privacy)
-* [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms)
-
-### Databricks
-
-* [Privacy Notice](https://www.databricks.com/legal/privacynotice)
-* [Master Cloud Services Agreement](https://www.databricks.com/legal/mcsa)
-
-### DeepSeek
-
-* [Privacy Policy](https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html)
-* [Terms of Use](https://cdn.deepseek.com/policies/en-US/deepseek-terms-of-use.html)
-* [Open Platform Terms of Service](https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html)
-
-### Gemini Enterprise Agent Platform
-
-* [Google Cloud Privacy Notice](https://cloud.google.com/terms/cloud-privacy-notice)
-* [Google Cloud Platform Terms of Service](https://cloud.google.com/terms)
-* [Gemini Enterprise Agent Platform and zero data retention](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention)
-
-### GitHub Copilot
-
-* [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement#personal-data-we-collect)
-* [Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
-
-### Google Gemini
-
-* [Privacy Policy](https://policies.google.com/privacy)
-* [Google APIs Terms of Service](https://developers.google.com/terms)
-* [Gemini API Additional Terms of Service](https://ai.google.dev/gemini-api/terms)
-
-### Microsoft Foundry
-
-* [Microsoft Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement)
-* [Azure AI Services Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure)
-
-### OpenAI
-
-* [Privacy Policy](https://openai.com/policies/row-privacy-policy/)
-* [Privacy Portal](https://privacy.openai.com/policies/en/?name=welcome-to-open-ai-privacy-portal)
-* [Terms of Use](https://openai.com/policies/row-terms-of-use/)
-
-### Snowflake Cortex
-
-* [Privacy Policy](https://www.snowflake.com/en/legal/privacy/privacy-policy/)
-* [Terms of Service](https://www.snowflake.com/en/legal/terms-of-service/)
-
-### Custom providers
-
-A [named custom provider](assistant-providers.qmd#custom-providers) follows the terms of whichever type you gave it. An Anthropic-type entry follows Anthropic's terms above, an OpenAI-type entry follows OpenAI's, and an OpenAI Compatible-type entry follows the terms of whichever endpoint you point it at.
+Please review your provider's website directly for complete and up-to-date details on their data practices and terms of service.
 
 {{< include _assistant-privacy-terms.qmd >}}
