@@ -7,7 +7,7 @@ description: "Data handling, privacy, and terms of service for AI model provider
 {{< include _privacy-link.qmd >}}
 :::
 
-[Posit AI Pass](assistant-providers.qmd#posit-ai) is a hosted service that Posit operates. See [posit.ai](https://posit.ai/) for its terms and privacy policy. Every other AI model provider you can connect in Positron is a third-party service, and that provider's own terms of service and privacy policy govern your use of it.
+Posit AI Pass is a hosted service that Posit operates. See [posit.ai](https://posit.ai/) for its terms and privacy policy. Every other AI model provider you can connect in Positron is a third-party service, and that provider's own terms of service and privacy policy govern your use of it.
 
 Please review your provider's website directly for complete and up-to-date details on their data practices and terms of service.
 
