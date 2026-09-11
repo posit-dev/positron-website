@@ -6,7 +6,7 @@ Positron connects to a range of language model providers. To connect one, run th
 
 This page covers what each provider needs: the account to have ready, how you authenticate, and anything to configure first.
 
-Please ensure you consult your provider’s privacy policy and terms of service for information on the data they collect and how it is used. For reference links, see the [Privacy & Terms](assistant-provider-info.llms.md) guide.
+Please ensure you consult your provider’s privacy policy and terms of service for information on the data they collect and how it is used. See the [Privacy & terms](assistant-provider-info.llms.md) guide for more information.
 
 ## `providers.json`
 
