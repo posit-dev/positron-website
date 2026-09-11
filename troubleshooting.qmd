@@ -39,7 +39,6 @@ Here's a list of some Positron-specific channels you may be interested in:
 | Supervisor | Communication from the kernel supervisor: messages the Console or Notebook sends and receives, changes in their state, etc. This channel will have a name like "Python Supervisor." |
 | Language Server | Debug logs from the server side of the language server Positron uses for any given interpreter. This channel will have a name like "R Language Server." |
 | Language Pack | Debug logs from the extension that Positron uses to discover, start, and manage interpreters. This channel will have a name like "Python Language Pack." |
-| Assistant | Debug logs from Positron Assistant, which powers the AI chat and code completions interfaces in Positron. |
 
 ### Log level
 
