@@ -3,6 +3,8 @@ title: "Inline Output"
 description: "Display the output of Quarto cells directly in the source editor in Positron."
 ---
 
+![A Quarto document in Positron with a Python code cell and its plotnine scatter plot of penguin measurements displayed inline, directly below the cell.](images/quarto-inline-output.png){width=800}
+
 Positron can optionally display the output of Quarto cells in the source editor, similar to a [Jupyter Notebook](jupyter-notebooks.qmd) or RStudio's [R Notebooks](https://posit.co/blog/r-notebooks) feature. To enable inline output, turn on [`quarto.inlineOutput.enabled`](positron://settings/quarto.inlineOutput.enabled).
 
 ## Per-document kernels
@@ -26,6 +28,17 @@ q1[Quarto Doc 1] --> rc1[Interpreter Session 1]
 q2[Quarto Doc 2] --> rc2[Interpreter Session 2]
 q3[Quarto Doc 3] --> rc3[Interpreter Session 3]
 ```
+
+## Working directory
+
+When inline output is enabled, code in a Quarto document runs with the document's folder as the working directory. This matches how Quarto sets the working directory when it renders a document, so relative file paths behave the same way when you run code interactively and when you render.
+
+Because Positron starts each document's Python or R session in the document's folder, startup files in that folder take effect when the session starts. For example:
+
+- **R:** an `.Rprofile` in the document's folder runs instead of your user-level `~/.Rprofile`. This includes renv activation scripts.
+- **Python:** the document's folder is on the module search path, so you can import local modules that live alongside the document.
+
+Untitled documents don't have a folder, so their sessions start in the first workspace folder, or in your home directory if no folder is open.
 
 ## Consoles
 
