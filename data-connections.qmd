@@ -1,6 +1,8 @@
 ---
 title: "Data Connections"
 description: "Connect to databases and data warehouses in Positron. Browse schemas, generate connection code, and preview tables in the Data Explorer."
+aliases:
+  - catalog-explorer.html
 ---
 
 ::: {.callout-important}
