@@ -167,7 +167,6 @@ website:
               href: data-connections.qmd
             - connections-pane.qmd
             - extending-connections.qmd 
-            - catalog-explorer.qmd
         - section: "Dynamic Documents and Apps"
           contents:
             - section: "Quarto"
