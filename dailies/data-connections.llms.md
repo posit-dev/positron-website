@@ -6,7 +6,7 @@ Connect to databases and data warehouses in Positron. Browse schemas, generate c
 >
 > Data Connections is a preview feature. Opt in via the [`dataConnections.enabled`](positron://settings/dataConnections.enabled) setting, and reload Positron to apply. Share your feedback on this new feature in the [Positron GitHub discussions](https://github.com/posit-dev/positron/discussions).
 
-Data Connections brings together the older [Connections pane](connections-pane.llms.md) and [Catalog Explorer](catalog-explorer.llms.md) into a single, unified experience for working with databases and data warehouses in Positron. Once enabled, the **Data Connections** view appears in the primary sidebar. From there, you can create connections, browse tables and views in a tree, open tables and views in the [Data Explorer](data-explorer.llms.md), and generate ready-to-run connection code in Python or R.
+Data Connections brings a single, unified experience for working with databases and data warehouses in Positron. Once enabled, the **Data Connections** view appears in the primary sidebar. From there, you can create connections, browse tables and views in a tree, open tables and views in the [Data Explorer](data-explorer.llms.md), and generate ready-to-run connection code in Python or R.
 
 Data Connections exists side-by-side with the Connections pane and Catalog Explorer for now, and nothing changes about how those features work. In the future, Data Connections will replace both.
 
