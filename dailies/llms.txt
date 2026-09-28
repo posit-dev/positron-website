@@ -17,7 +17,7 @@
 - [2025.09.0-139 Release Notes](https://positron.posit.co/dailies/release-notes/release-2025-09.llms.md)
 - [2025.07.0-204 Release Notes](https://positron.posit.co/dailies/release-notes/release-2025-07.llms.md)
 - [Discovering R Installations](https://positron.posit.co/dailies/r-installations.llms.md)
-- [Inline Output](https://positron.posit.co/dailies/quarto-inline-output.llms.md)
+- [Inline output](https://positron.posit.co/dailies/quarto-inline-output.llms.md)
 - [Publish Your Work](https://positron.posit.co/dailies/publish-to-connect.llms.md)
 - [Positron Notebook Editor](https://positron.posit.co/dailies/positron-notebook-editor.llms.md)
 - [Packages Pane](https://positron.posit.co/dailies/packages-pane.llms.md)

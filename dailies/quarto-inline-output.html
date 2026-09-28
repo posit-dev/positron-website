@@ -8,7 +8,7 @@
 
 <meta name="description" content="Display the output of Quarto cells directly in the source editor in Positron.">
 
-<title>Inline Output – Positron</title>
+<title>Inline output – Positron</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -49,6 +49,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-ec73eb30df963ac6d1b80a5c9bf53c28.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -82,17 +85,19 @@ ul.task-list li input[type="checkbox"] {
 <meta name="robots" content="noindex">
 
 
-<meta property="og:title" content="Inline Output – Positron">
+<meta property="og:title" content="Inline output – Positron">
 <meta property="og:description" content="Display the output of Quarto cells directly in the source editor in Positron.">
-<meta property="og:image" content="https://positron.posit.co/dailies/images/positron-social.png">
+<meta property="og:image" content="https://positron.posit.co/dailies/images/quarto-inline-output.png">
 <meta property="og:site_name" content="Positron">
-<meta property="og:image:height" content="1080">
-<meta property="og:image:width" content="1920">
-<meta name="twitter:title" content="Inline Output – Positron">
+<meta property="og:image:alt" content="A Quarto document in Positron with a Python code cell and its scatter plot of penguin measurements shown inline below the cell.">
+<meta property="og:image:height" content="2948">
+<meta property="og:image:width" content="2800">
+<meta name="twitter:title" content="Inline output – Positron">
 <meta name="twitter:description" content="Display the output of Quarto cells directly in the source editor in Positron.">
-<meta name="twitter:image" content="https://positron.posit.co/dailies/images/positron-social.png">
-<meta name="twitter:image-height" content="1080">
-<meta name="twitter:image-width" content="1920">
+<meta name="twitter:image" content="https://positron.posit.co/dailies/images/quarto-inline-output.png">
+<meta name="twitter:image:alt" content="A Quarto document in Positron with a Python code cell and its scatter plot of penguin measurements shown inline below the cell.">
+<meta name="twitter:image-height" content="2948">
+<meta name="twitter:image-width" content="2800">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -196,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto.html">Dynamic Documents and Apps</a></li><li class="breadcrumb-item"><a href="./quarto.html">Quarto</a></li><li class="breadcrumb-item"><a href="./quarto-inline-output.html">Inline Output</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto.html">Dynamic Documents and Apps</a></li><li class="breadcrumb-item"><a href="./quarto.html">Quarto</a></li><li class="breadcrumb-item"><a href="./quarto-inline-output.html">Inline output</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -604,7 +609,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto-inline-output.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Inline Output</span></a>
+ <span class="menu-text">Inline output</span></a>
   </div>
 </li>
       </ul>
@@ -843,6 +848,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#per-document-kernels" id="toc-per-document-kernels" class="nav-link active" data-scroll-target="#per-document-kernels">Per-document kernels</a></li>
+  <li><a href="#working-directory" id="toc-working-directory" class="nav-link" data-scroll-target="#working-directory">Working directory</a></li>
   <li><a href="#consoles" id="toc-consoles" class="nav-link" data-scroll-target="#consoles">Consoles</a></li>
   <li><a href="#managing-outputs" id="toc-managing-outputs" class="nav-link" data-scroll-target="#managing-outputs">Managing outputs</a></li>
   <li><a href="#quarto-fix-and-explain" id="toc-quarto-fix-and-explain" class="nav-link" data-scroll-target="#quarto-fix-and-explain">Fix and explain chunk errors</a></li>
@@ -853,9 +859,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto.html">Dynamic Documents and Apps</a></li><li class="breadcrumb-item"><a href="./quarto.html">Quarto</a></li><li class="breadcrumb-item"><a href="./quarto-inline-output.html">Inline Output</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto.html">Dynamic Documents and Apps</a></li><li class="breadcrumb-item"><a href="./quarto.html">Quarto</a></li><li class="breadcrumb-item"><a href="./quarto-inline-output.html">Inline output</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Inline Output</h1>
+<h1 class="title">Inline output</h1>
 </div>
 
 <div>
@@ -877,10 +883,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/quarto-inline-output.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="A Quarto document in Positron with a Python code cell and its scatter plot of penguin measurements shown inline below the cell."><img src="images/quarto-inline-output.png" class="img-fluid figure-img" width="500" alt="A Quarto document in Positron with a Python code cell and its scatter plot of penguin measurements shown inline below the cell."></a></p>
+<figcaption>A Quarto document in Positron with a Python code cell and its scatter plot of penguin measurements shown inline below the cell.</figcaption>
+</figure>
+</div>
 <p>Positron can optionally display the output of Quarto cells in the source editor, similar to a <a href="./jupyter-notebooks.html">Jupyter Notebook</a> or RStudio’s <a href="https://posit.co/blog/r-notebooks">R Notebooks</a> feature. To enable inline output, turn on <a href="positron://settings/quarto.inlineOutput.enabled"><code>quarto.inlineOutput.enabled</code></a>.</p>
 <section id="per-document-kernels" class="level2">
 <h2 class="anchored" data-anchor-id="per-document-kernels">Per-document kernels</h2>
-<p>When inline output is disabled, Positron’s Quarto execution model is similar to RStudio’s; running code from a Quarto cell sends it to the Console where you have Python or R running.</p>
+<p>When you turn off inline output, Positron’s Quarto execution model is similar to RStudio’s; running code from a Quarto cell sends it to the Console where you have Python or R running.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
@@ -896,7 +908,7 @@ q3[Quarto Doc 3] --&gt; rc
 </div>
 </div>
 </div>
-<p>When inline output is enabled, the execution model changes, and the Quarto document behaves more like a Jupyter Notebook. Positron creates an isolated Python or R session for each <code>.qmd</code> file. This matches typical render-time behavior, improves reproducibility by using a clean environment for each document, and resolves ambiguities around working directories.</p>
+<p>When you turn on inline output, the execution model changes, and the Quarto document behaves more like a Jupyter Notebook. Positron creates an isolated Python or R session for each <code>.qmd</code> file. This matches typical render-time behavior, improves reproducibility by using a clean environment for each document, and resolves ambiguities around working directories.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
@@ -912,6 +924,16 @@ q3[Quarto Doc 3] --&gt; rc3[Interpreter Session 3]
 </div>
 </div>
 </div>
+</section>
+<section id="working-directory" class="level2">
+<h2 class="anchored" data-anchor-id="working-directory">Working directory</h2>
+<p>When you turn on inline output, code in a Quarto document runs with the document’s folder as the working directory. This matches how Quarto sets the working directory when it renders a document, so relative file paths behave the same way when you run code interactively and when you render.</p>
+<p>Because Positron starts each document’s Python or R session in the document’s folder, startup files in that folder take effect when the session starts. For example:</p>
+<ul>
+<li><strong>R:</strong> an <code>.Rprofile</code> in the document’s folder runs instead of your user-level <code>~/.Rprofile</code>. This includes renv activation scripts.</li>
+<li><strong>Python:</strong> the document’s folder is on the module search path, so you can import local modules that live alongside the document.</li>
+</ul>
+<p>Untitled documents don’t have a folder, so their sessions start in the first workspace folder, or in your home directory if no folder is open.</p>
 </section>
 <section id="consoles" class="level2">
 <h2 class="anchored" data-anchor-id="consoles">Consoles</h2>
@@ -1396,6 +1418,38 @@ q3[Quarto Doc 3] --&gt; rc3[Interpreter Session 3]
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
