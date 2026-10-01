@@ -21,9 +21,14 @@ description: "Get answers to common questions about Positron: supported language
 ::: {.content-visible unless-profile="workbench"}
 ### How can I use Positron with a server?
 
-* Positron is available as a free desktop app for Windows, MacOS, and Linux. This desktop app includes [support for remote SSH sessions](remote-ssh.qmd), allowing you to connect to remote Linux servers for scaling or data access purposes.  
-* The native browser or server-based version of Positron is only available via [Posit Workbench](https://posit.co/products/enterprise/workbench/). Posit Workbench provides enterprise-grade features such as access to highly scalable compute, single-sign on security, native authorization to data governance tools such as Databricks or Snowflake, container-backed sessions, multi-session capabilities, and more.
-* Remote SSH and Posit Workbench features are supported on RHEL 8, 9, and 10 and Ubuntu 22/24. However, we plan to expand this set of Linux distributions. Full Posit Team platform support is available on the [Posit Platform Support page](https://docs.posit.co/platform-support.html#positron-pro-sessions-in-workbench).
+Positron is available as a free desktop app for Windows, MacOS, and Linux. Beyond the desktop app, there are several ways to run Positron on a server:
+
+* **Remote SSH:** The desktop app includes [support for remote SSH sessions](remote-ssh.qmd), allowing you to connect to remote Linux servers for scaling or data access purposes.
+* **Positron Pro on Posit Workbench:** [Workbench](https://posit.co/products/enterprise/workbench/) provides browser-based Positron Pro sessions with enterprise-grade features. These include highly scalable compute, single sign-on security, native authorization to data governance tools such as Databricks or Snowflake, container-backed sessions, and multi-session capabilities.
+* **Positron Pro on Amazon SageMaker:** Positron Pro is also available on Amazon SageMaker (in public preview) as a custom Docker image, and AWS License Manager manages licensing. See the [Positron on Amazon SageMaker administration guide](https://docs.posit.co/partnerships/aws-sagemaker/positron/admin.html) to get started.
+* **Positron Server on JupyterHub:** Qualified academic institutions can host Positron Server on JupyterHub for teaching with a free education license. See [Positron for Education](education.qmd).
+
+Remote SSH and Workbench features are supported on RHEL 8, 9, and 10 and Ubuntu 22/24. However, we plan to expand this set of Linux distributions. Full Posit Team platform support is available on the [Posit Platform Support page](https://docs.posit.co/platform-support.html#positron-pro-sessions-in-workbench).
 :::
 
 ### Why build a new IDE rather than VS Code extensions?
