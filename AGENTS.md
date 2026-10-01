@@ -61,6 +61,7 @@ Key formatting rules:
   - Example: `{{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}`
   - Do **not** use syntax like `<kbd>Cmd</kbd> + <kbd>C</kbd>` in `.qmd`
   - It is OK to use `<kbd>` syntax in markdown files
+- **R package names**: Use the plain package name ("the dplyr package", "readr"), not curly-bracket syntax like `{dplyr}`, even though the Posit style guide allows it. This site does not use it.
 - **Settings links**: Point readers directly to the setting in their UI:
   ```markdown
   [`category.nameOfSetting`](positron://settings/category.nameOfSetting)
