@@ -16,3 +16,7 @@ If the **Variables** pane is not already displayed, you can open it by selecting
 ### Viewing data tables
 
 If your session includes data tables, they appear in the **DATA** section of the **Variables** pane. For more information about viewing your data tables, see the [Data Explorer](data-explorer.qmd) section.
+
+### Importing data
+
+The {{< fa file-import >}} **Import Data** button in the pane toolbar opens the [Import Data](import-data.qmd) dialog, which generates the code to load a data file into your session and can run it for you.

@@ -40,6 +40,8 @@ df |> mutate(doubled_column = column * 2) |> View()
 
 You can directly open `.csv`, `.tsv`, `.parquet`, and `.xlsx` files (using DuckDB) by selecting a file in the File Explorer or using the Command Palette.^[Use **File Options** in the action bar to configure how DuckDB parses a `.csv` or `.tsv` file.] You can also open compressed CSV, TSV, and Parquet files.
 
+When you view a data file, the **Import Data** button in the action bar opens the [Import Data](import-data.qmd) dialog, which generates the Python or R code to load that file into a session and can run it for you.
+
 ### Opening CSV files as plain text
 
 After opening a CSV file in the Data Explorer, you can view it in the text editor. Select the **Open as Plain Text File** option in the top action bar.

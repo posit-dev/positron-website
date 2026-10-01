@@ -72,4 +72,5 @@ The **Convert to Code** button writes code appropriate for your dataframe type:
 - pandas dataframes produce pandas code
 - polars dataframes produce polars code, with the option to convert to pandas code
 - R dataframes and tibbles produce dplyr code with pipe syntax
-- Files opened directly (`.csv`, `.tsv`, `.parquet`) produce DuckDB SQL code
+
+Convert to Code is available for dataframes in an active session. When you open a file directly in the Data Explorer, **Import Data** replaces Convert to Code. The [Import Data](import-data.qmd) dialog can also [include your current filters and sorts](import-data.qmd#include-filters-and-sorts) in the code it generates.
