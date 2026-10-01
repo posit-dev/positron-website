@@ -120,6 +120,15 @@ Remote SSH: Server Download Url Template Setting
 
 If you need to install the server data in a different location than `~/.positron-server`, edit the [`remoteSSH.serverInstallPath`](positron://settings/remoteSSH.serverInstallPath) setting.
 
+### Native OpenSSH transport
+
+By default, Positron connects to remote hosts using a built-in SSH implementation that does not support some OpenSSH features, such as dynamically configured, short-lived OpenSSH certificate authentication. If your SSH configuration relies on OpenSSH features like `Match exec`, dynamic `Include` files, `ProxyJump`, or OpenSSH certificates, set [`remoteSSH.transport`](positron://settings/remoteSSH.transport) to `native`. Positron then delegates connections and port forwarding tunnels to the system OpenSSH client, running the `ssh` executable on your `PATH` by default. Set [`remoteSSH.path`](positron://settings/remoteSSH.path) to use a specific OpenSSH executable.
+
+Native mode has some limitations:
+
+- Authentication must be non-interactive. Positron does not support password, passphrase, and host key confirmation prompts in native mode, so a connection that requires interactive input fails immediately with an error instead of hanging.
+- Native mode does not support agent forwarding into the remote extension host.
+
 ## Troubleshooting
 
 The two most common problems are:

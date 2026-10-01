@@ -899,7 +899,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#resuming-sessions" id="toc-resuming-sessions" class="nav-link" data-scroll-target="#resuming-sessions">Resuming sessions</a></li>
   <li><a href="#shutdown-timeout-details" id="toc-shutdown-timeout-details" class="nav-link" data-scroll-target="#shutdown-timeout-details">Shutdown timeout details</a></li>
   </ul></li>
-  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How it works</a></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How it works</a>
+  <ul class="collapse">
+  <li><a href="#native-openssh-transport" id="toc-native-openssh-transport" class="nav-link" data-scroll-target="#native-openssh-transport">Native OpenSSH transport</a></li>
+  </ul></li>
   <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/remote-ssh.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/remote-ssh.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -1062,6 +1065,15 @@ Note
 </figure>
 </div>
 <p>If you need to install the server data in a different location than <code>~/.positron-server</code>, edit the <a href="positron://settings/remoteSSH.serverInstallPath"><code>remoteSSH.serverInstallPath</code></a> setting.</p>
+<section id="native-openssh-transport" class="level3">
+<h3 class="anchored" data-anchor-id="native-openssh-transport">Native OpenSSH transport</h3>
+<p>By default, Positron connects to remote hosts using a built-in SSH implementation that does not support some OpenSSH features, such as dynamically configured, short-lived OpenSSH certificate authentication. If your SSH configuration relies on OpenSSH features like <code>Match exec</code>, dynamic <code>Include</code> files, <code>ProxyJump</code>, or OpenSSH certificates, set <a href="positron://settings/remoteSSH.transport"><code>remoteSSH.transport</code></a> to <code>native</code>. Positron then delegates connections and port forwarding tunnels to the system OpenSSH client, running the <code>ssh</code> executable on your <code>PATH</code> by default. Set <a href="positron://settings/remoteSSH.path"><code>remoteSSH.path</code></a> to use a specific OpenSSH executable.</p>
+<p>Native mode has some limitations:</p>
+<ul>
+<li>Authentication must be non-interactive. Positron does not support password, passphrase, and host key confirmation prompts in native mode, so a connection that requires interactive input fails immediately with an error instead of hanging.</li>
+<li>Native mode does not support agent forwarding into the remote extension host.</li>
+</ul>
+</section>
 </section>
 <section id="troubleshooting" class="level2">
 <h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
