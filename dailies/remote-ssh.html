@@ -934,7 +934,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Positron has support for Remote SSH sessions. This feature allows the Positron IDE’s front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine. The two machines communicate using an ordinary secure shell (SSH) connection.</p>
+<p>Positron has support for Remote SSH sessions. This feature allows the Positron IDE’s front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine. The two machines communicate using an ordinary secure shell (SSH) connection. On the remote machine, Positron installs and runs a headless server binary (<code>positron-reh</code>, short for “remote extension host”).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
@@ -957,9 +957,9 @@ end
 </div>
 <section id="system-requirements" class="level2">
 <h2 class="anchored" data-anchor-id="system-requirements">System requirements</h2>
-<p>Remote SSH sessions can be <em>initiated</em> from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are <em>connecting</em> to must be running Linux<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>; native Windows and macOS remote hosts are not supported.</p>
+<p>Remote SSH sessions can be <em>initiated</em> from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are <em>connecting</em> to must be running Linux<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>; native Windows and macOS remote hosts are not supported.</p>
 <p>Note that Remote SSH is <em>only</em> supported on the desktop app. You cannot use Remote SSH from Positron Pro sessions on Posit Workbench.</p>
-<p>At least 2 GB RAM is required to run the remote Positron server, but for realistic data science work, expect to need at least 4 GB RAM or more on the remote host.</p>
+<p>The server component on the remote host requires at least 2 GB RAM, but for realistic data science work, expect to need at least 4 GB RAM or more.</p>
 </section>
 <section id="creating-a-connection" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-connection">Creating a connection</h2>
@@ -1039,9 +1039,9 @@ end
 <p>When Positron connects to a new host for the first time, it does the following:</p>
 <ol type="1">
 <li>Establishes an SSH connection to the host.</li>
-<li>Forms the name and download URL of the correct Positron Server binary, e.g., <code>positron-reh-linux-x64-2025.01.0-39.tar.gz</code>.</li>
+<li>Forms the name and download URL of the correct server binary, e.g., <code>positron-reh-linux-x64-2025.01.0-39.tar.gz</code>.</li>
 <li>On the remote host, downloads this binary into <code>~/.positron-server</code> and unpacks it.</li>
-<li>Starts the headless Positron Server inside the remote host.</li>
+<li>Starts the headless server on the remote host.</li>
 <li>Connects to the server from the front end.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1054,10 +1054,10 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The client and server must be using <strong>exactly</strong> the same Positron version. We make Positron Server builds available for both regular monthly releases as well as <a href="./updating.html#daily-builds">daily builds</a>, so you can use either for remote SSH sessions. If you connect to a remote host with a new client version of Positron (for example, because a new monthly release is available), the new matching version of Positron Server will be downloaded and unpacked.</p>
+<p>The client and server must be using <strong>exactly</strong> the same Positron version. We make builds of the server binary available for both regular monthly releases as well as <a href="./updating.html#daily-builds">daily builds</a>, so you can use either for remote SSH sessions. If you connect to a remote host with a new client version of Positron (for example, because a new monthly release is available), Positron downloads and unpacks the matching version of the server binary.</p>
 </div>
 </div>
-<p>If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it’s not autodetected), you can edit the <a href="positron://settings/remoteSSH.serverDownloadUrlTemplate"><code>remoteSSH.serverDownloadUrlTemplate</code></a> setting:</p>
+<p>If you need to use a different URL to download the server binary (for example to use a local copy due to network constraints, or to force the use of a particular version even if it is not autodetected), you can edit the <a href="positron://settings/remoteSSH.serverDownloadUrlTemplate"><code>remoteSSH.serverDownloadUrlTemplate</code></a> setting:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./images/remote-ssh-server-template.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Remote SSH: Server Download Url Template Setting"><img src="./images/remote-ssh-server-template.png" class="img-fluid figure-img" alt="Positron settings panel showing the Remote SSH Server Download URL Template field with a text input for a custom URL." width="650"></a></p>
@@ -1079,8 +1079,8 @@ Note
 <h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
 <p>The two most common problems are:</p>
 <ul>
-<li>Encountering a 404 when downloading the Positron Server binary. This happens when you attempt to use Remote SSH against a host type that’s not supported, for example, connecting to a macOS host.</li>
-<li>Encountering an error when starting the Positron Server binary. This happens when you attempt to use Remote SSH against a version of Linux that’s not supported by Positron.</li>
+<li>Encountering a 404 when downloading the server binary. This happens when you attempt to use Remote SSH against a host type that is not supported, for example, connecting to a macOS host.</li>
+<li>Encountering an error when starting the server binary. This happens when you attempt to use Remote SSH against a version of Linux that is not supported by Positron.</li>
 </ul>
 <p>Occasionally, the installation on the remote server can be corrupted, for example, if the download was interrupted. If you encounter errors installing Positron on the remote server, you can try deleting the server directory on the remote host, killing any running server processes, and then connecting again.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On the remote host, kill any existing positron-server processes</span></span>
@@ -1098,7 +1098,8 @@ Note
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Positron does provide support for using WSL (Windows Subsystem for Linux) on Windows as a remote host.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>This server binary is distinct from <a href="./faqs.html#how-can-i-use-positron-with-a-server">other ways to run Positron fully on a server</a>, such as Positron Server on JupyterHub and Positron Pro on Posit Workbench.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Positron does provide support for using WSL (Windows Subsystem for Linux) on Windows as a remote host.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

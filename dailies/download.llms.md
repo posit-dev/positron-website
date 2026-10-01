@@ -141,6 +141,12 @@ Once you install Positron, it will [automatically check for updates moving forwa
 >
 > Want to be notified about upcoming releases, new features, and community events? [Sign up for Positron updates](https://posit.co/positron-updates-signup/).
 
-## Positron Pro on Posit Workbench
+## Positron Pro
 
-[Posit Workbench](https://posit.co/products/enterprise/workbench/) includes support for Positron Pro. To configure and use Positron Pro on Posit Workbench, please see the [Posit Workbench Administration Guide](https://docs.posit.co/ide/server-pro/admin/positron_sessions/) and the [Positron Pro user guide](https://docs.posit.co/ide/server-pro/user/positron/getting-started/).
+### Positron Pro on Posit Workbench
+
+[Workbench](https://posit.co/products/enterprise/workbench/) includes support for Positron Pro. To configure and use Positron Pro on Workbench, please see the [Positron Pro administration guide](https://docs.posit.co/ide/server-pro/admin/positron_sessions/) and the [Positron Pro user guide](https://docs.posit.co/ide/server-pro/user/positron/getting-started/).
+
+### Positron Pro on Amazon SageMaker
+
+Positron Pro is also available on Amazon SageMaker (in public preview) as a custom Docker image. The image includes R, Python environment management via uv, Quarto, Posit Assistant backed by Amazon Bedrock, and professional ODBC drivers from Posit. Running Positron on SageMaker requires a Workbench Advanced license through AWS License Manager. To get started, see the [Positron on Amazon SageMaker administration guide](https://docs.posit.co/partnerships/aws-sagemaker/positron/admin.html) and [user guide](https://docs.posit.co/partnerships/aws-sagemaker/positron/user.html).

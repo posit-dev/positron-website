@@ -2,7 +2,7 @@
 
 Connect Positron to remote servers via SSH. Run your IDE locally while accessing files, projects, and interpreter sessions on remote machines.
 
-Positron has support for Remote SSH sessions. This feature allows the Positron IDE’s front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine. The two machines communicate using an ordinary secure shell (SSH) connection.
+Positron has support for Remote SSH sessions. This feature allows the Positron IDE’s front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine. The two machines communicate using an ordinary secure shell (SSH) connection. On the remote machine, Positron installs and runs a headless server binary (`positron-reh`, short for “remote extension host”).[^1]
 
 ``` mermaid
 flowchart LR
@@ -18,11 +18,11 @@ end
 
 ## System requirements
 
-Remote SSH sessions can be *initiated* from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux[^1]; native Windows and macOS remote hosts are not supported.
+Remote SSH sessions can be *initiated* from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are *connecting* to must be running Linux[^2]; native Windows and macOS remote hosts are not supported.
 
 Note that Remote SSH is *only* supported on the desktop app. You cannot use Remote SSH from Positron Pro sessions on Posit Workbench.
 
-At least 2 GB RAM is required to run the remote Positron server, but for realistic data science work, expect to need at least 4 GB RAM or more on the remote host.
+The server component on the remote host requires at least 2 GB RAM, but for realistic data science work, expect to need at least 4 GB RAM or more.
 
 ## Creating a connection
 
@@ -103,16 +103,16 @@ There’s also an option to allow the kernels to run forever; if you use this op
 When Positron connects to a new host for the first time, it does the following:
 
 1.  Establishes an SSH connection to the host.
-2.  Forms the name and download URL of the correct Positron Server binary, e.g., `positron-reh-linux-x64-2025.01.0-39.tar.gz`.
+2.  Forms the name and download URL of the correct server binary, e.g., `positron-reh-linux-x64-2025.01.0-39.tar.gz`.
 3.  On the remote host, downloads this binary into `~/.positron-server` and unpacks it.
-4.  Starts the headless Positron Server inside the remote host.
+4.  Starts the headless server on the remote host.
 5.  Connects to the server from the front end.
 
 > **NOTE:**
 >
-> The client and server must be using **exactly** the same Positron version. We make Positron Server builds available for both regular monthly releases as well as [daily builds](updating.llms.md#daily-builds), so you can use either for remote SSH sessions. If you connect to a remote host with a new client version of Positron (for example, because a new monthly release is available), the new matching version of Positron Server will be downloaded and unpacked.
+> The client and server must be using **exactly** the same Positron version. We make builds of the server binary available for both regular monthly releases as well as [daily builds](updating.llms.md#daily-builds), so you can use either for remote SSH sessions. If you connect to a remote host with a new client version of Positron (for example, because a new monthly release is available), Positron downloads and unpacks the matching version of the server binary.
 
-If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it’s not autodetected), you can edit the [`remoteSSH.serverDownloadUrlTemplate`](positron://settings/remoteSSH.serverDownloadUrlTemplate) setting:
+If you need to use a different URL to download the server binary (for example to use a local copy due to network constraints, or to force the use of a particular version even if it is not autodetected), you can edit the [`remoteSSH.serverDownloadUrlTemplate`](positron://settings/remoteSSH.serverDownloadUrlTemplate) setting:
 
 [![Positron settings panel showing the Remote SSH Server Download URL Template field with a text input for a custom URL.](./images/remote-ssh-server-template.png)](./images/remote-ssh-server-template.png "Remote SSH: Server Download Url Template Setting")
 
@@ -133,8 +133,8 @@ Native mode has some limitations:
 
 The two most common problems are:
 
-- Encountering a 404 when downloading the Positron Server binary. This happens when you attempt to use Remote SSH against a host type that’s not supported, for example, connecting to a macOS host.
-- Encountering an error when starting the Positron Server binary. This happens when you attempt to use Remote SSH against a version of Linux that’s not supported by Positron.
+- Encountering a 404 when downloading the server binary. This happens when you attempt to use Remote SSH against a host type that is not supported, for example, connecting to a macOS host.
+- Encountering an error when starting the server binary. This happens when you attempt to use Remote SSH against a version of Linux that is not supported by Positron.
 
 Occasionally, the installation on the remote server can be corrupted, for example, if the download was interrupted. If you encounter errors installing Positron on the remote server, you can try deleting the server directory on the remote host, killing any running server processes, and then connecting again.
 
@@ -150,4 +150,6 @@ rm -rf ~/.positron-server
 
 ## Footnotes
 
-[^1]: Positron does provide support for using WSL (Windows Subsystem for Linux) on Windows as a remote host.
+[^1]: This server binary is distinct from [other ways to run Positron fully on a server](faqs.llms.md#how-can-i-use-positron-with-a-server), such as Positron Server on JupyterHub and Positron Pro on Posit Workbench.
+
+[^2]: Positron does provide support for using WSL (Windows Subsystem for Linux) on Windows as a remote host.
