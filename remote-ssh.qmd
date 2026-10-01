@@ -5,7 +5,7 @@ description: "Connect Positron to remote servers via SSH. Run your IDE locally w
 
 Positron has support for Remote SSH sessions. This feature allows the Positron IDE's front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine. The two machines communicate using an ordinary secure shell (SSH) connection. On the remote machine, Positron installs and runs a headless server binary (`positron-reh`, short for "remote extension host").[^2]
 
-[^2]: This server component is distinct from [Positron Server on JupyterHub](faqs.qmd#how-can-i-use-positron-with-a-server), a separate way to run Positron for teaching in academic settings.
+[^2]: This server binary is distinct from [other ways to run Positron fully on a server](faqs.qmd#how-can-i-use-positron-with-a-server), such as Positron Server on JupyterHub and Positron Pro on Posit Workbench.
 
 ```{mermaid}
 %%| fig-align: center
