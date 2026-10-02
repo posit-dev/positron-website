@@ -158,6 +158,7 @@ website:
               - data-explorer-data-grid.qmd
               - data-explorer-filter-bar.qmd
               - data-explorer-summary-panel.qmd
+              - import-data.qmd
             - variables-pane.qmd
             - plots-pane.qmd
         - section: "Database Connections"
