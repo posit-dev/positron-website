@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Give Positron Assistant context from your data, plots, Console activity, and files. Learn how to attach relevant context for smarter AI assistance.">
+<meta name="description" content="Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, and Parquet files with pandas, readr, readxl, or nanoparquet.">
 
-<title>Context – Positron</title>
+<title>Import Data – Positron</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,8 +71,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./assistant-chat-commands-participants.html" rel="next">
-<link href="./assistant-chat-agents.html" rel="prev">
+<link href="./variables-pane.html" rel="next">
+<link href="./data-explorer-summary-panel.html" rel="prev">
 <link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -51,6 +86,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-ec73eb30df963ac6d1b80a5c9bf53c28.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -81,17 +119,19 @@ ul.task-list li input[type="checkbox"] {
 <meta name="robots" content="noindex">
 
 
-<meta property="og:title" content="Context – Positron">
-<meta property="og:description" content="Give Positron Assistant context from your data, plots, Console activity, and files. Learn how to attach relevant context for smarter AI assistance.">
-<meta property="og:image" content="https://positron.posit.co/dailies/images/positron-social.png">
+<meta property="og:title" content="Import Data – Positron">
+<meta property="og:description" content="Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, and Parquet files with pandas, readr, readxl, or nanoparquet.">
+<meta property="og:image" content="https://positron.posit.co/dailies/images/import-data.png">
 <meta property="og:site_name" content="Positron">
-<meta property="og:image:height" content="1080">
-<meta property="og:image:width" content="1920">
-<meta name="twitter:title" content="Context – Positron">
-<meta name="twitter:description" content="Give Positron Assistant context from your data, plots, Console activity, and files. Learn how to attach relevant context for smarter AI assistance.">
-<meta name="twitter:image" content="https://positron.posit.co/dailies/images/positron-social.png">
-<meta name="twitter:image-height" content="1080">
-<meta name="twitter:image-width" content="1920">
+<meta property="og:image:alt" content="Import Data dialog for an Excel workbook with Python (pandas) selected and a code preview showing pd.read_excel.">
+<meta property="og:image:height" content="976">
+<meta property="og:image:width" content="1592">
+<meta name="twitter:title" content="Import Data – Positron">
+<meta name="twitter:description" content="Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, and Parquet files with pandas, readr, readxl, or nanoparquet.">
+<meta name="twitter:image" content="https://positron.posit.co/dailies/images/import-data.png">
+<meta name="twitter:image:alt" content="Import Data dialog for an Excel workbook with Python (pandas) selected and a code preview showing pd.read_excel.">
+<meta name="twitter:image-height" content="976">
+<meta name="twitter:image-width" content="1592">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -195,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ai-features.html">AI Features</a></li><li class="breadcrumb-item"><a href="./assistant-chat.html">Positron Assistant (deprecated)</a></li><li class="breadcrumb-item"><a href="./assistant-chat.html">Chat</a></li><li class="breadcrumb-item"><a href="./assistant-chat-context.html">Context</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-explorer.html">Data Analysis</a></li><li class="breadcrumb-item"><a href="./data-explorer.html">Data Explorer</a></li><li class="breadcrumb-item"><a href="./import-data.html">Import Data</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -361,22 +401,22 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
  <span class="menu-text">Positron Assistant (deprecated)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./assistant-chat.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chat</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 show">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./assistant-chat.html" class="sidebar-item-text sidebar-link">
@@ -391,7 +431,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assistant-chat-context.html" class="sidebar-item-text sidebar-link active">
+  <a href="./assistant-chat-context.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Context</span></a>
   </div>
 </li>
@@ -502,11 +542,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./data-explorer.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Explorer</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data-explorer.html" class="sidebar-item-text sidebar-link">
@@ -533,7 +573,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./import-data.html" class="sidebar-item-text sidebar-link">
+  <a href="./import-data.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Import Data</span></a>
   </div>
 </li>
@@ -847,33 +887,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#attach-context" id="toc-attach-context" class="nav-link active" data-scroll-target="#attach-context">Attach context</a></li>
-  <li><a href="#interpreter-session-context" id="toc-interpreter-session-context" class="nav-link" data-scroll-target="#interpreter-session-context">Interpreter session context</a>
-  <ul class="collapse">
-  <li><a href="#switch-the-attached-interpreter-session" id="toc-switch-the-attached-interpreter-session" class="nav-link" data-scroll-target="#switch-the-attached-interpreter-session">Switch the attached interpreter session</a></li>
-  <li><a href="#toggle-the-visibility-of-the-active-interpreter-session" id="toc-toggle-the-visibility-of-the-active-interpreter-session" class="nav-link" data-scroll-target="#toggle-the-visibility-of-the-active-interpreter-session">Toggle the visibility of the active interpreter session</a></li>
-  <li><a href="#attach-an-interpreter-session" id="toc-attach-an-interpreter-session" class="nav-link" data-scroll-target="#attach-an-interpreter-session">Attach an interpreter session</a></li>
-  </ul></li>
-  <li><a href="#source-control-context" id="toc-source-control-context" class="nav-link" data-scroll-target="#source-control-context">Source control context</a>
-  <ul class="collapse">
-  <li><a href="#commit-history-context" id="toc-commit-history-context" class="nav-link" data-scroll-target="#commit-history-context">Commit history context</a></li>
-  <li><a href="#generate-commit-messages" id="toc-generate-commit-messages" class="nav-link" data-scroll-target="#generate-commit-messages">Generate commit messages</a></li>
-  </ul></li>
-  <li><a href="#settings" id="toc-settings" class="nav-link" data-scroll-target="#settings">Settings</a></li>
+  <li><a href="#open-the-import-data-dialog" id="toc-open-the-import-data-dialog" class="nav-link active" data-scroll-target="#open-the-import-data-dialog">Open the Import Data dialog</a></li>
+  <li><a href="#choose-a-package" id="toc-choose-a-package" class="nav-link" data-scroll-target="#choose-a-package">Choose a package</a></li>
+  <li><a href="#customize-the-generated-code" id="toc-customize-the-generated-code" class="nav-link" data-scroll-target="#customize-the-generated-code">Customize the generated code</a></li>
+  <li><a href="#run-or-copy-the-code" id="toc-run-or-copy-the-code" class="nav-link" data-scroll-target="#run-or-copy-the-code">Run or copy the code</a></li>
+  <li><a href="#include-filters-and-sorts" id="toc-include-filters-and-sorts" class="nav-link" data-scroll-target="#include-filters-and-sorts">Include filters and sorts</a></li>
+  <li><a href="#import-data-and-convert-to-code" id="toc-import-data-and-convert-to-code" class="nav-link" data-scroll-target="#import-data-and-convert-to-code">Import Data and Convert to Code</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/assistant-chat-context.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/assistant-chat-context.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/import-data.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/import-data.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ai-features.html">AI Features</a></li><li class="breadcrumb-item"><a href="./assistant-chat.html">Positron Assistant (deprecated)</a></li><li class="breadcrumb-item"><a href="./assistant-chat.html">Chat</a></li><li class="breadcrumb-item"><a href="./assistant-chat-context.html">Context</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-explorer.html">Data Analysis</a></li><li class="breadcrumb-item"><a href="./data-explorer.html">Data Explorer</a></li><li class="breadcrumb-item"><a href="./import-data.html">Import Data</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Context</h1>
+<h1 class="title">Import Data</h1>
 </div>
 
 <div>
   <div class="description">
-    Give Positron Assistant context from your data, plots, Console activity, and files. Learn how to attach relevant context for smarter AI assistance.
+    Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, and Parquet files with pandas, readr, readxl, or nanoparquet.
   </div>
 </div>
 
@@ -890,126 +923,99 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>The Import Data dialog generates the code to load a data file into a Python or R session, and can run that code for you. It is the shortest path from looking at a file in the <a href="./data-explorer.html">Data Explorer</a> to having a dataframe in your <a href="./variables-pane.html">Variables pane</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/import-data.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Import Data dialog"><img src="images/import-data.png" class="drop-shadow img-fluid figure-img" alt="Import Data dialog for an Excel workbook with Python (pandas) selected and a code preview showing pd.read_excel." width="650"></a></p>
+<figcaption>Import Data dialog</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Positron Assistant is deprecated
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page documents Positron Assistant, the previous AI chat and completions experience, which has been deprecated and replaced by <a href="https://assistant.posit.co">Posit Assistant</a> as of Positron 2026.07. These docs remain in place for folks on older builds of Positron.</p>
-<p>If you are on Positron 2026.07 or later, see the <a href="https://assistant.posit.co">Posit Assistant documentation</a> to get set up with Posit Assistant. For background on this change, see <a href="https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents">The history of Posit’s data science agents</a>.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Migrating to Posit Assistant?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Posit Assistant handles context in its own way. See <a href="https://assistant.posit.co/docs/features/context-management/">Context management</a> in the Posit Assistant documentation.</p>
-</div>
-</div>
-<p>Positron Assistant goes beyond reading your code files. It also accesses your loaded data, plots, and Console activity by calling tools and executing code in your R or Python interpreter session or running commands in the Terminal.</p>
-<p>This access allows Assistant to provide more relevant coding guidance based on:</p>
+<section id="open-the-import-data-dialog" class="level2">
+<h2 class="anchored" data-anchor-id="open-the-import-data-dialog">Open the Import Data dialog</h2>
+<p>You can open the Import Data dialog from several places:</p>
 <ul>
-<li><strong>In-memory data</strong>: Names, dimensions, and column names of dataframes, plus metadata for arrays, lists, and other objects in memory</li>
-<li><strong>Current plot</strong>: The most recent plot in the Plots pane</li>
-<li><strong>Console history</strong>: Code inputs and outputs, with the ability to execute new code and see results</li>
-<li><strong>Workspace information</strong>: Project structure, files, and version control history</li>
+<li>Select <strong>Import Data</strong> in the action bar of a Data Explorer that shows a <code>.csv</code>, <code>.tsv</code>, <code>.xlsx</code>, or <code>.parquet</code> file</li>
+<li>Select <strong>File &gt; Import Data</strong> from the main menu</li>
+<li>Select the <i class="fa-solid fa-file-import" aria-label="file-import"></i> <strong>Import Data</strong> button in the <strong>Variables</strong> pane toolbar</li>
+<li>Right-click a <code>.csv</code>, <code>.tsv</code>, <code>.xlsx</code>, or <code>.parquet</code> file in the File Explorer and select <strong>Import Data</strong></li>
 </ul>
-<section id="attach-context" class="level2">
-<h2 class="anchored" data-anchor-id="attach-context">Attach context</h2>
-<p>Providing useful context to Positron Assistant is crucial for getting accurate and relevant responses.</p>
-<p>By default, the active editor file and the active interpreter session (if any) are attached as context for your chat messages in the chat pane.</p>
-<p>To include additional attachments as context for your prompts:</p>
+<p>The main menu and Variables pane entries open a file picker first. From every entry point, Positron opens the file in the Data Explorer and shows the dialog over it. If the Data Explorer already shows that file, Positron reuses it, so the dialog picks up the header row and worksheet options you already chose.</p>
+</section>
+<section id="choose-a-package" class="level2">
+<h2 class="anchored" data-anchor-id="choose-a-package">Choose a package</h2>
+<p>The dialog offers the packages that can read the file you opened:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File type</th>
+<th>Python</th>
+<th>R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.csv</code>, <code>.tsv</code></td>
+<td>pandas <code>read_csv</code></td>
+<td>readr <code>read_csv</code> or <code>read_tsv</code></td>
+</tr>
+<tr class="even">
+<td><code>.xlsx</code></td>
+<td>pandas <code>read_excel</code></td>
+<td>readxl <code>read_excel</code></td>
+</tr>
+<tr class="odd">
+<td><code>.parquet</code>, <code>.parq</code></td>
+<td>pandas <code>read_parquet</code></td>
+<td>nanoparquet <code>read_parquet</code></td>
+</tr>
+</tbody>
+</table>
+<p>Reading Parquet files with pandas requires the pyarrow or fastparquet package.</p>
+<p>If no extension can generate code for the file, the dialog reports that instead. Compressed files such as <code>.csv.gz</code> fall into this case: the Data Explorer can open them, but the Import Data dialog does not generate code for them.</p>
+</section>
+<section id="customize-the-generated-code" class="level2">
+<h2 class="anchored" data-anchor-id="customize-the-generated-code">Customize the generated code</h2>
+<p>The dialog names the new variable after the file, sanitized into a valid identifier for the language you choose. For example, a file named <code>2020 data.csv</code> becomes <code>data</code>, and a file named <code>class.csv</code> becomes <code>class_</code> in Python because <code>class</code> is a reserved word. You can edit the name, and your edit persists if you switch packages.</p>
+<p>Two Data Explorer settings flow into the generated code:</p>
 <ul>
-<li>Click the <i class="fa-solid fa-paperclip" aria-label="paperclip"></i> paperclip button in the chat pane</li>
-<li>Choose from options such as:
-<ul>
-<li><strong>Files &amp; Folders</strong>: specific files or folders in your workspace.</li>
-<li><strong>Source Control</strong>: commits from your version control history.</li>
-<li><strong>Tools</strong>: specific tools you would like Assistant to use.</li>
-</ul></li>
+<li>If you turn off the header row in <strong>File Options</strong>, the code reads the file without column names (<code>header=None</code> in pandas, <code>col_names = FALSE</code> in readr)</li>
+<li>For an Excel workbook, the code reads the worksheet you are viewing (<code>sheet_name=</code> in pandas, <code>sheet =</code> in readxl)</li>
 </ul>
-<p>For more information on attaching context to your chat message, refer to the <a href="https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features#_add-context-to-your-prompt">Add context to your prompt</a> VS Code documentation.</p>
+<p>The generated code names the file by a workspace-relative path when the file is inside your workspace, and by its absolute path otherwise. In a remote window, the code uses the remote path for files on the remote machine.</p>
+<p>You can also edit the code directly in the preview before running it.</p>
 </section>
-<section id="interpreter-session-context" class="level2">
-<h2 class="anchored" data-anchor-id="interpreter-session-context">Interpreter session context</h2>
-<p>By default, Positron Assistant can see the active R or Python interpreter session in the chat pane. The Chat input box displays the active Console session as an attachment.</p>
-<p>When an interpreter session is attached, Positron Assistant can access:</p>
-<ul>
-<li>Code inputs and outputs in that session</li>
-<li>In-memory objects and dataframes in the Variables pane</li>
-<li>The active plot in the Plots pane</li>
-<li>Tool calls that require the interpreter session</li>
-</ul>
-<section id="switch-the-attached-interpreter-session" class="level3">
-<h3 class="anchored" data-anchor-id="switch-the-attached-interpreter-session">Switch the attached interpreter session</h3>
-<ol type="1">
-<li>Click the interpreter session in the Console pane to make it active.</li>
-<li>Positron Assistant automatically updates to use the newly active interpreter session.</li>
-</ol>
+<section id="run-or-copy-the-code" class="level2">
+<h2 class="anchored" data-anchor-id="run-or-copy-the-code">Run or copy the code</h2>
+<p>Select <strong>Import</strong> to run the code in the console. Positron starts a session for the language if one is not running, and the new dataframe appears in the <strong>Variables</strong> pane. Select <strong>Copy</strong> to copy the code for pasting into a script or document.</p>
 </section>
-<section id="toggle-the-visibility-of-the-active-interpreter-session" class="level3">
-<h3 class="anchored" data-anchor-id="toggle-the-visibility-of-the-active-interpreter-session">Toggle the visibility of the active interpreter session</h3>
-<p>In the chat pane, click the <i class="fa-solid fa-eye" aria-label="eye"></i> eye button on the interpreter session attachment to toggle whether Assistant can access the session data.</p>
-<ul>
-<li><i class="fa-solid fa-eye" aria-label="eye"></i>: When the eye icon appears without a slash through it, the interpreter session is visible.</li>
-<li><i class="fa-solid fa-eye-slash" aria-label="eye-slash"></i>: When the eye icon has a slash through it, the interpreter session is hidden.</li>
-</ul>
+<section id="include-filters-and-sorts" class="level2">
+<h2 class="anchored" data-anchor-id="include-filters-and-sorts">Include filters and sorts</h2>
+<p>If the Data Explorer has filters or sorts applied, the dialog offers an <strong>Include current filters and sorts (experimental)</strong> checkbox. When you check it, the generated code reproduces the filtered and sorted view you see:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load flights data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>flights <span class="op">=</span> pd.read_csv(<span class="st">"flights.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter and sort as shown in the Data Explorer</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>flights <span class="op">=</span> flights[flights[<span class="st">"dep_time"</span>].notna()]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>flights <span class="op">=</span> flights.sort_values(<span class="st">"month"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/import-data-filters-sorts.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Import Data dialog with filters and sorts"><img src="images/import-data-filters-sorts.png" class="drop-shadow img-fluid figure-img" alt="Import Data dialog with the filters and sorts checkbox checked and R (readr) selected, showing readr and dplyr code." width="650"></a></p>
+<figcaption>Import Data dialog with filters and sorts</figcaption>
+</figure>
+</div>
+<p>In R, the generated code adds dplyr and pipes the data into <code>filter()</code> and <code>arrange()</code> verbs.</p>
+<p>When the dialog cannot express part of your view in code, it shows a warning under the preview describing what it left out. Because this translation is experimental, review the generated code before relying on it.</p>
 </section>
-<section id="attach-an-interpreter-session" class="level3">
-<h3 class="anchored" data-anchor-id="attach-an-interpreter-session">Attach an interpreter session</h3>
-<ol type="1">
-<li>Click the <i class="fa-solid fa-paperclip" aria-label="paperclip"></i> paperclip button in the chat pane</li>
-<li>Choose “Interpreter Sessions…” to select an interpreter session to attach.</li>
-</ol>
-</section>
-</section>
-<section id="source-control-context" class="level2">
-<h2 class="anchored" data-anchor-id="source-control-context">Source control context</h2>
-<p>If your workspace uses Git source control, Positron Assistant can access your commit history and generate commit messages in the Source Control pane.</p>
-<section id="commit-history-context" class="level3">
-<h3 class="anchored" data-anchor-id="commit-history-context">Commit history context</h3>
-<p>Include commit history in your chat session in the following ways:</p>
-<ul>
-<li><a href="#add-context-attachments">Add context attachments</a> and select “Source Control…” to attach a commit.</li>
-<li>Include the text <code>#changes</code> as part of your prompt, to include recent changes on the current branch.</li>
-</ul>
-</section>
-<section id="generate-commit-messages" class="level3">
-<h3 class="anchored" data-anchor-id="generate-commit-messages">Generate commit messages</h3>
-<p>From the Source Control pane, you can use Positron Assistant to generate commit messages for your staged changes.</p>
-<ol type="1">
-<li>Open the Source Control pane (<em>Source Control: Focus on Changes View</em> in the Command Palette).</li>
-<li>Ensure you have staged changes to commit.</li>
-<li>Click the sparkles icon in the commit message input box.</li>
-<li>Positron Assistant will analyze your staged changes and generate a commit message.</li>
-</ol>
-</section>
-</section>
-<section id="settings" class="level2">
-<h2 class="anchored" data-anchor-id="settings">Settings</h2>
-<ul>
-<li><a href="positron://settings/chat.implicitSessionContext.enabled"><code>chat.implicitSessionContext.enabled</code></a>: Configure whether Positron Assistant automatically attaches the active interpreter session in the chat pane.
-<ul>
-<li>To disable the interpreter session context in the chat pane by default, change the configuration for <code>panel</code> to <code>never</code>. You will still be able to <a href="#attach-an-interpreter-session">Attach an interpreter session</a> if needed.</li>
-</ul></li>
-<li><a href="positron://settings/chat.implicitContext.enabled"><code>chat.implicitContext.enabled</code></a>: Configure whether Positron Assistant automatically attaches the active editor in the chat pane.
-<ul>
-<li>To disable the active editor context in the chat pane by default, change the configuration for <code>panel</code> to <code>never</code>. You will still be able to <a href="#add-context-attachments">add context attachments</a> for files if needed.</li>
-</ul></li>
-<li><a href="positron://settings/positron.assistant.gitIntegration.enable"><code>positron.assistant.gitIntegration.enable</code></a>: Configure whether Positron Assistant can access Git source control context, such as commit history, and whether commit messages can be generated in the Source Control pane.</li>
-<li><a href="positron://settings/positron.assistant.aiExcludes"><code>positron.assistant.aiExcludes</code></a>: Files matching these patterns will not have their contents sent to AI providers for inline completions or chat context.</li>
-</ul>
+<section id="import-data-and-convert-to-code" class="level2">
+<h2 class="anchored" data-anchor-id="import-data-and-convert-to-code">Import Data and Convert to Code</h2>
+<p>Import Data and <a href="./data-explorer-filter-bar.html#convert-to-code">Convert to Code</a> are mutually exclusive. A Data Explorer backed by a file shows <strong>Import Data</strong>, and a Data Explorer backed by an object in a session shows <strong>Convert to Code</strong>.</p>
 
 
 </section>
@@ -1417,13 +1423,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./assistant-chat-agents.html" class="pagination-link" aria-label="Chat Agents">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Chat Agents</span>
+      <a href="./data-explorer-summary-panel.html" class="pagination-link" aria-label="Summary Panel">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Summary Panel</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./assistant-chat-commands-participants.html" class="pagination-link" aria-label="Commands &amp; Participants">
-        <span class="nav-page-text">Commands &amp; Participants</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./variables-pane.html" class="pagination-link" aria-label="Variables Pane">
+        <span class="nav-page-text">Variables Pane</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1441,7 +1447,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p>Positron 2026.10.0 (development version)</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/assistant-chat-context.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/assistant-chat-context.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/import-data.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/import-data.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
@@ -1463,6 +1469,38 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

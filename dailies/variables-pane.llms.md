@@ -17,3 +17,7 @@ If the **Variables** pane is not already displayed, you can open it by selecting
 ### Viewing data tables
 
 If your session includes data tables, they appear in the **DATA** section of the **Variables** pane. For more information about viewing your data tables, see the [Data Explorer](data-explorer.llms.md) section.
+
+### Importing data
+
+The **Import Data** button in the pane toolbar opens the [Import Data](import-data.llms.md) dialog, which generates the code to load a data file into your session and can run it for you.

@@ -573,6 +573,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Summary Panel</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./import-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Import Data</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item">
@@ -943,6 +949,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In Python, you can also use the <code>%view</code> magic with expressions, for example <code>%view df[df['column'] &gt; 10]</code>. In R, you can compose the <code>View</code> function with expressions using pipe syntax:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">doubled_column =</span> column <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> <span class="fu">View</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can directly open <code>.csv</code>, <code>.tsv</code>, <code>.parquet</code>, and <code>.xlsx</code> files (using DuckDB) by selecting a file in the File Explorer or using the Command Palette.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> You can also open compressed CSV, TSV, and Parquet files.</p>
+<p>When you view a data file, the <strong>Import Data</strong> button in the action bar opens the <a href="./import-data.html">Import Data</a> dialog, which generates the Python or R code to load that file into a session and can run it for you.</p>
 <section id="opening-csv-files-as-plain-text" class="level3">
 <h3 class="anchored" data-anchor-id="opening-csv-files-as-plain-text">Opening CSV files as plain text</h3>
 <p>After opening a CSV file in the Data Explorer, you can view it in the text editor. Select the <strong>Open as Plain Text File</strong> option in the top action bar.</p>

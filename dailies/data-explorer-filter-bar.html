@@ -536,6 +536,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Summary Panel</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./import-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Import Data</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item">
@@ -938,7 +944,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="convert-to-code" class="level2">
 <h2 class="anchored" data-anchor-id="convert-to-code">Convert to code</h2>
-<p>The Data Explorer includes a <strong>Convert to Code</strong> button in the top action bar. This button writes Python or R code that reproduces your current data view, including any filters or sorts you’ve applied during exploration. This allows you to quickly capture your interactive exploration as reproducible code. To convert your Data Explorer view to code:</p>
+<p>Convert to Code is available for dataframes in an active session. The Data Explorer includes a <strong>Convert to Code</strong> button in the top action bar. This button writes Python or R code that reproduces your current data view, including any filters or sorts you’ve applied during exploration. This allows you to quickly capture your interactive exploration as reproducible code. To convert your Data Explorer view to code:</p>
 <ol type="1">
 <li>Apply any filters, sorts, or other transformations in the Data Explorer</li>
 <li>Select the <strong>Convert to Code</strong> button in the top action bar</li>
@@ -950,8 +956,8 @@ ul.task-list li input[type="checkbox"] {
 <li>pandas dataframes produce pandas code</li>
 <li>polars dataframes produce polars code, with the option to convert to pandas code</li>
 <li>R dataframes and tibbles produce dplyr code with pipe syntax</li>
-<li>Files opened directly (<code>.csv</code>, <code>.tsv</code>, <code>.parquet</code>) produce DuckDB SQL code</li>
 </ul>
+<p>When you open a file directly in the Data Explorer, <strong>Import Data</strong> replaces Convert to Code. The <a href="./import-data.html">Import Data</a> dialog can also <a href="./import-data.html#include-filters-and-sorts">include your current filters and sorts</a> in the code it generates.</p>
 
 
 </section>

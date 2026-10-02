@@ -57,7 +57,7 @@ To remove all applied filters, select **Clear Filters** from the **Manage Filter
 
 ## Convert to code
 
-The Data Explorer includes a **Convert to Code** button in the top action bar. This button writes Python or R code that reproduces your current data view, including any filters or sorts you’ve applied during exploration. This allows you to quickly capture your interactive exploration as reproducible code. To convert your Data Explorer view to code:
+Convert to Code is available for dataframes in an active session. The Data Explorer includes a **Convert to Code** button in the top action bar. This button writes Python or R code that reproduces your current data view, including any filters or sorts you’ve applied during exploration. This allows you to quickly capture your interactive exploration as reproducible code. To convert your Data Explorer view to code:
 
 1.  Apply any filters, sorts, or other transformations in the Data Explorer
 2.  Select the **Convert to Code** button in the top action bar
@@ -69,4 +69,5 @@ The code references the dataframe object already loaded in your session rather t
 - pandas dataframes produce pandas code
 - polars dataframes produce polars code, with the option to convert to pandas code
 - R dataframes and tibbles produce dplyr code with pipe syntax
-- Files opened directly (`.csv`, `.tsv`, `.parquet`) produce DuckDB SQL code
+
+When you open a file directly in the Data Explorer, **Import Data** replaces Convert to Code. The [Import Data](import-data.llms.md) dialog can also [include your current filters and sorts](import-data.llms.md#include-filters-and-sorts) in the code it generates.
