@@ -43,11 +43,11 @@ Two Data Explorer settings flow into the generated code:
 
 The generated code names the file by a workspace-relative path when the file is inside your workspace, and by its absolute path otherwise. In a remote window, the code uses the remote path for files on the remote machine.
 
-You can also edit the code directly in the preview before running it, for options that have no UI.
+You can also edit the code directly in the preview before running it.
 
 ## Run or copy the code
 
-Select **Import** to run the code in the console. Positron starts a session for the language if one is not running, and the new dataframe appears in the **Variables** pane. Select **Copy** to copy the code instead, for example to paste into a script or document.
+Select **Import** to run the code in the console. Positron starts a session for the language if one is not running, and the new dataframe appears in the **Variables** pane. Select **Copy** to copy the code for pasting into a script or document.
 
 ## Include filters and sorts
 
