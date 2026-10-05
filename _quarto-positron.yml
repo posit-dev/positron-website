@@ -166,6 +166,7 @@ website:
           contents:
             - text: "Overview"
               href: data-connections.qmd
+            - using-data-connections.qmd
             - connections-pane.qmd
             - extending-connections.qmd 
         - section: "Dynamic Documents and Apps"
