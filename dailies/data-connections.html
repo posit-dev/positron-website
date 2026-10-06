@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./connections-pane.html" rel="next">
+<link href="./using-data-connections.html" rel="next">
 <link href="./plots-pane.html" rel="prev">
 <link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -49,8 +49,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-ec73eb30df963ac6d1b80a5c9bf53c28.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -83,15 +84,17 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="Data Connections – Positron">
 <meta property="og:description" content="Connect to databases and data warehouses in Positron. Browse schemas, generate connection code, and preview tables in the Data Explorer.">
-<meta property="og:image" content="https://positron.posit.co/dailies/images/positron-social.png">
+<meta property="og:image" content="https://positron.posit.co/dailies/images/data-connections.png">
 <meta property="og:site_name" content="Positron">
-<meta property="og:image:height" content="1080">
-<meta property="og:image:width" content="1920">
+<meta property="og:image:alt" content="The Data Connections view in the sidebar shows an order_tracking DuckDB connection expanded to its tables and views, with the v_product_sales view selected and expanded to its columns and their types. The v_product_sales view is open in the Data Explorer, sorted by gross revenue, with the units_sold column profile expanded in the summary panel to show a histogram and summary statistics.">
+<meta property="og:image:height" content="1600">
+<meta property="og:image:width" content="2560">
 <meta name="twitter:title" content="Data Connections – Positron">
 <meta name="twitter:description" content="Connect to databases and data warehouses in Positron. Browse schemas, generate connection code, and preview tables in the Data Explorer.">
-<meta name="twitter:image" content="https://positron.posit.co/dailies/images/positron-social.png">
-<meta name="twitter:image-height" content="1080">
-<meta name="twitter:image-width" content="1920">
+<meta name="twitter:image" content="https://positron.posit.co/dailies/images/data-connections.png">
+<meta name="twitter:image:alt" content="The Data Connections view in the sidebar shows an order_tracking DuckDB connection expanded to its tables and views, with the v_product_sales view selected and expanded to its columns and their types. The v_product_sales view is open in the Data Explorer, sorted by gross revenue, with the units_sold column profile expanded in the summary panel to show a histogram and summary statistics.">
+<meta name="twitter:image-height" content="1600">
+<meta name="twitter:image-width" content="2560">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -570,6 +573,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./using-data-connections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Data Connections</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./connections-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Connections Pane</span></a>
   </div>
@@ -848,11 +857,6 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#supported-databases" id="toc-supported-databases" class="nav-link active" data-scroll-target="#supported-databases">Supported databases</a></li>
-  <li><a href="#create-a-connection" id="toc-create-a-connection" class="nav-link" data-scroll-target="#create-a-connection">Create a connection</a></li>
-  <li><a href="#explore-a-connection" id="toc-explore-a-connection" class="nav-link" data-scroll-target="#explore-a-connection">Explore a connection</a></li>
-  <li><a href="#generate-connection-code" id="toc-generate-connection-code" class="nav-link" data-scroll-target="#generate-connection-code">Generate connection code</a></li>
-  <li><a href="#manage-connections" id="toc-manage-connections" class="nav-link" data-scroll-target="#manage-connections">Manage connections</a></li>
-  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a></li>
   <li><a href="#settings" id="toc-settings" class="nav-link" data-scroll-target="#settings">Settings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/data-connections.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/data-connections.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -884,21 +888,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>Data Connections is the default experience for working with databases and data warehouses in Positron. The <strong>Data Connections</strong> view appears in the primary sidebar. From there, you can create connections, browse tables and views in a tree, open tables and views in the <a href="./data-explorer.html">Data Explorer</a>, and generate ready-to-run connection code in Python, R, or <a href="https://ggsql.org">ggsql</a>. Driver extensions connect to databases directly, without a Python or R session.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="images/data-connections.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Data Connections view with a DuckDB connection expanded, and a view open in the Data Explorer"><img src="images/data-connections.png" class="drop-shadow img-fluid figure-img" alt="The Data Connections view in the sidebar shows an order_tracking DuckDB connection expanded to its tables and views, with the v_product_sales view selected and expanded to its columns and their types. The v_product_sales view is open in the Data Explorer, sorted by gross revenue, with the units_sold column profile expanded in the summary panel to show a histogram and summary statistics." width="700"></a></p>
+<figcaption>Data Connections view with a DuckDB connection expanded, and a view open in the Data Explorer</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Data Connections is a preview feature. Opt in via the <a href="positron://settings/dataConnections.enabled"><code>dataConnections.enabled</code></a> setting, and reload Positron to apply. Share your feedback on this new feature in the <a href="https://github.com/posit-dev/positron/discussions">Positron GitHub discussions</a>.</p>
-</div>
-</div>
-<p>Data Connections brings a single, unified experience for working with databases and data warehouses in Positron. Once enabled, the <strong>Data Connections</strong> view appears in the primary sidebar. From there, you can create connections, browse tables and views in a tree, open tables and views in the <a href="./data-explorer.html">Data Explorer</a>, and generate ready-to-run connection code in Python or R.</p>
-<p>Data Connections exists side-by-side with the Connections pane and Catalog Explorer for now, and nothing changes about how those features work. In the future, Data Connections will replace both.</p>
+<p>Data Connections supersedes the Catalog Explorer extension, which is no longer included, and the classic <a href="./connections-pane.html">Connections pane</a>, which shows connections opened by code in a Python or R session. To use the older Connections pane instead, set <a href="positron://settings/dataConnections.enabled"><code>dataConnections.enabled</code></a> to <code>false</code> and reload Positron.</p>
 <section id="supported-databases" class="level2">
 <h2 class="anchored" data-anchor-id="supported-databases">Supported databases</h2>
 <p>Data Connections includes drivers for the following data sources:</p>
@@ -916,85 +913,46 @@ Important
 <tbody>
 <tr class="odd">
 <td>Databricks</td>
-<td>Personal access token, OAuth user-to-machine (U2M), or OAuth machine-to-machine (M2M) authentication, and browsing of Unity Catalog catalogs, schemas, tables, views, and volumes</td>
+<td>Personal access token, OAuth user-to-machine (U2M), or OAuth machine-to-machine (M2M) authentication. On Posit Workbench, connections can use the managed credentials of the session. Browse Unity Catalog catalogs, schemas, tables, views, and volumes.</td>
 </tr>
 <tr class="even">
 <td>DuckDB</td>
-<td>Connect to DuckDB database files, with a read-only option</td>
+<td>Connect to DuckDB database files, with a read-only option.</td>
 </tr>
 <tr class="odd">
 <td>ODBC</td>
-<td>Any database with a locally installed ODBC driver, via a configured data source name (DSN), server and driver details, or a connection string</td>
+<td>Any database with a locally installed ODBC driver, via a configured data source name (DSN), server and driver details, or a connection string.</td>
 </tr>
 <tr class="even">
 <td>Posit Connect Pins</td>
-<td>Browse and download <a href="https://docs.posit.co/connect/user/pins/">pins</a> published on <a href="https://posit.co/products/enterprise/connect">Connect</a>, and authenticate with environment variables, browser sign-in, or an API key</td>
+<td>Browse and download <a href="https://docs.posit.co/connect/user/pins/">pins</a> published on <a href="https://posit.co/products/enterprise/connect">Connect</a>, and authenticate with environment variables, browser sign-in, or an API key.</td>
 </tr>
 <tr class="odd">
 <td>PostgreSQL</td>
-<td>User and password, local server (no password), client certificate (SSL), or connection string</td>
+<td>User and password, local server (no password), client certificate (SSL), or connection string.</td>
 </tr>
 <tr class="even">
 <td>Redshift</td>
-<td>Multiple authentication methods</td>
+<td>User and password, or AWS Identity and Access Management (IAM) authentication for both Redshift Serverless and provisioned clusters, using the standard AWS credential provider chain.</td>
 </tr>
 <tr class="odd">
 <td>Snowflake</td>
-<td>Multiple authentication methods</td>
+<td>External browser single sign-on (SSO), key pair, OAuth client credentials, programmatic access token, or a named connection from <code>connections.toml</code>. On Workbench, connections can use the managed credentials of the session. Browse tables, views, and stages.</td>
 </tr>
 <tr class="even">
 <td>SQLite</td>
-<td>Connect to SQLite database files, with a read-only option</td>
+<td>Connect to SQLite database files, with a read-only option.</td>
 </tr>
 </tbody>
 </table>
-<p>When you install a recognized ODBC driver, dedicated entries for databases such as MySQL, MariaDB, SQL Server, Oracle, Db2, Hive, Impala, Teradata, and BigQuery also appear when creating a connection. Positron automatically detects data sources already configured on your machine (for example, in <code>odbc.ini</code>) and shows them in the tree with a <strong>Detected</strong> badge.</p>
-<p>Let us know which databases and warehouses you need in the <a href="https://github.com/posit-dev/positron/discussions">Positron GitHub discussions</a>.</p>
-</section>
-<section id="create-a-connection" class="level2">
-<h2 class="anchored" data-anchor-id="create-a-connection">Create a connection</h2>
-<ol type="1">
-<li>Select the <i class="fa-solid fa-plus" aria-label="plus"></i> <strong>Add Connection</strong> button at the top of the <strong>Data Connections</strong> view.</li>
-<li>Choose a database provider, such as DuckDB, PostgreSQL, or SQLite.</li>
-<li>If the provider offers more than one way to connect, choose a connection method and select <strong>Next</strong>. For example, PostgreSQL offers <strong>User &amp; Password</strong>, <strong>Local Server (No Password)</strong>, <strong>Client Certificate (SSL)</strong>, and <strong>Connection String</strong>.</li>
-<li>Fill in the connection details and give the connection a name, then select <strong>Save</strong>.</li>
-</ol>
-<p>Positron stores passwords, tokens, and connection strings in your operating system’s secret storage, not in plain text.</p>
-</section>
-<section id="explore-a-connection" class="level2">
-<h2 class="anchored" data-anchor-id="explore-a-connection">Explore a connection</h2>
-<p>Expand a connection in the tree to browse its structure: catalogs, schemas, tables, views, columns, and indexes, depending on what the database supports. A green dot on a connection indicates a live connection.</p>
-<p>Double-click a table or view (or right-click and choose <strong>Open in Data Explorer</strong>) to preview it in the <a href="./data-explorer.html">Data Explorer</a>, where you can sort, filter, and view column profiles.</p>
-<p>Collapsing a connection disconnects it, unless you have Data Explorer tabs open from that connection. In that case, the connection stays open until you close the last of those tabs.</p>
-</section>
-<section id="generate-connection-code" class="level2">
-<h2 class="anchored" data-anchor-id="generate-connection-code">Generate connection code</h2>
-<p>Data Connections can generate ready-to-run code so you can use a connection in your own scripts and notebooks. Right-click a connection and choose <strong>Connect With</strong>, then <strong>Python</strong> or <strong>R</strong>. The dialog offers the following actions:</p>
-<ul>
-<li>Choose a <strong>Package</strong> variant where offered. For example, PostgreSQL can generate Python code using the psycopg2 or SQLAlchemy packages, or R code using the DBI package.</li>
-<li>Review the generated <strong>Connection Code</strong>.</li>
-<li>Select <strong>Copy</strong> to copy the code to the clipboard, <strong>Create Script</strong> to open it in a new file, or <strong>Connect</strong> to run it in the active console.</li>
-</ul>
-<p>By default, generated code references your stored credentials rather than embedding them. Check <strong>Include Secrets</strong> to embed credentials directly in the code. Positron asks for confirmation first, since the resulting code contains your secrets in plain text.</p>
-</section>
-<section id="manage-connections" class="level2">
-<h2 class="anchored" data-anchor-id="manage-connections">Manage connections</h2>
-<p>Right-click a connection, or select its <i class="fa-solid fa-ellipsis" aria-label="ellipsis"></i> <strong>Actions</strong> menu, to take the following actions:</p>
-<ul>
-<li><strong>Edit Connection</strong>: Change the saved connection details.</li>
-<li><strong>Refresh</strong>: Reload that part of the tree from the database. A refresh preserves your expansion state and briefly highlights refreshed items. <strong>Refresh</strong> is available at every level of the tree, not just on connections.</li>
-<li><strong>Remove</strong>: Delete the saved connection, including its saved settings and stored secrets. Positron asks for confirmation before removing, since this cannot be undone. Removing also closes any Data Explorer tabs open on the connection.</li>
-</ul>
-<p>Select the <i class="fa-solid fa-arrows-rotate" aria-label="arrows-rotate"></i> <strong>Refresh All</strong> button at the top of the view to reload every expanded connection at once.</p>
-</section>
-<section id="troubleshooting" class="level2">
-<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
-<p>Each driver writes to its own Output channel, named <code>Data Connections: &lt;driver&gt;</code> (for example, <code>Data Connections: PostgreSQL</code>). Positron creates the channel the first time you use that driver. To see more detail, including per-query timing, use the gear menu in the Output panel to set the log level to <strong>Trace</strong>. Drivers never log SQL text or connection strings.</p>
+<p>When you install a recognized ODBC driver, dedicated entries for databases such as MySQL, MariaDB, SQL Server, Oracle, Db2, Hive, Impala, Teradata, and BigQuery also appear when creating a connection. Positron automatically detects data sources already configured on your machine (for example, in <code>odbc.ini</code> or the Snowflake <code>connections.toml</code> file) and shows them in the tree with a <strong>Detected</strong> badge. When you edit <code>connections.toml</code>, the list of detected connections updates and open connections stay open.</p>
+<p>Let us know which additional databases and warehouses you need in the <a href="https://github.com/posit-dev/positron/discussions">Positron GitHub discussions</a>.</p>
+<p>To create connections and work with them, see <a href="./using-data-connections.html">Using Data Connections</a>.</p>
 </section>
 <section id="settings" class="level2">
 <h2 class="anchored" data-anchor-id="settings">Settings</h2>
 <ul>
-<li><a href="positron://settings/dataConnections.enabled"><code>dataConnections.enabled</code></a>: Enable the Data Connections panel. Requires a reload to take effect. Can be set per workspace.</li>
+<li><a href="positron://settings/dataConnections.enabled"><code>dataConnections.enabled</code></a>: Choose the connections experience. When <code>true</code> (the default), Positron shows the <strong>Data Connections</strong> view, whose drivers connect to databases directly, without a Python or R session. When <code>false</code>, Positron shows the older <a href="./connections-pane.html">Connections pane</a>, which shows connections opened by code in a Python or R session. Requires a reload to take effect.</li>
 <li><a href="positron://settings/dataConnections.tree.showSingleSchema"><code>dataConnections.tree.showSingleSchema</code></a>: Show a connection’s schema even when it is the only one, folded together with its group on a single row (for example “Schemas · public”). When disabled (the default), a lone schema is hidden and its tables and views are shown directly under the connection.</li>
 </ul>
 
@@ -1409,8 +1367,8 @@ Important
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./connections-pane.html" class="pagination-link" aria-label="Connections Pane">
-        <span class="nav-page-text">Connections Pane</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./using-data-connections.html" class="pagination-link" aria-label="Using Data Connections">
+        <span class="nav-page-text">Using Data Connections</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1450,6 +1408,38 @@ Important
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

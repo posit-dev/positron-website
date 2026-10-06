@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./extending-connections.html" rel="next">
-<link href="./data-connections.html" rel="prev">
+<link href="./using-data-connections.html" rel="prev">
 <link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -608,6 +608,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./using-data-connections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Data Connections</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./connections-pane.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Connections Pane</span></a>
   </div>
@@ -933,7 +939,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This page describes the classic <strong>Connections</strong> pane, which is being superseded by the new <a href="./data-connections.html">Data Connections</a> experience. We recommend starting there for new work.</p>
+<p>This page describes the classic <strong>Connections</strong> pane. The <a href="./data-connections.html">Data Connections</a> experience is the default in Positron, and this pane is hidden. To use the Connections pane described on this page, set <a href="positron://settings/dataConnections.enabled"><code>dataConnections.enabled</code></a> to <code>false</code> and reload Positron.</p>
 </div>
 </div>
 <p>The <strong>Connections</strong> pane allows you to manage and explore database connections for use within your Python and R sessions. You can create connections to databases, explore their schemas, and interactively preview database tables.</p>
@@ -998,7 +1004,7 @@ Note
 </section>
 <section id="explore-a-connection-from-the-variables-pane" class="level2">
 <h2 class="anchored" data-anchor-id="explore-a-connection-from-the-variables-pane">Explore a connection from the Variables pane</h2>
-<p>You can open an existing connection that you created from Python or R from the <a href="./variables-pane.html"><strong>Variables</strong> pane</a>:</p>
+<p>When the classic Connections pane is enabled, you can open an existing connection that you created from Python or R from the <a href="./variables-pane.html"><strong>Variables</strong> pane</a>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="images/connections-pane-variables-pane.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Variables pane showing a connection object"><img src="images/connections-pane-variables-pane.png" class="img-fluid figure-img" alt="Variables pane showing a conn variable with sqlite3.Connection type and a database icon button highlighted with a red square." width="400"></a></p>
@@ -1006,6 +1012,7 @@ Note
 </figure>
 </div>
 <p>Select the database icon to bring up the <strong>Connections</strong> pane, allowing you to navigate the database.</p>
+<p>When Data Connections is enabled (the default), the Variables pane does not show this icon, because there is no Connections pane for it to open.</p>
 
 
 </section>
@@ -1413,8 +1420,8 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./data-connections.html" class="pagination-link" aria-label="Database Connections">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Database Connections</span>
+      <a href="./using-data-connections.html" class="pagination-link" aria-label="Using Data Connections">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Using Data Connections</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

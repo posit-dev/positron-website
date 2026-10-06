@@ -4,24 +4,15 @@
     "items": []
   },
   {
-    "listing": "/features.html",
-    "items": []
-  },
-  {
-    "listing": "/assistant-getting-started.html",
-    "items": []
-  },
-  {
-    "listing": "/ai-features.html",
-    "items": []
-  },
-  {
-    "listing": "/assistant.html",
-    "items": []
-  },
-  {
-    "listing": "/language-guides.html",
-    "items": []
+    "listing": "/tutorials.html",
+    "items": [
+      "/tutorial-get-started-ipynb.html",
+      "/tutorial-migrate-from-vscode.html",
+      "/tutorial-ai-notebooks.html",
+      "/tutorial-get-started-quarto.html",
+      "/tutorial-migrate-from-rstudio.html",
+      "/tutorial-ai-quarto.html"
+    ]
   },
   {
     "listing": "/older-releases.html",
@@ -43,14 +34,23 @@
     ]
   },
   {
-    "listing": "/tutorials.html",
-    "items": [
-      "/tutorial-get-started-ipynb.html",
-      "/tutorial-migrate-from-vscode.html",
-      "/tutorial-ai-notebooks.html",
-      "/tutorial-get-started-quarto.html",
-      "/tutorial-migrate-from-rstudio.html",
-      "/tutorial-ai-quarto.html"
-    ]
+    "listing": "/language-guides.html",
+    "items": []
+  },
+  {
+    "listing": "/assistant.html",
+    "items": []
+  },
+  {
+    "listing": "/ai-features.html",
+    "items": []
+  },
+  {
+    "listing": "/assistant-getting-started.html",
+    "items": []
+  },
+  {
+    "listing": "/features.html",
+    "items": []
   }
 ]

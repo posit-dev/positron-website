@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Master R development in Positron with native language support. Discover settings, keyboard shortcuts, debugging tools, and interactive Console features.">
+<meta name="description" content="Create, explore, and manage database connections in Positron. Browse schemas, preview tables in the Data Explorer, and generate connection code in Python, R, or ggsql.">
 
-<title>Overview – Positron</title>
+<title>Using Data Connections – Positron</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,41 +27,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -71,8 +36,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./guide-r-debugging.html" rel="next">
-<link href="./guide-python.html" rel="prev">
+<link href="./connections-pane.html" rel="next">
+<link href="./data-connections.html" rel="prev">
 <link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -84,8 +49,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-ec73eb30df963ac6d1b80a5c9bf53c28.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
-<link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -116,14 +81,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="robots" content="noindex">
 
 
-<meta property="og:title" content="Overview – Positron">
-<meta property="og:description" content="Master R development in Positron with native language support. Discover settings, keyboard shortcuts, debugging tools, and interactive Console features.">
+<meta property="og:title" content="Using Data Connections – Positron">
+<meta property="og:description" content="Create, explore, and manage database connections in Positron. Browse schemas, preview tables in the Data Explorer, and generate connection code in Python, R, or ggsql.">
 <meta property="og:image" content="https://positron.posit.co/dailies/images/positron-social.png">
 <meta property="og:site_name" content="Positron">
 <meta property="og:image:height" content="1080">
 <meta property="og:image:width" content="1920">
-<meta name="twitter:title" content="Overview – Positron">
-<meta name="twitter:description" content="Master R development in Positron with native language support. Discover settings, keyboard shortcuts, debugging tools, and interactive Console features.">
+<meta name="twitter:title" content="Using Data Connections – Positron">
+<meta name="twitter:description" content="Create, explore, and manage database connections in Positron. Browse schemas, preview tables in the Data Explorer, and generate connection code in Python, R, or ggsql.">
 <meta name="twitter:image" content="https://positron.posit.co/dailies/images/positron-social.png">
 <meta name="twitter:image-height" content="1080">
 <meta name="twitter:image-width" content="1920">
@@ -230,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./language-guides.html">Language Guides</a></li><li class="breadcrumb-item"><a href="./guide-r.html">R in Positron</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-connections.html">Database Connections</a></li><li class="breadcrumb-item"><a href="./using-data-connections.html">Using Data Connections</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -489,16 +454,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./guide-r.html" class="sidebar-item-text sidebar-link active">
+            <a href="./guide-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R in Positron</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./guide-r.html" class="sidebar-item-text sidebar-link active">
+  <a href="./guide-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
@@ -605,7 +570,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./using-data-connections.html" class="sidebar-item-text sidebar-link">
+  <a href="./using-data-connections.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Using Data Connections</span></a>
   </div>
 </li>
@@ -888,24 +853,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#settings" id="toc-settings" class="nav-link active" data-scroll-target="#settings">Settings</a></li>
-  <li><a href="#keyboard-shortcuts" id="toc-keyboard-shortcuts" class="nav-link" data-scroll-target="#keyboard-shortcuts">Keyboard shortcuts</a></li>
-  <li><a href="#debugging" id="toc-debugging" class="nav-link" data-scroll-target="#debugging">Debugging</a></li>
-  <li><a href="#session-hooks" id="toc-session-hooks" class="nav-link" data-scroll-target="#session-hooks">Session hooks</a></li>
+  <li><a href="#create-a-connection" id="toc-create-a-connection" class="nav-link active" data-scroll-target="#create-a-connection">Create a connection</a></li>
+  <li><a href="#open-a-database-file" id="toc-open-a-database-file" class="nav-link" data-scroll-target="#open-a-database-file">Open a database file</a></li>
+  <li><a href="#explore-a-connection" id="toc-explore-a-connection" class="nav-link" data-scroll-target="#explore-a-connection">Explore a connection</a></li>
+  <li><a href="#generate-connection-code" id="toc-generate-connection-code" class="nav-link" data-scroll-target="#generate-connection-code">Generate connection code</a></li>
+  <li><a href="#manage-connections" id="toc-manage-connections" class="nav-link" data-scroll-target="#manage-connections">Manage connections</a></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/guide-r.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/guide-r.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/using-data-connections.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/using-data-connections.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./language-guides.html">Language Guides</a></li><li class="breadcrumb-item"><a href="./guide-r.html">R in Positron</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-connections.html">Database Connections</a></li><li class="breadcrumb-item"><a href="./using-data-connections.html">Using Data Connections</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Overview</h1>
+<h1 class="title">Using Data Connections</h1>
 </div>
 
 <div>
   <div class="description">
-    Master R development in Positron with native language support. Discover settings, keyboard shortcuts, debugging tools, and interactive Console features.
+    Create, explore, and manage database connections in Positron. Browse schemas, preview tables in the Data Explorer, and generate connection code in Python, R, or ggsql.
   </div>
 </div>
 
@@ -922,108 +889,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Positron ships with first class support for R, along with <a href="./guide-python.html">Python</a>. Start with our guide on how Positron <a href="./r-installations.html">discovers and manages R installations</a>, then read on for details on working with R code in Positron.</p>
-<section id="settings" class="level2">
-<h2 class="anchored" data-anchor-id="settings">Settings</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you’d prefer to customize Positron to feel similar to RStudio, learn <a href="./migrate-rstudio-settings-and-extensions.html#settings-for-rstudio-users">what settings to consider</a>.</p>
-</div>
-</div>
-<p>Positron provides setting defaults for working with R, but you can override or change these defaults if you prefer a different experience. For example, Positron sets the tab size for R code to 2 spaces, but if you prefer 4 spaces, you can change the <a href="positron://settings/editor.tabSize"><code>editor.tabSize</code></a> setting for R files by adding the following to your user or workspace <code>settings.json</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"[r]"</span><span class="fu">:</span>  <span class="fu">{</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"editor.tabSize"</span><span class="fu">:</span> <span class="dv">4</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You can see <em>all</em> the setting defaults that Positron provides with the command <em>Preferences: Open Default Settings (JSON)</em>.</p>
-</section>
-<section id="keyboard-shortcuts" class="level2">
-<h2 class="anchored" data-anchor-id="keyboard-shortcuts">Keyboard shortcuts</h2>
-<p>The keyboard shortcuts in Positron are largely a superset of the keyboard shortcuts used by Visual Studio Code, plus additional <a href="./keyboard-shortcuts.html">keyboard shortcuts</a> specific to Positron’s data science features. Some of those additional shortcuts are specific to R programming:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Shortcut</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><kbd title="linux: Ctrl-Shift-M, mac: Command-Shift-M, windows: Ctrl-Shift-M" aria-hidden="true" data-linux="Ctrl-Shift-M" data-mac="Command-Shift-M" data-windows="Ctrl-Shift-M"></kbd><span class="visually-hidden"></span></p></td>
-<td>Insert the pipe operator (<code>|&gt;</code> or <code>%&gt;%</code>)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
-</tr>
-<tr class="even">
-<td><p><kbd title="linux: Alt--, mac: Option--, windows: Alt--" aria-hidden="true" data-linux="Alt--" data-mac="Option--" data-windows="Alt--"></kbd><span class="visually-hidden"></span></p></td>
-<td>Insert the assignment operator (<code>&lt;-</code>)</td>
-</tr>
-<tr class="odd">
-<td><kbd title="linux: Ctrl-K, mac: Command-K, windows: Ctrl-K" aria-hidden="true" data-linux="Ctrl-K" data-mac="Command-K" data-windows="Ctrl-K"></kbd><span class="visually-hidden"></span>, <kbd title="H" aria-hidden="true">H</kbd><span class="visually-hidden">H</span></td>
-<td>Insert section</td>
-</tr>
-<tr class="even">
-<td><p><kbd title="linux: Ctrl-Shift-L, mac: Command-Shift-L, windows: Ctrl-Shift-L" aria-hidden="true" data-linux="Ctrl-Shift-L" data-mac="Command-Shift-L" data-windows="Ctrl-Shift-L"></kbd><span class="visually-hidden"></span></p></td>
-<td>Load the current R package, if any, with <code>devtools::load_all()</code></td>
-</tr>
-<tr class="odd">
-<td><p><kbd title="linux: Ctrl-Shift-B, mac: Command-Shift-B, windows: Ctrl-Shift-B" aria-hidden="true" data-linux="Ctrl-Shift-B" data-mac="Command-Shift-B" data-windows="Ctrl-Shift-B"></kbd><span class="visually-hidden"></span></p></td>
-<td>Build and install the current R package, if any</td>
-</tr>
-<tr class="even">
-<td><p><kbd title="linux: Ctrl-Shift-T, mac: Command-Shift-T, windows: Ctrl-Shift-T" aria-hidden="true" data-linux="Ctrl-Shift-T" data-mac="Command-Shift-T" data-windows="Ctrl-Shift-T"></kbd><span class="visually-hidden"></span></p></td>
-<td>Test the current R package, if any</td>
-</tr>
-<tr class="odd">
-<td><p><kbd title="linux: Ctrl-Shift-E, mac: Command-Shift-E, windows: Ctrl-Shift-E" aria-hidden="true" data-linux="Ctrl-Shift-E" data-mac="Command-Shift-E" data-windows="Ctrl-Shift-E"></kbd><span class="visually-hidden"></span></p></td>
-<td>Check the current R package, if any</td>
-</tr>
-<tr class="even">
-<td><p><kbd title="linux: Ctrl-Shift-D, mac: Command-Shift-D, windows: Ctrl-Shift-D" aria-hidden="true" data-linux="Ctrl-Shift-D" data-mac="Command-Shift-D" data-windows="Ctrl-Shift-D"></kbd><span class="visually-hidden"></span></p></td>
-<td>Document the current R package, if any</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you’d prefer to use keybindings as similar as possible to RStudio, learn <a href="./migrate-rstudio-keybindings.html">how to enable them</a> in Positron. This will overwrite some of Positron’s default keybindings, but will provide a more familiar experience for RStudio users.</p>
-</div>
-</div>
-<p>You can create <a href="./keyboard-shortcuts.html#custom-shortcuts">custom keyboard shortcuts</a> as well.</p>
-</section>
-<section id="debugging" class="level2">
-<h2 class="anchored" data-anchor-id="debugging">Debugging</h2>
-<p>Positron supports a modern R debugging workflow with breakpoints, variables inspections, and more. See <a href="./guide-r-debugging.html">Debugging R code</a> for details on setting breakpoints and stepping through your code.</p>
-</section>
-<section id="session-hooks" class="level2">
-<h2 class="anchored" data-anchor-id="session-hooks">Session hooks</h2>
-<p>Positron can run R code once the session is fully operational, via the <code>positron.session_init</code> and <code>positron.session_reconnect</code> hooks. See <a href="./guide-r-session-hooks.html">R session hooks</a> for details.</p>
-
-
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>You can choose which pipe operator to insert via the <a href="positron://settings/positron.r.pipe"><code>positron.r.pipe</code></a> setting.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<p>The <strong>Data Connections</strong> view in the primary sidebar is where you create connections, browse their structure, preview data, and generate connection code. See <a href="./data-connections.html">Data Connections</a> for an overview of the feature and the data sources it supports.</p>
+<section id="create-a-connection" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-connection">Create a connection</h2>
+<ol type="1">
+<li>Select the <i class="fa-solid fa-plus" aria-label="plus"></i> <strong>Add Connection</strong> button at the top of the <strong>Data Connections</strong> view.</li>
+<li>Choose a database provider, such as DuckDB, PostgreSQL, or SQLite. The dialog lists each provider with a short description of what it connects to.</li>
+<li>If the provider offers more than one way to connect, choose a connection method and select <strong>Next</strong>. For example, PostgreSQL offers <strong>User &amp; Password</strong>, <strong>Local Server (No Password)</strong>, <strong>Client Certificate (SSL)</strong>, and <strong>Connection String</strong>.</li>
+<li>Fill in the connection details and give the connection a name, then select <strong>Save</strong>.</li>
 </ol>
-</section></div></main> <!-- /main -->
+<p>Positron stores passwords, tokens, and connection strings in your operating system’s secret storage, not in plain text.</p>
+</section>
+<section id="open-a-database-file" class="level2">
+<h2 class="anchored" data-anchor-id="open-a-database-file">Open a database file</h2>
+<p>When you open a DuckDB (<code>.duckdb</code>, <code>.ddb</code>) or SQLite (<code>.sqlite</code>, <code>.sqlite3</code>, <code>.db</code>) file from the Explorer, Positron shows a landing page instead of the editor. The page offers to create a data connection to the file, or to open the connection you already have to it. Nothing connects until you select the button on that page.</p>
+</section>
+<section id="explore-a-connection" class="level2">
+<h2 class="anchored" data-anchor-id="explore-a-connection">Explore a connection</h2>
+<p>Expand a connection in the tree to browse its structure: catalogs, schemas, tables, views, columns, and indexes, depending on what the database supports. A green dot on a connection indicates a live connection.</p>
+<p>Double-click a table or view (or right-click and choose <strong>Open in Data Explorer</strong>) to preview it in the <a href="./data-explorer.html">Data Explorer</a>, where you can sort, filter, and view column profiles.</p>
+<p>Right-click an item in the tree and choose <strong>Copy Name</strong> to copy its name. Where the item has a path, <strong>Copy Path</strong> copies a quoted, fully qualified form, such as <code>"DB"."SCHEMA"."TABLE"</code>, that pastes directly into SQL.</p>
+<p>Collapsing a connection disconnects it, unless you have Data Explorer tabs open from that connection. In that case, the connection stays open until you close the last of those tabs.</p>
+</section>
+<section id="generate-connection-code" class="level2">
+<h2 class="anchored" data-anchor-id="generate-connection-code">Generate connection code</h2>
+<p>Data Connections can generate ready-to-run code so you can use a connection in your own scripts and notebooks. Right-click a connection and choose <strong>Connect With</strong>, then <strong>Python</strong>, <strong>R</strong>, or <strong>ggsql</strong>. The dialog offers the following actions:</p>
+<ul>
+<li>Choose a <strong>Package</strong> variant where offered. For example, PostgreSQL can generate Python code using the psycopg2 or SQLAlchemy packages, or R code using the DBI package. Positron remembers the package you choose for each connection and language.</li>
+<li>Review the generated <strong>Connection Code</strong>.</li>
+<li>Select <strong>Copy</strong> to copy the code to the clipboard, <strong>Create Script</strong> to open it in a new file, or <strong>Connect</strong> to run it in the active console.</li>
+</ul>
+<p>The <a href="https://ggsql.org">ggsql</a> option generates a query for that SQL extension for declarative data visualization. It is available for SQLite, DuckDB, ODBC, PostgreSQL, and Redshift connections.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Positron does not bundle ggsql. To run the generated code, <a href="https://ggsql.org/get_started/installation.html">install the ggsql extension</a> for Positron. If ggsql is not installed when you connect, Positron explains what is missing and links to the installation instructions.</p>
+</div>
+</div>
+<p>By default, generated code references your stored credentials rather than embedding them. Check <strong>Include Secrets</strong> to embed credentials directly in the code. Positron asks for confirmation first, since the resulting code contains your secrets in plain text.</p>
+</section>
+<section id="manage-connections" class="level2">
+<h2 class="anchored" data-anchor-id="manage-connections">Manage connections</h2>
+<p>Right-click a connection, or select its <i class="fa-solid fa-ellipsis" aria-label="ellipsis"></i> <strong>Actions</strong> menu, to take the following actions:</p>
+<ul>
+<li><strong>Edit Connection</strong>: Change the saved connection details.</li>
+<li><strong>Refresh</strong>: Reload that part of the tree from the database. A refresh preserves your expansion state and briefly highlights refreshed items. <strong>Refresh</strong> is available at every level of the tree, not just on connections.</li>
+<li><strong>Remove</strong>: Delete the saved connection, including its saved settings and stored secrets. Positron asks for confirmation before removing, since this cannot be undone. Removing also closes any Data Explorer tabs open on the connection.</li>
+</ul>
+<p>Select the <i class="fa-solid fa-arrows-rotate" aria-label="arrows-rotate"></i> <strong>Refresh All</strong> button at the top of the view to reload every expanded connection at once.</p>
+</section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
+<p>If a connection fails to open or part of the tree fails to expand, Positron shows a notification with the reason.</p>
+<p>Each driver writes to its own Output channel, named <code>Data Connections: &lt;driver&gt;</code> (for example, <code>Data Connections: PostgreSQL</code>). Positron creates the channel the first time you use that driver. To see more detail, including per-query timing, use the gear menu in the Output panel to set the log level to <strong>Trace</strong>. Drivers never log SQL text or connection strings.</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1426,13 +1356,13 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./guide-python.html" class="pagination-link" aria-label="Python in Positron">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Python in Positron</span>
+      <a href="./data-connections.html" class="pagination-link" aria-label="Database Connections">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Database Connections</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./guide-r-debugging.html" class="pagination-link" aria-label="Debugging R code">
-        <span class="nav-page-text">Debugging R code</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./connections-pane.html" class="pagination-link" aria-label="Connections Pane">
+        <span class="nav-page-text">Connections Pane</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1450,7 +1380,7 @@ Note
     </div>   
     <div class="nav-footer-center">
 <p>Positron 2026.10.0 (development version)</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/guide-r.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/guide-r.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/using-data-connections.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/using-data-connections.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
