@@ -38,6 +38,10 @@ Data Connections can generate ready-to-run code so you can use a connection in y
 
 The [ggsql](https://ggsql.org) option generates a query for that SQL extension for declarative data visualization. It is available for SQLite, DuckDB, ODBC, PostgreSQL, and Redshift connections.
 
+::: {.callout-note}
+Positron does not bundle ggsql. To run the generated code, [install the ggsql extension](https://ggsql.org/get_started/installation.html) for Positron. If ggsql is not installed when you connect, Positron explains what is missing and links to the installation instructions.
+:::
+
 By default, generated code references your stored credentials rather than embedding them. Check **Include Secrets** to embed credentials directly in the code. Positron asks for confirmation first, since the resulting code contains your secrets in plain text.
 
 ## Manage connections
