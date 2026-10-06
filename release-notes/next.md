@@ -28,7 +28,7 @@ A new built-in Model Context Protocol (MCP) server lets coding agents such as Cl
 
 #### Faster language features for Quarto
 
-Positron now provides completions, hover, diagnostics, and other language features natively for R and Python cells in Quarto and R Markdown documents. Before, the Quarto extension wrote temporary virtual documents to disk for these features. Positron uses a virtual notebook in memory instead, which is faster and solves a whole category of bugs. It also lets Go to Definition and Find References work across R cells. If you run into problems and need to go back to the old behavior, use the [`quarto.embeddedLanguageFeatures.native`](positron://settings/quarto.embeddedLanguageFeatures.native) setting.
+Positron now provides completions, hover, diagnostics, and other language features natively for R and Python cells in Quarto and R Markdown documents. Before, the Quarto extension wrote temporary virtual documents to disk for these features. Positron now uses a virtual notebook in memory instead, which is faster and solves a whole category of bugs. It also lets Go to Definition and Find References work across R cells. If you run into problems and need to go back to the old behavior, use the [`quarto.embeddedLanguageFeatures.native`](positron://settings/quarto.embeddedLanguageFeatures.native) setting.
 
 #### Python project setup
 
@@ -44,15 +44,19 @@ Positron is better at setting up the right Python environment for your project. 
 - [[#15157](https://github.com/posit-dev/positron/issues/15157)] Connections: Snowflake semantic views show in the Data Connections pane, with their logical tables, dimensions, facts, filters, metrics, and relationships. Click a semantic view or one of its members to open a details editor.
 - [[#14051](https://github.com/posit-dev/positron/issues/14051)] Connections: DuckDB and SQLite files that you open from the Explorer show a page that offers to create a data connection or open an existing one.
 - [[#15126](https://github.com/posit-dev/positron/issues/15126)] Connections: the **Add Data Connection** dialog lists each driver with a short description and its own **Connect** button.
+- [[#14653](https://github.com/posit-dev/positron/issues/14653)] Connections: the Data Connections pane shows details for Snowflake databases, schemas, tables, views, stages, and stage files. You can browse Snowflake stages as folders and files.
+- [[#14653](https://github.com/posit-dev/positron/issues/14653)] Connections: items in the Data Connections pane offer **Copy Name**, and **Copy Path** where they have a path. Details editors offer **Open in Data Explorer** for items that you can preview.
 - [[#16009](https://github.com/posit-dev/positron/pull/16009)] Connections: **Connect With** can generate ggsql code for SQLite, DuckDB, ODBC, PostgreSQL, and Redshift connections.
 - [[#16163](https://github.com/posit-dev/positron/pull/16163)] Connections: Positron shows a notification when a data connection fails to open or expand.
 - [[#15704](https://github.com/posit-dev/positron/issues/15704)] Assistant: Posit Assistant can run and preview Dash, FastAPI, Flask, Gradio, marimo, Streamlit, and Shiny apps with the app commands of Positron.
 - [[#15592](https://github.com/posit-dev/positron/issues/15592)] Assistant: Posit Assistant can read your configured and detected data connections, get the code that opens one, and browse the schema of a connection. It connects automatically when a connection is not open yet.
+- [[#15450](https://github.com/posit-dev/positron/issues/15450)] Assistant: Posit Assistant can tell which interpreter a project uses. It can also explain why an installed interpreter does not show, and make that interpreter available.
 - [[#16035](https://github.com/posit-dev/positron/issues/16035)] Assistant: Posit Assistant knows the commands it can use to deploy to Connect through Posit Publisher.
 - [[#8636](https://github.com/posit-dev/positron/issues/8636)] Assistant: Posit Assistant can show HTML files and URLs in the Viewer pane.
 - [[#15099](https://github.com/posit-dev/positron/issues/15099)] Assistant: AI agents such as Posit Assistant can read, take screenshots of, and use data apps and other content in the Viewer pane.
 - [[#16029](https://github.com/posit-dev/positron/issues/16029), [#14477](https://github.com/posit-dev/positron/issues/14477)] Assistant: Git suggestions and notebook AI features can use custom and local providers.
 - [[#15672](https://github.com/posit-dev/positron/issues/15672)] Assistant: Posit AI Pass now logs why it is off, and where to turn it on.
+- [[#14709](https://github.com/posit-dev/positron/issues/14709)] Assistant: removed the deprecated AI provider settings. Configure AI providers in `~/.posit/ai/providers.json`.
 - [[#14390](https://github.com/posit-dev/positron/issues/14390)] Python: Positron offers to create the environment with `uv sync` or `pixi install` when a workspace has a `uv.lock` or `pixi.lock` file but no environment.
 - [[#13104](https://github.com/posit-dev/positron/issues/13104)] Python: when uv is missing, the New Folder flow can install it for you.
 - [[#5556](https://github.com/posit-dev/positron/issues/5556)] Python: function completions now insert parentheses by default.
@@ -74,6 +78,7 @@ Positron is better at setting up the right Python environment for your project. 
 #### Bug fixes
 
 - [[#15897](https://github.com/posit-dev/positron/issues/15897)] Python: **Run App** and **Debug App** now run the file whose button you clicked, not the file in the focused editor.
+- [[#15917](https://github.com/posit-dev/positron/issues/15917)] Python: when Python app files are open in editors side by side, each editor now shows the **Run App** and **Debug App** buttons for its own app.
 - [[#14893](https://github.com/posit-dev/positron/issues/14893)] Python: when Positron finds a new Python environment in a workspace, it offers to start a console session instead of selecting a workspace interpreter.
 - [[#15385](https://github.com/posit-dev/positron/issues/15385)] Python: creating a uv environment from `pyproject.toml` now uses uv configuration such as `python-preference`.
 - [[#15558](https://github.com/posit-dev/positron/issues/15558)] Python: reduced memory use when Positron looks for missing Python packages.
@@ -87,25 +92,31 @@ Positron is better at setting up the right Python environment for your project. 
 - [[#16274](https://github.com/posit-dev/positron/issues/16274)] Assistant: removed the recurring "Authentication expired" notification for AI providers.
 - [[#15292](https://github.com/posit-dev/positron/issues/15292)] Assistant: fixed Posit Assistant sometimes failing with "No credentials available for provider: bedrock" when a Workbench session started before its AWS identity token was available.
 - [[#16051](https://github.com/posit-dev/positron/issues/16051)] Assistant: the provider dialog shows a third-party terms notice again, with the correct text for each provider.
+- [[#15755](https://github.com/posit-dev/positron/issues/15755), [#15802](https://github.com/posit-dev/positron/issues/15802)] Assistant: AI provider sign-in no longer fails when model discovery is off, or when the key check for a custom provider gets a server error.
+- [[#16422](https://github.com/posit-dev/positron/pull/16422)] Assistant: on Posit Workbench, Posit Assistant now finds Microsoft Foundry managed credentials when the Workbench extension starts after the authentication extension. Before, Posit Assistant sometimes had no Foundry models.
 - [[#15819](https://github.com/posit-dev/positron/issues/15819)] Quarto: **Run Cells Above** and **Run Cell and Below** no longer stop at a Mermaid cell when you enable inline output.
 - [[#15957](https://github.com/posit-dev/positron/issues/15957)] Quarto: a document that starts with a diagram cell no longer uses the language of that cell as the document language.
 - [[#15792](https://github.com/posit-dev/positron/issues/15792)] Quarto: inline outputs and cell toolbars no longer lose track of their cells when you edit, delete, move, or reorder cells with identical content.
 - [[#16165](https://github.com/posit-dev/positron/pull/16165)] Quarto: running a multi-statement R cell in a document with Windows line endings no longer fails with a syntax error.
 - [[#13907](https://github.com/posit-dev/positron/issues/13907), [#15230](https://github.com/posit-dev/positron/issues/15230)] Quarto: the outline for Quarto and R Markdown documents no longer shows a second Quarto group or each code symbol two times.
 - [[#14512](https://github.com/posit-dev/positron/issues/14512)] Quarto: the outline for Quarto and R Markdown documents with many code chunks now updates quickly.
-- [[#15442](https://github.com/posit-dev/positron/issues/15442)] Connections: the Data Connections pane opens faster, because each database SDK now loads on the first connection.
-- [[#15794](https://github.com/posit-dev/positron/issues/15794)] Connections: ODBC data sources whose driver Positron cannot find no longer show in the list, and the output channel tells you why. Data sources with no endpoint show as unconfigured, and raw unixODBC errors are now messages that you can act on.
-- [[#16238](https://github.com/posit-dev/positron/issues/16238)] Connections: Snowflake connections in `connections.toml` now show as detected connections in the Data Connections pane. When you edit the file, the list updates and open connections stay open.
-- [[#16238](https://github.com/posit-dev/positron/issues/16238)] Connections: the **DETECTED** badge and the green connected dot stay in the same columns on every row in the Data Connections pane.
-- [[#16209](https://github.com/posit-dev/positron/issues/16209)] Connections: removed the Catalog Explorer extension, because Data Connections now does what it did.
+- [[#16391](https://github.com/posit-dev/positron/issues/16391)] Quarto: inline output, including HTML tables and the inline Data Explorer, now scales with the editor font size.
 - [[#15459](https://github.com/posit-dev/positron/issues/15459)] R: `rstudioapi::sendToConsole()` no longer stops the R session from responding.
 - [[#16227](https://github.com/posit-dev/positron/issues/16227)] R: in R notebook cells and Quarto chunks, Go to Definition, Find References, and Rename now find names that earlier cells define.
+- [[#14790](https://github.com/posit-dev/positron/issues/14790)] R: Go to Definition now understands `targets::tar_source()` calls with a vector of paths, such as `tar_source(c(...))`.
+- [[#15587](https://github.com/posit-dev/positron/issues/15587)] R: R interpreters in Conda or Pixi environments that you specify by path now start with their environment active.
 - [[#15665](https://github.com/posit-dev/positron/issues/15665)] R: language features no longer lose the attached packages of an R script that uses `source()` on a file in an `R/` folder.
 - [[#15666](https://github.com/posit-dev/positron/issues/15666), [#15667](https://github.com/posit-dev/positron/issues/15667)] R: the R language server now catches more internal errors and tells you about them. Before, some errors disabled the language server with no message or stopped the R session.
 - [[#16036](https://github.com/posit-dev/positron/issues/16036)] R: Python sessions from reticulate can use the bundled `ipykernel` when it supports the embedded interpreter and you enable [`python.useBundledIpykernel`](positron://settings/python.useBundledIpykernel).
+- [[#16238](https://github.com/posit-dev/positron/issues/16238)] Connections: Snowflake connections in `connections.toml` now show as detected connections in the Data Connections pane. When you edit the file, the list updates and open connections stay open.
+- [[#16238](https://github.com/posit-dev/positron/issues/16238)] Connections: the **DETECTED** badge and the green connected dot stay in the same columns on every row in the Data Connections pane.
+- [[#15442](https://github.com/posit-dev/positron/issues/15442)] Connections: the Data Connections pane opens faster, because each database SDK now loads on the first connection.
+- [[#15794](https://github.com/posit-dev/positron/issues/15794)] Connections: ODBC data sources whose driver Positron cannot find no longer show in the list, and the output channel tells you why. Data sources with no endpoint show as unconfigured, and raw unixODBC errors are now messages that you can act on.
+- [[#16441](https://github.com/posit-dev/positron/issues/16441)] Connections: the mouse wheel now scrolls the **Add Data Connection** dialog on Positron Web.
+- [[#16209](https://github.com/posit-dev/positron/issues/16209)] Connections: removed the Catalog Explorer extension, because Data Connections now does what it did.
+- [[#16238](https://github.com/posit-dev/positron/issues/16238)] Data Explorer: the summaries notice no longer shows when you collapse the summary panel. When you collapse or expand the panel, the summary grid no longer jumps.
 - [[#15463](https://github.com/posit-dev/positron/issues/15463)] Data Explorer: the summary panel tells you when Positron cannot calculate column summaries, when the data source has disconnected, or when summaries take too long. Before, it showed loading placeholders with no end.
 - [[#15463](https://github.com/posit-dev/positron/issues/15463)] Data Explorer: fixed a progress indicator that did not stop for a table with no columns or after a failed load. Cells and row labels also no longer animate after their request fails.
-- [[#16238](https://github.com/posit-dev/positron/issues/16238)] Data Explorer: the summaries notice no longer shows when you collapse the summary panel. When you collapse or expand the panel, the summary grid no longer jumps.
 - [[#16141](https://github.com/posit-dev/positron/pull/16141)] Data Explorer: fixed a grid that sometimes scrolled past its content and looked empty when it revealed a row before layout.
 - [[#15734](https://github.com/posit-dev/positron/issues/15734)] Console: in a file with carriage return and line feed (CRLF) line endings, a selection with a multi-line string followed by another line now runs. Before, the code went to the Console but did not run.
 - [[#16202](https://github.com/posit-dev/positron/pull/16202)] Console: the [`console.promptWhenIncomplete`](positron://settings/console.promptWhenIncomplete) setting now works. In 2026.09, Positron registered it under the wrong name, so if you changed this setting, set it again.
@@ -122,6 +133,9 @@ Positron is better at setting up the right Python environment for your project. 
 - [[#13988](https://github.com/posit-dev/positron/issues/13988)] Windows: Positron no longer discards a downloaded update while it waits for you to restart.
 - [[#15989](https://github.com/posit-dev/positron/issues/15989)] Welcome page: controls no longer become unreachable after you expand the environment setup details.
 - [[#15960](https://github.com/posit-dev/positron/pull/15960)] Welcome page: the environment setup section is less prominent, one message shows when all checks pass, and **Recent** now shows before **Learn**.
+- [[#16291](https://github.com/posit-dev/positron/issues/16291)] New Folder: Escape now closes the **Browse...** folder picker that opens from a Positron dialog, such as New Folder from Git.
+- [[#16025](https://github.com/posit-dev/positron/issues/16025)] Server: Positron Server and Posit Workbench installs now have fewer files.
+- [[#8162](https://github.com/posit-dev/positron/issues/8162)] Themes: removed eight upstream theme extensions that showed under `@builtin` in the Extensions view but had no themes that you can select.
 - [[#16265](https://github.com/posit-dev/positron/issues/16265)] R Markdown: Positron now blocks installs of the `vscode-R-syntax` extension, because it breaks R Markdown chunk execution. If you already have this extension, disable or uninstall it.
 - [[#16143](https://github.com/posit-dev/positron/pull/16143)] Plots: the origin file button now always shows in the Plots pane for R plots that you make when you source a file.
 - [[#15961](https://github.com/posit-dev/positron/issues/15961)] Terminal: terminals no longer put system tools ahead of an activated Python virtual environment when R is installed in a system folder such as `/usr/bin`.
