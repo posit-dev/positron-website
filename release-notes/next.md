@@ -14,7 +14,7 @@ Welcome to the 2026.10.0 release of Positron!
 
 [Posit Assistant](https://assistant.posit.co/) can now operate Positron itself, not just the R or Python session inside it. Ask it to run a Shiny app, open a Parquet file in the Data Explorer, set up a Python environment, browse your data connections, or deploy to Posit Connect. It uses the same source of truth as the Positron UI, so it sees your real interpreters, packages, and connections. 
 
-TODO: screenshot here
+<p align="center"><img src="https://cdn.posit.co/positron/releases/release-notes/assets/2026-10-assistant.png" alt="Positron with the Posit Assistant chat on the left and the Data Explorer on the right. The user asks Posit Assistant to open a Pokemon Excel file, and Posit Assistant runs a Positron command that opens pokemon.xlsx in the Data Explorer."></p>
 
 To try this preview feature, enable the [`assistant.previewFeatures`](positron://settings/assistant.previewFeatures) setting, and tell us what you think in the [GitHub discussion](https://github.com/posit-dev/positron/discussions/16280).
 
