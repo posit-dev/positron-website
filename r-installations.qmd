@@ -18,7 +18,7 @@ Positron consults various sources to build the list of available R interpreters:
 
   These locations are treated as so-called root folders, meaning we expect them
   to contain one or more versions of R, not to actually be an R installation.
-* The `PATH`, in the sense of the R executable returned by `which R`. Positron skips this on Windows unless you change [`positron.r.interpreters.pathDiscoveryMode`](positron://settings/positron.r.interpreters.pathDiscoveryMode).
+* The `PATH`, in the sense of the R executable returned by `which R` (not searched on Windows by default; see [`positron.r.interpreters.pathDiscoveryMode`](positron://settings/positron.r.interpreters.pathDiscoveryMode))
 * Well-known paths to an R executable or to a symlink that resolves to an R executable, e.g.:
   - `/usr/bin/R`
   - `/usr/local/bin/R`
@@ -40,9 +40,9 @@ Positron consults various sources to build the list of available R interpreters:
 If you have an R installation that won't be discovered by the search strategy described above, settings are available to instruct Positron to look in additional locations:
 
 * [`positron.r.customRootFolders`](positron://settings/positron.r.customRootFolders): Suitable for R root folders that contain 1 or more R installations.
-  - Hypothetical example: `C:/nonstandardRLocation`
+  - Example: `C:/nonstandardRLocation`
 * [`positron.r.customBinaries`](positron://settings/positron.r.customBinaries): Suitable for specific R executables.
-  - Hypothetical example: `C:/nonstandardRLocation/R-4.4.1/bin/x64/R.exe`
+  - Example: `C:/nonstandardRLocation/R-4.4.1/bin/x64/R.exe`
 * [`positron.r.interpreters.condaDiscovery`](positron://settings/positron.r.interpreters.condaDiscovery): Enables discovery of R installations managed by conda. This support is experimental and not all Positron features may work as expected.
 * [`positron.r.interpreters.pixiDiscovery`](positron://settings/positron.r.interpreters.pixiDiscovery): Enables discovery of R installations managed by pixi. This support is also experimental.
 * [`positron.r.interpreters.pathDiscoveryMode`](positron://settings/positron.r.interpreters.pathDiscoveryMode): Controls whether Positron looks for the R on your `PATH`.
@@ -57,28 +57,45 @@ Each takes a list of R executables, or folders that contain R installations.
 A folder entry applies to every R installation inside it.
 
 * [`positron.r.interpreters.exclude`](positron://settings/positron.r.interpreters.exclude): Hides the R installations you list. This includes R installations that Positron finds through `positron.r.customRootFolders` or `positron.r.customBinaries`.
-  - Hypothetical example: `/opt/R/4.2.3/bin/R` hides one installation, and `/opt/R` hides every installation in that folder.
-* [`positron.r.interpreters.override`](positron://settings/positron.r.interpreters.override): Shows only the R installations you list. Positron doesn't search anywhere else, so the locations at the top of this page and the settings in the previous section have no effect. When `override` is set, Positron ignores `exclude`.
+  - Example: `/opt/R/4.2.3/bin/R` hides one installation, and `/opt/R` hides every installation in that folder.
+* [`positron.r.interpreters.override`](positron://settings/positron.r.interpreters.override): Shows only the R installations you list. Positron does not search anywhere else, so the locations at the top of this page and the settings in the previous section have no effect. When you set `override`, Positron ignores `exclude`.
 
-Positron remembers which R you used in each folder.
-If that R is later hidden by `exclude`, or left out of `override`, Positron doesn't start it.
-It chooses an R for that folder again, as if you had never used R there.
+Positron remembers which R each folder uses.
+If `exclude` later hides that R, or `override` leaves it out, Positron does not start it.
+It chooses an R for that folder again, the same way it does in a folder where you have not used R.
 
 ### Choose a default R
 
-[`positron.r.interpreters.default`](positron://settings/positron.r.interpreters.default) sets the R that Positron uses in a folder where you haven't used R yet.
+[`positron.r.interpreters.default`](positron://settings/positron.r.interpreters.default) sets the R that Positron uses in a folder where you have not used R yet.
 Once you start an R console in a folder, Positron uses that R there instead of the default.
 
-The default must be an R installation that Positron can show.
-If `exclude` hides it, or `override` doesn't list it, Positron ignores the default.
+If `exclude` hides it, or `override` does not list it, Positron ignores the default.
 
-Setting a default doesn't change which R your system treats as its current R version.
+Setting a default does not change which R your system treats as its current R version.
 
-### Find these settings
+### Find these settings and set paths
 
-You can navigate to these settings by running the _Preferences: Open Settings_ command from the Command Palette.
+To find these settings, run the _Preferences: Open Settings_ command from the Command Palette.
 Then select **Extensions > R > Advanced**.
-It's important to use absolute paths in these settings and not rely on shell features, such as parameter expansion (e.g., `${HOME}`).
+
+These five settings accept `${workspaceFolder}` in their paths:
+
+* [`positron.r.customRootFolders`](positron://settings/positron.r.customRootFolders)
+* [`positron.r.customBinaries`](positron://settings/positron.r.customBinaries)
+* [`positron.r.interpreters.exclude`](positron://settings/positron.r.interpreters.exclude)
+* [`positron.r.interpreters.override`](positron://settings/positron.r.interpreters.override)
+* [`positron.r.interpreters.default`](positron://settings/positron.r.interpreters.default)
+
+Positron replaces `${workspaceFolder}` with the path of the folder you have open.
+This lets one settings value point to a different R in each project.
+For example, if each project keeps its own copy of R in an `R` folder, set `positron.r.customBinaries` to `${workspaceFolder}/R/bin/R`.
+Positron then finds the R in whichever project you open.
+
+Paths in these settings follow three rules:
+
+* Use absolute paths. Positron ignores relative paths. A path that uses `${workspaceFolder}` must be absolute after Positron replaces `${workspaceFolder}`.
+* Do not rely on shell features, such as parameter expansion. `${workspaceFolder}` is the only supported variable. Positron ignores a path that uses any other variable, such as `${HOME}`.
+* If no folder is open, Positron ignores any path that uses `${workspaceFolder}`.
 
 ## Unsupported R installations
 
