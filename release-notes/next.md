@@ -24,7 +24,7 @@ A new built-in Model Context Protocol (MCP) server lets coding agents such as Cl
 
 #### Data Connections on by default
 
-[Data Connections](https://positron.posit.co/data-connections) is now the default way to work with databases and data warehouses, and it supersedes the Catalog Explorer and Connections Pane. Amazon Redshift connections can sign in with AWS Identity and Access Management (IAM), and Snowflake and Databricks connections on Posit Workbench can use managed credentials. Snowflake semantic views show in the tree, and **Connect With** can generate ggsql code. To use the older Connections pane, set [`dataConnections.enabled`](positron://settings/dataConnections.enabled) to `false`.
+[Data Connections](https://positron.posit.co/data-connections?utm_source=positron&utm_medium=referral&utm_campaign=positron-2026-10-release-highlights&utm_content=data-connections-section) is now the default way to work with databases and data warehouses, and it supersedes the Catalog Explorer and Connections Pane. Amazon Redshift connections can sign in with AWS Identity and Access Management (IAM), and Snowflake and Databricks connections on Posit Workbench can use managed credentials. Snowflake semantic views show in the tree, and **Connect With** can generate ggsql code. To use the older Connections pane, set [`dataConnections.enabled`](positron://settings/dataConnections.enabled) to `false`.
 
 #### Faster language features for Quarto
 
