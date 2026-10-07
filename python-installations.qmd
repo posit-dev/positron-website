@@ -162,7 +162,7 @@ Key settings that control Python environment discovery:
 * [`python.interpreters.override`](positron://settings/python.interpreters.override): Override discovery so Positron shows only these
 
 ### Environment providers
-* [`python.environmentProviders.enabled`](positron://settings/python.environmentProviders.enabled): Choose which tools (`Venv`, `Conda`, `uv`) Positron offers when you create a new environment. This setting does not change which environments Positron discovers.
+* [`python.environmentProviders.enabled`](positron://settings/python.environmentProviders.enabled): Choose which tools (`Venv`, `Conda`, `uv`) Positron offers when you create an environment. This setting does not change which environments Positron discovers.
 
 ### Discovery behavior
 * [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath): Default Python interpreter path (used only the first time when no other interpreter takes precedence)
