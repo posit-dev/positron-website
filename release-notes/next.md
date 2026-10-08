@@ -12,7 +12,7 @@ Welcome to the 2026.10.0 release of Positron!
 
 #### Posit Assistant can drive Positron
 
-[Posit Assistant](https://assistant.posit.co/?utm_source=positron&utm_medium=referral&utm_campaign=positron-2026-10-release-highlights&utm_content=assistant-section) can now operate Positron itself, not just the R or Python session inside it. Ask it to run a Shiny app, open a Parquet file in the Data Explorer, set up a Python environment, browse your data connections, or deploy to Posit Connect. It uses the same source of truth as the Positron UI, so it sees your real interpreters, packages, and connections. 
+[Posit Assistant](https://assistant.posit.co/?utm_source=positron&utm_medium=referral&utm_campaign=positron-2026-10-release-highlights&utm_content=assistant-section) can now operate Positron itself, not just the R or Python session inside it. Ask it to run a Shiny app, open a Parquet file in the Data Explorer, set up a Python environment, browse your data connections, or deploy to Posit Connect. It uses the same source of truth as the Positron UI, so it sees your real interpreters, packages, and connections.
 
 <p align="center"><img src="https://cdn.posit.co/positron/releases/release-notes/assets/2026-10-assistant.png" alt="Positron with the Posit Assistant chat on the left and the Data Explorer on the right. The user asks Posit Assistant to open a Pokemon Excel file, and Posit Assistant runs a Positron command that opens pokemon.xlsx in the Data Explorer."></p>
 
@@ -24,7 +24,7 @@ A new built-in Model Context Protocol (MCP) server lets coding agents such as Cl
 
 #### Data Connections on by default
 
-[Data Connections](https://positron.posit.co/data-connections?utm_source=positron&utm_medium=referral&utm_campaign=positron-2026-10-release-highlights&utm_content=data-connections-section) is now the default way to work with databases and data warehouses, and it supersedes the Catalog Explorer and Connections Pane. Amazon Redshift connections can sign in with AWS Identity and Access Management (IAM), and Snowflake and Databricks connections on Posit Workbench can use managed credentials. Snowflake semantic views show in the tree, and **Connect With** can generate ggsql code. To use the older Connections pane, set [`dataConnections.enabled`](positron://settings/dataConnections.enabled) to `false`.
+[Data Connections](https://positron.posit.co/data-connections?utm_source=positron&utm_medium=referral&utm_campaign=positron-2026-10-release-highlights&utm_content=data-connections-section) is now the default way to work with databases and data warehouses, and it supersedes the Catalog Explorer and Connections pane. Amazon Redshift connections can sign in with AWS Identity and Access Management (IAM), and Snowflake and Databricks connections on Posit Workbench can use managed credentials. Snowflake semantic views show in the tree, and **Connect With** can generate ggsql code. To use the older Connections pane, set [`dataConnections.enabled`](positron://settings/dataConnections.enabled) to `false`.
 
 #### Faster language features for Quarto
 
@@ -49,6 +49,7 @@ Positron is better at setting up the right Python environment for your project. 
 - [[#16009](https://github.com/posit-dev/positron/pull/16009)] Connections: **Connect With** can generate ggsql code for SQLite, DuckDB, ODBC, PostgreSQL, and Redshift connections.
 - [[#16163](https://github.com/posit-dev/positron/pull/16163)] Connections: Positron shows a notification when a data connection fails to open or expand.
 - [[#15704](https://github.com/posit-dev/positron/issues/15704)] Assistant: Posit Assistant can run and preview Dash, FastAPI, Flask, Gradio, marimo, Streamlit, and Shiny apps with the app commands of Positron.
+- [[#15940](https://github.com/posit-dev/positron/issues/15940), [#15941](https://github.com/posit-dev/positron/issues/15941)] Assistant: Posit Assistant can see which data apps are running, with their status and URL, and stop them.
 - [[#15592](https://github.com/posit-dev/positron/issues/15592)] Assistant: Posit Assistant can read your configured and detected data connections, get the code that opens one, and browse the schema of a connection. It connects automatically when a connection is not open yet.
 - [[#15450](https://github.com/posit-dev/positron/issues/15450)] Assistant: Posit Assistant can tell which interpreter a project uses. It can also explain why an installed interpreter does not show, and make that interpreter available.
 - [[#16035](https://github.com/posit-dev/positron/issues/16035)] Assistant: Posit Assistant knows the commands it can use to deploy to Connect through Posit Publisher.
@@ -67,8 +68,11 @@ Positron is better at setting up the right Python environment for your project. 
 - [[#15571](https://github.com/posit-dev/positron/issues/15571)] R: `rstudioapi::getActiveDocumentContext()`, `getSourceEditorContext()`, `insertText()`, and `documentPath()` now target the console when it has focus, as in RStudio. The document `id` is `"#console"` for the console.
 - [[#16196](https://github.com/posit-dev/positron/pull/16196)] MCP: coding agents such as Claude Code, Codex, and Gemini CLI can connect to the Python and R sessions in Positron through a built-in MCP server. Agents can run code, see plots, and run Positron commands. Turn it on with the experimental [`ai.mcp.enabled`](positron://settings/ai.mcp.enabled) setting.
 - [[#16336](https://github.com/posit-dev/positron/pull/16336)] Console: console tabs show a dot when code runs in a console that you are not looking at, such as code from Posit Assistant or an external agent.
+- [[#16281](https://github.com/posit-dev/positron/issues/16281)] Console: the console information popup shows why the session started, for example "You selected this interpreter".
 - [[#14540](https://github.com/posit-dev/positron/issues/14540)] Quarto: Positron now natively provides completions, hover, diagnostics, outline, formatting, and more for R and Python code cells in Quarto and R Markdown documents. To use the old behavior, set [`quarto.embeddedLanguageFeatures.native`](positron://settings/quarto.embeddedLanguageFeatures.native) to `false`.
 - [[#7899](https://github.com/posit-dev/positron/issues/7899)] Interpreter: search in the interpreter picker now matches interpreter paths as well as names.
+- [[#12081](https://github.com/posit-dev/positron/issues/12081)] Interpreter: the new [`interpreters.definitions`](positron://settings/interpreters.definitions) setting defines more R and Python interpreters, each with its own label, environment variables, and startup script. Positron shows each one as a separate interpreter next to the original.
+- [[#14767](https://github.com/posit-dev/positron/issues/14767)] Interpreter: set the new [`interpreters.discovery`](positron://settings/interpreters.discovery) setting to `definitionsOnly` to show only the interpreters in `interpreters.definitions` for a language.
 - [[#16077](https://github.com/posit-dev/positron/issues/16077)] New Folder: New Folder from Git lets you name the folder for the cloned repository, instead of always using the name of the repository.
 - [[#11020](https://github.com/posit-dev/positron/issues/11020)] Remote: added one download URL setting, [`remote.serverDownloadUrlTemplate`](positron://settings/remote.serverDownloadUrlTemplate), for the Secure Shell (SSH), Windows Subsystem for Linux (WSL), and Dev Containers extensions. Positron deprecates the three settings for each extension, but they still take precedence where you set them.
 - [[#6221](https://github.com/posit-dev/positron/issues/6221)] Remote SSH: Remote SSH can use the system OpenSSH client for connections and tunnels with the new [`remoteSSH.transport`](positron://settings/remoteSSH.transport) setting.
@@ -79,6 +83,7 @@ Positron is better at setting up the right Python environment for your project. 
 
 - [[#15897](https://github.com/posit-dev/positron/issues/15897)] Python: **Run App** and **Debug App** now run the file whose button you clicked, not the file in the focused editor.
 - [[#15917](https://github.com/posit-dev/positron/issues/15917)] Python: when Python app files are open in editors side by side, each editor now shows the **Run App** and **Debug App** buttons for its own app.
+- [[#15916](https://github.com/posit-dev/positron/issues/15916)] Data Apps: when an app fails to start, Positron now tells you right away. Before, it waited for the URL detection timeout.
 - [[#14893](https://github.com/posit-dev/positron/issues/14893)] Python: when Positron finds a new Python environment in a workspace, it offers to start a console session instead of selecting a workspace interpreter.
 - [[#15385](https://github.com/posit-dev/positron/issues/15385)] Python: creating a uv environment from `pyproject.toml` now uses uv configuration such as `python-preference`.
 - [[#15558](https://github.com/posit-dev/positron/issues/15558)] Python: reduced memory use when Positron looks for missing Python packages.
@@ -94,6 +99,7 @@ Positron is better at setting up the right Python environment for your project. 
 - [[#16051](https://github.com/posit-dev/positron/issues/16051)] Assistant: the provider dialog shows a third-party terms notice again, with the correct text for each provider.
 - [[#15755](https://github.com/posit-dev/positron/issues/15755), [#15802](https://github.com/posit-dev/positron/issues/15802)] Assistant: AI provider sign-in no longer fails when model discovery is off, or when the key check for a custom provider gets a server error.
 - [[#16422](https://github.com/posit-dev/positron/pull/16422)] Assistant: on Posit Workbench, Posit Assistant now finds Microsoft Foundry managed credentials when the Workbench extension starts after the authentication extension. Before, Posit Assistant sometimes had no Foundry models.
+- [[#16477](https://github.com/posit-dev/positron/issues/16477)] Assistant: when you sign in to AWS SSO again for Amazon Bedrock, Positron no longer asks you to confirm that you want to open the AWS sign-in page.
 - [[#15819](https://github.com/posit-dev/positron/issues/15819)] Quarto: **Run Cells Above** and **Run Cell and Below** no longer stop at a Mermaid cell when you enable inline output.
 - [[#15957](https://github.com/posit-dev/positron/issues/15957)] Quarto: a document that starts with a diagram cell no longer uses the language of that cell as the document language.
 - [[#15792](https://github.com/posit-dev/positron/issues/15792)] Quarto: inline outputs and cell toolbars no longer lose track of their cells when you edit, delete, move, or reorder cells with identical content.
@@ -103,7 +109,7 @@ Positron is better at setting up the right Python environment for your project. 
 - [[#16391](https://github.com/posit-dev/positron/issues/16391)] Quarto: inline output, including HTML tables and the inline Data Explorer, now scales with the editor font size.
 - [[#15459](https://github.com/posit-dev/positron/issues/15459)] R: `rstudioapi::sendToConsole()` no longer stops the R session from responding.
 - [[#16227](https://github.com/posit-dev/positron/issues/16227)] R: in R notebook cells and Quarto chunks, Go to Definition, Find References, and Rename now find names that earlier cells define.
-- [[#14790](https://github.com/posit-dev/positron/issues/14790)] R: Go to Definition now understands `targets::tar_source()` calls with a vector of paths, such as `tar_source(c(...))`.
+- [[#14790](https://github.com/posit-dev/positron/issues/14790)] R: Go to Definition now understands `targets::tar_source()` calls with a vector of paths, such as `tar_source(c(...))`. It also resolves `source()` paths relative to the root of an renv, rig, or rv project.
 - [[#15587](https://github.com/posit-dev/positron/issues/15587)] R: R interpreters in Conda or Pixi environments that you specify by path now start with their environment active.
 - [[#15665](https://github.com/posit-dev/positron/issues/15665)] R: language features no longer lose the attached packages of an R script that uses `source()` on a file in an `R/` folder.
 - [[#15666](https://github.com/posit-dev/positron/issues/15666), [#15667](https://github.com/posit-dev/positron/issues/15667)] R: the R language server now catches more internal errors and tells you about them. Before, some errors disabled the language server with no message or stopped the R session.
@@ -134,8 +140,10 @@ Positron is better at setting up the right Python environment for your project. 
 - [[#15989](https://github.com/posit-dev/positron/issues/15989)] Welcome page: controls no longer become unreachable after you expand the environment setup details.
 - [[#15960](https://github.com/posit-dev/positron/pull/15960)] Welcome page: the environment setup section is less prominent, one message shows when all checks pass, and **Recent** now shows before **Learn**.
 - [[#16291](https://github.com/posit-dev/positron/issues/16291)] New Folder: Escape now closes the **Browse...** folder picker that opens from a Positron dialog, such as New Folder from Git.
+- [[#13175](https://github.com/posit-dev/positron/issues/13175)] New Folder: New Folder from Git now tells you when Git is not installed or is turned off. Before, it failed with no message.
 - [[#16025](https://github.com/posit-dev/positron/issues/16025)] Server: Positron Server and Posit Workbench installs now have fewer files.
 - [[#8162](https://github.com/posit-dev/positron/issues/8162)] Themes: removed eight upstream theme extensions that showed under `@builtin` in the Extensions view but had no themes that you can select.
+- [[#10097](https://github.com/posit-dev/positron/issues/10097)] Themes: _Preferences: Toggle between Light/Dark Themes_ now works when a preferred theme is one that the theme picker hides, such as Dark Modern or Dark+.
 - [[#16265](https://github.com/posit-dev/positron/issues/16265)] R Markdown: Positron now blocks installs of the `vscode-R-syntax` extension, because it breaks R Markdown chunk execution. If you already have this extension, disable or uninstall it.
 - [[#16143](https://github.com/posit-dev/positron/pull/16143)] Plots: the origin file button now always shows in the Plots pane for R plots that you make when you source a file.
 - [[#15961](https://github.com/posit-dev/positron/issues/15961)] Terminal: terminals no longer put system tools ahead of an activated Python virtual environment when R is installed in a system folder such as `/usr/bin`.
