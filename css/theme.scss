@@ -433,6 +433,13 @@ img.drop-shadow {
   box-shadow: $posit-box-shadow;
 }
 
+// Quarto adds .img-fluid only to Markdown images, so raw <img> tags (as in the
+// included release notes) need the same cap to stay inside the content column
+#quarto-document-content img {
+  max-width: 100%;
+  height: auto;
+}
+
 // ============= TUTORIAL LISTING =============
 // Native Quarto listing rendered as a vertical list via
 // templates/tutorial-listing.ejs (used on tutorials.qmd).
