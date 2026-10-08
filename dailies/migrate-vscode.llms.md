@@ -17,7 +17,7 @@ Where Positron differs is in its language integration and data science capabilit
 - the Console for interactive Python and R sessions
 - the Variables pane and [Data Explorer](data-explorer.llms.md), for inspecting live data
 - the Plots pane for visualizing plots and other generated graphics
-- the [Connections pane](connections-pane.llms.md) for managing database connections and exploring data
+- the [Data Connections](data-connections.llms.md) view for connecting to databases and data warehouses and exploring data
 - the [Help pane](help-pane.llms.md) for quick access to language and library documentation
 
 This blend of familiarity and data science focus will supercharge your work with a low barrier to transition.
