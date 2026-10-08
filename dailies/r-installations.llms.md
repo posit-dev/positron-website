@@ -36,7 +36,17 @@ If you have an R installation that won’t be discovered by the search strategy 
 - [`positron.r.interpreters.condaDiscovery`](positron://settings/positron.r.interpreters.condaDiscovery): Enables discovery of R installations managed by conda. This support is experimental and not all Positron features may work as expected.
 - [`positron.r.interpreters.pixiDiscovery`](positron://settings/positron.r.interpreters.pixiDiscovery): Enables discovery of R installations managed by pixi. This support is also experimental.
 
-You can navigate to these settings by running the *Preferences: Open Settings* command from the Command Palette. Then select **Extensions \> R \> Advanced**. It’s important to use absolute paths in these settings and not rely on shell features, such as parameter expansion (e.g., `${HOME}`).
+You can navigate to these settings by running the *Preferences: Open Settings* command from the Command Palette. Then select **Extensions \> R \> Advanced**.
+
+You typically need to use absolute paths in these settings and not rely on shell features, such as parameter expansion (e.g., `${HOME}`). However, these settings do support the `${workspaceFolder}` variable. The settings [`positron.r.customRootFolders`](positron://settings/positron.r.customRootFolders), [`positron.r.customBinaries`](positron://settings/positron.r.customBinaries), and the [`positron.r.interpreters.exclude`](positron://settings/positron.r.interpreters.exclude), [`positron.r.interpreters.override`](positron://settings/positron.r.interpreters.override), and [`positron.r.interpreters.default`](positron://settings/positron.r.interpreters.default) support this variable and you can use it to point Positron to an R installation inside your project:
+
+``` json
+{
+  "positron.r.customBinaries": ["${workspaceFolder}/.pixi/envs/default/bin/R"]
+}
+```
+
+Positron supports only the `${workspaceFolder}` variable in these settings. In a multi-root workspace, it refers to the first folder. Positron ignores a path that uses any other variable, such as `${env:NAME}`, or that uses `${workspaceFolder}` when no folder is open, and logs the reason.
 
 ## Unsupported R installations
 

@@ -27,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -928,7 +963,17 @@ These locations are treated as so-called root folders, meaning we expect them to
 <li><a href="positron://settings/positron.r.interpreters.condaDiscovery"><code>positron.r.interpreters.condaDiscovery</code></a>: Enables discovery of R installations managed by conda. This support is experimental and not all Positron features may work as expected.</li>
 <li><a href="positron://settings/positron.r.interpreters.pixiDiscovery"><code>positron.r.interpreters.pixiDiscovery</code></a>: Enables discovery of R installations managed by pixi. This support is also experimental.</li>
 </ul>
-<p>You can navigate to these settings by running the <em>Preferences: Open Settings</em> command from the Command Palette. Then select <strong>Extensions &gt; R &gt; Advanced</strong>. It’s important to use absolute paths in these settings and not rely on shell features, such as parameter expansion (e.g., <code>${HOME}</code>).</p>
+<p>You can navigate to these settings by running the <em>Preferences: Open Settings</em> command from the Command Palette. Then select <strong>Extensions &gt; R &gt; Advanced</strong>.</p>
+<p>You typically need to use absolute paths in these settings and not rely on shell features, such as parameter expansion (e.g., <code>${HOME}</code>). However, these settings do support the <code>${workspaceFolder}</code> variable. The settings <a href="positron://settings/positron.r.customRootFolders"><code>positron.r.customRootFolders</code></a>, <a href="positron://settings/positron.r.customBinaries"><code>positron.r.customBinaries</code></a>, and the <a href="positron://settings/positron.r.interpreters.exclude"><code>positron.r.interpreters.exclude</code></a>, <a href="positron://settings/positron.r.interpreters.override"><code>positron.r.interpreters.override</code></a>, and <a href="positron://settings/positron.r.interpreters.default"><code>positron.r.interpreters.default</code></a> support this variable and you can use it to point Positron to an R installation inside your project:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>settings.json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="settings.json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"positron.r.customBinaries"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"${workspaceFolder}/.pixi/envs/default/bin/R"</span><span class="ot">]</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Positron supports only the <code>${workspaceFolder}</code> variable in these settings. In a multi-root workspace, it refers to the first folder. Positron ignores a path that uses any other variable, such as <code>${env:NAME}</code>, or that uses <code>${workspaceFolder}</code> when no folder is open, and logs the reason.</p>
 </section>
 <section id="unsupported-r-installations" class="level2">
 <h2 class="anchored" data-anchor-id="unsupported-r-installations">Unsupported R installations</h2>

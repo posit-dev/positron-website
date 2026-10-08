@@ -58,9 +58,11 @@ Base interpreters that you can only use for seeding virtual environments:
 >
 > Using a system Python installation in a new session can lead to problems (see the official [guidance](https://packaging.python.org/en/latest/specifications/externally-managed-environments/) about this). For that reason, we recommend using virtual environments.
 
+The interpreter and session pickers group interpreters by environment type in a similar order, with tool-managed environments such as uv first and system interpreters last. To find an interpreter in a picker, search by its name or by part of its path.
+
 ## Automatic uv installation
 
-Positron provides the option to install Python via [uv](https://docs.astral.sh/uv/) to provide an improved Python environment management experience. If you have no Python or only system Pythons, Positron offers to install uv from the **Start New Console Session** dropdown.
+Positron provides the option to install Python via [uv](https://docs.astral.sh/uv/) to provide an improved Python environment management experience. If you have no Python or only system Pythons, Positron offers to install uv from the **Start New Console Session** dropdown. When you create a Python project with [New Folder From Template](folder-templates.llms.md#new-folder-from-template) and choose uv, the dialog offers to install uv if it is missing.
 
 You can control uv installation and usage in Positron in a variety of ways:
 
@@ -98,6 +100,22 @@ Positron creates the environment in your workspace and automatically discovers i
 
 You can also use the [New Folder From Template feature](folder-templates.llms.md#new-folder-from-template) to create a new Python project, and set up an environment as part of the project.
 
+### Creating environments from project files
+
+When you open a workspace that declares its dependencies but has no environment, Positron offers to create the environment for you. Positron makes this offer when the workspace has no project environment and you have a global Python selected. The offer depends on the files in the workspace:
+
+| Project files | What Positron offers |
+|----|----|
+| `uv.lock` | Run `uv sync` to create a `.venv` environment, then select it |
+| `pixi.lock` | Run `pixi install` to create the default pixi environment, then select it |
+| `pyproject.toml` or a requirements file | Create a `.venv` environment and install the dependencies |
+
+When uv is available and `pyproject.toml` is the only dependency source, Positron runs `uv sync`. uv then chooses the Python version, so Positron respects your uv configuration, such as `python-preference`.
+
+If a `uv.lock` workspace needs uv and uv is missing, Positron offers to install it first. Positron cannot install pixi for you. If pixi is missing, Positron shows a warning with a link to the pixi installation instructions.
+
+To skip the offer, click **Not Now**. To stop seeing it, click **Don’t Show Again**.
+
 ### Discovering existing environments
 
 Positron automatically discovers environments when:
@@ -108,6 +126,8 @@ Positron automatically discovers environments when:
 - You refresh using the *Interpreter: Discover All Interpreters* command
 
 The discovery process runs in the background and updates the interpreter list as Positron finds new environments.
+
+When Positron discovers an environment inside your workspace, such as one you create in the terminal with `uv venv`, it offers to start a console session with that environment. Positron does not make this offer if a running session already uses the environment. To stop these offers for the workspace, click **Don’t Show Again**.
 
 ## Other details
 
@@ -146,6 +166,17 @@ Key settings that control Python environment discovery:
 - [`python.interpreters.include`](positron://settings/python.interpreters.include): Specific interpreter paths to include
 - [`python.interpreters.exclude`](positron://settings/python.interpreters.exclude): Interpreter paths to exclude from discovery
 - [`python.interpreters.override`](positron://settings/python.interpreters.override): Override discovery so Positron shows only these
+
+These settings and [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath) support the `${workspaceFolder}` variable. Use it to point Positron to a Python installation inside your project:
+
+``` json
+{
+  "python.interpreters.include": ["${workspaceFolder}/envs/project"],
+  "python.defaultInterpreterPath": "${workspaceFolder}/envs/project/bin/python"
+}
+```
+
+Positron supports only `${workspaceFolder}` in these settings. In a multi-root workspace, it refers to the first folder. Positron ignores a path that uses any other variable, such as `${env:NAME}`, or that uses `${workspaceFolder}` when no folder is open, and logs the reason.
 
 ### Environment providers
 
