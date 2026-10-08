@@ -944,11 +944,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Provider settings are deprecated
+<span class="screen-reader-only">Note</span>Positron removed provider settings
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Positron deprecated the <code>authentication.*</code> and <code>positron.assistant.provider.*</code> settings in favor of <code>providers.json</code>. Positron migrates them for you when you upgrade, and you can run the migration again at any time with the <em>Migrate AI Provider Settings to providers.json</em> command.</p>
+<p>Positron removed the <code>authentication.*</code>, <code>positron.assistant.provider.*</code>, and <code>positron.assistant.models.overrides.*</code> settings in favor of <code>providers.json</code>. If you still have them in your <code>settings.json</code>, Positron migrates them for you on startup. To run the migration again, use the <em>Migrate AI Provider Settings to providers.json</em> command.</p>
 </div>
 </div>
 </section>

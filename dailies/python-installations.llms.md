@@ -149,7 +149,7 @@ Key settings that control Python environment discovery:
 
 ### Environment providers
 
-- [`python.environmentProviders.enable`](positron://settings/python.environmentProviders.enable): Turn specific environment providers on or off for environment creation (`Venv`, `Conda`, `uv`)
+- [`python.environmentProviders.enabled`](positron://settings/python.environmentProviders.enabled): Choose which tools (`Venv`, `Conda`, `uv`) Positron offers when you create an environment. This setting does not change which environments Positron discovers.
 
 ### Discovery behavior
 

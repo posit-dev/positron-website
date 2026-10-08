@@ -16,7 +16,7 @@ Open the file with the *Open AI Provider Settings (JSON)* command when you need 
 
 > **NOTE:**
 >
-> Positron deprecated the `authentication.*` and `positron.assistant.provider.*` settings in favor of `providers.json`. Positron migrates them for you when you upgrade, and you can run the migration again at any time with the *Migrate AI Provider Settings to providers.json* command.
+> Positron removed the `authentication.*`, `positron.assistant.provider.*`, and `positron.assistant.models.overrides.*` settings in favor of `providers.json`. If you still have them in your `settings.json`, Positron migrates them for you on startup. To run the migration again, use the *Migrate AI Provider Settings to providers.json* command.
 
 ## Posit AI Pass
 
