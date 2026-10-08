@@ -50,7 +50,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-34914894d4a419ab56af16687755a625.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fa79a26539e9ab32e9c754e6b72184dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -585,6 +585,12 @@ window.Quarto = {
  <span class="menu-text">Summary Panel</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./import-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Import Data</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item">
@@ -618,6 +624,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./using-data-connections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Data Connections</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./connections-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Connections Pane</span></a>
   </div>
@@ -626,12 +638,6 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./extending-connections.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extending the Connections Pane</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./catalog-explorer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Catalog Explorer</span></a>
   </div>
 </li>
       </ul>
@@ -663,7 +669,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto-inline-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Inline Output</span></a>
+ <span class="menu-text">Inline output</span></a>
   </div>
 </li>
       </ul>
@@ -1063,16 +1069,16 @@ window.Quarto = {
 </section>
 <section id="support-and-terms-of-service" class="level2">
 <h2 class="anchored" data-anchor-id="support-and-terms-of-service">Support and terms of service</h2>
-<p>Posit does not provide support or assistance for any code written or generated in Positron, with or without AI features in Positron such as Posit Assistant, Positron Assistant, or Databot, regardless of which model provider you use. Posit does not support any model provider’s output or test the logic a provider uses to generate code from prompts. Consult your AI model provider’s <a href="./assistant-provider-info.html">documentation</a> for more information.</p>
+<p>Posit does not provide support or assistance for any code written or generated in Positron, with or without AI features in Positron such as Posit Assistant, Positron Assistant, or Databot, regardless of which model provider you use. Posit does not support any model provider’s output or test the logic a provider uses to generate code from prompts. Consult your AI model provider’s documentation for more information.</p>
 <section id="byo-key-model-providers" class="level3">
 <h3 class="anchored" data-anchor-id="byo-key-model-providers">BYO-key model providers</h3>
 <p>AI features in Positron use a bring-your-own-key (BYO-key) model. You connect to a range of different model providers, such as Anthropic, Amazon Bedrock, GitHub Copilot, or OpenAI. You or your organization has an agreement with the provider and pays them directly for access to the model.</p>
 </section>
 <section id="data-collection-and-privacy" class="level3">
 <h3 class="anchored" data-anchor-id="data-collection-and-privacy">Data collection and privacy</h3>
-<p>Positron provides local software as a client to your selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when you use AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). This applies as long as you use an external model provider. These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. If you select <a href="./assistant-provider-info.html#posit-ai">Posit AI Pass</a> as your model provider, the <span><a href="./privacy.html">privacy policy</a></span> and <a href="https://posit.co/about/posit-ai-agreement">Posit AI Agreement</a> apply instead.</p>
+<p>Positron provides local software as a client to your selected model provider. As a result, Posit does not track, collect, or store your prompts, code, or conversations when you use AI features within Positron (i.e., Posit Assistant, Positron Assistant, Databot, etc.). This applies as long as you use an external model provider. These features operate by communicating directly from your client software to your chosen AI model provider. Posit does not receive any AI traffic from your client’s software and nor does Posit ever access or store your data. If you select Posit AI Pass as your model provider, the <span><a href="./privacy.html">privacy policy</a></span> and <a href="https://posit.co/about/posit-ai-agreement">Posit AI Agreement</a> apply instead.</p>
 <p>If you voluntarily share diagnostic logs or information with Posit for troubleshooting purposes, that shared information will be handled in accordance with <span><a href="./privacy.html">Posit’s privacy policy</a></span>.</p>
-<p>However, your AI model provider may store or collect data according to their own privacy policies and terms of service. Please review your <a href="./assistant-provider-info.html">AI model provider’s data practices</a> for details on what information they collect and how it is used.</p>
+<p>However, your AI model provider may store or collect data according to their own privacy policies and terms of service. Please review your AI model provider’s data practices for details on what information they collect and how it is used.</p>
 <p>By using an external model provider, you acknowledge that your use is subject to their Terms of Service. All external model providers are considered “Third Party Materials” as defined in the <a href="https://posit.co/about/eula/">Posit End User License Agreement</a> and Posit assumes no liability or other obligations with respect thereto and, without limiting the foregoing, is not liable for any loss or damage resulting from the use or access thereof.</p>
 
 
@@ -1506,7 +1512,7 @@ window.Quarto = {
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.09.1-2</p>
+<p>Positron 2026.10.0-297</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/assistant.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/assistant.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

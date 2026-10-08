@@ -4,7 +4,7 @@ Extend Positron’s Connections pane with custom database connection types. Lear
 
 > **NOTE:**
 >
-> This page describes extending the classic **Connections** pane, which is being superseded by the new [Data Connections](data-connections.llms.md) experience.
+> This page describes extending the classic **Connections** pane. The [Data Connections](data-connections.llms.md) experience is the default in Positron, and this pane is hidden unless you set [`dataConnections.enabled`](positron://settings/dataConnections.enabled) to `false` and reload Positron.
 
 The **Connections** pane can be extended by:
 

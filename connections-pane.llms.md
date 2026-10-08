@@ -4,7 +4,7 @@ Manage database connections and explore schemas in Python and R. Browse tables, 
 
 > **NOTE:**
 >
-> This page describes the classic **Connections** pane, which is being superseded by the new [Data Connections](data-connections.llms.md) experience. We recommend starting there for new work.
+> This page describes the classic **Connections** pane. The [Data Connections](data-connections.llms.md) experience is the default in Positron, and this pane is hidden. To use the Connections pane described on this page, set [`dataConnections.enabled`](positron://settings/dataConnections.enabled) to `false` and reload Positron.
 
 The **Connections** pane allows you to manage and explore database connections for use within your Python and R sessions. You can create connections to databases, explore their schemas, and interactively preview database tables.
 
@@ -76,10 +76,12 @@ You can then either use `%connection_show conn` to open the connection in the **
 
 ## Explore a connection from the Variables pane
 
-You can open an existing connection that you created from Python or R from the [**Variables** pane](variables-pane.llms.md):
+When the classic Connections pane is enabled, you can open an existing connection that you created from Python or R from the [**Variables** pane](variables-pane.llms.md):
 
 [![Variables pane showing a conn variable with sqlite3.Connection type and a database icon button highlighted with a red square.](images/connections-pane-variables-pane.png)](images/connections-pane-variables-pane.png "Variables pane showing a connection object")
 
 Variables pane showing a connection object
 
 Select the database icon to bring up the **Connections** pane, allowing you to navigate the database.
+
+When Data Connections is enabled (the default), the Variables pane does not show this icon, because there is no Connections pane for it to open.

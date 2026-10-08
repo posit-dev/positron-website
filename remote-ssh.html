@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-34914894d4a419ab56af16687755a625.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fa79a26539e9ab32e9c754e6b72184dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
@@ -570,6 +570,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Summary Panel</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./import-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Import Data</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item">
@@ -603,6 +609,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./using-data-connections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Data Connections</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./connections-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Connections Pane</span></a>
   </div>
@@ -611,12 +623,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./extending-connections.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extending the Connections Pane</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./catalog-explorer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Catalog Explorer</span></a>
   </div>
 </li>
       </ul>
@@ -648,7 +654,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto-inline-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Inline Output</span></a>
+ <span class="menu-text">Inline output</span></a>
   </div>
 </li>
       </ul>
@@ -901,7 +907,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#resuming-sessions" id="toc-resuming-sessions" class="nav-link" data-scroll-target="#resuming-sessions">Resuming sessions</a></li>
   <li><a href="#shutdown-timeout-details" id="toc-shutdown-timeout-details" class="nav-link" data-scroll-target="#shutdown-timeout-details">Shutdown timeout details</a></li>
   </ul></li>
-  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How it works</a></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How it works</a>
+  <ul class="collapse">
+  <li><a href="#native-openssh-transport" id="toc-native-openssh-transport" class="nav-link" data-scroll-target="#native-openssh-transport">Native OpenSSH transport</a></li>
+  </ul></li>
   <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/remote-ssh.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/remote-ssh.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -933,7 +942,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Positron has support for Remote SSH sessions. This feature allows the Positron IDE’s front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine. The two machines communicate using an ordinary secure shell (SSH) connection.</p>
+<p>Positron has support for Remote SSH sessions. This feature allows the Positron IDE’s front end (user interface) to run on one machine, while the back end (files, projects, Python and R sessions, etc.) runs on another machine. The two machines communicate using an ordinary secure shell (SSH) connection. On the remote machine, Positron installs and runs a headless server binary (<code>positron-reh</code>, short for “remote extension host”).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
@@ -956,9 +965,9 @@ end
 </div>
 <section id="system-requirements" class="level2">
 <h2 class="anchored" data-anchor-id="system-requirements">System requirements</h2>
-<p>Remote SSH sessions can be <em>initiated</em> from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are <em>connecting</em> to must be running Linux<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>; native Windows and macOS remote hosts are not supported.</p>
+<p>Remote SSH sessions can be <em>initiated</em> from any operating system supported by the Positron desktop app itself, including macOS, Linux, and Windows. However, the system you are <em>connecting</em> to must be running Linux<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>; native Windows and macOS remote hosts are not supported.</p>
 <p>Note that Remote SSH is <em>only</em> supported on the desktop app. You cannot use Remote SSH from Positron Pro sessions on Posit Workbench.</p>
-<p>At least 2 GB RAM is required to run the remote Positron server, but for realistic data science work, expect to need at least 4 GB RAM or more on the remote host.</p>
+<p>The server component on the remote host requires at least 2 GB RAM, but for realistic data science work, expect to need at least 4 GB RAM or more.</p>
 </section>
 <section id="creating-a-connection" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-connection">Creating a connection</h2>
@@ -1038,9 +1047,9 @@ end
 <p>When Positron connects to a new host for the first time, it does the following:</p>
 <ol type="1">
 <li>Establishes an SSH connection to the host.</li>
-<li>Forms the name and download URL of the correct Positron Server binary, e.g., <code>positron-reh-linux-x64-2025.01.0-39.tar.gz</code>.</li>
+<li>Forms the name and download URL of the correct server binary, e.g., <code>positron-reh-linux-x64-2025.01.0-39.tar.gz</code>.</li>
 <li>On the remote host, downloads this binary into <code>~/.positron-server</code> and unpacks it.</li>
-<li>Starts the headless Positron Server inside the remote host.</li>
+<li>Starts the headless server on the remote host.</li>
 <li>Connects to the server from the front end.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1053,10 +1062,10 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The client and server must be using <strong>exactly</strong> the same Positron version. We make Positron Server builds available for both regular monthly releases as well as <a href="./updating.html#daily-builds">daily builds</a>, so you can use either for remote SSH sessions. If you connect to a remote host with a new client version of Positron (for example, because a new monthly release is available), the new matching version of Positron Server will be downloaded and unpacked.</p>
+<p>The client and server must be using <strong>exactly</strong> the same Positron version. We make builds of the server binary available for both regular monthly releases as well as <a href="./updating.html#daily-builds">daily builds</a>, so you can use either for remote SSH sessions. If you connect to a remote host with a new client version of Positron (for example, because a new monthly release is available), Positron downloads and unpacks the matching version of the server binary.</p>
 </div>
 </div>
-<p>If you need to use a different URL to download Positron Server (for example to use a local copy due to network constraints, or to force the use of a particular version even if it’s not autodetected), you can edit the <a href="positron://settings/remoteSSH.serverDownloadUrlTemplate"><code>remoteSSH.serverDownloadUrlTemplate</code></a> setting:</p>
+<p>If you need to use a different URL to download the server binary (for example to use a local copy due to network constraints, or to force the use of a particular version even if it is not autodetected), you can edit the <a href="positron://settings/remoteSSH.serverDownloadUrlTemplate"><code>remoteSSH.serverDownloadUrlTemplate</code></a> setting:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./images/remote-ssh-server-template.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Remote SSH: Server Download Url Template Setting"><img src="./images/remote-ssh-server-template.png" class="img-fluid figure-img" alt="Positron settings panel showing the Remote SSH Server Download URL Template field with a text input for a custom URL." width="650"></a></p>
@@ -1064,13 +1073,22 @@ Note
 </figure>
 </div>
 <p>If you need to install the server data in a different location than <code>~/.positron-server</code>, edit the <a href="positron://settings/remoteSSH.serverInstallPath"><code>remoteSSH.serverInstallPath</code></a> setting.</p>
+<section id="native-openssh-transport" class="level3">
+<h3 class="anchored" data-anchor-id="native-openssh-transport">Native OpenSSH transport</h3>
+<p>By default, Positron connects to remote hosts using a built-in SSH implementation that does not support some OpenSSH features, such as dynamically configured, short-lived OpenSSH certificate authentication. If your SSH configuration relies on OpenSSH features like <code>Match exec</code>, dynamic <code>Include</code> files, <code>ProxyJump</code>, or OpenSSH certificates, set <a href="positron://settings/remoteSSH.transport"><code>remoteSSH.transport</code></a> to <code>native</code>. Positron then delegates connections and port forwarding tunnels to the system OpenSSH client, running the <code>ssh</code> executable on your <code>PATH</code> by default. Set <a href="positron://settings/remoteSSH.path"><code>remoteSSH.path</code></a> to use a specific OpenSSH executable.</p>
+<p>Native mode has some limitations:</p>
+<ul>
+<li>Authentication must be non-interactive. Positron does not support password, passphrase, and host key confirmation prompts in native mode, so a connection that requires interactive input fails immediately with an error instead of hanging.</li>
+<li>Native mode does not support agent forwarding into the remote extension host.</li>
+</ul>
+</section>
 </section>
 <section id="troubleshooting" class="level2">
 <h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
 <p>The two most common problems are:</p>
 <ul>
-<li>Encountering a 404 when downloading the Positron Server binary. This happens when you attempt to use Remote SSH against a host type that’s not supported, for example, connecting to a macOS host.</li>
-<li>Encountering an error when starting the Positron Server binary. This happens when you attempt to use Remote SSH against a version of Linux that’s not supported by Positron.</li>
+<li>Encountering a 404 when downloading the server binary. This happens when you attempt to use Remote SSH against a host type that is not supported, for example, connecting to a macOS host.</li>
+<li>Encountering an error when starting the server binary. This happens when you attempt to use Remote SSH against a version of Linux that is not supported by Positron.</li>
 </ul>
 <p>Occasionally, the installation on the remote server can be corrupted, for example, if the download was interrupted. If you encounter errors installing Positron on the remote server, you can try deleting the server directory on the remote host, killing any running server processes, and then connecting again.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On the remote host, kill any existing positron-server processes</span></span>
@@ -1088,7 +1106,8 @@ Note
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Positron does provide support for using WSL (Windows Subsystem for Linux) on Windows as a remote host.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>This server binary is distinct from <a href="./faqs.html#how-can-i-use-positron-with-a-server">other ways to run Positron fully on a server</a>, such as Positron Server on JupyterHub and Positron Pro on Posit Workbench.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Positron does provide support for using WSL (Windows Subsystem for Linux) on Windows as a remote host.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1516,7 +1535,7 @@ Note
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.09.1-2</p>
+<p>Positron 2026.10.0-297</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/remote-ssh.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/remote-ssh.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

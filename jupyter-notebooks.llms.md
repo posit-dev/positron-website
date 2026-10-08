@@ -7,7 +7,7 @@ Work with Jupyter Notebooks in Positron with built-in support for Python and R. 
 Positron enhances Jupyter Notebooks in several key ways:
 
 - Notebooks work out of the box. You do not need to install any additional dependencies into your Python or R environments.
-- Notebooks are integrated into the IDE. You can manage data sources in the [Connections pane](connections-pane.llms.md), view data at a glance in the [Variables pane](variables-pane.llms.md), explore data in depth with the [Data Explorer](data-explorer.llms.md), and browse documentation in the [Help pane](help-pane.llms.md).
+- Notebooks are integrated into the IDE. You can manage data sources with [Data Connections](data-connections.llms.md), view data at a glance in the [Variables pane](variables-pane.llms.md), explore data in depth with the [Data Explorer](data-explorer.llms.md), and browse documentation in the [Help pane](help-pane.llms.md).
 - Language features such as autocompletion and go-to-definition work seamlessly across notebooks and plaintext files.
 
 [![Positron IDE showing a Jupyter notebook with Python code, a bar chart of monthly electricity usage, the Positron Assistant chat panel on the left, and Variables pane on the right.](images/positron-notebook.png)](images/positron-notebook.png "A Jupyter Notebook in Positron with a Python code cell, a monthly electricity usage chart as output, the Assistant panel open to the left, and the Variables pane open to the right.")

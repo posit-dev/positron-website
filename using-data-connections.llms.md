@@ -1,0 +1,60 @@
+# Using Data Connections
+
+Create, explore, and manage database connections in Positron. Browse schemas, preview tables in the Data Explorer, and generate connection code in Python, R, or ggsql.
+
+The **Data Connections** view in the primary sidebar is where you create connections, browse their structure, preview data, and generate connection code. See [Data Connections](data-connections.llms.md) for an overview of the feature and the data sources it supports.
+
+## Create a connection
+
+1.  Select the **Add Connection** button at the top of the **Data Connections** view.
+2.  Choose a database provider, such as DuckDB, PostgreSQL, or SQLite. The dialog lists each provider with a short description of what it connects to.
+3.  If the provider offers more than one way to connect, choose a connection method and select **Next**. For example, PostgreSQL offers **User & Password**, **Local Server (No Password)**, **Client Certificate (SSL)**, and **Connection String**.
+4.  Fill in the connection details and give the connection a name, then select **Save**.
+
+Positron stores passwords, tokens, and connection strings in your operating system’s secret storage, not in plain text.
+
+## Open a database file
+
+When you open a DuckDB (`.duckdb`, `.ddb`) or SQLite (`.sqlite`, `.sqlite3`, `.db`) file from the Explorer, Positron shows a landing page instead of the editor. The page offers to create a data connection to the file, or to open the connection you already have to it. Nothing connects until you select the button on that page.
+
+## Explore a connection
+
+Expand a connection in the tree to browse its structure: catalogs, schemas, tables, views, columns, and indexes, depending on what the database supports. A green dot on a connection indicates a live connection.
+
+Double-click a table or view (or right-click and choose **Open in Data Explorer**) to preview it in the [Data Explorer](data-explorer.llms.md), where you can sort, filter, and view column profiles.
+
+Right-click an item in the tree and choose **Copy Name** to copy its name. Where the item has a path, **Copy Path** copies a quoted, fully qualified form, such as `"DB"."SCHEMA"."TABLE"`, that pastes directly into SQL.
+
+Collapsing a connection disconnects it, unless you have Data Explorer tabs open from that connection. In that case, the connection stays open until you close the last of those tabs.
+
+## Generate connection code
+
+Data Connections can generate ready-to-run code so you can use a connection in your own scripts and notebooks. Right-click a connection and choose **Connect With**, then **Python**, **R**, or **ggsql**. The dialog offers the following actions:
+
+- Choose a **Package** variant where offered. For example, PostgreSQL can generate Python code using the psycopg2 or SQLAlchemy packages, or R code using the DBI package. Positron remembers the package you choose for each connection and language.
+- Review the generated **Connection Code**.
+- Select **Copy** to copy the code to the clipboard, **Create Script** to open it in a new file, or **Connect** to run it in the active console.
+
+The [ggsql](https://ggsql.org) option generates a query for that SQL extension for declarative data visualization. It is available for SQLite, DuckDB, ODBC, PostgreSQL, and Redshift connections.
+
+> **NOTE:**
+>
+> Positron does not bundle ggsql. To run the generated code, [install the ggsql extension](https://ggsql.org/get_started/installation.html) for Positron. If ggsql is not installed when you connect, Positron explains what is missing and links to the installation instructions.
+
+By default, generated code references your stored credentials rather than embedding them. Check **Include Secrets** to embed credentials directly in the code. Positron asks for confirmation first, since the resulting code contains your secrets in plain text.
+
+## Manage connections
+
+Right-click a connection, or select its **Actions** menu, to take the following actions:
+
+- **Edit Connection**: Change the saved connection details.
+- **Refresh**: Reload that part of the tree from the database. A refresh preserves your expansion state and briefly highlights refreshed items. **Refresh** is available at every level of the tree, not just on connections.
+- **Remove**: Delete the saved connection, including its saved settings and stored secrets. Positron asks for confirmation before removing, since this cannot be undone. Removing also closes any Data Explorer tabs open on the connection.
+
+Select the **Refresh All** button at the top of the view to reload every expanded connection at once.
+
+## Troubleshooting
+
+If a connection fails to open or part of the tree fails to expand, Positron shows a notification with the reason.
+
+Each driver writes to its own Output channel, named `Data Connections: <driver>` (for example, `Data Connections: PostgreSQL`). Positron creates the channel the first time you use that driver. To see more detail, including per-query timing, use the gear menu in the Output panel to set the log level to **Trace**. Drivers never log SQL text or connection strings.

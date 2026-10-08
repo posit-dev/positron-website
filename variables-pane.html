@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./plots-pane.html" rel="next">
-<link href="./data-explorer-summary-panel.html" rel="prev">
+<link href="./import-data.html" rel="prev">
 <link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -48,7 +48,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-34914894d4a419ab56af16687755a625.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fa79a26539e9ab32e9c754e6b72184dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -530,6 +532,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Summary Panel</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./import-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Import Data</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item">
@@ -563,6 +571,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./using-data-connections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Data Connections</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./connections-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Connections Pane</span></a>
   </div>
@@ -571,12 +585,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./extending-connections.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extending the Connections Pane</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./catalog-explorer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Catalog Explorer</span></a>
   </div>
 </li>
       </ul>
@@ -608,7 +616,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto-inline-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Inline Output</span></a>
+ <span class="menu-text">Inline output</span></a>
   </div>
 </li>
       </ul>
@@ -848,6 +856,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#viewing-variables" id="toc-viewing-variables" class="nav-link active" data-scroll-target="#viewing-variables">Viewing variables</a></li>
   <li><a href="#viewing-data-tables" id="toc-viewing-data-tables" class="nav-link" data-scroll-target="#viewing-data-tables">Viewing data tables</a></li>
+  <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data">Importing data</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/variables-pane.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/variables-pane.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -893,6 +902,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="viewing-data-tables" class="level3">
 <h3 class="anchored" data-anchor-id="viewing-data-tables">Viewing data tables</h3>
 <p>If your session includes data tables, they appear in the <strong>DATA</strong> section of the <strong>Variables</strong> pane. For more information about viewing your data tables, see the <a href="./data-explorer.html">Data Explorer</a> section.</p>
+</section>
+<section id="importing-data" class="level3">
+<h3 class="anchored" data-anchor-id="importing-data">Importing data</h3>
+<p>The <i class="fa-solid fa-file-import" aria-label="file-import"></i> <strong>Import Data</strong> button in the pane toolbar opens the <a href="./import-data.html">Import Data</a> dialog, which generates the code to load a data file into your session and can run it for you.</p>
 
 
 </section>
@@ -1300,8 +1313,8 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./data-explorer-summary-panel.html" class="pagination-link" aria-label="Summary Panel">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Summary Panel</span>
+      <a href="./import-data.html" class="pagination-link" aria-label="Import Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Import Data</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1323,7 +1336,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.09.1-2</p>
+<p>Positron 2026.10.0-297</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/variables-pane.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/variables-pane.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

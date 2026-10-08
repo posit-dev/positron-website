@@ -4,6 +4,21 @@
     "items": []
   },
   {
+    "listing": "/tutorials.html",
+    "items": [
+      "/tutorial-get-started-ipynb.html",
+      "/tutorial-migrate-from-vscode.html",
+      "/tutorial-ai-notebooks.html",
+      "/tutorial-get-started-quarto.html",
+      "/tutorial-migrate-from-rstudio.html",
+      "/tutorial-ai-quarto.html"
+    ]
+  },
+  {
+    "listing": "/features.html",
+    "items": []
+  },
+  {
     "listing": "/assistant-getting-started.html",
     "items": []
   },
@@ -16,16 +31,13 @@
     "items": []
   },
   {
-    "listing": "/features.html",
-    "items": []
-  },
-  {
     "listing": "/language-guides.html",
     "items": []
   },
   {
     "listing": "/older-releases.html",
     "items": [
+      "/release-notes/release-2026-09.html",
       "/release-notes/release-2026-08.html",
       "/release-notes/release-2026-07.html",
       "/release-notes/release-2026-06.html",
@@ -40,17 +52,6 @@
       "/release-notes/release-2025-09.html",
       "/release-notes/release-2025-08.html",
       "/release-notes/release-2025-07.html"
-    ]
-  },
-  {
-    "listing": "/tutorials.html",
-    "items": [
-      "/tutorial-get-started-ipynb.html",
-      "/tutorial-migrate-from-vscode.html",
-      "/tutorial-ai-notebooks.html",
-      "/tutorial-get-started-quarto.html",
-      "/tutorial-migrate-from-rstudio.html",
-      "/tutorial-ai-quarto.html"
     ]
   }
 ]

@@ -1,6 +1,6 @@
 # 2026.08.0-331 Release Notes
 
-https://github.com/posit-dev/positron/releases/tag/2026.08.0-331
+<https://github.com/posit-dev/positron/releases/tag/2026.08.0-331>
 
 Published
 

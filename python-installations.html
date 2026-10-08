@@ -27,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -48,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-34914894d4a419ab56af16687755a625.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fa79a26539e9ab32e9c754e6b72184dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -527,6 +562,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Summary Panel</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./import-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Import Data</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item">
@@ -560,6 +601,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./using-data-connections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Data Connections</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./connections-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Connections Pane</span></a>
   </div>
@@ -568,12 +615,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./extending-connections.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Extending the Connections Pane</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./catalog-explorer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Catalog Explorer</span></a>
   </div>
 </li>
       </ul>
@@ -605,7 +646,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./quarto-inline-output.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Inline Output</span></a>
+ <span class="menu-text">Inline output</span></a>
   </div>
 </li>
       </ul>
@@ -855,6 +896,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#environment-creation-and-discovery-timing" id="toc-environment-creation-and-discovery-timing" class="nav-link" data-scroll-target="#environment-creation-and-discovery-timing">Environment creation and discovery timing</a>
   <ul class="collapse">
   <li><a href="#creating-new-environments" id="toc-creating-new-environments" class="nav-link" data-scroll-target="#creating-new-environments">Creating new environments</a></li>
+  <li><a href="#creating-environments-from-project-files" id="toc-creating-environments-from-project-files" class="nav-link" data-scroll-target="#creating-environments-from-project-files">Creating environments from project files</a></li>
   <li><a href="#discovering-existing-environments" id="toc-discovering-existing-environments" class="nav-link" data-scroll-target="#discovering-existing-environments">Discovering existing environments</a></li>
   </ul></li>
   <li><a href="#other-details" id="toc-other-details" class="nav-link" data-scroll-target="#other-details">Other details</a>
@@ -977,12 +1019,13 @@ Important
 <p>Using a system Python installation in a new session can lead to problems (see the official <a href="https://packaging.python.org/en/latest/specifications/externally-managed-environments/">guidance</a> about this). For that reason, we recommend using virtual environments.</p>
 </div>
 </div>
+<p>The interpreter and session pickers group interpreters by environment type in a similar order, with tool-managed environments such as uv first and system interpreters last. To find an interpreter in a picker, search by its name or by part of its path.</p>
 </section>
 </section>
 </section>
 <section id="automatic-uv-installation" class="level2">
 <h2 class="anchored" data-anchor-id="automatic-uv-installation">Automatic uv installation</h2>
-<p>Positron provides the option to install Python via <a href="https://docs.astral.sh/uv/">uv</a> to provide an improved Python environment management experience. If you have no Python or only system Pythons, Positron offers to install uv from the <strong>Start New Console Session</strong> dropdown.</p>
+<p>Positron provides the option to install Python via <a href="https://docs.astral.sh/uv/">uv</a> to provide an improved Python environment management experience. If you have no Python or only system Pythons, Positron offers to install uv from the <strong>Start New Console Session</strong> dropdown. When you create a Python project with <a href="./folder-templates.html#new-folder-from-template">New Folder From Template</a> and choose uv, the dialog offers to install uv if it is missing.</p>
 <p>You can control uv installation and usage in Positron in a variety of ways:</p>
 <ul>
 <li><strong>Disable uv installation</strong>: To never see this installation option, set <a href="positron://settings/python.allowUvPythonInstall"><code>python.allowUvPythonInstall</code></a> to <code>false</code>.</li>
@@ -1020,6 +1063,39 @@ Important
 <p>Positron creates the environment in your workspace and automatically discovers it.</p>
 <p>You can also use the <a href="./folder-templates.html#new-folder-from-template">New Folder From Template feature</a> to create a new Python project, and set up an environment as part of the project.</p>
 </section>
+<section id="creating-environments-from-project-files" class="level3">
+<h3 class="anchored" data-anchor-id="creating-environments-from-project-files">Creating environments from project files</h3>
+<p>When you open a workspace that declares its dependencies but has no environment, Positron offers to create the environment for you. Positron makes this offer when the workspace has no project environment and you have a global Python selected. The offer depends on the files in the workspace:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 59%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Project files</th>
+<th>What Positron offers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>uv.lock</code></td>
+<td>Run <code>uv sync</code> to create a <code>.venv</code> environment, then select it</td>
+</tr>
+<tr class="even">
+<td><code>pixi.lock</code></td>
+<td>Run <code>pixi install</code> to create the default pixi environment, then select it</td>
+</tr>
+<tr class="odd">
+<td><code>pyproject.toml</code> or a requirements file</td>
+<td>Create a <code>.venv</code> environment and install the dependencies</td>
+</tr>
+</tbody>
+</table>
+<p>When uv is available and <code>pyproject.toml</code> is the only dependency source, Positron runs <code>uv sync</code>. uv then chooses the Python version, so Positron respects your uv configuration, such as <code>python-preference</code>.</p>
+<p>If a <code>uv.lock</code> workspace needs uv and uv is missing, Positron offers to install it first. Positron cannot install pixi for you. If pixi is missing, Positron shows a warning with a link to the pixi installation instructions.</p>
+<p>To skip the offer, click <strong>Not Now</strong>. To stop seeing it, click <strong>Don’t Show Again</strong>.</p>
+</section>
 <section id="discovering-existing-environments" class="level3">
 <h3 class="anchored" data-anchor-id="discovering-existing-environments">Discovering existing environments</h3>
 <p>Positron automatically discovers environments when:</p>
@@ -1030,6 +1106,7 @@ Important
 <li>You refresh using the <em>Interpreter: Discover All Interpreters</em> command</li>
 </ul>
 <p>The discovery process runs in the background and updates the interpreter list as Positron finds new environments.</p>
+<p>When Positron discovers an environment inside your workspace, such as one you create in the terminal with <code>uv venv</code>, it offers to start a console session with that environment. Positron does not make this offer if a running session already uses the environment. To stop these offers for the workspace, click <strong>Don’t Show Again</strong>.</p>
 </section>
 </section>
 <section id="other-details" class="level2">
@@ -1071,11 +1148,22 @@ Important
 <li><a href="positron://settings/python.interpreters.exclude"><code>python.interpreters.exclude</code></a>: Interpreter paths to exclude from discovery</li>
 <li><a href="positron://settings/python.interpreters.override"><code>python.interpreters.override</code></a>: Override discovery so Positron shows only these</li>
 </ul>
+<p>These settings and <a href="positron://settings/python.defaultInterpreterPath"><code>python.defaultInterpreterPath</code></a> support the <code>${workspaceFolder}</code> variable. Use it to point Positron to a Python installation inside your project:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>settings.json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="settings.json"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"python.interpreters.include"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"${workspaceFolder}/envs/project"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"python.defaultInterpreterPath"</span><span class="fu">:</span> <span class="st">"${workspaceFolder}/envs/project/bin/python"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Positron supports only <code>${workspaceFolder}</code> in these settings. In a multi-root workspace, it refers to the first folder. Positron ignores a path that uses any other variable, such as <code>${env:NAME}</code>, or that uses <code>${workspaceFolder}</code> when no folder is open, and logs the reason.</p>
 </section>
 <section id="environment-providers" class="level3">
 <h3 class="anchored" data-anchor-id="environment-providers">Environment providers</h3>
 <ul>
-<li><a href="positron://settings/python.environmentProviders.enable"><code>python.environmentProviders.enable</code></a>: Turn specific environment providers on or off for environment creation (<code>Venv</code>, <code>Conda</code>, <code>uv</code>)</li>
+<li><a href="positron://settings/python.environmentProviders.enabled"><code>python.environmentProviders.enabled</code></a>: Choose which tools (<code>Venv</code>, <code>Conda</code>, <code>uv</code>) Positron offers when you create an environment. This setting does not change which environments Positron discovers.</li>
 </ul>
 </section>
 <section id="discovery-behavior" class="level3">
@@ -1523,7 +1611,7 @@ Important
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.09.1-2</p>
+<p>Positron 2026.10.0-297</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/python-installations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/python-installations.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

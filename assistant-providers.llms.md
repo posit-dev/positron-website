@@ -6,7 +6,7 @@ Positron connects to a range of language model providers. To connect one, run th
 
 This page covers what each provider needs: the account to have ready, how you authenticate, and anything to configure first.
 
-Please ensure you consult your provider’s privacy policy and terms of service for information on the data they collect and how it is used. For reference links, see the [Privacy & Terms](assistant-provider-info.llms.md) guide.
+Please ensure you consult your provider’s privacy policy and terms of service for information on the data they collect and how it is used. See the [Privacy & terms](assistant-provider-info.llms.md) guide for more information.
 
 ## `providers.json`
 
@@ -16,7 +16,7 @@ Open the file with the *Open AI Provider Settings (JSON)* command when you need 
 
 > **NOTE:**
 >
-> Positron deprecated the `authentication.*` and `positron.assistant.provider.*` settings in favor of `providers.json`. Positron migrates them for you when you upgrade, and you can run the migration again at any time with the *Migrate AI Provider Settings to providers.json* command.
+> Positron removed the `authentication.*`, `positron.assistant.provider.*`, and `positron.assistant.models.overrides.*` settings in favor of `providers.json`. If you still have them in your `settings.json`, Positron migrates them for you on startup. To run the migration again, use the *Migrate AI Provider Settings to providers.json* command.
 
 ## Posit AI Pass
 
@@ -59,7 +59,7 @@ Set it with the `AWS_PROFILE` environment variable before you launch Positron, o
 
 ### Cross-region inference profiles
 
-Positron uses [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) to route requests across multiple AWS regions for higher availability and throughput. It derives the inference profile region from your AWS region by taking the geographic prefix, and there is nothing to configure:
+Positron can use [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) to route requests across multiple AWS regions for higher availability and throughput. It derives the inference profile region from your AWS region by taking the geographic prefix, and there is nothing to configure:
 
 | AWS region                         | Derived inference profile region |
 |------------------------------------|----------------------------------|
