@@ -78,9 +78,8 @@ Positron also ignores `exclude` when you set `override`.
 
 ### Choose which R starts
 
-[`positron.r.interpreters.default`](positron://settings/positron.r.interpreters.default) sets the R that Positron uses in a folder where you have not used R yet.
-Set it to the path of one R executable that exists on disk.
-A folder does not work.
+[`positron.r.interpreters.default`](positron://settings/positron.r.interpreters.default) sets the R that Positron uses in a folder.
+Set it to the path of one R executable that exists on disk, not a folder.
 
 * Example on Linux: `/opt/R/4.4.2/bin/R`
 * Example on macOS: `/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/bin/R`
@@ -88,22 +87,35 @@ A folder does not work.
 
 Setting a default does not change which R your system treats as its current R version.
 
-Once you start an R console in a folder, Positron remembers that R for the folder.
-Positron uses the remembered R there instead of the default.
+When you set a default, Positron uses that R every time it starts R in the folder, even if you used a different R there last time.
+You can still start a different R from the Interpreter picker.
+The next time you open the folder, Positron starts the default again.
+
+Where you set the default decides which folders it applies to:
+
+* In your user settings, it applies to every folder you open.
+* In a project's `.vscode/settings.json` file, which holds the workspace settings, it applies only to that project. A value in a project's settings takes precedence over the value in your user settings.
+
+`exclude` and `override` take precedence over the default.
+If `exclude` hides the default, or `override` does not list it, Positron ignores the default.
+If the default path does not exist, Positron ignores the default and chooses an R as if you had not set a default.
+
+If you do not set a default, Positron remembers the R you use in each folder.
+Once you start an R console in a folder, Positron uses that R there from then on.
+
 There is one exception.
 If the remembered R was the current R on your system at the time, Positron starts your current R instead.
 For example, after you change your current R with `rig default`, that folder uses the R you switched to.
 
-`exclude` and `override` apply to both the default and the remembered R.
-If `exclude` hides an R, or `override` leaves it out, Positron ignores it as the default and does not start it in a folder that remembers it.
+If `exclude` later hides the remembered R, or `override` leaves it out, Positron does not start it.
 Instead, Positron chooses an R for that folder again.
 
 To make a folder forget its R, run _Interpreter: Clear Saved Interpreter_ from the Command Palette.
 This command does not stop a running R console.
 If you keep using that console, Positron remembers its R again, so shut the console down first.
-After that, Positron chooses an R for the folder the same way it does in a folder where you have not used R, so the default applies again.
 
-To learn how Positron picks an interpreter when you open a folder, see [Interpreter Startup](interpreter-startup.qmd).
+The [`interpreters.startupBehavior`](positron://settings/interpreters.startupBehavior) setting controls whether R starts on its own when you open a folder.
+To learn more, see [Interpreter Startup](interpreter-startup.qmd).
 
 ### Use `${workspaceFolder}` in paths
 
@@ -116,15 +128,20 @@ These five settings accept `${workspaceFolder}` in their paths:
 * `positron.r.interpreters.default`
 
 Positron replaces `${workspaceFolder}` with the path of the folder you have open.
-This lets one setting point to a different R in each project.
-For example, if each project keeps its own R installation in an `env` folder, set `positron.r.interpreters.default` to `${workspaceFolder}/env/bin/R`.
+This helps most in a project's `.vscode/settings.json` file, which you often share with your team.
+Each person checks the project out to a different place, so a fixed absolute path does not work for everyone.
+`${workspaceFolder}` makes the same path work for everyone.
+
+For example, suppose a project keeps a conda environment with R in an `env` folder inside the project.
+On macOS and Linux, set `positron.r.interpreters.default` to `${workspaceFolder}/env/bin/R`.
+On Windows, the R in a conda environment is at `${workspaceFolder}/env/Lib/R/bin/x64/R.exe`.
 
 The first four settings take a list of paths, and `positron.r.interpreters.default` takes a single path.
-This example adds an R executable from the open folder to `positron.r.customBinaries`:
+This example sets the project's default R on macOS and Linux:
 
-```{.json filename="settings.json"}
+```{.json filename=".vscode/settings.json"}
 {
-  "positron.r.customBinaries": ["${workspaceFolder}/env/bin/R"]
+  "positron.r.interpreters.default": "${workspaceFolder}/env/bin/R"
 }
 ```
 
