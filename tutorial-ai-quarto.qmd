@@ -105,15 +105,13 @@ You can use AI in Positron via Posit Assistant, the AI assistant built into Posi
 
 ![Posit Assistant open in the left sidebar](images/tutorial-r-ai-assistant.png){fig-alt="Positron with Posit Assistant loaded in the left sidebar."}
 
-To use Posit Assistant, you must first log in to a model provider with _Authentication: Configure Language Model Providers_. Posit Assistant lists every provider by default, but none is active until you authenticate with it.
-
-![The Configure Language Model Providers window](images/tutorial-python-ai-configure-model.png){width=500 fig-alt="The Posit Assistant Configure Language Model Providers window."}
+To use Posit Assistant, you must first log in to a model provider with _Posit Assistant: Configure AI Providers_. Posit Assistant lists every provider by default, but none is active until you authenticate with it.
 
 Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, [Posit AI Pass](assistant-providers.qmd#posit-ai) is the most direct way to get started. You can start a free trial at [posit.ai](https://posit.ai/) and sign in through your browser, with no API keys to manage.
 
 ::: {.callout-tip title="Try it now"}
-1. Run _Authentication: Configure Language Model Providers_ from the Command Palette.
-2. Select your provider from the list.
+1. Run _Posit Assistant: Configure AI Providers_ from the Command Palette.
+2. Select **Connect** next to your provider.
 3. Complete the sign-in or credential step the provider asks for. The [Language Model Providers](assistant-providers.qmd) reference lists what each one needs.
 
 **You will know it worked when** the provider shows as connected and you can open a chat with _View: Show Posit Assistant_.

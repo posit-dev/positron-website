@@ -4,7 +4,7 @@ description: "Account requirements, authentication, and settings for each langua
 toc-depth: 2
 ---
 
-Positron connects to a range of language model providers. To connect one, run the command _Authentication: Configure Language Model Providers_, select the provider, and authenticate.
+You can connect Positron to a range of language model providers. To connect one, run the command _Posit Assistant: Configure AI Providers_ or select **Configure Language Model Providers** from the {{< fa circle-user >}} **Accounts** menu. This opens the **AI Providers** screen. Select **Connect** next to the provider, then sign in or enter its credentials.
 
 This page covers what each provider needs: the account to have ready, how you authenticate, and anything to configure first.
 
@@ -14,7 +14,7 @@ Please ensure you consult your provider's privacy policy and terms of service fo
 
 Provider configuration lives in a single file: `~/.posit/ai/providers.json`. Positron writes it for you as you connect and edit providers. Your API keys and tokens are not in this file. Positron stores them separately.
 
-Open the file with the _Open AI Provider Settings (JSON)_ command when you need something the provider dialog does not cover. That includes turning a provider off, sending custom HTTP headers, and filtering the model list. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) in the Posit Assistant documentation.
+Open the file with the _Open AI Provider Settings (JSON)_ command when you need something the **AI Providers** dialog does not cover. That includes turning a provider off, sending custom HTTP headers, and filtering the model list. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) in the Posit Assistant documentation.
 
 ::: {.callout-note}
 ## Positron removed provider settings
@@ -141,14 +141,14 @@ Set the capability fields to match your deployment. For what each field means an
 - **Account:** a Snowflake account with Cortex access
 - **Authentication:** your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier) and a [programmatic access token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) (PAT)
 
-Enter the account identifier in the **Account Identifier** field when you connect the provider. Positron derives the Cortex URL from it and saves it to `providers.json` for you.
+When you connect the provider, enter the account identifier in the **Account Name** field and the access token in the **Bearer Token** field. Positron builds the Cortex URL from the account identifier. If you have a Snowflake `connections.toml` file, you can pick a connection from the **Connection** list instead.
 
 ## GitHub Copilot [Preview]{.provider-badge .preview} {#github-copilot}
 
 - **Account:** a GitHub account with Copilot enabled
 - **Authentication:** sign in through your browser with OAuth
 
-To sign in, use the _Authentication: Configure Language Model Providers_ command, select GitHub Copilot, and sign in. If you already have a GitHub session from another extension, this asks you to confirm reusing it for Assistant. Otherwise, it starts a new browser sign-in flow.
+To sign in, run _Posit Assistant: Configure AI Providers_ and select **Connect** next to GitHub Copilot. If you already have a GitHub session from another extension, this asks you to confirm reusing it for Assistant. Otherwise, it starts a new browser sign-in flow.
 
 To sign out, use the {{< fa circle-user >}} **Accounts** icon or run the _Accounts: Manage Accounts_ command. Unlike signing in, this signs you out for all features in Positron that use your GitHub account, such as the Git or GitHub Pull Requests extensions.
 
@@ -186,24 +186,35 @@ For more detail, see GitHub's guide on [authenticating to GitHub Copilot on GHE.
 
 ## Databricks [Experimental]{.provider-badge .experimental} {#databricks}
 
-Connect to Databricks with OAuth, a personal access token, or automatically discovered credentials.
+Connect to Databricks with a personal access token, a service principal, or automatically discovered credentials.
 
 - **Account:** a Databricks workspace with access to supported AI models
-- **Authentication:** sign in through your browser with OAuth in Positron Desktop, enter a personal access token, or let Positron use automatic credentials from `DATABRICKS_TOKEN`, a `.databrickscfg` profile, or Posit Workbench managed credentials
-- **Configuration:** the workspace URL, entered in the **Workspace URL** field in the provider dialog, in a format like `https://adb-1234567890123456.7.azuredatabricks.net`
+- **Authentication:** enter a personal access token or service principal credentials, or let Positron use automatic credentials from environment variables, a `.databrickscfg` profile, or Posit Workbench managed credentials
+- **Configuration:** the workspace URL, entered in the **Workspace URL** field on the **AI Providers** screen, in a format like `https://adb-1234567890123456.7.azuredatabricks.net`
 
-### Sign in with OAuth
-
-In Positron Desktop, select **OAuth** in the Databricks provider dialog and complete the browser sign-in flow. OAuth is not available when Positron runs on a remote server or in a browser. Use a personal access token or automatic credentials in those environments.
+::: {.callout-note}
+Signing in to Databricks through your browser (OAuth) is not available yet. If you signed in this way in an earlier Positron version, connect again with a personal access token or a service principal.
+:::
 
 ### Personal access token
 
-Create a personal access token in your Databricks workspace. In the Databricks provider dialog, enter the **Workspace URL** and **API Key**. Positron checks the token with the Databricks workspace before saving it.
+Create a personal access token in your Databricks workspace. On the **AI Providers** screen, select **Connect** next to Databricks, choose **Personal access token** as the **Authentication method**, enter the **Workspace URL** and **Personal access token**, and select **Continue**.
 
 You can also provide the same credential through environment variables before you launch Positron:
 
 - `DATABRICKS_HOST`: the workspace URL
 - `DATABRICKS_TOKEN`: the personal access token
+
+### Service principal
+
+To connect with a Databricks [service principal](https://docs.databricks.com/aws/en/dev-tools/auth/oauth-m2m), choose **Service principal OAuth** as the **Authentication method** and enter the **Workspace URL**, **Client ID**, and **Client secret**.
+
+You can also set these environment variables before you launch Positron:
+
+- `DATABRICKS_AUTH_TYPE`: `oauth-m2m`
+- `DATABRICKS_HOST`: the workspace URL
+- `DATABRICKS_CLIENT_ID`: the service principal's client ID
+- `DATABRICKS_CLIENT_SECRET`: the service principal's client secret
 
 ### Automatic credentials from `.databrickscfg`
 
@@ -214,7 +225,7 @@ By default, Positron reads the `workbench` profile from `~/.databrickscfg`. To u
 Posit Workbench managed Databricks credentials use this path automatically, so you usually do not need to set these environment variables yourself in Workbench.
 
 ::: {.callout-note}
-When several Databricks credential sources are available, Positron uses them in a fixed priority order. It checks Posit Workbench managed credentials first, then the `DATABRICKS_TOKEN` environment variable, then a `.databrickscfg` profile, and finally falls back to an interactive prompt.
+When several Databricks credential sources are available, Positron uses them in a fixed priority order. It checks Posit Workbench managed credentials first, then credentials you saved on the **AI Providers** screen, then environment variables.
 :::
 
 ## DeepSeek [Experimental]{.provider-badge .experimental} {#deepseek}
@@ -255,18 +266,19 @@ Beyond the providers above, you can add your own named entries: as many as you l
 
 ### Add a custom provider
 
-1. Run _Authentication: Configure Language Model Providers_ and select **Add Custom Provider**.
-1. Enter a **Provider Name**. It appears in the model picker, and you cannot change it from the dialog later.
-1. Select a **Provider Type**: **OpenAI Compatible**, **Anthropic**, or **OpenAI** ([tracking issue for more types](https://github.com/posit-dev/positron/issues/15701)). The type decides the fields you fill in next. A custom entry reuses that provider's own connection fields, so an Anthropic-type entry asks for the same API key as the built-in Anthropic provider.
-1. Enter the credential and base URL, if the type asks for them, and connect.
+1. Run _Posit Assistant: Configure AI Providers_ to open the **AI Providers** screen.
+1. Under **Custom providers**, select **Add custom provider**.
+1. Enter a **Provider name**. It appears in the model picker, and you cannot change it later.
+1. Select a **Provider type**. The list covers gateways (such as OpenAI-compatible, OpenRouter, and LiteLLM), cloud providers (such as Anthropic, OpenAI, and Amazon Bedrock), and local providers (Ollama and LM Studio). The type decides the fields you fill in next. A custom entry reuses that provider's own connection fields, so an Anthropic-type entry asks for the same API key as the built-in Anthropic provider.
+1. Fill in the connection fields, such as the API key and base URL, and select **Add provider**.
 
-Some endpoints do not implement a `/models` listing. If yours does not, list its model identifiers in the **Models** field before connecting.
+Some endpoints do not implement a `/models` listing. If yours does not, list its models in the entry's block in `providers.json`. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
 
 ### Edit or remove a custom provider
 
-You cannot rename a custom entry, change its type, or edit its model list from the provider dialog after creating it. To change any of these, open `providers.json` with the _Open AI Provider Settings (JSON)_ command and edit its `providers.custom.<name>` block directly.
+Select **Edit** next to an entry to change its connection fields or credential. You cannot change its name or type after creating it. To change those, open `providers.json` with the _Open AI Provider Settings (JSON)_ command and edit its `providers.custom.<name>` block directly.
 
-To remove an entry, delete that block. **Disconnect** only clears the stored credential. The entry remains, ready to reconnect.
+To remove an entry, select **Delete provider**. This deletes the entry and its stored credential. **Disconnect** only clears the stored credential. The entry remains, ready to reconnect.
 
 ### `providers.custom` in `providers.json`
 

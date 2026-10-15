@@ -26,7 +26,7 @@ To use AI in Positron, first configure a language model provider, then start usi
 
 Positron enables all providers by default and they appear in the provider list, but none are active unless you authenticate with the provider. To hide providers you do not use, see [Turn a provider on or off](ai-configuration.qmd#turn-a-provider-on-or-off).
 
-To connect a provider, run the command _Authentication: Configure Language Model Providers_, select the provider, and authenticate. For account requirements, authentication details, and any settings to configure first, see the [Language Model Providers](assistant-providers.qmd) reference.
+To connect a provider, run the command _Posit Assistant: Configure AI Providers_, select **Connect** next to the provider, and sign in or enter its credentials. For account requirements, authentication details, and any settings to configure first, see the [Language Model Providers](assistant-providers.qmd) reference.
 
 | Provider | Chat | Code Completions | Authentication |
 |------|:--:|:---:|---------|
@@ -37,7 +37,7 @@ To connect a provider, run the command _Authentication: Configure Language Model
 | [OpenAI](assistant-providers.qmd#openai) | {{< fa check >}} | | API Key |
 | [Snowflake Cortex](assistant-providers.qmd#snowflake-cortex) | {{< fa check >}} | | API Key or Workbench Managed Credentials |
 | [GitHub Copilot](assistant-providers.qmd#github-copilot) [Preview]{.provider-badge .preview} | {{< fa check >}} | {{< fa check >}} | OAuth |
-| [Databricks](assistant-providers.qmd#databricks) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | OAuth, Personal Access Token, Environment Variable, CLI Profile, or Workbench Managed Credentials |
+| [Databricks](assistant-providers.qmd#databricks) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | Personal Access Token, Service Principal, Environment Variable, CLI Profile, or Workbench Managed Credentials |
 | [DeepSeek](assistant-providers.qmd#deepseek) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [Google Gemini](assistant-providers.qmd#gemini-code-assist) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | API Key |
 | [Gemini Enterprise Agent Platform](assistant-providers.qmd#gemini-enterprise-agent-platform) [Experimental]{.provider-badge .experimental} | {{< fa check >}} | | Google Cloud CLI or Service Account Credentials |
