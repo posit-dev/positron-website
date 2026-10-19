@@ -1,3 +1,7 @@
+### Patch notes
+
+The [2026.10.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.10.1-2) (2026-10-19) fixes a problem with Snowflake Data Connections that use managed credentials on Posit Workbench.
+
 ### Release highlights
 
 Welcome to the 2026.10.0 release of Positron!
