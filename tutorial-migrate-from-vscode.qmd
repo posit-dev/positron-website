@@ -177,7 +177,7 @@ Run _Posit Assistant: Configure AI Providers_ from the Command Palette, select *
 :::
 
 ::: {.callout-note}
-GitHub Copilot is a preview provider. For account requirements and other providers, see [Posit Assistant](assistant.qmd) and [Language Model Providers](assistant-providers.qmd).
+GitHub Copilot is a preview provider. For account requirements and other providers, see [Providers](https://assistant.posit.co/docs/getting-started/providers/) in the Posit Assistant documentation.
 :::
 
 # Let Positron manage your Python environments
