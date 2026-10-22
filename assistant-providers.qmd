@@ -3,24 +3,18 @@ title: "Providers"
 description: "Connect Positron to a language model provider and manage your provider settings."
 ---
 
-You can connect Positron to a range of language model providers. To connect one, run the command _Posit Assistant: Configure AI Providers_ or select **Configure Language Model Providers** from the {{< fa circle-user >}} **Accounts** menu. This opens the **AI Providers** screen. Select **Connect** next to the provider, then sign in or enter its credentials.
+To connect a language model provider, run the command _Posit Assistant: Configure AI Providers_ or select **Configure Language Model Providers** from the {{< fa circle-user >}} **Accounts** menu, then select **Connect** next to the provider.
 
-For the list of providers, what each one needs, and how to sign in, see [Providers](https://assistant.posit.co/docs/getting-started/providers/) in the Posit Assistant documentation.
-
-Please ensure you consult your provider's privacy policy and terms of service for information on the data they collect and how it is used. See the [Privacy & terms](assistant-provider-info.qmd) guide for more information.
-
-## Code completions
-
-Posit AI Pass and GitHub Copilot also give you code completions in the editor. See [Code completions](assistant-completions.qmd).
+For the list of providers and how to sign in to each one, see [Providers](https://assistant.posit.co/docs/getting-started/providers/) in the Posit Assistant documentation. Posit AI Pass and GitHub Copilot also give you [code completions](assistant-completions.qmd).
 
 ## `providers.json` {#provider-configuration-file}
 
-Provider configuration lives in a single file: `~/.posit/ai/providers.json`. Positron writes it for you as you connect and edit providers. Your API keys and tokens are not in this file. Positron stores them separately.
-
-Open the file with the _Open AI Provider Settings (JSON)_ command when you need something the **AI Providers** screen does not cover. That includes turning a provider off, sending custom HTTP headers, and filtering the model list. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) in the Posit Assistant documentation.
+Posit Assistant saves your provider settings, but not your keys or tokens, to `~/.posit/ai/providers.json`. To change something the **AI Providers** screen does not cover, such as turning a provider off, sending custom HTTP headers, or filtering the model list, run _Open AI Provider Settings (JSON)_. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
 
 ::: {.callout-note}
-## Positron removed provider settings
-
-Positron removed the `authentication.*`, `positron.assistant.provider.*`, and `positron.assistant.models.overrides.*` settings in favor of `providers.json`. If you still have them in your `settings.json`, Positron migrates them for you on startup. To run the migration again, use the _Migrate AI Provider Settings to providers.json_ command.
+Positron 2026.10 removed the `authentication.*`, `positron.assistant.provider.*`, and `positron.assistant.models.overrides.*` settings. If they are still in your `settings.json`, Positron moves them to `providers.json` on startup. To run this again, use _Migrate AI Provider Settings to providers.json_.
 :::
+
+## Privacy
+
+Check your provider's privacy policy and terms of service to see what data they collect and how they use it. See [Privacy & terms](assistant-provider-info.qmd) for links.
