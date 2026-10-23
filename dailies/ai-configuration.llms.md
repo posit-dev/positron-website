@@ -40,13 +40,13 @@ To disable a specific feature without affecting others:
 
 ## Turn a provider on or off
 
-Positron enables every provider by default and reads the list from `~/.posit/ai/providers.json`, so to hide one, or to allow only a specific set, edit that file. Run *Open AI Provider Settings (JSON)* to open it, and see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) for the keys to use.
+Positron shows every provider by default. To hide one, or to allow only a specific set, edit [`providers.json`](assistant-providers.llms.md#provider-configuration-file).
 
 ## GitHub Copilot chat
 
 Positron hides the GitHub Copilot chat interface by default, since Posit Assistant is the default chat experience in Positron. To show the GitHub Copilot chat UI again, set [`chat.disableAIFeatures`](positron://settings/chat.disableAIFeatures) to `false`.
 
-Regardless of that setting, GitHub Copilot [ghost-text completions and NES](assistant-completions.llms.md#github-copilot) are available once you [sign in to GitHub Copilot as a provider](assistant-providers.llms.md#github-copilot).
+Regardless of that setting, GitHub Copilot [ghost-text completions and NES](assistant-completions.llms.md#github-copilot) are available once you [connect GitHub Copilot as a provider](assistant-providers.llms.md).
 
 ## Check your AI configuration
 

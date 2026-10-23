@@ -169,17 +169,13 @@ We recommend adopting Posit Assistant and pointing it at the Copilot subscriptio
 
 > **TIP:**
 >
-> Run *Authentication: Configure Language Model Providers* from the Command Palette, select **GitHub Copilot**, and sign in through your browser.
+> Run *Posit Assistant: Configure AI Providers* from the Command Palette, select **Connect** next to **GitHub Copilot**, and sign in through your browser.
 >
 > **You will know it worked when** Posit Assistant is connected and you can start a chat.
 
-[![The Configure Language Model Providers window.](images/tutorial-vscode-copilot.png)](images/tutorial-vscode-copilot.png "You can configure Posit Assistant to work with many model providers, including Github Copilot.")
-
-You can configure Posit Assistant to work with many model providers, including Github Copilot.
-
 > **NOTE:**
 >
-> GitHub Copilot is a preview provider. For account requirements and other providers, see [Posit Assistant](assistant.llms.md) and [Language Model Providers](assistant-providers.llms.md).
+> GitHub Copilot is a preview provider. For account requirements and other providers, see [Providers](https://assistant.posit.co/docs/getting-started/providers/) in the Posit Assistant documentation.
 
 # Let Positron manage your Python environments
 

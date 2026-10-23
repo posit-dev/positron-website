@@ -1,285 +1,38 @@
 # Providers
 
-Account requirements, authentication, and settings for each language model provider you can use with Posit Assistant.
+Connect Positron to a language model provider and manage your provider settings.
 
-Positron connects to a range of language model providers. To connect one, run the command *Authentication: Configure Language Model Providers*, select the provider, and authenticate.
+To connect a language model provider, run the command *Posit Assistant: Configure AI Providers* or select **Configure Language Model Providers** from the **Accounts** menu, then select **Connect** next to the provider.
 
-This page covers what each provider needs: the account to have ready, how you authenticate, and anything to configure first.
+For what each provider needs and how to sign in, see [Providers](https://assistant.posit.co/docs/getting-started/providers/) in the Posit Assistant documentation.
 
-Please ensure you consult your provider’s privacy policy and terms of service for information on the data they collect and how it is used. See the [Privacy & terms](assistant-provider-info.llms.md) guide for more information.
+| Provider | Chat | Code Completions |
+|----|:--:|:--:|
+| Posit AI Pass |  |  |
+| Amazon Bedrock |  |  |
+| Anthropic |  |  |
+| Databricks Preview |  |  |
+| DeepSeek |  |  |
+| GitHub Copilot Preview |  |  |
+| Google Gemini |  |  |
+| Google Vertex AI (Gemini Enterprise Agent Platform) Preview |  |  |
+| LiteLLM Preview |  |  |
+| LM Studio (local) |  |  |
+| Microsoft Foundry |  |  |
+| Ollama (local) |  |  |
+| OpenAI |  |  |
+| OpenAI Compatible (legacy) |  |  |
+| OpenCode Preview |  |  |
+| OpenRouter (use a custom provider) |  |  |
+| Portkey Preview |  |  |
+| Snowflake Cortex |  |  |
+
+If your provider is not listed, add a [custom provider](https://assistant.posit.co/docs/getting-started/providers/#custom-providers). It can use any of the provider types above, so you can connect a company gateway, a second account on the same provider, or a local model server.
 
 ## `providers.json`
 
-Provider configuration lives in a single file: `~/.posit/ai/providers.json`. Positron writes it for you as you connect and edit providers. Your API keys and tokens are not in this file. Positron stores them separately.
-
-Open the file with the *Open AI Provider Settings (JSON)* command when you need something the provider dialog does not cover. That includes turning a provider off, sending custom HTTP headers, and filtering the model list. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) in the Posit Assistant documentation.
+Posit Assistant saves your provider settings, but not your keys or tokens, to `~/.posit/ai/providers.json`. Some changes are not on the **AI Providers** screen, such as turning a provider off, sending custom HTTP headers, or filtering the model list. For those, run *Open AI Provider Settings (JSON)*. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
 
 > **NOTE:**
 >
-> Positron removed the `authentication.*`, `positron.assistant.provider.*`, and `positron.assistant.models.overrides.*` settings in favor of `providers.json`. If you still have them in your `settings.json`, Positron migrates them for you on startup. To run the migration again, use the *Migrate AI Provider Settings to providers.json* command.
-
-## Posit AI Pass
-
-Posit AI Pass (formerly Posit AI) is a hosted language model service from Posit, offering both chat models and code completions through [Next Edit Suggestions (NES)](assistant-completions.llms.md#posit-ai-nes).
-
-- **Account:** a Posit AI Pass account, which you can create at [posit.ai](https://posit.ai/)
-- **Authentication:** sign in through your browser with OAuth
-
-## Amazon Bedrock
-
-- **Account:** an AWS account with Amazon Bedrock access, plus [access to the foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html) you want to use
-- **Authentication:** sign in to your AWS account with the AWS CLI. Positron checks that you are signed in
-- **Configuration:** the AWS region and profile, if your environment does not already set them (see [Configure AWS region and profile](#configure-aws-region-profile))
-
-### Sign in with the AWS CLI
-
-1.  [Download and install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-2.  [Configure your AWS credentials for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-3.  [Sign in with the AWS CLI](https://docs.aws.amazon.com/signin/latest/userguide/command-line-sign-in.html)
-
-### Configure AWS region and profile (optional)
-
-Positron reads `AWS_REGION` from your environment and uses your `default` AWS CLI profile automatically, so most people can skip this.
-
-#### Region
-
-Set a region if your shell does not already have one configured and your Bedrock-enabled account is not in `us-east-1` (the default). Use the standard AWS region identifier (for example, `us-east-1`, `eu-west-1`, `ap-southeast-1`). The [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) reference lists the identifier for each location. Make sure the models you want are [available in that region](https://docs.aws.amazon.com/bedrock/latest/userguide/models-regions.html).
-
-Set it with the `AWS_REGION` environment variable before you launch Positron, or, to set it for Posit Assistant only, with the `aws.region` key under `providers.bedrock` in `providers.json`. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) for the full list of `aws` keys.
-
-#### Profile
-
-Set a profile if the one you use for Bedrock is not named `default`. This applies when you have a dedicated Bedrock role separate from your development credentials, or your Bedrock access lives in a different AWS account. Run `aws configure list-profiles` in a terminal to see your profiles.
-
-Set it with the `AWS_PROFILE` environment variable before you launch Positron, or, to set it for Posit Assistant only, with the `aws.profile` key under `providers.bedrock` in `providers.json`. See the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/) for the full list of `aws` keys.
-
-> **NOTE:**
->
-> Do not set a profile if you use Posit Workbench managed credentials or environment variable credentials (`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`). Both of those paths bypass named profile resolution, so setting a profile name causes credential resolution to fail.
-
-### Cross-region inference profiles
-
-Positron can use [cross-region inference profiles](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) to route requests across multiple AWS regions for higher availability and throughput. It derives the inference profile region from your AWS region by taking the geographic prefix, and there is nothing to configure:
-
-| AWS region                         | Derived inference profile region |
-|------------------------------------|----------------------------------|
-| `us-east-1`, `us-west-2`           | `us`                             |
-| `eu-west-1`, `eu-central-1`        | `eu`                             |
-| `ap-southeast-1`, `ap-northeast-1` | `apac`                           |
-
-If no inference profile exists for the derived region, Positron falls back to the first available inference profile for that model. If a model has no inference profile at all, it does not appear in the model list.
-
-## Anthropic
-
-- **Account:** a [Claude Console](https://support.claude.com/en/collections/5370014-claude-api-and-console) account with API access (Claude Pro, Max, and other subscription plans do not work)
-- **Authentication:** an Anthropic API key, or the `ANTHROPIC_API_KEY` environment variable
-
-### Get an Anthropic API key
-
-To use the Claude models from Anthropic in Positron, you bring your own API key (BYOK). To obtain an API key from Anthropic:
-
-1.  Log in to or create an account for Anthropic’s [Claude Console](https://platform.claude.com).
-2.  Navigate to the [API keys](https://platform.claude.com/settings/keys) management page.
-3.  Select the **Create Key** button.
-4.  Fill out any required information and select **Add** to generate your API key.
-5.  Copy and save the API key to a password manager or another secure location.
-
-### Why a Claude Pro or Max subscription does not work
-
-Anthropic does not include Claude API usage in its [Pro](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan) and Max subscription plans, so signing in to Claude with OAuth does not grant access to the API that Posit Assistant needs. To use Claude with Posit Assistant, you need [Claude Console access](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api) and an API key, billed separately from any subscription.
-
-Support for OAuth sign-in depends on Anthropic offering API access to Posit Assistant through these plans. You can follow [this feature request](https://github.com/posit-dev/positron/issues/9481) for updates.
-
-## Microsoft Foundry
-
-- **Account:** a [Microsoft Foundry](https://ai.azure.com/) resource with one or more models deployed
-- **Authentication:** the endpoint URL and API key for your Foundry resource
-- **Configuration:** Foundry has no automatic model discovery and defaults to `model-router`, so declare your models to use specific ones (see below)
-
-Positron accepts deployment-based Azure OpenAI URLs (for example, `https://<resource>.openai.azure.com/openai/deployments/<name>/chat/completions?api-version=...`) and automatically normalizes them to the supported v1 format. A message displays when this conversion occurs.
-
-### Configure a custom model listing
-
-To use specific models instead of `model-router`, declare them under `providers.ms-foundry.models` in `providers.json`. Run *Open AI Provider Settings (JSON)* to open the file, and use the deployment identifier from your Foundry resource as each model’s `id`:
-
-``` json
-{
-  "providers": {
-    "ms-foundry": {
-      "models": {
-        "discovery": "off",
-        "custom": [
-          {
-            "id": "gpt-4.1",
-            "name": "GPT-4.1",
-            "maxContextLength": 128000,
-            "supportsTools": true,
-            "supportsImages": true,
-            "supportsToolResultImages": false,
-            "supportsWebSearch": false
-          }
-        ]
-      }
-    }
-  }
-}
-```
-
-Set the capability fields to match your deployment. For what each field means and the optional ones this example leaves out, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
-
-## OpenAI
-
-- **Account:** an OpenAI account, or any service that implements the [OpenAI Responses API](https://platform.openai.com/docs/api-reference/responses)
-- **Authentication:** an OpenAI API key, or the `OPENAI_API_KEY` environment variable. For a compatible service, also provide its base URL (or the `OPENAI_BASE_URL` environment variable)
-
-## Snowflake Cortex
-
-- **Account:** a Snowflake account with Cortex access
-- **Authentication:** your Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier) and a [programmatic access token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens) (PAT)
-
-Enter the account identifier in the **Account Identifier** field when you connect the provider. Positron derives the Cortex URL from it and saves it to `providers.json` for you.
-
-## GitHub Copilot Preview
-
-- **Account:** a GitHub account with Copilot enabled
-- **Authentication:** sign in through your browser with OAuth
-
-To sign in, use the *Authentication: Configure Language Model Providers* command, select GitHub Copilot, and sign in. If you already have a GitHub session from another extension, this asks you to confirm reusing it for Assistant. Otherwise, it starts a new browser sign-in flow.
-
-To sign out, use the **Accounts** icon or run the *Accounts: Manage Accounts* command. Unlike signing in, this signs you out for all features in Positron that use your GitHub account, such as the Git or GitHub Pull Requests extensions.
-
-> **NOTE:**
->
-> Signing in to GitHub through the **Accounts** menu in the Activity Bar does not sign you in to GitHub Copilot for AI features. This applies even when you use the Accounts menu for other extensions, such as Git or GitHub Pull Requests.
-
-### Get GitHub Copilot access
-
-GitHub Copilot is a proprietary tool from GitHub. To use GitHub Copilot for AI chat and code completions, you need a [subscription for GitHub Copilot](https://docs.github.com/en/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot) in your personal GitHub account. You can also be assigned a seat by an organization with a GitHub Copilot for Business subscription.
-
-Students and faculty can use GitHub Copilot for free as part of the GitHub Education program. For more information, see the [GitHub Education page](https://education.github.com/).
-
-### Sign in with GitHub Copilot Enterprise
-
-GitHub Copilot Enterprise runs on GHE.com (GitHub Enterprise Cloud), not github.com. Signing in requires two extra settings compared to a personal subscription.
-
-Before you start, make sure your organization administrator has enabled GitHub Copilot for your enterprise and assigned you a Copilot seat.
-
-1.  Open the [`github-enterprise.uri`](positron://settings/github-enterprise.uri) setting and enter your enterprise URL, for example `https://octocorp.ghe.com`.
-
-2.  Run the command *Preferences: Open User Settings (JSON)* to open your `settings.json` directly. Add the `authProvider` key inside `github.copilot.advanced`:
-
-    ``` json
-    "github.copilot.advanced": {
-      "authProvider": "github-enterprise"
-    }
-    ```
-
-    This setting will be indicated as an **Unknown Configuration Setting**. This is expected and you can ignore the warning.
-
-3.  Save the file. A prompt will appear asking you to sign in to GitHub. Click it and complete the browser authorization flow. If no prompt appears, restart Positron.
-
-For more detail, see GitHub’s guide on [authenticating to GitHub Copilot on GHE.com](https://docs.github.com/en/copilot/how-tos/configure-personal-settings/authenticate-to-ghecom).
-
-## Databricks Experimental
-
-Connect to Databricks with OAuth, a personal access token, or automatically discovered credentials.
-
-- **Account:** a Databricks workspace with access to supported AI models
-- **Authentication:** sign in through your browser with OAuth in Positron Desktop, enter a personal access token, or let Positron use automatic credentials from `DATABRICKS_TOKEN`, a `.databrickscfg` profile, or Posit Workbench managed credentials
-- **Configuration:** the workspace URL, entered in the **Workspace URL** field in the provider dialog, in a format like `https://adb-1234567890123456.7.azuredatabricks.net`
-
-### Sign in with OAuth
-
-In Positron Desktop, select **OAuth** in the Databricks provider dialog and complete the browser sign-in flow. OAuth is not available when Positron runs on a remote server or in a browser. Use a personal access token or automatic credentials in those environments.
-
-### Personal access token
-
-Create a personal access token in your Databricks workspace. In the Databricks provider dialog, enter the **Workspace URL** and **API Key**. Positron checks the token with the Databricks workspace before saving it.
-
-You can also provide the same credential through environment variables before you launch Positron:
-
-- `DATABRICKS_HOST`: the workspace URL
-- `DATABRICKS_TOKEN`: the personal access token
-
-### Automatic credentials from `.databrickscfg`
-
-Positron can read Databricks credentials from a Databricks CLI configuration file when the file is available to Positron’s extension host. In Positron Desktop, this is your local machine. In Positron on a remote server or in Posit Workbench, this is the remote server environment.
-
-By default, Positron reads the `workbench` profile from `~/.databrickscfg`. To use a different profile name, set `DATABRICKS_CONFIG_PROFILE` before you launch Positron. To use a configuration file in a different location, set `DATABRICKS_CONFIG_FILE`.
-
-Posit Workbench managed Databricks credentials use this path automatically, so you usually do not need to set these environment variables yourself in Workbench.
-
-> **NOTE:**
->
-> When several Databricks credential sources are available, Positron uses them in a fixed priority order. It checks Posit Workbench managed credentials first, then the `DATABRICKS_TOKEN` environment variable, then a `.databrickscfg` profile, and finally falls back to an interactive prompt.
-
-## DeepSeek Experimental
-
-- **Account:** a [DeepSeek](https://platform.deepseek.com/) account with API access
-- **Authentication:** a DeepSeek API key, or the `DEEPSEEK_API_KEY` environment variable
-
-## Google Gemini Experimental
-
-- **Account:** a Google account with access to the [Gemini API](https://ai.google.dev/), with an API key created in [Google AI Studio](https://aistudio.google.com/apikey)
-- **Authentication:** a Gemini API key, or the `GEMINI_API_KEY` or `GOOGLE_API_KEY` environment variable
-
-## Gemini Enterprise Agent Platform Experimental
-
-Formerly Google Vertex AI.
-
-- **Account:** a Google Cloud project with the [Agent Platform APIs enabled](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/cloud-environment) and [access to the models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) you want to use
-- **Authentication:** authenticate with Google Cloud using Application Default Credentials (`gcloud`) or a service account (see below)
-- **Configuration:** your project ID and location, set with the `GOOGLE_VERTEX_PROJECT` and `GOOGLE_VERTEX_LOCATION` environment variables, or with the `googleCloud.project` and `googleCloud.location` keys under `providers.google-vertex` in `providers.json` (which take precedence)
-
-For the project and location keys, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
-
-### Sign in with Application Default Credentials (ADC)
-
-1.  [Install the Google Cloud CLI (`gcloud`)](https://cloud.google.com/sdk/docs/install)
-2.  Run `gcloud auth application-default login` and complete the browser sign-in flow
-
-### Sign in with a service account
-
-Set the following environment variables before launching Positron:
-
-- `GOOGLE_CLIENT_EMAIL`: the service account’s client email
-- `GOOGLE_PRIVATE_KEY`: the service account’s private key
-
-## Custom providers Experimental
-
-Beyond the providers above, you can add your own named entries: as many as you like, each with its own name, type, endpoint, credential, and model list. Use this to connect several accounts on the same provider, or a company gateway, under a name you choose.
-
-### Add a custom provider
-
-1.  Run *Authentication: Configure Language Model Providers* and select **Add Custom Provider**.
-2.  Enter a **Provider Name**. It appears in the model picker, and you cannot change it from the dialog later.
-3.  Select a **Provider Type**: **OpenAI Compatible**, **Anthropic**, or **OpenAI** ([tracking issue for more types](https://github.com/posit-dev/positron/issues/15701)). The type decides the fields you fill in next. A custom entry reuses that provider’s own connection fields, so an Anthropic-type entry asks for the same API key as the built-in Anthropic provider.
-4.  Enter the credential and base URL, if the type asks for them, and connect.
-
-Some endpoints do not implement a `/models` listing. If yours does not, list its model identifiers in the **Models** field before connecting.
-
-### Edit or remove a custom provider
-
-You cannot rename a custom entry, change its type, or edit its model list from the provider dialog after creating it. To change any of these, open `providers.json` with the *Open AI Provider Settings (JSON)* command and edit its `providers.custom.<name>` block directly.
-
-To remove an entry, delete that block. **Disconnect** only clears the stored credential. The entry remains, ready to reconnect.
-
-### `providers.custom` in `providers.json`
-
-Each entry is a block under `providers.custom`, using the name you chose as the key:
-
-``` json
-{
-  "providers": {
-    "custom": {
-      "my anthropic": {
-        "type": "anthropic",
-        "enabled": true,
-        "baseUrl": "https://api.anthropic.com/v1"
-      }
-    }
-  }
-}
-```
-
-For the full set of fields, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
+> Positron 2026.10 removed the `authentication.*`, `positron.assistant.provider.*`, and `positron.assistant.models.overrides.*` settings. If they are still in your `settings.json`, Positron moves them to `providers.json` on startup. To run this again, use *Migrate AI Provider Settings to providers.json*.
