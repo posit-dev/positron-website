@@ -1,6 +1,6 @@
 ---
 title: "Language Guides"
-description: "Positron ships with first-class support for both Python and R. Learn about settings, keyboard shortcuts, debugging, and interactive features for each language."
+description: "Positron ships with first-class support for Python and R. Learn about settings, keyboard shortcuts, debugging, and interactive features for each language."
 listing:
   - id: language-guides
     type: custom
@@ -18,7 +18,7 @@ listing:
         columns: 2
 ---
 
-Positron ships with first-class support for both Python and R, making it an ideal environment for data science workflows. Each language has dedicated features, settings, and tools to enhance your development experience.
+Positron ships with first-class support for Python and R, making it an ideal environment for data science workflows in either language. Each language has dedicated features, settings, and tools to enhance your development experience.
 
 ::: {#language-guides}
 :::
@@ -26,6 +26,8 @@ Positron ships with first-class support for both Python and R, making it an idea
 ## Going further
 
 In addition to the language-specific guides, learn more about:
+
+- How to [connect to databases](data-connections.qmd) with Data Connections
 
 - How to [manage interpreters](managing-interpreters.qmd) for Positron's fully interactive console sessions
 
