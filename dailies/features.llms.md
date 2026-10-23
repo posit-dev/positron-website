@@ -38,11 +38,11 @@ Enhance code quality and accelerate insights with integrated AI assistance conte
 
 [![The Positron IDE showing the Data Connections pane expanded to a database and its tables. The Data Explorer displays a table, with a summary profile for each column next to the data grid.](images/features-explore.svg)](images/features-explore.svg)
 
-### Python and R
+### First-class language support
 
-Code efficiently with full support for both Python and R in a single, integrated editor.
+Code efficiently with built-in support for Python, R, SQL, and more in a single, integrated editor.
 
-[Python and R](language-guides.llms.md)
+[Language Guides](language-guides.llms.md)
 
 ### Interact with data at scale
 

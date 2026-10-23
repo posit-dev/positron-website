@@ -1,6 +1,6 @@
 # Migrating to Positron from VS Code
 
-Learn how to migrate from VS Code to Positron, including importing settings and extensions. Discover enhanced data science features like the Console, Variables pane, Data Explorer, and native Python and R support.
+Learn how to migrate from VS Code to Positron, including importing settings and extensions. Discover enhanced data science features like the Console, Variables pane, Data Explorer, and native interpreter support.
 
 This document outlines how to migrate from VS Code to Positron, a data science-focused editor built on Code OSS. It covers importing VS Code settings and extensions, and explains Positron’s enhanced data science features like the Console, Variables pane, Data Explorer, and Plots pane. The guide also details Positron’s native support for Python and R workflows, including prerequisites and key differences from VS Code extensions.
 
@@ -14,7 +14,7 @@ Positron will feel natural to you if you use VS Code. Positron is built on [Code
 
 Where Positron differs is in its language integration and data science capabilities:
 
-- the Console for interactive Python and R sessions
+- the Console for interactive interpreter sessions
 - the Variables pane and [Data Explorer](data-explorer.llms.md), for inspecting live data
 - the Plots pane for visualizing plots and other generated graphics
 - the [Data Connections](data-connections.llms.md) view for connecting to databases and data warehouses and exploring data
@@ -44,9 +44,9 @@ If an extension does not appear in your search, it may be unavailable from the [
 
 ## Language support
 
-Positron provides native language integration for Python and R. Unlike VS Code, which relies on extensions for language support, Positron has built-in interpreters and language servers for both languages. This native integration enables deeper features like the Console, Variables pane, and Data Explorer to work seamlessly with your code and data.
+Positron provides native language integration for Python, R, and SQL (via the [ggsql](https://ggsql.org/) extension). Unlike VS Code, which relies on extensions for language support, Positron has built-in interpreters and language servers for these languages. This native integration enables deeper features like the Console, Variables pane, and Data Explorer to work seamlessly with your code and data.
 
-The language support includes intelligent code completion, syntax highlighting, error detection, and debugging capabilities. You can switch between Python and R environments within the same workspace, making it easy to work on multilingual data science projects.
+The language support includes intelligent code completion, syntax highlighting, error detection, and debugging capabilities. You can switch between interpreter environments within the same workspace, making it easy to work on multilingual data science projects.
 
 ## Python
 

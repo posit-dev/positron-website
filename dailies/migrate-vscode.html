@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Learn how to migrate from VS Code to Positron, including importing settings and extensions. Discover enhanced data science features like the Console, Variables pane, Data Explorer, and native Python and R support.">
+<meta name="description" content="Learn how to migrate from VS Code to Positron, including importing settings and extensions. Discover enhanced data science features like the Console, Variables pane, Data Explorer, and native interpreter support.">
 
 <title>Migrating to Positron from VS Code – Positron</title>
 <style>
@@ -80,13 +80,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Migrating to Positron from VS Code – Positron">
-<meta property="og:description" content="Learn how to migrate from VS Code to Positron, including importing settings and extensions. Discover enhanced data science features like the Console, Variables pane, Data Explorer, and native Python and R support.">
+<meta property="og:description" content="Learn how to migrate from VS Code to Positron, including importing settings and extensions. Discover enhanced data science features like the Console, Variables pane, Data Explorer, and native interpreter support.">
 <meta property="og:image" content="https://positron.posit.co/dailies/images/positron-social.png">
 <meta property="og:site_name" content="Positron">
 <meta property="og:image:height" content="1080">
 <meta property="og:image:width" content="1920">
 <meta name="twitter:title" content="Migrating to Positron from VS Code – Positron">
-<meta name="twitter:description" content="Learn how to migrate from VS Code to Positron, including importing settings and extensions. Discover enhanced data science features like the Console, Variables pane, Data Explorer, and native Python and R support.">
+<meta name="twitter:description" content="Learn how to migrate from VS Code to Positron, including importing settings and extensions. Discover enhanced data science features like the Console, Variables pane, Data Explorer, and native interpreter support.">
 <meta name="twitter:image" content="https://positron.posit.co/dailies/images/positron-social.png">
 <meta name="twitter:image-height" content="1080">
 <meta name="twitter:image-width" content="1920">
@@ -873,7 +873,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Learn how to migrate from VS Code to Positron, including importing settings and extensions. Discover enhanced data science features like the Console, Variables pane, Data Explorer, and native Python and R support.
+    Learn how to migrate from VS Code to Positron, including importing settings and extensions. Discover enhanced data science features like the Console, Variables pane, Data Explorer, and native interpreter support.
   </div>
 </div>
 
@@ -909,7 +909,7 @@ Note
 <p>Positron will feel natural to you if you use VS Code. Positron is built on <a href="https://github.com/microsoft/vscode">Code OSS</a>, the open source core of VS Code. You will find many familiar features like the text editor interface, Command Palette, Terminal, and extensions.</p>
 <p>Where Positron differs is in its language integration and data science capabilities:</p>
 <ul>
-<li>the Console for interactive Python and R sessions</li>
+<li>the Console for interactive interpreter sessions</li>
 <li>the Variables pane and <a href="./data-explorer.html">Data Explorer</a>, for inspecting live data</li>
 <li>the Plots pane for visualizing plots and other generated graphics</li>
 <li>the <a href="./data-connections.html">Data Connections</a> view for connecting to databases and data warehouses and exploring data</li>
@@ -946,8 +946,8 @@ Note
 </section>
 <section id="language-support" class="level2">
 <h2 class="anchored" data-anchor-id="language-support">Language support</h2>
-<p>Positron provides native language integration for Python and R. Unlike VS Code, which relies on extensions for language support, Positron has built-in interpreters and language servers for both languages. This native integration enables deeper features like the Console, Variables pane, and Data Explorer to work seamlessly with your code and data.</p>
-<p>The language support includes intelligent code completion, syntax highlighting, error detection, and debugging capabilities. You can switch between Python and R environments within the same workspace, making it easy to work on multilingual data science projects.</p>
+<p>Positron provides native language integration for Python, R, and SQL (via the <a href="https://ggsql.org/">ggsql</a> extension). Unlike VS Code, which relies on extensions for language support, Positron has built-in interpreters and language servers for these languages. This native integration enables deeper features like the Console, Variables pane, and Data Explorer to work seamlessly with your code and data.</p>
+<p>The language support includes intelligent code completion, syntax highlighting, error detection, and debugging capabilities. You can switch between interpreter environments within the same workspace, making it easy to work on multilingual data science projects.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">R</a></li></ul>
 <div class="tab-content">

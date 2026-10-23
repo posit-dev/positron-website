@@ -1,6 +1,6 @@
 # Download Positron
 
-Download and install Positron for Windows, macOS, or Linux. Free data science IDE supporting Python and R, with prerequisites, setup instructions, and automatic updates.
+Download and install Positron for Windows, macOS, or Linux. Free data science IDE for Python, R, SQL, and more, with prerequisites, setup instructions, and automatic updates.
 
 Download the desktop installer for your platform. Most systems need nothing else, but you can check the [prerequisites](#prerequisites) to be sure.
 

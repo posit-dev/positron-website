@@ -1,10 +1,10 @@
 # Code Cells
 
-Run Python and R scripts section by section with code cells in Positron. Use special comments like \# %% to divide a script into runnable cells.
+Run Python or R scripts section by section with code cells in Positron. Use special comments like \# %% to divide a script into runnable cells.
 
 Code cells let you divide a plain `.py` or `.R` script into sections that you can run one at a time, using special comments like `# %%` as cell boundaries. You get a notebook-like, interactive workflow while your code stays in a regular file that is easy to version, diff, and reuse.
 
-Positron supports code cells in both Python and R files:
+Positron supports code cells in Python and R files:
 
 - Cells run in your current [interpreter session](managing-interpreters.llms.md), with output shown in the Console, just like running any other code from the editor.
 - The cell containing your cursor is highlighted, and cells display **Run Cell**, **Run Above**, and **Run Next** links above their delimiters.
