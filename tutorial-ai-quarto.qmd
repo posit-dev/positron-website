@@ -107,7 +107,7 @@ You can use AI in Positron via Posit Assistant, the AI assistant built into Posi
 
 To use Posit Assistant, you must first log in to a model provider with _Posit Assistant: Configure AI Providers_. Posit Assistant lists every provider by default, but none is active until you authenticate with it.
 
-Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, [Posit AI Pass](https://assistant.posit.co/docs/getting-started/providers/) is the most direct way to get started. You can start a free trial at [posit.ai](https://posit.ai/) and sign in through your browser, with no API keys to manage.
+Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, Posit AI Pass is the most direct way to get started. You can start a free trial at [posit.ai](https://posit.ai/) and sign in through your browser, with no API keys to manage.
 
 ::: {.callout-tip title="Try it now"}
 1. Run _Posit Assistant: Configure AI Providers_ from the Command Palette.
@@ -118,7 +118,7 @@ Because providers differ in what account and credentials they need, the steps be
 :::
 
 ::: {.callout-note}
-Later in this tutorial you will also use code completions, which require Posit AI Pass or GitHub Copilot. Connecting one of those providers now lets you try that step when you reach it.
+Later in this tutorial, you will also use code completions, which require Posit AI Pass or GitHub Copilot. Connecting one of those providers now lets you try that step when you reach it.
 :::
 
 ## Ask Posit Assistant to write the analysis

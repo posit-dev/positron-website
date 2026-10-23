@@ -24,15 +24,14 @@ For what each provider needs and how to sign in, see [Providers](https://assista
 | OpenAI | {{< fa check >}} | |
 | OpenAI Compatible (legacy) | {{< fa check >}} | |
 | OpenCode [Preview]{.provider-badge .preview} | {{< fa check >}} | |
-| OpenRouter (not yet available in Positron) | {{< fa check >}} | |
 | Portkey [Preview]{.provider-badge .preview} | {{< fa check >}} | |
 | Snowflake Cortex | {{< fa check >}} | |
 
-Don't see your provider? Add a [custom provider](https://assistant.posit.co/docs/getting-started/providers/#custom-providers). It can use any of the provider types above, so you can connect a company gateway, a second account on the same provider, or a local model server.
+If your provider is not listed, add a [custom provider](https://assistant.posit.co/docs/getting-started/providers/#custom-providers). It can use any of the provider types above, so you can connect a company gateway, a second account on the same provider, or a local model server.
 
 ## `providers.json` {#provider-configuration-file}
 
-Posit Assistant saves your provider settings, but not your keys or tokens, to `~/.posit/ai/providers.json`. To change something the **AI Providers** screen does not cover, such as turning a provider off, sending custom HTTP headers, or filtering the model list, run _Open AI Provider Settings (JSON)_. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
+Posit Assistant saves your provider settings, but not your keys or tokens, to `~/.posit/ai/providers.json`. Some changes are not on the **AI Providers** screen, such as turning a provider off, sending custom HTTP headers, or filtering the model list. For those, run _Open AI Provider Settings (JSON)_. For every key the file accepts, see the [`providers.json` reference](https://assistant.posit.co/docs/reference/providers-config/).
 
 ::: {.callout-note}
 Positron 2026.10 removed the `authentication.*`, `positron.assistant.provider.*`, and `positron.assistant.models.overrides.*` settings. If they are still in your `settings.json`, Positron moves them to `providers.json` on startup. To run this again, use _Migrate AI Provider Settings to providers.json_.

@@ -6,7 +6,7 @@ description: "Boost your productivity with AI code suggestions via Posit AI Next
 Code completions are text suggestions that appear inline as you type in an editor. These suggestions can be lines or blocks of code based on the context of what you're writing. Other names for code completions include inline suggestions, ghost text, or inline completions.
 
 ::: {.callout-important}
-Completions are powered by Posit AI Pass or GitHub Copilot. To use them, [connect one or both as a language model provider](assistant-providers.qmd).
+Completions come from Posit AI Pass or GitHub Copilot. To use them, [connect one or both as a language model provider](assistant-providers.qmd).
 :::
 
 ## Using code completions
@@ -44,7 +44,7 @@ Posit AI NES suggestions appear inline in the editor. You can accept, navigate, 
 
 ### Enable
 
-Posit AI NES is enabled by default once you have [connected the Posit AI Pass provider](assistant-providers.qmd). No additional setting changes are required.
+Positron turns on Posit AI NES by default once you have [connected the Posit AI Pass provider](assistant-providers.qmd). You do not need to change any other settings.
 
 ### Restrict to specific languages
 
@@ -67,7 +67,7 @@ GitHub Copilot also has its own Next Edit Suggestions, separate from the ghost-t
 
 ### Enable
 
-GitHub Copilot completions are enabled after you [connect the GitHub Copilot provider](assistant-providers.qmd). No additional setting changes are required.
+Positron turns on GitHub Copilot completions after you [connect the GitHub Copilot provider](assistant-providers.qmd). You do not need to change any other settings.
 
 ### Restrict to specific languages
 
