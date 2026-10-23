@@ -10,8 +10,8 @@ For what each provider needs and how to sign in, see [Providers](https://assista
 | Provider | Chat | Code Completions |
 |------|:--:|:---:|
 | Posit AI Pass | {{< fa check >}} | {{< fa check >}} |
+| Amazon Bedrock | {{< fa check >}} | |
 | Anthropic | {{< fa check >}} | |
-| AWS Bedrock | {{< fa check >}} | |
 | Databricks [Preview]{.provider-badge .preview} | {{< fa check >}} | |
 | DeepSeek | {{< fa check >}} | |
 | GitHub Copilot [Preview]{.provider-badge .preview} | {{< fa check >}} | {{< fa check >}} |
