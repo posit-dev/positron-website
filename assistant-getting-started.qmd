@@ -24,9 +24,7 @@ To use AI in Positron, first configure a language model provider, then start usi
 
 ## Step 1: Configure a language model provider {#configure-a-language-model-provider}
 
-Positron enables all providers by default and they appear in the provider list, but none are active unless you authenticate with the provider. To hide providers you do not use, see [Turn a provider on or off](ai-configuration.qmd#turn-a-provider-on-or-off).
-
-To connect a provider, run the command _Posit Assistant: Configure AI Providers_, select **Connect** next to the provider, and sign in or enter its credentials. For the list of providers and how to sign in to each one, see [Providers](https://assistant.posit.co/docs/getting-started/providers/) in the Posit Assistant documentation. Posit AI Pass and GitHub Copilot also give you [code completions](assistant-completions.qmd).
+To connect a provider, run the command _Posit Assistant: Configure AI Providers_ and select **Connect** next to the provider. For the list of providers, see [Providers](assistant-providers.qmd).
 
 Please ensure you consult your provider's privacy policy for information on the data they collect and how they use it. For reference links, see the [Privacy & Terms](assistant-provider-info.qmd) guide.
 

@@ -5,7 +5,30 @@ description: "Connect Positron to a language model provider and manage your prov
 
 To connect a language model provider, run the command _Posit Assistant: Configure AI Providers_ or select **Configure Language Model Providers** from the {{< fa circle-user >}} **Accounts** menu, then select **Connect** next to the provider.
 
-For the list of providers and how to sign in to each one, see [Providers](https://assistant.posit.co/docs/getting-started/providers/) in the Posit Assistant documentation. Posit AI Pass and GitHub Copilot also give you [code completions](assistant-completions.qmd).
+For what each provider needs and how to sign in, see [Providers](https://assistant.posit.co/docs/getting-started/providers/) in the Posit Assistant documentation.
+
+| Provider | Chat | Code Completions |
+|------|:--:|:---:|
+| Posit AI Pass | {{< fa check >}} | {{< fa check >}} |
+| Anthropic | {{< fa check >}} | |
+| AWS Bedrock | {{< fa check >}} | |
+| Databricks [Preview]{.provider-badge .preview} | {{< fa check >}} | |
+| DeepSeek | {{< fa check >}} | |
+| GitHub Copilot [Preview]{.provider-badge .preview} | {{< fa check >}} | {{< fa check >}} |
+| Google Gemini | {{< fa check >}} | |
+| Google Vertex AI (Gemini Enterprise Agent Platform) [Preview]{.provider-badge .preview} | {{< fa check >}} | |
+| LiteLLM [Preview]{.provider-badge .preview} | {{< fa check >}} | |
+| LM Studio (local) | {{< fa check >}} | |
+| Microsoft Foundry | {{< fa check >}} | |
+| Ollama (local) | {{< fa check >}} | |
+| OpenAI | {{< fa check >}} | |
+| OpenAI Compatible (legacy) | {{< fa check >}} | |
+| OpenCode [Preview]{.provider-badge .preview} | {{< fa check >}} | |
+| OpenRouter (not yet available in Positron) | {{< fa check >}} | |
+| Portkey [Preview]{.provider-badge .preview} | {{< fa check >}} | |
+| Snowflake Cortex | {{< fa check >}} | |
+
+Don't see your provider? Add a [custom provider](https://assistant.posit.co/docs/getting-started/providers/#custom-providers). It can use any of the provider types above, so you can connect a company gateway, a second account on the same provider, or a local model server.
 
 ## `providers.json` {#provider-configuration-file}
 
@@ -14,7 +37,3 @@ Posit Assistant saves your provider settings, but not your keys or tokens, to `~
 ::: {.callout-note}
 Positron 2026.10 removed the `authentication.*`, `positron.assistant.provider.*`, and `positron.assistant.models.overrides.*` settings. If they are still in your `settings.json`, Positron moves them to `providers.json` on startup. To run this again, use _Migrate AI Provider Settings to providers.json_.
 :::
-
-## Privacy
-
-Check your provider's privacy policy and terms of service to see what data they collect and how they use it. See [Privacy & terms](assistant-provider-info.qmd) for links.
