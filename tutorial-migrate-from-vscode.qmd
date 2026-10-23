@@ -171,15 +171,13 @@ If you use GitHub Copilot in VS Code, you do not have to leave it behind. Positr
 We recommend adopting Posit Assistant and pointing it at the Copilot subscription you already pay for.
 
 ::: {.callout-tip title="Try it now"}
-Run _Authentication: Configure Language Model Providers_ from the Command Palette, select **GitHub Copilot**, and sign in through your browser.
+Run _Posit Assistant: Configure AI Providers_ from the Command Palette, select **Connect** next to **GitHub Copilot**, and sign in through your browser.
 
 **You will know it worked when** Posit Assistant is connected and you can start a chat.
 :::
 
-![You can configure Posit Assistant to work with many model providers, including Github Copilot.](images/tutorial-vscode-copilot.png){fig-alt="The Configure Language Model Providers window." width=600}
-
 ::: {.callout-note}
-GitHub Copilot is a preview provider. For account requirements and other providers, see [Posit Assistant](assistant.qmd) and [Language Model Providers](assistant-providers.qmd).
+GitHub Copilot is a preview provider. For account requirements and other providers, see [Providers](https://assistant.posit.co/docs/getting-started/providers/) in the Posit Assistant documentation.
 :::
 
 # Let Positron manage your Python environments
