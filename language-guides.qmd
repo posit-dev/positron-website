@@ -1,6 +1,6 @@
 ---
 title: "Language Guides"
-description: "Positron ships with first-class support for Python and R. Learn about settings, keyboard shortcuts, debugging, and interactive features for each language."
+description: "Positron ships with first-class support for Python and R, and is extensible to other languages. Learn about settings, keyboard shortcuts, debugging, and interactive features for each language."
 listing:
   - id: language-guides
     type: custom
