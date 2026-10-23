@@ -32,11 +32,11 @@ listing:
     type: custom
     template: templates/feature-card.ejs
     contents:
-        - title: "Python and R"
-          description: "Code efficiently with full support for both Python and R in a single, integrated editor."
+        - title: "First-class language support"
+          description: "Code efficiently with built-in support for Python, R, SQL, and more in a single, integrated editor."
           icon: "bi-code-slash"
           link: "language-guides.qmd"
-          anchor-text: "Python and R"
+          anchor-text: "Language Guides"
         - title: "Interact with data at scale"
           description: "Explore and manipulate large datasets with intuitive, fast, and interactive data frames."
           icon: "bi-rocket"

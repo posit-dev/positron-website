@@ -79,7 +79,7 @@ divides itself evenly, so no CSS change is needed. Styles live under
     <div class="pt-carousel__captionItem" hidden>
       <div class="pt-carousel__captionText">
         <p class="pt-carousel__name">Interactive Analysis</p>
-        <p class="pt-carousel__line">Seamlessly pivot between the exploratory narrative of a notebook and the power of a persistent, multi-session Python or R console.</p>
+        <p class="pt-carousel__line">Seamlessly pivot between the exploratory narrative of a notebook and the power of a persistent, multi-session console for Python, R, SQL, and more.</p>
       </div>
       <a class="pt-carousel__link" href="welcome.qmd" aria-label="Learn more about interactive analysis">Learn more &rarr;</a>
     </div>
