@@ -24,6 +24,7 @@ For what each provider needs and how to sign in, see [Providers](https://assista
 | OpenAI | {{< fa check >}} | |
 | OpenAI Compatible (legacy) | {{< fa check >}} | |
 | OpenCode [Preview]{.provider-badge .preview} | {{< fa check >}} | |
+| OpenRouter (use a custom provider) | {{< fa check >}} | |
 | Portkey [Preview]{.provider-badge .preview} | {{< fa check >}} | |
 | Snowflake Cortex | {{< fa check >}} | |
 
