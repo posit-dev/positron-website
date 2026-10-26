@@ -11,7 +11,7 @@ Once you have [set up a language model provider](assistant-getting-started.qmd),
 
 ## Turn features on or off
 
-You can turn off individual features or disable all AI features at once. To browse Positron's AI settings, open the Settings editor with _Preferences: Open Settings (UI)_ and search for `@feature:ai`, or go to **Features** > **AI**.
+You can turn off individual features or disable all AI features at once. To browse the AI settings in Positron, open the Settings editor with _Preferences: Open Settings (UI)_ and search for `@feature:ai`, or go to **Features > AI**.
 
 ### Turn off all AI features
 
