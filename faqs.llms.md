@@ -4,14 +4,13 @@ Get answers to common questions about Positron: supported languages, RStudio dif
 
 ### What programming languages are supported in Positron?
 
-- R and Python are first-class supported languages via efforts here at Posit.
+- R, Python, and SQL are first-class supported languages via efforts here at Posit. For SQL support, install the [ggsql](https://ggsql.org) extension.
+- Positron provides public APIs for additional data science languages to use via extensions, such as the community-maintained [Julia for Positron](https://github.com/TidierOrg/positron-julia) extension.
 - Additional languages typically used in package development are supported via existing third party extensions. These don’t make use of the full Positron data science experience including an interactive console, plots, and similar. Some examples include Rust, Javascript/Typescript, C/C++, or Lua.
-- Positron provides public APIs for additional data science languages to be supported in the future.
-- Native SQL support is on our roadmap, initially targeting syntax highlighting, autocomplete, and code execution.
 
 ### How is Positron different from RStudio, VS Code, or Jupyter notebooks?
 
-- Positron has first-class, built-in support for R and/or Python via an integrated **Console**, with extensibility options for other languages in the future. This native support includes specialized views and panes throughout Positron such as a [Data Explorer](data-explorer.llms.md), [**Connections** pane](connections-pane.llms.md), [**Variables** pane](variables-pane.llms.md), and more.
+- Positron supports R, Python, or both, with an integrated Console that drives specialized views and panes, such as the [Data Explorer](data-explorer.llms.md) and the [**Variables** pane](variables-pane.llms.md), so you can inspect your session as you work. SQL is available through the [ggsql](https://ggsql.org/) extension, and extensions can add support for other languages.
 - Positron runs the interpreter separately from the IDE, so unlike in RStudio a crash in R/Python won’t always crash the IDE. It also means that you can swap between versions of your preferred language on the fly without a full reload of the IDE, just the integrated console.
 - Positron supports VS Code compatible extensions (`.vsix` files), providing extensibility of capabilities beyond the core IDE itself. By building on Code OSS, Positron gets rich text editor capabilities and access to 1,000s of community extensions out of the box. [Read more about using extensions with Positron](extensions.llms.md).
 - Positron is deeply focused on native data science workflows; it provides a batteries-included and cohesive experience beyond that of a general-purpose IDE or text editor such as VS Code.
@@ -37,7 +36,7 @@ Remote SSH and Workbench features are supported on RHEL 8, 9, and 10 and Ubuntu 
 ### Is RStudio going away?
 
 - No, we are committed to maintaining and updating RStudio. RStudio is very mature, stable software, and we intend to prioritize security, stability, priority bug fixes, and targeted improvements over an emphasis on sweeping novel feature development. Given our opportunity to make progress in parallel on a new platform, the bulk of large-scale, new features will go into Positron.\
-- We are developing Positron as part of our mission to support open-source data science in multiple languages, including R and Python.\
+- We are developing Positron as part of our mission to support open-source data science in multiple languages, including R, Python, and SQL.\
 - If you are new to R or RStudio, we recommend starting with Positron. However, if you’re currently using RStudio and are happy with the experience, you can continue to enjoy RStudio. RStudio includes 10+ years of applied optimizations for R data analysis and package development.\
 - While Positron and RStudio have some features in common, some R-focused features will remain exclusive to RStudio. For example:
   - RStudio has deeper support for Sweave and R Markdown compared to our targeted focus on Quarto in Positron, although Positron does support rendering R Markdown documents as well.\

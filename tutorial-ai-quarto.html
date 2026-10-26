@@ -489,14 +489,8 @@ Note
 <figcaption>Posit Assistant open in the left sidebar</figcaption>
 </figure>
 </div>
-<p>To use Posit Assistant, you must first log in to a model provider with <em>Authentication: Configure Language Model Providers</em>. Posit Assistant lists every provider by default, but none is active until you authenticate with it.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/tutorial-python-ai-configure-model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="The Configure Language Model Providers window"><img src="images/tutorial-python-ai-configure-model.png" class="img-fluid figure-img" alt="The Posit Assistant Configure Language Model Providers window." width="500"></a></p>
-<figcaption>The Configure Language Model Providers window</figcaption>
-</figure>
-</div>
-<p>Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, <a href="./assistant-providers.html#posit-ai">Posit AI Pass</a> is the most direct way to get started. You can start a free trial at <a href="https://posit.ai/">posit.ai</a> and sign in through your browser, with no API keys to manage.</p>
+<p>To use Posit Assistant, you must first log in to a model provider with <em>Posit Assistant: Configure AI Providers</em>. Posit Assistant lists every provider by default, but none is active until you authenticate with it.</p>
+<p>Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, Posit AI Pass is the most direct way to get started. You can start a free trial at <a href="https://posit.ai/">posit.ai</a> and sign in through your browser, with no API keys to manage.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -508,9 +502,9 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Run <em>Authentication: Configure Language Model Providers</em> from the Command Palette.</li>
-<li>Select your provider from the list.</li>
-<li>Complete the sign-in or credential step the provider asks for. The <a href="./assistant-providers.html">Language Model Providers</a> reference lists what each one needs.</li>
+<li>Run <em>Posit Assistant: Configure AI Providers</em> from the Command Palette.</li>
+<li>Select <strong>Connect</strong> next to your provider.</li>
+<li>Complete the sign-in or credential step the provider asks for. <a href="https://assistant.posit.co/docs/getting-started/providers/">Providers</a> in the Posit Assistant documentation lists what each one needs.</li>
 </ol>
 <p><strong>You will know it worked when</strong> the provider shows as connected and you can open a chat with <em>View: Show Posit Assistant</em>.</p>
 </div>
@@ -525,7 +519,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Later in this tutorial you will also use code completions, which require <a href="./assistant-providers.html#posit-ai">Posit AI Pass</a> or <a href="./assistant-providers.html#github-copilot">GitHub Copilot</a>. Connecting one of those providers now lets you try that step when you reach it.</p>
+<p>Later in this tutorial, you will also use code completions, which require Posit AI Pass or GitHub Copilot. Connecting one of those providers now lets you try that step when you reach it.</p>
 </div>
 </div>
 </section>
@@ -540,7 +534,7 @@ Note
 <p>Before you send the request, predict what a correct answer looks like. You want sales grouped by quarter, one row per quarter, and a chart with a bar and a line over the same quarterly totals. Holding that picture in mind makes it easy to judge whether the generated code did the right thing.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-r-ai-chart.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="The quarterly sales chart you will ask Posit Assistant to build"><img src="images/tutorial-r-ai-chart.png" class="img-fluid figure-img" alt="A bar chart showing quarterly sales over time, with a superimposed line chart." width="500"></a></p>
+<p><a href="images/tutorial-r-ai-chart.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="The quarterly sales chart you will ask Posit Assistant to build"><img src="images/tutorial-r-ai-chart.png" class="img-fluid figure-img" alt="A bar chart showing quarterly sales over time, with a superimposed line chart." width="500"></a></p>
 <figcaption>The quarterly sales chart you will ask Posit Assistant to build</figcaption>
 </figure>
 </div>
@@ -568,7 +562,7 @@ Note
 <p>Before it runs anything, Posit Assistant asks for permission. You can <strong>Accept</strong>, <strong>Decline</strong>, or reply with written instructions to adjust what it does.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-r-ai-permission.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Posit Assistant asking permission to run code"><img src="images/tutorial-r-ai-permission.png" class="img-fluid figure-img" alt="A chat with Posit Assistant asking permission to run lines of code." width="400"></a></p>
+<p><a href="images/tutorial-r-ai-permission.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Posit Assistant asking permission to run code"><img src="images/tutorial-r-ai-permission.png" class="img-fluid figure-img" alt="A chat with Posit Assistant asking permission to run lines of code." width="400"></a></p>
 <figcaption>Posit Assistant asking permission to run code</figcaption>
 </figure>
 </div>
@@ -594,7 +588,7 @@ Note
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Quarterly retail sales"</span>, <span class="at">x =</span> <span class="st">"Quarter"</span>, <span class="at">y =</span> <span class="st">"Sales"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-r-ai-results.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="The table and chart Posit Assistant generated"><img src="images/tutorial-r-ai-results.png" class="img-fluid figure-img" alt="The Positron IDE showing a chart in the chat and a table in the viewer sidebar."></a></p>
+<p><a href="images/tutorial-r-ai-results.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="The table and chart Posit Assistant generated"><img src="images/tutorial-r-ai-results.png" class="img-fluid figure-img" alt="The Positron IDE showing a chart in the chat and a table in the viewer sidebar."></a></p>
 <figcaption>The table and chart Posit Assistant generated</figcaption>
 </figure>
 </div>
@@ -620,7 +614,7 @@ Note
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-r-ai-report.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="The exported Quarto document open in the editor beside its rendered preview"><img src="images/tutorial-r-ai-report.png" class="img-fluid figure-img" alt="Positron showing a Quarto document in the editor with a rendered HTML preview in the Viewer pane."></a></p>
+<p><a href="images/tutorial-r-ai-report.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="The exported Quarto document open in the editor beside its rendered preview"><img src="images/tutorial-r-ai-report.png" class="img-fluid figure-img" alt="Positron showing a Quarto document in the editor with a rendered HTML preview in the Viewer pane."></a></p>
 <figcaption>The exported Quarto document open in the editor beside its rendered preview</figcaption>
 </figure>
 </div>
@@ -673,7 +667,7 @@ Note
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-r-ai-explain-error.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Posit Assistant explaining a cell error in a Quarto document"><img src="images/tutorial-r-ai-explain-error.png" class="img-fluid figure-img" alt="A Posit Assistant chat that explains the cause of the error seen in the Quarto document beside it." width="600"></a></p>
+<p><a href="images/tutorial-r-ai-explain-error.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Posit Assistant explaining a cell error in a Quarto document"><img src="images/tutorial-r-ai-explain-error.png" class="img-fluid figure-img" alt="A Posit Assistant chat that explains the cause of the error seen in the Quarto document beside it." width="600"></a></p>
 <figcaption>Posit Assistant explaining a cell error in a Quarto document</figcaption>
 </figure>
 </div>
@@ -704,7 +698,7 @@ Note
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-r-ai-completion.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="A code completion shown as ghost text in a Quarto cell"><img src="images/tutorial-r-ai-completion.png" class="img-fluid figure-img" alt="A Quarto code cell showing a greyed-out inline code completion suggestion." width="500"></a></p>
+<p><a href="images/tutorial-r-ai-completion.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="A code completion shown as ghost text in a Quarto cell"><img src="images/tutorial-r-ai-completion.png" class="img-fluid figure-img" alt="A Quarto code cell showing a greyed-out inline code completion suggestion." width="500"></a></p>
 <figcaption>A code completion shown as ghost text in a Quarto cell</figcaption>
 </figure>
 </div>
@@ -732,7 +726,7 @@ Note
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-r-ai-donut.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="A donut chart added by Posit Assistant"><img src="images/tutorial-r-ai-donut.png" class="img-fluid figure-img" alt="Positron showing a preview of the quarto document, which now contains a section with a donut chart."></a></p>
+<p><a href="images/tutorial-r-ai-donut.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="A donut chart added by Posit Assistant"><img src="images/tutorial-r-ai-donut.png" class="img-fluid figure-img" alt="Positron showing a preview of the quarto document, which now contains a section with a donut chart."></a></p>
 <figcaption>A donut chart added by Posit Assistant</figcaption>
 </figure>
 </div>
@@ -760,7 +754,7 @@ Note
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-r-ai-dashboard.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="The finished dashboard"><img src="images/tutorial-r-ai-dashboard.png" class="img-fluid figure-img" alt="A two-column Quarto dashboard showing a quarterly sales table and a bar-and-line chart of sales over time, with a light and dark mode toggle."></a></p>
+<p><a href="images/tutorial-r-ai-dashboard.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="The finished dashboard"><img src="images/tutorial-r-ai-dashboard.png" class="img-fluid figure-img" alt="A two-column Quarto dashboard showing a quarterly sales table and a bar-and-line chart of sales over time, with a light and dark mode toggle."></a></p>
 <figcaption>The finished dashboard</figcaption>
 </figure>
 </div>
@@ -1231,7 +1225,7 @@ Note
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.10.1-2</p>
+<p>Positron 2026.10.2-3</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/tutorial-ai-quarto.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/tutorial-ai-quarto.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

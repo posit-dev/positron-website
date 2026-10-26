@@ -2,7 +2,7 @@ From [Posit PBC](https://posit.co/), the creators of RStudio, the tidyverse, and
 
 # The Data Science IDE
 
-Positron is a free IDE purpose-built for Python and R, with transparent AI assistance, interactive data exploration, and everything you need to go from question to insight to application.
+Positron is a free IDE purpose-built for data science, with transparent AI assistance, interactive data exploration, and everything you need to go from question to insight to application.
 
 [Download](download.llms.md) [Explore Features](features.llms.md) [Tutorials](tutorials.llms.md)
 
@@ -30,7 +30,7 @@ An AI assistant built for data science, it connects to your live Python or R ses
 
 Interactive Analysis
 
-Seamlessly pivot between the exploratory narrative of a notebook and the power of a persistent, multi-session Python or R console.
+Seamlessly pivot between the exploratory narrative of a notebook and the power of a persistent, multi-session console for Python, R, SQL, and more.
 
 [Learn more →](welcome.llms.md)
 

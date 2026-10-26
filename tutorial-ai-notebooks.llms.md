@@ -115,25 +115,21 @@ Posit Assistant is the AI assistant built into Positron. It does not include a l
 
 Posit Assistant open in the left sidebar
 
-To use Posit Assistant, you must first log in to a model provider with *Authentication: Configure Language Model Providers*. Posit Assistant lists every provider by default, but none is active until you authenticate with it.
+To use Posit Assistant, you must first log in to a model provider with *Posit Assistant: Configure AI Providers*. Posit Assistant lists every provider by default, but none is active until you authenticate with it.
 
-[![The Posit Assistant Configure Language Model Providers window.](images/tutorial-python-ai-configure-model.png)](images/tutorial-python-ai-configure-model.png "The Configure Language Model Providers window")
-
-The Configure Language Model Providers window
-
-Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, [Posit AI Pass](assistant-providers.llms.md#posit-ai) is the most direct way to get started. You can start a free trial at [posit.ai](https://posit.ai/) and sign in through your browser, with no API keys to manage.
+Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, Posit AI Pass is the most direct way to get started. You can start a free trial at [posit.ai](https://posit.ai/) and sign in through your browser, with no API keys to manage.
 
 > **TIP:**
 >
-> 1.  Run *Authentication: Configure Language Model Providers* from the Command Palette.
-> 2.  Select your provider from the list.
-> 3.  Complete the sign-in or credential step the provider asks for. The [Language Model Providers](assistant-providers.llms.md) reference lists what each one needs.
+> 1.  Run *Posit Assistant: Configure AI Providers* from the Command Palette.
+> 2.  Select **Connect** next to your provider.
+> 3.  Complete the sign-in or credential step the provider asks for. [Providers](https://assistant.posit.co/docs/getting-started/providers/) in the Posit Assistant documentation lists what each one needs.
 >
 > **You will know it worked when** the provider shows as connected and you can open a chat with *View: Show Posit Assistant*.
 
 > **NOTE:**
 >
-> For notebook work, we recommend an [Anthropic](assistant-providers.llms.md#anthropic) model for the best experience. You can connect it directly, or reach Anthropic models through Posit AI Pass.
+> For notebook work, we recommend an Anthropic model for the best experience. You can connect it directly, or reach Anthropic models through Posit AI Pass.
 
 ## Ask Posit Assistant to write the analysis
 

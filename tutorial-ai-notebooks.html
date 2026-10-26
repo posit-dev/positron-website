@@ -498,14 +498,8 @@ Note
 <figcaption>Posit Assistant open in the left sidebar</figcaption>
 </figure>
 </div>
-<p>To use Posit Assistant, you must first log in to a model provider with <em>Authentication: Configure Language Model Providers</em>. Posit Assistant lists every provider by default, but none is active until you authenticate with it.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="images/tutorial-python-ai-configure-model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="The Configure Language Model Providers window"><img src="images/tutorial-python-ai-configure-model.png" class="img-fluid figure-img" alt="The Posit Assistant Configure Language Model Providers window." width="500"></a></p>
-<figcaption>The Configure Language Model Providers window</figcaption>
-</figure>
-</div>
-<p>Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, <a href="./assistant-providers.html#posit-ai">Posit AI Pass</a> is the most direct way to get started. You can start a free trial at <a href="https://posit.ai/">posit.ai</a> and sign in through your browser, with no API keys to manage.</p>
+<p>To use Posit Assistant, you must first log in to a model provider with <em>Posit Assistant: Configure AI Providers</em>. Posit Assistant lists every provider by default, but none is active until you authenticate with it.</p>
+<p>Because providers differ in what account and credentials they need, the steps below are deliberately general. Use whichever provider you already have access to. If you do not have one, Posit AI Pass is the most direct way to get started. You can start a free trial at <a href="https://posit.ai/">posit.ai</a> and sign in through your browser, with no API keys to manage.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Try it now">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -517,9 +511,9 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Run <em>Authentication: Configure Language Model Providers</em> from the Command Palette.</li>
-<li>Select your provider from the list.</li>
-<li>Complete the sign-in or credential step the provider asks for. The <a href="./assistant-providers.html">Language Model Providers</a> reference lists what each one needs.</li>
+<li>Run <em>Posit Assistant: Configure AI Providers</em> from the Command Palette.</li>
+<li>Select <strong>Connect</strong> next to your provider.</li>
+<li>Complete the sign-in or credential step the provider asks for. <a href="https://assistant.posit.co/docs/getting-started/providers/">Providers</a> in the Posit Assistant documentation lists what each one needs.</li>
 </ol>
 <p><strong>You will know it worked when</strong> the provider shows as connected and you can open a chat with <em>View: Show Posit Assistant</em>.</p>
 </div>
@@ -534,7 +528,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For notebook work, we recommend an <a href="./assistant-providers.html#anthropic">Anthropic</a> model for the best experience. You can connect it directly, or reach Anthropic models through Posit AI Pass.</p>
+<p>For notebook work, we recommend an Anthropic model for the best experience. You can connect it directly, or reach Anthropic models through Posit AI Pass.</p>
 </div>
 </div>
 </section>
@@ -550,7 +544,7 @@ Note
 <p>Before you send the request, predict what a correct answer looks like. You want the orders grouped by quarter, one row per quarter, and a chart with a bar and a line over the same quarterly totals. Holding that picture in mind makes it easy to judge whether the generated code did the right thing.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-python-ai-chart.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="The quarterly sales chart you will ask Posit Assistant to build"><img src="images/tutorial-python-ai-chart.png" class="img-fluid figure-img" alt="A bar chart showing quarterly sales over time, with a superimposed line chart." width="500"></a></p>
+<p><a href="images/tutorial-python-ai-chart.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="The quarterly sales chart you will ask Posit Assistant to build"><img src="images/tutorial-python-ai-chart.png" class="img-fluid figure-img" alt="A bar chart showing quarterly sales over time, with a superimposed line chart." width="500"></a></p>
 <figcaption>The quarterly sales chart you will ask Posit Assistant to build</figcaption>
 </figure>
 </div>
@@ -578,7 +572,7 @@ Note
 <p>Before it runs anything, Posit Assistant asks for permission. You can <strong>Accept</strong>, <strong>Decline</strong>, or reply with written instructions to adjust what it does.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-python-ai-permission.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Posit Assistant asking permission to run code"><img src="images/tutorial-python-ai-permission.png" class="img-fluid figure-img" alt="A chat with Posit Assistant asking permission to run lines of code." width="400"></a></p>
+<p><a href="images/tutorial-python-ai-permission.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Posit Assistant asking permission to run code"><img src="images/tutorial-python-ai-permission.png" class="img-fluid figure-img" alt="A chat with Posit Assistant asking permission to run lines of code." width="400"></a></p>
 <figcaption>Posit Assistant asking permission to run code</figcaption>
 </figure>
 </div>
@@ -601,7 +595,7 @@ Note
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> labs(title<span class="op">=</span><span class="st">"Quarterly retail sales"</span>, x<span class="op">=</span><span class="st">"Quarter"</span>, y<span class="op">=</span><span class="st">"Sales"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-python-ai-results.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="The interactive table and chart Posit Assistant generated"><img src="images/tutorial-python-ai-results.png" class="img-fluid figure-img" alt="The Positron IDE showing a chart in the chat and a table in the viewer sidebar."></a></p>
+<p><a href="images/tutorial-python-ai-results.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="The interactive table and chart Posit Assistant generated"><img src="images/tutorial-python-ai-results.png" class="img-fluid figure-img" alt="The Positron IDE showing a chart in the chat and a table in the viewer sidebar."></a></p>
 <figcaption>The interactive table and chart Posit Assistant generated</figcaption>
 </figure>
 </div>
@@ -626,7 +620,7 @@ Note
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-python-ai-notebook.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="The exported notebook open in the Positron Notebook Editor"><img src="images/tutorial-python-ai-notebook.png" class="img-fluid figure-img" alt="Positron in Notebook Layout mode with a notebook open."></a></p>
+<p><a href="images/tutorial-python-ai-notebook.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="The exported notebook open in the Positron Notebook Editor"><img src="images/tutorial-python-ai-notebook.png" class="img-fluid figure-img" alt="Positron in Notebook Layout mode with a notebook open."></a></p>
 <figcaption>The exported notebook open in the Positron Notebook Editor</figcaption>
 </figure>
 </div>
@@ -644,7 +638,7 @@ Note
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-python-ai-notebook-assistant.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="The Notebook Assistant panel, showing context cells, quick actions, and suggestions"><img src="images/tutorial-python-ai-notebook-assistant.png" class="img-fluid figure-img" alt="Notebook Assistant panel showing context cells, quick actions like Fix, Explain, and Improve, and AI-generated suggestions based on the notebook state."></a></p>
+<p><a href="images/tutorial-python-ai-notebook-assistant.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="The Notebook Assistant panel, showing context cells, quick actions, and suggestions"><img src="images/tutorial-python-ai-notebook-assistant.png" class="img-fluid figure-img" alt="Notebook Assistant panel showing context cells, quick actions like Fix, Explain, and Improve, and AI-generated suggestions based on the notebook state."></a></p>
 <figcaption>The Notebook Assistant panel, showing context cells, quick actions, and suggestions</figcaption>
 </figure>
 </div>
@@ -674,7 +668,7 @@ Note
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-python-ai-explain-error.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Posit Assistant explaining a cell error"><img src="images/tutorial-python-ai-explain-error.png" class="img-fluid figure-img" alt="A Posit Assistant chat that explains the cause of the error seen in the notebook beside it." width="600"></a></p>
+<p><a href="images/tutorial-python-ai-explain-error.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Posit Assistant explaining a cell error"><img src="images/tutorial-python-ai-explain-error.png" class="img-fluid figure-img" alt="A Posit Assistant chat that explains the cause of the error seen in the notebook beside it." width="600"></a></p>
 <figcaption>Posit Assistant explaining a cell error</figcaption>
 </figure>
 </div>
@@ -684,7 +678,7 @@ Note
 <p>Ghost cell suggestions predict your next step after you run the final cell. A ghost cell appears below the current one with a suggested action you can accept, edit, or dismiss. The notebook proposes where to go next instead of waiting for a blank cell. Ghost cell suggestions are experimental and off by default, so you enable them first.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-python-ai-ghost-cell.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="A ghost cell shown in grey with a dashed boundary"><img src="images/tutorial-python-ai-ghost-cell.png" class="img-fluid figure-img" alt="A notebook that displays a ghost cell below a regular cell." width="500"></a></p>
+<p><a href="images/tutorial-python-ai-ghost-cell.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="A ghost cell shown in grey with a dashed boundary"><img src="images/tutorial-python-ai-ghost-cell.png" class="img-fluid figure-img" alt="A notebook that displays a ghost cell below a regular cell." width="500"></a></p>
 <figcaption>A ghost cell shown in grey with a dashed boundary</figcaption>
 </figure>
 </div>
@@ -731,7 +725,7 @@ Note
 <p>You can also convert a notebook to a .qmd with the <strong>Convert to .qmd</strong> menu item.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-python-ai-convert-to-qmd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="The Convert to .qmd item in the notebook menu"><img src="images/tutorial-python-ai-convert-to-qmd.png" class="img-fluid figure-img" alt="The Convert to .qmd item highlighted in the menu of the notebook pane." width="500"></a></p>
+<p><a href="images/tutorial-python-ai-convert-to-qmd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="The Convert to .qmd item in the notebook menu"><img src="images/tutorial-python-ai-convert-to-qmd.png" class="img-fluid figure-img" alt="The Convert to .qmd item highlighted in the menu of the notebook pane." width="500"></a></p>
 <figcaption>The Convert to .qmd item in the notebook menu</figcaption>
 </figure>
 </div>
@@ -771,7 +765,7 @@ Note
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/tutorial-python-ai-dashboard.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="The finished dashboard"><img src="images/tutorial-python-ai-dashboard.png" class="img-fluid figure-img" alt="A two-column Quarto dashboard showing a quarterly sales table and a bar-and-line chart of sales over time, with a light and dark mode toggle."></a></p>
+<p><a href="images/tutorial-python-ai-dashboard.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="The finished dashboard"><img src="images/tutorial-python-ai-dashboard.png" class="img-fluid figure-img" alt="A two-column Quarto dashboard showing a quarterly sales table and a bar-and-line chart of sales over time, with a light and dark mode toggle."></a></p>
 <figcaption>The finished dashboard</figcaption>
 </figure>
 </div>
@@ -1245,7 +1239,7 @@ Note
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.10.1-2</p>
+<p>Positron 2026.10.2-3</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/tutorial-ai-notebooks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/tutorial-ai-notebooks.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

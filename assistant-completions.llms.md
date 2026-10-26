@@ -6,10 +6,7 @@ Code completions are text suggestions that appear inline as you type in an edito
 
 > **IMPORTANT:**
 >
-> Completions are powered by Posit AI Pass or GitHub Copilot. Ensure you have added one or both of these as a language model provider:
->
-> - [Add Posit AI Pass as a language model provider](assistant-providers.llms.md#posit-ai)
-> - [Add GitHub Copilot as a language model provider](assistant-providers.llms.md#github-copilot)
+> Completions come from Posit AI Pass or GitHub Copilot. To use them, [connect one or both as a language model provider](assistant-providers.llms.md).
 
 ## Using code completions
 
@@ -46,7 +43,7 @@ Posit AI NES suggestions appear inline in the editor. You can accept, navigate, 
 
 ### Enable
 
-Posit AI NES is enabled by default once you have [signed in to the Posit AI Pass provider](assistant-providers.llms.md#posit-ai). No additional setting changes are required.
+Positron turns on Posit AI NES by default once you have [connected the Posit AI Pass provider](assistant-providers.llms.md). You do not need to change any other settings.
 
 ### Restrict to specific languages
 
@@ -69,7 +66,7 @@ GitHub Copilot also has its own Next Edit Suggestions, separate from the ghost-t
 
 ### Enable
 
-GitHub Copilot completions are enabled after you [sign in to the GitHub Copilot provider](assistant-providers.llms.md#github-copilot). No additional setting changes are required.
+Positron turns on GitHub Copilot completions after you [connect the GitHub Copilot provider](assistant-providers.llms.md). You do not need to change any other settings.
 
 ### Restrict to specific languages
 

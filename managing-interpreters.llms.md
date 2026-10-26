@@ -1,6 +1,6 @@
 # Managing Interpreters
 
-Manage multiple Python and R interpreter sessions in Positron. Switch between environments, configure startup options, and run multiple sessions simultaneously.
+Manage multiple interpreter sessions in Positron. Switch between environments, configure startup options, and run multiple sessions simultaneously.
 
 Positron is designed to support multiple interpreter sessions. This enables workflows that span multiple environments, and allows you to switch between them easily within a single workspace.
 

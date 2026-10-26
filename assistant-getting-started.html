@@ -51,8 +51,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-fa79a26539e9ab32e9c754e6b72184dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -944,87 +942,7 @@ window.Quarto = {
 <p>To use AI in Positron, first configure a language model provider, then start using AI features such as Posit Assistant. Follow the steps below to get set up.</p>
 <section id="configure-a-language-model-provider" class="level2">
 <h2 class="anchored" data-anchor-id="configure-a-language-model-provider">Step 1: Configure a language model provider</h2>
-<p>Positron enables all providers by default and they appear in the provider list, but none are active unless you authenticate with the provider. To hide providers you do not use, see <a href="./ai-configuration.html#turn-a-provider-on-or-off">Turn a provider on or off</a>.</p>
-<p>To connect a provider, run the command <em>Authentication: Configure Language Model Providers</em>, select the provider, and authenticate. For account requirements, authentication details, and any settings to configure first, see the <a href="./assistant-providers.html">Language Model Providers</a> reference.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Provider</th>
-<th style="text-align: center;">Chat</th>
-<th style="text-align: center;">Code Completions</th>
-<th>Authentication</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="./assistant-providers.html#posit-ai">Posit AI Pass</a></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td>OAuth</td>
-</tr>
-<tr class="even">
-<td><a href="./assistant-providers.html#amazon-bedrock">Amazon Bedrock</a></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td style="text-align: center;"></td>
-<td>AWS CLI or Posit Workbench Managed Credentials</td>
-</tr>
-<tr class="odd">
-<td><a href="./assistant-providers.html#anthropic">Anthropic</a></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td style="text-align: center;"></td>
-<td>API Key</td>
-</tr>
-<tr class="even">
-<td><a href="./assistant-providers.html#microsoft-foundry">Microsoft Foundry</a></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td style="text-align: center;"></td>
-<td>API Key or Workbench Managed Credentials</td>
-</tr>
-<tr class="odd">
-<td><a href="./assistant-providers.html#openai">OpenAI</a></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td style="text-align: center;"></td>
-<td>API Key</td>
-</tr>
-<tr class="even">
-<td><a href="./assistant-providers.html#snowflake-cortex">Snowflake Cortex</a></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td style="text-align: center;"></td>
-<td>API Key or Workbench Managed Credentials</td>
-</tr>
-<tr class="odd">
-<td><a href="./assistant-providers.html#github-copilot">GitHub Copilot</a> <span class="provider-badge preview">Preview</span></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td>OAuth</td>
-</tr>
-<tr class="even">
-<td><a href="./assistant-providers.html#databricks">Databricks</a> <span class="provider-badge experimental">Experimental</span></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td style="text-align: center;"></td>
-<td>OAuth, Personal Access Token, Environment Variable, CLI Profile, or Workbench Managed Credentials</td>
-</tr>
-<tr class="odd">
-<td><a href="./assistant-providers.html#deepseek">DeepSeek</a> <span class="provider-badge experimental">Experimental</span></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td style="text-align: center;"></td>
-<td>API Key</td>
-</tr>
-<tr class="even">
-<td><a href="./assistant-providers.html#gemini-code-assist">Google Gemini</a> <span class="provider-badge experimental">Experimental</span></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td style="text-align: center;"></td>
-<td>API Key</td>
-</tr>
-<tr class="odd">
-<td><a href="./assistant-providers.html#gemini-enterprise-agent-platform">Gemini Enterprise Agent Platform</a> <span class="provider-badge experimental">Experimental</span></td>
-<td style="text-align: center;"><p><i class="fa-solid fa-check" aria-label="check"></i></p></td>
-<td style="text-align: center;"></td>
-<td>Google Cloud CLI or Service Account Credentials</td>
-</tr>
-</tbody>
-</table>
-<p>You can also connect additional, named providers of your own beyond this list. See <a href="./assistant-providers.html#custom-providers">Custom providers</a>.</p>
+<p>To connect a provider, run the command <em>Posit Assistant: Configure AI Providers</em> and select <strong>Connect</strong> next to the provider. For the list of providers, see <a href="./assistant-providers.html">Providers</a>.</p>
 <p>Please ensure you consult your provider’s privacy policy for information on the data they collect and how they use it. For reference links, see the <a href="./assistant-provider-info.html">Privacy &amp; Terms</a> guide.</p>
 <p>For information on what information is collected by Posit, review <a href="./privacy.html">Posit’s privacy policy</a>.</p>
 </section>
@@ -1527,7 +1445,7 @@ window.Quarto = {
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.10.1-2</p>
+<p>Positron 2026.10.2-3</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/assistant-getting-started.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/assistant-getting-started.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
