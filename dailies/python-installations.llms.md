@@ -139,7 +139,7 @@ If you prefer finer control over your Python environment, set the [`python.useBu
 
 ### Unsupported Python versions
 
-Positron supports the [supported versions](https://devguide.python.org/versions/) of Python, and might continue to support end-of-life versions for a time after. Positron can discover other versions, but you might run into issues using them.
+Positron supports the [supported versions](https://devguide.python.org/versions/) of Python, and might continue to support end-of-life versions for a time after. Positron can discover other versions, but you might run into issues using them. Positron does not bundle the [IPython kernel](#ipython-kernel) for unsupported versions.
 
 ## Troubleshooting
 
