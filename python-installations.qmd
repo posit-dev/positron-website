@@ -163,6 +163,7 @@ If you do that or are using an implementation other than CPython, install the IP
 
 Positron supports the [supported versions](https://devguide.python.org/versions/) of Python, and might continue to support end-of-life versions for a time after.
 Positron can discover other versions, but you might run into issues using them.
+Positron does not bundle the [IPython kernel](#ipython-kernel) for unsupported versions.
 
 ## Troubleshooting
 
