@@ -2,6 +2,8 @@
 
 The [2026.10.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.10.1-2) (2026-10-19) fixes a problem with Snowflake Data Connections that use managed credentials on Posit Workbench.
 
+The [2026.10.2 patch release](https://github.com/posit-dev/positron/releases/tag/2026.10.2-3) (2026-10-26) updates Electron and Node.js for security fixes. This includes a block on the [compromised eMudhra intermediate certificates](https://github.com/electron/electron/security/advisories/GHSA-jr5w-w6x2-84p9), for both the desktop app and remote sessions.
+
 ### Release highlights
 
 Welcome to the 2026.10.0 release of Positron!
