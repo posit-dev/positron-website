@@ -16,8 +16,7 @@ Positron provides setting defaults for working with R, but you can override or c
 ```json
 {
     "[r]":  {
-      "editor.tabSize": 4,
-      "editor.indentSize": 4
+      "editor.tabSize": 4
     }
 }
 ```
