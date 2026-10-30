@@ -938,7 +938,7 @@ Note
 <p>If you’d prefer to customize Positron to feel similar to RStudio, learn <a href="./migrate-rstudio-settings-and-extensions.html#settings-for-rstudio-users">what settings to consider</a>.</p>
 </div>
 </div>
-<p>Positron provides setting defaults for working with R, but you can override or change these defaults if you prefer a different experience. For example, Positron sets the tab size for R code to 2 spaces, but if you prefer 4 spaces, you can change the <a href="positron://settings/editor.tabSize"><code>editor.tabSize</code></a> setting for R files by adding the following to your user or workspace <code>settings.json</code>:</p>
+<p>Positron provides setting defaults for working with R, but you can override or change these defaults if you prefer a different experience. For example, Positron sets the tab size for R code to 2 spaces, but if you prefer 4 spaces, you can change the <a href="positron://settings/editor.tabSize"><code>editor.tabSize</code></a> setting for R files by adding the following to your user or workspace <code>settings.json</code>:<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"[r]"</span><span class="fu">:</span>  <span class="fu">{</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"editor.tabSize"</span><span class="fu">:</span> <span class="dv">4</span></span>
@@ -959,7 +959,7 @@ Note
 <tbody>
 <tr class="odd">
 <td><p><kbd title="linux: Ctrl-Shift-M, mac: Command-Shift-M, windows: Ctrl-Shift-M" aria-hidden="true" data-linux="Ctrl-Shift-M" data-mac="Command-Shift-M" data-windows="Ctrl-Shift-M"></kbd><span class="visually-hidden"></span></p></td>
-<td>Insert the pipe operator (<code>|&gt;</code> or <code>%&gt;%</code>)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+<td>Insert the pipe operator (<code>|&gt;</code> or <code>%&gt;%</code>)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></td>
 </tr>
 <tr class="even">
 <td><p><kbd title="linux: Alt--, mac: Option--, windows: Alt--" aria-hidden="true" data-linux="Alt--" data-mac="Option--" data-windows="Alt--"></kbd><span class="visually-hidden"></span></p></td>
@@ -1021,7 +1021,8 @@ Note
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>You can choose which pipe operator to insert via the <a href="positron://settings/positron.r.pipe"><code>positron.r.pipe</code></a> setting.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>The <a href="positron://settings/editor.detectIndentation"><code>editor.detectIndentation</code></a> setting is enabled by default, which means Positron infers indentation from the contents of each file you open. If your files already use 2-space indentation, this detection takes precedence over your <code>editor.tabSize</code> setting, and your override will appear to have no effect. To always use your configured indentation, also disable detection with <code>"editor.detectIndentation": false</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>You can choose which pipe operator to insert via the <a href="positron://settings/positron.r.pipe"><code>positron.r.pipe</code></a> setting.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

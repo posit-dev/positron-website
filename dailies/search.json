@@ -1497,7 +1497,7 @@
     "href": "guide-r.html#settings",
     "title": "Overview",
     "section": "Settings",
-    "text": "Settings\n\n\n\n\n\n\nNote\n\n\n\nIf you’d prefer to customize Positron to feel similar to RStudio, learn what settings to consider.\n\n\nPositron provides setting defaults for working with R, but you can override or change these defaults if you prefer a different experience. For example, Positron sets the tab size for R code to 2 spaces, but if you prefer 4 spaces, you can change the editor.tabSize setting for R files by adding the following to your user or workspace settings.json:\n{\n    \"[r]\":  {\n      \"editor.tabSize\": 4\n    }\n}\nYou can see all the setting defaults that Positron provides with the command Preferences: Open Default Settings (JSON).",
+    "text": "Settings\n\n\n\n\n\n\nNote\n\n\n\nIf you’d prefer to customize Positron to feel similar to RStudio, learn what settings to consider.\n\n\nPositron provides setting defaults for working with R, but you can override or change these defaults if you prefer a different experience. For example, Positron sets the tab size for R code to 2 spaces, but if you prefer 4 spaces, you can change the editor.tabSize setting for R files by adding the following to your user or workspace settings.json:1\n{\n    \"[r]\":  {\n      \"editor.tabSize\": 4\n    }\n}\nYou can see all the setting defaults that Positron provides with the command Preferences: Open Default Settings (JSON).",
     "crumbs": [
       "Guides",
       "Language Guides",
@@ -1509,7 +1509,7 @@
     "href": "guide-r.html#keyboard-shortcuts",
     "title": "Overview",
     "section": "Keyboard shortcuts",
-    "text": "Keyboard shortcuts\nThe keyboard shortcuts in Positron are largely a superset of the keyboard shortcuts used by Visual Studio Code, plus additional keyboard shortcuts specific to Positron’s data science features. Some of those additional shortcuts are specific to R programming:\n\n\n\nShortcut\nDescription\n\n\n\n\n\nInsert the pipe operator (|&gt; or %&gt;%)1\n\n\n\nInsert the assignment operator (&lt;-)\n\n\n, HH\nInsert section\n\n\n\nLoad the current R package, if any, with devtools::load_all()\n\n\n\nBuild and install the current R package, if any\n\n\n\nTest the current R package, if any\n\n\n\nCheck the current R package, if any\n\n\n\nDocument the current R package, if any\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nIf you’d prefer to use keybindings as similar as possible to RStudio, learn how to enable them in Positron. This will overwrite some of Positron’s default keybindings, but will provide a more familiar experience for RStudio users.\n\n\nYou can create custom keyboard shortcuts as well.",
+    "text": "Keyboard shortcuts\nThe keyboard shortcuts in Positron are largely a superset of the keyboard shortcuts used by Visual Studio Code, plus additional keyboard shortcuts specific to Positron’s data science features. Some of those additional shortcuts are specific to R programming:\n\n\n\nShortcut\nDescription\n\n\n\n\n\nInsert the pipe operator (|&gt; or %&gt;%)2\n\n\n\nInsert the assignment operator (&lt;-)\n\n\n, HH\nInsert section\n\n\n\nLoad the current R package, if any, with devtools::load_all()\n\n\n\nBuild and install the current R package, if any\n\n\n\nTest the current R package, if any\n\n\n\nCheck the current R package, if any\n\n\n\nDocument the current R package, if any\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nIf you’d prefer to use keybindings as similar as possible to RStudio, learn how to enable them in Positron. This will overwrite some of Positron’s default keybindings, but will provide a more familiar experience for RStudio users.\n\n\nYou can create custom keyboard shortcuts as well.",
     "crumbs": [
       "Guides",
       "Language Guides",
@@ -1545,7 +1545,7 @@
     "href": "guide-r.html#footnotes",
     "title": "Overview",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nYou can choose which pipe operator to insert via the positron.r.pipe setting.↩︎",
+    "text": "Footnotes\n\n\nThe editor.detectIndentation setting is enabled by default, which means Positron infers indentation from the contents of each file you open. If your files already use 2-space indentation, this detection takes precedence over your editor.tabSize setting, and your override will appear to have no effect. To always use your configured indentation, also disable detection with \"editor.detectIndentation\": false.↩︎\nYou can choose which pipe operator to insert via the positron.r.pipe setting.↩︎",
     "crumbs": [
       "Guides",
       "Language Guides",
