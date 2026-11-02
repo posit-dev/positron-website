@@ -39,6 +39,8 @@ Each entry in the configuration beneath the [`positron.environmentModules.enviro
 - An array of **languages** to use with the module environment -- `["r"]` in this example. These are the languages, in the form of lowercase [language identifiers](https://code.visualstudio.com/docs/languages/identifiers), for which interpreters will be sought. Interpreters are discovered by loading the module and then using `which` to find the interpreter on the path. For example, for R, it is presumed that the module will put `R` on the path.
 - An array of **modules** to load before starting the interpreter -- `["R/4.4.2", "other/version"]` in this example. Each module will be loaded in turn before the interpreter is started. 
 
+To load modules for an interpreter at a known path, and also set environment variables or run a startup script, use the `modules` field of an [interpreter definition](interpreter-definitions.qmd) instead.
+
 ## Usage
 
 You'll need to restart Positron once after updating the settings.
