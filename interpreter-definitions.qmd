@@ -51,6 +51,8 @@ You can set `interpreters.definitions` only in user or remote settings, not in w
 
 Each defined interpreter appears in the Interpreter picker with your label.
 If Positron also discovers the same interpreter on its own, the original interpreter stays in the list next to the defined one.
+Positron matches the `path` exactly, so use the same path that the Interpreter picker shows for the interpreter.
+If the `path` is a different path to the same interpreter, such as a symbolic link, Positron treats it as an interpreter that it does not discover.
 
 You can also define an interpreter in a nonstandard location that Positron does not discover.
 In this case, Positron uses the `path` to find it, and only the defined interpreter appears in the list.
@@ -65,10 +67,11 @@ Each time a session for a defined interpreter starts or restarts, Positron prepa
 
 1. Positron starts with the usual environment for the interpreter, and adds the variables in `env`.
 2. Positron loads the environment modules in `modules`, in order.
-3. Positron runs `startupScript` with bash. If environment modules are installed, the `module` command is available to the script.
+3. Positron sources `startupScript` with bash. If environment modules are installed, the `module` command is available to the script.
 
 Positron then starts the interpreter with all the environment variables that the modules and the script set or change. 
-If a module fails to load, or if the script exits with an error, the session does not start, and Positron shows the error output.
+Variables that the modules or the script unset stay set for the interpreter.
+If a module fails to load, if the script exits with an error, or if the setup takes more than 30 seconds, the session does not start, and Positron shows the error output.
 
 ### Terminals
 
@@ -79,6 +82,7 @@ For variables such as `PATH`, Positron adds only the part that the definition ad
 
 To make the defined interpreters the only available interpreters, set [`interpreters.discovery`](positron://settings/interpreters.discovery) to `definitionsOnly`. 
 Positron then does not look for other interpreters, and ignores the other discovery settings, such as [`python.interpreters.include`](positron://settings/python.interpreters.include) and [`positron.r.customRootFolders`](positron://settings/positron.r.customRootFolders).
+The exception is [`python.interpreters.exclude`](positron://settings/python.interpreters.exclude) and [`python.interpreters.override`](positron://settings/python.interpreters.override): if they filter out a defined Python interpreter, it does not appear.
 
 You can set `interpreters.discovery` for each language. 
 For example, to use only defined interpreters for Python, but keep the usual discovery for R:
