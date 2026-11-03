@@ -72,6 +72,7 @@ Positron also does less work in the background now. Interpreter discovery no lon
 - [[#16611](https://github.com/posit-dev/positron/issues/16611)] Assistant: Git commit messages and notebook AI use the provider code from the installed Posit Assistant when it is newer than the copy in Positron. New providers arrive with Posit Assistant updates.
 - [[#16365](https://github.com/posit-dev/positron/issues/16365)] Assistant: AI settings have their own **AI** group under **Features** in the Settings editor.
 - [[#13603](https://github.com/posit-dev/positron/issues/13603)] Assistant: **Fix** and **Explain** on console, notebook, and Quarto errors can send the error to a supported third-party coding agent, such as Claude Code. Choose the agent with the [`ai.errorActions.agent`](positron://settings/ai.errorActions.agent) setting.
+- [[#16901](https://github.com/posit-dev/positron/issues/16901)] Assistant: _AI: Create Diagnostic Report_ includes the Posit Assistant settings report.
 - [[#16344](https://github.com/posit-dev/positron/issues/16344)] Python: Positron supports Python 3.15.
 - [[#15825](https://github.com/posit-dev/positron/issues/15825)] Python: Positron picks the Python interpreter to start from one ranked list: the environment of the launch shell, [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath), the project environment, `.python-version`, and then other environments.
 - [[#16168](https://github.com/posit-dev/positron/issues/16168)] Python: Positron discovers Python environments one level below the workspace root, such as `app/.venv`.
@@ -91,6 +92,7 @@ Positron also does less work in the background now. Interpreter discovery no lon
 - [[#15999](https://github.com/posit-dev/positron/issues/15999)] Interpreter: the new [`interpreters.languageOrder`](positron://settings/interpreters.languageOrder) setting sets the order of languages in interpreter pickers and on the Welcome page.
 - [[#16585](https://github.com/posit-dev/positron/issues/16585)] Interpreter: interpreter definitions can list environment modules to load with the new `modules` field.
 - [[#14744](https://github.com/posit-dev/positron/issues/14744)] Interpreter: R and Python sessions run `module purge` before they load environment modules. To keep the modules from shell startup scripts, set `"purge": false` on an environment.
+- [[#15587](https://github.com/posit-dev/positron/issues/15587)] Interpreter: [`positron.r.interpreters.default`](positron://settings/positron.r.interpreters.default) can name an environment module or module environment. R starts with that module loaded.
 - [[#16252](https://github.com/posit-dev/positron/issues/16252)] New Folder: _New Folder from Template_ and _New Folder from Git_ use the [`files.dialog.defaultPath`](positron://settings/files.dialog.defaultPath) setting for the first location, if you set it. _New Folder from Git_ uses [`git.defaultCloneDirectory`](positron://settings/git.defaultCloneDirectory) first. An enforced `files.dialog.defaultPath` can start with `~` to use the home folder of each user.
 - [[#16789](https://github.com/posit-dev/positron/pull/16789)] Dev Containers: the Ports view is available when you connect to a dev container.
 - [[#16847](https://github.com/posit-dev/positron/issues/16847)] Notebooks: the [`notebook.showCellStatusBar`](positron://settings/notebook.showCellStatusBar) setting hides the cell execution status and time in Positron notebooks and in Quarto inline output.
@@ -149,6 +151,7 @@ Positron also does less work in the background now. Interpreter discovery no lon
 - [[#16942](https://github.com/posit-dev/positron/issues/16942)] Data Explorer: the Data Explorer, Object Explorer, Plots editor, Plots gallery, and Preview editor open when [`workbench.editorAssociations`](positron://settings/workbench.editorAssociations) contains a catch-all pattern such as `"*": "default"`.
 - [[#16443](https://github.com/posit-dev/positron/issues/16443)] Interpreter: interpreter discovery no longer runs on every launch after you do not open Positron for longer than [`interpreters.discoveryCache.maxAgeDays`](positron://settings/interpreters.discoveryCache.maxAgeDays). The interpreter cache no longer drops interpreters that discovery finds.
 - [[#13487](https://github.com/posit-dev/positron/issues/13487)] Interpreter: R and Python interpreter settings no longer show in the folder settings of a multi-root workspace. Positron always ignored them there.
+- [[#15587](https://github.com/posit-dev/positron/issues/15587)] Interpreter: an R that an environment module provides shows in the interpreter picker, even when Positron also finds the same R without the module.
 - [[#16575](https://github.com/posit-dev/positron/issues/16575)] Workbench: help pages after the first one no longer fail to load on Workbench.
 - [[#16276](https://github.com/posit-dev/positron/issues/16276)] Workbench: the extension host no longer stops when the connection drops on Workbench with session SSL.
 - [[#17023](https://github.com/posit-dev/positron/pull/17023)] Workbench: Positron stops trying to reconnect after Workbench reports that the session exited, and tries less often while you are logged out.
@@ -194,3 +197,4 @@ Positron also does less work in the background now. Interpreter discovery no lon
 #### Dependencies
 
 - Updated `code-oss` upstream to v1.138.0.
+- Updated bundled Quarto to 1.11.9.
