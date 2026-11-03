@@ -864,6 +864,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#consoles" id="toc-consoles" class="nav-link" data-scroll-target="#consoles">Consoles</a></li>
   <li><a href="#managing-outputs" id="toc-managing-outputs" class="nav-link" data-scroll-target="#managing-outputs">Managing outputs</a></li>
   <li><a href="#quarto-fix-and-explain" id="toc-quarto-fix-and-explain" class="nav-link" data-scroll-target="#quarto-fix-and-explain">Fix and explain chunk errors</a></li>
+  <li><a href="#follow-assistant-edits" id="toc-follow-assistant-edits" class="nav-link" data-scroll-target="#follow-assistant-edits">Follow assistant edits</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/quarto-inline-output.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/quarto-inline-output.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -966,6 +967,11 @@ q3[Quarto Doc 3] --&gt; rc3[Interpreter Session 3]
 </ul>
 <p>The main button starts a new chat with the error attached as context. Use the dropdown arrow next to it to send the error to your current chat instead. These buttons only appear for errors from a live run of the chunk, not ones restored from a previous session.</p>
 <p>To use Fix and Explain, first <a href="./assistant-getting-started.html">set up a language model provider</a>. See <a href="./ai-configuration.html">Configure AI features</a> for ways to turn AI features on and off.</p>
+</section>
+<section id="follow-assistant-edits" class="level2">
+<h2 class="anchored" data-anchor-id="follow-assistant-edits">Follow assistant edits</h2>
+<p>When inline output is on, Posit Assistant can add, change, delete, and run chunks in your document, like it does in the <a href="./positron-notebook-editor.html#ai-integration">Positron Notebook Editor</a>. As Posit Assistant edits a chunk, the editor scrolls to that chunk so you can review changes as they happen. To stop following edits, set <a href="positron://settings/positron.assistant.notebook.autoFollow"><code>positron.assistant.notebook.autoFollow</code></a> to <code>false</code>. This setting applies to both Quarto documents and notebooks.</p>
+<p>When inline output is off, the editor does not follow edits from Posit Assistant. You can still use the <a href="./quarto.html#quarto-ai-actions">AI actions</a> in the Quarto editor action bar.</p>
 </section>
 <section id="limitations" class="level2">
 <h2 class="anchored" data-anchor-id="limitations">Limitations</h2>

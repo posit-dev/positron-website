@@ -981,7 +981,7 @@ Note
 <li><strong>Dynamic Suggestions</strong>: Assistant follows your work and dynamically suggests actions to improve your notebook.</li>
 <li><strong>Actionable Editing</strong>: With your permission, Assistant can directly edit and run cells in your notebook.</li>
 <li><strong>Transparent</strong>: You can inspect and control the specific context the Assistant is using.</li>
-<li><strong>Collaborative</strong>: Use <a href="#follow-assistant">Follow Assistant</a> to automatically scroll and highlight cells as they are edited.</li>
+<li><strong>Collaborative</strong>: The notebook <a href="#follow-assistant">follows the assistant’s edits</a>, so it scrolls to and highlights cells as they change.</li>
 </ul>
 <section id="enable-posit-assistant" class="level3">
 <h3 class="anchored" data-anchor-id="enable-posit-assistant">Enable Posit Assistant</h3>
@@ -989,14 +989,14 @@ Note
 <p>Once you are signed in, you will see assistant specific actions in the notebook editor action bar. To disable notebook AI features, set <a href="positron://settings/notebook.ai.enabled"><code>notebook.ai.enabled</code></a> to <code>false</code>. See <a href="./ai-configuration.html">Configure AI features</a> for other ways to turn AI features on and off.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="images/positron-notebook-assistant-action-bar.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle."><img src="images/positron-notebook-assistant-action-bar.png" class="img-fluid figure-img" alt="Notebook action bar showing the Assistant icon button."></a></p>
-<figcaption>The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle.</figcaption>
+<p><a href="images/positron-notebook-assistant-action-bar.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="The Positron Notebook Editor action bar showing the Ask Assistant button."><img src="images/positron-notebook-assistant-action-bar.png" class="img-fluid figure-img" alt="Notebook action bar showing the Ask Assistant icon button."></a></p>
+<figcaption>The Positron Notebook Editor action bar showing the Ask Assistant button.</figcaption>
 </figure>
 </div>
 </section>
 <section id="notebook-assistant-panel" class="level3">
 <h3 class="anchored" data-anchor-id="notebook-assistant-panel">Notebook Assistant panel</h3>
-<p>The Notebook Assistant panel provides a quick way to interact with Assistant directly from your notebook. To open it, select the <strong>Assistant</strong> icon button in the notebook editor action bar.</p>
+<p>The Notebook Assistant panel provides a quick way to interact with Assistant directly from your notebook. To open it, select the <strong>Ask Assistant</strong> icon button in the notebook editor action bar.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="images/positron-notebook-assistant-panel.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="The Notebook Assistant panel showing the cells included in the context, quick actions to fix, explain, or improve the current notebook, and an action to generate AI suggestions based off the current state of the notebook."><img src="images/positron-notebook-assistant-panel.png" class="img-fluid figure-img" alt="Notebook Assistant panel showing context cells, quick actions like Fix, Explain, and Improve, and AI-generated suggestions based on the notebook state."></a></p>
@@ -1005,11 +1005,11 @@ Note
 </div>
 <p>From the panel, you can:</p>
 <ul>
-<li><strong>View context</strong>: See which cells are included in the Assistant context</li>
-<li><strong>Quick actions</strong>: Run common actions like explaining the contents of a notebook or fixing errors in a notebook</li>
-<li><strong>Generate suggestions</strong>: View dynamically generated suggestions based on the current state of the notebook</li>
+<li><strong>Change notebook settings</strong>: Turn <strong>Show edit diffs</strong>, <strong>Auto-follow edits</strong>, and <strong>Ghost cell suggestions</strong> on or off for this notebook only. Each switch follows your global setting until you change it. Select <strong>Open global settings</strong> to change the default for all notebooks.</li>
+<li><strong>View context</strong>: See which cells Posit Assistant uses as context.</li>
+<li><strong>Ask Assistant to</strong>: Choose <strong>Explain This Notebook</strong>, <strong>Fix Errors and Issues</strong>, or <strong>Improve This Notebook</strong>.</li>
 </ul>
-<p>Selecting an option from the panel will open a new <a href="./assistant-chat.html"><strong>Chat</strong> pane</a> with the notebook context already attached.</p>
+<p>You can also select <strong>Generate AI Suggestions</strong> to get prompts based on your file. Or, type your own request in the <strong>Or enter a custom prompt</strong> box. When you choose any action, suggestion, or custom prompt, Positron starts a new chat in <a href="./assistant.html">Posit Assistant</a> and sends the prompt.</p>
 </section>
 <section id="notebook-fix-and-explain" class="level3">
 <h3 class="anchored" data-anchor-id="notebook-fix-and-explain">Fix and explain cell errors</h3>
@@ -1027,7 +1027,7 @@ Note
 </section>
 <section id="follow-assistant" class="level3">
 <h3 class="anchored" data-anchor-id="follow-assistant">Follow assistant</h3>
-<p>When the Assistant is actively editing cells in your notebook, you may want to watch its progress. Select <strong>Follow Assistant</strong> in the notebook editor action bar to have the notebook automatically scroll to cells as they are edited. This lets you review changes in real-time.</p>
+<p>When Posit Assistant edits cells in your notebook, the notebook scrolls to each cell as it changes and highlights it. This lets you review changes as they happen. To stop following edits in all notebooks, set <a href="positron://settings/positron.assistant.notebook.autoFollow"><code>positron.assistant.notebook.autoFollow</code></a> to <code>false</code>. To stop following edits in one notebook only, turn off <strong>Auto-follow edits</strong> in the <a href="#notebook-assistant-panel">Notebook Assistant panel</a>.</p>
 </section>
 </section>
 <section id="customization-settings" class="level2">
@@ -1062,6 +1062,7 @@ Note
 <li><a href="positron://settings/positron.assistant.notebook.deletionSentinel.show"><code>positron.assistant.notebook.deletionSentinel.show</code></a>: Show deletion sentinels when cells are deleted. When disabled, cells are deleted immediately without undo placeholders. Enabled by default.</li>
 <li><a href="positron://settings/positron.assistant.notebook.deletionSentinel.timeout"><code>positron.assistant.notebook.deletionSentinel.timeout</code></a>: Time in milliseconds before deletion sentinels auto-dismiss (0 to disable auto-dismiss).</li>
 <li><a href="positron://settings/positron.assistant.notebook.showDiff"><code>positron.assistant.notebook.showDiff</code></a>: Show a diff view for AI assistant edits to notebook cells. When disabled, the assistant applies changes directly without requiring approval. Enabled by default.</li>
+<li><a href="positron://settings/positron.assistant.notebook.autoFollow"><code>positron.assistant.notebook.autoFollow</code></a>: Automatically scroll to and highlight cells that the AI assistant changes. This setting also applies to <a href="./quarto-inline-output.html#follow-assistant-edits">Quarto documents with inline output</a>. Enabled by default.</li>
 </ul>
 </section>
 <section id="ghost-cell-suggestions-experimental-1" class="level4">

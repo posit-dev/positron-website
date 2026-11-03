@@ -20,9 +20,9 @@ Notebook-aware AI that understands your cells, outputs, and execution history.
 
 Fix and explain errors from your R and Python Console sessions.
 
-### Quarto fix and explain
+### Quarto AI features
 
-Fix and explain errors from Quarto chunks running with inline output.
+Ask Posit Assistant to explain, fix, or improve a Quarto document, and fix and explain chunk errors.
 
 ### Git commit messages
 

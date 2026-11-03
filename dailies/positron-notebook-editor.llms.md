@@ -73,7 +73,7 @@ The Positron Notebook Editor integrates with [Posit Assistant](assistant.llms.md
 - **Dynamic Suggestions**: Assistant follows your work and dynamically suggests actions to improve your notebook.
 - **Actionable Editing**: With your permission, Assistant can directly edit and run cells in your notebook.
 - **Transparent**: You can inspect and control the specific context the Assistant is using.
-- **Collaborative**: Use [Follow Assistant](#follow-assistant) to automatically scroll and highlight cells as they are edited.
+- **Collaborative**: The notebook [follows the assistant’s edits](#follow-assistant), so it scrolls to and highlights cells as they change.
 
 ### Enable Posit Assistant
 
@@ -81,13 +81,13 @@ To use the integrated notebook AI features, first configure a language model pro
 
 Once you are signed in, you will see assistant specific actions in the notebook editor action bar. To disable notebook AI features, set [`notebook.ai.enabled`](positron://settings/notebook.ai.enabled) to `false`. See [Configure AI features](ai-configuration.llms.md) for other ways to turn AI features on and off.
 
-[![Notebook action bar showing the Assistant icon button.](images/positron-notebook-assistant-action-bar.png)](images/positron-notebook-assistant-action-bar.png "The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle.")
+[![Notebook action bar showing the Ask Assistant icon button.](images/positron-notebook-assistant-action-bar.png)](images/positron-notebook-assistant-action-bar.png "The Positron Notebook Editor action bar showing the Ask Assistant button.")
 
-The Positron Notebook Editor action bar showing the Assistant button and Follow Assistant toggle.
+The Positron Notebook Editor action bar showing the Ask Assistant button.
 
 ### Notebook Assistant panel
 
-The Notebook Assistant panel provides a quick way to interact with Assistant directly from your notebook. To open it, select the **Assistant** icon button in the notebook editor action bar.
+The Notebook Assistant panel provides a quick way to interact with Assistant directly from your notebook. To open it, select the **Ask Assistant** icon button in the notebook editor action bar.
 
 [![Notebook Assistant panel showing context cells, quick actions like Fix, Explain, and Improve, and AI-generated suggestions based on the notebook state.](images/positron-notebook-assistant-panel.png)](images/positron-notebook-assistant-panel.png "The Notebook Assistant panel showing the cells included in the context, quick actions to fix, explain, or improve the current notebook, and an action to generate AI suggestions based off the current state of the notebook.")
 
@@ -95,11 +95,11 @@ The Notebook Assistant panel showing the cells included in the context, quick ac
 
 From the panel, you can:
 
-- **View context**: See which cells are included in the Assistant context
-- **Quick actions**: Run common actions like explaining the contents of a notebook or fixing errors in a notebook
-- **Generate suggestions**: View dynamically generated suggestions based on the current state of the notebook
+- **Change notebook settings**: Turn **Show edit diffs**, **Auto-follow edits**, and **Ghost cell suggestions** on or off for this notebook only. Each switch follows your global setting until you change it. Select **Open global settings** to change the default for all notebooks.
+- **View context**: See which cells Posit Assistant uses as context.
+- **Ask Assistant to**: Choose **Explain This Notebook**, **Fix Errors and Issues**, or **Improve This Notebook**.
 
-Selecting an option from the panel will open a new [**Chat** pane](assistant-chat.llms.md) with the notebook context already attached.
+You can also select **Generate AI Suggestions** to get prompts based on your file. Or, type your own request in the **Or enter a custom prompt** box. When you choose any action, suggestion, or custom prompt, Positron starts a new chat in [Posit Assistant](assistant.llms.md) and sends the prompt.
 
 ### Fix and explain cell errors
 
@@ -118,7 +118,7 @@ To enable ghost cell suggestions, set [`positron.assistant.notebook.ghostCellSug
 
 ### Follow assistant
 
-When the Assistant is actively editing cells in your notebook, you may want to watch its progress. Select **Follow Assistant** in the notebook editor action bar to have the notebook automatically scroll to cells as they are edited. This lets you review changes in real-time.
+When Posit Assistant edits cells in your notebook, the notebook scrolls to each cell as it changes and highlights it. This lets you review changes as they happen. To stop following edits in all notebooks, set [`positron.assistant.notebook.autoFollow`](positron://settings/positron.assistant.notebook.autoFollow) to `false`. To stop following edits in one notebook only, turn off **Auto-follow edits** in the [Notebook Assistant panel](#notebook-assistant-panel).
 
 ## Customization & settings
 
@@ -145,6 +145,7 @@ When the Assistant is actively editing cells in your notebook, you may want to w
 - [`positron.assistant.notebook.deletionSentinel.show`](positron://settings/positron.assistant.notebook.deletionSentinel.show): Show deletion sentinels when cells are deleted. When disabled, cells are deleted immediately without undo placeholders. Enabled by default.
 - [`positron.assistant.notebook.deletionSentinel.timeout`](positron://settings/positron.assistant.notebook.deletionSentinel.timeout): Time in milliseconds before deletion sentinels auto-dismiss (0 to disable auto-dismiss).
 - [`positron.assistant.notebook.showDiff`](positron://settings/positron.assistant.notebook.showDiff): Show a diff view for AI assistant edits to notebook cells. When disabled, the assistant applies changes directly without requiring approval. Enabled by default.
+- [`positron.assistant.notebook.autoFollow`](positron://settings/positron.assistant.notebook.autoFollow): Automatically scroll to and highlight cells that the AI assistant changes. This setting also applies to [Quarto documents with inline output](quarto-inline-output.llms.md#follow-assistant-edits). Enabled by default.
 
 #### Ghost cell suggestions (experimental)
 

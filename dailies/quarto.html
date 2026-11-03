@@ -856,7 +856,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#support-for-r-markdown" id="toc-support-for-r-markdown" class="nav-link active" data-scroll-target="#support-for-r-markdown">Support for R Markdown</a></li>
+  <li><a href="#quarto-ai-actions" id="toc-quarto-ai-actions" class="nav-link active" data-scroll-target="#quarto-ai-actions">AI actions</a></li>
+  <li><a href="#support-for-r-markdown" id="toc-support-for-r-markdown" class="nav-link" data-scroll-target="#support-for-r-markdown">Support for R Markdown</a></li>
   <li><a href="#using-the-quarto-extension" id="toc-using-the-quarto-extension" class="nav-link" data-scroll-target="#using-the-quarto-extension">Using the Quarto extension</a></li>
   <li><a href="#managing-quarto-installations" id="toc-managing-quarto-installations" class="nav-link" data-scroll-target="#managing-quarto-installations">Managing Quarto installations</a></li>
   </ul>
@@ -917,6 +918,15 @@ Note
 <p>Quarto’s <a href="https://quarto.org/docs/tools/positron/visual-editor.html">visual editor</a> has limited support in Positron. It is a great fit for rich text authoring, but statement execution and other language features are not supported. Consider switching to source mode when you need such features, and <a href="https://github.com/posit-dev/positron/issues/1805">follow along on GitHub for updates</a> on this support.</p>
 </div>
 </div>
+<section id="quarto-ai-actions" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-ai-actions">AI actions</h2>
+<p>Positron integrates with <a href="./assistant.html">Posit Assistant</a> to help you write and improve Quarto documents. To use AI actions, first <a href="./assistant-getting-started.html">set up a language model provider</a>. Then select the <strong>Ask Assistant</strong> icon button in the Quarto editor action bar to open the Assistant panel for your document.</p>
+<p>From the panel, you can ask Posit Assistant to <strong>Explain This Document</strong>, <strong>Fix Errors and Issues</strong>, or <strong>Improve This Document</strong>. These actions work with all parts of your document, including prose, code chunks, chunk options, and YAML front matter.</p>
+<p>You can also select <strong>Generate AI Suggestions</strong> to get prompts based on your file. Or, type your own request in the <strong>Or enter a custom prompt</strong> box. When you choose any action, suggestion, or custom prompt, Positron starts a new chat in <a href="./assistant.html">Posit Assistant</a> and sends the prompt.</p>
+<p>The new chat includes your Quarto document as context.</p>
+<p>AI actions work whether or not you use <a href="./quarto-inline-output.html">inline output</a>. With inline output turned on, Posit Assistant can also run chunks and read their output. The editor <a href="./quarto-inline-output.html#follow-assistant-edits">follows the edits it makes</a>, and you can <a href="./quarto-inline-output.html#quarto-fix-and-explain">fix and explain chunk errors</a>.</p>
+<p>Positron hides the <strong>Ask Assistant</strong> button when <a href="positron://settings/ai.enabled"><code>ai.enabled</code></a> is <code>false</code>. See <a href="./ai-configuration.html">Configure AI features</a> for other ways to turn AI features on and off.</p>
+</section>
 <section id="support-for-r-markdown" class="level2">
 <h2 class="anchored" data-anchor-id="support-for-r-markdown">Support for R Markdown</h2>
 <p>Quarto provides Positron’s support for <a href="https://rmarkdown.rstudio.com/">R Markdown</a>; there is limited specialized IDE support for R Markdown other than what is provided by Quarto. Some advanced <code>.Rmd</code> features like using <code>params</code> are not supported for interactive use.</p>
