@@ -12,21 +12,21 @@ Welcome to the 2026.11.0 release of Positron!
 
 #### Object Explorer
 
-Our new Object Explorer is like the [Data Explorer](https://positron.posit.co/data-explorer?utm_source=positron&utm_medium=referral&utm_campaign=positron-2026-11-release-highlights&utm_content=object-explorer-section), but for data that is not rectangular, such as R lists, model fits, Python dicts, and JSON files. It resolves [the most upvoted issue](https://github.com/posit-dev/positron/issues/3028) that we closed in this release.
+Our new Object Explorer is like the [Data Explorer](https://positron.posit.co/data-explorer?utm_source=positron&utm_medium=referral&utm_campaign=positron-2026-11-release-highlights&utm_content=object-explorer-section), but for data that is not rectangular, such as R lists, model fits, Python dicts, and JSON files. This was the [the most upvoted issue](https://github.com/posit-dev/positron/issues/3028) that we completed this release.
 
 <p align="center"><img src="https://cdn.posit.co/positron/releases/release-notes/assets/2026-11-object-explorer.gif" alt="Opening a nested Python dictionary of model results in the Object Explorer from a Quarto document, expanding test metrics by segment, and opening a nested data frame in the Data Explorer"></p>
 
 The Object Explorer shows your object as a tree with name, type, and value columns, and it opens large or deeply nested objects quickly. You can search across names and values, open a nested data frame in the Data Explorer, and copy the code that gets to any item, such as `fit$coefficients[["wt"]]`. When the variable changes, the Object Explorer updates.
 
-To open the Object Explorer, run `View()` in R or `%view` in Python, or click the view button in the Variables pane. In the editor, you can also use the **Open in Object Explorer** code action on a variable. In Positron notebooks and Quarto documents, nested output shows as a small inline explorer. You can also open a JSON file in the Object Explorer, and generate code to import it into R or Python.
+To open the Object Explorer, run `%view` in Python or `View()` in R, or click the view button in the Variables pane. In the editor, you can also use the **Open in Object Explorer** code action on a variable. In Positron notebooks and Quarto documents, nested output shows as a small inline explorer. You can also open a JSON file in the Object Explorer, and generate code to import it into R or Python.
 
 #### Interpreter selection
 
 For Python, Positron now uses one ranked list to choose the interpreter to start for a project. The list starts with the environment that is active in the shell that launched Positron. Next come [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath), the project environment such as `.venv`, the version in `.python-version`, and then other environments. A project environment starts before interpreter discovery finishes, so your console is ready sooner.
 
-Positron also finds environments one level below the workspace root, such as `app/.venv`. Base and externally managed installs, such as Homebrew Python, no longer start automatically, and instead only start when you select them.
+Positron also finds environments one level below the workspace root, such as at `app/.venv`. Base and externally managed installs, such as Homebrew Python, no longer start automatically and instead only start when you select them.
 
-The interpreter picker groups Python interpreters into project, global, base, and externally managed interpreters, with short labels such as "Python 3.12.4". It also tells you why it suggests an interpreter, for example "project environment". In a folder with no environment, the picker suggests **Create Python Environment** or **Install Python**. This release adds support for Python 3.15 and removes support for Python 3.9.
+The interpreter picker groups Python interpreters into project, global, base, and externally managed interpreters, with short labels such as "Python 3.12.4". It also tells you why it suggests an interpreter, for example because it was identified as the project environment. In a folder with no environment, the picker suggests **Create Python Environment** or **Install Python**. This release adds support for Python 3.15 and removes support for Python 3.9.
 
 For R, the interpreter picker shows all R versions in one group, with your current R first. When you have more than one R version, Positron uses your current R by default, and R no longer starts automatically in a folder with no R files. Positron also finds Pixi R installations when you open a Pixi project.
 
@@ -42,15 +42,15 @@ To try these features with Posit Assistant, enable the [`assistant.previewFeatur
 
 #### Data Connections
 
-[Data Connections](https://positron.posit.co/data-connections?utm_source=positron&utm_medium=referral&utm_campaign=positron-2026-11-release-highlights&utm_content=data-connections-section) now supports MotherDuck. Positron reads your access token from the `motherduck_token` environment variable, so you can browse your databases, preview tables in the Data Explorer, and generate connection code. To keep the connections for one project out of your other workspaces, select **This Workspace Only** when you configure a connection. Group rows such as **Tables** and **Views** now show how many items they hold.
+[Data Connections](https://positron.posit.co/data-connections?utm_source=positron&utm_medium=referral&utm_campaign=positron-2026-11-release-highlights&utm_content=data-connections-section) now supports MotherDuck. Positron reads your access token from the `motherduck_token` environment variable, so you can browse your databases, preview tables in the Data Explorer, and generate connection code. 
 
-Tables that you open from the Data Connections pane have a **Refresh** action in the Data Explorer toolbar. It shows changes made outside Positron and keeps your sort and filters. Scrolling and copying rows from PostgreSQL, Redshift, Snowflake, Databricks, and ODBC connections is now exact. Snowflake `NUMBER` and DuckDB `DECIMAL` values are no longer rounded.
+To keep the connections for one project out of your other workspaces, select **This Workspace Only** when you configure a connection. Group rows such as **Tables** and **Views** now show how many items they hold. Tables that you open from the Data Connections pane have a **Refresh** action in the Data Explorer toolbar. It shows changes made outside Positron and keeps your sort and filters. Scrolling and copying rows from PostgreSQL, Redshift, Snowflake, Databricks, and ODBC connections is now exact. Snowflake `NUMBER` and DuckDB `DECIMAL` values are no longer rounded.
 
 SQL files can now use a data connection for language features. Positron offers table and column completions from the connected database, warns about names that are not in its schema, and follows the SQL dialect of the driver. A status bar item shows the connection for the file. To try these new features, enable the [`sql.enabled`](positron://settings/sql.enabled) setting.
 
 #### A smaller, faster Positron
 
-Positron is about 224 MB smaller on each platform, because its extensions now share one copy of the DuckDB library. The bundled Python kernel has about 1,900 fewer files, and Positron Server and Posit Workbench installs are smaller too. Fewer files help most when you install Positron on a network file system, where startup, upgrades, and antivirus scans slow down with each file.
+Positron is about 224 MB smaller on each platform, because its extensions now share one copy of the DuckDB library. The bundled Python kernel has about 1,900 fewer files, and Positron Server and Posit Workbench installs are smaller too. Fewer files help most when you install Positron on a network file system, where startup, upgrades, and antivirus scans can slow down with each file.
 
 Positron also does less work in the background now. Interpreter discovery no longer runs again on every launch after a long break, and a project environment starts before discovery finishes. On Workbench, Positron stops trying to reconnect after your session exits, and checks your login less often.
 
