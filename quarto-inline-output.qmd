@@ -63,6 +63,12 @@ The main button starts a new chat with the error attached as context. Use the dr
 
 To use Fix and Explain, first [set up a language model provider](assistant-getting-started.qmd). See [Configure AI features](ai-configuration.qmd) for ways to turn AI features on and off.
 
+## Follow assistant edits {#follow-assistant-edits}
+
+When inline output is on, Posit Assistant can add, change, delete, and run chunks in your document, like it does in the [Positron Notebook Editor](positron-notebook-editor.qmd#ai-integration). As Posit Assistant edits a chunk, the editor scrolls to that chunk so you can review changes as they happen. To stop following edits, set [`positron.assistant.notebook.autoFollow`](positron://settings/positron.assistant.notebook.autoFollow) to `false`. This setting applies to both Quarto documents and notebooks.
+
+When inline output is off, the editor does not follow edits from Posit Assistant. You can still use the [AI actions](quarto.qmd#quarto-ai-actions) in the Quarto editor action bar.
+
 ## Limitations
 
 Inline output for Quarto documents is a new feature in Positron, and has some differences from the RStudio implementation you may be familiar with. The following limitations apply; links go to GitHub issues.

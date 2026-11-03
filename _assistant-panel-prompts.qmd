@@ -1,0 +1,1 @@
+You can also select **Generate AI Suggestions** to get prompts based on your file. Or, type your own request in the **Or enter a custom prompt** box. When you choose any action, suggestion, or custom prompt, Positron starts a new chat in [Posit Assistant](assistant.qmd) and sends the prompt.

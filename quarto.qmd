@@ -20,6 +20,20 @@ Learn more in the Quarto documentation about [getting started with Quarto and Po
 Quarto's [visual editor](https://quarto.org/docs/tools/positron/visual-editor.html) has limited support in Positron. It is a great fit for rich text authoring, but statement execution and other language features are not supported. Consider switching to source mode when you need such features, and [follow along on GitHub for updates](https://github.com/posit-dev/positron/issues/1805) on this support.
 :::
 
+## AI actions {#quarto-ai-actions}
+
+Positron integrates with [Posit Assistant](assistant.qmd) to help you write and improve Quarto documents. To use AI actions, first [set up a language model provider](assistant-getting-started.qmd). Then select the **Ask Assistant** icon button in the Quarto editor action bar to open the Assistant panel for your document.
+
+From the panel, you can ask Posit Assistant to **Explain This Document**, **Fix Errors and Issues**, or **Improve This Document**. These actions work with all parts of your document, including prose, code chunks, chunk options, and YAML front matter.
+
+{{< include "_assistant-panel-prompts.qmd" >}}
+
+The new chat includes your Quarto document as context.
+
+AI actions work whether or not you use [inline output](quarto-inline-output.qmd). With inline output turned on, Posit Assistant can also run chunks and read their output. The editor [follows the edits it makes](quarto-inline-output.qmd#follow-assistant-edits), and you can [fix and explain chunk errors](quarto-inline-output.qmd#quarto-fix-and-explain).
+
+Positron hides the **Ask Assistant** button when [`ai.enabled`](positron://settings/ai.enabled) is `false`. See [Configure AI features](ai-configuration.qmd) for other ways to turn AI features on and off.
+
 ## Support for R Markdown
 
 Quarto provides Positron's support for [R Markdown](https://rmarkdown.rstudio.com/); there is limited specialized IDE support for R Markdown other than what is provided by Quarto. Some advanced `.Rmd` features like using `params` are not supported for interactive use. 
