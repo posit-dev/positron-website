@@ -29,7 +29,7 @@ When you install a recognized ODBC driver, dedicated entries for databases such 
 
 Let us know which additional databases and warehouses you need in the [Positron GitHub discussions](https://github.com/posit-dev/positron/discussions).
 
-To create connections and work with them, see [Using Data Connections](using-data-connections.llms.md).
+To create connections and work with them, see [Using Data Connections](using-data-connections.llms.md). To write and run SQL against a connection in a `.sql` file, see [SQL in Positron](guide-sql.llms.md).
 
 ## Settings
 
