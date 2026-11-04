@@ -10,17 +10,14 @@ listing:
         description: "Settings, IPython magics, and formatting for interactive data science"
         icon: "bi-terminal"
         link: "guide-python.qmd"
-        columns: 2
       - title: "R in Positron"
         description: "Keyboard shortcuts, formatting, and debugging for R development"
         icon: "bi-graph-up"
         link: "guide-r.qmd"
-        columns: 2
-      - title: "SQL in Positron (experimental)"
-        description: "Completions, warnings, and running statements against a data connection"
+      - title: "SQL in Positron"
+        description: "Completions, warnings, and statement execution against a data connection"
         icon: "bi-database"
         link: "guide-sql.qmd"
-        columns: 2
 ---
 
 Positron ships with first-class support for Python and R, making it an ideal environment for data science workflows in either language. Experimental support for SQL lets you write and run queries against your data connections. Each language has dedicated features, settings, and tools to enhance your development experience.
