@@ -24,7 +24,7 @@ To open the Object Explorer, run `%view` in Python or `View()` in R, or click th
 
 For Python, Positron now uses one ranked list to choose the interpreter to start for a project. The list starts with the environment that is active in the shell that launched Positron. Next come [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath), the project environment such as `.venv`, the version in `.python-version`, and then other environments. A project environment starts before interpreter discovery finishes, so your console is ready sooner.
 
-Positron also finds environments one level below the workspace root, such as at `app/.venv`. Base and externally managed installs, such as Homebrew Python, no longer start automatically and instead only start when you select them.
+Positron also finds environments one level below the workspace root, such as at `app/.venv`. Base and externally managed installs, such as Homebrew Python, now only start when you select them.
 
 The interpreter picker groups Python interpreters into project, global, base, and externally managed interpreters, with short labels such as "Python 3.12.4". It also tells you why it suggests an interpreter, for example because it was identified as the project environment. In a folder with no environment, the picker suggests **Create Python Environment** or **Install Python**. This release adds support for Python 3.15 and removes support for Python 3.9.
 
