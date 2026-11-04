@@ -150,6 +150,7 @@ website:
               - guide-r-debugging.qmd
               - guide-r-session-hooks.qmd
               - guide-r-air.qmd
+            - guide-sql.qmd
         - section: "Data Analysis"
           contents:
             - section: "Data Explorer"
@@ -169,7 +170,6 @@ website:
             - text: "Overview"
               href: data-connections.qmd
             - using-data-connections.qmd
-            - sql-editor.qmd
             - connections-pane.qmd
             - extending-connections.qmd 
         - section: "Dynamic Documents and Apps"

@@ -1,12 +1,14 @@
 ---
-title: "SQL editor"
+title: "SQL in Positron"
 description: "Write and run SQL in Positron. Link each .sql file to a data connection for table and column completions and warnings for unknown names, and run statements in a ggsql console."
 ---
 
-Positron can link a `.sql` file to one of your [data connections](data-connections.qmd). The file then gets table and column completions from that database, hover information, warnings for names the database does not have, and links to the **Data Connections** view. You can also run the statement under the cursor with {{< kbd mac=Command-Enter win=Ctrl-Enter linux=Ctrl-Enter >}}. Statements run in a [ggsql](https://ggsql.org) console that is connected to the same database.
+SQL support in Positron builds on [Data Connections](data-connections.qmd). When you link a `.sql` file to one of your data connections, the file gets table and column completions from that database, hover information, warnings for names the database does not have, and links to the **Data Connections** view.
+
+You can also run the statement under the cursor with {{< kbd mac=Command-Enter win=Ctrl-Enter linux=Ctrl-Enter >}}, as you do in [Python](guide-python.qmd) and [R](guide-r.qmd). Statements run in a [ggsql](https://ggsql.org) console connected to the same database.
 
 ::: {.callout-important}
-The SQL editor is an experimental feature, and you must turn it on. Enable the [`sql.enabled`](positron://settings/sql.enabled) setting. The change takes effect without a reload.
+SQL support is an experimental feature, and you must turn it on. Enable the [`sql.enabled`](positron://settings/sql.enabled) setting. The change takes effect without a reload.
 :::
 
 ## Choose a connection for a file
@@ -77,7 +79,7 @@ In a [Quarto](quarto.qmd) document, `{sql}` code cells get the same completions,
 
 ## Settings
 
-- [`sql.enabled`](positron://settings/sql.enabled): Turn on the SQL editor for `.sql` files. Disabled by default.
+- [`sql.enabled`](positron://settings/sql.enabled): Turn on SQL support for `.sql` files. Disabled by default.
 - [`sql.dialect`](positron://settings/sql.dialect): The SQL dialect used to parse `.sql` files. **Automatic** (the default) follows each file's data connection. Choose a dialect to use it for every file.
 - [`sql.diagnostics.enabled`](positron://settings/sql.diagnostics.enabled): Show syntax errors and unknown names in SQL files. Enabled by default.
 - [`sql.diagnostics.unknownNames`](positron://settings/sql.diagnostics.unknownNames): Show a warning for table and column names that are not in the file's data connection. Enabled by default.
