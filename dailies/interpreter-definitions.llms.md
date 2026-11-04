@@ -1,0 +1,162 @@
+# Interpreter definitions
+
+Define custom interpreters in Positron with their own labels, environment variables, environment modules, and startup scripts.
+
+Positron finds R and Python interpreters on your system on its own, and starts them with the usual environment. For most interpreters, you do not need to do anything more.
+
+Use interpreter definitions when you need custom behavior, such as:
+
+- An interpreter that needs extra setup before it starts, such as environment variables, environment modules, or a shell script that prepares the environment.
+- An interpreter in a nonstandard location that Positron does not find on its own.
+- A fixed list of interpreters, so that Positron does not look for other interpreters.
+
+Use the [`interpreters.definitions`](positron://settings/interpreters.definitions) setting to define these interpreters. Each entry defines an interpreter with its own label in the Interpreter picker. Positron applies the setup each time it starts a session for that interpreter.
+
+You can use [`interpreters.discovery`](positron://settings/interpreters.discovery) to make the defined interpreters the only ones available for a language. Positron then does not search your system for interpreters, which can make startup faster.
+
+## Define an interpreter
+
+Add entries to `interpreters.definitions` in your user settings JSON file. Use the *Preferences: Open User Settings (JSON)* command to open it. For example:
+
+``` json
+{
+    "interpreters.definitions": [
+        {
+            "language": "python",
+            "path": "/opt/python/3.12.8/bin/python",
+            "label": "Python 3.12 (project data)",
+            "env": {
+                "DATA_DIR": "/shared/data"
+            },
+            "startupScript": "~/scripts/setup-python.sh"
+        }
+    ]
+}
+```
+
+Each entry has these fields:
+
+| Field | Required | Description |
+|----|----|----|
+| `language` | Yes | The language of the interpreter: `r` or `python`. |
+| `path` | Yes | The absolute path of the interpreter executable, such as `/opt/R/4.5.2/bin/R`. Do not use `~` or other shortened paths. |
+| `label` | Yes | The name shown in the Interpreter picker. Each label must be unique for a language. |
+| `env` | No | Environment variables to set for the interpreter, as name and value pairs. |
+| `modules` | No | [Environment modules](environment-modules.llms.md) to load, in order, before the interpreter starts. Not supported on Windows. |
+| `startupScript` | No | The path of a shell script to run before the interpreter starts. Positron expands a leading `~` to your home folder. Not supported on Windows. |
+
+Positron ignores an entry if a required field is missing, or if a field has the wrong type. If two entries have the same `language` and `label`, Positron uses only the first.
+
+You can set `interpreters.definitions` only in user or remote settings, not in workspace settings. A definition can run a startup script, load environment modules, and start any executable. If workspace settings could set it, a folder that you open, such as a cloned repository, could run code on your computer.
+
+## Where defined interpreters appear
+
+Each defined interpreter appears in the Interpreter picker with your label. If Positron also discovers the same interpreter on its own, the original interpreter stays in the list next to the defined one. Positron matches the `path` exactly, so use the same path that the Interpreter picker shows for the interpreter. If the `path` is a different path to the same interpreter, such as a symbolic link, Positron treats it as an interpreter that it does not discover.
+
+You can also define an interpreter in a nonstandard location that Positron does not discover. In this case, Positron uses the `path` to find it, and only the defined interpreter appears in the list. Restart Positron after you add the definition to make the interpreter appear.
+
+You can define more than one interpreter for the same `path`, each with a different `label`. For example, define one R interpreter that loads a set of modules, and another one that loads a different set.
+
+## How Positron starts a defined interpreter
+
+Each time a session for a defined interpreter starts or restarts, Positron prepares its environment in this order:
+
+1.  Positron starts with the usual environment for the interpreter, and adds the variables in `env`.
+2.  Positron loads the environment modules in `modules`, in order.
+3.  Positron sources `startupScript` with bash. If environment modules are installed, the `module` command is available to the script.
+
+Positron then starts the interpreter with all the environment variables that the modules and the script set or change. Variables that the modules or the script unset stay set for the interpreter. If a module fails to load, if the script exits with an error, or if the setup takes more than 30 seconds, the session does not start, and Positron shows the error output.
+
+### Terminals
+
+Positron applies the same environment variables to terminals when a console session for a defined interpreter is the active session. For variables such as `PATH`, Positron adds only the part that the definition added, so changes from other extensions stay in place.
+
+## Use only defined interpreters
+
+To make the defined interpreters the only available interpreters, set [`interpreters.discovery`](positron://settings/interpreters.discovery) to `definitionsOnly`. Positron then does not look for other interpreters, and ignores the other discovery settings, such as [`python.interpreters.include`](positron://settings/python.interpreters.include) and [`positron.r.customRootFolders`](positron://settings/positron.r.customRootFolders). The exception is [`python.interpreters.exclude`](positron://settings/python.interpreters.exclude) and [`python.interpreters.override`](positron://settings/python.interpreters.override): if they filter out a defined Python interpreter, it does not appear.
+
+You can set `interpreters.discovery` for each language. For example, to use only defined interpreters for Python, but keep the usual discovery for R:
+
+``` json
+{
+    "[python]": {
+        "interpreters.discovery": "definitionsOnly"
+    }
+}
+```
+
+Restart Positron after you change `interpreters.discovery`.
+
+## Which interpreter starts
+
+The [Interpreter startup](interpreter-startup.llms.md) rules also apply to defined interpreters, with these differences:
+
+- When `interpreters.discovery` is `auto` (the default), a defined interpreter is an additional choice. When Positron selects an interpreter for you, it selects the original interpreter, not the defined one. To use the defined interpreter, select it from the Interpreter picker. In later runs, Positron starts it again in that workspace.
+- When `interpreters.discovery` is `definitionsOnly`, Positron selects an interpreter as usual, then starts the defined interpreter for that path in its place. If more than one definition has the same `path`, Positron uses the first one.
+
+If a workspace last used a defined interpreter and you remove its definition, Positron does not start the original interpreter in its place. Instead, the session does not start and Positron shows an error. When `interpreters.discovery` is `definitionsOnly`, a workspace that last used an interpreter that is not defined also shows an error. Select a different interpreter from the Interpreter picker to continue.
+
+## Examples
+
+### R with environment modules
+
+This definition loads two modules before R starts:
+
+``` json
+{
+    "interpreters.definitions": [
+        {
+            "language": "r",
+            "path": "/opt/R/4.5.2/bin/R",
+            "label": "R 4.5.2 (GDAL)",
+            "modules": ["R/4.5.2", "gdal/3.10"]
+        }
+    ]
+}
+```
+
+Positron has two ways to use interpreters from environment modules:
+
+- An interpreter definition, as in this example, starts the interpreter at a known `path` and loads the modules first. Use it when you also need environment variables or a startup script.
+- The [`positron.environmentModules.environments`](positron://settings/positron.environmentModules.environments) setting loads a set of modules and then finds the interpreters on the `PATH`. Use it when you do not know the interpreter path, or when one set of modules provides interpreters for more than one language, such as both R and Python. See [Environment Modules](environment-modules.llms.md).
+
+### Python with a startup script
+
+This definition runs a script that sets environment variables before Python starts:
+
+``` json
+{
+    "interpreters.definitions": [
+        {
+            "language": "python",
+            "path": "/opt/python/3.12.8/bin/python",
+            "label": "Python 3.12 (licensed tools)",
+            "startupScript": "~/scripts/licensed-tools.sh"
+        }
+    ]
+}
+```
+
+### Only defined R interpreters
+
+These settings make two defined R interpreters the only R interpreters in Positron:
+
+``` json
+{
+    "interpreters.definitions": [
+        {
+            "language": "r",
+            "path": "/opt/R/4.4.3/bin/R",
+            "label": "R 4.4 (team default)"
+        },
+        {
+            "language": "r",
+            "path": "/opt/R/4.5.2/bin/R",
+            "label": "R 4.5 (team default)"
+        }
+    ],
+    "[r]": {
+        "interpreters.discovery": "definitionsOnly"
+    }
+}
+```

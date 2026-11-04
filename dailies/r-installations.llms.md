@@ -48,6 +48,8 @@ You typically need to use absolute paths in these settings and not rely on shell
 
 Positron supports only the `${workspaceFolder}` variable in these settings. In a multi-root workspace, it refers to the first folder. Positron ignores a path that uses any other variable, such as `${env:NAME}`, or that uses `${workspaceFolder}` when no folder is open, and logs the reason.
 
+To give an R installation its own label, environment variables, environment modules, or startup script, see [Interpreter definitions](interpreter-definitions.llms.md).
+
 ## Unsupported R installations
 
 Positron only supports R 4.2 and higher. Older R versions might be discovered in the search described above, but they will be discarded.

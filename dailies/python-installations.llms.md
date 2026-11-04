@@ -178,6 +178,8 @@ These settings and [`python.defaultInterpreterPath`](positron://settings/python.
 
 Positron supports only `${workspaceFolder}` in these settings. In a multi-root workspace, it refers to the first folder. Positron ignores a path that uses any other variable, such as `${env:NAME}`, or that uses `${workspaceFolder}` when no folder is open, and logs the reason.
 
+To give a Python installation its own label, environment variables, environment modules, or startup script, use [`interpreters.definitions`](positron://settings/interpreters.definitions). See [Interpreter definitions](interpreter-definitions.llms.md).
+
 ### Environment providers
 
 - [`python.environmentProviders.enabled`](positron://settings/python.environmentProviders.enabled): Choose which tools (`Venv`, `Conda`, `uv`) Positron offers when you create an environment. This setting does not change which environments Positron discovers.

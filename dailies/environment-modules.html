@@ -754,6 +754,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./interpreter-definitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpreter definitions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./packages-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Packages Pane</span></a>
   </div>
@@ -956,6 +962,7 @@ Note
 <li>An array of <strong>languages</strong> to use with the module environment – <code>["r"]</code> in this example. These are the languages, in the form of lowercase <a href="https://code.visualstudio.com/docs/languages/identifiers">language identifiers</a>, for which interpreters will be sought. Interpreters are discovered by loading the module and then using <code>which</code> to find the interpreter on the path. For example, for R, it is presumed that the module will put <code>R</code> on the path.</li>
 <li>An array of <strong>modules</strong> to load before starting the interpreter – <code>["R/4.4.2", "other/version"]</code> in this example. Each module will be loaded in turn before the interpreter is started.</li>
 </ul>
+<p>To load modules for an interpreter at a known path, and also set environment variables or run a startup script, use the <code>modules</code> field of an <a href="./interpreter-definitions.html">interpreter definition</a> instead.</p>
 </section>
 <section id="usage" class="level2">
 <h2 class="anchored" data-anchor-id="usage">Usage</h2>
