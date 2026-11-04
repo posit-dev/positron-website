@@ -51,15 +51,29 @@ Statements run in a ggsql console connected to the file's database:
 
 Positron never reconnects a ggsql console to a different database, because reconnecting discards any in-memory data in that console. Files linked to different databases each get their own console.
 
-A statement can include a ggsql visualization after its query, for example, `SELECT ... VISUALISE x, y DRAW line`. {{< kbd mac=Command-Enter win=Ctrl-Enter linux=Ctrl-Enter >}} runs the query and the visualization together. See the [ggsql documentation](https://ggsql.org) to learn the syntax.
+A statement can include a ggsql visualization after its query, for example, `SELECT ... VISUALISE x, y DRAW line`. {{< kbd mac=Command-Enter win=Ctrl-Enter linux=Ctrl-Enter >}} runs the query and the visualization together, and the plot appears in the [Plots pane](plots-pane.qmd). See the [ggsql documentation](https://ggsql.org) to learn the syntax.
 
-::: {.callout-note}
+::: {.callout-important}
 Positron does not bundle ggsql. To run SQL, [install the ggsql extension](https://ggsql.org/get_started/installation.html). If it is not installed, Positron shows a notification that offers **Install ggsql**.
-
-Running SQL supports DuckDB and SQLite connections only. For other databases, the editing features above still work, and Positron explains that ggsql cannot connect when you run a statement.
 :::
 
+### Supported databases
+
+You can run SQL against DuckDB, SQLite, MotherDuck, PostgreSQL, Redshift, and ODBC connections. ggsql reaches PostgreSQL and Redshift through ODBC, so you also need the ODBC driver for that database installed.
+
+You cannot run SQL against Snowflake or Databricks connections, or against MotherDuck on Windows. Completions, warnings, and hover still work for these connections.
+
 If a statement does not run, Positron shows a notification with the reason, for example, when the file has no connection or ggsql cannot connect to the database. When ggsql reports a connection error, the details appear in the **Console**.
+
+::: {.callout-note}
+DuckDB allows only one process to open a database file for writing. If the same DuckDB file is open in the **Data Connections** view, running SQL against it fails with a lock error. Collapse the connection in the **Data Connections** view to disconnect it, and then run the statement again.
+:::
+
+## SQL in Quarto documents
+
+In a [Quarto](quarto.qmd) document, `{sql}` code cells get the same completions, warnings, and hover as `.sql` files. A Quarto document is not linked to a data connection, so SQL cells use the only open data connection. If more than one connection is open, or none are, SQL cells get keyword completions only.
+
+{{< kbd mac=Command-Enter win=Ctrl-Enter linux=Ctrl-Enter >}} does not run SQL cells in a ggsql console. Running statements in ggsql works in `.sql` files only.
 
 ## Settings
 
