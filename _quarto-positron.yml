@@ -148,6 +148,7 @@ website:
               - guide-r-debugging.qmd
               - guide-r-session-hooks.qmd
               - guide-r-air.qmd
+            - guide-sql.qmd
         - section: "Data Analysis"
           contents:
             - section: "Data Explorer"

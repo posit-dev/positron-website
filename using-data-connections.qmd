@@ -36,7 +36,7 @@ Data Connections can generate ready-to-run code so you can use a connection in y
 - Review the generated **Connection Code**.
 - Select **Copy** to copy the code to the clipboard, **Create Script** to open it in a new file, or **Connect** to run it in the active console.
 
-The [ggsql](https://ggsql.org) option generates a query for that SQL extension for declarative data visualization. It is available for SQLite, DuckDB, ODBC, PostgreSQL, and Redshift connections.
+The [ggsql](https://ggsql.org) option generates a query for that SQL extension for declarative data visualization. It is available for SQLite, DuckDB, ODBC, PostgreSQL, and Redshift connections. To write SQL in a `.sql` file and run it in a ggsql console, see [SQL in Positron](guide-sql.qmd).
 
 ::: {.callout-note}
 Positron does not bundle ggsql. To run the generated code, [install the ggsql extension](https://ggsql.org/get_started/installation.html) for Positron. If ggsql is not installed when you connect, Positron explains what is missing and links to the installation instructions.
