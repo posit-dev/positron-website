@@ -6,7 +6,9 @@ Control how Python and R interpreters start in Positron. Learn about automatic d
 
 When Positron starts for the first time in a new workspace, it will start a Python and/or R interpreter session based on your workspace characteristics and whether there is evidence of RStudio being used recently.
 
-Typically when starting Python or R without other clues about which version to start, Positron will start the most recent version of the interpreter (e.g., if you have R 4.2 and R 4.3 installed, it’ll start R 4.3).
+Python starts right away in a folder that has Python files or a project environment. For which Python starts, see [Which Python starts](python-installations.llms.md#which-python-starts).
+
+R starts right away in a folder that has R files, such as `.R`, `.Rmd`, `.Rproj`, or `renv.lock`. Positron starts your system’s default R version. If you have no default R, it starts the most recent version (e.g., if you have R 4.2 and R 4.3 installed, it’ll start R 4.3).
 
 See the [Python discovery](python-installations.llms.md) and [R discovery](r-installations.llms.md) guides for more information on language-specific installations.
 
@@ -19,6 +21,8 @@ Positron tries to start R for R users and Python for Python users by checking to
 When Positron starts in a workspace that has been used before, it will start the same language interpreter that was running the last time you used the workspace.
 
 In the case of R, there is some additional subtlety. When Positron records which R version was most recently used in a workspace, it also notes whether that R version is the system’s default R version. In subsequent runs, Positron will launch the system’s default R version, even if that is a different version number from the last-used R version. We believe this behaviour is the least surprising for most users. If you want to use a specific, non-default R version in a workspace, select it explicitly once and it will be launched in future runs.
+
+To start the same interpreter every time Positron opens a folder, in place of the one you used last, set [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath) or [`positron.r.interpreters.default`](positron://settings/positron.r.interpreters.default).
 
 If Positron starts an interpreter you don’t need, just delete the session, and that interpreter will no longer start automatically in that workspace.
 

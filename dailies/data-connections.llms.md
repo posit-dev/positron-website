@@ -18,6 +18,7 @@ Data Connections includes drivers for the following data sources:
 |----|----|
 | Databricks | Personal access token, OAuth user-to-machine (U2M), or OAuth machine-to-machine (M2M) authentication. On Posit Workbench, connections can use the managed credentials of the session. Browse Unity Catalog catalogs, schemas, tables, views, and volumes. |
 | DuckDB | Connect to DuckDB database files, with a read-only option. |
+| MotherDuck | Reads your access token from the `motherduck_token` environment variable, with a read-only option. |
 | ODBC | Any database with a locally installed ODBC driver, via a configured data source name (DSN), server and driver details, or a connection string. |
 | Posit Connect Pins | Browse and download [pins](https://docs.posit.co/connect/user/pins/) published on [Connect](https://posit.co/products/enterprise/connect), and authenticate with environment variables, browser sign-in, or an API key. |
 | PostgreSQL | User and password, local server (no password), client certificate (SSL), or connection string. |

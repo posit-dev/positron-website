@@ -15,28 +15,9 @@
     ]
   },
   {
-    "listing": "/features.html",
-    "items": []
-  },
-  {
-    "listing": "/assistant-getting-started.html",
-    "items": []
-  },
-  {
-    "listing": "/ai-features.html",
-    "items": []
-  },
-  {
-    "listing": "/assistant.html",
-    "items": []
-  },
-  {
-    "listing": "/language-guides.html",
-    "items": []
-  },
-  {
     "listing": "/older-releases.html",
     "items": [
+      "/release-notes/release-2026-10.html",
       "/release-notes/release-2026-09.html",
       "/release-notes/release-2026-08.html",
       "/release-notes/release-2026-07.html",
@@ -53,5 +34,25 @@
       "/release-notes/release-2025-08.html",
       "/release-notes/release-2025-07.html"
     ]
+  },
+  {
+    "listing": "/language-guides.html",
+    "items": []
+  },
+  {
+    "listing": "/assistant.html",
+    "items": []
+  },
+  {
+    "listing": "/ai-features.html",
+    "items": []
+  },
+  {
+    "listing": "/assistant-getting-started.html",
+    "items": []
+  },
+  {
+    "listing": "/features.html",
+    "items": []
   }
 ]

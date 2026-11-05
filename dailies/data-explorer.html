@@ -243,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </nav>
   <div id="quarto-announcement" data-announcement-id="687d7ef531e974cef1bf7d0f11614fac" class="alert alert-danger hidden"><i class="bi bi-cone-striped quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p>You are viewing the development version of Positron documentation for the dailies (2026.11.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
+<p>You are viewing the development version of Positron documentation for the dailies (2026.12.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
 </div></div>
 </header>
 <!-- content -->
@@ -966,6 +966,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>In Python, you can also use the <code>%view</code> magic with expressions, for example <code>%view df[df['column'] &gt; 10]</code>. In R, you can compose the <code>View</code> function with expressions using pipe syntax:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">doubled_column =</span> column <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> <span class="fu">View</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For data that is not rectangular, such as an R list or a Python dict, these commands open the Object Explorer instead.</p>
 <p>You can directly open <code>.csv</code>, <code>.tsv</code>, <code>.parquet</code>, and <code>.xlsx</code> files (using DuckDB) by selecting a file in the File Explorer or using the Command Palette.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> You can also open compressed CSV, TSV, and Parquet files.</p>
 <p>When you view a data file, the <strong>Import Data</strong> button in the action bar opens the <a href="./import-data.html">Import Data</a> dialog, which generates the Python or R code to load that file into a session and can run it for you.</p>
 <section id="opening-csv-files-as-plain-text" class="level3">
@@ -1408,7 +1409,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.11.0 (development version)</p>
+<p>Positron 2026.12.0 (development version)</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/data-explorer.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/data-explorer.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

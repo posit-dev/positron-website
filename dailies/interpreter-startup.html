@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
   </nav>
   <div id="quarto-announcement" data-announcement-id="687d7ef531e974cef1bf7d0f11614fac" class="alert alert-danger hidden"><i class="bi bi-cone-striped quarto-announcement-icon"></i><div class="quarto-announcement-content">
-<p>You are viewing the development version of Positron documentation for the dailies (2026.11.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
+<p>You are viewing the development version of Positron documentation for the dailies (2026.12.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
 </div></div>
 </header>
 <!-- content -->
@@ -942,7 +942,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="first-run" class="level2">
 <h2 class="anchored" data-anchor-id="first-run">First run</h2>
 <p>When Positron starts for the first time in a new workspace, it will start a Python and/or R interpreter session based on your workspace characteristics and whether there is evidence of RStudio being used recently.</p>
-<p>Typically when starting Python or R without other clues about which version to start, Positron will start the most recent version of the interpreter (e.g., if you have R 4.2 and R 4.3 installed, it’ll start R 4.3).</p>
+<p>Python starts right away in a folder that has Python files or a project environment. For which Python starts, see <a href="./python-installations.html#which-python-starts">Which Python starts</a>.</p>
+<p>R starts right away in a folder that has R files, such as <code>.R</code>, <code>.Rmd</code>, <code>.Rproj</code>, or <code>renv.lock</code>. Positron starts your system’s default R version. If you have no default R, it starts the most recent version (e.g., if you have R 4.2 and R 4.3 installed, it’ll start R 4.3).</p>
 <p>See the <a href="./python-installations.html">Python discovery</a> and <a href="./r-installations.html">R discovery</a> guides for more information on language-specific installations.</p>
 <section id="rstudio-detection" class="level3">
 <h3 class="anchored" data-anchor-id="rstudio-detection">RStudio detection</h3>
@@ -953,6 +954,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="subsequent-runs">Subsequent runs</h2>
 <p>When Positron starts in a workspace that has been used before, it will start the same language interpreter that was running the last time you used the workspace.</p>
 <p>In the case of R, there is some additional subtlety. When Positron records which R version was most recently used in a workspace, it also notes whether that R version is the system’s default R version. In subsequent runs, Positron will launch the system’s default R version, even if that is a different version number from the last-used R version. We believe this behaviour is the least surprising for most users. If you want to use a specific, non-default R version in a workspace, select it explicitly once and it will be launched in future runs.</p>
+<p>To start the same interpreter every time Positron opens a folder, in place of the one you used last, set <a href="positron://settings/python.defaultInterpreterPath"><code>python.defaultInterpreterPath</code></a> or <a href="positron://settings/positron.r.interpreters.default"><code>positron.r.interpreters.default</code></a>.</p>
 <p>If Positron starts an interpreter you don’t need, just delete the session, and that interpreter will no longer start automatically in that workspace.</p>
 </section>
 <section id="implicit-startup" class="level2">
@@ -1417,7 +1419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.11.0 (development version)</p>
+<p>Positron 2026.12.0 (development version)</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/interpreter-startup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/interpreter-startup.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
