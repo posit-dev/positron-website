@@ -38,6 +38,8 @@ In Python, you can also use the `%view` magic with expressions, for example `%vi
 df |> mutate(doubled_column = column * 2) |> View()
 ```
 
+For data that is not rectangular, such as an R list or a Python dict, these commands open the Object Explorer instead.
+
 You can directly open `.csv`, `.tsv`, `.parquet`, and `.xlsx` files (using DuckDB) by selecting a file in the File Explorer or using the Command Palette.^[Use **File Options** in the action bar to configure how DuckDB parses a `.csv` or `.tsv` file.] You can also open compressed CSV, TSV, and Parquet files.
 
 When you view a data file, the **Import Data** button in the action bar opens the [Import Data](import-data.qmd) dialog, which generates the Python or R code to load that file into a session and can run it for you.
