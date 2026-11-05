@@ -28,7 +28,7 @@ Read more about [why virtual environments matter](https://realpython.com/python-
 #### 1. Project environments
 
 Environments associated with the open project, if you have a project folder open.
-In particular, Positron finds any environment at the root of the open project (for example, `.venv/` or `.conda/` folders).
+In particular, Positron finds any environment at the root of the open project (for example, `.venv/` or `.conda/` folders), and environments one folder down, such as `app/.venv/`.
 
 ::: callout-note
 If you do not have a project open, Positron does not find any project environments, like project `.venv/` folders.
@@ -65,8 +65,28 @@ Using a system Python installation in a new session can lead to problems (see th
 For that reason, we recommend using virtual environments.
 :::
 
-The interpreter and session pickers group interpreters by environment type in a similar order, with tool-managed environments such as uv first and system interpreters last.
+The interpreter and session pickers group interpreters under **Project environments**, **Global environments**, and **Externally managed**, with base interpreters at the end of the global group.
+Each row shows a short label, such as "Python 3.12.4", with the tool and environment name in gray.
 To find an interpreter in a picker, search by its name or by part of its path.
+
+## Which Python starts
+
+When a folder has no Python interpreter that you used before, Positron starts the first interpreter in this list:
+
+1. The environment that is active in the shell that launched Positron
+2. The interpreter in [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath)
+3. The project environment at the root of the folder, such as `.venv`, or the pyenv virtualenv named in `.python-version`
+4. The pyenv version named in `.python-version`
+5. Other environments in the folder, starting with the ones one folder down
+6. Interpreters that you configure, for example with [`interpreters.definitions`](positron://settings/interpreters.definitions)
+7. Named environments, such as conda environments, then global environments
+
+If two interpreters are at the same level, Positron starts the newer Python version.
+Positron skips interpreters with an unsupported Python version.
+Base interpreters, such as python.org installs, and system or externally managed interpreters, start only when you select them.
+If you set `python.defaultInterpreterPath`, Positron starts that interpreter even in a folder where you used a different one before.
+
+The picker tells you why it suggests an interpreter, for example "project environment" or "active in your shell".
 
 ## Automatic uv installation
 
@@ -212,7 +232,7 @@ To give a Python installation its own label, environment variables, environment 
 * [`python.environmentProviders.enabled`](positron://settings/python.environmentProviders.enabled): Choose which tools (`Venv`, `Conda`, `uv`) Positron offers when you create an environment. This setting does not change which environments Positron discovers.
 
 ### Discovery behavior
-* [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath): Default Python interpreter path (used only the first time when no other interpreter takes precedence)
+* [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath): The Python interpreter to start each time Positron opens a folder, in place of the one you used last
 * [`python.useBundledIpykernel`](positron://settings/python.useBundledIpykernel): Turn the built-in IPython kernel on or off
 
 ## Related commands
