@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fa79a26539e9ab32e9c754e6b72184dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b700158d5843021e400171345b6180f7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -89,14 +89,14 @@ ul.task-list li input[type="checkbox"] {
 <meta property="og:image" content="https://positron.posit.co/images/quarto-inline-output.png">
 <meta property="og:site_name" content="Positron">
 <meta property="og:image:alt" content="A Quarto document in Positron with a Python code cell and its scatter plot of penguin measurements shown inline below the cell.">
-<meta property="og:image:height" content="2948">
-<meta property="og:image:width" content="2800">
+<meta property="og:image:height" content="1474">
+<meta property="og:image:width" content="1400">
 <meta name="twitter:title" content="Inline output – Positron">
 <meta name="twitter:description" content="Display the output of Quarto cells directly in the source editor in Positron.">
 <meta name="twitter:image" content="https://positron.posit.co/images/quarto-inline-output.png">
 <meta name="twitter:image:alt" content="A Quarto document in Positron with a Python code cell and its scatter plot of penguin measurements shown inline below the cell.">
-<meta name="twitter:image-height" content="2948">
-<meta name="twitter:image-width" content="2800">
+<meta name="twitter:image-height" content="1474">
+<meta name="twitter:image-width" content="1400">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -489,6 +489,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide-sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL in Positron</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -723,6 +729,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./interpreter-definitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpreter definitions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./packages-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Packages Pane</span></a>
   </div>
@@ -860,6 +872,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#consoles" id="toc-consoles" class="nav-link" data-scroll-target="#consoles">Consoles</a></li>
   <li><a href="#managing-outputs" id="toc-managing-outputs" class="nav-link" data-scroll-target="#managing-outputs">Managing outputs</a></li>
   <li><a href="#quarto-fix-and-explain" id="toc-quarto-fix-and-explain" class="nav-link" data-scroll-target="#quarto-fix-and-explain">Fix and explain chunk errors</a></li>
+  <li><a href="#follow-assistant-edits" id="toc-follow-assistant-edits" class="nav-link" data-scroll-target="#follow-assistant-edits">Follow assistant edits</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/quarto-inline-output.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/quarto-inline-output.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -962,6 +975,11 @@ q3[Quarto Doc 3] --&gt; rc3[Interpreter Session 3]
 </ul>
 <p>The main button starts a new chat with the error attached as context. Use the dropdown arrow next to it to send the error to your current chat instead. These buttons only appear for errors from a live run of the chunk, not ones restored from a previous session.</p>
 <p>To use Fix and Explain, first <a href="./assistant-getting-started.html">set up a language model provider</a>. See <a href="./ai-configuration.html">Configure AI features</a> for ways to turn AI features on and off.</p>
+</section>
+<section id="follow-assistant-edits" class="level2">
+<h2 class="anchored" data-anchor-id="follow-assistant-edits">Follow assistant edits</h2>
+<p>When inline output is on, Posit Assistant can add, change, delete, and run chunks in your document, like it does in the <a href="./positron-notebook-editor.html#ai-integration">Positron Notebook Editor</a>. As Posit Assistant edits a chunk, the editor scrolls to that chunk so you can review changes as they happen. To stop following edits, set <a href="positron://settings/positron.assistant.notebook.autoFollow"><code>positron.assistant.notebook.autoFollow</code></a> to <code>false</code>. This setting applies to both Quarto documents and notebooks.</p>
+<p>When inline output is off, the editor does not follow edits from Posit Assistant. You can still use the <a href="./quarto.html#quarto-ai-actions">AI actions</a> in the Quarto editor action bar.</p>
 </section>
 <section id="limitations" class="level2">
 <h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
@@ -1403,7 +1421,7 @@ q3[Quarto Doc 3] --&gt; rc3[Interpreter Session 3]
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.10.2-3</p>
+<p>Positron 2026.11.0-308</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/quarto-inline-output.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/quarto-inline-output.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

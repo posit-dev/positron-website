@@ -1,0 +1,81 @@
+# SQL in Positron
+
+Write and run SQL in Positron. Link each `.sql` file to a data connection for table and column completions and warnings for unknown names, and run statements in a ggsql console.
+
+SQL support in Positron builds on [Data Connections](data-connections.llms.md). When a `.sql` file has a data connection, the file gets table and column completions from that database, hover information, warnings for names the database does not have, and navigation to the **Data Connections** view.
+
+You can also run the statement under the cursor with , as you do in [Python](guide-python.llms.md) and [R](guide-r.llms.md). Statements run in a [ggsql](https://ggsql.org) console connected to the file’s database.
+
+> **IMPORTANT:**
+>
+> SQL support is an experimental feature. Enable the [`sql.enabled`](positron://settings/sql.enabled) setting to turn it on.
+
+## Choose a connection for a file
+
+Each `.sql` file uses one data connection. The connection determines which tables and columns Positron offers and the SQL dialect it uses to parse the file.
+
+The status bar shows the connection for the active `.sql` file. Click it, or run *SQL: Select Data Connection* from the Command Palette, to choose one. The list includes your saved connections, plus an **Automatic** option.
+
+When you choose a connection, Positron links the file to it. Positron remembers the link, including after you rename the file or save it under a new name. When you open a linked file, Positron opens its connection for you. To connect by hand instead, for example when connecting asks for credentials or starts a warehouse that you pay for while it runs, disable [`sql.connectOnOpen`](positron://settings/sql.connectOnOpen).
+
+**Automatic**, the default, does not link the file. Instead, the file uses the only open data connection. If more than one connection is open, or none are, choose a connection for the file. Until a file has a connection, Positron completes SQL keywords only and does not warn about unknown names.
+
+## Write SQL
+
+Once a file has a connection, Positron reads the connection’s schema and uses it as you type:
+
+- **Completions**: Positron offers the names that fit where the cursor is. It offers tables after `FROM` and `JOIN`, and columns from the tables the statement reads, including columns from a common table expression (CTE) defined with `WITH`. After a qualifier such as `orders.` or an alias, it offers only that table’s columns.
+- **Warnings**: Positron shows warnings for syntax problems and for table and column names that are not in the connection’s schema. Positron does not flag aliases or CTE names that the statement defines.
+- **Hover**: Hold the pointer over a table to see its columns, or over a column to see its type.
+- **Links**: a table or column name to reveal it in the **Data Connections** view.
+
+If you create or change tables after Positron reads the schema, run *SQL: Refresh Database Schema* from the Command Palette to read it again.
+
+### SQL dialect
+
+Positron parses each file in the dialect of its connection’s driver, so quoting, string escapes, and comments follow the rules of that database. A file without a connection uses a generic dialect that accepts most SQL. To use the same dialect for every `.sql` file, set [`sql.dialect`](positron://settings/sql.dialect).
+
+## Run SQL
+
+> **IMPORTANT:**
+>
+> Positron does not bundle ggsql. To execute SQL code, [install the ggsql extension](https://ggsql.org/get_started/installation.html). If it is not installed, Positron shows a notification that offers **Install ggsql**.
+
+To run SQL, place the cursor in a statement and press . Positron runs that statement only, even if it spans several lines, and then moves the cursor to the next statement. To run part of a statement, or several statements at once, select the text first. You can also run *SQL: Run SQL Statement* from the Command Palette.
+
+Statements run in a ggsql console connected to the file’s database:
+
+- If a ggsql console is already connected to that database, the statement runs there.
+- Otherwise, Positron starts a new ggsql console, connects it to the database, and then runs the statement.
+
+Positron never reconnects a ggsql console to a different database, because reconnecting discards any in-memory data in that console. Files that use different databases each get their own console.
+
+A statement can include a ggsql visualization after its query, for example, `SELECT ... VISUALISE x, y DRAW line`. runs the query and the visualization together, and the plot appears in the [Plots pane](plots-pane.llms.md). See the [ggsql documentation](https://ggsql.org) to learn the syntax.
+
+If a statement does not run, Positron shows a notification with the reason, for example, when the file has no connection or ggsql cannot connect to the database. When ggsql reports a connection error, the details appear in the **Console**.
+
+### Supported databases
+
+You can run SQL against DuckDB, SQLite, MotherDuck, PostgreSQL, Redshift, and ODBC connections. ggsql reaches PostgreSQL and Redshift through ODBC, so you also need the ODBC driver for that database installed.
+
+## Settings
+
+- [`sql.enabled`](positron://settings/sql.enabled): Turn on SQL support. Disabled by default.
+- [`sql.dialect`](positron://settings/sql.dialect): The SQL dialect used to parse `.sql` files. **Automatic** (the default) follows each file’s data connection. Choose a dialect to use it for every file.
+- [`sql.diagnostics.enabled`](positron://settings/sql.diagnostics.enabled): Show warnings for syntax problems and unknown names in SQL files. Turning this off removes both kinds of warning. Enabled by default.
+- [`sql.diagnostics.unknownNames`](positron://settings/sql.diagnostics.unknownNames): Show a warning for table and column names that are not in the file’s data connection. Turning this off keeps the syntax warnings. Enabled by default.
+- [`sql.connectOnOpen`](positron://settings/sql.connectOnOpen): Open a file’s data connection when you open the file. Applies only to files you linked to a connection. Enabled by default.
+
+The ggsql extension also has a setting for `.sql` files:
+
+- [`ggsql.enableSqlFiles`](positron://settings/ggsql.enableSqlFiles): Show the ggsql **Source Current File** and **Run Query** buttons in `.sql` files. Enabled by default.
+
+## Current limitations
+
+SQL support is experimental, and it has some limitations today:
+
+- Support for SQL in [Quarto](quarto.llms.md) documents is limited. `{sql}` cells get completions, warnings, and hover, but you cannot run them in Positron. [Follow along on GitHub](https://github.com/posit-dev/positron/issues/17114) for improvements.
+- The Positron SQL parser does not cover the full grammar of every database, so some valid SQL shows a syntax warning. For example, the DuckDB `ASOF JOIN` and `USING SAMPLE` clauses show a warning even though they run.
+- For very large databases, Positron reads only part of the schema. Completions can be missing some tables, and Positron does not warn about unknown table names for that connection.
+
+Let us know what you think of SQL support in Positron, including which databases and workflows you need and anything that does not work as you expect, in the [Positron GitHub Discussions](https://github.com/posit-dev/positron/discussions).

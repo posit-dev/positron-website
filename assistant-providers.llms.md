@@ -23,7 +23,7 @@ For what each provider needs and how to sign in, see [Providers](https://assista
 | OpenAI |  |  |
 | OpenAI Compatible (legacy) |  |  |
 | OpenCode Preview |  |  |
-| OpenRouter (use a custom provider) |  |  |
+| OpenRouter |  |  |
 | Portkey Preview |  |  |
 | Snowflake Cortex |  |  |
 

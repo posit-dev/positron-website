@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fa79a26539e9ab32e9c754e6b72184dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b700158d5843021e400171345b6180f7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -481,6 +481,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide-sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL in Positron</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -715,6 +721,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./interpreter-definitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpreter definitions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./packages-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Packages Pane</span></a>
   </div>
@@ -901,7 +913,7 @@ Note
 </div>
 <section id="turn-features-on-or-off" class="level2">
 <h2 class="anchored" data-anchor-id="turn-features-on-or-off">Turn features on or off</h2>
-<p>You can turn off individual features or disable all AI features at once.</p>
+<p>You can turn off individual features or disable all AI features at once. To browse the AI settings in Positron, open the Settings editor with <em>Preferences: Open Settings (UI)</em> and search for <code>@feature:ai</code>, or go to <strong>Features &gt; AI</strong>.</p>
 <section id="turn-off-all-ai-features" class="level3">
 <h3 class="anchored" data-anchor-id="turn-off-all-ai-features">Turn off all AI features</h3>
 <p>To turn off all Positron AI features at once, set <a href="positron://settings/ai.enabled"><code>ai.enabled</code></a> to <code>false</code>. This overrides individual feature settings and disables:</p>
@@ -910,6 +922,7 @@ Note
 <li>Posit AI Next Edit Suggestions (NES)</li>
 <li>Notebook AI features</li>
 <li>Console Fix &amp; Explain</li>
+<li>Quarto AI actions (the <strong>Ask Assistant</strong> button)</li>
 <li>Quarto Fix &amp; Explain</li>
 <li>GitHub Copilot (Chat, Completions)</li>
 <li>Git commit message generation</li>
@@ -1400,7 +1413,7 @@ Note
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.10.2-3</p>
+<p>Positron 2026.11.0-308</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/ai-configuration.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/ai-configuration.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

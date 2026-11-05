@@ -19,11 +19,11 @@ By downloading and using Positron, you agree to the Positron [license agreement]
 Apple Silicon\
 (M-series)
 
-[ 978M](https://cdn.posit.co/positron/releases/mac/arm64/Positron-2026.10.2-3-arm64.dmg)
+[ 881M](https://cdn.posit.co/positron/releases/mac/arm64/Positron-2026.11.0-308-arm64.dmg)
 
 Intel
 
-[ 1009M](https://cdn.posit.co/positron/releases/mac/x64/Positron-2026.10.2-3-x64.dmg)
+[ 911M](https://cdn.posit.co/positron/releases/mac/x64/Positron-2026.11.0-308-x64.dmg)
 
 ####  Windows
 
@@ -31,21 +31,21 @@ Intel
 
 User install
 
-[ 511M](https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.10.2-3-UserSetup-x64.exe)
+[ 494M](https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.11.0-308-UserSetup-x64.exe)
 
 System install
 
-[ 511M](https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.10.2-3-Setup-x64.exe)
+[ 494M](https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.11.0-308-Setup-x64.exe)
 
 **ARM64** (Windows 11)
 
 User install
 
-[ 498M](https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.10.2-3-UserSetup-arm64.exe)
+[ 481M](https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.11.0-308-UserSetup-arm64.exe)
 
 System install
 
-[ 498M](https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.10.2-3-Setup-arm64.exe)
+[ 482M](https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.11.0-308-Setup-arm64.exe)
 
 ####  Linux
 
@@ -53,36 +53,36 @@ System install
 
 .deb (Ubuntu, Debian)
 
-[ 540M](https://cdn.posit.co/positron/releases/deb/x86_64/Positron-2026.10.2-3-x64.deb)
+[ 507M](https://cdn.posit.co/positron/releases/deb/x86_64/Positron-2026.11.0-308-x64.deb)
 
 .rpm (Red Hat, Fedora)
 
-[ 614M](https://cdn.posit.co/positron/releases/rpm/x86_64/Positron-2026.10.2-3-x64.rpm)
+[ 573M](https://cdn.posit.co/positron/releases/rpm/x86_64/Positron-2026.11.0-308-x64.rpm)
 
 **ARM64**
 
 .deb (Ubuntu, Debian)
 
-[ 508M](https://cdn.posit.co/positron/releases/deb/arm64/Positron-2026.10.2-3-arm64.deb)
+[ 480M](https://cdn.posit.co/positron/releases/deb/arm64/Positron-2026.11.0-308-arm64.deb)
 
 .rpm (Red Hat, Fedora)
 
-[ 577M](https://cdn.posit.co/positron/releases/rpm/arm64/Positron-2026.10.2-3-arm64.rpm)
+[ 541M](https://cdn.posit.co/positron/releases/rpm/arm64/Positron-2026.11.0-308-arm64.rpm)
 
 SHA-256 checksums
 
 | Platform | Installer | Size | SHA-256 |
 |:---|:---|:---|:---|
-| Windows 10, 11 x64 (system level install) | [Positron-2026.10.2-3-Setup-x64.exe](https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.10.2-3-Setup-x64.exe) | 511M | 9c5b12c |
-| Windows 10, 11 x64 (user level install) | [Positron-2026.10.2-3-UserSetup-x64.exe](https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.10.2-3-UserSetup-x64.exe) | 511M | 1213b0a |
-| Windows 11 arm64 (system level install) | [Positron-2026.10.2-3-Setup-arm64.exe](https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.10.2-3-Setup-arm64.exe) | 498M | 10bc10d |
-| Windows 11 arm64 (user level install) | [Positron-2026.10.2-3-UserSetup-arm64.exe](https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.10.2-3-UserSetup-arm64.exe) | 498M | 5fd3b33 |
-| MacOS 11.0+ (arm64/Apple Silicon) | [Positron-2026.10.2-3-arm64.dmg](https://cdn.posit.co/positron/releases/mac/arm64/Positron-2026.10.2-3-arm64.dmg) | 978M | 5299741 |
-| MacOS 11.0+ (x64/Intel) | [Positron-2026.10.2-3-x64.dmg](https://cdn.posit.co/positron/releases/mac/x64/Positron-2026.10.2-3-x64.dmg) | 1009M | 90705c0 |
-| Debian-based Linux x64 (Ubuntu 20+) | [Positron-2026.10.2-3-x64.deb](https://cdn.posit.co/positron/releases/deb/x86_64/Positron-2026.10.2-3-x64.deb) | 540M | 2131efa |
-| Debian-based Linux arm64 (Ubuntu 20+) | [Positron-2026.10.2-3-arm64.deb](https://cdn.posit.co/positron/releases/deb/arm64/Positron-2026.10.2-3-arm64.deb) | 508M | cf2d524 |
-| Red Hat-based Linux x64 (RHEL9) | [Positron-2026.10.2-3-x64.rpm](https://cdn.posit.co/positron/releases/rpm/x86_64/Positron-2026.10.2-3-x64.rpm) | 614M | 39d4b52 |
-| Red Hat-based Linux arm64 (RHEL9) | [Positron-2026.10.2-3-arm64.rpm](https://cdn.posit.co/positron/releases/rpm/arm64/Positron-2026.10.2-3-arm64.rpm) | 577M | d2028e9 |
+| Windows 10, 11 x64 (system level install) | [Positron-2026.11.0-308-Setup-x64.exe](https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.11.0-308-Setup-x64.exe) | 494M | 666ee9f |
+| Windows 10, 11 x64 (user level install) | [Positron-2026.11.0-308-UserSetup-x64.exe](https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.11.0-308-UserSetup-x64.exe) | 494M | 2eb008b |
+| Windows 11 arm64 (system level install) | [Positron-2026.11.0-308-Setup-arm64.exe](https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.11.0-308-Setup-arm64.exe) | 482M | d300d3b |
+| Windows 11 arm64 (user level install) | [Positron-2026.11.0-308-UserSetup-arm64.exe](https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.11.0-308-UserSetup-arm64.exe) | 481M | d8506ad |
+| MacOS 11.0+ (arm64/Apple Silicon) | [Positron-2026.11.0-308-arm64.dmg](https://cdn.posit.co/positron/releases/mac/arm64/Positron-2026.11.0-308-arm64.dmg) | 881M | a40b23a |
+| MacOS 11.0+ (x64/Intel) | [Positron-2026.11.0-308-x64.dmg](https://cdn.posit.co/positron/releases/mac/x64/Positron-2026.11.0-308-x64.dmg) | 911M | c53a7df |
+| Debian-based Linux x64 (Ubuntu 20+) | [Positron-2026.11.0-308-x64.deb](https://cdn.posit.co/positron/releases/deb/x86_64/Positron-2026.11.0-308-x64.deb) | 507M | 5ef240d |
+| Debian-based Linux arm64 (Ubuntu 20+) | [Positron-2026.11.0-308-arm64.deb](https://cdn.posit.co/positron/releases/deb/arm64/Positron-2026.11.0-308-arm64.deb) | 480M | 18cf4b1 |
+| Red Hat-based Linux x64 (RHEL9) | [Positron-2026.11.0-308-x64.rpm](https://cdn.posit.co/positron/releases/rpm/x86_64/Positron-2026.11.0-308-x64.rpm) | 573M | 886d5e3 |
+| Red Hat-based Linux arm64 (RHEL9) | [Positron-2026.11.0-308-arm64.rpm](https://cdn.posit.co/positron/releases/rpm/arm64/Positron-2026.11.0-308-arm64.rpm) | 541M | c5effec |
 
 ## Prerequisites
 

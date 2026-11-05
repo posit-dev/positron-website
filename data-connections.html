@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fa79a26539e9ab32e9c754e6b72184dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b700158d5843021e400171345b6180f7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -486,6 +486,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide-sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL in Positron</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -720,6 +726,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./interpreter-definitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpreter definitions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./packages-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Packages Pane</span></a>
   </div>
@@ -916,26 +928,30 @@ ul.task-list li input[type="checkbox"] {
 <td>Connect to DuckDB database files, with a read-only option.</td>
 </tr>
 <tr class="odd">
+<td>MotherDuck</td>
+<td>Reads your access token from the <code>motherduck_token</code> environment variable, with a read-only option.</td>
+</tr>
+<tr class="even">
 <td>ODBC</td>
 <td>Any database with a locally installed ODBC driver, via a configured data source name (DSN), server and driver details, or a connection string.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Posit Connect Pins</td>
 <td>Browse and download <a href="https://docs.posit.co/connect/user/pins/">pins</a> published on <a href="https://posit.co/products/enterprise/connect">Connect</a>, and authenticate with environment variables, browser sign-in, or an API key.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>PostgreSQL</td>
 <td>User and password, local server (no password), client certificate (SSL), or connection string.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Redshift</td>
 <td>User and password, or AWS Identity and Access Management (IAM) authentication for both Redshift Serverless and provisioned clusters, using the standard AWS credential provider chain.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Snowflake</td>
 <td>External browser single sign-on (SSO), key pair, OAuth client credentials, programmatic access token, or a named connection from <code>connections.toml</code>. On Workbench, connections can use the managed credentials of the session. Browse tables, views, and stages.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>SQLite</td>
 <td>Connect to SQLite database files, with a read-only option.</td>
 </tr>
@@ -943,7 +959,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p>When you install a recognized ODBC driver, dedicated entries for databases such as MySQL, MariaDB, SQL Server, Oracle, Db2, Hive, Impala, Teradata, and BigQuery also appear when creating a connection. Positron automatically detects data sources already configured on your machine (for example, in <code>odbc.ini</code> or the Snowflake <code>connections.toml</code> file) and shows them in the tree with a <strong>Detected</strong> badge. When you edit <code>connections.toml</code>, the list of detected connections updates and open connections stay open.</p>
 <p>Let us know which additional databases and warehouses you need in the <a href="https://github.com/posit-dev/positron/discussions">Positron GitHub discussions</a>.</p>
-<p>To create connections and work with them, see <a href="./using-data-connections.html">Using Data Connections</a>.</p>
+<p>To create connections and work with them, see <a href="./using-data-connections.html">Using Data Connections</a>. To write and run SQL against a connection in a <code>.sql</code> file, see <a href="./guide-sql.html">SQL in Positron</a>.</p>
 </section>
 <section id="settings" class="level2">
 <h2 class="anchored" data-anchor-id="settings">Settings</h2>
@@ -1381,7 +1397,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.10.2-3</p>
+<p>Positron 2026.11.0-308</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/data-connections.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/data-connections.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

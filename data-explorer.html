@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./data-explorer-data-grid.html" rel="next">
-<link href="./guide-r-air.html" rel="prev">
+<link href="./guide-sql.html" rel="prev">
 <link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fa79a26539e9ab32e9c754e6b72184dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b700158d5843021e400171345b6180f7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
@@ -525,6 +525,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide-sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL in Positron</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -759,6 +765,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./interpreter-definitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpreter definitions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./packages-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Packages Pane</span></a>
   </div>
@@ -950,6 +962,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>In Python, you can also use the <code>%view</code> magic with expressions, for example <code>%view df[df['column'] &gt; 10]</code>. In R, you can compose the <code>View</code> function with expressions using pipe syntax:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">doubled_column =</span> column <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> <span class="fu">View</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For data that is not rectangular, such as an R list or a Python dict, these commands open the Object Explorer instead.</p>
 <p>You can directly open <code>.csv</code>, <code>.tsv</code>, <code>.parquet</code>, and <code>.xlsx</code> files (using DuckDB) by selecting a file in the File Explorer or using the Command Palette.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> You can also open compressed CSV, TSV, and Parquet files.</p>
 <p>When you view a data file, the <strong>Import Data</strong> button in the action bar opens the <a href="./import-data.html">Import Data</a> dialog, which generates the Python or R code to load that file into a session and can run it for you.</p>
 <section id="opening-csv-files-as-plain-text" class="level3">
@@ -1369,8 +1382,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./guide-r-air.html" class="pagination-link" aria-label="Formatting R code with Air">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Formatting R code with Air</span>
+      <a href="./guide-sql.html" class="pagination-link" aria-label="SQL in Positron">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">SQL in Positron</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1392,7 +1405,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.10.2-3</p>
+<p>Positron 2026.11.0-308</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/data-explorer.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/data-explorer.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

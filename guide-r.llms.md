@@ -10,7 +10,7 @@ Positron ships with first class support for R, along with [Python](guide-python.
 >
 > If you’d prefer to customize Positron to feel similar to RStudio, learn [what settings to consider](migrate-rstudio-settings-and-extensions.llms.md#settings-for-rstudio-users).
 
-Positron provides setting defaults for working with R, but you can override or change these defaults if you prefer a different experience. For example, Positron sets the tab size for R code to 2 spaces, but if you prefer 4 spaces, you can change the [`editor.tabSize`](positron://settings/editor.tabSize) setting for R files by adding the following to your user or workspace `settings.json`:
+Positron provides setting defaults for working with R, but you can override or change these defaults if you prefer a different experience. For example, Positron sets the tab size for R code to 2 spaces, but if you prefer 4 spaces, you can change the [`editor.tabSize`](positron://settings/editor.tabSize) setting for R files by adding the following to your user or workspace `settings.json`:[^1]
 
 ``` json
 {
@@ -28,7 +28,7 @@ The keyboard shortcuts in Positron are largely a superset of the keyboard shortc
 
 | Shortcut | Description                                                     |
 |----------|-----------------------------------------------------------------|
-|          | Insert the pipe operator (`|>` or `%>%`)[^1]                    |
+|          | Insert the pipe operator (`|>` or `%>%`)[^2]                    |
 |          | Insert the assignment operator (`<-`)                           |
 | , HH     | Insert section                                                  |
 |          | Load the current R package, if any, with `devtools::load_all()` |
@@ -53,4 +53,6 @@ Positron can run R code once the session is fully operational, via the `positron
 
 ## Footnotes
 
-[^1]: You can choose which pipe operator to insert via the [`positron.r.pipe`](positron://settings/positron.r.pipe) setting.
+[^1]: The [`editor.detectIndentation`](positron://settings/editor.detectIndentation) setting is enabled by default, which means Positron infers indentation from the contents of each file you open. If your files already use 2-space indentation, this detection takes precedence over your `editor.tabSize` setting, and your override will appear to have no effect. To always use your configured indentation, also disable detection with `"editor.detectIndentation": false`.
+
+[^2]: You can choose which pipe operator to insert via the [`positron.r.pipe`](positron://settings/positron.r.pipe) setting.

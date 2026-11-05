@@ -219,7 +219,7 @@ Posit Assistant is notebook-aware: Posit Assistant can see your cells, their out
 
 The notebook offers four AI entry points:
 
-- The **Notebook Assistant panel**, opened from the robot icon above the notebook, shows which cells are in context and offers quick actions to explain, fix, or improve the notebook. **Follow Assistant** scrolls the notebook to each cell as Posit Assistant edits it, so you can watch changes land.
+- The **Notebook Assistant panel**, opened from the robot icon above the notebook, shows which cells are in context and offers quick actions to explain, fix, or improve the notebook. As Posit Assistant edits a cell, the notebook scrolls to it, so you can watch changes land.
 - **Fix** and **Explain** buttons appear on any cell that errors, sending the failure straight to Posit Assistant.
 - Ghost cell suggestions predict the next cell after you run one.
 - Posit Assistant can edit the notebook when prompted from the chat.

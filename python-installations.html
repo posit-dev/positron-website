@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fa79a26539e9ab32e9c754e6b72184dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b700158d5843021e400171345b6180f7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -518,6 +518,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide-sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL in Positron</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -752,6 +758,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./interpreter-definitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpreter definitions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./packages-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Packages Pane</span></a>
   </div>
@@ -889,6 +901,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#supported-environment-managers" id="toc-supported-environment-managers" class="nav-link" data-scroll-target="#supported-environment-managers">Supported environment managers</a></li>
   <li><a href="#discovery-locations" id="toc-discovery-locations" class="nav-link" data-scroll-target="#discovery-locations">Discovery locations</a></li>
   </ul></li>
+  <li><a href="#which-python-starts" id="toc-which-python-starts" class="nav-link" data-scroll-target="#which-python-starts">Which Python starts</a></li>
   <li><a href="#automatic-uv-installation" id="toc-automatic-uv-installation" class="nav-link" data-scroll-target="#automatic-uv-installation">Automatic uv installation</a>
   <ul class="collapse">
   <li><a href="#what-is-uv" id="toc-what-is-uv" class="nav-link" data-scroll-target="#what-is-uv">What is uv?</a></li>
@@ -966,7 +979,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Positron searches for Python installations in the following locations. In general, it is best to use an environment that is highest in this list. Read more about <a href="https://realpython.com/python-virtual-environments-a-primer/#why-do-you-need-virtual-environments">why virtual environments matter</a>.</p>
 <section id="project-environments" class="level4">
 <h4 class="anchored" data-anchor-id="project-environments">1. Project environments</h4>
-<p>Environments associated with the open project, if you have a project folder open. In particular, Positron finds any environment at the root of the open project (for example, <code>.venv/</code> or <code>.conda/</code> folders).</p>
+<p>Environments associated with the open project, if you have a project folder open. In particular, Positron finds any environment at the root of the open project (for example, <code>.venv/</code> or <code>.conda/</code> folders), and environments one folder down, such as <code>app/.venv/</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1019,9 +1032,24 @@ Important
 <p>Using a system Python installation in a new session can lead to problems (see the official <a href="https://packaging.python.org/en/latest/specifications/externally-managed-environments/">guidance</a> about this). For that reason, we recommend using virtual environments.</p>
 </div>
 </div>
-<p>The interpreter and session pickers group interpreters by environment type in a similar order, with tool-managed environments such as uv first and system interpreters last. To find an interpreter in a picker, search by its name or by part of its path.</p>
+<p>The interpreter and session pickers group interpreters under <strong>Project environments</strong>, <strong>Global environments</strong>, and <strong>Externally managed</strong>, with base interpreters at the end of the global group. Each row shows a short label, such as “Python 3.12.4”, with the tool and environment name in gray. To find an interpreter in a picker, search by its name or by part of its path.</p>
 </section>
 </section>
+</section>
+<section id="which-python-starts" class="level2">
+<h2 class="anchored" data-anchor-id="which-python-starts">Which Python starts</h2>
+<p>When a folder has no Python interpreter that you used before, Positron starts the first interpreter in this list:</p>
+<ol type="1">
+<li>The environment that is active in the shell that launched Positron</li>
+<li>The interpreter in <a href="positron://settings/python.defaultInterpreterPath"><code>python.defaultInterpreterPath</code></a></li>
+<li>The project environment at the root of the folder, such as <code>.venv</code>, or the pyenv virtualenv named in <code>.python-version</code></li>
+<li>The pyenv version named in <code>.python-version</code></li>
+<li>Other environments in the folder, starting with the ones one folder down</li>
+<li>Interpreters that you configure, for example with <a href="positron://settings/interpreters.definitions"><code>interpreters.definitions</code></a></li>
+<li>Named environments, such as conda environments, then global environments</li>
+</ol>
+<p>If two interpreters are at the same level, Positron starts the newer Python version. Positron skips interpreters with an unsupported Python version. Base interpreters, such as python.org installs, and system or externally managed interpreters, start only when you select them. If you set <code>python.defaultInterpreterPath</code>, Positron starts that interpreter even in a folder where you used a different one before.</p>
+<p>The picker tells you why it suggests an interpreter, for example “project environment” or “active in your shell”.</p>
 </section>
 <section id="automatic-uv-installation" class="level2">
 <h2 class="anchored" data-anchor-id="automatic-uv-installation">Automatic uv installation</h2>
@@ -1159,6 +1187,7 @@ Important
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Positron supports only <code>${workspaceFolder}</code> in these settings. In a multi-root workspace, it refers to the first folder. Positron ignores a path that uses any other variable, such as <code>${env:NAME}</code>, or that uses <code>${workspaceFolder}</code> when no folder is open, and logs the reason.</p>
+<p>To give a Python installation its own label, environment variables, environment modules, or startup script, use <a href="positron://settings/interpreters.definitions"><code>interpreters.definitions</code></a>. See <a href="./interpreter-definitions.html">Interpreter definitions</a>.</p>
 </section>
 <section id="environment-providers" class="level3">
 <h3 class="anchored" data-anchor-id="environment-providers">Environment providers</h3>
@@ -1169,7 +1198,7 @@ Important
 <section id="discovery-behavior" class="level3">
 <h3 class="anchored" data-anchor-id="discovery-behavior">Discovery behavior</h3>
 <ul>
-<li><a href="positron://settings/python.defaultInterpreterPath"><code>python.defaultInterpreterPath</code></a>: Default Python interpreter path (used only the first time when no other interpreter takes precedence)</li>
+<li><a href="positron://settings/python.defaultInterpreterPath"><code>python.defaultInterpreterPath</code></a>: The Python interpreter to start each time Positron opens a folder, in place of the one you used last</li>
 <li><a href="positron://settings/python.useBundledIpykernel"><code>python.useBundledIpykernel</code></a>: Turn the built-in IPython kernel on or off</li>
 </ul>
 </section>
@@ -1611,7 +1640,7 @@ Important
 </ul>
     </div>   
     <div class="nav-footer-center">
-<p>Positron 2026.10.2-3</p>
+<p>Positron 2026.11.0-308</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/python-installations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/python-installations.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
