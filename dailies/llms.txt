@@ -30,7 +30,7 @@
 - [Legacy Notebook Editor](https://positron.posit.co/dailies/legacy-notebook-editor.llms.md)
 - [Language Guides](https://positron.posit.co/dailies/language-guides.llms.md)
 - [Jupyter Notebooks](https://positron.posit.co/dailies/jupyter-notebooks.llms.md)
-- [Interpreter definitions](https://positron.posit.co/dailies/interpreter-definitions.llms.md)
+- [Interpreter Definitions](https://positron.posit.co/dailies/interpreter-definitions.llms.md)
 - [Import Data](https://positron.posit.co/dailies/import-data.llms.md)
 - [SQL in Positron](https://positron.posit.co/dailies/guide-sql.llms.md)
 - [R session hooks](https://positron.posit.co/dailies/guide-r-session-hooks.llms.md)

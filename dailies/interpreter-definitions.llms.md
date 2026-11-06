@@ -1,4 +1,4 @@
-# Interpreter definitions
+# Interpreter Definitions
 
 Define custom interpreters in Positron with their own labels, environment variables, environment modules, and startup scripts.
 
