@@ -1,5 +1,5 @@
 ---
-title: "Interpreter definitions"
+title: "Interpreter Definitions"
 description: "Define custom interpreters in Positron with their own labels, environment variables, environment modules, and startup scripts."
 ---
 
