@@ -1,6 +1,6 @@
 ### Patch notes
 
-The [2026.11.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.11.1-BUILD) (2026-11-DD) fixes problems with Positron Server and Posit Workbench. File icons, color themes, and syntax highlighting [load correctly again](https://github.com/posit-dev/positron/issues/17170). On Workbench, Python sessions now start after you trust a folder that was untrusted. Posit Assistant on Workbench also shows your Microsoft Foundry models even when it starts before the Workbench extension.
+The [2026.11.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.11.1-4) (2026-11-09) fixes problems with Positron Server and Posit Workbench. File icons, color themes, and syntax highlighting [load correctly again](https://github.com/posit-dev/positron/issues/17170). On Workbench, Python sessions now start after you trust a folder that was untrusted. Posit Assistant on Workbench also shows your Microsoft Foundry models even when it starts before the Workbench extension.
 
 ### Release highlights
 
