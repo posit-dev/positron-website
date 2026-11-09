@@ -1,9 +1,9 @@
 ---
 title: "Discovering R Installations"
-description: "Learn how Positron finds R installations on your system. Covers automatic discovery across macOS, Windows, Linux, and rig-managed installations."
+description: "Learn how Positron finds R installations on macOS, Windows, and Linux, and how to hide installations or set a default R for a folder."
 ---
 
-This guide pertains to how R installations are discovered and show up in the Interpreter picker.
+This guide explains how Positron finds R installations. It also shows how to use settings to hide installations from the **Interpreter picker** and to choose which R starts in a folder. For using R in Positron, see our [R language guide](guide-r.qmd).
 
 ## R installation discovery
 
@@ -18,7 +18,7 @@ Positron consults various sources to build the list of available R interpreters:
 
   These locations are treated as so-called root folders, meaning we expect them
   to contain one or more versions of R, not to actually be an R installation.
-* The `PATH`, in the sense of the R executable returned by `which R`
+* The R on your `PATH`, which is the R that `which R` finds. By default, Positron does not look here on Windows. To change this, set [`positron.r.interpreters.pathDiscoveryMode`](positron://settings/positron.r.interpreters.pathDiscoveryMode).
 * Well-known paths to an R executable or to a symlink that resolves to an R executable, e.g.:
   - `/usr/bin/R`
   - `/usr/local/bin/R`
@@ -43,9 +43,12 @@ If you have an R installation that won't be discovered by the search strategy de
   - Hypothetical example: `C:/nonstandardRLocation/R-4.4.1/bin/x64/R.exe`
 * [`positron.r.interpreters.condaDiscovery`](positron://settings/positron.r.interpreters.condaDiscovery): Enables discovery of R installations managed by conda. This support is experimental and not all Positron features may work as expected.
 * [`positron.r.interpreters.pixiDiscovery`](positron://settings/positron.r.interpreters.pixiDiscovery): Enables discovery of R installations managed by pixi. This support is also experimental.
-
-You can navigate to these settings by running the _Preferences: Open Settings_ command from the Command Palette.
-Then select **Extensions > R > Advanced**.
+* [`positron.r.interpreters.pathDiscoveryMode`](positron://settings/positron.r.interpreters.pathDiscoveryMode): Controls whether Positron looks for the R on your `PATH`, which is the R that `which R` finds.
+  - `auto` (the default): Looks on macOS and Linux, but not on Windows, where searching the `PATH` can be slow.
+  - `on`: Always looks.
+  - `off`: Never looks.
+  
+To find these settings, run _Preferences: Open Settings_ from the Command Palette, then select **Extensions > R > Advanced**.
 
 You typically need to use absolute paths in these settings and not rely on shell features, such as parameter expansion (e.g., `${HOME}`). However, these settings do support the `${workspaceFolder}` variable.
 The settings [`positron.r.customRootFolders`](positron://settings/positron.r.customRootFolders), [`positron.r.customBinaries`](positron://settings/positron.r.customBinaries), and the [`positron.r.interpreters.exclude`](positron://settings/positron.r.interpreters.exclude), [`positron.r.interpreters.override`](positron://settings/positron.r.interpreters.override), and [`positron.r.interpreters.default`](positron://settings/positron.r.interpreters.default) support this variable and you can use it to point Positron to an R installation inside your project:
