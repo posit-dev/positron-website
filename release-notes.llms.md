@@ -4,7 +4,11 @@ View release notes for all Positron versions. Track new features, bug fixes, and
 
 ## Latest release
 
-The current release of Positron is 2026.11.0-308.
+The current release of Positron is 2026.11.1-4.
+
+### Patch notes
+
+The [2026.11.1 patch release](https://github.com/posit-dev/positron/releases/tag/2026.11.1-4) (2026-11-09) fixes problems with Positron Server and Posit Workbench. File icons, color themes, and syntax highlighting [load correctly again](https://github.com/posit-dev/positron/issues/17170). On Workbench, Python sessions now start after you trust a folder that was untrusted. Posit Assistant on Workbench also shows your Microsoft Foundry models even when it starts before the Workbench extension.
 
 ### Release highlights
 
