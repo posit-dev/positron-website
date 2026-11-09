@@ -138,3 +138,13 @@ We highly recommend rig for managing R installation, especially for macOS users 
 
 The discovery process is logged in the R Language Pack channel.
 You can learn more in the [troubleshooting guide](troubleshooting.qmd).
+
+### R installation not appearing
+
+If an R installation does not appear in the **Interpreter picker**, check these items in order:
+
+1. Check that Positron supports that R version. See [Unsupported R installations](#unsupported-r-installations).
+2. Check that `exclude` does not hide the installation. If you set `override`, check that it lists the installation. See [Hide or limit R installations](#hide-or-limit-r-installations).
+3. Check that Positron looks in the location of that R installation. See [Finding R in other locations](#finding-r-in-other-locations).
+4. After you change any of the settings on this page, restart Positron.
+5. Check the R Language Pack output channel.
