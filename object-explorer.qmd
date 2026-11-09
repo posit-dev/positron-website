@@ -5,7 +5,7 @@ description: "Browse, search, and copy code for nested data such as R lists, mod
 
 The Object Explorer is the [Data Explorer](data-explorer.qmd)'s counterpart for data that is not rectangular. It shows nested data, such as R lists, model fits, Python dicts, and JSON files, as a tree with **Name**, **Type**, and **Value** columns. You can search the whole object, open nested data frames in the Data Explorer, and get the code that selects any value in it.
 
-![Object Explorer](images/object-explorer.png){.drop-shadow fig-alt="Object Explorer showing a nested Python dict named results. The config, segments, and new_customers entries are expanded, the lift value is selected, and the status bar shows the code results['segments']['new_customers']['lift']."}
+![Object Explorer](images/object-explorer.png){.drop-shadow fig-alt="Object Explorer showing a nested Python dict with the lift value selected and its accessor in the status bar."}
 
 ## Opening the Object Explorer
 
@@ -15,14 +15,14 @@ There are several ways to open the Object Explorer for an object in your Python 
 * In R, run `View(x)`. In Python, run `%view x`. You can pass an expression instead of a variable, and an optional title, just as you can for data frames.
 * In the editor, place your cursor on a variable and use the **Open '_name_' in Object Explorer** code action from the {{< fa lightbulb >}} icon in the editor gutter or the {{< kbd mac=Command-. win=Ctrl-. linux=Ctrl-. >}} menu.
 
-`View()` and `%view` open data frames in the Data Explorer and other objects in the Object Explorer. The Variables pane shows the **Open in Object Explorer** button only for objects that are most useful to explore this way:
+`View()` and `%view` open data frames in the Data Explorer and other objects in the Object Explorer. The **Variables** pane shows the **Open in Object Explorer** button only for objects that are most useful to explore this way:
 
 | | Variables pane button | `View()` or `%view` |
 |---|---|---|
 | **R** | Lists, environments, and S4 and S7 objects that have elements, and character vectors with more than one element or a single long string | Also any atomic vector, pairlist, or expression vector |
 | **Python** | Non-empty dicts and other mappings, lists, and tuples | Also other objects with attributes or elements, such as sets and class instances |
 
-Each Object Explorer is tied to the variable it was opened on. When you change the variable, the Object Explorer updates to show its new value. When you delete the variable, or the session ends, the Object Explorer tells you the object is no longer available. Objects opened from an expression rather than a variable don't update.
+Each Object Explorer tracks the variable you opened it on. When you change the variable, the Object Explorer updates to show its new value. When you delete the variable, or the session ends, the Object Explorer tells you the object is no longer available. Objects opened from an expression rather than a variable don't update.
 
 ### JSON files
 
@@ -38,13 +38,13 @@ In [Positron notebooks](positron-notebook-editor.qmd) and [Quarto inline output]
 
 The root of the tree is the object itself. Select the arrow next to a row, or double-click it, to expand or collapse it.
 
-Each row shows the element's name or index, its type, and a summary of its value. If a name, type, or value is too long to fit, hover over it to see the full text. When you select a row whose value is truncated, the row expands to show more of the value. For long text, select the {{< fa file-lines >}} button in the expanded row to open the full value in a new editor.
+Each row shows the element's name or index, its type, and a summary of its value. If a name, type, or value is too long to fit, hold the pointer over it to see the full text. When you select a row whose value doesn't fit, the row expands to show more of the value. For long text, select the {{< fa file-lines >}} button in the expanded row to open the full value in a new editor.
 
-Positron loads large objects one level and 1,000 elements at a time, so even large or deeply nested objects open quickly. When an element has more children than are loaded, select the **Show more** row at the end of its children to load the next page.
+Positron loads large objects one level and 1,000 elements at a time, so even large or deeply nested objects open quickly. When an element has more children than Positron has loaded, select the **Show more** row at the end of its children to load the next page.
 
 As you scroll through deeply nested data, the rows of the expanded parents stick to the top of the tree so you can see where you are. You can resize the **Name** and **Type** columns by dragging the borders between the column headers.
 
-The Object Explorer stops expanding at a depth of 10 levels. Rows at that depth show an ellipsis; hover over it to see why. To change the depth, set [`objectExplorer.maxDepth`](positron://settings/objectExplorer.maxDepth). The same limit applies to searches.
+The Object Explorer stops expanding at a depth of 10 levels. Rows at that depth show an ellipsis; hold the pointer over it to see why. To change the depth, set [`objectExplorer.maxDepth`](positron://settings/objectExplorer.maxDepth). The same limit applies to searches.
 
 ## Accessors
 
@@ -66,7 +66,7 @@ To use the accessor:
 
 Right-click a row, or press {{< kbd mac=Shift-F10 win=Shift-F10 linux=Shift-F10 >}}, to open its context menu.
 
-![Object Explorer context menu](images/object-explorer-context-menu.png){.drop-shadow width=400 fig-alt="Object Explorer context menu for a row holding a data frame, with options: Copy Value, Copy Accessor, Send Accessor to Console, Open in Data Explorer, and Expand."}
+![Object Explorer context menu](images/object-explorer-context-menu.png){.drop-shadow width=400 fig-alt="Object Explorer context menu for a data frame row, with Copy Value, Copy Accessor, Send Accessor to Console, Open in Data Explorer, and Expand."}
 
 The context menu has these actions:
 
@@ -77,15 +77,15 @@ The context menu has these actions:
 * **Open in Data Explorer:** For data frames, open the data frame in the [Data Explorer](data-explorer.qmd). You can also select the {{< fa table >}} button at the end of the row.
 * **Expand** or **Collapse:** Expand or collapse the row.
 
-The action bar at the top of the Object Explorer has buttons for the selected row's most common actions, including {{< fa rotate-right >}} **Refresh**, **Copy Value**, **Send Accessor to Console**, and, depending on the value, **Open in Editor** or **Open in Data Explorer**.
+The action bar at the top of the Object Explorer has buttons for the selected row's most common actions, including {{< fa rotate-right >}} **Refresh**, **Copy Value**, and **Send Accessor to Console**. Depending on the value, it also shows **Open in Editor** or **Open in Data Explorer**.
 
 ## Search
 
 Use the **Search names and values** box in the action bar, or press {{< kbd mac=Command-F win=Ctrl-F linux=Ctrl-F >}}, to search the whole object, including parts you haven't expanded.
 
-![Object Explorer search results](images/object-explorer-search.png){.drop-shadow fig-alt="Object Explorer showing search results for 'discount'. Two elements of config variants and the notes string match, with the matching text highlighted, and a footer reads 3 matches for 'discount'."}
+![Object Explorer search results](images/object-explorer-search.png){.drop-shadow fig-alt="Object Explorer search results for 'discount', showing three matches with the matching text highlighted."}
 
-Search is case-insensitive and matches text anywhere in a name or value. Values match only for elements with no children, so a list doesn't match because of its summary. For strings, the search covers the full text, even when the value shown is truncated.
+Search is case-insensitive and matches text anywhere in a name or value. Values match only for elements with no children, so a list doesn't match because of its summary. For strings, the search covers the full text, even when the row shows a truncated value.
 
 The results show each match along with the parents that lead to it, with the matching text highlighted. A footer shows the number of matches. A search stops early if it finds 1,000 matches or runs for too long, and the footer tells you when that happens.
 

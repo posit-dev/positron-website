@@ -17,7 +17,7 @@ You can open the Import Data dialog from several places:
 - Select the {{< fa file-import >}} **Import Data** button in the **Variables** pane toolbar
 - Right-click a `.csv`, `.tsv`, `.xlsx`, `.parquet`, or `.json` file in the File Explorer and select **Import Data**
 
-The main menu and Variables pane entries open a file picker first. If the file isn't already open, Positron opens it in the Data Explorer, or a JSON file in the Object Explorer, and shows the dialog over it. If the Data Explorer already shows that file, Positron reuses it, so the dialog picks up the header row and worksheet options you already chose.
+The main menu and Variables pane entries open a file picker first. If the file isn't already open, Positron opens it in the Data Explorer, or in the Object Explorer for JSON files, and shows the dialog over it. If the Data Explorer already shows that file, Positron reuses it, so the dialog picks up the header row and worksheet options you already chose.
 
 ## Choose a package
 
