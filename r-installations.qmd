@@ -92,6 +92,32 @@ It skips all of these sources:
 
 When you set `override`, Positron ignores `exclude`. If both settings include the same R installation, Positron still shows it.
 
+### Choose which R starts
+
+[`positron.r.interpreters.default`](positron://settings/positron.r.interpreters.default) sets the R that Positron starts for the folder you have open, even if you used a different R in that folder last time.
+This setting controls which R starts, not when R starts.
+To control when R starts, use the [`interpreters.startupBehavior`](positron://settings/interpreters.startupBehavior) setting, described in [Interpreter Startup](interpreter-startup.qmd).
+
+Set `positron.r.interpreters.default` to the path of one R executable.
+The executable must exist on disk, and the path cannot point to a folder.
+
+* Example on Linux: `/opt/R/4.4.2/bin/R`
+* Example on macOS: `/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/bin/R`
+* Example on Windows: `C:/Program Files/R/R-4.4.2/bin/x64/R.exe`
+
+Where you set `positron.r.interpreters.default` decides which folders use it:
+
+* In your user settings, the setting applies to every folder you open.
+* In a project's `.vscode/settings.json` file, the setting applies only to that project's folder. If you set it in both places, Positron uses the project's value.
+
+Positron ignores `positron.r.interpreters.default` in these cases:
+
+* The path is in `exclude`, or is inside a folder in `exclude`.
+* You set `override`, and the path is not in `override` or inside a folder in `override`.
+* The path does not exist.
+
+In these cases, Positron chooses an R as though you had not set `positron.r.interpreters.default`.
+
 ## Unsupported R installations
 
 Positron only supports R 4.2 and higher.
