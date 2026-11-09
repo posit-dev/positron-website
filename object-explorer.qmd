@@ -19,8 +19,8 @@ There are several ways to open the Object Explorer for an object in your Python 
 
 | | Variables pane button | `View()` or `%view` |
 |---|---|---|
-| **R** | Lists, environments, and S4 and S7 objects that have elements, and character vectors with more than one element or a single long string | Also any atomic vector, pairlist, or expression vector |
-| **Python** | Non-empty dicts and other mappings, lists, and tuples | Also other objects with attributes or elements, such as sets and class instances |
+| R | Lists, environments, and S4 and S7 objects that have elements, and character vectors with more than one element or a single long string | Also any atomic vector, pairlist, or expression vector |
+| Python | Non-empty dicts and other mappings, lists, and tuples | Also other objects with attributes or elements, such as sets and class instances |
 
 Each Object Explorer tracks the variable you opened it on. When you change the variable, the Object Explorer updates to show its new value. When you delete the variable, or the session ends, the Object Explorer tells you the object is no longer available. Objects opened from an expression rather than a variable don't update.
 
@@ -50,7 +50,7 @@ The Object Explorer stops expanding at a depth of 10 levels. Rows at that depth 
 
 Selecting a row shows the row's _accessor_ in the status bar at the bottom of the Object Explorer. The accessor is the code that selects that value from the object, such as `results['segments']['new_customers']['lift']` in Python or `fit[["coefficients"]]["wt"]` in R. It's a quick way to get from finding a value to using it in your code.
 
-The accessor follows the conventions you'd use when writing the code by hand:
+The accessor uses the same syntax you write by hand:
 
 * **R:** `[["name"]]` for list elements, `["name"]` for elements of atomic vectors, `[[1]]` or `[1]` for unnamed or duplicated names, `[, 1]` for matrix columns, `$name` for R6 fields, and `@name` for S4 slots and S7 properties.
 * **Python:** `['key']` for dict keys, `[0]` for list and tuple elements, and `.name` for attributes.
