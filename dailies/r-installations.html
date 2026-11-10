@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Learn how Positron finds R installations on your system. Covers automatic discovery across macOS, Windows, Linux, and rig-managed installations.">
+<meta name="description" content="Learn how Positron finds R installations on macOS, Windows, and Linux, and how to hide installations or set a default R for a folder.">
 
 <title>Discovering R Installations – Positron</title>
 <style>
@@ -115,13 +115,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <meta property="og:title" content="Discovering R Installations – Positron">
-<meta property="og:description" content="Learn how Positron finds R installations on your system. Covers automatic discovery across macOS, Windows, Linux, and rig-managed installations.">
+<meta property="og:description" content="Learn how Positron finds R installations on macOS, Windows, and Linux, and how to hide installations or set a default R for a folder.">
 <meta property="og:image" content="https://positron.posit.co/dailies/images/positron-social.png">
 <meta property="og:site_name" content="Positron">
 <meta property="og:image:height" content="1080">
 <meta property="og:image:width" content="1920">
 <meta name="twitter:title" content="Discovering R Installations – Positron">
-<meta name="twitter:description" content="Learn how Positron finds R installations on your system. Covers automatic discovery across macOS, Windows, Linux, and rig-managed installations.">
+<meta name="twitter:description" content="Learn how Positron finds R installations on macOS, Windows, and Linux, and how to hide installations or set a default R for a folder.">
 <meta name="twitter:image" content="https://positron.posit.co/dailies/images/positron-social.png">
 <meta name="twitter:image-height" content="1080">
 <meta name="twitter:image-width" content="1920">
@@ -905,9 +905,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#r-installation-discovery" id="toc-r-installation-discovery" class="nav-link active" data-scroll-target="#r-installation-discovery">R installation discovery</a></li>
-  <li><a href="#customizing-r-discovery" id="toc-customizing-r-discovery" class="nav-link" data-scroll-target="#customizing-r-discovery">Customizing R discovery</a></li>
+  <li><a href="#customizing-r-discovery" id="toc-customizing-r-discovery" class="nav-link" data-scroll-target="#customizing-r-discovery">Customizing R discovery</a>
+  <ul class="collapse">
+  <li><a href="#finding-r-in-other-locations" id="toc-finding-r-in-other-locations" class="nav-link" data-scroll-target="#finding-r-in-other-locations">Finding R in other locations</a></li>
+  <li><a href="#hide-or-limit-r-installations" id="toc-hide-or-limit-r-installations" class="nav-link" data-scroll-target="#hide-or-limit-r-installations">Hide or limit R installations</a></li>
+  <li><a href="#choose-which-r-starts" id="toc-choose-which-r-starts" class="nav-link" data-scroll-target="#choose-which-r-starts">Choose which R starts</a></li>
+  </ul></li>
   <li><a href="#unsupported-r-installations" id="toc-unsupported-r-installations" class="nav-link" data-scroll-target="#unsupported-r-installations">Unsupported R installations</a></li>
-  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a>
+  <ul class="collapse">
+  <li><a href="#r-installation-not-appearing" id="toc-r-installation-not-appearing" class="nav-link" data-scroll-target="#r-installation-not-appearing">R installation not appearing</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/r-installations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/r-installations.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -921,7 +929,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Learn how Positron finds R installations on your system. Covers automatic discovery across macOS, Windows, Linux, and rig-managed installations.
+    Learn how Positron finds R installations on macOS, Windows, and Linux, and how to hide installations or set a default R for a folder.
   </div>
 </div>
 
@@ -938,7 +946,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This guide pertains to how R installations are discovered and show up in the Interpreter picker.</p>
+<p>This guide explains how Positron finds R installations. It also shows how to use settings to hide installations from the <strong>Interpreter picker</strong> and to choose which R starts in a folder. For using R in Positron, see our <a href="./guide-r.html">R language guide</a>.</p>
 <section id="r-installation-discovery" class="level2">
 <h2 class="anchored" data-anchor-id="r-installation-discovery">R installation discovery</h2>
 <p>Positron consults various sources to build the list of available R interpreters:</p>
@@ -950,7 +958,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Windows: <code>%ProgramW6432%/R</code> (typically resolves to <code>C:/Program Files/R</code>) and <code>%LOCALAPPDATA%/Programs/R</code> (typically resolves to <code>C:/Users/username/AppData/Local/Programs/R</code>)</li>
 </ul>
 These locations are treated as so-called root folders, meaning we expect them to contain one or more versions of R, not to actually be an R installation.</li>
-<li>The <code>PATH</code>, in the sense of the R executable returned by <code>which R</code></li>
+<li>The R on your <code>PATH</code>, which is the R that <code>which R</code> finds. By default, Positron does not look here on Windows. To change this, set <a href="positron://settings/positron.r.interpreters.pathDiscoveryMode"><code>positron.r.interpreters.pathDiscoveryMode</code></a>.</li>
 <li>Well-known paths to an R executable or to a symlink that resolves to an R executable, e.g.:
 <ul>
 <li><code>/usr/bin/R</code></li>
@@ -968,20 +976,7 @@ These locations are treated as so-called root folders, meaning we expect them to
 </section>
 <section id="customizing-r-discovery" class="level2">
 <h2 class="anchored" data-anchor-id="customizing-r-discovery">Customizing R discovery</h2>
-<p>If you have an R installation that won’t be discovered by the search strategy described above, settings are available to instruct Positron to look in additional locations:</p>
-<ul>
-<li><a href="positron://settings/positron.r.customRootFolders"><code>positron.r.customRootFolders</code></a>: Suitable for R root folders that contain 1 or more R installations.
-<ul>
-<li>Hypothetical example: <code>C:/nonstandardRLocation</code></li>
-</ul></li>
-<li><a href="positron://settings/positron.r.customBinaries"><code>positron.r.customBinaries</code></a>: Suitable for specific R executables.
-<ul>
-<li>Hypothetical example: <code>C:/nonstandardRLocation/R-4.4.1/bin/x64/R.exe</code></li>
-</ul></li>
-<li><a href="positron://settings/positron.r.interpreters.condaDiscovery"><code>positron.r.interpreters.condaDiscovery</code></a>: Enables discovery of R installations managed by conda. This support is experimental and not all Positron features may work as expected.</li>
-<li><a href="positron://settings/positron.r.interpreters.pixiDiscovery"><code>positron.r.interpreters.pixiDiscovery</code></a>: Enables discovery of R installations managed by pixi. This support is also experimental.</li>
-</ul>
-<p>You can navigate to these settings by running the <em>Preferences: Open Settings</em> command from the Command Palette. Then select <strong>Extensions &gt; R &gt; Advanced</strong>.</p>
+<p>Settings let you change where Positron looks for R, which R installations it shows, and which one it starts. You can navigate to these settings by running the <em>Preferences: Open Settings</em> command from the Command Palette. Then select <strong>Extensions &gt; R &gt; Advanced</strong>.</p>
 <p>You typically need to use absolute paths in these settings and not rely on shell features, such as parameter expansion (e.g., <code>${HOME}</code>). However, these settings do support the <code>${workspaceFolder}</code> variable. The settings <a href="positron://settings/positron.r.customRootFolders"><code>positron.r.customRootFolders</code></a>, <a href="positron://settings/positron.r.customBinaries"><code>positron.r.customBinaries</code></a>, and the <a href="positron://settings/positron.r.interpreters.exclude"><code>positron.r.interpreters.exclude</code></a>, <a href="positron://settings/positron.r.interpreters.override"><code>positron.r.interpreters.override</code></a>, and <a href="positron://settings/positron.r.interpreters.default"><code>positron.r.interpreters.default</code></a> support this variable and you can use it to point Positron to an R installation inside your project:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -993,6 +988,75 @@ These locations are treated as so-called root folders, meaning we expect them to
 </div>
 <p>Positron supports only the <code>${workspaceFolder}</code> variable in these settings. In a multi-root workspace, it refers to the first folder. Positron ignores a path that uses any other variable, such as <code>${env:NAME}</code>, or that uses <code>${workspaceFolder}</code> when no folder is open, and logs the reason.</p>
 <p>To give an R installation its own label, environment variables, environment modules, or startup script, see <a href="./interpreter-definitions.html">Interpreter definitions</a>.</p>
+<section id="finding-r-in-other-locations" class="level3">
+<h3 class="anchored" data-anchor-id="finding-r-in-other-locations">Finding R in other locations</h3>
+<p>If Positron does not find an R installation, use these settings to tell it where to look:</p>
+<ul>
+<li><a href="positron://settings/positron.r.customRootFolders"><code>positron.r.customRootFolders</code></a>: Suitable for R root folders that contain 1 or more R installations.
+<ul>
+<li>Hypothetical example: <code>C:/nonstandardRLocation</code></li>
+</ul></li>
+<li><a href="positron://settings/positron.r.customBinaries"><code>positron.r.customBinaries</code></a>: Suitable for specific R executables.
+<ul>
+<li>Hypothetical example: <code>C:/nonstandardRLocation/R-4.4.1/bin/x64/R.exe</code></li>
+</ul></li>
+<li><a href="positron://settings/positron.r.interpreters.condaDiscovery"><code>positron.r.interpreters.condaDiscovery</code></a>: Enables discovery of R installations managed by conda. This support is experimental and not all Positron features may work as expected.</li>
+<li><a href="positron://settings/positron.r.interpreters.pixiDiscovery"><code>positron.r.interpreters.pixiDiscovery</code></a>: Enables discovery of R installations managed by pixi. This support is also experimental.</li>
+<li><a href="positron://settings/positron.r.interpreters.pathDiscoveryMode"><code>positron.r.interpreters.pathDiscoveryMode</code></a>: Controls whether Positron looks for the R on your <code>PATH</code>, which is the R that <code>which R</code> finds.
+<ul>
+<li><code>auto</code> (the default): Looks on macOS and Linux, but not on Windows, where searching the <code>PATH</code> can be slow.</li>
+<li><code>on</code>: Always looks.</li>
+<li><code>off</code>: Never looks.</li>
+</ul></li>
+</ul>
+</section>
+<section id="hide-or-limit-r-installations" class="level3">
+<h3 class="anchored" data-anchor-id="hide-or-limit-r-installations">Hide or limit R installations</h3>
+<p>To keep Positron from using some R installations, use one of these settings. Positron does not show these installations in any interpreter list, and it does not start them.</p>
+<ul>
+<li><a href="positron://settings/positron.r.interpreters.exclude"><code>positron.r.interpreters.exclude</code></a>: Hides specific R installations. Each path is an R executable or a folder. A folder hides every R installation at or under that folder. This also applies to R installations that Positron finds through <code>positron.r.customRootFolders</code> or <code>positron.r.customBinaries</code>.
+<ul>
+<li>Example: <code>/opt/R/4.2.3</code> hides R 4.2.3 on Linux.</li>
+</ul></li>
+<li><a href="positron://settings/positron.r.interpreters.override"><code>positron.r.interpreters.override</code></a>: Shows only specific R installations. Each path is an R executable or a folder of R installations. Do not use the folder of one installation, such as <code>/opt/R/4.4.2</code>, because Positron finds nothing there.
+<ul>
+<li>Example: <code>/opt/R</code> shows only the R installations in <code>/opt/R</code> on Linux.</li>
+<li>Example: <code>/opt/R/4.4.2/bin/R</code> shows only R 4.4.2 on Linux.</li>
+</ul></li>
+</ul>
+<p>When you set <code>override</code>, Positron does not search anywhere else. It skips all of these sources:</p>
+<ul>
+<li>The locations at the top of this page</li>
+<li>The <code>PATH</code></li>
+<li>The Windows registry</li>
+<li>The <code>r-versions</code> file that Posit Workbench and RStudio Server use</li>
+<li>R installations from conda, pixi, and environment modules</li>
+<li>The <code>positron.r.customRootFolders</code> and <code>positron.r.customBinaries</code> settings in <a href="#finding-r-in-other-locations">Finding R in other locations</a></li>
+</ul>
+<p>When you set <code>override</code>, Positron ignores <code>exclude</code>. If both settings include the same R installation, Positron still shows it.</p>
+</section>
+<section id="choose-which-r-starts" class="level3">
+<h3 class="anchored" data-anchor-id="choose-which-r-starts">Choose which R starts</h3>
+<p><a href="positron://settings/positron.r.interpreters.default"><code>positron.r.interpreters.default</code></a> sets the R that Positron starts for the folder you have open, even if you used a different R in that folder last time. This setting controls which R starts, not when R starts. To control when R starts, use the <a href="positron://settings/interpreters.startupBehavior"><code>interpreters.startupBehavior</code></a> setting, described in <a href="./interpreter-startup.html">Interpreter Startup</a>.</p>
+<p>Set <code>positron.r.interpreters.default</code> to the path of one R executable. The executable must exist on disk, and the path cannot point to a folder.</p>
+<ul>
+<li>Example on Linux: <code>/opt/R/4.4.2/bin/R</code></li>
+<li>Example on macOS: <code>/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/bin/R</code></li>
+<li>Example on Windows: <code>C:/Program Files/R/R-4.4.2/bin/x64/R.exe</code></li>
+</ul>
+<p>Where you set <code>positron.r.interpreters.default</code> decides which folders use it:</p>
+<ul>
+<li>In your user settings, the setting applies to every folder you open.</li>
+<li>In a project’s <code>.vscode/settings.json</code> file, the setting applies only to that project’s folder. If you set it in both places, Positron uses the project’s value.</li>
+</ul>
+<p>Positron ignores <code>positron.r.interpreters.default</code> in these cases:</p>
+<ul>
+<li>The path is in <code>exclude</code>, or is inside a folder in <code>exclude</code>.</li>
+<li>You set <code>override</code>, and the path is not in <code>override</code> or inside a folder in <code>override</code>.</li>
+<li>The path does not exist.</li>
+</ul>
+<p>In these cases, Positron chooses an R as though you had not set <code>positron.r.interpreters.default</code>. To learn how Positron chooses an R in that case, see <a href="./interpreter-startup.html#subsequent-runs">Subsequent runs</a> in Interpreter Startup.</p>
+</section>
 </section>
 <section id="unsupported-r-installations" class="level2">
 <h2 class="anchored" data-anchor-id="unsupported-r-installations">Unsupported R installations</h2>
@@ -1004,8 +1068,19 @@ These locations are treated as so-called root folders, meaning we expect them to
 <section id="troubleshooting" class="level2">
 <h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
 <p>The discovery process is logged in the R Language Pack channel. You can learn more in the <a href="./troubleshooting.html">troubleshooting guide</a>.</p>
+<section id="r-installation-not-appearing" class="level3">
+<h3 class="anchored" data-anchor-id="r-installation-not-appearing">R installation not appearing</h3>
+<p>If an R installation does not appear in the <strong>Interpreter picker</strong>, check these items in order:</p>
+<ol type="1">
+<li>Check that Positron supports that R version. See <a href="#unsupported-r-installations">Unsupported R installations</a>.</li>
+<li>Check that <code>exclude</code> does not hide the installation. If you set <code>override</code>, check that it lists the installation. See <a href="#hide-or-limit-r-installations">Hide or limit R installations</a>.</li>
+<li>Check that Positron looks in the location of that R installation. See <a href="#finding-r-in-other-locations">Finding R in other locations</a>.</li>
+<li>After you change any of the settings on this page, restart Positron.</li>
+<li>Check the R Language Pack output channel.</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
