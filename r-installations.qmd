@@ -117,6 +117,7 @@ Positron ignores `positron.r.interpreters.default` in these cases:
 * The path does not exist.
 
 In these cases, Positron chooses an R as though you had not set `positron.r.interpreters.default`.
+To learn how Positron chooses an R in that case, see [Subsequent runs](interpreter-startup.qmd#subsequent-runs) in Interpreter Startup.
 
 ## Unsupported R installations
 
