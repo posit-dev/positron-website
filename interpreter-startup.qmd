@@ -56,7 +56,7 @@ To choose which interpreter starts, see [Which Python starts](python-installatio
 
 | If you want Positron to | Use |
 |---|---|
-| Start the interpreter you used last in a folder, or start one when you open a file or run code | `auto` (the default) |
+| Start the interpreter you used last in a folder, or start one when the folder has language files, you open a file, or you run code | `auto` (the default) |
 | Start an interpreter every time you open a window, even in a new folder | `always` |
 | Start the interpreter that Positron suggests for the folder, not the one you used last | `recommended` |
 | Start an interpreter only when you choose one or run code | `manual` |
@@ -65,14 +65,15 @@ To choose which interpreter starts, see [Which Python starts](python-installatio
 ### What each value does
 
 The interpreter that the language suggests is the one that [First run](#first-run) describes.
+Language files include `.py` and `pyproject.toml` for Python, and `.R` and `renv.lock` for R.
 
-| Value | Folder you used before | New folder | Open a file | Run code | Choose from the **Interpreter picker** |
-|---|---|---|---|---|---|
-| `always` | Starts the interpreter you used last | Starts the suggested interpreter, if there is one | Starts the interpreter you used last, or the suggested one | Starts the interpreter you used last, or the suggested one | Starts the interpreter you choose |
-| `auto` | Starts the interpreter you used last | Starts the suggested interpreter if the folder has files for that language | Starts the interpreter you used last, or the suggested one | Starts the interpreter you used last, or the suggested one | Starts the interpreter you choose |
-| `recommended` | Starts the suggested interpreter if the folder has files for that language | Starts the suggested interpreter if the folder has files for that language | Starts the suggested interpreter | Starts the suggested interpreter | Starts the interpreter you choose |
-| `manual` | Does not start | Does not start | Does not start | Starts the interpreter you used last, or the suggested one | Starts the interpreter you choose |
-| `disabled` | Does not start | Does not start | Does not start | Does not start | Not listed |
+| Value | Folder you used before | New folder with language files | New folder without language files | Open a file | Run code | Choose from the **Interpreter picker** |
+|---|---|---|---|---|---|---|
+| `always` | Starts the interpreter you used last | Starts the suggested interpreter | Starts the suggested interpreter, if there is one | Starts the interpreter you used last, or the suggested one | Starts the interpreter you used last, or the suggested one | Starts the interpreter you choose |
+| `auto` | Starts the interpreter you used last | Starts the suggested interpreter | Does not start an interpreter | Starts the interpreter you used last, or the suggested one | Starts the interpreter you used last, or the suggested one | Starts the interpreter you choose |
+| `recommended` | Starts the suggested interpreter if the folder has language files | Starts the suggested interpreter | Does not start an interpreter | Starts the suggested interpreter | Starts the suggested interpreter | Starts the interpreter you choose |
+| `manual` | Does not start an interpreter | Does not start an interpreter | Does not start an interpreter | Does not start an interpreter | Starts the interpreter you used last, or the suggested one | Starts the interpreter you choose |
+| `disabled` | Does not start an interpreter | Does not start an interpreter | Does not start an interpreter | Does not start an interpreter | Does not start an interpreter | Not listed |
 
 Opening a file or running code starts an interpreter only when no session of that language is running.
 
