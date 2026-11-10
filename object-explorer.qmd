@@ -12,15 +12,15 @@ The Object Explorer is the [Data Explorer](data-explorer.qmd)'s counterpart for 
 There are several ways to open the Object Explorer for an object in your Python or R session:
 
 * In the [**Variables** pane](variables-pane.qmd), select the **Open in Object Explorer** button next to the variable.
-* In R, run `View(x)`. In Python, run `%view x`. You can pass an expression instead of a variable, and an optional title, just as you can for data frames.
+* In Python, run `%view x`. In R, run `View(x)`. You can pass an expression instead of a variable, and an optional title, just as you can for data frames.
 * In the editor, place your cursor on a variable and use the **Open '_name_' in Object Explorer** code action from the {{< fa lightbulb >}} icon in the editor gutter or the {{< kbd mac=Command-. win=Ctrl-. linux=Ctrl-. >}} menu.
 
 `View()` and `%view` open data frames in the Data Explorer and other objects in the Object Explorer. The **Variables** pane shows the **Open in Object Explorer** button only for objects that are most useful to explore this way:
 
 | | Variables pane button | `View()` or `%view` |
 |---|---|---|
-| R | Lists, environments, and S4 and S7 objects that have elements, and character vectors with more than one element or a single long string | Also any atomic vector, pairlist, or expression vector |
 | Python | Non-empty dicts and other mappings, lists, and tuples | Also other objects with attributes or elements, such as sets and class instances |
+| R | Lists, environments, and S4 and S7 objects that have elements, and character vectors with more than one element or a single long string | Also any atomic vector, pairlist, or expression vector |
 
 Each Object Explorer tracks the variable you opened it on. When you change the variable, the Object Explorer updates to show its new value. When you delete the variable, or the session ends, the Object Explorer tells you the object is no longer available. Objects opened from an expression rather than a variable don't update.
 
@@ -32,7 +32,7 @@ When you view a JSON file, the **Import Data** button opens the [Import Data](im
 
 ### Inline in notebooks and Quarto documents
 
-In [Positron notebooks](positron-notebook-editor.qmd) and [Quarto inline output](quarto-inline-output.qmd), nested output, such as an R list or a Python dict, appears as a small inline Object Explorer instead of plain text. Select **Open in Object Explorer** to open it in a full editor. Flat data, such as an R vector or the Python list `[1, 2, 3]`, still shows as plain text.
+In [Positron notebooks](positron-notebook-editor.qmd) and [Quarto inline output](quarto-inline-output.qmd), nested output, such as an R list or a Python dict, appears as a small inline Object Explorer instead of plain text. Select **Open in Object Explorer** to open it in a full editor. Flat data, such as the Python list `[1, 2, 3]` or an R vector, still shows as plain text.
 
 ## Navigating the tree
 
@@ -48,12 +48,12 @@ The Object Explorer stops expanding at a depth of 10 levels. Rows at that depth 
 
 ## Accessors
 
-Selecting a row shows the row's _accessor_ in the status bar at the bottom of the Object Explorer. The accessor is the code that selects that value from the object, such as `results['segments']['new_customers']['lift']` in Python or `fit[["coefficients"]]["wt"]` in R. It's a quick way to get from finding a value to using it in your code.
+Selecting a row shows the row's _accessor_ in the status bar at the bottom of the Object Explorer. The accessor is the code that selects that value from the object, such as `fit[["coefficients"]]["wt"]` in R or `results['segments']['new_customers']['lift']` in Python. It's a quick way to get from finding a value to using it in your code.
 
 The accessor uses the same syntax you write by hand:
 
-* **R:** `[["name"]]` for list elements, `["name"]` for elements of atomic vectors, `[[1]]` or `[1]` for unnamed or duplicated names, `[, 1]` for matrix columns, `$name` for R6 fields, and `@name` for S4 slots and S7 properties.
 * **Python:** `['key']` for dict keys, `[0]` for list and tuple elements, and `.name` for attributes.
+* **R:** `[["name"]]` for list elements, `["name"]` for elements of atomic vectors, `[[1]]` or `[1]` for unnamed or duplicated names, `[, 1]` for matrix columns, `$name` for R6 fields, and `@name` for S4 slots and S7 properties.
 
 Some values have no accessor, such as private fields of R6 objects. JSON files have accessors that select values from the parsed file, but you can't send them to the console because no session holds the file.
 
