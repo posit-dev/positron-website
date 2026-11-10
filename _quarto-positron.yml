@@ -119,6 +119,7 @@ website:
           - text: "Posit Assistant"
             href: assistant.qmd
           - assistant-completions.qmd
+          - mcp-server.qmd
           - ai-configuration.qmd
           - section: "Positron Assistant (deprecated)"
             contents:

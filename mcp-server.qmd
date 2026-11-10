@@ -1,0 +1,193 @@
+---
+title: "Positron MCP Server"
+description: "Connect your own coding agent, such as Claude Code, Codex, or Gemini CLI, to Positron's R and Python sessions, plots, and commands through the Positron MCP server."
+---
+
+::: {.callout-note}
+The Positron Model Context Protocol (MCP) server is an experimental feature, added in Positron 2026.10. Its tools, setup, and settings might change in future releases.
+:::
+
+[Posit Assistant](assistant.qmd) is Posit's own agent for data science, built right into Positron. While we obviously think our own agent is pretty great, at Posit our goal is to build open tools that help you avoid vendor lock-in. That means supporting other agents too, such as Claude Code or Codex, so you can use models and subscriptions your organization already pays for. 
+
+When you turn it on, Positron runs an [MCP](https://modelcontextprotocol.io) server that any MCP-capable agent can connect to. Both command-line interface (CLI) agents and agents that run as Positron extensions can connect. Through the server, your agent gets a set of tools comparable to the ones Posit Assistant uses to work in Positron.
+
+## Posit Assistant or the MCP server?
+
+| | Posit Assistant | Positron MCP server |
+|---|---|---|
+| Agent | Posit's own agent, built for data science | Your agent, such as Claude Code, Codex, or Gemini CLI |
+| Interface | Chat panel in Positron | Your agent's own interface, in a terminal or extension |
+| Models and billing | Configured [providers](assistant-providers.qmd) | Whatever your agent uses |
+| Context, tokens, and permissions | Posit Assistant manages them | Your agent manages them |
+
+You can use both. They are independent of each other.
+
+## Why use the MCP server?
+
+You don't need the MCP server to use a coding agent in Positron. Agents such as Claude Code and Codex already work in Positron's terminal and as extensions. Without the MCP server, though, the agent can't see your data, your live sessions, or anything else in Positron. If it runs R or Python, it does so in its own shell commands, out of your sight.
+
+With the MCP server, your agent works alongside you in the same sessions:
+
+- **You see everything it does.** Code the agent runs appears in the Console, labeled with the agent's name. It can pick up work you started, and you can finish work it started.
+- **It can see your data.** The agent can inspect objects already loaded in your R or Python session and use them as context.
+- **It can see your plots.** The agent can look at the current plot and help you iterate on it.
+- **It can see errors.** Ask about an error without copying and pasting it.
+- **It can drive Positron.** The agent can run Positron commands, such as starting a new session, changing the layout, editing notebooks, or publishing to Posit Connect.
+
+Example tasks:
+
+- "Use the Positron MCP to summarize the data frame `sales` in my R session and suggest cleaning steps."
+- "Look at the current plot in Positron and make the axis labels readable."
+- "Why did my last Python command fail? Fix it in the Positron Console."
+- "Start an R session in Positron, fit a linear model to `mtcars`, and show me a residual plot."
+- "Publish this Shiny app to Connect using Positron."
+
+When you ask your agent to do something, mention Positron, or say "use the Positron MCP", so it knows to use the server's tools.
+
+## What the server exposes
+
+The server exposes a small set of tools:
+
+| Tool | What it does |
+|---|---|
+| `list_sessions` | List the R and Python sessions in this workspace. |
+| `execute_code` | Run code in a session. Positron shows the code in the Console and adds it to history. |
+| `evaluate_code` | Run code to inspect state. Positron shows the code in the Console but keeps it out of history. |
+| `interrupt_session` | Interrupt a running session. |
+| `get_session_history` | Read recent executions in a session, including who ran each one. |
+| `get_plot` | Get the current plot as an image. |
+| `list_positron_commands` | Search the Positron commands available to agents. |
+| `run_positron_command` | Run one of those commands. |
+
+The commands are the same ones Posit Assistant can run, and extensions can add more. Not every command in Positron is available to agents. To see what is available, ask your agent to list the Positron commands it can run.
+
+## Set up the MCP server
+
+### Step 1: Turn on the server {#turn-on-the-server}
+
+1. Make sure AI features are on: [`ai.enabled`](positron://settings/ai.enabled) must be `true`. It is `true` by default. See [Configure AI features](ai-configuration.qmd).
+2. Set [`ai.mcp.enabled`](positron://settings/ai.mcp.enabled) to `true`. You can also find it in the Settings editor under **Features > AI** as **MCP: Enabled**.
+
+The change takes effect right away; you don't need to reload. If Positron finds a supported agent on your machine, it offers to turn on the server for you once.
+
+### Step 2: Add Positron to your agent {#add-positron-to-your-agent}
+
+If you use the Claude Code CLI, you can skip this step. Positron adds itself to Claude Code's local configuration for the folder automatically, outside your repository, the first time the server starts in that folder.
+
+For other agents:
+
+1. Run _Positron MCP: Add to Coding Agent_ from the Command Palette ({{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}).
+2. Choose your agent. Positron marks agents it finds on your machine as **Installed**.
+3. Restart the agent so it picks up the new configuration.
+
+### Step 3: Start your agent {#start-your-agent}
+
+Start your agent in the folder that is open in Positron, for example in a new Positron terminal. Then ask it to do something in Positron. You don't need to start, stop, or reconnect anything after that. Positron handles the connection, including when you reload the window or update Positron.
+
+## Supported agents
+
+The _Positron MCP: Add to Coding Agent_ command can configure these agents:
+
+| Agent | Configuration Positron writes |
+|---|---|
+| Claude Code | Claude Code's local scope for the folder (added automatically) |
+| Codex | `~/.codex/config.toml` |
+| Gemini CLI | `~/.gemini/settings.json` |
+| Antigravity CLI | `~/.gemini/config/mcp_config.json` |
+| Kiro | `~/.kiro/settings/mcp.json` |
+| OpenCode | `~/.config/opencode/opencode.json` |
+| Copilot CLI | `~/.copilot/mcp-config.json` |
+
+Configuration in your home directory applies to the agent wherever you run it. Outside a Positron folder, the agent sees the Positron server but can't reach any sessions.
+
+Claude Code and Codex share their configuration between their CLIs and their Positron extensions, so both work. Agents that use Positron's built-in MCP support, such as GitHub Copilot chat, find the server without any setup.
+
+## Connect other agents
+
+Any agent that supports MCP can connect, even if it isn't on the list above.
+
+### Agents that start a local (stdio) server
+
+Most agents can start an MCP server as a command that talks over standard input/output (stdio). Point yours at the `positron-mcp` launcher, which stays in the same place when you update Positron:
+
+1. Open a terminal in Positron and run `echo $POSITRON_MCP_PATH` (or `echo %POSITRON_MCP_PATH%` in a Windows command prompt) to find the launcher.
+2. Add a server named `positron` to your agent's MCP configuration with this command:
+   - **macOS and Linux:** `/bin/sh` with the launcher path as its only argument.
+   - **Windows:** `cmd.exe` with the arguments `/d`, `/c`, `@`, and the launcher path.
+
+For example, in an agent that uses the common `mcpServers` JSON format:
+
+```json
+{
+  "mcpServers": {
+    "positron": {
+      "command": "/bin/sh",
+      "args": ["/path/to/positron-mcp"]
+    }
+  }
+}
+```
+
+The launcher finds the right Positron window from the folder your agent runs in, so start your agent inside the folder open in Positron.
+
+### Agents that connect over HTTP
+
+1. Run _Positron MCP: Copy Connection Details_. Positron copies two shell `export` lines to the clipboard: `POSITRON_MCP_URL` and `POSITRON_MCP_TOKEN`.
+2. Configure your agent to connect to the URL, sending the token in an `Authorization: Bearer <token>` header.
+
+Treat the token like a password: anyone who has it can run code in your sessions. The URL can change when the kernel supervisor restarts, so prefer the launcher when your agent supports it.
+
+Terminals that Positron opens already have `POSITRON_MCP_URL`, `POSITRON_MCP_TOKEN`, and `POSITRON_MCP_PATH` set, so agents started from them can use those values directly.
+
+## See connected agents
+
+There are a few ways to see which agents are connected to the current window:
+
+- **Status bar:** Set [`ai.mcp.statusBar`](positron://settings/ai.mcp.statusBar) to `true`. When at least one agent is connected, the status bar shows a {{< fa robot >}} icon with the agent's name or the number of agents. Point to it to see the list, or click it to see the agents and to add or connect another one.
+- **Command Palette:** Run _Positron MCP: Show Connected Agents_.
+- **Ask your agent:** Most agents can tell you which MCP servers they are connected to.
+- **Kernel supervisor:** Run _Kernel Supervisor: Show Kernel Supervisor_ to see the server's address, request count, and connected agents.
+
+To see what agents are doing, open the **Kernel Supervisor** output channel. It logs each agent's connections, tool calls, and Positron commands. The Console also labels code that agents run with the agent's name.
+
+## Settings
+
+| Setting | Default | Description |
+|---|---|---|
+| [`ai.enabled`](positron://settings/ai.enabled) | `true` | The main switch for AI features. The MCP server only runs when this is on. |
+| [`ai.mcp.enabled`](positron://settings/ai.mcp.enabled) | `false` | Run the MCP server so coding agents can connect to this window's sessions. |
+| [`ai.mcp.statusBar`](positron://settings/ai.mcp.statusBar) | `false` | Show connected coding agents in the status bar. |
+
+When you turn off either `ai.enabled` or `ai.mcp.enabled`, Positron stops the server and removes itself from every agent configuration it wrote.
+
+## How it works
+
+The MCP server runs inside Positron's kernel supervisor, the process that hosts your R and Python sessions. Positron starts it when the first window needs it and stops it when the last one is done.
+
+Positron only responds to tool calls. It doesn't call agents, and agents can't see each other. You can connect several agents to the same window at once, but each works independently. Positron doesn't route tasks between agents or orchestrate them.
+
+### Tokens and context
+
+Your agent controls its own context, token usage, and conversation history, exactly as it does without Positron. Positron doesn't see or count tokens.
+
+As with any MCP server, the tool descriptions take up some of your agent's context. The server keeps that small by exposing a few tools and letting the agent search for Positron commands as it needs them. It also caps tool output at 32 kilobytes (KB) per call.
+
+The server doesn't keep a conversation, but your R and Python sessions do keep their state between calls. Data loaded in a session stays there, so the agent can work with it without sending it again.
+
+## Security
+
+The MCP server lets an agent run any code in your R and Python sessions, as you. Connecting an agent is therefore equivalent to giving it access to your shell.
+
+Positron doesn't add its own approval prompts. Instead, it relies on your agent: most agents ask before running tools, but not all do. Before you connect an agent, check how it handles permissions.
+
+Positron limits what a connection can do:
+
+- The server only accepts connections from your own machine.
+- Each window has its own token, which can only reach that window's sessions and the commands available to agents.
+- Agents can only run the Positron commands that are available to agents, and Positron checks each command's arguments before running it.
+
+Administrators can turn the server off for everyone by setting `ai.mcp.enabled` or `ai.enabled` to `false` in a policy.
+
+## Feedback
+
+Tell us how the MCP server works for you, what was hard to set up, and what's missing, on [GitHub Discussions](https://github.com/posit-dev/positron/discussions).
