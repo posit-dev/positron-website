@@ -47,7 +47,7 @@ Positron provides support for [IPython-style magics](https://ipython.readthedocs
 
 Positron provides three new, custom magics created specifically for working in Positron:
 
-- `%view` opens a data frame in the [Data Explorer](data-explorer.llms.md), or another object, such as a dict or list, in the Object Explorer. You can use this magic most simply via `%view df`, or additionally like `%view df.groupby('column').sum()` or `%view df "My Dataset"`.
+- `%view` opens a data frame in the [Data Explorer](data-explorer.llms.md), or another object, such as a dict or list, in the [Object Explorer](object-explorer.llms.md). You can use this magic most simply via `%view df`, or additionally like `%view df.groupby('column').sum()` or `%view df "My Dataset"`.
 - `%connection_show` shows a connection object in the [**Connections** pane](connections-pane.llms.md). Use this magic like `%connection_show my_connection`.
 - `%clear` clears the Console.
 

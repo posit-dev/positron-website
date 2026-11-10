@@ -36,15 +36,7 @@
     ]
   },
   {
-    "listing": "/language-guides.html",
-    "items": []
-  },
-  {
-    "listing": "/assistant.html",
-    "items": []
-  },
-  {
-    "listing": "/ai-features.html",
+    "listing": "/features.html",
     "items": []
   },
   {
@@ -52,7 +44,15 @@
     "items": []
   },
   {
-    "listing": "/features.html",
+    "listing": "/ai-features.html",
+    "items": []
+  },
+  {
+    "listing": "/assistant.html",
+    "items": []
+  },
+  {
+    "listing": "/language-guides.html",
     "items": []
   }
 ]

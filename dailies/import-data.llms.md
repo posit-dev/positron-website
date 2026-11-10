@@ -1,6 +1,6 @@
 # Import Data
 
-Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, and Parquet files with pandas, readr, readxl, or nanoparquet.
+Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, Parquet, and JSON files with pandas, json, readr, readxl, nanoparquet, or jsonlite.
 
 The Import Data dialog generates the code to load a data file into a Python or R session, and can run that code for you. It is the shortest path from looking at a file in the [Data Explorer](data-explorer.llms.md) to having a dataframe in your [Variables pane](variables-pane.llms.md).
 
@@ -13,11 +13,12 @@ Import Data dialog
 You can open the Import Data dialog from several places:
 
 - Select **Import Data** in the action bar of a Data Explorer that shows a `.csv`, `.tsv`, `.xlsx`, or `.parquet` file
+- Select **Import Data** in the action bar of a `.json` file, either in the text editor or the [Object Explorer](object-explorer.llms.md)
 - Select **File \> Import Data** from the main menu
 - Select the **Import Data** button in the **Variables** pane toolbar
-- Right-click a `.csv`, `.tsv`, `.xlsx`, or `.parquet` file in the File Explorer and select **Import Data**
+- Right-click a `.csv`, `.tsv`, `.xlsx`, `.parquet`, or `.json` file in the File Explorer and select **Import Data**
 
-The main menu and Variables pane entries open a file picker first. From every entry point, Positron opens the file in the Data Explorer and shows the dialog over it. If the Data Explorer already shows that file, Positron reuses it, so the dialog picks up the header row and worksheet options you already chose.
+The main menu and Variables pane entries open a file picker first. If the file isn’t already open, Positron opens it in the Data Explorer, or in the Object Explorer for JSON files, and shows the dialog over it. If the Data Explorer already shows that file, Positron reuses it, so the dialog picks up the header row and worksheet options you already chose.
 
 ## Choose a package
 
@@ -28,6 +29,7 @@ The dialog offers the packages that can read the file you opened:
 | `.csv`, `.tsv`      | pandas `read_csv`     | readr `read_csv` or `read_tsv` |
 | `.xlsx`             | pandas `read_excel`   | readxl `read_excel`            |
 | `.parquet`, `.parq` | pandas `read_parquet` | nanoparquet `read_parquet`     |
+| `.json`             | json `load`           | jsonlite `read_json`           |
 
 Reading Parquet files with pandas requires the pyarrow or fastparquet package.
 

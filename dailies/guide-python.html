@@ -582,6 +582,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./object-explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Object Explorer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variables-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Variables Pane</span></a>
   </div>
@@ -983,7 +989,7 @@ Note
 <p>Positron provides support for <a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">IPython-style magics</a> in the Positron console (as well as Python scripts and Jupyter notebooks, where appropriate). Magics are special commands prefixed with the <code>%</code> symbol that provide convenient shortcuts for common tasks. You can see the supported magics by running the <code>%lsmagic</code> command in the Positron console.</p>
 <p>Positron provides three new, custom magics created specifically for working in Positron:</p>
 <ul>
-<li><code>%view</code> opens a data frame in the <a href="./data-explorer.html">Data Explorer</a>, or another object, such as a dict or list, in the Object Explorer. You can use this magic most simply via <code>%view df</code>, or additionally like <code>%view df.groupby('column').sum()</code> or <code>%view df "My Dataset"</code>.</li>
+<li><code>%view</code> opens a data frame in the <a href="./data-explorer.html">Data Explorer</a>, or another object, such as a dict or list, in the <a href="./object-explorer.html">Object Explorer</a>. You can use this magic most simply via <code>%view df</code>, or additionally like <code>%view df.groupby('column').sum()</code> or <code>%view df "My Dataset"</code>.</li>
 <li><code>%connection_show</code> shows a connection object in the <a href="./connections-pane.html"><strong>Connections</strong> pane</a>. Use this magic like <code>%connection_show my_connection</code>.</li>
 <li><code>%clear</code> clears the Console.</li>
 </ul>

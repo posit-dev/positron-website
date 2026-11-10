@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, and Parquet files with pandas, readr, readxl, or nanoparquet.">
+<meta name="description" content="Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, Parquet, and JSON files with pandas, json, readr, readxl, nanoparquet, or jsonlite.">
 
 <title>Import Data – Positron</title>
 <style>
@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./variables-pane.html" rel="next">
+<link href="./object-explorer.html" rel="next">
 <link href="./data-explorer-summary-panel.html" rel="prev">
 <link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -120,14 +120,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <meta property="og:title" content="Import Data – Positron">
-<meta property="og:description" content="Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, and Parquet files with pandas, readr, readxl, or nanoparquet.">
+<meta property="og:description" content="Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, Parquet, and JSON files with pandas, json, readr, readxl, nanoparquet, or jsonlite.">
 <meta property="og:image" content="https://positron.posit.co/dailies/images/import-data.png">
 <meta property="og:site_name" content="Positron">
 <meta property="og:image:alt" content="Import Data dialog for an Excel workbook with Python (pandas) selected and a code preview showing pd.read_excel.">
 <meta property="og:image:height" content="976">
 <meta property="og:image:width" content="1592">
 <meta name="twitter:title" content="Import Data – Positron">
-<meta name="twitter:description" content="Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, and Parquet files with pandas, readr, readxl, or nanoparquet.">
+<meta name="twitter:description" content="Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, Parquet, and JSON files with pandas, json, readr, readxl, nanoparquet, or jsonlite.">
 <meta name="twitter:image" content="https://positron.posit.co/dailies/images/import-data.png">
 <meta name="twitter:image:alt" content="Import Data dialog for an Excel workbook with Python (pandas) selected and a code preview showing pd.read_excel.">
 <meta name="twitter:image-height" content="976">
@@ -587,6 +587,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./object-explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Object Explorer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variables-pane.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Variables Pane</span></a>
   </div>
@@ -924,7 +930,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, and Parquet files with pandas, readr, readxl, or nanoparquet.
+    Generate Python or R code to load data files into your session with the Import Data dialog. Import CSV, TSV, Excel, Parquet, and JSON files with pandas, json, readr, readxl, nanoparquet, or jsonlite.
   </div>
 </div>
 
@@ -953,11 +959,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can open the Import Data dialog from several places:</p>
 <ul>
 <li>Select <strong>Import Data</strong> in the action bar of a Data Explorer that shows a <code>.csv</code>, <code>.tsv</code>, <code>.xlsx</code>, or <code>.parquet</code> file</li>
+<li>Select <strong>Import Data</strong> in the action bar of a <code>.json</code> file, either in the text editor or the <a href="./object-explorer.html">Object Explorer</a></li>
 <li>Select <strong>File &gt; Import Data</strong> from the main menu</li>
 <li>Select the <i class="fa-solid fa-file-import" aria-label="file-import"></i> <strong>Import Data</strong> button in the <strong>Variables</strong> pane toolbar</li>
-<li>Right-click a <code>.csv</code>, <code>.tsv</code>, <code>.xlsx</code>, or <code>.parquet</code> file in the File Explorer and select <strong>Import Data</strong></li>
+<li>Right-click a <code>.csv</code>, <code>.tsv</code>, <code>.xlsx</code>, <code>.parquet</code>, or <code>.json</code> file in the File Explorer and select <strong>Import Data</strong></li>
 </ul>
-<p>The main menu and Variables pane entries open a file picker first. From every entry point, Positron opens the file in the Data Explorer and shows the dialog over it. If the Data Explorer already shows that file, Positron reuses it, so the dialog picks up the header row and worksheet options you already chose.</p>
+<p>The main menu and Variables pane entries open a file picker first. If the file isn’t already open, Positron opens it in the Data Explorer, or in the Object Explorer for JSON files, and shows the dialog over it. If the Data Explorer already shows that file, Positron reuses it, so the dialog picks up the header row and worksheet options you already chose.</p>
 </section>
 <section id="choose-a-package" class="level2">
 <h2 class="anchored" data-anchor-id="choose-a-package">Choose a package</h2>
@@ -990,6 +997,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>.parquet</code>, <code>.parq</code></td>
 <td>pandas <code>read_parquet</code></td>
 <td>nanoparquet <code>read_parquet</code></td>
+</tr>
+<tr class="even">
+<td><code>.json</code></td>
+<td>json <code>load</code></td>
+<td>jsonlite <code>read_json</code></td>
 </tr>
 </tbody>
 </table>
@@ -1446,8 +1458,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./variables-pane.html" class="pagination-link" aria-label="Variables Pane">
-        <span class="nav-page-text">Variables Pane</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./object-explorer.html" class="pagination-link" aria-label="Object Explorer">
+        <span class="nav-page-text">Object Explorer</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
