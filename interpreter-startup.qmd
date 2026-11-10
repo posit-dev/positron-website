@@ -58,7 +58,7 @@ To choose which interpreter starts, see [Which Python starts](python-installatio
 |---|---|
 | Start the interpreter you used last in a folder, or start one when you open a file or run code | `auto` (the default) |
 | Start an interpreter every time you open a window, even in a new folder | `always` |
-| Start the interpreter that the language suggests for the folder, not the one you used last | `recommended` |
+| Start the interpreter that Positron suggests for the folder, not the one you used last | `recommended` |
 | Start an interpreter only when you choose one or run code | `manual` |
 | Never start the language, and hide its interpreters | `disabled` |
 
