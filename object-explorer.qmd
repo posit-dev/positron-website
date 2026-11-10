@@ -5,7 +5,7 @@ description: "Browse, search, and copy code for nested data such as R lists, mod
 
 The Object Explorer is the [Data Explorer](data-explorer.qmd)'s counterpart for data that is not rectangular. It shows nested data, such as R lists, model fits, Python dicts, and JSON files, as a tree with **Name**, **Type**, and **Value** columns. You can search the whole object, open nested data frames in the Data Explorer, and get the code that selects any value in it.
 
-![Object Explorer](images/object-explorer.png){.drop-shadow fig-alt="Object Explorer showing a nested Python dict with the lift value selected and its accessor in the status bar."}
+![Object Explorer](images/object-explorer.png){.drop-shadow width=700 fig-alt="Object Explorer showing a nested Python dict with the lift value selected and its accessor in the status bar."}
 
 ## Opening the Object Explorer
 
@@ -83,7 +83,7 @@ The action bar at the top of the Object Explorer has buttons for the selected ro
 
 Use the **Search names and values** box in the action bar, or press {{< kbd mac=Command-F win=Ctrl-F linux=Ctrl-F >}}, to search the whole object, including parts you haven't expanded.
 
-![Object Explorer search results](images/object-explorer-search.png){.drop-shadow fig-alt="Object Explorer search results for 'discount', showing three matches with the matching text highlighted."}
+![Object Explorer search results](images/object-explorer-search.png){.drop-shadow width=700 fig-alt="Object Explorer search results for 'discount', showing three matches with the matching text highlighted."}
 
 Search is case-insensitive and matches text anywhere in a name or value. Values match only for elements with no children, so a list doesn't match because of its summary. For strings, the search covers the full text, even when the row shows a truncated value.
 
