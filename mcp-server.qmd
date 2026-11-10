@@ -7,7 +7,7 @@ description: "Connect your own coding agent, such as Claude Code, Codex, or Gemi
 The Positron Model Context Protocol (MCP) server is an experimental feature, added in Positron 2026.10. Its tools, setup, and settings might change in future releases.
 :::
 
-[Posit Assistant](assistant.qmd) is Posit's own agent for data science, built right into Positron. While we obviously think our own agent is pretty great, at Posit our goal is to build open tools that help you avoid vendor lock-in. That means supporting other agents too, such as Claude Code or Codex, so you can use models and subscriptions your organization already pays for. 
+[Posit Assistant](assistant.qmd) is Posit's own agent for data science, built right into Positron. While we're very proud of Assistant, at Posit our goal is to build open tools that help you avoid vendor lock-in. That means supporting other agents too, such as Claude Code or Codex, so you can use models and subscriptions your organization already pays for. 
 
 When you turn it on, Positron runs an [MCP](https://modelcontextprotocol.io) server that any MCP-capable agent can connect to. Both command-line interface (CLI) agents and agents that run as Positron extensions can connect. Through the server, your agent gets a set of tools comparable to the ones Posit Assistant uses to work in Positron.
 
