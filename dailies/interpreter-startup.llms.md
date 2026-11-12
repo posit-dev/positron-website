@@ -8,7 +8,7 @@ When Positron starts for the first time in a new workspace, it will start a Pyth
 
 Python starts right away in a folder that has Python files or a project environment. For which Python starts, see [Which Python starts](python-installations.llms.md#which-python-starts).
 
-R starts right away in a folder that has R files, such as `.R`, `.Rmd`, `.Rproj`, or `renv.lock`. Positron starts your system’s default R version. If you have no default R, it starts the most recent version (e.g., if you have R 4.2 and R 4.3 installed, it’ll start R 4.3).
+R starts right away in a folder that has R files, such as `.R`, `.Rmd`, `.Rproj`, or `renv.lock`. Positron starts your system’s current R version: the R that runs when you type R in a terminal. On Windows, it is the R version recorded in the registry. If you have no current R, or Positron cannot use it, Positron starts the highest R version that it can use. If you set [`positron.r.interpreters.override`](positron://settings/positron.r.interpreters.override), Positron starts the highest R version in that list.
 
 See the [Python discovery](python-installations.llms.md) and [R discovery](r-installations.llms.md) guides for more information on language-specific installations.
 
@@ -20,11 +20,13 @@ Positron tries to start R for R users and Python for Python users by checking to
 
 When Positron starts in a workspace that has been used before, it will start the same language interpreter that was running the last time you used the workspace.
 
-In the case of R, there is some additional subtlety. When Positron records which R version was most recently used in a workspace, it also notes whether that R version is the system’s default R version. In subsequent runs, Positron will launch the system’s default R version, even if that is a different version number from the last-used R version. We believe this behaviour is the least surprising for most users. If you want to use a specific, non-default R version in a workspace, select it explicitly once and it will be launched in future runs.
+In the case of R, there is some additional subtlety. When Positron records which R version was most recently used in a workspace, it also notes whether that R version is the system’s current R version. In subsequent runs, Positron launches the system’s current R version, even if that is a different version number from the last-used R version. We believe this behaviour is the least surprising for most users. If you want to use a different R version in a workspace, select it once, and Positron starts it in future runs.
 
-To start the same interpreter every time Positron opens a folder, in place of the one you used last, set [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath) or [`positron.r.interpreters.default`](positron://settings/positron.r.interpreters.default).
+To choose which interpreter Positron starts in a folder, in place of the one you used last, set [`python.defaultInterpreterPath`](positron://settings/python.defaultInterpreterPath) or [`positron.r.interpreters.default`](positron://settings/positron.r.interpreters.default).
 
 If Positron starts an interpreter you don’t need, just delete the session, and that interpreter will no longer start automatically in that workspace.
+
+To make Positron forget the interpreter it remembers for a folder, run *Interpreter: Clear Saved Interpreter* from the Command Palette, then choose the language. This command does not stop a running console. If you keep using that console, Positron remembers its interpreter again, so shut the console down first.
 
 ## Implicit startup
 
@@ -35,11 +37,35 @@ In addition to starting up an interpreter session when the workspace is first op
 
 ## Configuring interpreter startup
 
-If the interpreter that Positron uses by default isn’t a good fit, you can customize and configure how interpreter sessions are started using the [`interpreters.startupBehavior`](positron://settings/interpreters.startupBehavior) settings.
+The [`interpreters.startupBehavior`](positron://settings/interpreters.startupBehavior) setting controls when Positron starts an interpreter on its own. It does not change which interpreter starts. To choose which interpreter starts, see [Which Python starts](python-installations.llms.md#which-python-starts) and [R installations](r-installations.llms.md).
 
-### Per-language interpreter startup behavior
+### Choose a value
 
-In the Settings UI, search for `@lang:r interpreters.startupBehavior` or `@lang:python interpreters.startupBehavior`, and choose the desired configuration. The selected startup behavior will be applied to the corresponding language.
+| If you want Positron to | Use |
+|----|----|
+| Start the interpreter you used last in a folder, or start one when the folder has language files, you open a file, or you run code | `auto` (the default) |
+| Start an interpreter every time you open a window, even in a new folder | `always` |
+| Start the interpreter that Positron suggests for the folder, not the one you used last | `recommended` |
+| Start an interpreter only when you choose one or run code | `manual` |
+| Never start the language, and hide its interpreters | `disabled` |
+
+### What each value does
+
+The interpreter that the language suggests is the one that [First run](#first-run) describes. Language files include `.py` and `pyproject.toml` for Python, and `.R` and `renv.lock` for R.
+
+| Value | Folder you used before | New folder with language files | New folder without language files | Open a file | Run code | Choose from the **Interpreter picker** |
+|----|----|----|----|----|----|----|
+| `always` | Starts the interpreter you used last | Starts the suggested interpreter | Starts the suggested interpreter, if there is one | Starts the interpreter you used last, or the suggested one | Starts the interpreter you used last, or the suggested one | Starts the interpreter you choose |
+| `auto` | Starts the interpreter you used last | Starts the suggested interpreter | Does not start an interpreter | Starts the interpreter you used last, or the suggested one | Starts the interpreter you used last, or the suggested one | Starts the interpreter you choose |
+| `recommended` | Starts the suggested interpreter if the folder has language files | Starts the suggested interpreter | Does not start an interpreter | Starts the suggested interpreter | Starts the suggested interpreter | Starts the interpreter you choose |
+| `manual` | Does not start an interpreter | Does not start an interpreter | Does not start an interpreter | Does not start an interpreter | Starts the interpreter you used last, or the suggested one | Starts the interpreter you choose |
+| `disabled` | Does not start an interpreter | Does not start an interpreter | Does not start an interpreter | Does not start an interpreter | Does not start an interpreter | Not listed |
+
+Opening a file or running code starts an interpreter only when no session of that language is running.
+
+### Set a value for one language
+
+In the Settings UI, search for `@lang:r interpreters.startupBehavior` or `@lang:python interpreters.startupBehavior`, and choose a value. A value for one language takes precedence over the value for all languages.
 
 For example, if you only ever use Python and never want R to start, set `@lang:r interpreters.startupBehavior` to `"disabled"` to hide R interpreters from the Positron UI altogether. You can specify this at either the user or workspace level, and your configuration will appear in your `settings.json` as:
 
@@ -61,8 +87,4 @@ Alternatively, if you are mainly an R user, but occasionally use Python, you can
 }
 ```
 
-### General interpreter startup behavior
-
-In the Settings UI, find the [`interpreters.startupBehavior`](positron://settings/interpreters.startupBehavior) setting without a language key, and choose the desired configuration. The selected startup behavior will be applied to *all* interpreters.
-
-Note that if any per-language startup behavior is set, it takes precedence over the general interpreter startup behavior setting.
+To set one value for all languages, find the [`interpreters.startupBehavior`](positron://settings/interpreters.startupBehavior) setting in the Settings UI without a language key, and choose a value.

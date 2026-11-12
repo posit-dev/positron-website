@@ -912,8 +912,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#implicit-startup" id="toc-implicit-startup" class="nav-link" data-scroll-target="#implicit-startup">Implicit startup</a></li>
   <li><a href="#configuring-interpreter-startup" id="toc-configuring-interpreter-startup" class="nav-link" data-scroll-target="#configuring-interpreter-startup">Configuring interpreter startup</a>
   <ul class="collapse">
-  <li><a href="#per-language-interpreter-startup-behavior" id="toc-per-language-interpreter-startup-behavior" class="nav-link" data-scroll-target="#per-language-interpreter-startup-behavior">Per-language interpreter startup behavior</a></li>
-  <li><a href="#general-interpreter-startup-behavior" id="toc-general-interpreter-startup-behavior" class="nav-link" data-scroll-target="#general-interpreter-startup-behavior">General interpreter startup behavior</a></li>
+  <li><a href="#choose-a-value" id="toc-choose-a-value" class="nav-link" data-scroll-target="#choose-a-value">Choose a value</a></li>
+  <li><a href="#what-each-value-does" id="toc-what-each-value-does" class="nav-link" data-scroll-target="#what-each-value-does">What each value does</a></li>
+  <li><a href="#set-a-value-for-one-language" id="toc-set-a-value-for-one-language" class="nav-link" data-scroll-target="#set-a-value-for-one-language">Set a value for one language</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/interpreter-startup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/interpreter-startup.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -949,7 +950,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="first-run">First run</h2>
 <p>When Positron starts for the first time in a new workspace, it will start a Python and/or R interpreter session based on your workspace characteristics and whether there is evidence of RStudio being used recently.</p>
 <p>Python starts right away in a folder that has Python files or a project environment. For which Python starts, see <a href="./python-installations.html#which-python-starts">Which Python starts</a>.</p>
-<p>R starts right away in a folder that has R files, such as <code>.R</code>, <code>.Rmd</code>, <code>.Rproj</code>, or <code>renv.lock</code>. Positron starts your system’s default R version. If you have no default R, it starts the most recent version (e.g., if you have R 4.2 and R 4.3 installed, it’ll start R 4.3).</p>
+<p>R starts right away in a folder that has R files, such as <code>.R</code>, <code>.Rmd</code>, <code>.Rproj</code>, or <code>renv.lock</code>. Positron starts your system’s current R version: the R that runs when you type R in a terminal. On Windows, it is the R version recorded in the registry. If you have no current R, or Positron cannot use it, Positron starts the highest R version that it can use. If you set <a href="positron://settings/positron.r.interpreters.override"><code>positron.r.interpreters.override</code></a>, Positron starts the highest R version in that list.</p>
 <p>See the <a href="./python-installations.html">Python discovery</a> and <a href="./r-installations.html">R discovery</a> guides for more information on language-specific installations.</p>
 <section id="rstudio-detection" class="level3">
 <h3 class="anchored" data-anchor-id="rstudio-detection">RStudio detection</h3>
@@ -959,9 +960,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="subsequent-runs" class="level2">
 <h2 class="anchored" data-anchor-id="subsequent-runs">Subsequent runs</h2>
 <p>When Positron starts in a workspace that has been used before, it will start the same language interpreter that was running the last time you used the workspace.</p>
-<p>In the case of R, there is some additional subtlety. When Positron records which R version was most recently used in a workspace, it also notes whether that R version is the system’s default R version. In subsequent runs, Positron will launch the system’s default R version, even if that is a different version number from the last-used R version. We believe this behaviour is the least surprising for most users. If you want to use a specific, non-default R version in a workspace, select it explicitly once and it will be launched in future runs.</p>
-<p>To start the same interpreter every time Positron opens a folder, in place of the one you used last, set <a href="positron://settings/python.defaultInterpreterPath"><code>python.defaultInterpreterPath</code></a> or <a href="positron://settings/positron.r.interpreters.default"><code>positron.r.interpreters.default</code></a>.</p>
+<p>In the case of R, there is some additional subtlety. When Positron records which R version was most recently used in a workspace, it also notes whether that R version is the system’s current R version. In subsequent runs, Positron launches the system’s current R version, even if that is a different version number from the last-used R version. We believe this behaviour is the least surprising for most users. If you want to use a different R version in a workspace, select it once, and Positron starts it in future runs.</p>
+<p>To choose which interpreter Positron starts in a folder, in place of the one you used last, set <a href="positron://settings/python.defaultInterpreterPath"><code>python.defaultInterpreterPath</code></a> or <a href="positron://settings/positron.r.interpreters.default"><code>positron.r.interpreters.default</code></a>.</p>
 <p>If Positron starts an interpreter you don’t need, just delete the session, and that interpreter will no longer start automatically in that workspace.</p>
+<p>To make Positron forget the interpreter it remembers for a folder, run <em>Interpreter: Clear Saved Interpreter</em> from the Command Palette, then choose the language. This command does not stop a running console. If you keep using that console, Positron remembers its interpreter again, so shut the console down first.</p>
 </section>
 <section id="implicit-startup" class="level2">
 <h2 class="anchored" data-anchor-id="implicit-startup">Implicit startup</h2>
@@ -973,10 +975,121 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="configuring-interpreter-startup" class="level2">
 <h2 class="anchored" data-anchor-id="configuring-interpreter-startup">Configuring interpreter startup</h2>
-<p>If the interpreter that Positron uses by default isn’t a good fit, you can customize and configure how interpreter sessions are started using the <a href="positron://settings/interpreters.startupBehavior"><code>interpreters.startupBehavior</code></a> settings.</p>
-<section id="per-language-interpreter-startup-behavior" class="level3">
-<h3 class="anchored" data-anchor-id="per-language-interpreter-startup-behavior">Per-language interpreter startup behavior</h3>
-<p>In the Settings UI, search for <code>@lang:r interpreters.startupBehavior</code> or <code>@lang:python interpreters.startupBehavior</code>, and choose the desired configuration. The selected startup behavior will be applied to the corresponding language.</p>
+<p>The <a href="positron://settings/interpreters.startupBehavior"><code>interpreters.startupBehavior</code></a> setting controls when Positron starts an interpreter on its own. It does not change which interpreter starts. To choose which interpreter starts, see <a href="./python-installations.html#which-python-starts">Which Python starts</a> and <a href="./r-installations.html">R installations</a>.</p>
+<section id="choose-a-value" class="level3">
+<h3 class="anchored" data-anchor-id="choose-a-value">Choose a value</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>If you want Positron to</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Start the interpreter you used last in a folder, or start one when the folder has language files, you open a file, or you run code</td>
+<td><code>auto</code> (the default)</td>
+</tr>
+<tr class="even">
+<td>Start an interpreter every time you open a window, even in a new folder</td>
+<td><code>always</code></td>
+</tr>
+<tr class="odd">
+<td>Start the interpreter that Positron suggests for the folder, not the one you used last</td>
+<td><code>recommended</code></td>
+</tr>
+<tr class="even">
+<td>Start an interpreter only when you choose one or run code</td>
+<td><code>manual</code></td>
+</tr>
+<tr class="odd">
+<td>Never start the language, and hide its interpreters</td>
+<td><code>disabled</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-each-value-does" class="level3">
+<h3 class="anchored" data-anchor-id="what-each-value-does">What each value does</h3>
+<p>The interpreter that the language suggests is the one that <a href="#first-run">First run</a> describes. Language files include <code>.py</code> and <code>pyproject.toml</code> for Python, and <code>.R</code> and <code>renv.lock</code> for R.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Value</th>
+<th>Folder you used before</th>
+<th>New folder with language files</th>
+<th>New folder without language files</th>
+<th>Open a file</th>
+<th>Run code</th>
+<th>Choose from the <strong>Interpreter picker</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>always</code></td>
+<td>Starts the interpreter you used last</td>
+<td>Starts the suggested interpreter</td>
+<td>Starts the suggested interpreter, if there is one</td>
+<td>Starts the interpreter you used last, or the suggested one</td>
+<td>Starts the interpreter you used last, or the suggested one</td>
+<td>Starts the interpreter you choose</td>
+</tr>
+<tr class="even">
+<td><code>auto</code></td>
+<td>Starts the interpreter you used last</td>
+<td>Starts the suggested interpreter</td>
+<td>Does not start an interpreter</td>
+<td>Starts the interpreter you used last, or the suggested one</td>
+<td>Starts the interpreter you used last, or the suggested one</td>
+<td>Starts the interpreter you choose</td>
+</tr>
+<tr class="odd">
+<td><code>recommended</code></td>
+<td>Starts the suggested interpreter if the folder has language files</td>
+<td>Starts the suggested interpreter</td>
+<td>Does not start an interpreter</td>
+<td>Starts the suggested interpreter</td>
+<td>Starts the suggested interpreter</td>
+<td>Starts the interpreter you choose</td>
+</tr>
+<tr class="even">
+<td><code>manual</code></td>
+<td>Does not start an interpreter</td>
+<td>Does not start an interpreter</td>
+<td>Does not start an interpreter</td>
+<td>Does not start an interpreter</td>
+<td>Starts the interpreter you used last, or the suggested one</td>
+<td>Starts the interpreter you choose</td>
+</tr>
+<tr class="odd">
+<td><code>disabled</code></td>
+<td>Does not start an interpreter</td>
+<td>Does not start an interpreter</td>
+<td>Does not start an interpreter</td>
+<td>Does not start an interpreter</td>
+<td>Does not start an interpreter</td>
+<td>Not listed</td>
+</tr>
+</tbody>
+</table>
+<p>Opening a file or running code starts an interpreter only when no session of that language is running.</p>
+</section>
+<section id="set-a-value-for-one-language" class="level3">
+<h3 class="anchored" data-anchor-id="set-a-value-for-one-language">Set a value for one language</h3>
+<p>In the Settings UI, search for <code>@lang:r interpreters.startupBehavior</code> or <code>@lang:python interpreters.startupBehavior</code>, and choose a value. A value for one language takes precedence over the value for all languages.</p>
 <p>For example, if you only ever use Python and never want R to start, set <code>@lang:r interpreters.startupBehavior</code> to <code>"disabled"</code> to hide R interpreters from the Positron UI altogether. You can specify this at either the user or workspace level, and your configuration will appear in your <code>settings.json</code> as:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"[r]"</span><span class="fu">:</span> <span class="fu">{</span></span>
@@ -989,11 +1102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"interpreters.startupBehavior"</span><span class="fu">:</span> <span class="st">"manual"</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="general-interpreter-startup-behavior" class="level3">
-<h3 class="anchored" data-anchor-id="general-interpreter-startup-behavior">General interpreter startup behavior</h3>
-<p>In the Settings UI, find the <a href="positron://settings/interpreters.startupBehavior"><code>interpreters.startupBehavior</code></a> setting without a language key, and choose the desired configuration. The selected startup behavior will be applied to <em>all</em> interpreters.</p>
-<p>Note that if any per-language startup behavior is set, it takes precedence over the general interpreter startup behavior setting.</p>
+<p>To set one value for all languages, find the <a href="positron://settings/interpreters.startupBehavior"><code>interpreters.startupBehavior</code></a> setting in the Settings UI without a language key, and choose a value.</p>
 
 
 </section>
