@@ -11,7 +11,7 @@ Python starts right away in a folder that has Python files or a project environm
 For which Python starts, see [Which Python starts](python-installations.qmd#which-python-starts).
 
 R starts right away in a folder that has R files, such as `.R`, `.Rmd`, `.Rproj`, or `renv.lock`.
-Positron starts your system's current R version.
+Positron starts your system’s current R version: the R that runs when you type R in a terminal. On Windows, it is the R version recorded in the registry.
 If you have no current R, or Positron cannot use it, Positron starts the highest R version that it can use.
 If you set [`positron.r.interpreters.override`](positron://settings/positron.r.interpreters.override), Positron starts the highest R version in that list.
 
