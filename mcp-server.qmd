@@ -20,6 +20,29 @@ The Positron Model Context Protocol (MCP) server is an experimental feature, add
 
 You can use both. They are independent of each other.
 
+## Set up the MCP server
+
+### Step 1: Turn on the server {#turn-on-the-server}
+
+1. Make sure AI features are on: [`ai.enabled`](positron://settings/ai.enabled) must be `true`. It is `true` by default. See [Configure AI features](ai-configuration.qmd).
+2. Set [`ai.mcp.enabled`](positron://settings/ai.mcp.enabled) to `true`. You can also find it in the Settings editor under **Features > AI** as **MCP: Enabled**.
+
+The change takes effect right away; you don't need to reload. If Positron finds a supported agent on your machine, it offers to turn on the server for you once.
+
+### Step 2: Add Positron to your agent {#add-positron-to-your-agent}
+
+If you use the Claude Code CLI, you can skip this step. Positron adds itself to Claude Code's local configuration for the folder automatically, outside your repository, the first time the server starts in that folder.
+
+For other agents:
+
+1. Run _Positron MCP: Add to Coding Agent_ from the Command Palette ({{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}).
+2. Choose your agent. Positron marks agents it finds on your machine as **Installed**.
+3. Restart the agent so it picks up the new configuration.
+
+### Step 3: Start your agent {#start-your-agent}
+
+Start your agent in the folder that is open in Positron, for example in a new Positron terminal. Then ask it to do something in Positron. You don't need to start, stop, or reconnect anything after that. Positron handles the connection, including when you reload the window or update Positron.
+
 ## Why use the MCP server?
 
 You don't need the MCP server to use a coding agent in Positron. Agents such as Claude Code and Codex already work in Positron's terminal and as extensions. Without the MCP server, though, the agent can't see your data, your live sessions, or anything else in Positron. If it runs R or Python, it does so in its own shell commands, out of your sight.
@@ -59,28 +82,6 @@ The server exposes a small set of tools:
 
 The commands are the same ones Posit Assistant can run, and extensions can add more. Not every command in Positron is available to agents. To see what is available, ask your agent to list the Positron commands it can run.
 
-## Set up the MCP server
-
-### Step 1: Turn on the server {#turn-on-the-server}
-
-1. Make sure AI features are on: [`ai.enabled`](positron://settings/ai.enabled) must be `true`. It is `true` by default. See [Configure AI features](ai-configuration.qmd).
-2. Set [`ai.mcp.enabled`](positron://settings/ai.mcp.enabled) to `true`. You can also find it in the Settings editor under **Features > AI** as **MCP: Enabled**.
-
-The change takes effect right away; you don't need to reload. If Positron finds a supported agent on your machine, it offers to turn on the server for you once.
-
-### Step 2: Add Positron to your agent {#add-positron-to-your-agent}
-
-If you use the Claude Code CLI, you can skip this step. Positron adds itself to Claude Code's local configuration for the folder automatically, outside your repository, the first time the server starts in that folder.
-
-For other agents:
-
-1. Run _Positron MCP: Add to Coding Agent_ from the Command Palette ({{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}).
-2. Choose your agent. Positron marks agents it finds on your machine as **Installed**.
-3. Restart the agent so it picks up the new configuration.
-
-### Step 3: Start your agent {#start-your-agent}
-
-Start your agent in the folder that is open in Positron, for example in a new Positron terminal. Then ask it to do something in Positron. You don't need to start, stop, or reconnect anything after that. Positron handles the connection, including when you reload the window or update Positron.
 
 ## Supported agents
 
