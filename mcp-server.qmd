@@ -1,13 +1,13 @@
 ---
-title: "Positron MCP Server"
+title: "Positron MCP server"
 description: "Connect your own coding agent, such as Claude Code, Codex, or Gemini CLI, to Positron's R and Python sessions, plots, and commands through the Positron MCP server."
 ---
 
 ::: {.callout-note}
-The Positron Model Context Protocol (MCP) server is an experimental feature, added in Positron 2026.10. Its tools, setup, and settings might change in future releases.
+The Positron Model Context Protocol (MCP) server is an experimental feature that Positron 2026.10 introduced. Its tools, setup, and settings might change in future releases.
 :::
 
-[Posit Assistant](assistant.qmd) is an AI coding assistant for data science in Positron. The Positron Model Context Protocol (MCP) server lets other agents, such as Claude Code, Codex, or Gemini CLI, work in your R and Python sessions too. For background on why we built the MCP server, see the [announcement blog post](https://opensource.posit.co/blog/2026-11-04_positron-mcp/)
+[Posit Assistant](assistant.qmd) is an AI coding assistant for data science in Positron. The Positron MCP server lets other agents, such as Claude Code, Codex, or Gemini CLI, work in your R and Python sessions too. For background on why we built the MCP server, see the [announcement blog post](https://opensource.posit.co/blog/2026-11-04_positron-mcp/).
 
 ## Posit Assistant or the MCP server?
 
@@ -36,7 +36,7 @@ If you use the Claude Code CLI, you can skip this step. Positron adds itself to 
 For other agents:
 
 1. Run _Positron MCP: Add to Coding Agent_ from the Command Palette ({{< kbd mac=Command-Shift-P win=Ctrl-Shift-P linux=Ctrl-Shift-P >}}).
-2. Choose your agent. Positron marks agents it finds on your machine as **Installed**.
+2. Select your agent. Positron marks agents it finds on your machine as **Installed**.
 3. Restart the agent so it picks up the new configuration.
 
 ### Step 3: Start your agent {#start-your-agent}
