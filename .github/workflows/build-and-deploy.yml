@@ -72,6 +72,12 @@ jobs:
       pull-requests: write
       deployments: write
     steps:
+      # Full history so we can diff against the PR's base branch.
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Download _site artifact
         uses: actions/download-artifact@v4
         with:
@@ -85,7 +91,8 @@ jobs:
           production-deploy: false
           deploy-message: "Preview for PR #${{ github.event.number }}"
           alias: pr-${{ github.event.number }}
-          enable-pull-request-comment: true
+          # We post our own comment below, which also lists the changed pages.
+          enable-pull-request-comment: false
           enable-commit-comment: false
           github-deployment-environment: preview
           # The action reads the token from this input, not from env.
@@ -94,6 +101,45 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
+
+      - name: Comment preview links on the PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          PREVIEW="https://pr-${PR_NUMBER}--positron-website-preview.netlify.app"
+          {
+            echo "<!-- pr-preview-comment -->"
+            echo "### Preview"
+            echo
+            echo "Deployed ${HEAD_SHA:0:7} to ${PREVIEW}"
+            echo
+            # Top-level .qmd pages only. Files starting with _ are partials, not pages.
+            PAGES="$(git diff --name-only --diff-filter=AMR "$BASE_SHA...$HEAD_SHA" -- '*.qmd' \
+              | grep -v '^_' | grep -v '/_' | sed 's/\.qmd$//' | sort -u || true)"
+            if [ -n "$PAGES" ]; then
+              echo "Changed pages:"
+              echo
+              while read -r page; do
+                if [ "$page" = "index" ]; then
+                  echo "- ${PREVIEW}/"
+                else
+                  echo "- ${PREVIEW}/${page}.html"
+                fi
+              done <<< "$PAGES"
+            fi
+          } > comment.md
+
+          # Update our earlier comment if there is one, otherwise create it.
+          COMMENT_ID="$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
+            --jq '[.[] | select(.body | contains("<!-- pr-preview-comment -->"))][0].id // empty')"
+          if [ -n "$COMMENT_ID" ]; then
+            gh api -X PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${COMMENT_ID}" -F body=@comment.md
+          else
+            gh pr comment "$PR_NUMBER" --body-file comment.md
+          fi
 
   publish-dailies:
     name: Publish dailies to gh-pages
