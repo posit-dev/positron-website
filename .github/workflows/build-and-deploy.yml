@@ -85,7 +85,8 @@ jobs:
           production-deploy: false
           deploy-message: "Preview for PR #${{ github.event.number }}"
           alias: pr-${{ github.event.number }}
-          enable-pull-request-comment: true
+          # We post our own comment below, which also lists the changed pages.
+          enable-pull-request-comment: false
           enable-commit-comment: false
           github-deployment-environment: preview
           # The action reads the token from this input, not from env.
@@ -94,6 +95,40 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
+
+      - name: Comment preview links on the PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          export PREVIEW="https://pr-${PR_NUMBER}--positron-website-preview.netlify.app"
+
+          # Top-level .qmd pages only. Files starting with _ are partials, not pages.
+          PAGES="$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" --paginate --jq '
+            .[] | select(.status != "removed")
+            | .filename | select(test("^[^_/][^/]*\\.qmd$"))
+            | sub("\\.qmd$"; ".html") | sub("^index\\.html$"; "")
+            | "- \(env.PREVIEW)/\(.)"')"
+
+          {
+            echo "<!-- pr-preview-comment -->"
+            echo "### Preview"
+            echo
+            echo "Deployed ${HEAD_SHA:0:7} to ${PREVIEW}"
+            if [ -n "$PAGES" ]; then
+              printf '\nChanged pages:\n\n%s\n' "$PAGES"
+            fi
+          } > comment.md
+
+          # Update our earlier comment if there is one, otherwise create it.
+          COMMENT_ID="$(gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" --paginate \
+            --jq '[.[] | select(.body | contains("<!-- pr-preview-comment -->"))][0].id // empty')"
+          if [ -n "$COMMENT_ID" ]; then
+            gh api -X PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${COMMENT_ID}" -F body=@comment.md
+          else
+            gh api -X POST "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" -F body=@comment.md
+          fi
 
   publish-dailies:
     name: Publish dailies to gh-pages
