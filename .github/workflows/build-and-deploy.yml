@@ -127,7 +127,7 @@ jobs:
           if [ -n "$COMMENT_ID" ]; then
             gh api -X PATCH "repos/${GITHUB_REPOSITORY}/issues/comments/${COMMENT_ID}" -F body=@comment.md
           else
-            gh pr comment "$PR_NUMBER" --body-file comment.md
+            gh api -X POST "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/comments" -F body=@comment.md
           fi
 
   publish-dailies:
