@@ -155,6 +155,10 @@ rm -rf ~/.positron
 
 :::
 
+::: callout-important
+HELLO TEST CHANGE! :)
+:::
+
 ## Ask for help
 
 Finally, ask for help early and often. If you're having trouble, we'd like to hear about it, perhaps even before you blow away any state that might tell us what the issue was. Join us on [GitHub Discussions](https://github.com/posit-dev/positron/discussions)!

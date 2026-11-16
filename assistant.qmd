@@ -20,6 +20,8 @@ listing:
         link: "https://opensource.posit.co/topics/artificial-intelligence/"
 ---
 
+## HELLO TEST CHANGE! :)
+
 [Posit Assistant](https://assistant.posit.co) is an AI coding assistant for data science in Positron. It first became available as a preview feature in Positron 2026.04.0, and as of Positron 2026.07 it ships with Positron as the default AI experience, replacing Positron Assistant and Databot. For more on how it came to be, see [The history of Posit's data science agents](https://opensource.posit.co/blog/2026-06-11_history-of-posit-data-science-agents).
 
 Beyond your active files, selected code, and project structure, Posit Assistant uses context from your interactive data science work, such as your loaded data, plots, and console history. This enables more relevant guidance for core data science workflows, including exploratory analysis, data cleaning, data app development, and modeling.
