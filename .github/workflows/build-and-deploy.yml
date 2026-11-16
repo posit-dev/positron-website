@@ -72,12 +72,6 @@ jobs:
       pull-requests: write
       deployments: write
     steps:
-      # Full history so we can diff against the PR's base branch.
-      - name: Check out repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Download _site artifact
         uses: actions/download-artifact@v4
         with:
@@ -106,29 +100,24 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.number }}
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          PREVIEW="https://pr-${PR_NUMBER}--positron-website-preview.netlify.app"
+          export PREVIEW="https://pr-${PR_NUMBER}--positron-website-preview.netlify.app"
+
+          # Top-level .qmd pages only. Files starting with _ are partials, not pages.
+          PAGES="$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" --paginate --jq '
+            .[] | select(.status != "removed")
+            | .filename | select(test("^[^_/][^/]*\\.qmd$"))
+            | sub("\\.qmd$"; ".html") | sub("^index\\.html$"; "")
+            | "- \(env.PREVIEW)/\(.)"')"
+
           {
             echo "<!-- pr-preview-comment -->"
             echo "### Preview"
             echo
             echo "Deployed ${HEAD_SHA:0:7} to ${PREVIEW}"
-            echo
-            # Top-level .qmd pages only. Files starting with _ are partials, not pages.
-            PAGES="$(git diff --name-only --diff-filter=AMR "$BASE_SHA...$HEAD_SHA" -- '*.qmd' \
-              | grep -v '^_' | grep -v '/_' | sed 's/\.qmd$//' | sort -u || true)"
             if [ -n "$PAGES" ]; then
-              echo "Changed pages:"
-              echo
-              while read -r page; do
-                if [ "$page" = "index" ]; then
-                  echo "- ${PREVIEW}/"
-                else
-                  echo "- ${PREVIEW}/${page}.html"
-                fi
-              done <<< "$PAGES"
+              printf '\nChanged pages:\n\n%s\n' "$PAGES"
             fi
           } > comment.md
 
