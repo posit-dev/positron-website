@@ -24,8 +24,6 @@ There are several ways to open the Object Explorer for an object in your Python 
 
 Each Object Explorer tracks the variable you opened it on. When you change the variable, the Object Explorer updates to show its new value. When you delete the variable, or the session ends, the Object Explorer tells you the object is no longer available. Objects opened from an expression rather than a variable don't update.
 
-> HELLO TEST CHANGE! :)
-
 ### JSON files
 
 To open a JSON file in the Object Explorer, right-click it in the File Explorer and select **Open in Object Explorer**. JSON files open in the text editor by default; when one is open, the **Open in Object Explorer** button in the editor action bar switches to the Object Explorer.
