@@ -36,15 +36,7 @@
     ]
   },
   {
-    "listing": "/features.html",
-    "items": []
-  },
-  {
-    "listing": "/assistant-getting-started.html",
-    "items": []
-  },
-  {
-    "listing": "/ai-features.html",
+    "listing": "/language-guides.html",
     "items": []
   },
   {
@@ -52,7 +44,15 @@
     "items": []
   },
   {
-    "listing": "/language-guides.html",
+    "listing": "/ai-features.html",
+    "items": []
+  },
+  {
+    "listing": "/assistant-getting-started.html",
+    "items": []
+  },
+  {
+    "listing": "/features.html",
     "items": []
   }
 ]

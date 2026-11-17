@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Connect your own coding agent, such as Claude Code, Codex, or Gemini CLI, to Positron’s R and Python sessions, plots, and commands through the Positron MCP server.">
+
+<title>Positron MCP server – Positron</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ai-configuration.html" rel="next">
+<link href="./assistant-completions.html" rel="prev">
+<link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-d44e769ed130481aae7cd7a793524916.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "/"
+  ],
+  "show-item-context": true,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://widget.kapa.ai/kapa-widget.bundle.js" data-website-id="25dee41d-4924-4490-9c7f-65853d503cd8" data-project-name="Positron" data-modal-title="Positron Docs AI ✨" data-modal-disclaimer="This is a custom LLM for answering questions about using Positron IDE. Answers are based on the contents of our documentation." data-modal-ask-ai-input-placeholder="How do I..." data-modal-example-questions="How do I install Positron?,How do I switch between Python and R interpreters?,How do I use AI in Positron?" data-user-analytics-cookie-enabled="false" data-bot-protection-mechanism="hcaptcha" data-modal-example-questions-col-span="12" data-project-color="#ffffff" data-project-logo="/images/posit-icon-fullcolor.svg" data-font-family="Open Sans, sans-serif" data-hyperlink-color="#447099" data-button-hide="true" data-button-position-bottom="80px" data-button-position-right="25px" data-button-border="solid 1px #ffffff" data-button-text-color="#447099" data-submit-query-button-bg-color="#447099" data-deep-thinking-button-active-bg-color="#eaeaee" data-deep-thinking-button-active-hover-text-color="#447099" data-deep-thinking-button-active-hover-bg-color="#eaeaee" data-deep-thinking-button-active-text-color="#000000" data-modal-override-open-id="custom-ask-ai-button" data-modal-x-offset="0" data-modal-y-offset="0" data-modal-z-index="1031" data-modal-with-overlay="false" data-modal-inner-flex-direction="column" data-modal-inner-justify-content="end" data-modal-inner-max-width="500px" data-modal-inner-position-left="auto" data-modal-inner-position-right="0" data-modal-inner-position-bottom="0" data-modal-inner-position-top="0" data-modal-size="100vh" data-modal-lock-scroll="false"></script>
+<script defer="" file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
+<meta name="robots" content="noindex">
+
+
+<meta property="og:title" content="Positron MCP server – Positron">
+<meta property="og:description" content="Connect your own coding agent, such as Claude Code, Codex, or Gemini CLI, to Positron’s R and Python sessions, plots, and commands through the Positron MCP server.">
+<meta property="og:image" content="https://positron.posit.co/dailies/images/positron-social.png">
+<meta property="og:site_name" content="Positron">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:width" content="1920">
+<meta name="twitter:title" content="Positron MCP server – Positron">
+<meta name="twitter:description" content="Connect your own coding agent, such as Claude Code, Codex, or Gemini CLI, to Positron’s R and Python sessions, plots, and commands through the Positron MCP server.">
+<meta name="twitter:image" content="https://positron.posit.co/dailies/images/positron-social.png">
+<meta name="twitter:image-height" content="1080">
+<meta name="twitter:image-width" content="1920">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/images/positron-logo_fullcolor-TM.png" alt="Positron Documentation" class="navbar-logo light-content">
+    <img src="./assets/images/positron-logo_fullcolor-TM.png" alt="Positron Documentation" class="navbar-logo dark-content">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./features.html"> 
+<span class="menu-text">Features</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./welcome.html" aria-current="page"> 
+<span class="menu-text">Guides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./release-notes.html"> 
+<span class="menu-text">Release Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./tutorials.html"> 
+<span class="menu-text">Tutorials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./troubleshooting.html"> 
+<span class="menu-text">Help</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://opensource.posit.co/blog/q/positron/" target="_blank"><i class="bi bi-journal-text" role="img">
+</i> 
+ <span class="dropdown-text">Blog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/positron-updates-signup/" target="_blank"><i class="bi bi-envelope" role="img">
+</i> 
+ <span class="dropdown-text">Sign up for updates</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://www.linkedin.com/showcase/positron-ide/" target="_blank"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="dropdown-text">LinkedIn</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/events/?search=positron&amp;poststatus=all" target="_blank"><i class="bi bi-calendar-event" role="img">
+</i> 
+ <span class="dropdown-text">Events</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://posit.co/products/" target="_blank"><i class="bi bi-laptop" role="img">
+</i> 
+ <span class="dropdown-text">More Posit products</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./download.html"> 
+<span class="menu-text"><span id="top-bar-download-btn" class="btn btn-primary">Download</span></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/posit-dev/positron"> <i class="bi bi-github" role="img" aria-label="Link to Positron Github Repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="javascript:void(0);"> 
+<span class="menu-text"><span id="custom-ask-ai-button">Ask AI ✨</span></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ai-features.html">AI Features</a></li><li class="breadcrumb-item"><a href="./mcp-server.html">Positron MCP server</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+  <div id="quarto-announcement" data-announcement-id="687d7ef531e974cef1bf7d0f11614fac" class="alert alert-danger hidden"><i class="bi bi-cone-striped quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p>You are viewing the development version of Positron documentation for the dailies (2026.12.0). Some features described here are not yet available in the latest regular release. <a href="https://positron.posit.co/">Go to the released documentation</a>.</p>
+</div></div>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./welcome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting Started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./welcome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./download.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Download Positron</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Configuration</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./keyboard-shortcuts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Keyboard Shortcuts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./add-to-path.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Launch Positron from a Terminal</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git Version Control</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extensions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./updating.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Updating Positron</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./layout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">User Interface</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./layout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Layout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./command-palette.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Command Palette</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./action-bars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Action Bars</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./help-pane.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Help Pane</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./ai-features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI Features</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assistant-getting-started.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Get started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./assistant-providers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Providers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assistant-provider-info.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Privacy &amp; terms</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assistant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Posit Assistant</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assistant-completions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Completions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mcp-server.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Positron MCP server</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ai-configuration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Configure AI features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Positron Assistant (deprecated)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./assistant-chat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chat</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assistant-chat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assistant-chat-agents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chat Agents</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assistant-chat-context.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Context</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assistant-chat-commands-participants.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Commands &amp; Participants</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assistant-chat-instructions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Custom Instructions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assistant-troubleshooting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Troubleshooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assistant-tips.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tips &amp; Glossary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./databot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Databot (deprecated)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./language-guides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Language Guides</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./language-guides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python in Positron</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./guide-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R in Positron</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide-r-debugging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Debugging R code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide-r-session-hooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R session hooks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide-r-air.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formatting R code with Air</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./guide-sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SQL in Positron</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./data-explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Explorer</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-explorer-data-grid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Grid</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-explorer-filter-bar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Filter Bar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-explorer-summary-panel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary Panel</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./import-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Import Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./object-explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Object Explorer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./variables-pane.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variables Pane</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./plots-pane.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plots Pane</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./data-connections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Database Connections</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-connections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./using-data-connections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Data Connections</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./connections-pane.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Connections Pane</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./extending-connections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extending the Connections Pane</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
+ <span class="menu-text">Dynamic Documents and Apps</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quarto</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quarto-inline-output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inline output</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./jupyter-notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jupyter Notebooks</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jupyter-notebooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./positron-notebook-editor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Positron Notebook Editor</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./legacy-notebook-editor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Legacy Notebook Editor</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./code-cells.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Code Cells</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./develop-data-apps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Develop Data Apps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./publish-to-connect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Publish Your Work</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true">
+ <span class="menu-text">Workspaces</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./folder-templates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Folder Templates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./remote-ssh.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Remote SSH</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dev-containers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dev Containers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true">
+ <span class="menu-text">Interpreters</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./managing-interpreters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Managing Interpreters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interpreter-startup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpreter Startup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interpreter-definitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpreter Definitions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./packages-pane.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Packages Pane</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false">
+ <span class="menu-text">Language-Specific Setup</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./python-installations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discovering Python Installations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-installations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discovering R Installations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reticulate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reticulate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./environment-modules.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Environment Modules</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="true">
+ <span class="menu-text">Migration Guides</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migrate-vscode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Migrating from VS Code</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false">
+ <span class="menu-text">Migrating from RStudio</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migrate-rstudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migrate-rstudio-keybindings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio Keybindings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migrate-rstudio-settings-and-extensions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Settings and Extensions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migrate-rstudio-snippets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Creating R snippets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migrate-rstudio-rproj.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Rproj File</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./migrate-rstudio-compare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing RStudio and Positron Features</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extending Positron</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./extension-development.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Extension Development</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#posit-assistant-or-the-mcp-server" id="toc-posit-assistant-or-the-mcp-server" class="nav-link active" data-scroll-target="#posit-assistant-or-the-mcp-server">Posit Assistant or the MCP server?</a></li>
+  <li><a href="#set-up-the-mcp-server" id="toc-set-up-the-mcp-server" class="nav-link" data-scroll-target="#set-up-the-mcp-server">Set up the MCP server</a>
+  <ul class="collapse">
+  <li><a href="#turn-on-the-server" id="toc-turn-on-the-server" class="nav-link" data-scroll-target="#turn-on-the-server">Step 1: Turn on the server</a></li>
+  <li><a href="#add-positron-to-your-agent" id="toc-add-positron-to-your-agent" class="nav-link" data-scroll-target="#add-positron-to-your-agent">Step 2: Add Positron to your agent</a></li>
+  <li><a href="#start-your-agent" id="toc-start-your-agent" class="nav-link" data-scroll-target="#start-your-agent">Step 3: Start your agent</a></li>
+  </ul></li>
+  <li><a href="#why-use-the-mcp-server" id="toc-why-use-the-mcp-server" class="nav-link" data-scroll-target="#why-use-the-mcp-server">Why use the MCP server?</a></li>
+  <li><a href="#what-the-server-exposes" id="toc-what-the-server-exposes" class="nav-link" data-scroll-target="#what-the-server-exposes">What the server exposes</a></li>
+  <li><a href="#supported-agents" id="toc-supported-agents" class="nav-link" data-scroll-target="#supported-agents">Supported agents</a></li>
+  <li><a href="#connect-other-agents" id="toc-connect-other-agents" class="nav-link" data-scroll-target="#connect-other-agents">Connect other agents</a>
+  <ul class="collapse">
+  <li><a href="#agents-that-start-a-local-stdio-server" id="toc-agents-that-start-a-local-stdio-server" class="nav-link" data-scroll-target="#agents-that-start-a-local-stdio-server">Agents that start a local (stdio) server</a></li>
+  <li><a href="#agents-that-connect-over-http" id="toc-agents-that-connect-over-http" class="nav-link" data-scroll-target="#agents-that-connect-over-http">Agents that connect over HTTP</a></li>
+  </ul></li>
+  <li><a href="#see-connected-agents" id="toc-see-connected-agents" class="nav-link" data-scroll-target="#see-connected-agents">See connected agents</a></li>
+  <li><a href="#settings" id="toc-settings" class="nav-link" data-scroll-target="#settings">Settings</a></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How it works</a>
+  <ul class="collapse">
+  <li><a href="#tokens-and-context" id="toc-tokens-and-context" class="nav-link" data-scroll-target="#tokens-and-context">Tokens and context</a></li>
+  </ul></li>
+  <li><a href="#security" id="toc-security" class="nav-link" data-scroll-target="#security">Security</a></li>
+  <li><a href="#feedback" id="toc-feedback" class="nav-link" data-scroll-target="#feedback">Feedback</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/mcp-server.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/mcp-server.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ai-features.html">AI Features</a></li><li class="breadcrumb-item"><a href="./mcp-server.html">Positron MCP server</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Positron MCP server</h1>
+</div>
+
+<div>
+  <div class="description">
+    Connect your own coding agent, such as Claude Code, Codex, or Gemini CLI, to Positron’s R and Python sessions, plots, and commands through the Positron MCP server.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Positron Model Context Protocol (MCP) server is an experimental feature that Positron 2026.10 introduced. Its tools, setup, and settings might change in future releases.</p>
+</div>
+</div>
+<p><a href="./assistant.html">Posit Assistant</a> is an AI coding assistant for data science in Positron. The Positron MCP server lets other agents, such as Claude Code, Codex, or Gemini CLI, work in your R and Python sessions too. For background on why we built the MCP server, see the <a href="https://opensource.posit.co/blog/2026-11-04_positron-mcp/">announcement blog post</a>.</p>
+<section id="posit-assistant-or-the-mcp-server" class="level2">
+<h2 class="anchored" data-anchor-id="posit-assistant-or-the-mcp-server">Posit Assistant or the MCP server?</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Posit Assistant</th>
+<th>Positron MCP server</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Agent</td>
+<td>Posit’s own agent, built for data science</td>
+<td>Your agent, such as Claude Code, Codex, or Gemini CLI</td>
+</tr>
+<tr class="even">
+<td>Interface</td>
+<td>Chat panel in Positron</td>
+<td>Your agent’s own interface, in a terminal or extension</td>
+</tr>
+<tr class="odd">
+<td>Models and billing</td>
+<td>Configured <a href="./assistant-providers.html">providers</a></td>
+<td>Whatever your agent uses</td>
+</tr>
+<tr class="even">
+<td>Context, tokens, and permissions</td>
+<td>Posit Assistant manages them</td>
+<td>Your agent manages them</td>
+</tr>
+</tbody>
+</table>
+<p>You can use both. They are independent of each other.</p>
+</section>
+<section id="set-up-the-mcp-server" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-the-mcp-server">Set up the MCP server</h2>
+<section id="turn-on-the-server" class="level3">
+<h3 class="anchored" data-anchor-id="turn-on-the-server">Step 1: Turn on the server</h3>
+<ol type="1">
+<li>Make sure AI features are on: <a href="positron://settings/ai.enabled"><code>ai.enabled</code></a> must be <code>true</code>. It is <code>true</code> by default. See <a href="./ai-configuration.html">Configure AI features</a>.</li>
+<li>Set <a href="positron://settings/ai.mcp.enabled"><code>ai.mcp.enabled</code></a> to <code>true</code>. You can also find it in the Settings editor under <strong>Features &gt; AI</strong> as <strong>MCP: Enabled</strong>.</li>
+</ol>
+<p>The change takes effect right away; you don’t need to reload. If Positron finds a supported agent on your machine, it offers to turn on the server for you once.</p>
+</section>
+<section id="add-positron-to-your-agent" class="level3">
+<h3 class="anchored" data-anchor-id="add-positron-to-your-agent">Step 2: Add Positron to your agent</h3>
+<p>If you use the Claude Code CLI, you can skip this step. Positron adds itself to Claude Code’s local configuration for the folder automatically, outside your repository, the first time the server starts in that folder.</p>
+<p>For other agents:</p>
+<ol type="1">
+<li>Run <em>Positron MCP: Add to Coding Agent</em> from the Command Palette (<kbd title="linux: Ctrl-Shift-P, mac: Command-Shift-P, windows: Ctrl-Shift-P" aria-hidden="true" data-linux="Ctrl-Shift-P" data-mac="Command-Shift-P" data-windows="Ctrl-Shift-P"></kbd><span class="visually-hidden"></span>).</li>
+<li>Select your agent. Positron marks agents it finds on your machine as <strong>Installed</strong>.</li>
+<li>Restart the agent so it picks up the new configuration.</li>
+</ol>
+</section>
+<section id="start-your-agent" class="level3">
+<h3 class="anchored" data-anchor-id="start-your-agent">Step 3: Start your agent</h3>
+<p>Start your agent in the folder that is open in Positron, for example in a new Positron terminal. Then ask it to do something in Positron. You don’t need to start, stop, or reconnect anything after that. Positron handles the connection, including when you reload the window or update Positron.</p>
+</section>
+</section>
+<section id="why-use-the-mcp-server" class="level2">
+<h2 class="anchored" data-anchor-id="why-use-the-mcp-server">Why use the MCP server?</h2>
+<p>You don’t need the MCP server to use a coding agent in Positron. Agents such as Claude Code and Codex already work in Positron’s terminal and as extensions. Without the MCP server, though, the agent can’t see your data, your live sessions, or anything else in Positron. If it runs R or Python, it does so in its own shell commands, out of your sight.</p>
+<p>With the MCP server, your agent works alongside you in the same sessions:</p>
+<ul>
+<li><strong>You see everything it does.</strong> Code the agent runs appears in the Console, labeled with the agent’s name. It can pick up work you started, and you can finish work it started.</li>
+<li><strong>It can see your data.</strong> The agent can inspect objects already loaded in your R or Python session and use them as context.</li>
+<li><strong>It can see your plots.</strong> The agent can look at the current plot and help you iterate on it.</li>
+<li><strong>It can see errors.</strong> Ask about an error without copying and pasting it.</li>
+<li><strong>It can drive Positron.</strong> The agent can run Positron commands, such as starting a new session, changing the layout, editing notebooks, or publishing to Posit Connect.</li>
+</ul>
+<p>Example tasks:</p>
+<ul>
+<li>“Use the Positron MCP to summarize the data frame <code>sales</code> in my R session and suggest cleaning steps.”</li>
+<li>“Look at the current plot in Positron and make the axis labels readable.”</li>
+<li>“Why did my last Python command fail? Fix it in the Positron Console.”</li>
+<li>“Start an R session in Positron, fit a linear model to <code>mtcars</code>, and show me a residual plot.”</li>
+<li>“Publish this Shiny app to Connect using Positron.”</li>
+</ul>
+<p>When you ask your agent to do something, mention Positron, or say “use the Positron MCP”, so it knows to use the server’s tools.</p>
+</section>
+<section id="what-the-server-exposes" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-server-exposes">What the server exposes</h2>
+<p>The server exposes a small set of tools:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>list_sessions</code></td>
+<td>List the R and Python sessions in this workspace.</td>
+</tr>
+<tr class="even">
+<td><code>execute_code</code></td>
+<td>Run code in a session. Positron shows the code in the Console and adds it to history.</td>
+</tr>
+<tr class="odd">
+<td><code>evaluate_code</code></td>
+<td>Run code to inspect state. Positron shows the code in the Console but keeps it out of history.</td>
+</tr>
+<tr class="even">
+<td><code>interrupt_session</code></td>
+<td>Interrupt a running session.</td>
+</tr>
+<tr class="odd">
+<td><code>get_session_history</code></td>
+<td>Read recent executions in a session, including who ran each one.</td>
+</tr>
+<tr class="even">
+<td><code>get_plot</code></td>
+<td>Get the current plot as an image.</td>
+</tr>
+<tr class="odd">
+<td><code>list_positron_commands</code></td>
+<td>Search the Positron commands available to agents.</td>
+</tr>
+<tr class="even">
+<td><code>run_positron_command</code></td>
+<td>Run one of those commands.</td>
+</tr>
+</tbody>
+</table>
+<p>The commands are the same ones Posit Assistant can run, and extensions can add more. Not every command in Positron is available to agents. To see what is available, ask your agent to list the Positron commands it can run.</p>
+</section>
+<section id="supported-agents" class="level2">
+<h2 class="anchored" data-anchor-id="supported-agents">Supported agents</h2>
+<p>The <em>Positron MCP: Add to Coding Agent</em> command can configure these agents:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Agent</th>
+<th>Configuration Positron writes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Claude Code</td>
+<td>Claude Code’s local scope for the folder (added automatically)</td>
+</tr>
+<tr class="even">
+<td>Codex</td>
+<td><code>~/.codex/config.toml</code></td>
+</tr>
+<tr class="odd">
+<td>Gemini CLI</td>
+<td><code>~/.gemini/settings.json</code></td>
+</tr>
+<tr class="even">
+<td>Antigravity CLI</td>
+<td><code>~/.gemini/config/mcp_config.json</code></td>
+</tr>
+<tr class="odd">
+<td>Kiro</td>
+<td><code>~/.kiro/settings/mcp.json</code></td>
+</tr>
+<tr class="even">
+<td>OpenCode</td>
+<td><code>~/.config/opencode/opencode.json</code></td>
+</tr>
+<tr class="odd">
+<td>Copilot CLI</td>
+<td><code>~/.copilot/mcp-config.json</code></td>
+</tr>
+</tbody>
+</table>
+<p>Configuration in your home directory applies to the agent wherever you run it. Outside a Positron folder, the agent sees the Positron server but can’t reach any sessions.</p>
+<p>Claude Code and Codex share their configuration between their CLIs and their Positron extensions, so both work. Agents that use Positron’s built-in MCP support, such as GitHub Copilot chat, find the server without any setup.</p>
+</section>
+<section id="connect-other-agents" class="level2">
+<h2 class="anchored" data-anchor-id="connect-other-agents">Connect other agents</h2>
+<p>Any agent that supports MCP can connect, even if it isn’t on the list above.</p>
+<section id="agents-that-start-a-local-stdio-server" class="level3">
+<h3 class="anchored" data-anchor-id="agents-that-start-a-local-stdio-server">Agents that start a local (stdio) server</h3>
+<p>Most agents can start an MCP server as a command that talks over standard input/output (stdio). Point yours at the <code>positron-mcp</code> launcher, which stays in the same place when you update Positron:</p>
+<ol type="1">
+<li>Open a terminal in Positron and run <code>echo $POSITRON_MCP_PATH</code> (or <code>echo %POSITRON_MCP_PATH%</code> in a Windows command prompt) to find the launcher.</li>
+<li>Add a server named <code>positron</code> to your agent’s MCP configuration with this command:
+<ul>
+<li><strong>macOS and Linux:</strong> <code>/bin/sh</code> with the launcher path as its only argument.</li>
+<li><strong>Windows:</strong> <code>cmd.exe</code> with the arguments <code>/d</code>, <code>/c</code>, <code>@</code>, and the launcher path.</li>
+</ul></li>
+</ol>
+<p>For example, in an agent that uses the common <code>mcpServers</code> JSON format:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"mcpServers"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"positron"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"/bin/sh"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">"args"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"/path/to/positron-mcp"</span><span class="ot">]</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The launcher finds the right Positron window from the folder your agent runs in, so start your agent inside the folder open in Positron.</p>
+</section>
+<section id="agents-that-connect-over-http" class="level3">
+<h3 class="anchored" data-anchor-id="agents-that-connect-over-http">Agents that connect over HTTP</h3>
+<ol type="1">
+<li>Run <em>Positron MCP: Copy Connection Details</em>. Positron copies two shell <code>export</code> lines to the clipboard: <code>POSITRON_MCP_URL</code> and <code>POSITRON_MCP_TOKEN</code>.</li>
+<li>Configure your agent to connect to the URL, sending the token in an <code>Authorization: Bearer &lt;token&gt;</code> header.</li>
+</ol>
+<p>Treat the token like a password: anyone who has it can run code in your sessions. The URL can change when the kernel supervisor restarts, so prefer the launcher when your agent supports it.</p>
+<p>Terminals that Positron opens already have <code>POSITRON_MCP_URL</code>, <code>POSITRON_MCP_TOKEN</code>, and <code>POSITRON_MCP_PATH</code> set, so agents started from them can use those values directly.</p>
+</section>
+</section>
+<section id="see-connected-agents" class="level2">
+<h2 class="anchored" data-anchor-id="see-connected-agents">See connected agents</h2>
+<p>There are a few ways to see which agents are connected to the current window:</p>
+<ul>
+<li><strong>Status bar:</strong> Set <a href="positron://settings/ai.mcp.statusBar"><code>ai.mcp.statusBar</code></a> to <code>true</code>. When at least one agent is connected, the status bar shows a <i class="fa-solid fa-robot" aria-label="robot"></i> icon with the agent’s name or the number of agents. Point to it to see the list, or click it to see the agents and to add or connect another one.</li>
+<li><strong>Command Palette:</strong> Run <em>Positron MCP: Show Connected Agents</em>.</li>
+<li><strong>Ask your agent:</strong> Most agents can tell you which MCP servers they are connected to.</li>
+<li><strong>Kernel supervisor:</strong> Run <em>Kernel Supervisor: Show Kernel Supervisor</em> to see the server’s address, request count, and connected agents.</li>
+</ul>
+<p>To see what agents are doing, open the <strong>Kernel Supervisor</strong> output channel. It logs each agent’s connections, tool calls, and Positron commands. The Console also labels code that agents run with the agent’s name.</p>
+</section>
+<section id="settings" class="level2">
+<h2 class="anchored" data-anchor-id="settings">Settings</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="positron://settings/ai.enabled"><code>ai.enabled</code></a></td>
+<td><code>true</code></td>
+<td>The main switch for AI features. The MCP server only runs when this is on.</td>
+</tr>
+<tr class="even">
+<td><a href="positron://settings/ai.mcp.enabled"><code>ai.mcp.enabled</code></a></td>
+<td><code>false</code></td>
+<td>Run the MCP server so coding agents can connect to this window’s sessions.</td>
+</tr>
+<tr class="odd">
+<td><a href="positron://settings/ai.mcp.statusBar"><code>ai.mcp.statusBar</code></a></td>
+<td><code>false</code></td>
+<td>Show connected coding agents in the status bar.</td>
+</tr>
+</tbody>
+</table>
+<p>When you turn off either <code>ai.enabled</code> or <code>ai.mcp.enabled</code>, Positron stops the server and removes itself from every agent configuration it wrote.</p>
+</section>
+<section id="how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-works">How it works</h2>
+<p>The MCP server runs inside Positron’s kernel supervisor, the process that hosts your R and Python sessions. Positron starts it when the first window needs it and stops it when the last one is done.</p>
+<p>Positron only responds to tool calls. It doesn’t call agents, and agents can’t see each other. You can connect several agents to the same window at once, but each works independently. Positron doesn’t route tasks between agents or orchestrate them.</p>
+<section id="tokens-and-context" class="level3">
+<h3 class="anchored" data-anchor-id="tokens-and-context">Tokens and context</h3>
+<p>Your agent controls its own context, token usage, and conversation history, exactly as it does without Positron. Positron doesn’t see or count tokens.</p>
+<p>As with any MCP server, the tool descriptions take up some of your agent’s context. The server keeps that small by exposing a few tools and letting the agent search for Positron commands as it needs them. It also caps tool output at 32 kilobytes (KB) per call.</p>
+<p>The server doesn’t keep a conversation, but your R and Python sessions do keep their state between calls. Data loaded in a session stays there, so the agent can work with it without sending it again.</p>
+</section>
+</section>
+<section id="security" class="level2">
+<h2 class="anchored" data-anchor-id="security">Security</h2>
+<p>The MCP server lets an agent run any code in your R and Python sessions, as you. Connecting an agent is therefore equivalent to giving it access to your shell.</p>
+<p>Positron doesn’t add its own approval prompts. Instead, it relies on your agent: most agents ask before running tools, but not all do. Before you connect an agent, check how it handles permissions.</p>
+<p>Positron limits what a connection can do:</p>
+<ul>
+<li>The server only accepts connections from your own machine.</li>
+<li>Each window has its own token, which can only reach that window’s sessions and the commands available to agents.</li>
+<li>Agents can only run the Positron commands that are available to agents, and Positron checks each command’s arguments before running it.</li>
+</ul>
+<p>Administrators can turn the server off for everyone by setting <code>ai.mcp.enabled</code> or <code>ai.enabled</code> to <code>false</code> in a policy.</p>
+</section>
+<section id="feedback" class="level2">
+<h2 class="anchored" data-anchor-id="feedback">Feedback</h2>
+<p>Tell us how the MCP server works for you, what was hard to set up, and what’s missing, on <a href="https://github.com/posit-dev/positron/discussions">GitHub Discussions</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/positron\.posit\.co\/dailies");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./assistant-completions.html" class="pagination-link" aria-label="Completions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Completions</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ai-configuration.html" class="pagination-link" aria-label="Configure AI features">
+        <span class="nav-page-text">Configure AI features</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://posit.co/">
+<p><img class="posit-footer-logo" alt="Posit" src="./images/posit-logo-black-TM.svg">Copyright © 2022-2026 Posit Software, PBC. All Rights Reserved.</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+<p>Positron 2026.12.0 (development version)</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/posit-dev/positron-website/edit/main/mcp-server.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-dev/positron-website/blob/main/mcp-server.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/posit-dev/positron/issues/" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://support.posit.co/">
+<p>Support</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./licensing.html">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://posit.co/about/privacy-policy/">
+<p>Privacy Policy</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

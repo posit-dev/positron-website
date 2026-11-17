@@ -12,6 +12,10 @@ Chat about your code, Console sessions, and in-memory objects.
 
 Inline code suggestions as you type, powered by Posit AI NES or GitHub Copilot.
 
+### Positron MCP server
+
+Connect your own coding agent, such as Claude Code or Codex, to your sessions, plots, and Positron commands.
+
 ### Notebook AI features
 
 Notebook-aware AI that understands your cells, outputs, and execution history.
