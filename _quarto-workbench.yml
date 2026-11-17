@@ -122,6 +122,7 @@ website:
           - text: "Posit Assistant"
             href: assistant.qmd
           - assistant-completions.qmd
+          - mcp-server.qmd
           - section: "Positron Assistant (deprecated)"
             contents:
             - section: "Chat"
