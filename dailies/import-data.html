@@ -1031,7 +1031,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="include-filters-and-sorts" class="level2">
 <h2 class="anchored" data-anchor-id="include-filters-and-sorts">Include filters and sorts</h2>
-<p>If the Data Explorer has filters or sorts applied, the dialog offers an <strong>Include current filters and sorts (experimental)</strong> checkbox. When you check it, the generated code reproduces the filtered and sorted view you see:</p>
+<p>If the Data Explorer has filters or sorts applied, the dialog offers an <strong>Include current filters and sorts</strong> checkbox. When you check it, the generated code reproduces the filtered and sorted view you see:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load flights data</span></span>
@@ -1047,7 +1047,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>In R, the generated code adds dplyr and pipes the data into <code>filter()</code> and <code>arrange()</code> verbs.</p>
-<p>When the dialog cannot express part of your view in code, it shows a warning under the preview describing what it left out. Because this translation is experimental, review the generated code before relying on it.</p>
+<p>When the dialog cannot express part of your view in code, it shows a warning under the preview describing what it left out. Review the generated code before relying on it.</p>
 </section>
 <section id="import-data-and-convert-to-code" class="level2">
 <h2 class="anchored" data-anchor-id="import-data-and-convert-to-code">Import Data and Convert to Code</h2>

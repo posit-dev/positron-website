@@ -54,7 +54,7 @@ Select **Import** to run the code in the console. Positron starts a session for 
 
 ## Include filters and sorts
 
-If the Data Explorer has filters or sorts applied, the dialog offers an **Include current filters and sorts (experimental)** checkbox. When you check it, the generated code reproduces the filtered and sorted view you see:
+If the Data Explorer has filters or sorts applied, the dialog offers an **Include current filters and sorts** checkbox. When you check it, the generated code reproduces the filtered and sorted view you see:
 
 ``` python
 import pandas as pd
@@ -73,7 +73,7 @@ Import Data dialog with filters and sorts
 
 In R, the generated code adds dplyr and pipes the data into `filter()` and `arrange()` verbs.
 
-When the dialog cannot express part of your view in code, it shows a warning under the preview describing what it left out. Because this translation is experimental, review the generated code before relying on it.
+When the dialog cannot express part of your view in code, it shows a warning under the preview describing what it left out. Review the generated code before relying on it.
 
 ## Import Data and Convert to Code
 
