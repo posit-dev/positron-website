@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ea75d63aa43f8f8469d06b2d8e4581c1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d44e769ed130481aae7cd7a793524916.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-101e478b59793fbf64c2b057529f81b0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": true,
@@ -450,6 +450,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     window.document.addEventListener("DOMContentLoaded", () => {
         detectOS();
         setupLicenseGate();
+        // Must run after setupLicenseGate() so its listener sees the gate's
+        // preventDefault().
+        setupDownloadTracking();
     });
 
     function detectOS() {
@@ -641,7 +644,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             }
 
             // The replayed click from the Agree button. Clear the flag and let
-            // the browser follow the href so Plausible sees a real click.
+            // the browser follow the href. setupDownloadTracking() counts this
+            // click, not the original one that opened the dialog.
             if (anchor.dataset.licenseAccepted === 'true') {
                 delete anchor.dataset.licenseAccepted;
                 return;
@@ -655,6 +659,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             pendingDownload = anchor;
             openLicenseDialog(licenseDialog);
         });
+    }
+
+    // Sends one Plausible "File Download" event for each installer download
+    // that goes ahead. A click the license gate cancelled to open the dialog
+    // has defaultPrevented set and is skipped, so a download behind the dialog
+    // counts once, on the replayed click, and a cancelled dialog counts zero.
+    // The event name and `url` property match what Plausible's file-downloads
+    // script sent before, so the goal and its reporting carry over.
+    function setupDownloadTracking() {
+        const track = (event) => {
+            if (event.defaultPrevented) {
+                return;
+            }
+
+            // auxclick fires for every non-primary button; only the middle
+            // button opens the link.
+            if (event.type === 'auxclick' && event.button !== 1) {
+                return;
+            }
+
+            const anchor = event.target.closest ? event.target.closest('a') : null;
+            if (!anchor || !isGatedDownload(anchor)) {
+                return;
+            }
+
+            // Undefined when the script is blocked or has not loaded.
+            if (typeof window.plausible !== 'function') {
+                return;
+            }
+
+            window.plausible('File Download', {
+                props: { url: anchor.href.split('?')[0] }
+            });
+        };
+
+        document.addEventListener('click', track);
+        document.addEventListener('auxclick', track);
     }
 
     function copyChecksum(text, element) {
@@ -687,7 +728,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         });
     }
 </script>
-<script defer="" file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
+<script defer="" data-domain="positron.posit.co" src="https://plausible.io/js/script.js"></script>
 <meta name="robots" content="noindex">
 
 
