@@ -266,9 +266,12 @@ format:
     # Tutorial pages carry `categories` for the tutorials.qmd listing only;
     # keep them out of each page's title block.
     title-block-categories: false
+    # Installer downloads are sent to Plausible by setupDownloadTracking() in
+    # _download.html so that the license gate's cancelled click and replayed 
+    # click count once in total.
     include-in-header:
       - text: |
-          <script defer file-types="exe,dmg,deb,rpm" data-domain="positron.posit.co" src="https://plausible.io/js/script.file-downloads.js"></script>
+          <script defer data-domain="positron.posit.co" src="https://plausible.io/js/script.js"></script>
       - "assets/_kapa-ai.html"
 
 show-videos: true
