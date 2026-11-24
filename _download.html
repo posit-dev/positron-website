@@ -338,6 +338,9 @@
     window.document.addEventListener("DOMContentLoaded", () => {
         detectOS();
         setupLicenseGate();
+        // Must run after setupLicenseGate() so its listener sees the gate's
+        // preventDefault().
+        setupDownloadTracking();
     });
 
     function detectOS() {
@@ -529,7 +532,8 @@
             }
 
             // The replayed click from the Agree button. Clear the flag and let
-            // the browser follow the href so Plausible sees a real click.
+            // the browser follow the href. setupDownloadTracking() counts this
+            // click, not the original one that opened the dialog.
             if (anchor.dataset.licenseAccepted === 'true') {
                 delete anchor.dataset.licenseAccepted;
                 return;
@@ -543,6 +547,43 @@
             pendingDownload = anchor;
             openLicenseDialog(licenseDialog);
         });
+    }
+
+    // Sends one Plausible "File Download" event for each installer download
+    // that goes ahead. A click the license gate cancelled to open the dialog
+    // has defaultPrevented set and is skipped, so a download behind the dialog
+    // counts once, on the replayed click, and a cancelled dialog counts zero.
+    // The event name and `url` property match what Plausible's file-downloads
+    // script sent before, so the goal and its reporting carry over.
+    function setupDownloadTracking() {
+        const track = (event) => {
+            if (event.defaultPrevented) {
+                return;
+            }
+
+            // auxclick fires for every non-primary button; only the middle
+            // button opens the link.
+            if (event.type === 'auxclick' && event.button !== 1) {
+                return;
+            }
+
+            const anchor = event.target.closest ? event.target.closest('a') : null;
+            if (!anchor || !isGatedDownload(anchor)) {
+                return;
+            }
+
+            // Undefined when the script is blocked or has not loaded.
+            if (typeof window.plausible !== 'function') {
+                return;
+            }
+
+            window.plausible('File Download', {
+                props: { url: anchor.href.split('?')[0] }
+            });
+        };
+
+        document.addEventListener('click', track);
+        document.addEventListener('auxclick', track);
     }
 
     function copyChecksum(text, element) {
