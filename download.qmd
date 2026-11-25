@@ -34,6 +34,9 @@ windows_system_x64 <- glue("Positron-{release_version}-Setup-x64.exe")
 windows_user_x64 <- glue("Positron-{release_version}-UserSetup-x64.exe")
 windows_system_arm64 <- glue("Positron-{release_version}-Setup-arm64.exe")
 windows_user_arm64 <- glue("Positron-{release_version}-UserSetup-arm64.exe")
+# The zips carry a `win32-` prefix before the version, unlike the installers.
+windows_zip_x64 <- glue("Positron-win32-{release_version}-x64.zip")
+windows_zip_arm64 <- glue("Positron-win32-{release_version}-arm64.zip")
 macos_arm64 <- glue("Positron-{release_version}-arm64.dmg")
 macos_x64 <- glue("Positron-{release_version}-x64.dmg")
 debian_x64 <- glue("Positron-{release_version}-x64.deb")
@@ -44,8 +47,10 @@ redhat_arm <- glue("Positron-{release_version}-arm64.rpm")
 urls <- list(
   win_sys_x64 = glue("{cdn_url}win/x86_64/{windows_system_x64}"),
   win_user_x64 = glue("{cdn_url}win/x86_64/{windows_user_x64}"),
+  win_zip_x64 = glue("{cdn_url}win/x86_64/{windows_zip_x64}"),
   win_sys_arm64 = glue("{cdn_url}win/arm64/{windows_system_arm64}"),
   win_user_arm64 = glue("{cdn_url}win/arm64/{windows_user_arm64}"),
+  win_zip_arm64 = glue("{cdn_url}win/arm64/{windows_zip_arm64}"),
   mac_arm64 = glue("{cdn_url}mac/arm64/{macos_arm64}"),
   mac_x64 = glue("{cdn_url}mac/x64/{macos_x64}"),
   deb_x64 = glue("{cdn_url}deb/x86_64/{debian_x64}"),
@@ -60,11 +65,14 @@ checksum_data <- rlang::try_fetch(
   error = function(cnd) list(),
   warning = function(cnd) list()
 )
+# Keep this in the same order as `urls`: the checksum table pairs them by position.
 all_installers <- list(
   windows_system_x64,
   windows_user_x64,
+  windows_zip_x64,
   windows_system_arm64,
   windows_user_arm64,
+  windows_zip_arm64,
   macos_arm64,
   macos_x64,
   debian_x64,
@@ -80,19 +88,12 @@ file_sizes <- map(cloudfront_headers, "content-length") |>
   map(fs::fs_bytes) |>
   map_chr(as.character)
 
-# Build download link HTML (avoids markdown escaping of URLs)
-dl <- list(
-  mac_arm64 = glue('<a href="{urls$mac_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[5]}</a>'),
-  mac_x64 = glue('<a href="{urls$mac_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[6]}</a>'),
-  win_user_x64 = glue('<a href="{urls$win_user_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[2]}</a>'),
-  win_sys_x64 = glue('<a href="{urls$win_sys_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[1]}</a>'),
-  win_user_arm64 = glue('<a href="{urls$win_user_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[4]}</a>'),
-  win_sys_arm64 = glue('<a href="{urls$win_sys_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[3]}</a>'),
-  deb_x64 = glue('<a href="{urls$deb_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[7]}</a>'),
-  deb_arm64 = glue('<a href="{urls$deb_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[8]}</a>'),
-  rpm_x64 = glue('<a href="{urls$rpm_x64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[9]}</a>'),
-  rpm_arm64 = glue('<a href="{urls$rpm_arm64}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[10]}</a>')
-)
+# Build download link HTML (avoids markdown escaping of URLs). `file_sizes`
+# keeps the names from `urls`, so index it by name rather than by position.
+download_link <- function(key) {
+  glue('<a href="{urls[[key]]}" class="download-link"><i class="fa-solid fa-download" aria-hidden="true"></i> {file_sizes[[key]]}</a>')
+}
+dl <- set_names(map(names(urls), download_link), names(urls))
 ```
 
 Download the desktop installer for your platform. Most systems need nothing else, but you can check the [prerequisites](#prerequisites) to be sure.
@@ -144,6 +145,10 @@ cat('<div class="download-cards">
 <div class="option-label">System install</div>
 ', dl$win_sys_x64, '
 </div>
+<div class="download-option">
+<div class="option-label">Portable <span class="option-meta">(.zip)</span></div>
+', dl$win_zip_x64, '
+</div>
 </div>
 <div class="download-group">
 <p><strong>ARM64</strong> <span class="option-meta">(Windows 11)</span></p>
@@ -155,7 +160,12 @@ cat('<div class="download-cards">
 <div class="option-label">System install</div>
 ', dl$win_sys_arm64, '
 </div>
+<div class="download-option">
+<div class="option-label">Portable <span class="option-meta">(.zip)</span></div>
+', dl$win_zip_arm64, '
 </div>
+</div>
+<p class="card-note">The portable .zip runs without installing. See <a href="windows-portable.html">Windows zip and portable mode</a>.</p>
 </div>
 
 <div id="card-linux" class="download-card">
@@ -198,8 +208,10 @@ checksum_table <- data.frame(
   Platform = c(
     "Windows 10, 11 x64 (system level install)",
     "Windows 10, 11 x64 (user level install)",
+    "Windows 10, 11 x64 (portable zip)",
     "Windows 11 arm64 (system level install)",
     "Windows 11 arm64 (user level install)",
+    "Windows 11 arm64 (portable zip)",
     "MacOS 11.0+ (arm64/Apple Silicon)",
     "MacOS 11.0+ (x64/Intel)",
     "Debian-based Linux x64 (Ubuntu 20+)",
@@ -207,11 +219,13 @@ checksum_table <- data.frame(
     "Red Hat-based Linux x64 (RHEL9)",
     "Red Hat-based Linux arm64 (RHEL9)"
   ),
-  Installer = c(
+  File = c(
     glue('<a href="{urls$win_sys_x64}">{windows_system_x64}</a>'),
     glue('<a href="{urls$win_user_x64}">{windows_user_x64}</a>'),
+    glue('<a href="{urls$win_zip_x64}">{windows_zip_x64}</a>'),
     glue('<a href="{urls$win_sys_arm64}">{windows_system_arm64}</a>'),
     glue('<a href="{urls$win_user_arm64}">{windows_user_arm64}</a>'),
+    glue('<a href="{urls$win_zip_arm64}">{windows_zip_arm64}</a>'),
     glue('<a href="{urls$mac_arm64}">{macos_arm64}</a>'),
     glue('<a href="{urls$mac_x64}">{macos_x64}</a>'),
     glue('<a href="{urls$deb_x64}">{debian_x64}</a>'),
