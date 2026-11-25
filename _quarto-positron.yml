@@ -94,6 +94,7 @@ website:
           contents:
             - welcome.qmd
             - download.qmd
+            - windows-portable.qmd
         - section: "Configuration"
           contents:
             - keyboard-shortcuts.qmd

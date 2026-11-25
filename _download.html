@@ -118,6 +118,15 @@
         color: #949494;
     }
 
+    .download-card .card-note {
+        margin-top: 1rem;
+        margin-bottom: 0;
+        padding-top: 0.75rem;
+        border-top: 1px solid #f0f0f0;
+        font-size: 0.8rem;
+        color: #707073;
+    }
+
 
     .download-card .download-option a.download-link {
         display: flex;
@@ -412,7 +421,7 @@
 
     const LICENSE_CONSENT_KEY = 'positron-license-accepted';
     const INSTALLER_PREFIX = 'https://cdn.posit.co/positron/releases/';
-    const INSTALLER_EXTENSIONS = ['.exe', '.dmg', '.deb', '.rpm'];
+    const INSTALLER_EXTENSIONS = ['.exe', '.dmg', '.deb', '.rpm', '.zip'];
 
     let licenseDialog = null;
     let pendingDownload = null;
